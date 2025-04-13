@@ -27,6 +27,7 @@
 
     - [access](https://my.nci.org.au/mancini/project/access/join)
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
+    - [xp65](https://my.nci.org.au/mancini/project/xp65/join)
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
     
@@ -64,10 +65,10 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
     The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
     For more information, refer to how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
-- **Storage** &rarr; `gdata/access+gdata/hh5+gdata/hr22+gdata/ki32` (minimum)<br>
+- **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
-    Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than `access`, `hh5`, `hr22` or `ki32`, you need to add those projects to the storage path.<br>
-    For example, if your {{ model }} simulation requires data stored in `/g/data/tm70` and `/scratch/w40`, your full storage path will be: `gdata/access+gdata/hh5+gdata/hr22+gdata/ki32+gdata/tm70+scratch/w40`
+    Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than `access`, `xp65`, `hr22` or `ki32`, you need to add those projects to the storage path.<br>
+    For example, if your {{ model }} simulation requires data stored in `/g/data/tm70` and `/scratch/w40`, your full storage path will be: `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32+gdata/tm70+scratch/w40`
     
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
