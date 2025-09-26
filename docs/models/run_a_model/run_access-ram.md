@@ -1,7 +1,7 @@
 {% set model = "ACCESS-rAM3" %}
 {% set ras_id = "u-dg767" %}
-{% set rns_id = "u-dg768" %}
-{% set branch = "access_rel_1" %}
+{% set rns_id = "u-by395" %}
+{% set branch = "nci_access_ram3" %}
 {% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/7/trunk" %}
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/8/trunk" %}
 {% set access_models = "/models/access_models/access-ram" %}
