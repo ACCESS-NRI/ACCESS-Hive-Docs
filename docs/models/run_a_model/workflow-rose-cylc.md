@@ -56,7 +56,7 @@ NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/sp
 persistent-sessions start -p <project> <name>
 ```
 
-where `<project>` is the project you want to start the session under, and `<name>` is the name you want to give your persistent session. The persistent session is given a unique identifier (referred to here as `\<persistent-session-uuid\>`), which you will need to end the session later.
+where `<project>` is the project you want to start the session under, and `<name>` is the name you want to give your persistent session. The persistent session is given a unique identifier (referred to here as `<persistent-session-uuid>`), which you will need to end the session later.
 
 <terminal-window data="input">
     <terminal-line>persistent-sessions -p &lt;project&gt; start &lt;name&gt;</terminal-line>
@@ -114,7 +114,7 @@ Next, retrieve the model configuration you want to run from a remote host. Depen
 If the model configuration is hosted on Github, the Run a Model documentation will specify `repository` and `branch`, which describes where the default configuration is on Github. Move to the `~/roses` directory and pull the configuration from Github with:
 
 ```
-git clone \<repository\> -b \<branch\>
+git clone <repository> -b <branch>
 ```
 
 The suite will appear in your current directory in the folder `<repository>`.
@@ -139,10 +139,10 @@ mosrs-auth
 Which will request your MOSRS username and password that you received when you created your MOSRS account. Once authenticated, pull the configuration from MOSRS with:
 
 ```
-rosie checkout \<suite-id\>
+rosie checkout <suite-id>
 ```
 
-The suite will appear in your current directory in the folder `\<suite-id\>`.
+The suite will appear in your current directory in the folder `<suite-id>`.
 
 ## Running the Suite
 
