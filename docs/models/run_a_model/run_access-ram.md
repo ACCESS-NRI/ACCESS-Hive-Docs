@@ -134,7 +134,25 @@ The following *Quick Start* guide is aimed at experienced users wanting to run {
     rose suite-run
     ```
 
-    For further instructions on running the RAS configuration, refer to the [Detailed guide](#run-the-ras).
+    For further instructions on running the OAS configuration, refer to the [Detailed guide](#run-the-ras).
+
+
+### Ostia Ancillary Suite (OAS) {: .no-toc }
+1. **Copy the OAS from UKMO**<br>
+    ```
+    rosie checkout {{ oas_id }}
+    ```
+
+    For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
+
+2. **Run the OAS**<br>
+    ```
+    cd ~/roses/{{oas_id}}
+    rose suite-run
+    ```
+
+    For further instructions on running the RAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
+
 
 ### Regional Nesting Suite (RNS) {: .no-toc }
 1. **Copy the RNS from UKMO**<br>
@@ -414,6 +432,7 @@ rose suite-gcontrol
 ```
 
 All steps are completed!! <br>
+
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
 
