@@ -7,7 +7,7 @@ The _Rose/Cylc_ workflow management consists of two components- the [_Cylc_](htt
 Before running a _Rose/Cylc_ suite on Gadi, you must:
 
 1. [Set up your NCI account](/getting_started/set_up_nci_account).
-2. Apply for a MOSRS account by getting in contact with [your local institutional sponder](https://opus.nci.org.au/display/DAE/Prerequisites).
+2. Apply for a MOSRS account by getting in contact with [your local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
 3. Join the following NCI projects:
     - [access](https://my.nci.org.au/mancini/project/access/join)
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
@@ -41,9 +41,9 @@ The following options are recommended for your ARE VDI desktop session. Note tha
 - **Compute Size** &rarr; `tiny` (1 CPU)<br>
 
 - **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...) to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
+    The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...) to run your simulation. Usually, but not always, this corresponds to your `${PROJECT}`.
 
-- ** Storage** &rarr; `gdata/access+gdata/hh5+gdata/hr22+gdata/ki32` (minimum)<br> [TODO] change hh5 to xp65?
+- **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
     Storage locations on Gadi that will be visible during execution of the suite. The packages listed above are the minimum required to run _Rose/Cylc_. Different models will require different storage locations, typically to have access to input data. The additional locations will be listed under `storage` on the respective [Run a Model](https://docs.access-hive.org.au/models/run-a-model/) pages.
 
 Once the ARE VDI session opens in your browser, open the terminal by clicking the terminal icon at the top of the window. Use the terminal for the remainder of the instructions in this guide.
@@ -67,7 +67,8 @@ where `<project>` is the project you want to start the session under, and `<name
 Once the session is started, it needs to be assigned to the model run. This is done by inserting the persistent session label into `~/.persistent-sessions/cylc-session`, which can be done manually or with the command
 
 ```
-cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"```
+cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
+```
 
 You can check that this worked with
 
