@@ -143,7 +143,7 @@ The following *Quick Start* guide is aimed at experienced users wanting to run {
     rosie checkout {{ oas_id }}
     ```
 
-    For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
+    For further instructions on getting the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
 
 2. **Run the OAS**<br>
     ```
