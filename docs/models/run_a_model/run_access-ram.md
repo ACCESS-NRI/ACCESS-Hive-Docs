@@ -807,7 +807,6 @@ rose edit &
 
     For example, to run the experiment for 2 days starting on the 5th April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
 
-    {: #run-length-mismatch }
 
 
 - **OAS**<br>
