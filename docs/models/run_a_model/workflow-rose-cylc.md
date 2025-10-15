@@ -1,6 +1,6 @@
 # The Rose/Cylc Workflow Management Tool
 
-The _Rose/Cylc_ workflow management consists of two components- the [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA), and the [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. A workflow comprised of set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a "suite".
+The _Rose/Cylc_ workflow management tool consists of two components- the [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA), and the [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. A workflow comprised of set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a "suite".
 
 ## Prerequisites
 
@@ -24,10 +24,10 @@ Before running a _Rose/Cylc_ suite on Gadi, you must:
  
 ## Launching a Cylc suite
 
-There are two options for launching a Rose/Cylc suite- either via the terminal directly, or via a Gadi [ARE VDI session](https://opus.nci.org.au/spaces/Help/pages/163250532/2.1.+Connecting+to+the+VDI). Both methods eventually end up in a terminal, so if you wish to use the terminal directory on a Gadi login node, skip directly to the [Set up a persistent session](#set-up-a-persistent-session) section.
+There are two options for launching a _Rose/Cylc_ suite- either via the terminal directly, or via a Gadi [ARE VDI session](https://opus.nci.org.au/spaces/Help/pages/163250532/2.1.+Connecting+to+the+VDI). Both methods eventually end up in a terminal, so if you wish to use the terminal directory on a Gadi login node, skip directly to the [Set up a persistent session](#set-up-a-persistent-session) section.
 
 !!! warning "X11 Forwarding"
-    If you are going to connect via the terminal directly using SSH, it is recommended to connect with `ssh -X` to enable X11 forwarding. This allows the Rose GUI to be launched on your local machine.
+    If you are going to connect via the terminal directly using SSH, it is recommended to connect with `ssh -X` to enable X11 forwarding. This allows the Rose and Cylc GUIs to be launched on your local machine.
 
 ### Launch ARE VDI Desktop
 
@@ -50,7 +50,7 @@ Once the ARE VDI session opens in your browser, open the terminal by clicking th
 
 ## Set up a persistent session
 
-NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to facilitate long running processes, like our _Rose/Cylc_ manager. Begin a new persistent session with
+NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to facilitate long running processes, like the _Rose/Cylc_ manager. Begin a new persistent session with
 
 ```
 persistent-sessions start -p <project> <name>
@@ -95,7 +95,7 @@ persistent-sessions list
 To end a specific session, use:
 
 ```
-persistent-sessions kill \<persistent-session-uuid\>
+persistent-sessions kill <persistent-session-uuid>
 ```
 
 ## Rose/Cylc Setup
@@ -107,9 +107,9 @@ module use /g/data/hr22/modulefiles
 module load cylc7
 ```
 
-Next, retrieve the model configuration you want to run from a remote host. Depending on the specific model configuration, the host is _Github_ or _MOSRS_. The [Run a Model](https://docs.access-hive.org.au/models/run-a-model/) documentation for the specific model will specify which source to use for that configuration. Regardless of where the configuration comes from, it is recommended to store them in `~/roses/` (this happens automatically for _Rose_ suites).
+Next, retrieve the model configuration you want to run from a remote host. Depending on the specific model configuration, the host is _Github_ or _MOSRS_. The [Run a Model](https://docs.access-hive.org.au/models/run-a-model/) documentation for the specific model will specify which source to use for that configuration. Regardless of where the configuration comes from, it is recommended to store them in `~/roses/` (this happens automatically for suites pulled from MOSRS).
 
-### Github
+### Github Suites
 
 If the model configuration is hosted on Github, the Run a Model documentation will specify `repository` and `branch`, which describes where the default configuration is on Github. Move to the `~/roses` directory and pull the configuration from Github with:
 
@@ -119,7 +119,7 @@ git clone <repository> -b <branch>
 
 The suite will appear in your current directory in the folder `<repository>`.
 
-### MOSRS
+### MOSRS Suites
 
 If the model configuration is hosted on MORSRS, the Run a Model documentation will specify `suite-id` (potentially multiple suites), which describe the suite ID(s) on the MOSRS repository. To pull from MOSRS, you must first authenticate your MOSRS credentials with:
 
@@ -161,7 +161,7 @@ rose suite-gcontrol &
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-The suite itself, along will all generated output, is copied to `/scratch/\<project\>/${USER}/cylc-run/\<suite-id\>. See the respective model documentation for details on what outputs are generated and where to find them in the output directory.
+The suite itself, along will all generated output, is copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective model documentation for details on what outputs are generated and where to find them in the output directory.
 
 ## Editing the Suite
 
@@ -171,4 +171,4 @@ To edit the suite configuration, move to the suite directory and run:
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains setup information for the suite. The configurable options for each model are described in their respective documentation.
+This opens the _Rose_ GUI that contains setup information for the suite. The configurable options for each model are described in their respective documentation pages.
