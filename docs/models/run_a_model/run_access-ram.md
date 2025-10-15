@@ -151,7 +151,7 @@ The following *Quick Start* guide is aimed at experienced users wanting to run {
     rose suite-run
     ```
 
-    For further instructions on running the RAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
+    For further instructions on running the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
 
 
 ### Regional Nesting Suite (RNS) {: .no-toc }
