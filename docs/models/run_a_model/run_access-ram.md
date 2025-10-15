@@ -734,8 +734,9 @@ The OAS output data files are in Met Office ancillary file format.
 
 For example, the global ostia ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/g/data/$PROJECT/$USER/ostia_ancillaries/20220226T0000Z_ostia.anc`.
 
-!!! tip
-    The RNS updates ostia data daily at 06Z. You may need ostia ancillary files for the day before/after the run if your suite starts before 06Z.
+!!! warning
+    The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
+    For example, if a suite has the `INITIAL_CYCLE_POINT` set to `20250612T0000Z` (i.e., 12th Jun 2025 at midnight), it will also require the OSTIA ancillary files for the 11th Jun 2025.
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
