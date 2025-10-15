@@ -726,22 +726,17 @@ To run the OAS configuration, follow the steps listed in [Run the suite](#run-th
 
 To check the OAS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
 
-#### RNS output files
+#### OAS output files
 
-All the RNS output files are available in the directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>`. They are also symlinked in `~/cylc-run/<suite-ID>`.
+All the OAS output files are available in the OSTIA_OUTPUT directory.
 
-The RNS output data can be found in the directory `/scratch/$PROJECT/$USER/cycl-run/<suite-ID>/share/cycle`, grouped for each [cycle](#change-start-date-andor-run-length).<br>
-Within the `cycle` directory, outputs are divided into multiple nested subdirectories in the format `<nested_region_name>/<science_configuration>/<nest_name>`, with `<nested_region_name>` and `<nest_name>` referring to the respective configurable options. The `<science_configuration>` is usually `GAL9` or `RAL3.2`, depending on the [nest resolution]({{ model_configurations }}/#model-components).
+The OAS output data files are in Met Office ancillary file format.
 
-Each `<nest_name>` directory has the following subdirectories:
+For example, the global ostia ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/g/data/$PROJECT/$USER/ostia_ancillaries/20220226T0000Z_ostia.anc`.
 
-- `ics` &rarr; initial conditions
-- `lbcs` &rarr; lateral boundary conditions
-- `um` &rarr; model output data
+!!! tip
+    The RNS updates ostia data daily at 06Z. You may need ostia ancillary files for the day before/after the run if your suite starts before 06Z.
 
-The RNS output data files are in [UM NetCDF](https://code.metoffice.gov.uk/doc/um/vn13.8/papers/umdp_C11.pdf) format.
-
-For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment (`Lismore` `nested_region_name`, using a `RAL3P2` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P2/um/umnsaa_pa000.nc`.
 ### Regional Nesting Suite (RNS) {: #rns }
 
 The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest.
