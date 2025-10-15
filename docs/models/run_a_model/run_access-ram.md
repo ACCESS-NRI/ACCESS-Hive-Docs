@@ -811,7 +811,7 @@ rose edit &
 
 
 - **OAS**<br>
-    The RNS requires the global OSTIA ancillary files to be available on disk for each of day of the run.  If a date/time changes means that the global OSTIA ancillary files have not been previously created, the OAS must be run again.
+    The RNS requires the global OSTIA ancillary files to be available on disk for each day of the run. If a simulation date/time changes such that the required global OSTIA ancillary files are not already present, the OAS must be re-run with the new date/time.
     The OAS runs in multiple [PBS jobs][PBS job] submissions with each job preparing global OSTIA ancillary information for one day.  The job scheduler automatically resubmits the suite every chosen _cycling frequency_ until the total _run length_ is reached.<br>
     
     To modify these parameters within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Ostia ancillary Generation Suite &rarr; Cycling options_. 
