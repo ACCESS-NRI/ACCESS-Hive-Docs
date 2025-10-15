@@ -730,7 +730,7 @@ To check the OAS suite logs, follow the steps listed in [Check suite logs](#chec
 
 All the OAS output files are available in the OSTIA_OUTPUT directory.
 
-The OAS output data files are in Met Office ancillary file format.
+OAS ancillary data files are output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
 For example, the global ostia ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/g/data/$PROJECT/$USER/ostia_ancillaries/20220226T0000Z_ostia.anc`.
 
