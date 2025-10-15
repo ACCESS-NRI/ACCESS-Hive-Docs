@@ -767,9 +767,13 @@ Each `<nest_name>` directory has the following subdirectories:
 - `lbcs` &rarr; lateral boundary conditions
 - `um` &rarr; model output data
 
-The RNS output data files are in [UM NetCDF](https://code.metoffice.gov.uk/doc/um/vn13.8/papers/umdp_C11.pdf) format.
+The RNS output data files are in [UM fieldsfile format](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment (`Lismore` `nested_region_name`, using a `RAL3P2` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P2/um/umnsaa_pa000.nc`.
+For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment (`Lismore` `nested_region_name`, using a `RAL3P2` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P2/um/umnsaa_pa000`.
+
+!!! tip
+    The output data name format may vary depending on some configuration parameters.<br>
+    To change which output variables are produced, refer to [access-ram3-configs#Model_Outputs]({{configs_docs}}/model_outputs/)
 
 
 ### Edit {{ model }} configuration
