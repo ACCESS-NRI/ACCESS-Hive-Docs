@@ -615,7 +615,7 @@ Logs for individual tasks are located in subfolders within the logs folder, foll
 ```
 ~/cylc-run/<suite-ID>/log/job/<cylc-cycle-point>/<task-name>/<retry-number>
 ```
-The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` (because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle).
+The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` (because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle.
 
 For example, logs for most recent retry of a task named `Lismore_d1100_ancil_um_mean_orog` at _Cylc_ cycle point `1` can be found in the folder `~/cylc-run/<suite-ID>/log/job/1/Lismore_d1100_ancil_mean_orog/NN`.
 
