@@ -732,7 +732,7 @@ All the OAS output files are available in the OSTIA_OUTPUT directory.
 
 OAS ancillary data files are output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-For example, the global ostia ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/g/data/$PROJECT/$USER/ostia_ancillaries/20220226T0000Z_ostia.anc`.
+For example, the global ostia ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/scratch/$PROJECT/$USER/OSTIA_ANCIL/20220226T0000Z_ostia.anc`.
 
 !!! warning
     The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
