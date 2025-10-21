@@ -5,11 +5,17 @@ The _Rose/Cylc_ workflow management tool consists of two components- the [_Cylc_
 
 ## Prerequisites
 
-Before running a _Rose/Cylc_ configuration on Gadi, you must:
+- **NCI account**<br> 
+    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
-1. [Set up your NCI account](/getting_started/set_up_nci_account).
-2. Apply for a MOSRS account by getting in contact with [your local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
-3. Join the following NCI projects:
+- **_MOSRS_ account**<br>
+    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
+    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
+    {: #mosrs-account}
+
+- **Join NCI projects**<br>
+    Join the following projects by requesting membership on their respective NCI project pages:
+
     - [access](https://my.nci.org.au/mancini/project/access/join)
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
