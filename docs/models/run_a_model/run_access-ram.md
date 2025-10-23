@@ -58,6 +58,7 @@ All {{model}} configurations are and available on MOSRS via links at the top of 
     - [rt52](https://my.nci.org.au/mancini/project/rt52/join)
     - [ob53](https://my.nci.org.au/mancini/project/ob53/join)
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
+    - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
