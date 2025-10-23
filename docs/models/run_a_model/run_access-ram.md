@@ -199,7 +199,7 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
 - **Storage** &rarr; `gdata/access+gdata/hr22+gdata/ki32+gdata/rt52+gdata/ob53+gdata/cm45+gdata/vk83` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
     Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than the ones listed in the minimum storage above, you need to add those projects to the storage path.<br>
-    For example, if your {{ model }} simulation requires data stored in `/g/data/<your-id>` and `/scratch/<your-id>`, the following should be added to the minimum storage above: `+gdata/<your-id>+scratch/<your-id>`
+    For example, if your {{ model }} simulation requires data stored in `/g/data/<your-project-id>` and `/scratch/<your-project-id>`, the following should be added to the minimum storage above: `+gdata/<your-project-id>+scratch/<your-project-id>`
     
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
