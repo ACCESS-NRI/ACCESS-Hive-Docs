@@ -5,9 +5,9 @@ If you are unsure which ACCESS model is the best fit for your application, you c
 
 <div class="card-container">
     <!-- ACCESS Workflow Tools -->
-    <a href="/models/run-a-model/workflow-rose-cylc" class="vertical-card aspect-ratio1to1">
+    <a href="/models/run-a-model/rose-cylc" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_cm_model_visualisation.png" alt="ACCESS Workflow Managers">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_cm_model_visualisation.png" alt="Run models using Rose/Cylc">
         </div>
         <div class="card-text-container bold">   
             ACCESS Workflow Managers
