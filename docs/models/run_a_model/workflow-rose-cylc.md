@@ -165,13 +165,46 @@ git clone <repository> -b <branch>
 
 ### Model configurations stored on MOSRS
 
-For MOSRS hosted configurations, the Run a Model documentation will specify the `suite-id` and `branch` which host the configuration. Some MOSRS hosted configurations will be comprised of multiple suites e.g. rAM3, in which case multiple `<suite-id>`s will be specified.
+For MOSRS hosted configurations, the Run a Model documentation will specify the `suite-id` and `branch` which host the configuration. Some MOSRS hosted configurations will be comprised of multiple suites e.g. rAM3, in which case multiple `<suite-id>`s will be specified. There are two ways to pull a _Rose/Cylc_ configuration, depending on what you wish to do with the configuration.
+
+The first option is:
 
 ```
 rosie checkout <suite-id>
 ```
 
-The configuration will appear in your current directory in the folder `<suite-id>`.
+<terminal-window>
+    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch }}</terminal-line>
+    <terminal-line>[INFO] create: <path-to-$HOME>/roses/<suite-id></terminal-line>
+</terminal-window>
+
+This creates a local copy of the configuration in the folder `<suite-id>`. Use this if you don't want to have any changes you make recorded on the MOSRS mirror e.g. you want to inspect a configuration, run the configuration as is or make some exploratory changes to the configuration.
+
+The second option is:
+
+```
+rosie copy <suite-id>
+```
+
+This creates a local copy _and a remote copy on the MOSRS mirror_, similar to creating a new branch on a Github repository. An editor will open (by default, this will be Vim- if you haven't used Vim before, see [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor)) in the terminal, requesting that you specify the owner, project and title for the configuration. They should already be filled out with reasonable defaults, taken from the configuration being copied (bar the username, which will be your MOSRS username). It allows permits any other `key=value` pairs, which will also by default pulled from the configuration being copied.
+
+```
+owner=<MOSRS-username>
+project=<project-name>
+title=<suite-title>
+```
+
+When you exit the editor, you should be asked whether you want to copy the suite:
+
+<terminal-window>
+    <terminal-line data="input">rosie copy <suite-id></terminal-line>
+    <terminal-line>Copy "&lt;suite-id&gt;/trunk@&lt;trunk-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from &lt;suite-id&gt;/trunk@&lt;trunk-ID&gt;</terminal-line>
+    <terminal-line>[INFO] {{ ras_id }}: local copy created at &lt;path-to-$HOME&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
+</terminal-window>
+
+The local copy is stored in the folder <new-suite-id>. Use this if you want to have your modified configuration stored for future use, and use by others. Once you've made the desired changes to the configuration, you can push those changes to the remote copy with `fcm commit`.
 
 ## Run the model configuration
 
