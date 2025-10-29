@@ -10,7 +10,7 @@ A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _s
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is needed to run those configurations.<br>
+    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run any ACCESS those configurations.<br>
     To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
     {: #mosrs-account}
 
@@ -56,14 +56,18 @@ The following options are recommended for your ARE VDI desktop session:
 - **Project** &rarr; a project of which you are a member.<br>
     The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...) to run your simulation. By default, this will be set to your default project `$PROJECT`.
 
-- **Storage** &rarr; `gdata/access+gdata/hr22+gdata/ki32` (minimum)<br>
+- **Storage** &rarr; `gdata/hr22, scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
 
 Once the ARE VDI session opens in your browser, click the terminal icon at the top of the window to open a terminal. Use this terminal for all subsequent steps in this guide.
 
 ## Set up a persistent session
 
-NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to enable long running processes, like _Cylc_, to stay active even when the user disconnects from _Gadi_. 
+NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to enable long running processes, like _Cylc_, to stay active even when the user disconnects from _Gadi_.
+
+It is recommended to only have one active persistent session at any one time as several _Cylc_ sessions can use the same persistent session.
+
+Note that persistent sessions are terminated during the quaterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously.
 
 ### Start a new persistent session
 
@@ -134,8 +138,10 @@ Make the `rose` and `cylc` executables available by loading the _Cylc_ module:
 
 ```
 module use /g/data/hr22/modulefiles
-module load cylc7
+module load cylc<version>
 ```
+
+where `<version>` is the version of _Cylc_ used by the respective configuration.
 
 ### MOSRS Authentication
 
@@ -257,6 +263,6 @@ To edit the model configuration, run the following command from the configuratio
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains information about the configurationi settings. The configurable options for each model configuration are described in their respective documentation pages.
+This opens the _Rose_ GUI that contains information about the configuration settings. The configurable options for each model configuration are described in their respective documentation pages.
 
 Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
