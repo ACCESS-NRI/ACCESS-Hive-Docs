@@ -52,7 +52,7 @@ Please let us know, if we are missing an important tool. Check [How To Contribut
 <tr>
 <td width="25%">
     <div align='center' width="100%">
-    <a href="http://cosima.org.au/" target="_blank">COSIMA Cookbook / Recipes <br>(Consortium for Ocean-Sea Ice Modelling in Australia)</a>
+    <a href="https://cosima.org.au/" target="_blank">COSIMA Cookbook / Recipes <br>(Consortium for Ocean-Sea Ice Modelling in Australia)</a>
     </div>
 </td>
 <td width="10%">
@@ -168,7 +168,7 @@ IOMB uses the same code base as the International Land Model Benchmarking (ILAMB
 <tr>
 <td width="25%">
     <div align='center' width="100%">
-    <a href="http://pcmdi.github.io/pcmdi_metrics/index.html" target="_blank">PMP <br>(PCMDI Metrics Package)</a>
+    <a href="https://pcmdi.github.io/pcmdi_metrics/index.html" target="_blank">PMP <br>(PCMDI Metrics Package)</a>
     </div>
 </td>
 <td width="10%">
@@ -178,7 +178,7 @@ IOMB uses the same code base as the International Land Model Benchmarking (ILAMB
 </td>
 <td width="64%">
     <div align='center' width="100%" >
-        <a href="http://pcmdi.github.io/pcmdi_metrics/index.html" target="_blank">Documentation</a> |
+        <a href="https://pcmdi.github.io/pcmdi_metrics/index.html" target="_blank">Documentation</a> |
         <a href="https://github.com/PCMDI/pcmdi_metrics" target="_blank">Source Code</a>
         <!-- The PMP is used to provide “quick-look” objective comparisons of Earth System Models (ESMs) with one another and available observations. Results are produced in the context of all model simulations contributed to CMIP6 and earlier CMIP phases. Currently, the comparisons emphasize metrics of large- to global-scale annual cycle and both tropical and extra-tropical modes of variability. Ongoing work in v1.x development branches include established statistics for ENSO, MJO, regional monsoons, and high frequency characteristics of simulated precipitation. -->
     </div>

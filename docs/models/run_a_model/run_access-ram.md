@@ -295,7 +295,7 @@ module load cylc7
     Also, before loading the _Cylc_ module, make sure to have started a _persistent session_ and have assigned it to the {{ model }} workflow. For more information about these steps, refer to [Set up _persistent session_](#set-up-persistent-session).
 
 #### Rose setup {: #rose .no-toc }
-[Rose](http://metomi.github.io/rose/doc/html/index.html) is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
+[Rose](https://metomi.github.io/rose/doc/html/index.html) is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
 
 By completing the [_Cylc_ setup](#cylc), also _Rose_ will be automatically available. Hence, no additional step is required.
 
