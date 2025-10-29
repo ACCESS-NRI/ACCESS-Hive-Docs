@@ -34,8 +34,8 @@ To use the <i>COSIMA Cookbook</i> that is pre-installed in the `conda/analysis3`
 
 For more information on the <i>COSIMA Cookbook</i>, refer to the <a href="https://github.com/COSIMA/cosima-recipes" target="_blank">GitHub repository</a>, as well as the following lists of recipes:
 
-- <a href="https://cosima-recipes.readthedocs.io/en/latest/tutorials.html" target="_blank">Tutorials</a>
-- <a href="https://cosima-recipes.readthedocs.io/en/latest/recipes.html" target="_blank">Recipes</a>
-- <a href="https://github.com/COSIMA/cosima-recipes/tree/main/ACCESS-OM2-GMD-Paper-Figs" target="_blank">Notebooks</a> to reproduce figures of the <a href="https://gmd.copernicus.org/articles/13/401/2020/" target="_blank">ACCESS-OM2 announcement paper</a>
+- <a href="https://cosima-recipes.readthedocs.io/en/latest/cooking-lessons-101/index.html" target="_blank">Tutorials</a>
+- <a href="https://cosima-recipes.readthedocs.io/en/latest/appetisers.html" target="_blank">Recipes</a>
+- <a href="https://github.com/COSIMA/cosima-recipes/tree/cosima_cookbook/ACCESS-OM2-GMD-Paper-Figs" target="_blank">Notebooks</a> to reproduce figures of the <a href="https://gmd.copernicus.org/articles/13/401/2020/" target="_blank">ACCESS-OM2 announcement paper</a>
 
 

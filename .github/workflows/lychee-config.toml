@@ -54,7 +54,7 @@ retry_wait_time = 2
 # accept = "200..=204, 429"
 # accept = ["200", "429"]
 # accept = "200, 429"
-accept = ["200", "429", "403"]
+accept = ["200", "202", "403", "429"]
 
 # Proceed for server connections considered insecure (invalid TLS).
 insecure = false
@@ -75,6 +75,9 @@ header = { "accept" = "text/html", "x-custom-header" = "value" }
 
 # Remap URI matching pattern to different URI.
 # remap = ["https://example.com http://example.invalid"]
+  remap = [
+    "(https://github\\.com/[^#]*)#L[0-9].* $1", # Github lines links
+  ]
 
 # Fallback extensions to apply when a URL does not specify one.
 # This is common in documentation tools that cross-reference files without extensions.
@@ -114,13 +117,17 @@ glob_ignore_case = false
 #    '^https://(.*\.)?github(usercontent)?\.(com|io)', # exclude common GitHub URLs
 # ]
   exclude = [
-    '^https://code\.metoffice\.gov\.uk', # MetOffice
-    '^https://web\.archive\.org/web/',
-    '^https://(www\.)?linkedin\.com/', # LinkedIn
-    '^https://(www\.)?freepik\.com/', # Freepik
-    '^https://www\.lanl\.gov/',
-    '^https://my\.nci\.org\.au/', # NCI user portal
-    '^https://opus\.nci\.org\.au/', # NCI doc
+    '^https://code\.metoffice\.gov\.uk', # MetOffice - It often needs credentials so link-checker fails
+    '^https://(www\.)?linkedin\.com/', # LinkedIn might block link-checkers
+    '^https://(www\.)?freepik\.com/', # Freepik might block link-checkers
+    '^https://www\.lanl\.gov/', # Gov website - has firewalls that block link-checkers
+    '^https://my\.nci\.org\.au/', # NCI user portal - has firewalls that block link-checkers
+    '^https://opus\.nci\.org\.au/', # NCI doc - has firewalls that block link-checkers
+    '^https://geonetwork\.nci\.org\.au/', # NCI geonetwork - has firewalls that block link-checkers
+    '^https://(www\.)?gfdl\.noaa\.gov/', # NOAA website - has firewalls that block link-checkers
+    '^https://copernicus\.nci\.org\.au/', # NCI Copernicus - has firewalls that block link-checkers
+    '^https://cds\.climate\.copernicus\.eu/', # EU Copernicus - has firewalls that block link-checkers
+    '^https://www\.nrc\.gov/', # Gov website - has firewalls that block link-checkers
   ]
 
 # Exclude paths from getting checked. The values are treated as regular expressions

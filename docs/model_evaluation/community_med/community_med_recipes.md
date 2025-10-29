@@ -43,7 +43,7 @@ Please let us know, if we are missing an important tool. Check [How To Contribut
     <div align='center' width="100%" >
         <a href="https://docs.esmvaltool.org/en/latest" target="_blank">Documentation</a> |
         <a href="https://esmvalgroup.github.io/ESMValTool_Tutorial/index.html" target="_blank">Tutorial</a> |
-        <a href="https://github.com/ESMValGroup/ESMValTool#readme" target="_blank">Source Code</a>
+        <a href="https://github.com/ESMValGroup/ESMValTool" target="_blank">Source Code</a>
         <!-- ESMValTool is a community-developed climate model diagnostics and evaluation software package, driven both by computational performance and scientific accuracy and reproducibility. ESMValTool is open to both users and developers, encouraging open exchange of diagnostic source code and evaluation results from the Coupled Model Intercomparison Project CMIP ensemble. For a comprehensive introduction to ESMValTool please visit our documentation page. -->
     </div>
 </td>
@@ -64,7 +64,7 @@ Please let us know, if we are missing an important tool. Check [How To Contribut
 <td width="64%">
     <div align='center' width="100%" >
         <a href="https://cosima-recipes.readthedocs.io/en/latest/" target="_blank">Documentation</a> |
-        <a href="https://cosima-recipes.readthedocs.io/en/latest/tutorials.html">Tutorial</a> |
+        <a href="https://cosima-recipes.readthedocs.io/en/latest/cooking-lessons-101/index.html">Tutorials</a> |
         <a href="https://github.com/COSIMA/cosima-cookbook" target="_blank">Source Code</a> |
         <a href="https://github.com/COSIMA/cosima-recipes" target="_blank">Recipes</a>
         <!-- The COSIMA (Consortium for Ocean-Sea Ice Modelling in Australia) Cookbook / Recipes is a framework for analysing output from ocean-sea ice models. The focus is on the ACCESS-OM2 suite of models being developed and run by members of COSIMA: Consortium for Ocean-Sea Ice Modelling in Australia.
