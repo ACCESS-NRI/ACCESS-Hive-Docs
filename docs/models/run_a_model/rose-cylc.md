@@ -7,7 +7,7 @@ A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _s
 ## Prerequisites
 
 - **NCI account**<br> 
-    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+    Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_MOSRS_ account**<br>
     The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is needed to run those configurations.<br>
@@ -159,9 +159,9 @@ This will request the username and password you received when you created your M
 
 ## Get the model configuration
 
-Depending on the the specific model, its configuration will be hosted either on _Github_ or _MOSRS_. The [Run a Model](https://docs.access-hive.org.au/models/run-a-model/) documentation for the specific model will specify where the configuration is stored.<br>
+Depending on the the specific model, its configuration will be hosted either on _Github_ or _MOSRS_. The [Run a Model](https://docs.access-hive.org.au/models/run-a-model/) documentation for the respective model will specify where the configuration is stored.<br>
 
-Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` (this happens automatically for configurations pulled from MOSRS).
+Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS).
 
 ### Model configurations stored on Github
 
@@ -187,35 +187,42 @@ There are two ways of getting a local copy of a configuration hosted on MOSRS:
 rosie checkout <suite-id>/<branch>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in he respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/). This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
+where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/). This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
+
+!!! tip
+    To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
 
 Configurations obtained in this way cannot be pushed back to the remote, so use of this command is recommended for testing and examining configurations.
 
 #### Local and remote copy (new remote configuration) {: #rosie-copy }
 
 ```
-rosie copy <suite-id>
+rosie copy <suite-id>/<branch>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in he respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/). A text editor will open (by default, this will be Vim- if you haven't used Vim before, see [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor)) in the terminal, requesting that you specify the owner, project and title for the configuration. They should already be filled out with reasonable defaults, taken from the configuration being copied (bar the username, which will be your MOSRS username). It allows permits any other `key=value` pairs, which will also by default pulled from the configuration being copied.
+where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/).
 
+!!! tip
+    To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
+
+After running this command, a text editor will open in your terminal (by default, the editor will be Vim- if you're unfamiliar with Vim, see [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor)), where you can define metadata for the new configuration. The metadata fields are expressed as `key=value` pairs, pre-filled with values copied from the original configuration. You can modify these values or add new metadata as needed. Note that `owner`, `project` and `title` are required keys. 
 ```
 owner=<MOSRS-username>
 project=<project-name>
 title=<suite-title>
 ```
 
-When you exit the editor, you will be asked whether you want to copy the suite:
+When you exit the editor, you will have to confirm that you want to copy the suite:
 
 <terminal-window>
-    <terminal-line data="input">rosie copy <suite-id></terminal-line>
-    <terminal-line>Copy "&lt;suite-id&gt;/trunk@&lt;trunk-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from &lt;suite-id&gt;/trunk@&lt;trunk-ID&gt;</terminal-line>
-    <terminal-line>[INFO] {{ ras_id }}: local copy created at &lt;path-to-$HOME&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
+    <terminal-line data="input">rosie copy <suite-id>/<branch></terminal-line>
+    <terminal-line>Copy "&lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-id&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-id&gt;: copied items from &lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-id&gt;: local copy created at &lt;$HOME&gt;/roses/&lt;new-suite-id&gt;</terminal-line>
 </terminal-window>
 
-This creates a new remote configuration (having a new `suite-id`) based off the `<suite-id>` configuration and clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original `suite-id` and can be modified and pushed back to the remote.
+This creates a new remote configuration (having a new `suite-id`) based off the copied configuration and clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original copied configuration and can be modified and pushed back to the remote.
 
 To push a configuration back to the remote, from within the configuration directory run:
 
