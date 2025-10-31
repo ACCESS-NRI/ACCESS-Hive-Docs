@@ -165,7 +165,7 @@ This will request the username and password you received when you created your M
 
 ## Get the model configuration
 
-Depending on the the specific model, its configuration will be hosted either on _Github_ or _MOSRS_. The [Run a Model](https://docs.access-hive.org.au/models/run-a-model/) documentation for the respective model will specify where the configuration is stored.<br>
+Depending on the the specific model, its configuration will be hosted either on _Github_ or _MOSRS_. The [Run a Model](/models/run-a-model/) documentation for the respective model will specify where the configuration is stored.<br>
 
 Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS).
 
@@ -177,7 +177,7 @@ For Github hosted configurations, get a local copy by cloning the Github reposit
 git -C ~/roses clone <repository> -b <branch>
 ```
 
-where `<repository>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/).
+where `<repository>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/).
 
 ### Model configurations stored on MOSRS
 
@@ -193,7 +193,7 @@ There are two ways of getting a local copy of a configuration hosted on MOSRS:
 rosie checkout <suite-id>/<branch>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/). This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
+where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/). This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
@@ -206,7 +206,7 @@ Configurations obtained in this way cannot be pushed back to the remote, so use 
 rosie copy <suite-id>/<branch>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/).
+where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/).
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
