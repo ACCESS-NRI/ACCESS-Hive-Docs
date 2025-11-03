@@ -42,7 +42,7 @@ max_concurrency = 14
 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
 
 # Website timeout from connect to response finished.
-timeout = 30
+timeout = 15
 
 # Minimum wait time in seconds between retries of failed requests.
 retry_wait_time = 2
