@@ -4,6 +4,10 @@
 The _Rose/Cylc_ workflow management tool consists of two components: the [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA), and the [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
 
 A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _suite_ (for _Cylc 7_) or _workflow_ (for _Cylc 8_).
+
+!!! warning
+    ACCESS configurations currently use _Cylc7_, with the aim to upgrade to _Cylc8_. The upgrade to _Cylc8_ will come with changes to the way model configurations are run. Once the _Cylc8_ process has been concretized, the [Run a model configuration](#run-a-model-configuration) section will be updated with _Cylc8_ instructions. The respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/) will specify whether a configuration runs with _Cylc7_ or _Cylc8_.
+
 ## Prerequisites
 
 - **NCI account**<br> 
@@ -201,6 +205,8 @@ where `<suite-id>` and `<branch>` are specific to the chosen model configuration
 Configurations obtained in this way cannot be pushed back to the remote, so use of this command is recommended for testing and examining configurations.
 
 #### Local and remote copy (new remote configuration) {: #rosie-copy }
+
+Before creating a new remote copy of the configuration, please read [these guidelines](https://code.metoffice.gov.uk/trac/roses-u/) on what should be stored in the Rosie repository.
 
 ```
 rosie copy <suite-id>/<branch>
