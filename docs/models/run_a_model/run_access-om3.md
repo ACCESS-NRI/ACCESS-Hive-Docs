@@ -12,9 +12,9 @@
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 
 !!! release
-    This is a **Beta Release**.<br>
+    This is a **Beta Release** intended for use by experienced users and collaborators.<br>
     Any model configuration and related source code mentioned in this page might change before the full release.<br>
-    Limited support is currently provided for this model. Its usage is only recommended for testing by experienced users and collaborators. For a supported and validated model and configuration, see [Run ACCESS-OM2](/models/run_a_model/run_access-om2) instead.
+    For a supported and validated model and configuration, see [Run ACCESS-OM2](/models/run_a_model/run_access-om2) instead.
 
 <div class="text-card-group" markdown>
 [:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}
@@ -152,7 +152,8 @@ To run the cloned {{ model }} configuration, execute the following command from 
 
     payu run
 
-This will submit a single job to the supercomputer "queue" with the default run length (1 year) specified in the configuration.<br>
+This will submit a single job to the supercomputer "queue" with the run length specified in the configuration 
+(1 year in {{ example_branch }}).<br>
 
 
 For information about changing the run length, refer to [Change run length and restart period](#change-run-length-and-restart-period).
@@ -302,39 +303,42 @@ Model components are separated into subdirectories within the output and restart
 
 ----------------------------------------------------------------------------------------
 
-## Realise an experiment
+## Run an experiment
 
 Once the configuration, and any modifications, are functioning as expected, the configuration can be used to run an experiment. 
-To realise an experiment, conduct a series of short runs of the configuration until the 
-desired length of the experiment is reached.
+To run an experiment, conduct a series of runs until the desired length of the 
+experiment is reached.
 
-If the previous run has [finished succesfully](#model-log-files), then extend it for for another run of the configured run length by executing:
+If the previous run has [finished succesfully](#model-log-files), then extend it 
+for for another run of the configured run length by executing:
 
     payu sweep && payu run
 
+To automatically start multiple runs consecutively, use the `-n` flag to request 
+the number of runs.
 
-To automatically start multiple runs consecutively, use the `-n` flag to request the number of runs.
+    payu run -n <number-of-runs>
 
-    payu run -n N
-
-Where N is the number of runs desired of the configured run length. _Payu_ will submit a run to the queue on gadi, and when it has finished succesffuly
-payu submits the next run until a total of N consecutive runs is reached.
+Where `<number-of-runs>` is the number of runs desired of the configured run length. 
+_Payu_ will submit a run to the queue on gadi, and when it has finished successfuly
+_payu_ submits the next run until a total of `<number-of-runs>` consecutive runs is reached.
 
 ----------------------------------------------------------------------------------------
 
 ## Edit {{ model }} configuration
 
 This section describes how to modify an {{ model }} configuration.<br>
-The modifications discussed in this section can change how the model software and it's [components](model components) are configured, or the way {{ model }} is run by _payu_, 
+The modifications discussed in this section can change how the model software and
+ it's [model components] are configured, or the way {{ model }} is run by _payu_, 
 
 More details on model and _payu_ configuration are found in the 
 [Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) section of {{ model }} config docs.
 
-### Edit model component configuration
+### Edit model configuration
 
 #### Change run length and restart period
 
-It is common to reduce the run length, or model duration, to minimise resource consumption and return faster feedback on changes.
+The run length, or model duration, can be reduced to minimise resource consumption when debugging and return faster feedback on changes.
 
 The run length and restart period are controlled by a set of parameters in the `CLOCK_attributes` section of the `~/access-om3/{{example_folder}}/nuopc.runconfig` file:
 
@@ -378,7 +382,7 @@ Preset `diag_table` files, along with the YAML configuration files used to gener
 
 #### Create a custom {{ model }} build
 All the executables needed to run {{ model }} are pre-built using _Spack_.<br>
-To customise {{ model }}'s build, including changes in the source code of one of its components, refer to [Modify and build an ACCESS model's source code](/models/run-a-model/build_a_model#{{model|lower}}).
+To customise {{ model }}'s build, including changes in the source code of one of its components, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
 
 
 ### Edit _payu_ configuration
@@ -506,12 +510,12 @@ restart_freq: '50YS'
 For more information, check [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#model).
 
 
-#### Input, forcing and exectuable configuration {: .no-toc }
+#### Input, forcing and exectuable configuration
 
 This section tells _payu_ which driver to use for the main model configuration (`access-om3`) and the location of the model 
 executable and all input files. These input files capture data needed for the experiment to be run, including grids, bathymetry, 
 land/sea masks, initial conditions and atmospheric forcing data. 
-Some information on how these files are generated in the [{{ model }} configuration documentation]({{configs_docs}}).
+Information on how these files are generated can be found in the [{{ model }} configuration documentation]({{configs_docs}}).
 
 ```yaml
 model: access-om3
@@ -532,16 +536,16 @@ input:
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
 ```
 
-#### Runlog {: .no-toc }
+#### Runlog
 
 ```yaml
 runlog: true
 ```
 When running a new configuration, _payu_ automatically commits changes with `git` if `runlog` is set to `true`.
 _payu_ records all inputs, restarts and executables used in an experiment and updates the manifest files with the information for every run.
-When `runlog` is set to `'true`, this information is commited to the `git` history, so there is a permanent record of an experiment.
+When `runlog` is set to `true`, this information is commited to the `git` history, so there is a permanent record of an experiment.
 
-#### Userscripts {: .no-toc }
+#### Userscripts
 
 ```yaml
 userscripts:
