@@ -1,4 +1,5 @@
-[run-access-ram]: /models/run-a-model/run-access-ram
+{% set ram3_configs_docs = "https://access-ram3-configs.access-hive.org.au" %}
+[run_access-ram]: /models/run_a_model/run_access-ram
 
 # ACCESS-rAM 
 
@@ -18,6 +19,9 @@ Each region can contain multiple concentric _nests_, with each nest increasing t
 Since the regional forecasting is performed separately for each nested region and for every individual nest within, the total computational cost increases with both the number of nested regions and the number of nests contained within each of them.
 
 ## ACCESS-rAM3
+
+[![Config docs](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{ram3_configs_docs}}){: class="text-card"}
+
 Similar to the UKMO Regional Nesting Suite, ACCESS-rAM3 is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) dataset.<br>
 However, for its land-surface initial conditions, ACCESS-rAM3 offers flexibility by allowing the use of alternative datasets.
 
@@ -30,7 +34,7 @@ Information about the amount of NCI resources (such as Service Units (SU) and st
 
 ### Nesting configuration
 The structure, horizontal resolution and placement of [nests](#nesting) can be customised.<br>
-For details on how to modify these configuration settings, refer to [Change the nested region's nest configuration](/models/run-a-model/run-access-ram/#change-the-nested-regions-nest-configuration).
+For details on how to modify these configuration settings, refer to [Change the nested region's nest configuration](/models/run_a_model/run_access-ram/#change-the-nested-regions-nest-configuration).
 
 The default nesting configuration for the `ERA5-Land` land-surface initial conditions are the following:
 
@@ -50,7 +54,7 @@ The default nesting configuration for the `ERA5-Land` land-surface initial condi
    Nests <= 4km: [RAL3.2 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
    Spatial resolution depending on the [nesting configuration](#nesting-configuration).
 
-[Run ACCESS-rAM][run-access-ram]{: class="text-card"}
+[Run ACCESS-rAM][run_access-ram]{: class="text-card"}
 
 <custom-references>
 - [https://gmd.copernicus.org/articles/13/1999/2020/](https://gmd.copernicus.org/articles/13/1999/2020/)

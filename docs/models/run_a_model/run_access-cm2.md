@@ -1,9 +1,11 @@
-{% set model = "ACCESS-CM" %}
+{% set model = "ACCESS-CM2" %}
 {% set suite_id = "u-cy339" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
-[model components]: /models/access-cm/#model-components
+[model components]: /models/access_models/access-cm/#model-components
 
 # Run {{ model }}
+!!! danger
+    ACCESS-NRI does not maintain an official {{model}} release, but we continue to support the community in using this model where possible.
 
 !!! warning
     **Important for _accessdev_ users!**<br>

@@ -2,14 +2,14 @@
 {% set esm1_5_build_config = "https://github.com/ACCESS-NRI/ACCESS-ESM1.5" %}
 {% set spack_setup = "/getting_started/spack" %}
 [ACCESS models]: /models
-[esm1.5 config]: /models/access-esm/#access-esm15
+[esm1.5 config]: /models/access_models/access-esm/#access-esm15
 [mom5 component]: /models/model_components/ocean/#mom5
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [spack-configuration-scopes-documentation]: https://spack.readthedocs.io/en/latest/configuration.html#configuration-scopes
 
 !!! danger
     This page is tailored to experienced users and collaborators developing ACCESS models.<br>
-    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run-a-model) section.
+    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 # Modify and build an ACCESS model's source code
 
@@ -18,7 +18,7 @@
 The following instructions outline how to build an ACCESS model and its dependencies, using the build-from-source package manager [Spack](https://spack.readthedocs.io).<br>
 
 These instructions may suit more advanced users who are making iterative changes and need to repeatedly modify the source code, recompile it and run tests. This option also requires setting up a Spack build environment.<br>
-If you want to modify and build a model, while maintaining a clear record of your changes and being able to share the modified builds with others, refer to [Create Prereleases and Releases for an ACCESS Model](/models/run-a-mode/create-a=prerelease) instead.
+If you want to modify and build a model, while maintaining a clear record of your changes and being able to share the modified builds with others, refer to [Create Prereleases and Releases for an ACCESS Model](/models/build_a_model/create_a_prerelease) instead.
 
 The build workflow described in this page is specifically designed to run on the [National Computating Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
 

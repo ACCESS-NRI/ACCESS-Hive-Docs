@@ -179,18 +179,6 @@
   --tooltip-border-color: #a3a5a9; /* Tooltip border color */
 }
 
-/* Set rem based on viewport width */
-@media (width > 500px) {
-  :root {
-    font-size: calc(16px + 9 * ((100vw - 500px) / (2000 - 500)));
-  }
-}
-@media (width <= 500px) {
-  :root {
-    font-size: 16px;
-  }
-}
-
 /* =============================================================== 
   Cards for ACCESS-Hive Docs navigation, model components, model tabs, MED stuff
 */
@@ -202,14 +190,14 @@
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  column-gap: 1.5rem;
+  column-gap: 1rem;
   row-gap: 0.8rem;
 }
 
 /* Single card */
 .card-container > * {
   border: var(--border-width) solid var(--card-borders);
-  border-radius: 0.6rem;
+  border-radius: 0.6em;
   box-shadow: 0.28rem 0.28rem 0.45rem var(--card-shadows);
   overflow: hidden;
 }
@@ -228,11 +216,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: clamp(100px,30%,250px);
+  width: clamp(100px,20%,250px);
   min-height: 0;
   container-type: inline-size;
-  padding: 0.4rem;
-  gap: 0.2rem;
+  padding: 0.5em;
+  gap: 0.2em;
 }
 
 .horizontal-card {
@@ -241,14 +229,15 @@
   justify-content: center;
   align-items: stretch;
   width: 100%;
-  height: 6rem;
-  padding: 0.4rem;
-  gap: 0.4rem;
+  aspect-ratio: 8/1;
+  padding: 0.5em;
+  gap: 0.4em;      
+  box-sizing: border-box;
 }
 
 .card-text-container {
   color: var(--md-default-fg-color);
-  font-size: 1.2em;
+  font-size: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,8 +280,10 @@
   border-radius: 0.35rem;
 }
 
+/* Horizontal card title */
 .horizontal-card > .card-text-container > *:first-child:not(:only-child) {
   margin-bottom: 0.5em;
+  font-size: 1.2em;
 }
 
 /* Text card */
@@ -1400,12 +1391,6 @@ img.intro-img {
   display: block;
 }
 
-.vertical-card-half-width {
-  flex-direction: column;
-  max-width: 48%;
-  height: 20em;
-}
-
 .green_prompt_output {
   color: #00C202
 }
@@ -1463,126 +1448,4 @@ div.release-table td:nth-child(3) {
 }
 div.release-table td:nth-child(4) {
   background-color: var(--success-bg) 
-}
-
-/* =============================================================== 
-  Media queries for website responsiveness
-*/
-
-@media screen and (width < 800px) {
-  /* Make gap scale with viewport width */
-  .homepage-buttons {
-    gap: 5vw;
-  }
-  /* Hide upper text in homepage buttons */
-  .homepage-buttons > .vertical-card > :first-child {
-    display: none;
-  }
-  /* Lower text in homepage buttons */
-  .homepage-buttons > .vertical-card > :last-child {
-    font-size: calc(2.9vw + 0.15rem);
-  }
-  /* Homepage buttons Cards */
-  .homepage-buttons > .vertical-card {
-    background-color: var(--md-primary-fg-color--dark);
-    height: 8vw;
-    border-radius: 2vw;
-  }
-}
-
-@media screen and (width > 650px) {
-  .small-card {
-    max-height: 5rem;
-    max-width: 40%;
-  }
-}
-@media screen and (width <= 650px) {
-  .vertical-card {
-    width: 40%;
-  }
-  
-  /* Change the horizontal card to be rendered as a vertical one with aspect-ratio 1 */
-  .horizontal-card {
-    align-items: center;
-    flex-direction: column;
-    height: auto;
-    aspect-ratio: 1;
-    width: 40%;
-    container-type: inline-size;
-  }
-  .horizontal-card > .card-text-container {
-    height: 30%;
-    flex: 0 0 auto;
-    font-size: 10cqi;
-    font-weight: 600;
-  }
-  .horizontal-card > .card-text-container > *:last-child:not(:only-child) {
-    display: none;
-  }
-  .horizontal-card > .card-text-container > *:first-child:not(:only-child) {
-    margin-bottom: 0;
-  }
-  .horizontal-card > .card-image-container {
-    flex-basis: 70%;
-  }
-  /* Wrap homepage navigation cards */
-  .homepage-navigation {
-    flex-wrap: wrap;
-  }
-
-  /* Make squared btn */
-  .header-btn {
-    flex-basis: 0;
-    flex-grow: 0;
-    aspect-ratio: 1;
-    justify-self: start;
-    height: 2rem;
-  }
-  /* Increase btn Logos */
-  .header-btn > :first-child > * {
-    font-size: 1.8em;
-  }
-  /* Hide btn Text */
-  .header-btn >:last-child {
-    display: none;
-  }
-  
-  /* Homepage introduction paragraph */
-  /* Upper text */
-  .introduction > :first-child > :first-child {
-    font-size: calc(4.9vw + 0.15rem);
-  }
-  /* Lower text */
-  .introduction > :first-child > :last-child {
-    font-size: calc(2.9vw + 0.15rem);
-   }
-  
-  /* Footer */
-  :is(.funding,.partners) > *:first-child {
-    font-size: calc(1vw + 0.5rem);
-  }
-  :is(.funding,.partners) > *:last-child a {
-    max-width: calc(6vw + 2rem);
-  }
-
-  .md-footer-meta__inner {
-    flex-direction: column;
-  }
-  .md-footer-meta__inner > * {
-    gap: 1rem;
-  }
-}
-
-@media screen and (width <= 450px) {
-  /* Hide title in header */
-  .md-header__title {
-    visibility: hidden;
-  }
-}
-
-/* Keep logo always visible for mobile devices */
-@media screen and (max-width: 76.1875em) {
-  .md-header__button.md-logo {
-    display: flex;
-  }
 }

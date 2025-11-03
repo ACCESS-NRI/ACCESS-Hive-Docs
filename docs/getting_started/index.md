@@ -1,7 +1,7 @@
 # Getting Started
 
 <div class="card-container">
-    <a href="/getting_started/set_up_nci_account" class="horizontal-card" height="6rem">
+    <a href="/getting_started/set_up_nci_account" class="horizontal-card">
         <div class="card-image-container">
             <img class="img-contain with-padding white-background" src="/assets/set_up_nci_account_logo.png" alt="Set up NCI account">
         </div>

@@ -25,7 +25,7 @@ The ACCESS-NRI Intake catalog enables users to find products that satisfy their 
 
 A simple use case of the ACCESS-NRI Intake catalog is a user wants to plot a timeseries of a variable from a specific data product. 
 <br>
-For example, the user is interested in plotting a scalar ocean variable called <i>temp_global_ave</i> for an [ACCESS-ESM1.5](/models/access-esm) run called <i>HI_CN_05</i> (data product). This is an historical run using the same configuration as CMIP6 ACCESS-ESM1.5 historical <i>r1i1p1f1</i>, except that the phosphorus limitation within <a href="\models/model_components/bgc_land#casa-cnp">CASA-CNP</a> is disabled.
+For example, the user is interested in plotting a scalar ocean variable called <i>temp_global_ave</i> for an [ACCESS-ESM1.5](/models/access_models/access-esm) run called <i>HI_CN_05</i> (data product). This is an historical run using the same configuration as CMIP6 ACCESS-ESM1.5 historical <i>r1i1p1f1</i>, except that the phosphorus limitation within <a href="\models/model_components/bgc_land#casa-cnp">CASA-CNP</a> is disabled.
 
 First, load the catalog as follows:
 

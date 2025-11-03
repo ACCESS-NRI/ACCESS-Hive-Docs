@@ -16,12 +16,12 @@ There are three CICE versions currently used in ACCESS models:
     <button id="cice6">CICE6</button>
 </div>
 <div tabcontentfor="cice4" markdown>
-- [ACCESS-ESM1.5](/models/access-esm#access-esm15)
+- [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15)
 </div>
 <div tabcontentfor="cice5" markdown>
-- [ACCESS-CM2](/models/access-cm#access-cm2)
-- [ACCESS-OM2](/models/access-om#access-om2)
+- [ACCESS-CM2](/models/access_models/access-cm#access-cm2)
+- [ACCESS-OM2](/models/access_models/access-om#access-om2)
 </div>
 <div tabcontentfor="cice6" markdown>
-- [ACCESS-OM3](/models/access-cm#access-om3)
+- [ACCESS-OM3](/models/access_models/access-cm#access-om3)
 </div>

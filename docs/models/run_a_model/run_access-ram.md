@@ -4,10 +4,10 @@
 {% set branch = "access_rel_1" %}
 {% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/7/trunk" %}
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/8/trunk" %}
-{% set model_configurations = "/models/access-ram" %}
+{% set access_models = "/models/access_models/access-ram" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-ram3-release-information/4308" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
-[model components]: /models/access-ram/#model-components
+[model components]: /models/access_models/access-ram/#model-components
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [default project]: /getting_started/set_up_nci_account#change-default-project-on-gadi
 
@@ -23,12 +23,12 @@
 ## About
 
 {{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling.<br>
-A description of the model and its components is available in the [{{ model }} overview]({{ model_configurations }}/#{{ model }}).
+A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
 {{ model }} comprises two suites: a [Regional Ancillary Suite (RAS)](#ras), which generates ancillary files (i.e., input files), and a [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
-The example experiment within this page focuses on a flood event in Lismore, NSW, using `ERA5-Land` [land-surface initial conditions]({{ model_configurations }}/#land-surface-initial-conditions-source). Its configuration is specified in [Nesting configuration]({{ model_configurations }}/#nesting-configuration).
+The example experiment within this page focuses on a flood event in Lismore, NSW, using `ERA5-Land` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). Its configuration is specified in [Nesting configuration]({{ access_models }}/#nesting-configuration).
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -323,7 +323,7 @@ mosrs-auth
 Both suites within {{ model }} have a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
 Typically, an existing suite is copied and then edited as needed for a particular experiment.
 
-For more information on {{ model }}, refer to the [{{model}} configuration]({{ model_configurations }}/#{{ model }}) page.
+For more information on {{ model }}, refer to the [{{model}} configuration]({{ access_models }}/#{{ model }}) page.
 
 !!! info 
     Many of the following steps appear in both the RAS and RNS. For this reason, these steps will be detailed only within the RAS section below, and subsequenltly linked to within the RNS section.
@@ -672,7 +672,7 @@ rose suite-run --new
 #### RAS output files
 
 The RAS output ancillary files can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/data/ancils`.<br>
-Ancillaries are divided into folders according to each [nested region]({{ model_configurations }}/#nesting) name, and then further separated according to each nest (i.e., _Resolution_) name. The path of ancillaries for a specific nest (i.e., _Resolution_) is `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/data/ancils/<nested_region_name>/<nest_name>`.
+Ancillaries are divided into folders according to each [nested region]({{ access_models }}/#nesting) name, and then further separated according to each nest (i.e., _Resolution_) name. The path of ancillaries for a specific nest (i.e., _Resolution_) is `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/data/ancils/<nested_region_name>/<nest_name>`.
 
 The example above has one `nested_region_name` called `Lismore`, 1 nest named `era5` (outer domain corresponding to _Resolution 1_), and 2 inner nests (_Resolution 2_ and _Resolution 3_) named `d1000` and `d0198`, respectively.<br>
 Thus, the ancillary files directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/data/ancils/` contains the following subdirectories:
@@ -705,7 +705,7 @@ To check the RNS suite logs, follow the steps listed in [Check suite logs](#chec
 All the RNS output files are available in the directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>`. They are also symlinked in `~/cylc-run/<suite-ID>`.
 
 The RNS output data can be found in the directory `/scratch/$PROJECT/$USER/cycl-run/<suite-ID>/share/cycle`, grouped for each [cycle](#change-run-length).<br>
-Within the `cycle` directory, outputs are divided into multiple nested subdirectories in the format `<nested_region_name>/<science_configuration>/<nest_name>`, with [`<nested_region_name>`](#change-the-nested-region-name) and `<nest_name>` referring to the respective configurable options. The `<science_configuration>` is usually `GAL9` or `RAL3.2`, depending on the [nest resolution]({{ model_configurations }}/#model-components).
+Within the `cycle` directory, outputs are divided into multiple nested subdirectories in the format `<nested_region_name>/<science_configuration>/<nest_name>`, with [`<nested_region_name>`](#change-the-nested-region-name) and `<nest_name>` referring to the respective configurable options. The `<science_configuration>` is usually `GAL9` or `RAL3.2`, depending on the [nest resolution]({{ access_models }}/#model-components).
 
 Each `<nest_name>` directory has the following subdirectories:
 
@@ -767,7 +767,7 @@ rose edit &
 
 #### Change the land-surface initial conditions source
 - **RNS**<br>
-    To change the [land-surface initial conditions source]({{ model_configurations }}/#land-surface-initial-conditions-source) within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Nesting Suite &rarr; Driving model setup_. Edit the `NCI_HRES_ECCB` field and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
+    To change the [land-surface initial conditions source]({{ access_models }}/#land-surface-initial-conditions-source) within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Nesting Suite &rarr; Driving model setup_. Edit the `NCI_HRES_ECCB` field and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
 
     For example, to get the land-surface initial conditions from the `BARRA-R2` dataset, set the `NCI_HRES_ECCB` field to `BARRA2-R`.
 
@@ -824,14 +824,14 @@ The nested region position is usually defined by the latitude and longitude coor
     When changing the land-surface initial conditions source, it is important to ensure that the configuration of the nested region aligns with the [nest configuration requirements](#nest-configuration-requirements).
 
 ##### Change the nested region's nest configuration {: .no-toc }
-Each nested region can contain multiple [nests]({{model_configurations}}/#nesting) (referred to as _Resolutions_ within the RAS and RNS), each of them being a separate domain where the simulation experiment is carried out.<br>
+Each nested region can contain multiple [nests]({{access_models}}/#nesting) (referred to as _Resolutions_ within the RAS and RNS), each of them being a separate domain where the simulation experiment is carried out.<br>
 Typically, nests within the same nested region are arranged concentrically, with increasingly smaller dimensions and higher resolutions towards the innermost nests.
 
 <div markdown id='nest-configuration-requirements'>
 !!! warning
     Currently, {{model}} only supports specific nest configurations that meet the following criteria:
     
-    The grid points of the RAS first inner nest (i.e., _Resolution 2_, because _Resolution 1_ always corresponds to the outer ERA5 domain) must align with those of the [land-surface initial conditions dataset]({{model_configurations}}/#land-surface-initial-conditions-source). Thus, the configuration of the RAS first inner nest (_Resolution 2_), including its position, dimension and resolution, need to be modified accordingly. Note that the position of a nest is also influenced by the [nested region position](#change-the-nested-region-position).
+    The grid points of the RAS first inner nest (i.e., _Resolution 2_, because _Resolution 1_ always corresponds to the outer ERA5 domain) must align with those of the [land-surface initial conditions dataset]({{access_models}}/#land-surface-initial-conditions-source). Thus, the configuration of the RAS first inner nest (_Resolution 2_), including its position, dimension and resolution, need to be modified accordingly. Note that the position of a nest is also influenced by the [nested region position](#change-the-nested-region-position).
 </div>
 
 #### Change the output variables

@@ -3,6 +3,8 @@ on:
   pull_request:
     types:
       - closed
+env:
+  PR_PREVIEW_COMMENT_LABEL: pr-preview-comment
 
 jobs:
   # Delete PR preview comment
@@ -16,4 +18,4 @@ jobs:
         uses: access-nri/actions/.github/actions/comment@main
         with:
           delete: true
-          label: ${{ vars.PR_PREVIEW_COMMENT_LABEL }}
+          label: ${{ env.PR_PREVIEW_COMMENT_LABEL }}

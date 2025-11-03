@@ -18,7 +18,7 @@ Below, we show an example of the Model Live Diagnostics Tool. For more informati
 
 ## Example: Monitoring total seawater mass of an ACCESS-CM2 run
 
-This example provides a brief demonstration of how the Model Live Diagnostics tool can be use to monitor the progress of an [ACCESS Coupled Model 2 (ACCESS-CM2)](/models/run-a-model/run-access-cm2) run.
+This example provides a brief demonstration of how the Model Live Diagnostics tool can be use to monitor the progress of an [ACCESS Coupled Model 2 (ACCESS-CM2)](/models/run_a_model/run_access-cm2) run.
 
 To start a session that automatically checks for new model output within a given period of 20 minutes: 
 

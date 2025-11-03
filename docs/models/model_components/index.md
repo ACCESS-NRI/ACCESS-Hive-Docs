@@ -1,5 +1,7 @@
-#  Model Components 
+# ACCESS Model Components
+
 ACCESS model components represent different chemical, physical or biological parts of the Earth System.
+
 <div class="card-container">
     <a href="/models/model_components/atmosphere" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">

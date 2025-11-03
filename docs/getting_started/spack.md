@@ -1,6 +1,6 @@
 !!! danger
     This page is tailored to experienced users and collaborators developing ACCESS models.<br>
-    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run-a-model) section.
+    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 # Set up Spack for building ACCESS models
 
@@ -59,7 +59,7 @@ ln -s -r -v spack-config/v0.22/gadi/* spack/etc/spack/
 !!! success
     Your _Spack_ setup is complete!
 
-For instructions on how to build an ACCESS model using _Spack_, refer to [Modify and build an ACCESS model's source code](/models/run-a-model/build_a_model).
+For instructions on how to build an ACCESS model using _Spack_, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
 
 ## Enable Spack
 

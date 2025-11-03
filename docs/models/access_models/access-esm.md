@@ -40,4 +40,4 @@ There are currently two supported configurations:
 
 ACCESS-ESM1.5 has an equilibrium climate sensitivity of 3.87°C for doubled CO~2~ concentration.
 
-[Run ACCESS-ESM](/models/run-a-model/run-access-esm){: class="text-card"}
+[Run ACCESS-ESM](/models/run_a_model/run_access-esm){: class="text-card"}

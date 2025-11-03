@@ -1,11 +1,11 @@
 [ACCESS models]: /models
 [om2 repo]: https://github.com/ACCESS-NRI/ACCESS-OM2
-[om2 config]: /models/access-om/#access-om2
+[om2 config]: /models/access_models/access-om/#access-om2
 [mom5 component]: /models/model_components/ocean/#mom5
 
 !!! danger
     This page is tailored to experienced users and collaborators developing ACCESS models.<br>
-    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run-a-model) section.
+    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 # Create Prereleases and Releases for an ACCESS Model
 

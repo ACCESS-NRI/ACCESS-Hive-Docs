@@ -5,8 +5,8 @@
 [cosima]: https://cosima.org.au
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [payu]: https://github.com/payu-org/payu
-[model components]: /models/access-om/#model-components-{{model}}
-[model configurations]: /models/access-om/#access-om2
+[model components]: /models/access_models/access-om/#model-components-{{model}}
+[model configurations]: /models/access_models/access-om/#access-om2
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 
 <div class="text-card-group" markdown>
@@ -310,8 +310,9 @@ Model components are separated into subdirectories within the output and restart
 <terminal-window>
     <terminal-line data="input">cd ~/access-om2/1deg_jra55_ryf</terminal-line>
     <terminal-line data="input" directory="~/access-om2/1deg_jra55_ryf">ls</terminal-line>
-    <terminal-line class="ls-output-format">output000 pbs_logs restart000</terminal-line>
+    <terminal-line class="ls-output-format">&lt;jobname&gt;.e&lt;job-ID&gt; &lt;jobname&gt;.o&lt;job-ID&gt; accessom2.nml atmosphere doc LICENSE metadata.yaml ocean testing archive config.yaml ice manifests namcouple README.md tools</terminal-line>
 </terminal-window>
+
 
 ----------------------------------------------------------------------------------------
 
@@ -631,7 +632,7 @@ To modify these options please refer to the User Guide of the respective model c
 
 ### Create a custom {{ model }} build
 All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
-To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/run-a-model/build_a_model).
+To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
 
 ## Get Help
 

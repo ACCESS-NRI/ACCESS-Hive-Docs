@@ -63,8 +63,6 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - bibtex:
       bib_file: "references.bib"
-  - events:
-      events_dir: community_resources/events/events
   - resolve-absolute-urls
   - macros
 
@@ -105,16 +103,16 @@ nav:
     - conda/analysis3 Python Environment: getting_started/environments.md
     - Set up Spack for building ACCESS models: getting_started/spack.md
 
-  - Models: 
+  - Models:
     - models/index.md
-    # - Model Configurations: 
-      # - Supported ACCESS Model Configurations: models/configurations/index.md
-    - ACCESS-CM: models/access-cm.md
-    - ACCESS-ESM: models/access-esm.md
-    - ACCESS-OM: models/access-om.md
-    - ACCESS-rAM: models/access-ram.md
-    - Model Components: 
-      - Overview: models/model_components/index.md
+    - ACCESS Models:
+      - models/access_models/index.md
+      - ACCESS-CM: models/access_models/access-cm.md
+      - ACCESS-ESM: models/access_models/access-esm.md
+      - ACCESS-OM: models/access_models/access-om.md
+      - ACCESS-rAM: models/access_models/access-ram.md
+    - Model Components:
+      - models/model_components/index.md
       - Atmosphere: models/model_components/atmosphere.md
       - Land: models/model_components/land.md
       - Ocean: models/model_components/ocean.md
@@ -123,29 +121,26 @@ nav:
       - Biogeochemistry Land: models/model_components/bgc_land.md
       - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
       - Coupler: models/model_components/coupler.md
-
-  - Run a Model: 
-    - models/run-a-model/index.md
-    # - Run ACCESS-AM: models/run-a-model/run-access-am.md
-    - Run ACCESS-CM2: models/run-a-model/run-access-cm2.md
-    - Run ACCESS-ESM: models/run-a-model/run-access-esm.md
-    - Run ACCESS-OM2: models/run-a-model/run-access-om2.md
-    - Run ACCESS-OM3: models/run-a-model/run-access-om3.md
-    - Run ACCESS-rAM: models/run-a-model/run-access-ram.md
-    - Modify and build an ACCESS model's source code: models/run-a-model/build_a_model.md
-    - Create Prereleases and Releases for an ACCESS Model: models/run-a-model/create-a-prerelease.md
+    - Run a Model: 
+      - models/run_a_model/index.md
+      - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
+      - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
+      - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
+      - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
+      - Run ACCESS-rAM: models/run_a_model/run_access-ram.md
+    - Build a Model:
+      - models/build_a_model/index.md
+      - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
+      - Create Prereleases and Releases for an ACCESS Model: models/build_a_model/create_a_prerelease.md
 
   - Data and Model Evaluation:
     - model_evaluation/index.md
     - Data: 
       - model_evaluation/data/index.md
-      # - model_evaluation/model_evaluation_getting_started/index.md
-      # - Model Evaluation on Gadi: model_evaluation/model_evaluation_getting_started/model_evaluation_getting_started.md
       - Data Format and Standards: model_evaluation/data/data_format.md      
       - Data Variables: model_evaluation/data/variables.md
       - Observational Data: model_evaluation/data/observations.md
       - Accessing Model Data: model_evaluation/data/model_catalogs.md
-        # - Search Model Catalog: model_evaluation/model_evaluation_model_catalogs/model_evaluation_search_models.md
 
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
@@ -234,6 +229,7 @@ extra_css:
   - fontello/css/fontello-ie7.css
   - fontello/css/fontello.css
   - css/access-nri.css
+  - css/responsiveness.css
 
 extra_javascript:
   - javascripts/mathjax.js # For pymdownx.arithmatex extension

@@ -1,5 +1,5 @@
-{% set hive-docs-repo-name = "ACCESS-Hive-Docs" %}
-{% set hive-docs-repo = "https://github.com/ACCESS-NRI/" ~ "ACCESS-Hive-Docs" %}
+{% set hive_docs_repo_name = "ACCESS-Hive-Docs" %}
+{% set hive_docs_repo = "https://github.com/ACCESS-NRI/" ~ "ACCESS-Hive-Docs" %}
 
 # How to Contribute?
 
@@ -8,7 +8,7 @@ ACCESS-Hive Docs is a website that hosts the documentation relevant to the Austr
 Contributions are encouraged from any member of the community regarding any aspect of the ACCESS-Hive Docs. The easiest way to contribute is to raise a GitHub issue to suggest changes and highlight gaps.
 
 <div class="card-container">
-    <a href="{{hive-docs-repo}}/issues/new?assignees=&labels=External&projects=&template=simple-issue-template.md&title=" class="horizontal-card" target="_blank">
+    <a href="{{hive_docs_repo}}/issues/new?assignees=&labels=External&projects=&template=simple-issue-template.md&title=" class="horizontal-card" target="_blank">
         <div class="card-image-container">
             <img class="img-contain white-background" src="/assets/how-to-contribute-img.jpg">
         </div>
@@ -38,7 +38,7 @@ For a quick reference on how to use Markdown syntax you can refer to the [Markdo
 
 ### Raise a GitHub Issue
 
-All contributions need to have an associated [GitHub issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/) that explains the content and importance of the contribution. If your contribution does not already have an associated issue, [create a new issue]({{hive-docs-repo}}/issues/new?template=simple-issue-template.md) related to it. Feel free to assign the related issue to yourself if you intend to work on it.
+All contributions need to have an associated [GitHub issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/) that explains the content and importance of the contribution. If your contribution does not already have an associated issue, [create a new issue]({{hive_docs_repo}}/issues/new?template=simple-issue-template.md) related to it. Feel free to assign the related issue to yourself if you intend to work on it.
 
 ### Quick fix 
 
@@ -46,7 +46,7 @@ If you'd like to do a quick fix, such as fixing a typo or updating wording, you 
 
 ### Fork the ACCESS-Hive Docs GitHub repository
 
-After raising a GitHub issue about your contribution, you need to [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo?platform=mac&tool=webui) the [ACCESS-Hive Docs GitHub repository]({{hive-docs-repo}}).
+After raising a GitHub issue about your contribution, you need to [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo?platform=mac&tool=webui) the [ACCESS-Hive Docs GitHub repository]({{hive_docs_repo}}).
 
 ### Clone the forked ACCESS-Hive Docs GitHub repository locally
 For cloning the forked repository onto your local computer, we encourage you to first add your local SSH keys to your GitHub profile. 
@@ -54,9 +54,9 @@ For cloning the forked repository onto your local computer, we encourage you to 
 To start with, if you have an [existing SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys), then simply [add this key to your github account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), and you are all set to clone the repository. In case you don't have the SSH keys set up on your local computer, it's easy to [create a new SSH key locally](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and then [feel free to link this key to your github account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 <terminal-window>
-    <terminal-line data="input">git clone git@github.com:ACCESS-NRI/{{hive-docs-repo-name}}.git</terminal-line>
+    <terminal-line data="input">git clone git@github.com:ACCESS-NRI/{{hive_docs_repo_name}}.git</terminal-line>
     <terminal-line></terminal-line>
-    <terminal-line>Cloning into '{{hive-docs-repo-name}}'...</terminal-line>
+    <terminal-line>Cloning into '{{hive_docs_repo_name}}'...</terminal-line>
     <terminal-line>remote: Enumerating objects: 54754, done.</terminal-line>
     <terminal-line>remote: Counting objects: 100% (4096/4096), done.</terminal-line>
     <terminal-line>remote: Compressing objects: 100% (560/560), done.</terminal-line>
@@ -78,9 +78,9 @@ After cloning the repository locally, create a new branch to make your local cha
     <terminal-line>Total 0 (delta 0), reused 0 (delta 0), pack-reused 0</terminal-line>
     <terminal-line>remote: </terminal-line>
     <terminal-line>remote: Create a pull request for 'spongebob/fix-hive-title-issue-234' on GitHub by visiting:</terminal-line>
-    <terminal-line>remote: {{hive-docs-repo}}/pull/new/spongebob/fix-hive-title-issue-234</terminal-line>
+    <terminal-line>remote: {{hive_docs_repo}}/pull/new/spongebob/fix-hive-title-issue-234</terminal-line>
     <terminal-line>remote: </terminal-line>
-    <terminal-line>To github.com:ACCESS-NRI/{{hive-docs-repo-name}}.git</terminal-line>
+    <terminal-line>To github.com:ACCESS-NRI/{{hive_docs_repo_name}}.git</terminal-line>
     <terminal-line>* [new branch]        spongebob/fix-hive-title-issue-234 -> spongebob/fix-hive-title-issue-234</terminal-line>
     <terminal-line>branch 'spongebob/fix-hive-title-issue-234' set up to track 'origin/spongebob/fix-hive-title-issue-234'.</terminal-line>
 </terminal-window>
@@ -102,7 +102,7 @@ Work locally on the branch `spongebob/fix-hive-title-issue-234`, and push the co
     <terminal-line>Writing objects: 100% (6/6), 637 bytes | 637.00 KiB/s, done.</terminal-line>
     <terminal-line>Total 6 (delta 5), reused 0 (delta 0), pack-reused 0</terminal-line>
     <terminal-line>remote: Resolving deltas: 100% (5/5), completed with 5 local objects.</terminal-line>
-    <terminal-line>To github.com:ACCESS-NRI/{{hive-docs-repo-name}}.git</terminal-line>
+    <terminal-line>To github.com:ACCESS-NRI/{{hive_docs_repo_name}}.git</terminal-line>
         <terminal-line>7263feb5..7afe8c13  spongebob/fix-hive-title-issue-234 -> spongebob/fix-hive-title-issue-234</terminal-line>
 </terminal-window>
 
@@ -110,7 +110,7 @@ While working on a local branch, please make sure to regularly pull changes from
 
 <terminal-window>
     <terminal-line data="input">git pull origin main</terminal-line>
-    <terminal-line>From github.com:ACCESS-NRI/{{hive-docs-repo-name}}</terminal-line>
+    <terminal-line>From github.com:ACCESS-NRI/{{hive_docs_repo_name}}</terminal-line>
     <terminal-line>* branch              main -> FETCH_HEAD</terminal-line>
     <terminal-line>Already up to date.</terminal-line>
 </terminal-window>
@@ -120,7 +120,7 @@ This would make sure that the local branch `spongebob/fix-hive-title-issue-234` 
 ### Deploying Website Preview
 MkDocs includes a live preview server, so you can preview your changes as you write your documentation. The server will automatically rebuild the site upon saving. 
 
-To build the site locally, you need to install [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and other plugins. You can find a full list in the `requirements.txt` file (in the root of the [ACCESS-Hive Docs GitHub repository]({{hive-docs-repo}})). Please use `pip` for the installation as some of the packages are not updated or not available on conda:
+To build the site locally, you need to install [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and other plugins. You can find a full list in the `requirements.txt` file (in the root of the [ACCESS-Hive Docs GitHub repository]({{hive_docs_repo}})). Please use `pip` for the installation as some of the packages are not updated or not available on conda:
 
 <terminal-window>
     <terminal-line data="input">pip install -r requirements.txt</terminal-line>

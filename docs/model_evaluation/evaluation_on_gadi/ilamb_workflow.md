@@ -71,7 +71,7 @@ To learn more about how to adjust the <i>ILAMB</i> setup, refer to the official 
 ACCESS-NRI is maintaining a collection of benchmark comparisons for the ACCESS community, such as that with Coupled Model Intercomparison Project (CMIP) data, see in the <a href="https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri" target="_blank">workflow documentation.</a>
 
 
-In the following example, the supported ACCESS Earth System Model (ESM) <a href="/models/access-esm#access-esm1.5" target="_blank">ACCESS-ESM1.5</a> is compared with two other ESM models:
+In the following example, the supported ACCESS Earth System Model (ESM) <a href="/models/access_models/access-esm#access-esm1.5" target="_blank">ACCESS-ESM1.5</a> is compared with two other ESM models:
 
 - <a href="https://gmd.copernicus.org/articles/13/977/2020/" target="_blank">BCC ESM1 (Beijing Climate Center Earth System Model version 1)</a>
 - <a href="https://gmd.copernicus.org/articles/12/4823/2019/gmd-12-4823-2019.html" target="_blank">CanESM5 (Canadian Earth System Model version 5)</a>

@@ -1,6 +1,6 @@
 # Payu
 
-Payu is used to run [ACCESS-OM](/models/run-a-model/run-access-om2) and [ACCESS-ESM](/models/run-a-model/run-access-esm).
+Payu is used to run [ACCESS-OM](/models/run_a_model/run_access-om2) and [ACCESS-ESM](/models/run_a_model/run_access-esm).
 
 ## 2024 Training day 
 - [Running Model Experiments with payu and git](https://forum.access-hive.org.au/t/running-model-experiments-with-payu-and-git/2285)

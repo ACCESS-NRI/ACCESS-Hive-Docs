@@ -47,9 +47,10 @@ hide:
             <div class="bold">Models</div>
         </div>
     </a>
-    <a href="models/run-a-model" class="vertical-card aspect-ratio1to1">
+    <a href="models/run_a_model" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img class="img-cover" src="/assets/get_started_example.png" alt="Run a Model">
+            <img class="img-cover white-background with-padding"
+            src="/assets/run-a-model_image.png" alt="Run a Model">
         </div>
         <div class="card-text-container">
             <div class="bold">Run a Model</div>

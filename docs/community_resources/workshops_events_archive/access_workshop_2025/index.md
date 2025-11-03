@@ -49,7 +49,7 @@ Setup requirements for the Training Day can be found on the Training Materials p
     </a>
     <a href="https://www.access-nri.org.au/access-community-workshop-2025/working-group-programs/" class="horizontal-card small-card">
         <div class="card-image-container">
-            <img src="/assets/model-config-logos/model_visualisation/build_a_model.png" class="img-contain"></img> 
+            <img src="/assets/model-config-logos/model_visualisation/build_source_code.png" class="img-contain"></img> 
         </div>
         <div class="card-text-container">
             <span class="bold" >Working Group Programs</span>

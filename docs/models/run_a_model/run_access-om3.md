@@ -7,14 +7,14 @@
 [cosima]: https://cosima.org.au
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [payu]: https://github.com/payu-org/payu
-[model components]: /models/access-om/#model-components-{{ model }}
-[model configurations]: /models/access-om/#access-om3
+[model components]: /models/access_models/access-om/#model-components-{{ model }}
+[model configurations]: /models/access_models/access-om/#access-om3
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 
 !!! release
     This is a **Beta Release**.<br>
     Any model configuration and related source code mentioned in this page might change before the full release.<br>
-    Limited support is currently provided for this model. Its usage is only recommended for testing by experienced users and collaborators. For a supported and validated model and configuration, see [Run ACCESS-OM2](/models/run-a-model/run-access-om2) instead.
+    Limited support is currently provided for this model. Its usage is only recommended for testing by experienced users and collaborators. For a supported and validated model and configuration, see [Run ACCESS-OM2](/models/run_a_model/run_access-om2) instead.
 
 <div class="text-card-group" markdown>
 [:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}
@@ -326,7 +326,7 @@ Common options for `stop_option` are `ndays`, `nmonths` and `nyears`. `stop_n` p
 
 The restart period is controlled by `restart_option` and `restart_n`, which set *how often* restart files are written.<br>
 !!! tip
-    To be able to resume each run from a previous state, the model must save restart files at the end of each run. To achieve this, the `restart_*` fields should be set as a divisor of the time period defined by the `stop_*` values. For long and stable runs, disk usage can be reduced by pruning older restart files as a _payu_ post-processing step. For details, see [Pruning model restarts](/models/run-a-model/run-access-om3/#pruning-model-restarts).
+    To be able to resume each run from a previous state, the model must save restart files at the end of each run. To achieve this, the `restart_*` fields should be set as a divisor of the time period defined by the `stop_*` values. For long and stable runs, disk usage can be reduced by pruning older restart files as a _payu_ post-processing step. For details, see [Pruning model restarts](/models/run_a_model/run_access-om3/#pruning-model-restarts).
 
 For example, to run a configuration for 2 months and write restart files at the end of the run, set the following in the `~/access-om3/{{example_folder}}/nuopc.runconfig` file:
 
@@ -521,7 +521,7 @@ For more information about specific `userscripts` fields, check the relevant sec
 
 ### Create a custom {{ model }} build
 All the executables needed to run {{ model }} are pre-built using _Spack_.<br>
-To customise {{ model }}'s build (for example, to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/run-a-model/build_a_model#{{model|lower}}).
+To customise {{ model }}'s build (for example, to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
 ## Get Help
 
 For further {{ model }} assistance, have a look at [general guidance](/about/user_support/#still-need-help) on how to request help from ACCESS-NRI. Specifically, consider creating a topic in the [COSIMA category of the ACCESS-Hive Forum](https://forum.access-hive.org.au/c/cosima/29). In the case of a configuration bug, please file a [GitHub issue here](https://github.com/ACCESS-NRI/access-om3-configs/issues/new?assignees=&labels=External&projects=&template=blank.md&title=). <br>

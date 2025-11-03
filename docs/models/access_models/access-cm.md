@@ -5,7 +5,12 @@
 The ACCESS Coupled Model (ACCESS-CM) is a fully-coupled global climate model that includes [atmosphere](/models/model_components/atmosphere), [aerosols and atmospheric chemistry](/models/model_components/aerosols_atmospheric_chemistry), [land](/models/model_components/land), [ocean](/models/model_components/ocean) and [sea ice](/models/model_components/sea-ice) components, linked together by a [coupler](/models/model_components/coupler).<br>
 It produces physical climate simulations.
 
-## ACCESS-CM2
+{% set model = "ACCESS-CM2" %}
+
+## {{ ACCESS-CM2 }}
+
+!!! danger
+    ACCESS-NRI does not maintain an official {{model}} release, but we continue to support the community in using this model where possible.
 
 [ACCESS-CM2](https://www.publish.csiro.au/es/ES19040) [@Bi2020] was initially developed by [CSIRO](https://www.csiro.au/) and is one of Australia’s contributions to the World Climate Research Programme’s [Coupled Model Intercomparison Project Phase 6 (CMIP6)](https://wcrp-cmip.org/cmip6/).
 
@@ -27,4 +32,4 @@ It produces physical climate simulations.
 
 Compared to previous model versions, ACCESS-CM2 shows better global hydrological balance, more realistic ocean water properties (in terms of spatial distribution) and meridional overturning circulation in the Southern Ocean. It does, however, produce a poorer simulation of the Antarctic sea ice and a larger energy imbalance at the top of atmosphere. ACCESS-CM2 has a relatively high equilibrium climate sensivity of 4.7°C for doubled CO~2~ concentration.
 
-[Run ACCESS-CM](/models/run-a-model/run-access-cm2){: class="text-card"}
+[Run ACCESS-CM](/models/run_a_model/run_access-cm2){: class="text-card"}
