@@ -122,7 +122,6 @@ nav:
       - Biogeochemistry Land: models/model_components/bgc_land.md
       - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
       - Coupler: models/model_components/coupler.md
-<<<<<<< HEAD
     - Run a Model: 
       - models/run_a_model/index.md
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
@@ -130,24 +129,11 @@ nav:
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
       - Run ACCESS-rAM: models/run_a_model/run_access-ram.md
+      - Run ACCESS-ISSM: models/run_a_model/run_access-issm.md
     - Build a Model:
       - models/build_a_model/index.md
       - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
       - Create Prereleases and Releases for an ACCESS Model: models/build_a_model/create_a_prerelease.md
-=======
-
-  - Run a Model: 
-    - models/run-a-model/index.md
-    # - Run ACCESS-AM: models/run-a-model/run-access-am.md
-    - Run ACCESS-CM2: models/run-a-model/run-access-cm2.md
-    - Run ACCESS-ESM: models/run-a-model/run-access-esm.md
-    - Run ACCESS-OM2: models/run-a-model/run-access-om2.md
-    - Run ACCESS-OM3: models/run-a-model/run-access-om3.md
-    - Run ACCESS-rAM: models/run-a-model/run-access-ram.md
-    - Run ACCESS-ISSM: models/run-a-model/run_access-issm.md
-    - Modify and build an ACCESS model's source code: models/run-a-model/build_a_model.md
-    - Create Prereleases and Releases for an ACCESS Model: models/run-a-model/create-a-prerelease.md
->>>>>>> 0af0488e (added navigation for issm)
 
   - Data and Model Evaluation:
     - model_evaluation/index.md
