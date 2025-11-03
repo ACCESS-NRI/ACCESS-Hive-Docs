@@ -67,8 +67,20 @@ jobs:
           mkdocs build --config-file ${{ inputs.mkdocs_yaml || 'mkdocs.yml' }}
         
       - name: Check links with lychee
+        id: lychee
         uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 #v2.7.0
         with:
-          fail: true
+          fail: false
           failIfEmpty: true
           args: --config ${{ steps.get-lychee-config.outputs.lychee_config_path }} 'site/**/*.html'
+    
+      - name: Fail when broken links found
+        if: steps.lychee.outputs.exit_code == '1'
+        run: |
+          echo "::error::Broken links found!"
+          exit 1
+    
+      - name: Warn if error code is not 0
+        if: ${{ steps.lychee.outputs.exit_code != '0' }}
+        run: |
+          echo "::warning::There were problems with some links!"
