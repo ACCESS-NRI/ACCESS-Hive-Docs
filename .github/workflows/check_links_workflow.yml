@@ -1,0 +1,74 @@
+# Reusable workflow to check for broken links in the documentation using lychee link checker
+# (https://github.com/lycheeverse/lychee)
+
+name: Check links workflow
+
+on: 
+  workflow_call:
+    inputs:
+      mkdocs_yaml:
+        type: string
+        required: false
+        description: "Path to the mkdocs.yml configuration file. If omitted, it is assumed to be located in the repository’s root directory."
+      lychee_config:
+        type: string
+        required: false
+        description: "Path to the lychee configuration file. If omitted, the Hive Docs lychee config is used."
+      python_requirements_txt:
+        type: string
+        required: false
+        description: "Path to the python requirements.txt file. If omitted, it is assumed to be located in the repository’s root directory."
+    # outputs:
+    #   artifact-name:
+    #     description: "The name of the artifact containing the built packages and tarball"
+    #     value: ${{ jobs.upload-artifact.outputs.artifact-name }}
+
+env:
+  DEFAULT_LYCHEE_CONFIG: .github/workflows/lychee_config.toml
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      # If lychee_config is not provided, use the lychee_config.toml in this repo
+      - name: Get lychee config
+        id: get-lychee-config
+        run: |
+          if [ -n '${{ inputs.lychee_config }}' ]; then
+            echo "Using provided lychee config: ${{ inputs.lychee_config }}"
+            echo "lychee_config_path=${{ inputs.lychee_config }}" >> $GITHUB_OUTPUT
+          else
+            lychee_config_path="${{ github.workspace }}/lychee_config.toml"
+            echo "Lychee config not provided. Using default lychee config from Hive Docs repo."
+            curl -L https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/main/${{ env.DEFAULT_LYCHEE_CONFIG }} \
+              -o "$lychee_config_path"
+            echo "lychee_config_path=$lychee_config_path" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Python setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11.x
+      
+      - name: Python setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11.x
+          
+      - name: Install dependencies
+        run: |
+          pip install -r ${{ inputs.python_requirements_txt || 'requirements.txt' }}
+      
+      - name: Build mkdocs site
+        run: |
+          mkdocs build --config-file ${{ inputs.mkdocs_yaml || 'mkdocs.yml' }}
+        
+      - name: Check links with lychee
+        uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 #v2.7.0
+        with:
+          fail: true
+          failIfEmpty: true
+          args: --config ${{ steps.get-lychee-config.outputs.lychee_config_path }} 'site/**/*.html'
