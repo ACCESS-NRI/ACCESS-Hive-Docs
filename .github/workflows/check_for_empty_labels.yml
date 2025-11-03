@@ -13,24 +13,36 @@ jobs:
         permissions:
           issues: write
 
-        steps:
-            # Clone the repository in the workflow runner environment.
-            - uses: actions/checkout@v4
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is added to env to provide GitHub CLI with the authentication token to perform actions.
+          ISSUE_NO: ${{ github.event.issue.number }} # Expressions in curly braces is evaluated by the actions runner before your shell sees the command.
+          REPO: ${{ github.repository }}
 
-            # Use gh to check if labels are added or not.
-            - name: Check labels on new issues
-              id: check_labels
-              env:
-                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token provides GitHub CLI with the authentication token to perform actions.
-                ISSUE_NO: ${{ github.event.issue.number }}
+        steps:
+            - name: Wait 2 minutes
               run: |
-                HAS_NO_LABELS=$(gh issue view "$ISSUE_NO" --json labels --jq '.labels | length == 0')
+                echo "Waiting 2 minutes before checking labels..."
+                sleep 2m  # m means minutes
+
+            - name: Check labels on new issues
+              id: check_issue_labels
+              run: |
+                HAS_NO_LABELS=$(gh issue view "$ISSUE_NO" --repo "$REPO" --json labels --jq '.labels | length == 0')
                 echo "has_no_labels=$HAS_NO_LABELS" >> "$GITHUB_OUTPUT"
 
             - name: Comment on issue
-              if: ${{ steps.check_labels.outputs.has_no_labels == 'true' }}
+              if: steps.check_issue_labels.outputs.has_no_labels == 'true'
               env:
-                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                ISSUE_NO: ${{ github.event.issue.number }}
+                COMMENT: |
+                 ☺️ Hi there! Thank you for opening this issue — we really appreciate your contribution to the ACCESS-Hive documentation.
+
+                  Currently, this issue doesn’t have any labels yet - adding some would help the team with triaging and prioritising issues. 
+                  Please consider adding:
+                  - 🏷️ **A category label** (e.g., `bug`, `enhancement`, `documentation`)
+                  - 🚦 **A priority label** (e.g., `priority: high`, `priority: low`)
+                  - ⏱️ **An estimated effort label** (e.g., `effort: small`, `effort: medium`, `effort: large`)
+
+                  These labels make it easier for maintainers and contributors to understand the scope and urgency of your issue.
+                  Thanks again for helping us keep things organised! 💛
               run: |
-                gh issue comment $ISSUE_NO --body "Whoops! This issue was opened with no labels. Make sure to add appropriate label for this issue."
+                gh issue comment "$ISSUE_NO" --repo "$REPO" --body "$COMMENT"
