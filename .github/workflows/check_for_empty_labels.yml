@@ -19,10 +19,10 @@ jobs:
           REPO: ${{ github.repository }}
 
         steps:
-            - name: Wait 2 minutes
+            - name: Wait 1 minute
               run: |
-                echo "Waiting 2 minutes before checking labels..."
-                sleep 2m  # m means minutes
+                echo "Waiting 1 minute before checking labels..."
+                sleep 1m  # m means minutes
 
             - name: Check labels on new issues
               id: check_issue_labels
