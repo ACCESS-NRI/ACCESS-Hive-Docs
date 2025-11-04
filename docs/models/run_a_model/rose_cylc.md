@@ -183,6 +183,8 @@ git -C ~/roses clone <repository> -b <branch>
 
 where `<repository>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/).
 
+If you want to make exploratory changes within the configuration, and have those changes tracked, please [fork the configuration repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and commit your changes there. If you think your new configuration has significant value to the wider community and you think it should be supported, please refer to the respective model configuration documentation for instructions, as each model has different requirements.
+
 ### Model configurations stored on MOSRS
 
 There are two ways of getting a local copy of a configuration hosted on MOSRS:
