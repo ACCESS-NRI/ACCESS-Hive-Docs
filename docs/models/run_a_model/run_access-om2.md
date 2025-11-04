@@ -321,7 +321,7 @@ Model components are separated into subdirectories within the output and restart
 This section describes how to modify {{ model }} configuration.<br>
 The modifications discussed in this section can change the way {{ model }} is run by _payu_, or how its specific [model components] are configured and coupled together.
 
-The `config.yaml` file located in the _control_ directory is the _Master Configuration_ file, which controls the general model configuration. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
+The `config.yaml` file located in the _control_ directory is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
@@ -352,7 +352,7 @@ For example, to make the model run for 1 year, 4 months and 10 seconds, change `
     It is also important to differentiate between _run length_ and _total experiment length_.<br>
     For more information about their difference, or how to run the model for more than 5 years, refer to [Run configuration for more than 5 years](#run-configuration-for-more-than-5-years).
 
-#### Run configuration for more than 5 years {: .no-toc }
+#### Run configuration for more than 5 years
 
 As mentioned in the [Change run length](#change-run-length) section, you cannot specify more than 5 years as `restart_period`.<br>
 If you want to run a configuration for more than 5 years, you need to use the `-n` option:

@@ -153,7 +153,7 @@ To run the cloned {{ model }} configuration, execute the following command from 
     payu run
 
 This will submit a single job to the supercomputer "queue" with the run length specified in the configuration 
-(1 year in {{ example_branch }}).<br>
+(1 year in this example).<br>
 
 
 For information about changing the run length, refer to [Change run length and restart period](#change-run-length-and-restart-period).
@@ -265,11 +265,11 @@ This command will:
 
 <terminal-window>
     <terminal-line data="input">payu setup</terminal-line>
-    <terminal-line>laboratory path: /scratch/$PROJECT/$USER/access-om3</terminal-line>
-    <terminal-line>binary path: /scratch/$PROJECT/$USER/access-om3/bin</terminal-line>
-    <terminal-line>input path: /scratch/$PROJECT/$USER/access-om3/input</terminal-line>
-    <terminal-line>work path: /scratch/$PROJECT/$USER/access-om3/work</terminal-line>
-    <terminal-line>archive path: /scratch/$PROJECT/$USER/access-om3/archive</terminal-line>
+    <terminal-line>laboratory path: /scratch/.../access-om3</terminal-line>
+    <terminal-line>binary path: /scratch/.../access-om3/bin</terminal-line>
+    <terminal-line>input path: /scratch/.../access-om3/input</terminal-line>
+    <terminal-line>work path: /scratch/.../access-om3/work</terminal-line>
+    <terminal-line>archive path: /scratch/.../access-om3/archive</terminal-line>
     <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
     <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
     <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
@@ -305,42 +305,56 @@ Model components are separated into subdirectories within the output and restart
 
 ## Run an experiment
 
-Once the configuration, and any modifications, are functioning as expected, the configuration can be used to run an experiment. 
+Once the configuration, and any modifications, are functioning as expected, the 
+configuration can be used to run an experiment. 
 To run an experiment, conduct a series of runs until the desired length of the 
 experiment is reached.
 
-If the previous run has [finished succesfully](#model-log-files), then extend it 
-for for another run of the configured run length by executing:
-
-    payu sweep && payu run
-
-To automatically start multiple runs consecutively, use the `-n` flag to request 
-the number of runs.
+To run a configuration for more than the configured run length, use the `-n` option:
 
     payu run -n <number-of-runs>
 
-Where `<number-of-runs>` is the number of runs desired of the configured run length. 
-_Payu_ will submit a run to the queue on gadi, and when it has finished successfuly
-_payu_ submits the next run until a total of `<number-of-runs>` consecutive runs is reached.
+This will run {{ model }} `number-of-runs` consecutive times for the configured 
+run length. This way, the *total experiment length* will be `run-length * number-of-runs`. 
+
+For example, to run a configuration for a total of 10 years with the default run 
+length (1 year), the `number-of-runs` should be set to `10`:
+
+    payu run -n 10
 
 ----------------------------------------------------------------------------------------
 
 ## Edit {{ model }} configuration
 
 This section describes how to modify an {{ model }} configuration.<br>
-The modifications discussed in this section can change how the model software and
- it's [model components] are configured, or the way {{ model }} is run by _payu_, 
+The modifications discussed in this section can change how the model software and 
+it's [model components] are configured, or the way {{ model }} is run by _payu_.
+
+The `config.yaml` file located in the _control_ directory is the _payu_ configuration
+file, which controls the configuration of the experiment manager. It contains several 
+parts, some of which it is more likely will need modification, and others which are 
+rarely changed.
 
 More details on model and _payu_ configuration are found in the 
-[Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) section of {{ model }} config docs.
+[Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) 
+section of {{ model }} config docs. For more information on general _payu_ configuration, 
+refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
-### Edit model configuration
+### Configuring MOM6 diagnostics
 
-#### Change run length and restart period
+MOM6 diagnostic output is configured using the `diag_table` file. However, users should not edit the `diag_table` file directly. Instead, a tool is provided to generate the `diag_table` from an easily editable YAML file. This tool ensures that the `diag_table` requests MOM6 output that is formatted consistently and is suitable for postprocessing (e.g., inclusion in Intake-ESM catalogs). 
+
+Preset `diag_table` files, along with the YAML configuration files used to generate them, can be found in the `diagnostic_profiles` subdirectory of the _control_ directory. To create and use a custom `diag_table`, follow the instructions in `diagnostic_profiles/README.md`.
+
+!!! warning
+    MOM6 provides the ability to vertically remap diagnostics onto user-defined vertical coordinates, including density coordinates (check [MOM6 vertically remapped diagnostics documentation](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html#vertically-remapped-diagnostics) for more information). Remapping to density coordinates can add substantially to the runtime of the model. The default `diag_table` used by {{ model }} includes diagnostics remapped to density coordinates. These should be removed for performance reasons if they are not needed.
+
+
+### Change run length and restart period
 
 The run length, or model duration, can be reduced to minimise resource consumption when debugging and return faster feedback on changes.
 
-The run length and restart period are controlled by a set of parameters in the `CLOCK_attributes` section of the `~/access-om3/{{example_folder}}/nuopc.runconfig` file:
+The run length and restart period are controlled by a set of parameters in the `CLOCK_attributes` section of the `nuopc.runconfig` file:
 
     CLOCK_attributes::
     ﻿     ...
@@ -358,7 +372,7 @@ The restart period is controlled by `restart_option` and `restart_n`, which set 
 !!! tip
     To be able to resume each run from a previous state, the model must save restart files at the end of each run. To achieve this, the `restart_*` fields should be set as a divisor of the time period defined by the `stop_*` values. For long and stable runs, disk usage can be reduced by pruning older restart files as a _payu_ post-processing step. For details, see [Pruning model restarts](/models/run_a_model/run_access-om3/#pruning-model-restarts).
 
-For example, to run a configuration for 2 months and write restart files at the end of the run, set the following in the `~/access-om3/{{example_folder}}/nuopc.runconfig` file:
+For example, to run a configuration for 2 months and write restart files at the end of the run, set the following in the `nuopc.runconfig` file:
 
     CLOCK_attributes::
     ﻿     ...
@@ -369,32 +383,11 @@ For example, to run a configuration for 2 months and write restart files at the 
          stop_option = nmonths
          ...
 
-To run a model for longer than the default run length, conduct multiple runs rather than increasing run length. See [Run an experiment](#run-an-experiment).
+While the model run length can be shortened, it is recommended not to increase it.
+To run a model for longer than the default run length, conduct multiple runs, see 
+[Run an experiment](#run-an-experiment).
 
-#### Configuring MOM6 diagnostics
-
-MOM6 diagnostic output is configured using the `diag_table` file. However, users should not edit the `diag_table` file directly. Instead, a tool is provided to generate the `diag_table` from an easily editable YAML file. This tool ensures that the `diag_table` requests MOM6 output that is formatted consistently and is suitable for postprocessing (e.g., inclusion in Intake catalogs). 
-
-Preset `diag_table` files, along with the YAML configuration files used to generate them, can be found in the `diagnostic_profiles` subdirectory of _payu_'s _control_ directory. To create and use a custom `diag_table`, follow the instructions in `diagnostic_profiles/README.md`.
-
-!!! warning
-    MOM6 provides the ability to vertically remap diagnostics onto user-defined vertical coordinates, including density coordinates (check [MOM6 vertically remapped diagnostics documentation](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html#vertically-remapped-diagnostics) for more information). Remapping to density coordinates can add substantially to the runtime of the model. The default `diag_table` used by {{ model }} includes diagnostics remapped to density coordinates. These should be removed for performance reasons if they are not needed.
-
-#### Create a custom {{ model }} build
-All the executables needed to run {{ model }} are pre-built using _Spack_.<br>
-To customise {{ model }}'s build, including changes in the source code of one of its components, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
-
-
-### Edit _payu_ configuration
-
-_Payu_ is the experiment manager used for {{ model }}. It tracks input and configuration files used and organises model output. 
-It also provides a common interface to several ACCESS models.
-The `config.yaml` file located in the _control_ directory is the _payu_ configuration, which controls the configuration of the experiment manager. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
-
-To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
-
-
-#### Start the run from a specific restart file {: id='specific-restart'}
+### Start the run from a specific restart file {: id='specific-restart' }
 
 By default, the configuration will start from a "cold-start", where initial conditions are set based on observations of salinity and temperature, but all other model variables are zero.
 
@@ -427,7 +420,7 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
     Note that the restart flag used here will only be applied if there is no restart directory in archive, and so does not have to be removed for subsequent submissions. See [Payu docs](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) for further details.
 
 
-#### Modify PBS resources
+### Modify PBS resources
 
 If the model configuration has been altered and the experiment needs: more time to complete, more memory, or to be submitted under a different NCI project; the following section in the config.yaml requires modification:
 
@@ -463,7 +456,8 @@ To use a `/scratch` storage allocation other than `project` (or your default if 
     Doing this will make sure the same `/scratch` location is used for the _laboratory_, regardless of which project is used to run the experiment.
     <br><br>
 
-#### Syncing output data
+
+### Syncing output data
 
 The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, files on `/scratch` storage [are regularly deleted once they have not been accessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason, it is recommended to move climate model outputs to a location with long-term storage.<br>
 On _Gadi_, this is typically in a folder under a project code on `/g/data`.  
@@ -480,7 +474,8 @@ sync:
 ```
 To enable syncing, change `enable` to `True`, and set `path` to a location on `/g/data`, where _payu_ will copy output and restart folders. A sensible `path` could be: `/g/data/$PROJECT/$USER/{{ model }}/experiment_name/`.
 
-#### Pruning model restarts
+
+### Pruning model restarts
 
 By default, {{ model }} saves restart files after each run, allowing subsequent simulations to resume from a previously saved model state. The default {{ model }} run length and restart period can be changed (see [Change run length and restart period](#change-run-length-and-restart-period)).<br>
 However, restart files can occupy significant disk space, and keeping all of them throughout an entire experiment is often not necessary. If disk space is limited, consider using _payu_'s restart files pruning feature, controlled by the `restart_freq` field of the `config.yaml`.
@@ -509,34 +504,39 @@ restart_freq: '50YS'
 
 For more information, check [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#model).
 
+### Other configuration options 
 
-#### Input, forcing and exectuable configuration
+
+
+#### Input, forcing and exectuable configuration {: .no-toc }
 
 This section tells _payu_ which driver to use for the main model configuration (`access-om3`) and the location of the model 
 executable and all input files. These input files capture data needed for the experiment to be run, including grids, bathymetry, 
 land/sea masks, initial conditions and atmospheric forcing data. 
 Information on how these files are generated can be found in the [{{ model }} configuration documentation]({{configs_docs}}).
 
-```yaml
-model: access-om3
+??? code "Expand to show the full `input` section"
 
-exe: access-om3-MOM6-CICE6
-input:
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.02.17/kmt.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.01.30/ocean_hgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.03.19/ocean_temp_salt.res.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.01.30/salt_sfc_restore.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.02.17/topog.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.02.17/access-om3-25km-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.02.17/access-om3-25km-nomask-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.02.17/access-om3-25km-rof-remap-weights.nc
-    - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
-```
+    ```yaml
+    model: access-om3
 
-#### Runlog
+    exe: access-om3-MOM6-CICE6
+    input:
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.02.17/kmt.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.01.30/ocean_hgrid.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.03.19/ocean_temp_salt.res.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.01.30/salt_sfc_restore.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.02.17/topog.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.02.17/access-om3-25km-ESMFmesh.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.02.17/access-om3-25km-nomask-ESMFmesh.nc
+        - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+        - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+        - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.02.17/access-om3-25km-rof-remap-weights.nc
+        - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
+    ```
+
+#### Runlog {: .no-toc }
 
 ```yaml
 runlog: true
@@ -545,7 +545,7 @@ When running a new configuration, _payu_ automatically commits changes with `git
 _payu_ records all inputs, restarts and executables used in an experiment and updates the manifest files with the information for every run.
 When `runlog` is set to `true`, this information is commited to the `git` history, so there is a permanent record of an experiment.
 
-#### Userscripts
+#### Userscripts {: .no-toc }
 
 ```yaml
 userscripts:
@@ -560,6 +560,9 @@ Can specify run scripts or subcommands to be run at various stages of a _payu_ s
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#postprocessing).
 
+### Create a custom {{ model }} build
+All the executables needed to run {{ model }} are pre-built using _Spack_.<br>
+To customise {{ model }}'s build, including changes in the source code of one of its components, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
 
 
 ----------------------------------------------------------------------------------------
