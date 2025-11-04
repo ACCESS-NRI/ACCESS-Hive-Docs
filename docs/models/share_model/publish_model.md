@@ -1,5 +1,7 @@
 {% set example_folder = "25km_jra_ryf" %}
 
+# Hosting experiment repository on Github: a workflow for users for publications. 
+
 !!! Summary
     These instructions are intended to help users share their experiments for publication in papers. They presume the user got started using the model following the "how to run a model" documentation.
 
