@@ -511,7 +511,7 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 #### Input, forcing and exectuable configuration {: .no-toc }
 
 This section tells _payu_ which driver to use for the main model configuration (`access-om3`) and the location of the model 
-executable and all input files. These input files capture data needed for the experiment to be run, including grids, bathymetry, 
+executable and input files. These input files capture data needed for the experiment to be run, including grids, bathymetry, 
 land/sea masks, initial conditions and atmospheric forcing data. 
 Information on how these files are generated can be found in the [{{ model }} configuration documentation]({{configs_docs}}).
 
