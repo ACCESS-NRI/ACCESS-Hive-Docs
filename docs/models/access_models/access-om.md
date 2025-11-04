@@ -17,13 +17,14 @@ The atmospheric fields that drive the model are provided by a data source, usual
 
 ACCESS-NRI has released [{{ model }} configurations](https://github.com/ACCESS-NRI/access-om3-configs).
 
-There is a global configuration for **one spatial resolution**:
+There are global configurations for **one spatial resolution**:
 
 - 0.25° or 25km horizontal resolution, 75 vertical levels.
 
-For the above resolution there is **one option of JRA55-do atmospheric forcing**:
+For the above resolution there are **two options of JRA55-do atmospheric forcing**:
 
 - Repeat Year Forcing (RYF): repeated 1 May 1990 - 30 April 1991 forcing
+- Inter-Annual Forcing (IAF): 1958-2023 forcing
 
 Each configuration also has an optional biogeochemical (BGC) configuration that uses the [Biogeochemistry Ocean component](/models/model_components/bgc_ocean), if required.
 !!! warning
