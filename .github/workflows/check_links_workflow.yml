@@ -18,13 +18,9 @@ on:
         type: string
         required: false
         description: "Path to the python requirements.txt file. If omitted, it is assumed to be located in the repository’s root directory."
-    # outputs:
-    #   artifact-name:
-    #     description: "The name of the artifact containing the built packages and tarball"
-    #     value: ${{ jobs.upload-artifact.outputs.artifact-name }}
 
 env:
-  DEFAULT_LYCHEE_CONFIG: .github/workflows/lychee_config.toml
+  DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/davide/link-checker/.github/workflows/lychee_config.toml
 
 jobs:
   check-links:
@@ -42,17 +38,15 @@ jobs:
             echo "lychee_config_path=${{ inputs.lychee_config }}" >> $GITHUB_OUTPUT
           else
             lychee_config_path="${{ github.workspace }}/lychee_config.toml"
-            echo "Lychee config not provided. Using default lychee config from Hive Docs repo."
-            curl -L https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/main/${{ env.DEFAULT_LYCHEE_CONFIG }} \
+            curl -sSL https://raw.githubusercontent.com/${{ env.DEFAULT_LYCHEE_CONFIG }} \
               -o "$lychee_config_path"
+            echo "Lychee config not provided. Using default lychee config from Hive Docs repo:"
+            echo "============= LYCHEE CONFIG ============="
+            cat $lychee_config_path
+            echo "========================================="
             echo "lychee_config_path=$lychee_config_path" >> $GITHUB_OUTPUT
           fi
 
-      - name: Python setup
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.11.x
-      
       - name: Python setup
         uses: actions/setup-python@v5
         with:
@@ -70,17 +64,6 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 #v2.7.0
         with:
-          fail: false
+          fail: true
           failIfEmpty: true
           args: --config ${{ steps.get-lychee-config.outputs.lychee_config_path }} 'site/**/*.html'
-    
-      - name: Fail when broken links found
-        if: steps.lychee.outputs.exit_code == '1'
-        run: |
-          echo "::error::Broken links found!"
-          exit 1
-    
-      - name: Warn if error code is not 0
-        if: ${{ steps.lychee.outputs.exit_code != '0' }}
-        run: |
-          echo "::warning::There were problems with some links!"
