@@ -139,12 +139,12 @@ nav:
       - Data Variables: model_evaluation/data/variables.md
       - Observational Data: model_evaluation/data/observations.md
       - Accessing Model Data: model_evaluation/data/model_catalogs.md
-
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
       # - Frameworks on Gadi:
       - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
-      - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md   
+      - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
+      - ACCESS Visualisation: model_evaluation/evaluation_on_gadi/access_vis_recipes.md
       - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
       - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
       - METplus: model_evaluation/evaluation_on_gadi/metplus.md
