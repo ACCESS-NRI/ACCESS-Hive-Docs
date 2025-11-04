@@ -11,6 +11,7 @@ on:
     types: [opened, reopened, synchronize]
   push:
     branches: [main, development]
+  workflow_dispatch:
 
 jobs:
   check-links:
