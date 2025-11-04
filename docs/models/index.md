@@ -7,6 +7,18 @@ ACCESS models are computer codes comprising complex mathematical representations
 ## Supported ACCESS Models
 
 <div class="card-container">
+    <!-- ACCESS-AM -->
+    <a href="/models/access-am/" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model-config-logos/configurations-without-titles/access-am.png" class="white-background img-contain"></img> 
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS-AM</span>
+            <span>
+                ACCESS-AM is a global atmospheric model that includes atmosphere, land, atmospheric chemistry, aerosols and land biogeochemsitry components.
+            </span>
+        </div>
+    </a>
     <!-- ACCESS-CM -->
     <a href="/models/access-cm/" class="horizontal-card">
         <div class="card-image-container">
