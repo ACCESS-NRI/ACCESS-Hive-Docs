@@ -8,8 +8,9 @@
 
 ## Quick Start
 
-{{ model }} configurations are hosted on Github and use the [_Rose/Cylc_ workflow tool]()**[TODO] Link to rose/cylc docs when published**.
+{{ model }} configurations are hosted on the [access-am3-configs]({{ github_configs }}) Github repository and use the [_Rose/Cylc_ workflow tool]()**[TODO] Link to rose/cylc docs when published**.
 
+* _Cylc_ version: 7
 * Repository: {{ github_ssh }}
 * Branch: {{ example_branch }}
 
