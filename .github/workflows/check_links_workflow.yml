@@ -20,7 +20,7 @@ on:
         description: "Path to the python requirements.txt file. If omitted, it is assumed to be located in the repository’s root directory."
 
 env:
-  DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/davide/link-checker/.github/workflows/lychee_config.toml
+  DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/main/.github/workflows/lychee_config.toml
 
 jobs:
   check-links:
