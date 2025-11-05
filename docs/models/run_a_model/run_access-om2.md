@@ -619,7 +619,7 @@ For assistance on how to request help from ACCESS-NRI, follow the [guidelines on
 
 <custom-references>
 - [https://cosima.org.au](https://cosima.org.au)
-- [Kiss et al. (2020)](http://doi.org/10.5194/gmd-13-401-2020)
+- [Kiss et al. (2020)](https://doi.org/10.5194/gmd-13-401-2020)
 - [https://payu.readthedocs.io/en/latest/usage.html](https://payu.readthedocs.io/en/latest/usage.html)
 - [https://github.com/access-nri/access-om2](https://github.com/access-nri/access-om2)
 - [https://opus.nci.org.au/](https://opus.nci.org.au/)

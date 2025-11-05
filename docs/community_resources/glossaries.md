@@ -24,7 +24,7 @@
             </span>
         </div>
     </a>
-    <a href="https://science2017.globalchange.gov/chapter/appendix-d/" target="_blank" class="horizontal-card">
+    <a href="https://www.nrc.gov/docs/ML1900/ML19008A410.pdf" target="_blank" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/cssr_logo.png" alt="CSSR" class="img-cover white-background"/> 
         </div>

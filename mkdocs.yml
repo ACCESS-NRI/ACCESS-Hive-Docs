@@ -232,7 +232,6 @@ extra_css:
   - css/responsiveness.css
 
 extra_javascript:
-  - javascripts/mathjax.js # For pymdownx.arithmatex extension
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
   - js/custom-tags.js

@@ -48,7 +48,7 @@ Although the structure of different model deployment repositories can slightly d
 
 The `spack.yaml` file defines the [_Spack_ environment](https://spack.readthedocs.io/en/latest/environments.html#environments-spack-yaml-spack-lock) that constrains the versions and features (variants) of all dependencies required to build a given ACCESS model. At build time, it is [concretized](https://spack.readthedocs.io/en/latest/environments.html#concretizing) into a single set of dependencies, creating a `spack.lock` file.
 
-For more information on the `spack.yaml` file, refer to  [ACCESS-NRI's DevDocs](https://github.com/ACCESS-NRI/dev-docs/wiki/Spack#the-spackyaml-file-spec-file).
+For more information on the `spack.yaml` file, refer to  [ACCESS-NRI's DevDocs](https://github.com/ACCESS-NRI/dev-docs/wiki/Spack#the-spackyaml-file-specmanifest-file).
 
 ### The config directory
 
