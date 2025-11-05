@@ -39,7 +39,7 @@ These recipes enable users to easily visualise climate model data and perform an
     By default, *ACCESS-Vis* caches its data on Gadi in `/scratch/$PROJECT/$USER/.accessvis`
 
   - **Module directories**: Add `/g/data/xp65/public/modules`
-  - **Modules**: Add the environment: `conda/access-vis` or `conda/analysis3`
+  - **Modules**: Add the environment: `conda/analysis3`
 
 #### 3. Launch your JupyterLab session
   - After configuring the session, click *Launch* and wait for the JupyterLab instance to be ready.
