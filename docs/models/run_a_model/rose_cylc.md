@@ -6,7 +6,7 @@ The _Rose/Cylc_ workflow management tool consists of two components: the [_Cylc_
 A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _suite_ (for _Cylc 7_) or _workflow_ (for _Cylc 8_).
 
 !!! warning
-    ACCESS configurations currently use _Cylc7_, with the aim to upgrade to _Cylc8_. The upgrade to _Cylc8_ will come with changes to the way model configurations are run. Once the _Cylc8_ process has been concretized, the [Run a model configuration](#run-a-model-configuration) section will be updated with _Cylc8_ instructions. The respective [Run a Model documentation](https://docs.access-hive.org.au/models/run-a-model/) will specify whether a configuration runs with _Cylc7_ or _Cylc8_.
+    ACCESS models configurations that run with _Rose/Cylc_ use _Cylc7_, with intentions to upgrade to _Cylc8_. The upgrade is expected to change some aspects of the workflow described on this page. Updated information about the _Cylc8_ workflow will be provided once a model configuration using this version becomes available.
 
 ## Prerequisites
 
