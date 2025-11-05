@@ -23,17 +23,7 @@ A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _s
 
     - [access](https://my.nci.org.au/mancini/project/access/join)
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
-    - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
-    - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
     
-    !!! tip
-        To request membership for the _ki32_mosrs_ subproject, you need to:
-        
-        - already be member of the _ki32_ project
-        {: style="list-style-type: disc"}
-        - have a [MOSRS account](#mosrs-account)
-        {: style="list-style-type: disc"}
- 
 ## Connecting to Gadi
 
 You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](https://opus.nci.org.au/spaces/Help/pages/163250532/2.1.+Connecting+to+the+VDI). If you wish to use the Gadi login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
