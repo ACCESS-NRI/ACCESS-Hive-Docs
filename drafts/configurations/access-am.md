@@ -30,6 +30,6 @@ Some experiments already run with other atmospheric model configurations  are li
 [UM-hive]: ../model_components/atmosphere.md#the-unified-model
 [JULES-hive]: ../model_components/land.md#jules
 [CABLE-hive]: ../model_components/land.md#cable
-[UMstart]: http://climate-cms.wikis.unsw.edu.au/Unified_Model
-[UMexperiments]: http://climate-cms.wikis.unsw.edu.au/UM_Experiments
+[UMstart]: https://climate-cms.wikis.unsw.edu.au/Unified_Model
+[UMexperiments]: https://climate-cms.wikis.unsw.edu.au/UM_Experiments
 [ACCESS-CM2-cite]: https://www.publish.csiro.au/es/ES19040

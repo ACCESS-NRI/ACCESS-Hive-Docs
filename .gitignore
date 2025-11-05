@@ -3,3 +3,6 @@ site/*
 *~
 .vscode/
 .lycheecache
+.mypycache__/
+__pycache__/
+lychee_report

@@ -2,7 +2,7 @@
 
 ![Contact](/assets/contact-img.jpg){: class="intro-img img-cover round-edges" loading="lazy"}
 
-ACCESS-Hive Docs is an initiative of the [Australian Earth-System Simulator (ACCESS-NRI)](https://www.access-nri.org.au/about/what-is-access-nri).
+ACCESS-Hive Docs is an initiative of the [Australian Earth-System Simulator (ACCESS-NRI)](https://www.access-nri.org.au/about/).
 
 If you encounter problems/bugs about the content of ACCESS-Hive Docs, or you want to contribute, refer to [how to contribute](/about/contribute).
 
