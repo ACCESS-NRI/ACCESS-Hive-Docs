@@ -16,19 +16,18 @@ A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _s
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **MOSRS account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run any ACCESS those configurations.<br>
+    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run some ACCESS configurations.<br>
     To apply for a MOSRS account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
     {: #mosrs-account}
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
-    - [access](https://my.nci.org.au/mancini/project/access/join)
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
     
 ## Connecting to Gadi
 
-You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](https://opus.nci.org.au/spaces/Help/pages/163250532/2.1.+Connecting+to+the+VDI). If you wish to use the Gadi login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
+You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](https://opus.nci.org.au/spaces/Help/pages/163250532/2.1.+Connecting+to+the+VDI). If you wish to use the _Gadi_ login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
 
 <div markdown id="x11-forwarding">
 !!! warning "X11 Forwarding"
@@ -87,7 +86,7 @@ where `<project>` is the project you want to start the session under, and `<name
 !!! tip
     If `-p <project>` is ommitted, your default project `$PROJECT` will be used.
 
-The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
+Persistent sessions can run simulations using compute and storage resources from any project, independently of the project used for the persistent session itself. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
 ### Assign the persistent session to Cylc {: .no-toc }
 
@@ -103,12 +102,12 @@ You can check that this worked with:
 cat ~/.persistent-sessions/cylc-session
 ```
 
-For example, if user `abc123` started a persistent session named `CM2` under the project `tm70`, then the command would be:
+For example, if user `abc123` started a persistent session named `ForCylc` under the project `tm70`, then the command would be:
 
 <terminal-window data="input">
-    <terminal-line>cat > ~/.persistent-sessions/cylc-session <<< CM2.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
+    <terminal-line>cat > ~/.persistent-sessions/cylc-session <<< ForCylc.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
     <terminal-line data="input" linedelay="1000">cat ~/.persistent-sessions/cylc-session</terminal-line>
-    <terminal-line data="output">CM2.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
+    <terminal-line data="output">ForCylc.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
 ### List active persistent sessions {: .no-toc }
@@ -141,7 +140,7 @@ where `<version>` is the version of _Cylc_ used by the respective configuration.
 
 ### MOSRS Authentication
 
-The ACCESS models which use _Cylc_ require a connection to the MOSRS mirror on Gadi. To connect to this mirror, you must first authenticate your MOSRS credentials with:
+The ACCESS models which use _Cylc_ require a connection to the MOSRS mirror on _Gadi_. To connect to this mirror, you must first authenticate your MOSRS credentials with:
 
 ```
 mosrs-auth
@@ -159,15 +158,17 @@ This will request the username and password you received when you created your M
     <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
 </terminal-window>
 
+After the first authentication, you will need to run `mosrs-auth` every 24 hours and for every new connection to _Gadi_ (e.g. new terminal) to verify your password against the saved credentials.
+
 ## Get the model configuration
 
-Depending on the the specific model, its configuration will be hosted either on _Github_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
+Depending on the specific model, its configuration will be hosted either on _Github_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
 
 Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS).
 
-### Model configurations stored on Github
+### Model configurations stored on _Github_
 
-For Github hosted configurations, get a local copy by cloning the Github repository with:
+For _Github_ hosted configurations, get a local copy by cloning the _Github_ repository with:
 
 ```
 git -C ~/roses clone <repository> -b <branch>
@@ -254,7 +255,7 @@ rose suite-gcontrol &
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective model documentation for details on what outputs are generated and where to find them.
+By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective [model configuration documentation](https://docs.access-hive.org.au/models/access_models/) for details on what outputs are generated and where to find them.
 
 ## Edit the model configuration
 
