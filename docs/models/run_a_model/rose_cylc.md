@@ -1,7 +1,9 @@
 # Run models using Rose/Cylc
 
 ## About
-The _Rose/Cylc_ workflow management tool consists of two components: the [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA), and the [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
+The _Rose/Cylc_ workflow management tool consists of two components:
+
+* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA)* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
 
 A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _suite_ (for _Cylc 7_) or _workflow_ (for _Cylc 8_).
 
@@ -13,9 +15,9 @@ A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _s
 - **NCI account**<br> 
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
-- **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run any ACCESS those configurations.<br>
-    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
+- **MOSRS account**<br>
+    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run any ACCESS those configurations.<br>
+    To apply for a MOSRS account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
     {: #mosrs-account}
 
 - **Join NCI projects**<br>
@@ -30,7 +32,7 @@ You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI sess
 
 <div markdown id="x11-forwarding">
 !!! warning "X11 Forwarding"
-    If you are going to connect via the terminal directly using SSH, it is recommended to connect with `ssh -X` to enable X11 forwarding. This allows the Rose and Cylc GUIs to be launched on your local machine.
+    If using a terminal to connect directly using SSH, it is recommended to connect with `ssh -X` to enable X11 forwarding. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
 </div>
 
 ### Launch ARE VDI Desktop
@@ -61,7 +63,7 @@ NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/sp
 
 It is recommended to only have one active persistent session at any one time as several _Cylc_ sessions can use the same persistent session.
 
-Note that persistent sessions are terminated during the quaterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously.
+Note that persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously.
 
 ### Start a new persistent session
 
@@ -159,7 +161,7 @@ This will request the username and password you received when you created your M
 
 ## Get the model configuration
 
-Depending on the the specific model, its configuration will be hosted either on _Github_ or _MOSRS_. The [Run a Model](/models/run-a-model/) documentation for the respective model will specify where the configuration is stored.<br>
+Depending on the the specific model, its configuration will be hosted either on _Github_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
 
 Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS).
 
@@ -171,10 +173,10 @@ For Github hosted configurations, get a local copy by cloning the Github reposit
 git -C ~/roses clone <repository> -b <branch>
 ```
 
-where `<repository>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/).
+where `<repository>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation.
 
 If you want to make exploratory changes within the configuration, and have those changes tracked, please [fork the configuration repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and commit your changes there.<br>
-If you think your new configuration provide significant value to the broader community, refer to the respective model configuration documentation for instructions on how to have it officially supported by ACCESS-NRI.
+If you think your new configuration provides significant value to the broader community, refer to the respective model configuration documentation for instructions on how to have it officially supported by ACCESS-NRI.
 
 ### Model configurations stored on MOSRS
 
@@ -190,7 +192,7 @@ There are two ways of getting a local copy of a configuration hosted on MOSRS:
 rosie checkout <suite-id>/<branch>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/). This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
+where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation. This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
@@ -205,12 +207,12 @@ Before creating a new remote copy of the configuration, please read [these guide
 rosie copy <suite-id>/<branch>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run-a-model/).
+where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run_a_model/).
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
 
-After running this command, a text editor will open in your terminal (by default, the editor will be Vim- if you're unfamiliar with Vim, see [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor)), where you can define metadata for the new configuration. The metadata fields are expressed as `key=value` pairs, pre-filled with values copied from the original configuration. You can modify these values or add new metadata as needed. Note that `owner`, `project` and `title` are required keys. 
+After running this command, a text editor will open in your terminal, where you can define metadata for the new configuration (the default text editor is _Vim_, and [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor) is a good reference is you're unfamiliar with it). The metadata fields are expressed as `key=value` pairs, pre-filled with values copied from the original configuration. You can modify these values or add new metadata as needed. Note that `owner`, `project` and `title` are required keys. 
 ```
 owner=<MOSRS-username>
 project=<project-name>
@@ -227,7 +229,7 @@ When you exit the editor, you will have to confirm that you want to copy the sui
     <terminal-line>[INFO] &lt;new-suite-id&gt;: local copy created at &lt;$HOME&gt;/roses/&lt;new-suite-id&gt;</terminal-line>
 </terminal-window>
 
-This creates a new remote configuration (having a new `suite-id`) based off the copied configuration and clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original copied configuration and can be modified and pushed back to the remote.
+This creates a new remote configuration with a new `suite_id` (based off the copied configuration) clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original copied configuration and can be modified and pushed back to the remote.
 
 To push a configuration back to the remote, from within the configuration directory run:
 
