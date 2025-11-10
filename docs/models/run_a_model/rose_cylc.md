@@ -133,7 +133,7 @@ Make the `rose` and `cylc` executables available by loading the _Cylc_ module:
 
 ```
 module use /g/data/hr22/modulefiles
-module load cylc<version>
+module load cylc7
 ```
 
 where `<version>` is the version of _Cylc_ used by the respective configuration.
@@ -162,13 +162,13 @@ After the first authentication, you will need to run `mosrs-auth` every 24 hours
 
 ## Get the model configuration
 
-Depending on the specific model, its configuration will be hosted either on _Github_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
+Depending on the specific model, its configuration will be hosted either on _GitHub_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
 
 Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS).
 
-### Model configurations stored on _Github_
+### Model configurations stored on _GitHub_
 
-For _Github_ hosted configurations, get a local copy by cloning the _Github_ repository with:
+For _GitHub_ hosted configurations, get a local copy by cloning the _GitHub_ repository with:
 
 ```
 git -C ~/roses clone <repository> -b <branch>
@@ -255,7 +255,7 @@ rose suite-gcontrol &
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective [model configuration documentation](https://docs.access-hive.org.au/models/access_models/) for details on what outputs are generated and where to find them.
+By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective [Run a model](https://docs.access-hive.org.au/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
 
 ## Edit the model configuration
 
@@ -265,6 +265,6 @@ To edit the model configuration, run the following command from the configuratio
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains information about the configuration settings. The configurable options for each model configuration are described in their respective documentation pages.
+This opens the _Rose_ GUI that contains information about the configuration settings. For a description of the simple configuration settings, see the respective [Run a model](https://docs.access-hive.org.au/models/run_a_model/) documentation.
 
 Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
