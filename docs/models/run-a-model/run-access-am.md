@@ -15,7 +15,8 @@
 * Branch: {{ example_branch }}
 
 Required NCI projects:
+* [access](https://my.nci.org.au/mancini/project/access/join)
 * [ki32](https://my.nci.org.au/mancini/project/ki32/join)
 * [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
 * [vk83](https://my.nci.org.au/mancini/project/vk83/join)
-* [xp65](https://my.nci.org.au/mancini/project/vk65/join)
+* [xp65](https://my.nci.org.au/mancini/project/xk65/join)
