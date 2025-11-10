@@ -1,19 +1,19 @@
 # Run models using Rose/Cylc
 
+!!! warning
+    ACCESS models configurations that run with _Rose/Cylc_ currently use _Cylc7_, with intentions to upgrade to _Cylc8_. The upgrade is expected to change some aspects of the workflow described on this page. Updated information about the _Cylc8_ workflow will be provided once a model configuration using this version becomes available.
+
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
 * The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA)
 * The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
 
-A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _suite_ (for _Cylc 7_) or _workflow_ (for _Cylc 8_).
-
-!!! warning
-    ACCESS models configurations that run with _Rose/Cylc_ use _Cylc7_, with intentions to upgrade to _Cylc8_. The upgrade is expected to change some aspects of the workflow described on this page. Updated information about the _Cylc8_ workflow will be provided once a model configuration using this version becomes available.
+A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_.
 
 ## Prerequisites
 
-- **NCI account**<br> 
+- **NCI account**<br>
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **MOSRS account**<br>
@@ -28,17 +28,17 @@ A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _s
     
 ## Connecting to Gadi
 
-You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](https://opus.nci.org.au/spaces/Help/pages/163250532/2.1.+Connecting+to+the+VDI). If you wish to use the _Gadi_ login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
+You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](/getting_started/are/#vdi). If you wish to use the _Gadi_ login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
 
 <div markdown id="x11-forwarding">
 !!! warning "X11 Forwarding"
-    If using a terminal to connect directly using SSH, it is recommended to connect with `ssh -X` to enable X11 forwarding. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
+    When connecting via SSH from a terminal, it is recommended to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
 </div>
 
 ### Launch ARE VDI Desktop
 
 !!! tip
-    The ARE VDI session does not run configuration tasks directly; it only runs _Rose/Cylc_. The configuration tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
+    The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_. The model tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
 
 The following options are recommended for your ARE VDI desktop session:
 
@@ -50,9 +50,9 @@ The following options are recommended for your ARE VDI desktop session:
 - **Compute Size** &rarr; `tiny` (1 CPU)<br>
 
 - **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...) to run your simulation. By default, this will be set to your default project `$PROJECT`.
+    The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...). By default, this will be set to your default project `$PROJECT`.
 
-- **Storage** &rarr; `gdata/hr22, scratch/$PROJECT` (minimum)<br>
+- **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
 
 Once the ARE VDI session opens in your browser, click the terminal icon at the top of the window to open a terminal. Use this terminal for all subsequent steps in this guide.
@@ -61,7 +61,7 @@ Once the ARE VDI session opens in your browser, click the terminal icon at the t
 
 NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to enable long running processes, like _Cylc_, to stay active even when the user disconnects from _Gadi_.
 
-It is recommended to only have one active persistent session at any one time as several _Cylc_ sessions can use the same persistent session.
+It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
 
 Note that persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously.
 
@@ -85,13 +85,13 @@ where `<project>` is the project you want to start the session under, and `<name
 </terminal-window>
 
 !!! tip
-    If `-p <project>` is ommitted, your default project `$PROJECT` will be used.
+    If `-p <project>` is ommitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
 Persistent sessions can run simulations using compute and storage resources from any project, independently of the project used for the persistent session itself. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
 ### Assign the persistent session to Cylc {: .no-toc }
 
-Once the session is running, it needs to be assigned to _Cylc_. This is done by inserting the persistent session label into `~/.persistent-sessions/cylc-session`, which can be done with the following command (substituting `<name>` and `<project>` for the name and project used to create the persistent session).
+Once the session is running, it needs to be assigned to _Cylc_. This is done by inserting the persistent session label into `~/.persistent-sessions/cylc-session`, which can be done with the following command (substituting `<name>` and `<project>` with the name and project used to create the persistent session).
 
 ```
 cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
@@ -157,7 +157,7 @@ This will request the username and password you received when you created your M
     <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
 </terminal-window>
 
-After the first authentication, you will need to run `mosrs-auth` every 24 hours and for every new connection to _Gadi_ (e.g. new terminal) to verify your password against the saved credentials.
+After the first authentication, you will need to run `mosrs-auth` every 24 hours and for every new connection to _Gadi_ (e.g., new terminal) to verify your password against the saved credentials.
 
 ## Get the model configuration
 
@@ -197,7 +197,7 @@ where `<suite-id>` and `<branch>` are specific to the chosen model configuration
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
 
-Configurations obtained in this way cannot be pushed back to the remote, so use of this command is recommended for testing and examining configurations.
+Configurations obtained in this way cannot be pushed back to the remote. Therefore, the use of this command is recommended for testing and examining configurations.
 
 #### Local and remote copy (new remote configuration) {: #rosie-copy }
 
@@ -229,7 +229,7 @@ When you exit the editor, you will have to confirm that you want to copy the sui
     <terminal-line>[INFO] &lt;new-suite-id&gt;: local copy created at &lt;$HOME&gt;/roses/&lt;new-suite-id&gt;</terminal-line>
 </terminal-window>
 
-This creates a new remote configuration with a new `suite_id` (based off the copied configuration) clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original copied configuration and can be modified and pushed back to the remote.
+This creates a new remote configuration with a new `suite_id` (based off the copied configuration) and clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original copied configuration and can be modified and pushed back to the remote.
 
 To push a configuration back to the remote, from within the configuration directory run:
 
@@ -245,7 +245,7 @@ To run the configuration, execute the following command from within the configur
 rose suite-run
 ```
 
-This launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). If you closed the GUI but want to re-open it, navigate to the configuration directory and run:
+This launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). If you closed the GUI and want to re-open it, navigate to the configuration directory and run:
 
 ```
 rose suite-gcontrol &
@@ -270,5 +270,4 @@ Once settings have been modified in the _Rose_ GUI, save them by clicking on the
 
 You are now ready to a run a model with _Rose/Cylc_.
 
-[Run ACCESS-rAM](/models/run_a_model/run_access-esm){: class="text-card"}
-[Run ACCESS-CM](/models/run_a_model/run_access-cm){: class="text-card"}
+[Run an ACCESS model](/models/run_a_model/){: class="text-card"}
