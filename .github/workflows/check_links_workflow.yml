@@ -21,6 +21,7 @@ on:
 
 env:
   DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/main/.github/workflows/lychee_config.toml
+  BUILD_FOLDER: ${{ github.workspace }}/docs
 
 jobs:
   check-links:
@@ -58,7 +59,7 @@ jobs:
       
       - name: Build mkdocs site
         run: |
-          mkdocs build --config-file ${{ inputs.mkdocs_yaml || 'mkdocs.yml' }}
+          mkdocs build --config-file ${{ inputs.mkdocs_yaml || 'mkdocs.yml' }} -d ${{ env.BUILD_FOLDER }}
         
       - name: Check links with lychee
         id: lychee
@@ -66,4 +67,4 @@ jobs:
         with:
           fail: true
           failIfEmpty: true
-          args: --config ${{ steps.get-lychee-config.outputs.lychee_config_path }} 'site/**/*.html'
+          args: --config ${{ steps.get-lychee-config.outputs.lychee_config_path }} '${{ env.BUILD_FOLDER }}/**/*.html'
