@@ -305,9 +305,9 @@ Model components are separated into subdirectories within the output and restart
 
 ## Run an experiment
 
-Once the configuration, and any modifications, are functioning as expected, the 
-configuration can be used to run an experiment. 
-To run an experiment, conduct a series of runs until the desired length of the 
+Once the configuration, with any modifications required, is functioning as expected, the 
+configuration can be used to conduct an experiment. 
+To conduct an experiment, do a series of runs until the desired length of the 
 experiment is reached.
 
 To run a configuration for more than the configured run length, use the `-n` option:
@@ -335,9 +335,9 @@ file, which controls the configuration of the experiment manager. It contains se
 parts, some of which it is more likely will need modification, and others which are 
 rarely changed.
 
-More details on model and _payu_ configuration are found in the 
+More details on model and _payu_ configuration specific to {{ model }} are found in the 
 [Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) 
-section of {{ model }} config docs. For more information on general _payu_ configuration, 
+section of {{ model }} configuration documentation. For more general information on _payu_ configuration, 
 refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
 ### Configuring MOM6 diagnostics
