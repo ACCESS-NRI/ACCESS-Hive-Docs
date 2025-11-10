@@ -3,7 +3,8 @@
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA)* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
+* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA)
+* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
 
 A set of tasks configured by _Rose_ to run with the _Cylc_ engine is called a _suite_ (for _Cylc 7_) or _workflow_ (for _Cylc 8_).
 
@@ -117,7 +118,7 @@ To list currently active sessions, use:
 ```
 persistent-sessions list
 ```
-### Terminate a persistent sessions {: .no-toc }
+### Terminate a persistent session {: .no-toc }
 
 To end a specific session, use:
 
@@ -135,8 +136,6 @@ Make the `rose` and `cylc` executables available by loading the _Cylc_ module:
 module use /g/data/hr22/modulefiles
 module load cylc7
 ```
-
-where `<version>` is the version of _Cylc_ used by the respective configuration.
 
 ### MOSRS Authentication
 
