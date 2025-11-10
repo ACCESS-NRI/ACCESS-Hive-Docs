@@ -268,3 +268,8 @@ rose edit &
 This opens the _Rose_ GUI that contains information about the configuration settings. For a description of the simple configuration settings, see the respective [Run a model](https://docs.access-hive.org.au/models/run_a_model/) documentation.
 
 Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
+
+You are now ready to a run a model with _Rose/Cylc_.
+
+[Run ACCESS-rAM](/models/run_a_model/run_access-esm){: class="text-card"}
+[Run ACCESS-CM](/models/run_a_model/run_access-cm){: class="text-card"}
