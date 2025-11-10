@@ -4,10 +4,10 @@ These instructions are for running the ACCESS models on the Australian National 
 If you are unsure which ACCESS model is the best fit for your application, you can read more about each model on the [ACCESS Models page](/models/access_models).
 
 <div class="card-container">
-    <!-- ACCESS Workflow Tools -->
+    <!-- Rose/Cylc -->
     <a href="/models/run_a_model/rose_cylc" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_cm_model_visualisation.png" alt="Run models using Rose/Cylc">
+            <img class="img-contain with-padding white-background" src="/assets/rose_cylc_logo.png" alt="Run models using Rose/Cylc">
         </div>
         <div class="card-text-container bold">   
             Run models using Rose/Cylc
