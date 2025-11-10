@@ -38,7 +38,7 @@ This sections describes some concepts and tools mainly around model output data.
     </a>
 </div>
 <div class="card-container">
-    <a href="/model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio1to1">
+    <a href="/model_evaluation/data/model_catalogs" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
             <img src="https://www.access-nri.org.au/wp-content/uploads/2023/03/ACCESS-icon-CRYOSPHERE-Title.png" alt="Cryosphere Datapool" class="img-contain white-background with-padding"></img>
         </div>
