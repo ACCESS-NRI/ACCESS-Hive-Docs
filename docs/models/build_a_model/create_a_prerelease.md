@@ -54,6 +54,10 @@ For more information on the `spack.yaml` file, refer to  [ACCESS-NRI's DevDocs](
 
 The `config` directory contains a single `versions.json` file. This file allows customisation of both the version of [`access-nri/spack`](https://github.com/ACCESS-NRI/spack) used to deploy the model and the version of [`access-nri/spack-packages`](https://github.com/ACCESS-NRI/spack-packages) that will source the recipes for the _Spack_ packages.
 
+    !!! warning
+        It is important that the version of [`access-nri/spack-packages`](https://github.com/ACCESS-NRI/spack-packages) is compatible with the environment. 
+        If there are concretization errors try checking this.
+
 ## Trigger model prerelease and release build deployments
 
 As mentioned above, prerelease build deployments are triggered by a push of one or more commits within a model deployment repository's open PR. When the PR is merged, a release build deployment is created.<br>
