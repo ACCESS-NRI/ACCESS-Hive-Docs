@@ -383,7 +383,7 @@ For example, to run a configuration for 2 months and write restart files at the 
          ...
 
 While the model run length can be shortened, it is recommended not to increase it.
-To run a model for longer than the default run length, conduct multiple runs, see 
+To run the model for longer than the default run length, conduct multiple runs, see 
 [Run an experiment](#run-an-experiment).
 
 ### Start the run from a specific restart file {: id='specific-restart' }
