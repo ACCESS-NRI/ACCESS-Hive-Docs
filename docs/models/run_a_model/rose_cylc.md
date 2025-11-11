@@ -85,7 +85,7 @@ where `<project>` is the project you want to start the session under, and `<name
 </terminal-window>
 
 !!! tip
-    If `-p <project>` is ommitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
+    If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
 Persistent sessions can run simulations using compute and storage resources from any project, independently of the project used for the persistent session itself. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
