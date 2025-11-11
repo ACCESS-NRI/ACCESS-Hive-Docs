@@ -254,7 +254,7 @@ rose suite-gcontrol &
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective [Run a model](https://docs.access-hive.org.au/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
+By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective [Run a model](/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
 
 ## Edit the model configuration
 
@@ -264,7 +264,7 @@ To edit the model configuration, run the following command from the configuratio
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains information about the configuration settings. For a description of the simple configuration settings, see the respective [Run a model](https://docs.access-hive.org.au/models/run_a_model/) documentation.
+This opens the _Rose_ GUI that contains information about the configuration settings. For a description of the simple configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
 
 Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
 
