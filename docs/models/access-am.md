@@ -23,6 +23,6 @@ ACCESS-NRI has released [{{ model }} configurations][run-access-am].
 
 - **Land**: [CABLE](/models/model_components/land#cable).
 
-- **Land Biogeochemistry**: [CASA-CNP](/models/model_components/l`and_bgc#casa_cnp).
+- **Land Biogeochemistry**: [CASA-CNP](/models/model_components/land_bgc#casa_cnp).
 
 [Run ACCESS-AM](/models/run-a-model/run-access-am){: class="text-card"}

@@ -15,7 +15,7 @@ ACCESS models are computer codes comprising complex mathematical representations
         <div class="card-text-container">
             <span class="bold" >ACCESS-AM</span>
             <span>
-                ACCESS-AM is a global atmospheric model that includes atmosphere, land, atmospheric chemistry, aerosols and land biogeochemsitry components.
+                ACCESS-AM is a coupled atmospheric model that includes atmosphere, land, atmospheric chemistry, aerosols and land biogeochemsitry components.
             </span>
         </div>
     </a>
