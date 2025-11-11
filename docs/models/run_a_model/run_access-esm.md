@@ -162,6 +162,8 @@ To run {{ model }} configuration execute the following command from within the *
     payu run
 
 This will submit a single job to the queue with a run length given by [`runtime`](#runtime) in the `config.yaml` file.<br>
+To extend the run for longer than the run length, refer to [Run an experiment](#run-an-experiment)
+
 
 <terminal-window>
     <terminal-line data="input">cd ~/access-esm1.5/preindustrial+concentrations</terminal-line>
