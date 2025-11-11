@@ -4,12 +4,12 @@
 
 ![ACCESS AM model](/assets/model-config-logos/configurations-without-tiles/access-am.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
 
-The ACCESS Atmosphere Model (ACCESS-AM) is a global coupled atmospheric model that includes [atmosphere](), [aerosols and atmospheric chemistry](), [land]() and [land biogeochemistry]().
+The ACCESS Atmosphere Model (ACCESS-AM) is a global coupled atmospheric model that includes [atmosphere](/models/model_components/atmosphere), [aerosols and atmospheric chemistry](/models/model_components/aerosols_atmospheric_chemsitry), [land](/models/model_components/land) and [land biogeochemistry](/models/model_components/bgc_land).
 
 {% set model = "ACCESS-AM3" %}
 ## {{ model }}
 
-{{ model }} is a suite of coupled atmosphere-land configurations developed by ACCESS-NRI, [CSIRO]() and the [ARC Centre of Excellence for Weather in the 21st Century].
+{{ model }} is a suite of coupled atmosphere-land configurations developed by ACCESS-NRI, the [Commonwealth Science and Industrial Research Organisation](https://www.csiro.au/en/research/natural-environment?start=0&count=12) (CSIRO) and the [ARC Centre of Excellence for Weather in the 21st Century](https://21centuryweather.org.au/).
 
 ACCESS-NRI has released [{{ model }} configurations][run-access-am].
 
