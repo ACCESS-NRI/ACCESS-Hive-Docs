@@ -21,7 +21,7 @@ on:
 
 env:
   DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/main/.github/workflows/lychee_config.toml
-  BUILD_FOLDER: ${{ github.workspace }}/docs
+  BUILD_FOLDER: ${{ github.workspace }}/docs_folder
 
 jobs:
   check-links:
