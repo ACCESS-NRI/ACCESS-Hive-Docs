@@ -306,11 +306,10 @@ Model components are separated into subdirectories within the output and restart
 ## Run an experiment
 
 Once the configuration, with any modifications required, is functioning as expected, the 
-configuration can be used to conduct an experiment. 
-To conduct an experiment, do a series of runs until the desired length of the 
-experiment is reached.
-
-To run a configuration for more than the configured run length, use the `-n` option:
+configuration can be used to conduct an [experiment](/about/faq/?h=experiments). 
+An experiment consists of a series of subsequent runs with each run continuing from 
+where the previous one ended. To conduct an experiment, do a series of runs until the 
+desired length of the experiment is reached, using the `-n` option:
 
     payu run -n <number-of-runs>
 
