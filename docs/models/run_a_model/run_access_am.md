@@ -8,13 +8,17 @@
 
 ## Quick Start
 
-{{ model }} configurations are hosted on the [access-am3-configs]({{ github_configs }}) Github repository and use the [_Rose/Cylc_ workflow tool]()**[TODO] Link to rose/cylc docs when published**.
+!!! warning
+If you have not yet read the guide on using the _Rose/Cylc_ tool, please read our [_Rose/Cylc_ documentation](/models/run-a-model/rose-cylc.md) before continuing.
 
-* _Cylc_ version: 7
-* Repository: {{ github_ssh }}
-* Branch: {{ example_branch }}
+{{ model }} configurations are hosted on the [access-am3-configs]({{ github_configs }}) _GitHub_ repository and use the [_Rose/Cylc_ workflow tool](/models/run-a-model/rose-cylc). The _Cylc_ version and remote host location are:
 
-Required NCI projects:
+* [_Cylc_ version](/models/run-a-model/rose-cylc/#rose-and-cylc-executables): 7
+* [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
+* [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
+
+In addition to the projects specified in the [_Rose/Cylc_ documentation](/models/run-a-model/rose-cylc/#prerequisites), the following project memberships are required:
+* [access](https://my.nci.org.au/mancini/project/access/join)
 * [ki32](https://my.nci.org.au/mancini/project/ki32/join)
 * [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
 * [vk83](https://my.nci.org.au/mancini/project/vk83/join)
