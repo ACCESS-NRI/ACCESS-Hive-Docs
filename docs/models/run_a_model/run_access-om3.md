@@ -155,7 +155,7 @@ To run the cloned {{ model }} configuration, execute the following command from 
 This will submit a single job to the supercomputer "queue" with the run length specified in the configuration 
 (1 year in this example).<br>
 
-To extend the run for longer than the run length, refer to [Run an experiment](#run-an-experiment)
+To extend the run for longer than the run length, refer to [Run an experiment](#run-an-experiment).<br>
 To change the run length, refer to [Change run length and restart period](#change-run-length-and-restart-period).
 
 <terminal-window>
