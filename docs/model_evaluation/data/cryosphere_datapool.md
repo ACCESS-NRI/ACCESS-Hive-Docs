@@ -1,49 +1,33 @@
-# Cryosphere Datapool
+# Cryosphere Community Datapool
 
-<!-- For this content, I have used a lot of text from this website: https://pro.arcgis.com/en/pro-app/latest/help/data/multidimensional/fundamentals-of-netcdf-data-storage.htm -->
+The Cryosphere Community Datapool (CCP) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCP has been designed as an open-access and freely available cryospheric data resource for the community primarily containing (*but not limited to*):
 
-Model evaluation often requires comparison across different models, such as for the [Coupled Model Intercomparison Project (CMIP)](https://wcrp-cmip.org). However, comparing output from different models can be tricky due to the multiple data formats and standards used across models. This is why ACCESS-NRI supports and encourages the use of common, community-supported data formats and variables.
+* <b>Observational data</b>
+  * Ice velocities, inSAR
+<br><br>
+* <b>Derived data</b>
+  * Elevation and Geometry data (e.g. BedMachine, BedMap, MEaSUREs)
+<br><br>
+* <b>Experiment data</b>
+  * Ice-sheet modelling output (e.g. ISSM)
 
-## Data Standards
-Data standards are agreed-upon guidelines for the "representation, format, definition, structuring, tagging, transmission, manipulation, use, and management" of datasets (definition from [Geoscience Australia](https://www.ga.gov.au/data-pubs/datastandards)). Abiding by these standardized guidelines allow for, among other things, easier sharing and combining of data, as well as the ability to better understand which quantities can be compared across datasets - very important for model evaluation.
+## Data hosting and access
+All data in the CCP are securely hosted on the National Computational Infrastructure (NCI) Gadi system storage within the `av17` project and are available to all users with an NCI account. If you do not have an NCI account, you can sign up [here](https://my.nci.org.au/mancini/signup) for free. If you do have a NCI Gadi account but are not a member of `av17`, you must apply to join the project from within your [NCI account](https://my.nci.org.au/mancini/login).
 
-An example data standard in climate models is the use of [Climate and Forecast metadata conventions (CF conventions)](https://cfconventions.org). These are designed to promote the processing and sharing of _NetCDF_ files (described in more detail below). The conventions specify metadata that provide a definitive description of what the data in each variable represents, and the spatial and temporal properties of the data.
+## Available data
+The data listed in the following summary table are currently hosted in the CCP. All data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `av17` project membership, and can be found at `/g/data/av17/access-nri/cryosphere-data-pool/`.
 
-Metadata is information about the data, which can include variable names, dimension names, units, grid information and many others. Standardized metadata can also be more easily made machine readable, allowing software packages to interpret, for example, variable names automatically and making data analysis more efficient and less error prone. The machine readability of standardized formats thus facilitates building software applications with powerful extraction, regridding and display capabilities.
+#### Elevation models & geometry data
 
-Currently, many models do not abide by the CF conventions by default. However, there is a software library called [CMOR (Climate Model Output Rewriter)](https://cmor.llnl.gov) that translates native climate model output into output that complies with the CF conventions. The process of CMORizing is specifically designed for model intercomparison projects, like CMIP.
+| Dataset name              | Key variables | `av17` path | Source | API |
+| :------------------------ | :------------ | :--------: |:------: | :---: |
+| BedMachine Antarctica v1  | Bed topography, bed uncertainty, bathymetry, ice surface elevation, ice thickness, ice mask  | [Path](/g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_bedmachine_antarctica/v1) | [Link](https://nsidc.org/data/nsidc-0756/versions/1) |  |
+| BedMachine Antarctica v2 | Bed topography, bed uncertainty, bathymetry, ice surface elevation, ice thickness, ice mask  | [Path](/g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_bedmachine_antarctica/v2) | [Link](https://nsidc.org/data/nsidc-0756/versions/1) |  |
+| Codecademy Tee    |  False   | 19.99 |Source | Source |
+| Codecademy Hoodie |  False   | 42.99 |Source | Source |
 
-## Network Common Data Format (NetCDF)
 
-Numerous organisations and scientific groups worldwide have adopted a file format called [_NetCDF_](https://www.unidata.ucar.edu/software/netcdf/) as a standard way to store multidimensional scientific data.
-
-<i>NetCDF</i>, which has the file extension <i>*.nc</i>, is a self-describing, machine-independent data format of array-oriented scientific data.
-
-<ul>
-<li><b>Self-describing</b>
-    <br>
-    <i>*.nc</i> files include not only the data, but also a header with metadata that describes the data layout.
-
-<li><b>Machine-independent</b>
-    <br>
-    <i>*.nc</i> files can be accessed by computers with different ways of storing integers, characters and floating-point numbers.
-
-<li><b>Array-oriented</b>
-    <br>
-    <i>*.nc</i> data typically spans multiple dimensions with the same lengths (e.g., latitude, longitude and time) and variables (e.g., temperature and humidity), which are stored in arrays.
-    <br>
-    <br>
-    <div style="text-align: center;">
-        <img src="../../../assets/model_evaluation/xarray2.png" alt="Schematic of a NetCDF file with data (temperature and pressure as variables stored over the dimensions latitude, longitude, and time) and metadata" title="xarray https://xarray.dev/" width="75%"/>
-    </div>
-</ul>
-
-Data in a *NetCDF* file is stored in the form of arrays, where each *NetCDF* dimension has a name and a length. NetCDF variables and coordinates can also have a different number of dimensions.
-
-For example, surface temperature variation over time at a fixed location would be stored as a one-dimensional array (with dimension *time*), whereas surface temperature that varies over a region at a fixed point in time would be stored as a two-dimensional array (with dimensions *longitude, latitude*). An example of three-dimensional (3D) data would be surface temperature varying with time over a region (with dimensions *longitude, latitude, time*), and four-dimensional (4D) data would be temperature varying with time over a region with varying altitude (with dimensions *longitude, latitude, altitude, time*).
-
-## Loading NetCDF files
-
+## Contribute
 There are many ways of reading files, though a common way is via the Python package *xarray*.
 <br>
 For more information, refer to a <a href="https://docs.xarray.dev/en/stable/getting-started-guide/quick-overview.html" target="_blank">quick overview of xarray</a> and <a href="https://tutorial.xarray.dev/intro.html" target="_blank">xarray tutorials</a>.
