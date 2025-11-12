@@ -155,7 +155,7 @@ To run {{ model }} configuration execute the following command from within the *
 
 This will submit a single job to the queue with a run length of `restart_period`.<br>
 
-To extend the run for longer than `restart_period`, refer to [Run an experiment](#run-an-experiment)
+To extend the run for longer than `restart_period`, refer to [Run an experiment](#run-an-experiment).<br>
 For information about `restart_period`, refer to [Change run length](#change-run-length).
 
 <terminal-window>
