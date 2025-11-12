@@ -305,8 +305,8 @@ Model components are separated into subdirectories within the output and restart
 
 ## Run an experiment
 
-An experiment consists of a series of subsequent runs with each run continuing from 
-where the previous one ended. To conduct an experiment, use the `-n` option to submit a series of runs until the desired length of the experiment is reached:
+An experiment consists of a series of subsequent runs with each run continuing from where the previous one ended. 
+To conduct an experiment, use the `-n` option to submit a series of runs until the desired length of the experiment is reached:
 
     payu run -n <number-of-runs>
 
