@@ -5,12 +5,12 @@ title: '[BUG]: '
 body: 
   - type: markdown
     attributes: 
-      value: Thanks taking the time to create this bug report!
+      value: Thanks for taking the time to create this bug report!
 
   - type: textarea
     attributes:
-      label: Description
-      description: Also tell us, what happened?
+      label: Bug description
+      description: Please tell us, what happened?
       placeholder: Please describe the bug.
     validations:
         required: true
