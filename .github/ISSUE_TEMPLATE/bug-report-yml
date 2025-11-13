@@ -1,0 +1,58 @@
+name: Bug Report
+description: Something isn't working, is misplaced or misspelt.
+labels: ['bug / mistake']
+title: '[BUG]: '
+projects: ['my-github-actions']
+body: 
+  - type: markdown
+    attributes: 
+      value: Thanks taking the time to create this bug report!
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Also tell us, what happened?
+      placeholder: Please describe the bug.
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: Tell us what you expected to see!
+      placeholder:
+        "Explain why the current behavior is a problem, \
+        what the expected behavior should be, and \
+        why expected outcome would be a better solution."
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Minimal step-by-step instructions for replicating the bug.
+      placeholder: Go to... Click on... Scroll down to... See error
+
+  - type: textarea
+    attributes:
+      label: Screenshots or Logs
+      description: If applicable, please copy and paste any relevant log output or screenshots.  
+      placeholder: Visuals or logs can help others understand the problem quickly.
+
+  - type: dropdown
+    attributes: 
+      label: What browsers are you seeing the problem on?
+      description: Select all options that apply. 
+      multiple: true
+      options: 
+        - Safari
+        - Chrome
+        - Firefox
+        - Microsoft Edge
+      
+
+  - type: textarea
+    attributes: 
+      label: Additional information
+      description: Any other context about the problem here. 
+      
