@@ -29,8 +29,6 @@ As an example, in the following instructions we will show how to modify [MOM5 co
 !!! tip
     The following instructions are valid (with simple tweaks) for all [ACCESS models].
 
-## Prerequisites
-
 - **NCI account**<br>
   Before building a model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
@@ -126,6 +124,11 @@ spack concretize -f --reuse-deps
     ```
     spack concretize -f --fresh
     ```
+
+    The version of [`access-nri/access-spack-packages`](https://github.com/ACCESS-NRI/access-spack-packages) must be compatible with the environment. If there are concretization errors try checking the version you cloned is the same as the version used in the deployment repository.
+
+## Prerequisites
+
 
 <terminal-window lineDelay=0>
   <terminal-line data="input" lineDelay=200 directory="[mom5_dev]" class="spack">
