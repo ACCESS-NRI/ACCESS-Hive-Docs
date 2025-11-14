@@ -11,14 +11,14 @@ body:
     attributes:
       label: Bug description
       description: Please tell us, what happened?
-      placeholder: Please describe the bug.
+      placeholder: When running the command... I got an error... 
     validations:
         required: true
 
   - type: textarea
     attributes:
       label: Expected Behavior
-      description: Tell us what you expected to see!
+      description: What were you expecting to see?
       placeholder:
         "Explain why the current behavior is a problem, \
         what the expected behavior should be, and \
@@ -29,14 +29,15 @@ body:
   - type: textarea
     attributes:
       label: Steps to Reproduce
-      description: Minimal step-by-step instructions for replicating the bug.
+      description: What are the minimal step-by-step instructions for replicating the bug?
       placeholder: Go to... Click on... Scroll down to... See error
+    validations:
+      required: true
 
   - type: textarea
     attributes:
       label: Screenshots or Logs
       description: If applicable, please copy and paste any relevant log output or screenshots.  
-      placeholder: Visuals or logs can help others understand the problem quickly.
 
   - type: dropdown
     attributes: 
@@ -53,5 +54,5 @@ body:
   - type: textarea
     attributes: 
       label: Additional information
-      description: Any other context about the problem here. 
+      description: Please add any other context about the problem here. 
       
