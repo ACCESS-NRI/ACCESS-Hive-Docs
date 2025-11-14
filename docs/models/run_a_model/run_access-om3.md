@@ -333,7 +333,7 @@ rarely changed.
 
 More details on model and _payu_ configuration specific to {{ model }} are found in the 
 [Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) 
-section of {{ model }} configuration documentation. For more general information on _payu_ configuration, 
+section of {{ model }} configs documentation. For more general information on _payu_ configuration, 
 refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
 ### Configuring MOM6 diagnostics
@@ -444,7 +444,7 @@ For example, to run {{ model }} under the `ol01` project (COSIMA Working Group),
 project: ol01
 ```
 
-To use a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` (e.g. to the desired `/scratch/PROJECT_CODE`). 
+To use a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` (e.g., to the desired `/scratch/PROJECT_CODE`). 
 
 
 !!! warning
@@ -455,7 +455,7 @@ To use a `/scratch` storage allocation other than `project` (or your default if 
 
 ### Syncing output data
 
-The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, files on `/scratch` storage [are regularly deleted once they have not been accessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason, it is recommended to move climate model outputs to a location with long-term storage.<br>
+The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, where files [are regularly deleted once they have not been accessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason, it is recommended to move climate model outputs to a location with long-term storage.<br>
 On _Gadi_, this is typically in a folder under a project code on `/g/data`.  
 
 _Payu_ has built-in support to sync outputs, restarts and a copy of the _control_ directory `git` history to another location.<br>

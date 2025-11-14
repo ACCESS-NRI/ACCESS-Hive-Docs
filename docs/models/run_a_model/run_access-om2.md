@@ -433,7 +433,7 @@ For example, to run {{ model }} under the `ol01` project (COSIMA Working Group),
 project: ol01
 ```
 
-For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` (e.g. to the desired `/scratch/PROJECT_CODE`). 
+For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` (e.g., to the desired `/scratch/PROJECT_CODE`). 
 
 !!! warning
     If changing projects during an experiment, set the `shortpath` field so that it's consistent for all runs of an experiment.
