@@ -33,7 +33,7 @@ ACCESS-NRI now supports and maintains the `conda/analysis3` _Python_ environment
 !!! tip
     If you have previously added commands to load the `hh5` `conda/analysis3` environment within your `.bashrc` or `.bash_profile` file, we strongly recommend **completely removing those lines**, 
     as programmatically loading environments that way might lead to unexpected interference with other processes on _Gadi_.<br><br>
-    A safer approach is to define a [Bash alias](https://tldp.org/LDP/abs/html/aliases.html#:~:text=A%20Bash%20alias%20is%20essentially,a%20ls%20%2Dl%20%7C%20more.) or shell function that runs your desired series of commands. 
+    A safer approach is to define a [Bash alias](https://tldp.org/LDP/abs/html/aliases.html) or shell function that runs your desired series of commands. 
     You can then manually invoke the alias whenever needed.<br>
     For example, you can add the following line to your `.bashrc` or `.bash_profile` file:
     ```sh

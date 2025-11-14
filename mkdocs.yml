@@ -123,6 +123,7 @@ nav:
       - Coupler: models/model_components/coupler.md
     - Run a Model: 
       - models/run_a_model/index.md
+      - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
       - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
@@ -232,7 +233,6 @@ extra_css:
   - css/responsiveness.css
 
 extra_javascript:
-  - javascripts/mathjax.js # For pymdownx.arithmatex extension
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
   - js/custom-tags.js

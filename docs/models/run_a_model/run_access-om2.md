@@ -586,17 +586,6 @@ When running a new configuration, _payu_ automatically commits changes with `git
     This should not be changed as it is an essential part of the provenance of an experiment.<br>
     _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the `git` history, so there is a record of all inputs, restarts, and executables used in an experiment.
 
-#### Platform {: .no-toc }
-
-```yaml
-platform: 
-    nodesize: 48
-```
-Set platform-specific default parameters.<br>
-In the example above, the default number of cpus per node is set to 48. 
-!!! warning
-    This might need changing if the configuration is run on hardware with different node structure.
-
 #### Userscripts {: .no-toc }
 
 ```yaml
@@ -614,17 +603,6 @@ A dictionary to run scripts or subcommands at various stages of a _payu_ submiss
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#postprocessing).
 
-#### Miscellaneous {: .no-toc }
-
-The following configuration settings should never require changing:
-
-```yaml
-stacksize: unlimited
-mpirun: --mca io ompio --mca io_ompio_num_aggregators 1
-qsub_flags: -W umask=027
-env:
-    UCX_LOG_LEVEL: 'error'
-```
 
 ### Edit a single {{ model }} component configuration
 
@@ -645,7 +623,7 @@ For assistance on how to request help from ACCESS-NRI, follow the [guidelines on
 
 <custom-references>
 - [https://cosima.org.au](https://cosima.org.au)
-- [Kiss et al. (2020)](http://doi.org/10.5194/gmd-13-401-2020)
+- [Kiss et al. (2020)](https://doi.org/10.5194/gmd-13-401-2020)
 - [https://payu.readthedocs.io/en/latest/usage.html](https://payu.readthedocs.io/en/latest/usage.html)
 - [https://github.com/access-nri/access-om2](https://github.com/access-nri/access-om2)
 - [https://opus.nci.org.au/](https://opus.nci.org.au/)

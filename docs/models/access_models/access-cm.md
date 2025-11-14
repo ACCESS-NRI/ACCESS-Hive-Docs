@@ -7,7 +7,7 @@ It produces physical climate simulations.
 
 {% set model = "ACCESS-CM2" %}
 
-## {{ ACCESS-CM2 }}
+## {{ model }}
 
 !!! danger
     ACCESS-NRI does not maintain an official {{model}} release, but we continue to support the community in using this model where possible.

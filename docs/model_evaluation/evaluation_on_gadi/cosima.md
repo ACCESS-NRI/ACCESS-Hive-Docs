@@ -1,14 +1,14 @@
 # COSIMA Cookbook on Gadi
 
 
-<a href="http://cosima.org.au/" target="_blank">COSIMA</a> stands for the Consortium for Ocean-Sea Ice Modelling in Australia, which brings together Australian-based researchers involved in global ocean and sea ice modelling. The <i>COSIMA Cookbook</i> is a collection of "recipes", i.e., computational notebooks in the form of tutorials and documented examples that are curated for analysing output from ocean-sea ice models.
+<a href="https://cosima.org.au/" target="_blank">COSIMA</a> stands for the Consortium for Ocean-Sea Ice Modelling in Australia, which brings together Australian-based researchers involved in global ocean and sea ice modelling. The <i>COSIMA Cookbook</i> is a collection of "recipes", i.e., computational notebooks in the form of tutorials and documented examples that are curated for analysing output from ocean-sea ice models.
 
 ???+ warning "Support Level: Supported on <i>Gadi</i>, but not owned by ACCESS-NRI"
     <!-- Who develped the tool? -->
     The <i>COSIMA Cookbook</i> is developed and maintained by COSIMA. While ACCESS-NRI does not own the code, it actively supports the use of the recipes within the <i>COSIMA Cookbook</i> on <i>Gadi</i>. 
     ACCESS-NRI provides access to the latest version of <i>COSIMA Cookbook</i> via the `xp65` `conda/analysis3` conda environment for Model Evaluation on Gadi.
 
-The <i>COSIMA Cookbook</i> framework focuses on the <a href="/models/access_models/access-om">ACCESS-OM2</a> suite of models being developed and run by members of <a href="http://cosima.org.au/" target="_blank">COSIMA</a>. Nevertheless, this framework is suited to analysing any MOM5/MOM6 output as well as output from other models.
+The <i>COSIMA Cookbook</i> framework focuses on the <a href="/models/access_models/access-om">ACCESS-OM2</a> suite of models being developed and run by members of <a href="https://cosima.org.au/" target="_blank">COSIMA</a>. Nevertheless, this framework is suited to analysing any MOM5/MOM6 output as well as output from other models.
 
 ## Getting Started
 
@@ -34,8 +34,8 @@ To use the <i>COSIMA Cookbook</i> that is pre-installed in the `conda/analysis3`
 
 For more information on the <i>COSIMA Cookbook</i>, refer to the <a href="https://github.com/COSIMA/cosima-recipes" target="_blank">GitHub repository</a>, as well as the following lists of recipes:
 
-- <a href="https://cosima-recipes.readthedocs.io/en/latest/tutorials.html" target="_blank">Tutorials</a>
-- <a href="https://cosima-recipes.readthedocs.io/en/latest/recipes.html" target="_blank">Recipes</a>
-- <a href="https://github.com/COSIMA/cosima-recipes/tree/main/ACCESS-OM2-GMD-Paper-Figs" target="_blank">Notebooks</a> to reproduce figures of the <a href="https://gmd.copernicus.org/articles/13/401/2020/" target="_blank">ACCESS-OM2 announcement paper</a>
+- <a href="https://cosima-recipes.readthedocs.io/en/latest/cooking-lessons-101/index.html" target="_blank">Tutorials</a>
+- <a href="https://cosima-recipes.readthedocs.io/en/latest/appetisers.html" target="_blank">Recipes</a>
+- <a href="https://github.com/COSIMA/cosima-recipes/tree/cosima_cookbook/ACCESS-OM2-GMD-Paper-Figs" target="_blank">Notebooks</a> to reproduce figures of the <a href="https://gmd.copernicus.org/articles/13/401/2020/" target="_blank">ACCESS-OM2 announcement paper</a>
 
 
