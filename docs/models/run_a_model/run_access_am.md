@@ -9,7 +9,10 @@
 ## Quick Start
 
 !!! warning
-If you have not yet read the guide on using the _Rose/Cylc_ tool, please read our [_Rose/Cylc_ documentation](/models/run-a-model/rose-cylc.md) before continuing.
+    If you have not yet read the guide on using the _Rose/Cylc_ tool, please read our [_Rose/Cylc_ documentation](/models/run-a-model/rose-cylc.md) before continuing.
+
+!!! warning
+    These configurations are based off licensed configurations from the UK Met Office (UKMO). This means the configurations repository is private. To request access to the configurations repository (and associated model component repositories), please contact us [through the forum]().
 
 {{ model }} configurations are hosted on the [access-am3-configs]({{ github_configs }}) _GitHub_ repository and use the [_Rose/Cylc_ workflow tool](/models/run-a-model/rose-cylc). The _Cylc_ version and remote host location are:
 
@@ -23,3 +26,5 @@ In addition to the projects specified in the [_Rose/Cylc_ documentation](/models
 * [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
 * [vk83](https://my.nci.org.au/mancini/project/vk83/join)
 * [xp65](https://my.nci.org.au/mancini/project/xp65/join)
+
+See the [model configuration documentation](https://access-nri.github.io/access-am3-configs-doc/) for more detailed information about the configuration.
