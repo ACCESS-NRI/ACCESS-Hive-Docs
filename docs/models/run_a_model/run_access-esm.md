@@ -162,6 +162,8 @@ To run {{ model }} configuration execute the following command from within the *
     payu run
 
 This will submit a single job to the queue with a run length given by [`runtime`](#runtime) in the `config.yaml` file.<br>
+To extend the run for longer than the run length, refer to [Run an experiment](#run-an-experiment)
+
 
 <terminal-window>
     <terminal-line data="input">cd ~/access-esm1.5/preindustrial+concentrations</terminal-line>
@@ -316,6 +318,23 @@ Model components are separated into subdirectories within the output and restart
 
 ----------------------------------------------------------------------------------------
 
+## Run an experiment
+
+An experiment consists of a series of subsequent runs with each run continuing from where the previous one ended. 
+To conduct an experiment, use the `-n` option to submit a series of runs until the desired length of the experiment is reached:
+
+    payu run -n <number-of-runs>
+
+This will run {{ model }} `number-of-runs` consecutive times for the configured 
+run length. This way, the *total experiment length* will be `runtime * number-of-runs`. 
+
+For example, to run a configuration for a total of 10 years with the default run 
+length (1 year), the `number-of-runs` should be set to `10`:
+
+    payu run -n 10
+
+----------------------------------------------------------------------------------------
+
 ## Edit {{ model }} configuration {: #edit-{{ model.lower() }}-configuration }
 
 This section describes how to modify {{ model }} configuration.<br>
@@ -342,13 +361,8 @@ At the end of each run length, each model component saves its state into a _rest
 !!! warning
     The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in order to avoid errors. Shorter simulations can be useful when setting up and debugging new experiments, however they require additional configuration changes. See the section [Run for less than one year](#shorter-runs) for details.
 
-To run {{ model }} configuration for multiple subsequent _run lengths_ (each with duration `runtime` in the `config.yaml` file), use the option `-n` with the `payu run` command:
-
-```
-payu run -f -n <number-of-runs>
-```
-
-This will run the configuration `number-of-runs` times, resulting in a _total experiment length_ of `runtime * number-of-runs`. The runs will be split across a number of consecutive [PBS jobs][PBS job] submitted to the queue, as controlled by the `runspersub` value specified in the config.yaml file.
+To run the model for longer than the default run length, conduct multiple runs, see 
+[Run an experiment](#run-an-experiment).
     
 #### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
 
