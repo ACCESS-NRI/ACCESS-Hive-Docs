@@ -154,6 +154,8 @@ To run {{ model }} configuration execute the following command from within the *
     payu run
 
 This will submit a single job to the queue with a run length of `restart_period`.<br>
+
+To extend the run for longer than `restart_period`, refer to [Run an experiment](#run-an-experiment).<br>
 For information about `restart_period`, refer to [Change run length](#change-run-length).
 
 <terminal-window>
@@ -313,15 +315,33 @@ Model components are separated into subdirectories within the output and restart
     <terminal-line class="ls-output-format">&lt;jobname&gt;.e&lt;job-ID&gt; &lt;jobname&gt;.o&lt;job-ID&gt; accessom2.nml atmosphere doc LICENSE metadata.yaml ocean testing archive config.yaml ice manifests namcouple README.md tools</terminal-line>
 </terminal-window>
 
+----------------------------------------------------------------------------------------
+
+## Run an experiment
+
+An experiment consists of a series of subsequent runs with each run continuing from where the previous one ended. 
+To conduct an experiment, use the `-n` option to submit a series of runs until the desired length of the experiment is reached:
+
+    payu run -n <number-of-runs>
+
+This will run {{ model }} `number-of-runs` consecutive times for the configured 
+run length. This way, the *total experiment length* will be `run-length * number-of-runs`. 
+
+For example, to run a configuration for a total of 50 years with a the default `restart_period` 
+of 5 years, the `number-of-runs` should be set to `10`:
+
+    payu run -n 10
+
 
 ----------------------------------------------------------------------------------------
 
 ## Edit {{ model }} configuration
 
 This section describes how to modify {{ model }} configuration.<br>
-The modifications discussed in this section can change the way {{ model }} is run by _payu_, or how its specific [model components] are configured and coupled together.
+The modifications discussed in this section can change how the model software and 
+it's [model components] are configured, or the way {{ model }} is run by _payu_.
 
-The `config.yaml` file located in the _control_ directory is the _Master Configuration_ file, which controls the general model configuration. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
+The `config.yaml` file located in the _control_ directory is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
@@ -346,25 +366,9 @@ For example, to make the model run for 1 year, 4 months and 10 seconds, change `
 
     restart_period = 1, 4, 10
 
-!!! warning
-    While `restart_period` can be reduced, it should not be increased to more than 5 years to avoid errors.
-    <br><br>
-    It is also important to differentiate between _run length_ and _total experiment length_.<br>
-    For more information about their difference, or how to run the model for more than 5 years, refer to [Run configuration for more than 5 years](#run-configuration-for-more-than-5-years).
-
-#### Run configuration for more than 5 years {: .no-toc }
-
-As mentioned in the [Change run length](#change-run-length) section, you cannot specify more than 5 years as `restart_period`.<br>
-If you want to run a configuration for more than 5 years, you need to use the `-n` option:
-
-    payu run -n <number-of-runs>
-
-This will run {{ model }} `number-of-runs` consecutive times, each with a *run length* equal to `restart_period`.<br>
-This way, the *total experiment length* will be `restart_period * number-of-runs`. 
-
-For example, to run a configuration for a total of 50 years with a `restart_period` of 5 years, the `number-of-runs` should be set to `10`:
-
-    payu run -n 10
+While the model run length can be shortened, it is not recommended to specify 
+more than 5 years as `restart_period`. To run a configuration for more than 5 years, 
+conduct multiple runs, see [Run an experiment](#run-an-experiment).
 
 ### Start the run from a specific restart file {: id='specific-restart'}
 
@@ -429,7 +433,7 @@ For example, to run {{ model }} under the `ol01` project (COSIMA Working Group),
 project: ol01
 ```
 
-For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` (e.g. to the desired `/scratch/PROJECT_CODE`). 
+For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` (e.g., to the desired `/scratch/PROJECT_CODE`). 
 
 !!! warning
     If changing projects during an experiment, set the `shortpath` field so that it's consistent for all runs of an experiment.
