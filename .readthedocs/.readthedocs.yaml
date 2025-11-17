@@ -11,7 +11,8 @@ build:
     python: "3.13"
   jobs:
     # Cancel PR preview if the PR base is not the default branch
-    post_checkout: 'bash .readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh'
+    post_checkout: 
+    - bash .readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh
 
 
 # Build documentation with Mkdocs
