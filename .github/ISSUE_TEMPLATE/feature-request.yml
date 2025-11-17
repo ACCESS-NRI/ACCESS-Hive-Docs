@@ -5,8 +5,7 @@ body:
   - type: markdown
     attributes: 
       value: >-
-        **Example**: [SEARCH] Add filters to
-        improve Hive Docs search.
+        Thanks for taking the time to suggest a new feature for ACCESS-Hive Docs!
 
   - type: textarea
     attributes:
