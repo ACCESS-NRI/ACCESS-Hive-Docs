@@ -35,8 +35,3 @@ body:
       label: Additional information
       description: (Optional) Please add any other context about the feature here. 
       
-  - type: markdown
-    attributes: 
-      value: >-
-        Thanks for taking the time to suggest a new feature! 
-        Please choose relevant labels, tags, labels below. 
