@@ -19,10 +19,9 @@ body:
     attributes:
       label: Expected Behavior
       description: What were you expecting to see?
-      placeholder:
-        "Explain why the current behavior is a problem, \
-        what the expected behavior should be, and \
-        why expected outcome would be a better solution."
+      placeholder: >-
+        I was expecting to see..., but instead got this error...
+        This change would improve...
     validations:
         required: true
 
