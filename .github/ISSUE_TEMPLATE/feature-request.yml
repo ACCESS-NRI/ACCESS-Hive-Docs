@@ -1,0 +1,26 @@
+name: Feature Request
+description: Suggest a new feature or an idea for this project.
+labels: ['new feature']
+title: '[FEATURE]: '
+body: 
+  - type: markdown
+    attributes: 
+      value: Thanks for taking the time to suggest a new feature!
+
+  - type: textarea
+    attributes:
+      label: Feature description
+      description: Describe the feature you would like to see implemented.
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Possible Implementation
+      description: (Optional) Share ideas on how this feature could be implemented?
+
+  - type: textarea
+    attributes: 
+      label: Additional information
+      description: Please add any other context about the feature here. 
+      
