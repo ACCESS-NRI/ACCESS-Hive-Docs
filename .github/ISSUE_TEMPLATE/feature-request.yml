@@ -12,7 +12,7 @@ body:
       label: Feature description
       description: >-
         Describe the feature you would like to see implemented. 
-        Feel free to include screenshots, examples if relevant.
+        Feel free to include screenshots and examples if relevant.
       placeholder: >-
         Users currently struggle with... 
         This new feature or idea would help with... 
