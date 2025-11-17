@@ -1,25 +1,43 @@
 name: Feature Request
-description: Suggest a new feature or an idea for this project.
+description: Suggest a new feature or an idea for ACCESS-Hive Docs.
 labels: ['new feature']
 body: 
   - type: markdown
     attributes: 
-      value: Thanks for taking the time to suggest a new feature!
+      value: >-
+        **Example**: [SEARCH] Add filters to
+        improve Hive Docs search.
 
   - type: textarea
     attributes:
       label: Feature description
-      description: Describe the feature you would like to see implemented.
+      description: >-
+        Describe the feature you would like to see implemented. 
+        Feel free to include screenshots, examples if relevant.
+      placeholder: >-
+        Users currently struggle with... 
+        This new feature or idea would help with... 
     validations:
         required: true
 
   - type: textarea
     attributes:
       label: Possible Implementation
-      description: (Optional) Share ideas on how this feature could be implemented?
+      description: >-
+        (Optional) Share any ideas on how this 
+        feature could be implemented? Technical details
+        are optional, high level suggestions are fine.
+
+      placeholder: >- 
+        One approach to implement this feature is to...
 
   - type: textarea
     attributes: 
       label: Additional information
       description: Please add any other context about the feature here. 
       
+  - type: markdown
+    attributes: 
+      value: >-
+        Thanks for taking the time to suggest a new feature! 
+        Please choose relevant labels, tags, labels below. 
