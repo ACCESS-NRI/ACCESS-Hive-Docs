@@ -63,44 +63,27 @@ The data listed in the following summary table are currently hosted as part of t
 
 | Dataset name              | Description | `cm45` location | Source location |
 | :------------------------ | :------------ | :--------: |:------: |
-| <b>ISMIP6 21st Century Antarctic Projections [Replica]</b>  | These simulations focus on 21st century evolution of the Antarctic ice sheet under selected CMIP scenarios (RCP2.6, RCP8.5, SSP126 and SSP585) and CMIP models. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Projection-AIS/) | [Link](https://doi.org/10.5281/zenodo.11176028) |
-| <b>ISMIP6 21st Century Greenland Projections [Replica]</b>  | These simulations focus on 21st century evolution of the Greenland ice sheet under selected CMIP scenarios (RCP2.6, RCP8.5, SSP126 and SSP585) and CMIP models. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Projection-GrIS/) | [Link](https://doi.org/10.5281/zenodo.11176023) |
-| <b>ISMIP6 23rd Century Projections [Replica]</b>  | These datasets provide the ISMIP6 Projections 2300 Antarctica projection data that focus on simulations of the Antarctic Ice Sheet (AIS) extended to year 2300. These simulations are based on CMIP5 and CMIP6 climate model outputs, and are a follow-on to the simulations to 2100. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Projections-2300/) | [Link](https://doi.org/10.5281/zenodo.13135599) |
+| <b>ISMIP6 21st Century Antarctic Projections</b> <i>[Replica]</i>  | These simulations focus on 21st century evolution of the Antarctic ice sheet under selected CMIP scenarios (RCP2.6, RCP8.5, SSP126 and SSP585) and CMIP models. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Projection-AIS/) | [Link](https://doi.org/10.5281/zenodo.11176028) |
+| <b>ISMIP6 21st Century Greenland Projections</b> <i>[Replica]</i>  | These simulations focus on 21st century evolution of the Greenland ice sheet under selected CMIP scenarios (RCP2.6, RCP8.5, SSP126 and SSP585) and CMIP models. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Projection-GrIS/) | [Link](https://doi.org/10.5281/zenodo.11176023) |
+| <b>ISMIP6 23rd Century Projections</b> <i>[Replica]</i>  | These datasets provide the ISMIP6 Projections 2300 Antarctica projection data that focus on simulations of the Antarctic Ice Sheet (AIS) extended to year 2300. These simulations are based on CMIP5 and CMIP6 climate model outputs, and are a follow-on to the simulations to 2100. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Projections-2300/) | [Link](https://doi.org/10.5281/zenodo.13135599) |
+| <b>ISMIP6 ABUMIP Simulations</b> <i>[Replica]</i>  | These datasets contain the ice sheet model simulation from the ABUMIP (Antarctic BUttressing Model Intercomparison Project) effort. ABUMIP aims at comparing model responses to complete loss of buttressing by investigating the end-member of ice-shelf buttressing, i.e., the total loss of ice shelves. This enables gauging the sensitivity of different ice sheet models with respect to grounding-line retreat, as a function of basal sliding, isostasy, and other model parameters. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-ABUMIP/) | [Link](https://theghub.org/resources/4744) |
+| <b>ISMIP6 initMIP-Antarctica simulations</b> <i>[Replica]</i>  | This dataset contains the initMIP-Antarctica model simulations from the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). As described in Nowicki et al. (2016) and Seroussi et al. (2019), the initMIP-Antarctica experiments focus on ice sheet initialization for the Antarctic ice sheet and associated uncertainty in sea-level projections. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Initmip-AIS/) | [Link](https://theghub.org/resources/4745) |
+| <b>ISMIP6 initMIP-Greenland simulations</b> <i>[Replica]</i>  | This dataset contains the initMIP-Greenland model simulations from the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). As described in Nowicki et al. (2016) and Goelzer et al. (2019), the initMIP-Greenland experiments focus on ice sheet initialization for the Greenland ice sheet and associated uncertainty in sea-level projections. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Initmip-GrIS/) | [Link](https://theghub.org/resources/4746) |
 
 #### ISMIP6 forcing data
 
 | Dataset name              | Description | `cm45` location | Source location |
 | :------------------------ | :------------ | :--------: |:------: |
-| <b>ISMIP6 21st Century Forcing Datasets [Replica]</b>  | These datasets contain the 21st century atmospheric and oceanic forcing datasets used for Greenland and Antarctic standalone ice sheet model simulations as part of the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing/) | [Link](https://doi.org/10.5281/zenodo.11176009) |
-| <b>ISMIP6 23rd Century Forcing Datasets [Replica]</b>  | These datasets contain the ISMIP6 23rd century forcing data that focus on simulations of the Antarctic Ice Sheet (AIS) extended to year 2300. These simulations are based on CMIP5 and CMIP6 climate model outputs, and are a follow-on to the simulations to 2100. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing-2300/) | [Link](https://doi.org/10.5281/zenodo.13135571) |
+| <b>ISMIP6 21st Century Forcing Datasets</b> <i>[Replica]</i>  | These datasets contain the 21st century atmospheric and oceanic forcing datasets used for Greenland and Antarctic standalone ice sheet model simulations as part of the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing/) | [Link](https://doi.org/10.5281/zenodo.11176009) |
+| <b>ISMIP6 23rd Century Forcing Datasets</b> <i>[Replica]</i>  | These datasets contain the ISMIP6 23rd century forcing data that focus on simulations of the Antarctic Ice Sheet (AIS) extended to year 2300. These simulations are based on CMIP5 and CMIP6 climate model outputs, and are a follow-on to the simulations to 2100. | [Path](/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing-2300/) | [Link](https://doi.org/10.5281/zenodo.13135571) |
 
 
 ## How to contribute
-There are many ways of reading files, though a common way is via the Python package *xarray*.
-<br>
-For more information, refer to a <a href="https://docs.xarray.dev/en/stable/getting-started-guide/quick-overview.html" target="_blank">quick overview of xarray</a> and <a href="https://tutorial.xarray.dev/intro.html" target="_blank">xarray tutorials</a>.
+The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [join the ACCESS-Hive forum](https://forum.access-hive.org.au/) and post your dataset request in the CCD forum [request a dataset thread](https://forum.access-hive.org.au/t/cryosphere-data-pool-request-your-datasets/5230).
 
-*xarray* is a python package avaliable through the conda environment on NCI.
-<br>
-Hence, you can either use it directly (as shown below) or through the dataset capabilities of the [ACCESS-NRI Model Intake Catalog Tool](/model_evaluation/data/model_catalogs).
 
 ```
 import xarray as xr
 dataset = xr.open_dataset("example.nc")
 dataset
 ```
-
-<div style="text-align: center;">
-     <img src="../../../assets/model_evaluation/netcdf_example.jpg" alt="Example of an actual NetCDF file with data (precipitation/rainfall over the dimensions latitude, longitude, and time) and metadata." title="Picture from https://pro.arcgis.com/en/pro-app/latest/help/data/multidimensional/fundamentals-of-netcdf-data-storage.htm" width="60%"/>
- </div>
-
-## Other Data formats
-
-NetCDF has been described in detail here as it is the most common format for climate data and then for comparison and optimizing evaluation workflows all data would be in the same format. [Observational data](/model_evaluation/data/observations) can come from different institutions and measured with various instruments. These institutions can manage their data for users other than climate researchers, therefore the data can come in other formats including plain text formats. This data can be [_CMORised_](#data-standards), for evaluation frameworks. Reach out on the [Hive Forum](https://forum.access-hive.org.au) for assistance and suggestions of any datasets that may be missing or could be useful.
-
-
-<h6>References</h6>
-<ul class="references">
-    <li>
-        <a href = "https://pro.arcgis.com/en/pro-app/latest/help/data/multidimensional/fundamentals-of-netcdf-data-storage.htm" target="_blank">https://pro.arcgis.com/en/pro-app/latest/help/data/multidimensional/fundamentals-of-netcdf-data-storage.htm</a>
-    </li>
