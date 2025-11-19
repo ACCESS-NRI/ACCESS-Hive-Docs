@@ -23,9 +23,7 @@ body:
     attributes:
       label: Possible Implementation
       description: >-
-        (Optional) Share any ideas on how this 
-        feature could be implemented? Technical details
-        are optional, high level suggestions are fine.
+        (Optional) How could this feature be implemented? Please share any specific technical details or general high level suggestions.
 
       placeholder: >- 
         One approach to implement this feature is to...
