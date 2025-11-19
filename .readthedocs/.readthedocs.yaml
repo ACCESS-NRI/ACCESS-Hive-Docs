@@ -18,10 +18,8 @@ build:
   jobs:
     # `MODIFY IF NEEDED` - comment the lines that are not needed
     post_checkout: 
-    # Test
-    - git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
     # Cancel PR preview if the PR base is not the default branch
-    - bash .readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh
+    - curl -s https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/main/.readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh | bash
 
 
 # Build documentation with Mkdocs
