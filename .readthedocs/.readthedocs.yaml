@@ -1,3 +1,9 @@
+# =========== IMPORTANT!! READ THIS!! ============ #
+# This file can be copied to be used for websites deployments with RTD.
+# When you copy this file, make sure to check and modify the fields
+# that here are marked with `MODIFY IF NEEDED`.
+# ============================================== #
+
 # Read the Docs configuration file
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
@@ -10,8 +16,11 @@ build:
   tools:
     python: "3.13"
   jobs:
-    # Cancel PR preview if the PR base is not the default branch
+    # `MODIFY IF NEEDED` - comment the lines that are not needed
     post_checkout: 
+    # Test
+    - git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
+    # Cancel PR preview if the PR base is not the default branch
     - bash .readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh
 
 
