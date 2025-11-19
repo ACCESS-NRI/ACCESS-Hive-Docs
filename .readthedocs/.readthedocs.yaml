@@ -16,18 +16,17 @@ build:
   tools:
     python: "3.13"
   jobs:
-    # `MODIFY IF NEEDED` - comment the lines that are not needed
     post_checkout: 
-    # Cancel PR preview if the PR base is not the default branch
+    # Cancel PR preview if the PR base is not the default branch - MODIFY IF NEEDED: comment if not needed
     - curl -s https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/main/.readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh | bash
 
 
 # Build documentation with Mkdocs
 mkdocs:
-  configuration: mkdocs.yml
+  configuration: mkdocs.yml # MODIFY IF NEEDED: path to mkdocs.yml
 
 # Python requirements to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: requirements.txt
+    - requirements: requirements.txt # MODIFY IF NEEDED: path to requirements.txt
