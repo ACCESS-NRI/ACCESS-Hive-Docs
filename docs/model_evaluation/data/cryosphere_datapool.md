@@ -80,10 +80,3 @@ The data listed in the following summary table are currently hosted as part of t
 
 ## How to contribute
 The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [join the ACCESS-Hive forum](https://forum.access-hive.org.au/) and post your dataset request in the CCD forum [request a dataset thread](https://forum.access-hive.org.au/t/cryosphere-data-pool-request-your-datasets/5230).
-
-
-```
-import xarray as xr
-dataset = xr.open_dataset("example.nc")
-dataset
-```
