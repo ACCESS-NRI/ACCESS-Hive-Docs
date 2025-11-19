@@ -36,12 +36,12 @@ body:
   - type: textarea
     attributes:
       label: Screenshots or Logs
-      description: If applicable, please copy and paste any relevant log output or screenshots.  
+      description: (Optional) Please copy and paste any relevant log output or screenshots.  
 
   - type: dropdown
     attributes: 
       label: What browsers are you seeing the problem on?
-      description: Select all options that apply. 
+      description: (Optional) Select all options that apply. 
       multiple: true
       options: 
         - Safari
@@ -53,5 +53,5 @@ body:
   - type: textarea
     attributes: 
       label: Additional information
-      description: Please add any other context about the problem here. 
+      description: (Optional) Please add any other context about the problem here. 
       
