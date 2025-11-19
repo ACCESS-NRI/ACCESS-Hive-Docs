@@ -1,3 +1,9 @@
+# =========== IMPORTANT!! READ THIS!! ============ #
+# This file can be copied to be used for websites deployments with RTD.
+# When you copy this file, make sure to check and modify the fields
+# that here are marked with `MODIFY IF NEEDED`.
+# ============================================== #
+
 # Read the Docs configuration file
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
@@ -9,18 +15,18 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
-  jobs:
-    # Cancel PR preview if the PR base is not the default branch
-    post_checkout: 
-    - bash .readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh
+  # MODIFY IF NEEDED: uncomment lines below to cancel the RTD build
+  # jobs:
+  #   post_checkout: 
+  #     - exit 183
 
 
 # Build documentation with Mkdocs
 mkdocs:
-  configuration: mkdocs.yml
+  configuration: mkdocs.yml # MODIFY IF NEEDED: path to mkdocs.yml
 
 # Python requirements to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
   install:
-    - requirements: requirements.txt
+    - requirements: requirements.txt # MODIFY IF NEEDED: path to requirements.txt
