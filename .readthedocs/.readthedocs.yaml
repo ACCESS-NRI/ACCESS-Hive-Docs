@@ -18,7 +18,7 @@ build:
   jobs:
     post_checkout: 
     # Cancel PR preview if the PR base is not the default branch - MODIFY IF NEEDED: comment if not needed
-    - curl -s https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/main/.readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh | bash
+    # - curl -s https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/main/.readthedocs/scripts/cancel_pr_preview_if_base_not_default.sh | bash
 
 
 # Build documentation with Mkdocs
