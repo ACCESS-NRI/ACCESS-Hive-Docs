@@ -23,7 +23,8 @@ body:
     attributes:
       label: Possible Implementation
       description: >-
-        (Optional) How could this feature be implemented? Please share any specific technical details or general high level suggestions.
+        (Optional) How could this feature be implemented? 
+        Please share any specific technical details or general high level suggestions.
 
       placeholder: >- 
         One approach to implement this feature is to...
