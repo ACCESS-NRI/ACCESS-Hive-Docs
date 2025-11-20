@@ -22,6 +22,8 @@ To use ACCESS-Vis, follow the instruction on [how to use the `conda/analysis3` e
 - **Queue**: `gpuvolta`
 - **Compute Size**: `1xGPU (1 gpu, 12 cpus, 95G mem)`
 
+Also ensure you add your project scratch path  `/scratch/$PROJECT` to **Storage** as well as what you need for data
+as by default, *ACCESS-Vis* caches its data on Gadi in `/scratch/$PROJECT/$USER/.accessvis`
 
 ## Installation
 
@@ -45,9 +47,7 @@ pip install accessvis
 ![Sun and Seasons](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/seasons.gif?raw=true)
 
 
-## Acknowledgements
-
-The python package and visualisation recipes were initially developed by Owen Kaluza at ACCESS-NRI.
+### References
 
 [![DOI](https://zenodo.org/badge/875944360.svg)](https://doi.org/10.5281/zenodo.14167706)
 [![DOI](https://zenodo.org/badge/767301983.svg)](https://doi.org/10.5281/zenodo.14167608)
