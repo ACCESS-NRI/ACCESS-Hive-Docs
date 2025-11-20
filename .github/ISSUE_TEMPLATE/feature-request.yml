@@ -1,0 +1,36 @@
+name: Feature Request
+description: Suggest a new feature or an idea for ACCESS-Hive Docs.
+labels: ['new feature']
+body: 
+  - type: markdown
+    attributes: 
+      value: >-
+        Thanks for taking the time to suggest a new feature for ACCESS-Hive Docs!
+
+  - type: textarea
+    attributes:
+      label: Feature description
+      description: >-
+        Describe the feature you would like to see implemented. 
+        Feel free to include screenshots and examples if relevant.
+      placeholder: >-
+        Users currently struggle with... 
+        This new feature or idea would be... and would help with...
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Possible Implementation
+      description: >-
+        (Optional) How could this feature be implemented? 
+        Please share any specific technical details or general high level suggestions.
+
+      placeholder: >- 
+        One approach to implement this feature is to...
+
+  - type: textarea
+    attributes: 
+      label: Additional information
+      description: (Optional) Please add any other context about the feature here. 
+      
