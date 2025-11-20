@@ -16,33 +16,11 @@ These recipes help users easily visualise and analyse climate model data using A
 
 ## Use ACCESS-Vis on Gadi
 
-*ACCESS-Vis* is available on Gadi, the steps below will help you set up a JupyterLab session on [ARE](https://are.nci.org.au), which can be used to run the example notebooks from the recipes repository.
+*ACCESS-Vis* is already installed on _Gadi_ within the `xp65` `conda/analysis3` environment.<br>
+To use ACCESS-Vis, follow the instruction on [how to use the `conda/analysis3` environment within ARE](/getting_started/environments/#are-jupyterlab), making sure to also specify the following field in the ARE dashboard:
 
-#### Pre-requisites
-  - You need to be a member of <a href="https://my.nci.org.au/mancini/project/xp65/join" target="_blank">xp65</a> to use the Gadi installation.
-  - Clone the [ACCESS-Visualisation-Recipes](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes) repository to your local directory.
-
-
-#### 1. Open JupterLab on ARE
-  - Go to the [Australian Research Environment](https://are-auth.nci.org.au/) website and log in with your NCI
-    username and password.
-  - Select *JupyterLab* under *Featured Apps*.
-
-#### 2. Configure JupyterLab session
-  - **Queue**: Select `gpuvolta`.
-  - **Compute Size**: Select `1xGPU (1 gpu, 12 cpus, 95G mem)`.
-  - **Storage**: Add the storage paths, and the specific storage you need for data.
-    `gdata/xp65, /scratch/$PROJECT, ...` 
-    
-    By default, *ACCESS-Vis* caches its data on Gadi in `/scratch/$PROJECT/$USER/.accessvis`
-
-  - **Module directories**: Add `/g/data/xp65/public/modules`
-  - **Modules**: Add the environment: `conda/analysis3`
-
-#### 3. Launch your JupyterLab session
-  - After configuring the session, click *Launch* and wait for the JupyterLab instance to be ready.
-  - Once started, click *Open JupyterLab* 
-  - Navigate to the your clone of the recipes repository to begin working with the recipes.
+- **Queue**: `gpuvolta`
+- **Compute Size**: `1xGPU (1 gpu, 12 cpus, 95G mem)`
 
 
 ## Installation
