@@ -51,7 +51,7 @@ In addition to the [prerequisites for _Rose/Cylc_](/models/run-a-model/rose-cylc
 
 ## Get {{model}} configuration and run it
 
-Follow the instructions in the _Rose/Cylc_ page using the following specific information:
+Follow the instructions in the [_Rose/Cylc_](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github) page using the following specific information in :
 
 - [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
 - [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
