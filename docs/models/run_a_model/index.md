@@ -13,6 +13,15 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             Run models using Rose/Cylc
         </div>
     </a>
+    <!-- Run ACCESS-AM -->
+    <a href="run_access-am3" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_am_model_visualisation.png" alt="ACCESS-AM">
+        </div>
+        <div class="card-text-container bold">   
+            Run ACCESS-CM
+        </div>
+    </a>
     <!-- Run ACCESS-CM -->
     <a href="run_access-cm2" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
