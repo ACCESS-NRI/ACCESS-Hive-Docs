@@ -7,7 +7,7 @@ Below is a list of ACCESS models supported by ACCESS-NRI.
 
 <div class="card-container">
     <!-- ACCESS-AM -->
-    <a href="/models/access_models/access-am/" class="horizontal-card">
+    <a href="access-am/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model-config-logos/configurations-without-titles/access-am.png" class="white-background img-contain"></img> 
         </div>
