@@ -144,7 +144,7 @@ nav:
       # - Frameworks on Gadi:
       - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
       - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
-      - ACCESS Visualisation: model_evaluation/evaluation_on_gadi/access_vis_recipes.md
+      - ACCESS-Vis: model_evaluation/evaluation_on_gadi/access_vis.md
       - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
       - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
       - METplus: model_evaluation/evaluation_on_gadi/metplus.md

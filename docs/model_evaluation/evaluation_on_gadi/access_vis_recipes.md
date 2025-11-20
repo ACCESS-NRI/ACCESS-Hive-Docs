@@ -1,22 +1,20 @@
-# ACCESS Visualisation
+# ACCESS-Vis
 
 ## What is ACCESS-Vis?
 
-[ACCESS-Vis](https://github.com/ACCESS-NRI/ACCESS-Vis) is a python based package for complex visualisation tasks, including
-open-source 3D visualisations. It is used to create interactive visualisations of climate data and 3D visualisations 
-for ACCESS-NRI releases. These tools are designed to make it easier for researchers to visualise and 
-analyse climate data outputs from the ACCESS models and CMIP datasets.
+[ACCESS-Vis](https://github.com/ACCESS-NRI/ACCESS-Vis) is a Python-based package for advanced visualisation workflows, including 
+open-source 3D visualisations. It supports the creation of interactive 3D climate data visualisations for ACCESS-NRI releases, 
+helping researchers more easily explore and analyse outputs from ACCESS models and CMIP datasets.
 
 The [ACCESS Visualisation Recipes](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes) repository 
-hosts visualisation recipes developed for the ACCESS community.
-These recipes enable users to easily visualise climate model data and perform analysis using
-*ACCESS-Vis*. These resources were developed by Owen Kaluza at ACCESS-NRI.
+hosts a collection of visualisation workflows developed for the ACCESS community. 
+These recipes help users easily visualise and analyse climate model data using ACCESS-Vis. The resources were developed by [Owen Kaluza](https://www.access-nri.org.au/person/owen-kaluza/) at ACCESS-NRI.
 
 
 ![Heights of Land and Depth of Oceans](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/earth_rotating.gif?raw=true)
 
 
-## Using ACCESS-Vis on Gadi (ARE)
+## Use ACCESS-Vis on Gadi
 
 *ACCESS-Vis* is available on Gadi, the steps below will help you set up a JupyterLab session on [ARE](https://are.nci.org.au), which can be used to run the example notebooks from the recipes repository.
 
@@ -47,37 +45,31 @@ These recipes enable users to easily visualise climate model data and perform an
   - Navigate to the your clone of the recipes repository to begin working with the recipes.
 
 
-## Alternative use (not on Gadi)
+## Installation
 
-If you're not running on Gadi, you can still use the resources by installing the *accessvis* package locally. To do this,
-run the following command to install the package via *pip*:
+ACCESS-Vis is available on PyPI, and can be installed via *pip*:
 
 ```bash
 pip install accessvis
 ```
 
-Once the package is installed, you can proceed to use a cloned visualisation recipes repository and interact with climate model data on
-your local machine or other computational environments.
-
 ## Visualisation Examples
 
 #### Plot Ozone Concentration
+[This example](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/Examples/annual_maximum_ozone.ipynb) shows how to visualise the maximum ozone concentration for each year (both historical and predicted). 
 
-[Plot the maximum ozone concentration](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/Examples/annual_maximum_ozone.ipynb) 
-for each year (both historical and predicted). 
 ![Max Ozone Hole](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/max_ozone_level.gif?raw=true)
 
 #### Change the Earth and Sun Based on Time
 
-Change ice cover and greenery based on the time of year or move the sun based on the time of day/year in 
-[this notebook](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/02-Sun-And-Seasons.ipynb).
+[This example](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/02-Sun-And-Seasons.ipynb) shows how to visualise the change in sun position, ice cover and greenery based on the time of day/year.
+
 ![Sun and Seasons](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/seasons.gif?raw=true)
 
 
 ## Acknowledgements
 
 The python package and visualisation recipes were initially developed by Owen Kaluza at ACCESS-NRI.
-To contribute open an issue in the repositories.
 
 [![DOI](https://zenodo.org/badge/875944360.svg)](https://doi.org/10.5281/zenodo.14167706)
 [![DOI](https://zenodo.org/badge/767301983.svg)](https://doi.org/10.5281/zenodo.14167608)
