@@ -11,11 +11,11 @@ The ACCESS Atmosphere Model (ACCESS-AM) is a global coupled atmospheric model th
 
 ACCESS-NRI has released [{{ model }} configurations](/models/run_a_model/run_access-am3).
 
-**Fill in configurations for release.**
+**Fill in configurations for beta release.**
 
 ### Model Components {: #model-components-{{model}} }
 
-- **Atmosphere**: [UM13.5](/models/model_components/atmosphere#unified-model-um).
+- **Atmosphere**: [UM13.1](/models/model_components/atmosphere#unified-model-um).
 
 - **Aerosols and Atmospheric Chemistry**: [GLOMAP](/models/model_components/aerosols_atmospheric_chemistry#glomap) and [UKCA](/models/model_components/aerosols_atmospheric_chemistry#UKCA).
 
