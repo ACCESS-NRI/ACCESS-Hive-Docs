@@ -2,7 +2,7 @@
 
 ![ACCESS AM model](/assets/model-config-logos/configurations-without-titles/access-am.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
 
-The ACCESS Atmosphere Model (ACCESS-AM) is a global coupled atmospheric model that includes [atmosphere](/models/model_components/atmosphere), [aerosols and atmospheric chemistry](/models/model_components/aerosols_atmospheric_chemsitry), [land](/models/model_components/land) and [land biogeochemistry](/models/model_components/bgc_land).
+The ACCESS Atmosphere Model (ACCESS-AM) is a global coupled atmospheric model that can include [atmosphere](/models/model_components/atmosphere), [aerosols and atmospheric chemistry](/models/model_components/aerosols_atmospheric_chemsitry), [land](/models/model_components/land) and [land biogeochemistry](/models/model_components/bgc_land), depending on the configuration.
 
 {% set model = "ACCESS-AM3" %}
 ## {{ model }}
