@@ -6,11 +6,7 @@
 
 name: Check links
 
-on: 
-  pull_request:
-    types: [opened, reopened, synchronize]
-  push:
-    branches: [main, development]
+on:
   workflow_dispatch:
 
 jobs:
