@@ -1,13 +1,34 @@
 # =========== IMPORTANT!! READ THIS!! ============ #
 # This file is used to check links and can be copied to be used in other websites.
-# When you copy this file, make sure to modify the inputs that here are marked
-# with `MODIFY IF NEEDED`.
+# This workflow is triggered within RTD build by the `.readthedocs/scripts/check_links.sh` 
+# script in the ACCESS-NRI/ACCESS-Hive-Docs repo.
 # ============================================== #
 
 name: Check links
 
 on:
   workflow_dispatch:
+    inputs:
+      repo:
+        required: true
+        type: string
+        description: "The GitHub repository in the form OWNER/REPO for which to check links."
+      ref:
+        required: true
+        type: string
+        description: "The repo ref (branch name or commit sha) for which to check links."
+      mkdocs_yaml:
+        type: string
+        required: true
+        description: "Path to the mkdocs.yml configuration file."
+      lychee_config:
+        type: string
+        required: true
+        description: "Path to the lychee configuration file."
+      python_requirements_txt:
+        type: string
+        required: true
+        description: "Path to the python requirements.txt file."
 
 jobs:
   check-links:
