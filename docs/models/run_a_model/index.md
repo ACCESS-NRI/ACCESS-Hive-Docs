@@ -19,7 +19,7 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_am_model_visualisation.png" alt="ACCESS-AM">
         </div>
         <div class="card-text-container bold">   
-            Run ACCESS-CM
+            Run ACCESS-AM
         </div>
     </a>
     <!-- Run ACCESS-CM -->
