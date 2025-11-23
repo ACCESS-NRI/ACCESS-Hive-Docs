@@ -21,18 +21,24 @@ on:
       lychee_config:
         type: string
         required: true
-        description: "Path to the lychee configuration file."
+        description: "Path to the lychee configuration file. If not provided, the default ACCESS-Hive-Docs one will be used."
       python_requirements_txt:
         type: string
         required: true
         description: "Path to the python requirements.txt file."
+      base_url:
+        type: string
+        required: false
+        description: "Base URL for the documentation."
     secrets:
-      repo_pat:
-        required: true
-        description: "Token with permissions"
+      repo_read_token:
+        required: false
+        description: "Token with read permissions. Needed for private repositories."
 
 env:
   DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/main/.github/workflows/lychee_config.toml
+  DEFAULT_MKDOCS_CONFIG: mkdocs.yml
+  DEFAULT_REQUIREMENTS_TXT: requirements.txt
   BUILD_FOLDER: ${{ github.workspace }}/docs_folder
 
 jobs:
@@ -41,6 +47,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.ref }}
+          token: ${{ secrets.repo_pat || github.token }}
 
       # If lychee_config is not provided, use the lychee_config.toml in this repo
       - name: Get lychee config
@@ -67,11 +77,14 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install -r ${{ inputs.python_requirements_txt || 'requirements.txt' }}
+          pip install -r ${{ inputs.python_requirements_txt || env.DEFAULT_REQUIREMENTS_TXT }}
       
       - name: Build mkdocs site
         run: |
-          mkdocs build --config-file ${{ inputs.mkdocs_yaml || 'mkdocs.yml' }} -d ${{ env.BUILD_FOLDER }}
+          if [ -n '${{ inputs.base_url }}' ] ; then
+            export REATHEDOCS_CANONICAL_URL='${{ inputs.base_url }}'
+          fi
+          mkdocs build --config-file ${{ inputs.mkdocs_yaml || env.DEFAULT_MKDOCS_CONFIG }} -d ${{ env.BUILD_FOLDER }}
         
       - name: Check links with lychee
         id: lychee

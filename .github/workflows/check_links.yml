@@ -2,6 +2,9 @@
 # This file is used to check links and can be copied to be used in other websites.
 # This workflow is triggered within RTD build by the `.readthedocs/scripts/check_links.sh` 
 # script in the ACCESS-NRI/ACCESS-Hive-Docs repo.
+
+# When you copy this file, make sure to check and modify the fields
+# that here are marked with `MODIFY IF NEEDED`.
 # ============================================== #
 
 name: Check links
@@ -9,33 +12,38 @@ name: Check links
 on:
   workflow_dispatch:
     inputs:
-      repo:
-        required: true
-        type: string
-        description: "The GitHub repository in the form OWNER/REPO for which to check links."
       ref:
         required: true
         type: string
-        description: "The repo ref (branch name or commit sha) for which to check links."
+        description: "The git ref for which to check links."
       mkdocs_yaml:
         type: string
-        required: true
-        description: "Path to the mkdocs.yml configuration file."
+        required: false
+        description: "Path to the mkdocs.yml configuration file. If not provided, 'mkdocs.yml' in the repo root is used."
       lychee_config:
         type: string
         required: true
-        description: "Path to the lychee configuration file."
+        description: "Path to the lychee configuration file. If not provided, the default ACCESS-Hive-Docs one will be used."
       python_requirements_txt:
         type: string
-        required: true
-        description: "Path to the python requirements.txt file."
+        required: false
+        description: "Path to the python requirements.txt file. If not provided, 'requirements.txt' in the repo root is used."
+      base_url:
+        type: string
+        required: false
+        description: "Base URL for the documentation."
 
 jobs:
   check-links:
-    uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@main
+    uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@davide/test_rtd
     with:
-      repo: ${{ github.repository }}
-      ref: 
-      mkdocs_yaml:
-      lychee_config:
-      python_requirements_txt:
+      repo: '${{ github.repository }}'
+      ref: '${{ inputs.ref }}'
+      mkdocs_yaml: '${{ inputs.mkdocs_yaml }}'
+      lychee_config: '${{ inputs.lychee_config }}'
+      python_requirements_txt: '${{ inputs.python_requirements_txt }}'
+      base_url: '${{ inputs.base_url }}'
+    # # MODIFY IF NEEDED - uncomment the lines below if this repo is private. 
+    # # Also create a PAT with read permissions and add it as a secret named REPO_CONTENT_READ_TOKEN 
+    # secrets: 
+    #   repo_read_token: '${{ secrets.REPO_CONTENT_READ_TOKEN }}'

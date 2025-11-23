@@ -56,4 +56,5 @@ gh workflow run check_links.yml
 -f mkdocs_yaml=${mkdocs_config}
 -f lychee_config=${lychee_config}
 -f python_requirements_txt=${python_requirements}
+-f base_url=${READTHEDOCS_CANONICAL_URL}
 EOF
