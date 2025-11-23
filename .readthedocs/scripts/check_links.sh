@@ -47,14 +47,21 @@ echo "Ref: $ref"
 
 # Trigger check_links workflow with the right inputs
 export GITHUB_TOKEN="$GH_WORKFLOW_DISPATCH_TOKEN"
-# gh workflow run check_links.yml --repo ACCESS-NRI/ACCESS-Hive-Docs --ref davide/test_rts -f input1=value1
 cat << EOF
 gh workflow run check_links.yml
---repo ${repo}
---ref davide/test_rts
--f ref=${ref}
--f mkdocs_yaml=${mkdocs_config}
--f lychee_config=${lychee_config}
--f python_requirements_txt=${python_requirements}
--f base_url=${READTHEDOCS_CANONICAL_URL}
+  --repo ${repo}
+  --ref davide/test_rts
+  -f ref=${ref}
+  -f mkdocs_yaml=${mkdocs_config}
+  -f lychee_config=${lychee_config}
+  -f python_requirements_txt=${python_requirements}
+  -f base_url=${READTHEDOCS_CANONICAL_URL}
 EOF
+gh workflow run check_links.yml \
+  --repo ${repo} \
+  --ref davide/test_rts \
+  -f ref=${ref} \
+  -f mkdocs_yaml=${mkdocs_config} \
+  -f lychee_config=${lychee_config} \
+  -f python_requirements_txt=${python_requirements} \
+  -f base_url=${READTHEDOCS_CANONICAL_URL}
