@@ -17,17 +17,16 @@ These recipes help users easily visualise and analyse climate model data using A
 ## Use ACCESS-Vis on Gadi
 
 *ACCESS-Vis* is already installed on _Gadi_ within the `xp65` `conda/analysis3` environment.<br>
-To use ACCESS-Vis, follow the instruction on [how to use the `conda/analysis3` environment within ARE](/getting_started/environments/#are-jupyterlab), making sure to also specify the following field in the ARE dashboard:
+To use ACCESS-Vis, follow the instruction on [how to use the `conda/analysis3` environment within ARE](/getting_started/environments/#are-jupyterlab), making sure to also specify the following fields in the ARE dashboard:
 
 - **Queue**: `gpuvolta`
 - **Compute Size**: `1xGPU (1 gpu, 12 cpus, 95G mem)`
 
-Also ensure you add your project scratch path  `/scratch/$PROJECT` to **Storage** as well as what you need for data
-as by default, *ACCESS-Vis* caches its data on Gadi in `/scratch/$PROJECT/$USER/.accessvis`
+Also make sure to add your project scratch path `/scratch/$PROJECT` to **Storage**, as ACCESS-Vis caches its data on _Gadi_ by default in `/scratch/$PROJECT/$USER/.accessvis`.
 
 ## Installation
 
-ACCESS-Vis is available on PyPI, and can be installed via *pip*:
+ACCESS-Vis is available on PyPI, and can be installed via `pip`:
 
 ```bash
 pip install accessvis
