@@ -21,34 +21,39 @@ echo "Found Python requirements.txt file: $python_requirements"
 
 # Find lychee link-checker config file in `.github/workflows/lychee_config.toml`. 
 # If it doesn't exist, use ACCESS-Hive-Docs's one.
-lychee_config=.github/workflows/lychee_config.toml
-if [ ! -f $lychee_config_path ]; then
-    wget -q https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/main/${lychee_config_path} -O $lychee_config_path
+default_lychee_config_path='.github/workflows/lychee_config.toml'
+if [ ! -f "$default_lychee_config_path" ]; then
     echo "Lychee config file not found. Using ACCESS-Hive-Docs' one."
+    lychee_config=
 else
     echo "Found Lychee config file."
+    lychee_config="$default_lychee_config_path"
 fi
-echo "============= LYCHEE CONFIG ============="
-cat $lychee_config
-echo "========================================="
 
 # Get repo name from git clone URL
 repo=$(sed -E 's|.*github\.com[:/](.+)$|\1|' <<< "$READTHEDOCS_GIT_CLONE_URL")
 # Remove .git suffix if present
 repo=${repo%.git}
 echo "Repo: $repo"
-echo "Ref: $READTHEDOCS_GIT_COMMIT_HASH"
+# Get git ref. If it's a PR (i.e., version type is "external"), 
+# we use the PR number (this also handles cases when the PR is 
+# from a fork), otherwise we use the commit hash.
+if [ "$READTHEDOCS_VERSION_TYPE" == external ]; then
+    ref="refs/pull/${READTHEDOCS_GIT_IDENTIFIER}/head"
+else
+    ref="$READTHEDOCS_GIT_COMMIT_HASH"
+fi
+echo "Ref: $ref"
 
-# Trigger check_links_workflow with the right inputs
+# Trigger check_links workflow with the right inputs
 export GITHUB_TOKEN="$GH_WORKFLOW_DISPATCH_TOKEN"
-# gh workflow run check_links_workflow.yml --repo ACCESS-NRI/ACCESS-Hive-Docs --ref davide/test_rts -f input1=value1
+# gh workflow run check_links.yml --repo ACCESS-NRI/ACCESS-Hive-Docs --ref davide/test_rts -f input1=value1
 cat << EOF
-gh workflow run check_links_workflow.yml
---repo ACCESS-NRI/ACCESS-Hive-Docs
+gh workflow run check_links.yml
+--repo ${repo}
 --ref davide/test_rts
--f repo=${repo}
--f ref=${READTHEDOCS_GIT_COMMIT_HASH}
+-f ref=${ref}
 -f mkdocs_yaml=${mkdocs_config}
 -f lychee_config=${lychee_config}
--f lychee_config=${python_requirements}
+-f python_requirements_txt=${python_requirements}
 EOF

@@ -34,6 +34,8 @@ jobs:
   check-links:
     uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@main
     with:
-      mkdocs_yaml: "mkdocs.yml"  # MODIFY IF NEEDED: Path to your mkdocs.yml file
-      python_requirements_txt: "requirements.txt"  # MODIFY IF NEEDED: Path to your python requirements.txt file.
-    #   lychee_config: ".github/workflows/lychee_config.toml"  # MODIFY IF NEEDED: Path to your lychee configuration file. If omitted the default one from Hive Docs will be used.
+      repo: ${{ github.repository }}
+      ref: 
+      mkdocs_yaml:
+      lychee_config:
+      python_requirements_txt:
