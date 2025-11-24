@@ -237,6 +237,10 @@ To push a configuration back to the remote, from within the configuration direct
 fcm commit
 ```
 
+## Set compute and storage projects
+
+Before running the configuration, check that the compute and storage projects are appropriate for your work. The locations where these are set varies between configurations. See the respective [Run a model](/models/run_a_model/) documentation for these locations.
+
 ## Run the model configuration
 
 To run the configuration, execute the following command from within the configuration directory:
