@@ -19,7 +19,7 @@ ACCESS-NRI has released [{{ model }} configurations](/models/run_a_model/run_acc
 
 - **Aerosols and Atmospheric Chemistry**: [GLOMAP](/models/model_components/aerosols_atmospheric_chemistry#glomap) and [UKCA](/models/model_components/aerosols_atmospheric_chemistry#UKCA).
 
-- **Land**: [CABLE](/models/model_components/land#cable).
+- **Land**: [CABLE](/models/model_components/land#cable) and [JULES](/models/model_components/land#jules).
 
 - **Land Biogeochemistry**: [CASA-CNP](/models/model_components/bgc_land#casa_cnp).
 

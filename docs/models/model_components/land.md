@@ -11,7 +11,7 @@ Refer to [CABLE documentation](https://cable.readthedocs.io/en/latest/user_guide
 
 ### Models that use CABLE
 
-- [ACCESS-AM3](/models/access_models/access-am#access-am3) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
+- [ACCESS-AM3](/models/access_models/access-am#access-am3) (coupled into the [JULES](/models/model_components/land#jules))
 - [ACCESS-CM2](/models/access_models/access-cm#access-cm2) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
 - [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
 
@@ -36,6 +36,7 @@ To learn more about _benchcab_, its functionalities and limitations, refer to [_
 The [Joint UK Land Environment System (JULES)](https://jules.jchmr.org/) is a community land surface model that can be used both as a standalone model and as the land surface component in the UM model. By modelling different land surface processes (surface energy balance, hydrological cycle, carbon cycle, dynamic vegetation, etc.) and their interaction with each other, JULES provides a framework to assess the impact of modifying a particular process on the ecosystem as a whole, for example the impact of climate change on hydrology.
 
 ### Models that use JULES
+- [ACCESS-AM3](/models/access_models/access-am#access-am3) (complementing [CABLE](/models/model_components/land#cable))
 - [ACCESS-rAM3](/models/access_models/access-ram#access-ram3)
 
 Other ACCESS models used for weather simulations, not supported by ACCESS-NRI, use JULES. Examples are ACCESS-S and ACCESS-C developed by the [Bureau of Meteorology (BoM)](https://www.bom.gov.au/).
