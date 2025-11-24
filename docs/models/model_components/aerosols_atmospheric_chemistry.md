@@ -7,7 +7,7 @@
 The [UK Chemistry-Aerosol model (UKCA)](https://www.ukca.ac.uk/wiki/index.php/UKCA) is a community atmospheric chemistry-aerosol global model developed in the United Kingdom. It is suitable for a range of topics in climate and environmental change research.
 
 ### Models that use UKCA
-- [ACCESS-AM3](/models/access_models/access-am#access-am3)
+- [ACCESS-AM3](/models/access_models/access-am#access-am3) (optional)
 - [ACCESS-CM2](/models/access_models/access-cm#access-cm2) (optional)
 
 ## GLOMAP
