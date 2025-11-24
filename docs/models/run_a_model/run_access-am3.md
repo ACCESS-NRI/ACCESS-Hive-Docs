@@ -9,7 +9,7 @@
 
 ## About
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
+The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_](https://nci.org.au/our-systems/hpc-systems).
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -51,7 +51,7 @@ In addition to the [prerequisites for _Rose/Cylc_](/models/run-a-model/rose-cylc
 
 ## Get {{model}} configuration and run it
 
-Follow the instructions in the _Rose/Cylc_ page using the following specific information in the [Models configurations stored on _GitHub_](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github) section:
+Follow the instructions in the [_Rose/Cylc_ page](/models/run-a-model/rose-cylc.md) using the following specific information in the [Models configurations stored on _GitHub_](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github) section:
 
 - [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
 - [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
