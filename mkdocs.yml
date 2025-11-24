@@ -1,11 +1,8 @@
-# This file uses the following environment variables set within the build workflow:
-# - SITE_URL: the URL of the site (Falls back to a default URL)
-# For example, for PR-previews, SITE_URL is set to <default_URL>/pr-previews/pr-NUM
-
 site_name: ACCESS-Hive Docs
 
 # Site URL
-site_url: !ENV [SITE_URL, "https://docs.access-hive.org.au/"]
+site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://docs.access-hive.org.au/"]
+# READTHEDOCS_CANONICAL_URL is set within the website build (GitHub worflow or ReadTheDocs)
 
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
