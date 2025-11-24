@@ -17,7 +17,9 @@ body:
   - type: textarea
     attributes:
       label: Location in docs
-      description: (Optional) Where did you find this? Please include a link to the page if possible.
+      description: Where did you find this? Please include a link to the page if possible.
+    validations:
+      required: true
 
   - type: textarea
     attributes:
