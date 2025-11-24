@@ -50,7 +50,7 @@ export GITHUB_TOKEN="$GH_WORKFLOW_DISPATCH_TOKEN"
 cat << EOF
 gh workflow run check_links.yml
   --repo ${repo}
-  --ref davide/test_rts
+  --ref davide/test_rtd
   -f ref=${ref}
   -f mkdocs_yaml=${mkdocs_config}
   -f lychee_config=${lychee_config}
@@ -59,7 +59,7 @@ gh workflow run check_links.yml
 EOF
 gh workflow run check_links.yml \
   --repo ${repo} \
-  --ref davide/test_rts \
+  --ref davide/test_rtd \
   -f ref=${ref} \
   -f mkdocs_yaml=${mkdocs_config} \
   -f lychee_config=${lychee_config} \
