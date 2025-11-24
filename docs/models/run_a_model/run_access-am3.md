@@ -49,11 +49,21 @@ In addition to the [prerequisites for _Rose/Cylc_](/models/run-a-model/rose-cylc
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
-## Get {{model}} configuration and run it
+## Get {{model}} configuration
 
 Follow the instructions in the [_Rose/Cylc_ page](/models/run-a-model/rose-cylc.md) using the following specific information in the [Models configurations stored on _GitHub_](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github) section:
 
 - [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
 - [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
+
+## Setup the configuration
+
+Before you can run the configuration, you need to specify which projects you want to use for data storage and compute costs. For this, in the configuration you have just retrieved from GitHub, open the `rose-suite.conf_nci_gadi` file and change:
+
+- `root_dir` to the path you want to use as a work directory for running the simulation. A space under /scratch is ideal. The directory will be created by the suite if it does not exist.
+- `STORAGE_PROJECT` must be the same project as used in the `root_dir` path.
+- `COMPUTE_PROJECT` to any project you want to use for the compute cost.
+
+## Run the configuration
 
 See the [model configuration documentation](https://access-nri.github.io/access-am3-configs-doc/) for more detailed information about the configuration.
