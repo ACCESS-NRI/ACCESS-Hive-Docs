@@ -46,22 +46,36 @@ fi
 echo "Ref: $ref"
 
 # Trigger check_links workflow with the right inputs
-export GITHUB_TOKEN="$GH_WORKFLOW_DISPATCH_TOKEN"
 cat << EOF
-gh workflow run check_links.yml
-  --repo ${repo}
-  --ref davide/test_rtd
-  -f ref=${ref}
-  -f mkdocs_yaml=${mkdocs_config}
-  -f lychee_config=${lychee_config}
-  -f python_requirements_txt=${python_requirements}
-  -f base_url=${READTHEDOCS_CANONICAL_URL}
+curl -L 
+  -X POST 
+  -H "Accept: application/vnd.github+json" 
+  -H "Authorization: Bearer $GH_WORKFLOW_DISPATCH_TOKEN" 
+  https://api.github.com/repos/${repo}/actions/workflows/check_links.yml/dispatches 
+  -d "{
+    \"ref\": \"davide/test_rtd\",
+    \"inputs\": {
+      \"ref\": \"${ref}\",
+      \"mkdocs_yaml\": \"${mkdocs_config}\",
+      \"lychee_config\": \"${lychee_config}\",
+      \"python_requirements_txt\": \"${python_requirements}\",
+      \"base_url\": \"${READTHEDOCS_CANONICAL_URL}\"
+    }
+  }"
 EOF
-gh workflow run check_links.yml \
-  --repo ${repo} \
-  --ref davide/test_rtd \
-  -f ref=${ref} \
-  -f mkdocs_yaml=${mkdocs_config} \
-  -f lychee_config=${lychee_config} \
-  -f python_requirements_txt=${python_requirements} \
-  -f base_url=${READTHEDOCS_CANONICAL_URL}
+
+curl -L \
+  -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer $GH_WORKFLOW_DISPATCH_TOKEN" \
+  https://api.github.com/repos/${repo}/actions/workflows/check_links.yml/dispatches \
+  -d "{
+    \"ref\": \"davide/test_rtd\",
+    \"inputs\": {
+      \"ref\": \"${ref}\",
+      \"mkdocs_yaml\": \"${mkdocs_config}\",
+      \"lychee_config\": \"${lychee_config}\",
+      \"python_requirements_txt\": \"${python_requirements}\",
+      \"base_url\": \"${READTHEDOCS_CANONICAL_URL}\"
+    }
+  }"
