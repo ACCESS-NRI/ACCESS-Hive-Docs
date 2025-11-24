@@ -1,0 +1,36 @@
+name: Typo Report
+description: Flag small corrections such as spelling, grammar, or minor formatting errors.
+labels: ['🪲 bug / mistake']
+title: '[TYPO]: '
+body: 
+  - type: markdown
+    attributes: 
+      value: Thanks for taking the time to create this typo report!
+
+  - type: textarea
+    attributes:
+      label: Typo description
+      description: A clear description of the typo, error or formatting issue.
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Location in docs
+      description: (Optional) Where did you find this? Please include a link to the page if possible.
+
+  - type: textarea
+    attributes:
+      label: Suggested correction
+      description: (Optional) If you have a suggestion for fixing it, please provide it here.
+
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: (Optional) Please copy and paste any relevant screenshots.  
+
+  - type: textarea
+    attributes: 
+      label: Additional information
+      description: (Optional) Please add any other context about the problem here. 
+      
