@@ -1,9 +1,6 @@
 ---
-name: Blank Issue
-about: If your issue doesn't belong to a specific category, feel free to describe it here. 
-title: ''
-labels: ''
-assignees: ''
+name: Custom Issue
+about: If your issue doesn't belong to a specific category, use this template. 
 
 ---
 
