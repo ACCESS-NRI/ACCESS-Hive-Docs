@@ -1,4 +1,4 @@
-name: Bug Report
+name: 🐛 Bug Report
 description: Report something that isn’t working as expected on the site or in example code.
 labels: ['bug / mistake']
 title: '[BUG]: '
