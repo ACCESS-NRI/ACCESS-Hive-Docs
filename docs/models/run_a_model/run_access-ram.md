@@ -266,13 +266,13 @@ The easiest way is to create a file `~/.persistent-sessions/cylc-session` that c
 You can do it manually, or by running the following command (by substituting `<name>` with the name given to the _persistent session_, and `<project>` with the project assigned to it):
 
 ```
-echo "<name>.${USER}.<project>.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
+echo "<name>.$USER.<project>.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
 ```
 
 For example, if the user `abc123` started a _persistent session_ named `cylc` under the project `xy00`, the command will be:
 
 <terminal-window data="input">
-    <terminal-line>echo "cylc.abc123.xy00.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
+    <terminal-line>echo "cylc.$USER.xy00.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
     </terminal-line>
     <terminal-line data="input" linedelay="1000">cat ~/.persistent-sessions/cylc-session</terminal-line>
     <terminal-line data="output">cylc.abc123.xy00.ps.gadi.nci.org.au</terminal-line>
