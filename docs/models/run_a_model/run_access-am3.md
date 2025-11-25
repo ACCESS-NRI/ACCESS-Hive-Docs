@@ -56,11 +56,11 @@ Follow the instructions in the [_Rose/Cylc_ page](/models/run-a-model/rose-cylc.
 - [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
 - [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
 
-## Setup the configuration
+## Initial Setup
 
 Before you can run the configuration, you need to specify which projects you want to use for data storage and compute costs. For this, in the configuration you have just retrieved from GitHub, open the `rose-suite.conf_nci_gadi` file and change:
 
-- `root_dir` to the path you want to use as a work directory for running the simulation. A space under /scratch is ideal. The directory will be created by the suite if it does not exist.
+- `root_dir` to the path you want to use as a work directory for running the simulation. A space under `/scratch` is ideal. The directory will be created by the suite if it does not exist.
 - `STORAGE_PROJECT` must be the same project as used in the `root_dir` path.
 - `COMPUTE_PROJECT` to any project you want to use for the compute cost.
 
