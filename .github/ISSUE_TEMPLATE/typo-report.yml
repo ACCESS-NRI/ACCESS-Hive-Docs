@@ -1,4 +1,4 @@
-name: Typo Report
+name: ✏️ Typo Report
 description: Flag small corrections such as spelling, grammar, or minor formatting errors.
 labels: ['🪲 bug / mistake']
 title: '[TYPO]: '
