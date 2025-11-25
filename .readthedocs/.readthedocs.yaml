@@ -21,12 +21,12 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
-  jobs:
+  # jobs:
     # post_checkout: # MODIFY IF NEEDED: uncomment to cancel the RTD build
     #   - exit 183
-    post_build:
+    # post_build:
     # Check links
-      - curl -s https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/davide/test_rtd/.readthedocs/scripts/check_links.sh | bash
+      # - curl -s https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/refs/heads/davide/test_rtd/.readthedocs/scripts/check_links.sh | bash
 
 
 # Build documentation with Mkdocs
