@@ -163,7 +163,7 @@ jobs:
       
       - name: Build mkdocs site
         run: |
-          export REATHEDOCS_CANONICAL_URL='${{ needs.get-rtd-info.outputs.canonical_url }}'
+          export READTHEDOCS_CANONICAL_URL='${{ needs.get-rtd-info.outputs.canonical_url }}'
           mkdocs build --config-file ${{ inputs.mkdocs_yaml || env.DEFAULT_MKDOCS_CONFIG }} -d ${{ env.BUILD_FOLDER }}
         
       - name: Check links with lychee
