@@ -80,7 +80,7 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Quick Start guide
 
-The following *Quick Start* guide is aimed at experienced users wanting to run {{ model }}. For more detailed instructions, please refer to the [Detailed guide](#detailed-guide).
+These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for newer users, please refer to the [Detailed guide](#detailed-guide).
 
 ### Required setup for running {{ model }} {: .no-toc }
 
@@ -720,9 +720,9 @@ The `suite-ID` of the OAS is `{{ oas_id }}`.
 
 #### Get and run OAS configuration
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`.
+The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished.
 
-To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), making sure you use the correct OAS `suite-ID` `{{ oas_id }}` when copying the suite.
+To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` when copying the suite, and **do not include** the branch name `{{branch_name}}` for OAS.
 
 To run the OAS configuration, follow the steps listed in [Run the suite](#run-the-ras).
 
@@ -742,7 +742,7 @@ For example, the global ostia ancillary file for the first cycle (`20220226T0000
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
-The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest.
+The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest, so you must wait for the RAS (and OAS if you chose to run that suite) to finish before running the RNS.
 
 The `suite-ID` of the RNS is `{{ rns_id }}`.
 The latest release branch is `{{ branch }}`.
@@ -772,7 +772,7 @@ Each `<science_configuration>` directory has the following subdirectories:
 
 The RNS output data files are in [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment (`Lismore` `nested_region_name`, using a `RAL3P3` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P3/um/umnsaa_pa000`.
+For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment that we are running on this page (`Lismore` `nested_region_name`, using a `RAL3P3` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P3/um/umnsaa_pa000`.
 
 !!! tip
     The output data name format may vary depending on some configuration parameters.<br>
@@ -802,7 +802,7 @@ rose edit &
     `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br>
     The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.<br>
     This means, for example, that with `INITIAL_CYCLE_POINT` set to `20220226T0000Z`, and `FINAL_CYCLE_POINT` set to `+P1D` (plus 1 day), 2 _Cylc_ cycle points will be set (`20220226T0000Z` and `20220227T0000Z`). Therefore, the model will run for a total of 2 days!<br>
-    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` (refer to the example below).
+    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` such that the model runs for the number of days specified in the relative duration (refer to the example below).
 
     The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.<br>
     Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
