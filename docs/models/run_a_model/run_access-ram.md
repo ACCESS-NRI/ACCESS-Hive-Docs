@@ -367,8 +367,10 @@ The latest release branch is `{{ branch }}`.
 
 The RAS configuration can be copied from the MOSRS repository in 2 ways:
 
-- [Local-only copy](#local-copy)
 - [Remote and local copy](#remote-copy)
+- [Local-only copy](#local-copy)
+
+If you're not sure which option to use, we recommend using the "remote and local copy".
 
 Suites are, by default, created in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
 This path will be referred to as the *suite directory*.
@@ -382,18 +384,6 @@ The suite directory contains multiple subdirectories and files, including:
 - `rose-suite.info` &rarr; suite information file.
 - `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
-##### Local-only copy {: #local-copy .no-toc }
-To create a _local copy_ of the RAS from MOSRS repository, run:
-```
-rosie checkout {{ ras_id }}/{{ branch }}
-```
-<terminal-window>
-    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch }}</terminal-line>
-    <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
-    <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ ras_id }}</terminal-line>
-</terminal-window>
-This option is mostly used for testing and examining suites.
-    
 ##### Remote and local copy {: #remote-copy .no-toc }
 To create a new copy of the RAS both _locally_ and _remotely_ in the MOSRS repository, run: 
 ```
@@ -412,6 +402,19 @@ For additional `rosie` options, run:
 ```
 rosie help
 ```
+
+##### Local-only copy {: #local-copy .no-toc }
+This option is mostly used for testing and examining suites. To create a _local copy_ of the RAS from MOSRS repository, run:
+```
+rosie checkout {{ ras_id }}/{{ branch }}
+```
+<terminal-window>
+    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch }}</terminal-line>
+    <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
+    <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ ras_id }}</terminal-line>
+</terminal-window>
+    
+
 
 #### Run the RAS
 {{ model }} suites run on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) through a [PBS job] submission.<br>
