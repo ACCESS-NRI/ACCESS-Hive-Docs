@@ -419,6 +419,8 @@ rosie help
 When a suite runs, its configuration files are copied in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>`. A symbolic link to this directory is also created in the `$USER`'s home directory under `~/cylc-run/<suite-ID>`.<br>
 {{ model }} suites comprise several tasks, such as checking out code repositories, compiling and building the different model components, running the model, etc. The workflow of these tasks is controlled by [_Cylc_](#cylc).
 
+The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
+
 To run the RAS, execute the following command from within your RAS [suite directory](#suitedir):
 ```
 rose suite-run
@@ -720,7 +722,7 @@ The `suite-ID` of the OAS is `{{ oas_id }}`.
 
 #### Get and run OAS configuration
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished.
+The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
 
 To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` when copying the suite, and **do not include** the branch name `{{branch_name}}` for OAS.
 
@@ -742,7 +744,7 @@ For example, the global ostia ancillary file for the first cycle (`20220226T0000
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
-The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest, so you must wait for the RAS (and OAS if you chose to run that suite) to finish before running the RNS.
+The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest, so you must wait for the RAS (and OAS if you chose to run that suite) to finish before running the RNS. You can find estimates of the compute and storage requirements for RNS in the [{{ model }} release notes]({{release_notes}}).
 
 The `suite-ID` of the RNS is `{{ rns_id }}`.
 The latest release branch is `{{ branch }}`.
