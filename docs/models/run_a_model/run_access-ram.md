@@ -70,10 +70,7 @@ All {{model}} configurations are available on MOSRS via links at the top of this
         {: style="list-style-type: disc"}
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
-
-- **Connection to an ARE VDI Desktop (optional)**<br>
-    To run {{ model }}, start an [Australian Research Environment (ARE) VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
-    If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
+    
 
 !!! warning
     The waiting time to complete some of the above prerequisites may be 2-3 weeks.
@@ -179,6 +176,8 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 ### Set up an ARE VDI Desktop (optional)
 !!! info 
     If you want to skip this step and run {{ model }} from _Gadi_ login node instead, refer directly to the instructions on how to [Set up _persistent session_](#set-up-persistent-session).
+
+If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
 
 #### Launch ARE VDI Session  {: .no-toc }
 Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
