@@ -713,9 +713,9 @@ Thus, the ancillary files directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>
 
 Ancillary data files are typically output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-### OSTIA Ancillary Suite (OAS) {: #oas }
+### OSTIA Ancillary Suite (OAS) - *optional* {: #oas }
 
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS.
+Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional (use it if you want SST and sea ice inputs). It’s included here in case you choose to run it.
 
 The `suite-ID` of the OAS is `{{ oas_id }}`.
 
