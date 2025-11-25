@@ -28,14 +28,14 @@
 {{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling.<br>
 A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
-{{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [Ostia Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
+{{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
 The example experiment within this page focuses on a flood event in Lismore, NSW, using `ERA5-Land` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). Its configuration is specified in [Nesting configuration]({{ access_models }}/#nesting-configuration).
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
-All {{model}} configurations are and available on MOSRS via links at the top of this page.
+All {{model}} configurations are available on MOSRS via links at the top of this page.
 
 [{{ model }} release notes]({{release_notes}}) are available on the ACCESS-Hive Forum and are updated when new releases are made available.
 
@@ -263,7 +263,7 @@ The label of a newly-created _persistent session_ has the following format: <br>
 #### Specify target _persistent session_ {: .no-toc }
 
 After starting the _persistent session_, it is essential to assign it to the {{ model }} run.<br>
-The easiest way to create a file `~/.persistent-sessions/cylc-session` that contains the target of the _persistent session_.<br>
+The easiest way is to create a file `~/.persistent-sessions/cylc-session` that contains the target of the _persistent session_.<br>
 You can do it manually, or by running the following command (by substituting `<name>` with the name given to the _persistent session_, and `<project>` with the project assigned to it):
 
 ```
@@ -354,7 +354,7 @@ Typically, an existing suite is copied and then edited as needed for a particula
 For more information on {{ model }}, refer to the [{{model}} configuration]({{ access_models }}/#{{ model }}) page.
 
 !!! info 
-    Many of the following steps appear in both the RAS and RNS. For this reason, these steps will be detailed only within the RAS section below, and subsequenltly linked to within the RNS section.
+    Many of the following steps appear in both the RAS and RNS. For this reason, these steps will be detailed only within the RAS section below, and subsequently linked to within the RNS section.
 
 ### Regional Ancillary Suite (RAS) {: #ras }
 
@@ -761,10 +761,10 @@ To check the RNS suite logs, follow the steps listed in [Check suite logs](#chec
 
 All the RNS output files are available in the directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>`. They are also symlinked in `~/cylc-run/<suite-ID>`.
 
-The RNS output data can be found in the directory `/scratch/$PROJECT/$USER/cycl-run/<suite-ID>/share/cycle`, grouped for each [cycle](#change-run-length).<br>
-Within the `cycle` directory, outputs are divided into multiple nested subdirectories in the format `<nested_region_name>/<science_configuration>/<nest_name>`, with [`<nested_region_name>`](#change-the-nested-region-name) and `<nest_name>` referring to the respective configurable options. The `<science_configuration>` is usually `GAL9` or `RAL3.2`, depending on the [nest resolution]({{ access_models }}/#model-components).
+The RNS output data can be found in the directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle`, grouped for each [cycle](#change-run-length).<br>
+Within the `cycle` directory, outputs are divided into multiple nested subdirectories in the format `<nested_region_name>/<nest_name>/<science_configuration>`, with [`<nested_region_name>`](#change-the-nested-region-name) and `<nest_name>` referring to the respective configurable options. The `<science_configuration>` is usually `GAL9` or `RAL3.2`, depending on the [nest resolution]({{ access_models }}/#model-components).
 
-Each `<nest_name>` directory has the following subdirectories:
+Each `<science_configuration>` directory has the following subdirectories:
 
 - `ics` &rarr; initial conditions
 - `lbcs` &rarr; lateral boundary conditions
@@ -802,7 +802,7 @@ rose edit &
     `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br>
     The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.<br>
     This means, for example, that with `INITIAL_CYCLE_POINT` set to `20220226T0000Z`, and `FINAL_CYCLE_POINT` set to `+P1D` (plus 1 day), 2 _Cylc_ cycle points will be set (`20220226T0000Z` and `20220227T0000Z`). Therefore, the model will run for a total of 2 days!<br>
-    To avoid running the model for longer that desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` (refer to the example below).
+    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` (refer to the example below).
 
     The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.<br>
     Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
