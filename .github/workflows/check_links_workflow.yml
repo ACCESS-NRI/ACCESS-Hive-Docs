@@ -108,7 +108,7 @@ jobs:
                 echo '::error::There was an error retrieving the build status from the ReadTheDocs API'
                 exit 1
             elif [ "$status" == "null" ]; then
-                echo "Build not finished yet, waiting 10 seconds..."
+                echo "Build still in progress, waiting 10 seconds..."
                 sleep 10
             elif [ "$status" == "true" ]; then
                 echo "Build succeeded."
