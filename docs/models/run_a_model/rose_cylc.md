@@ -242,7 +242,7 @@ fcm commit
 Configurations will require setup steps specific to the model and the user before running the configuration, e.g., choosing compute and storage projects for the experiment. Follow the instructions for your model in the Initial setup section on its Run a model page.
 
 ## Run the model configuration
-a
+
 To run the configuration, execute the following command from within the configuration directory:
 
 ```
