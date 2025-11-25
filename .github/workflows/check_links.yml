@@ -17,7 +17,7 @@ on:
 
 jobs:
   check-links:
-    uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@davide/test_rtd
+    uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@main
     with:
       repo: '${{ github.repository }}'
       ref_name: "${{ github.event_name == 'pull_request' && format('refs/pull/{0}/head', github.event.pull_request.number) || github.ref_name }}"
