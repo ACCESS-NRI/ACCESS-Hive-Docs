@@ -423,8 +423,9 @@ When a suite runs, its configuration files are copied in `/scratch/$PROJECT/$USE
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-To run the RAS, execute the following command from within your RAS [suite directory](#suitedir):
+To run the RAS, navigate to your RAS [suite directory](#suitedir) and run the suite:
 ```
+cd ~/roses/u-bu503
 rose suite-run
 ```
 
