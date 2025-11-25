@@ -15,16 +15,13 @@ on:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
 
-env:
-  RTD_PROJECT: access-hive-docs  # MODIFY: change this to the Read the Docs project
-
 jobs:
   check-links:
     uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@davide/test_rtd
     with:
       repo: '${{ github.repository }}'
       ref_name: "${{ github.event_name == 'pull_request' && format('refs/pull/{0}/head', github.event.pull_request.number) || github.ref_name }}"
-      rtd_project: '${{ env.RTD_PROJECT }}'
+      rtd_project: access-hive-docs  # MODIFY: change this to the Read the Docs project
       mkdocs_yaml: 'mkdocs.yml' # MODIFY: path to mkdocs.yml
       python_requirements_txt: 'requirements.txt' # MODIFY: path to requirements.txt
       lychee_config: '' # MODIFY: path to lychee config (if not included, the Hive Docs' one gets used)
