@@ -2,7 +2,7 @@
 # This file is used to check links and can be copied to be used in other websites.
 
 # When you copy this file, make sure to check and modify the fields
-# that here are marked with `MODIFY IF NEEDED`.
+# that here are marked with `MODIFY`.
 # ============================================== #
 
 name: Check links
@@ -16,91 +16,19 @@ on:
   workflow_dispatch:
 
 env:
-  RTD_API_URL: https://readthedocs.org/api/v3/
-  RTD_PROJECT: access-hive-docs  # MODIFY IF NEEDED: change this to the Read the Docs project
+  RTD_PROJECT: access-hive-docs  # MODIFY: change this to the Read the Docs project
 
 jobs:
-  get-rtd-info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get RTD base URL and versioning scheme
-        id: get-info
-        run: |
-          # Get RTD project info
-          rtd_project=$(curl -s '${{ env.RTD_API_URL }}projects/${{ env.RTD_PROJECT }}/')
-          # Get documentation base URL
-          base_url=$(jq '.urls.documentation' <<< "$rtd_project" | tr -d '"')
-          echo "Base URL: $base_url"
-          echo "base_url=${base_url}" >> $GITHUB_OUTPUT
-          # Get URL versioning_scheme
-          versioning_scheme=$(jq '.versioning_scheme' <<< "$rtd_project" | tr -d '"')
-          echo "Versioning scheme: $versioning_scheme"
-          echo "versioning_scheme=${versioning_scheme}" >> $GITHUB_OUTPUT
-      
-      - name: Set READTHEDOCS_CANONICAL_URL
-        env:
-          VERSIONING_SCHEME: ${{ steps.get-info.outputs.versioning_scheme }}
-          PR_NUM: ${{ github.event.pull_request.number }}
-        run: |
-          if [ "$VERSIONING_SCHEME" == 'single_version_without_translations' ]; then
-            version=
-            elif [ "$VERSIONING_SCHEME" == 'multiple_versions_without_translations' ]; then
-            version='${{ env.PR_NUM || github.ref_name }}/'
-          else
-            echo "::error::The 'multiple_versions_with_translations' versioning scheme is not supported. 
-              Please change versioning scheme in the RTD project settings."
-          fi
-          if [ -z '${{ env.PR_NUM }}' ]; then
-            READTHEDOCS_CANONICAL_URL="${{ steps.get-info.outputs.base_url }}${version}"
-            else
-            READTHEDOCS_CANONICAL_URL="https://${{env.RTD_PROJECT}}--${{ env.PR_NUM }}.org.readthedocs.build/${version}"
-          fi
-          echo "READTHEDOCS_CANONICAL_URL=$READTHEDOCS_CANONICAL_URL"
-          echo "READTHEDOCS_CANONICAL_URL=$READTHEDOCS_CANONICAL_URL" >> $GITHUB_ENV
-        
-
-  # We check the build status and wait for the build to complete successfully. 
-  # This is to avoid getting link-checker errors for pages that haven't been deployed yet.
-  # (https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/1074)
-  check-build-status:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check build status
-        run: |
-          echo "Checking build status by running:"
-          echo "curl -s ${{ env.RTD_API_URL }}projects/${{ env.RTD_PROJECT }}/builds/?limit=20 | jq 'first(.results.[] | select(.version == \"${{ github.event.pull_request.number || github.ref_name }}\")) | .success'"
-          check_latest_build() {
-            curl -s ${{ env.RTD_API_URL }}projects/${{ env.RTD_PROJECT }}/builds/?limit=20 | \
-              jq 'first(.results.[] | select(.version == "${{ github.event.pull_request.number || github.ref_name }}"))'
-          }
-          # Loop until the build finishes (success or failure)
-          while true; do
-            status=$(check_latest_build | jq '.success')
-            if [ -z "$status" ]; then
-                echo '::error::There was an error retrieving the build status from the ReadTheDocs API'
-                exit 1
-            elif [ "$status" == "null" ]; then
-                echo "Build not finished yet, waiting 10 seconds..."
-                sleep 10
-            elif [ "$status" == "true" ]; then
-                echo "Build succeeded."
-                break
-            elif [ "$status" == "false" ]; then
-                build_url=$(check_latest_build | jq '.urls.build' | tr -d '"')
-                echo "::error::There was an error in the ReadTheDocs build. For further information, check the build logs: $build_url"
-                exit 1
-            else
-                echo "ERROR: Unexpected build status: $status"
-                exit 1
-            fi
-          done
-
   check-links:
-    needs: [get-rtd-info, check-build-status]
     uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@davide/test_rtd
     with:
       repo: '${{ github.repository }}'
-      ref: '${{ github.event.pull_request.number || github.ref_name }}'
-      mkdocs_yaml: 'mkdocs.yml' # MODIFY IF NEEDED: path to mkdocs.yml
-      python_requirements_txt: 'requirements.txt' # MODIFY IF NEEDED: path to requirements.txt
-    #   lychee_config: '.github/workflows/lychee_config.toml' # MODIFY IF NEEDED: path to lychee config (if not included, the Hive Docs' one gets used)
+      ref_name: "${{ github.event_name == 'pull_request' && format('refs/pull/{0}/head', github.event.pull_request.number) || github.ref_name }}"
+      rtd_project: '${{ env.RTD_PROJECT }}'
+      mkdocs_yaml: 'mkdocs.yml' # MODIFY: path to mkdocs.yml
+      python_requirements_txt: 'requirements.txt' # MODIFY: path to requirements.txt
+      lychee_config: '' # MODIFY: path to lychee config (if not included, the Hive Docs' one gets used)
+    #   # MODIFY: Uncomment the lines below if the repo is private. 
+    #   # You also need to create a secret named REPO_READ_TOKEN with a token that has repo read permissions.
+    # secrets:
+    #   repo_read_token: ${{ secrets.REPO_READ_TOKEN }} "Token with read permissions. Needed for private repositories."
