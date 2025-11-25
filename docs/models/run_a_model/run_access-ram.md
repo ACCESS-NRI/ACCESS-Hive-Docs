@@ -6,7 +6,7 @@
 {% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/7/trunk" %}
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/8/trunk" %}
 {% set access_models = "/models/access_models/access-ram" %}
-{% set release_notes = "https://forum.access-hive.org.au/t/access-ram3-release-information/4308" %}
+{% set release_notes = "https://forum.access-hive.org.au/t/access-ram3-release-information/4308/6" %}
 {% set configs_docs = "https://access-ram3-configs.access-hive.org.au/pr-previews/5/" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [model components]: /models/access_models/access-ram/#model-components
