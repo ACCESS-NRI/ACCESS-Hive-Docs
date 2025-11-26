@@ -31,7 +31,7 @@ A description of the model and its components is available in the [{{ model }} o
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
-The example experiment within this page focuses on a flood event in Lismore, NSW on February 26th and 27th, 2022, using `ERA5-Land` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). Its configuration is specified in [Nesting configuration]({{ access_models }}/#nesting-configuration). Once you feel comfortable running the model, you can modify the model to your needs by, eg, changing the region, the dates, the data source for initial conditions, or the output variables.
+The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `ERA5-Land` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). Once you feel comfortable running the model, you can modify it as needed by, e.g., changing the region, the dates, the data source for initial conditions, or the output variables.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -77,7 +77,7 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Quick Start guide
 
-These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for newer users, please refer to the [Detailed guide](#detailed-guide).
+These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for new users, please refer to the [Detailed guide](#detailed-guide).
 
 ### Required setup for running {{ model }} {: .no-toc }
 
@@ -743,7 +743,7 @@ For example, the global ostia ancillary file for the first cycle (`20220226T0000
 
 !!! warning
     The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
-    For example, if a suite has the `INITIAL_CYCLE_POINT` set to `20250612T0000Z` (i.e., 12th Jun 2025 at midnight), it will also require the OSTIA ancillary files for the 11th Jun 2025.
+    For example, if a suite has the `INITIAL_CYCLE_POINT` set to `20250612T0000Z` (i.e., 12 Jun 2025 at midnight), it will also require the OSTIA ancillary files for the 11 Jun 2025.
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
