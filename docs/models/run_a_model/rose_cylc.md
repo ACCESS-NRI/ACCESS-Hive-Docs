@@ -79,7 +79,7 @@ where `<project>` is the project you want to start the session under, and `<name
     Persistent session names accept only a limited set of characters. We recommend using only alpha-numeric characters without spaces or underscores.
 
 <terminal-window data="input">
-    <terminal-line>persistent-sessions -p &lt;project&gt; start &lt;name&gt;</terminal-line>
+    <terminal-line>persistent-sessions start -p &lt;project&gt; &lt;name&gt;</terminal-line>
     <terminal-line data="output">session &lt;persistent-session-uuid&gt; running - connect using</terminal-line>
     <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
