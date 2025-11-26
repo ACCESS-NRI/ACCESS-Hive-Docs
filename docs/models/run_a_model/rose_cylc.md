@@ -268,9 +268,14 @@ To edit the model configuration, run the following command from the configuratio
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains information about the configuration settings. You can also edit the configuration files directly using your chosen editor. For a description of the simple configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
+This opens the _Rose_ GUI, where the configuration settings can be modified. Once you are happy with the changes, save the modified configuration by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}. 
 
-Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
+Alternatively, you can edit the configuration files within the configuration directory directly using your chosen editor.
+
+!!! warning
+    Directly modifying configuration files with an editor is usually discouraged for non-expert users.
+
+For a description of some common configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
 
 You are now ready to a run a model with _Rose/Cylc_.
 
