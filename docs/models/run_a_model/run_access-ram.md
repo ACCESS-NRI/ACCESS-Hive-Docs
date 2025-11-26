@@ -31,7 +31,7 @@ A description of the model and its components is available in the [{{ model }} o
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
-The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `ERA5-Land` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). Once you feel comfortable running the model, you can modify it as needed by, e.g., changing the region, the dates, the data source for initial conditions, or the output variables.
+The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). Once you feel comfortable running the model, you can modify it as needed by, e.g., changing the region, the dates, the data source for initial conditions, or the output variables.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -719,7 +719,7 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 ### OSTIA Ancillary Suite (OAS) - *optional* {: #oas }
 
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional (use it if you want SST and sea ice inputs). It’s included here in case you choose to run it.
+Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional–use it if you want daily varying and/or higher resolution 0.05 degree SST and sea ice inputs (in this example, if you don't run OAS, the default is to use 0.25 degree `ERA5` SST and sea-ice data). OAS is included here in case you choose to run it.
 
 The `suite-ID` of the OAS is `{{ oas_id }}`.
 
@@ -812,7 +812,7 @@ rose edit &
     The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.<br>
     Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
-    For example, to run the experiment for 2 days starting on the 5th April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
+    For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
 
 
 
