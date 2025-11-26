@@ -268,7 +268,7 @@ To edit the model configuration, run the following command from the configuratio
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains information about the configuration settings. For a description of the simple configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
+This opens the _Rose_ GUI that contains information about the configuration settings. You can also edit the configuration files directly using your chosen editor. For a description of the simple configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
 
 Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
 
