@@ -72,4 +72,4 @@ The outputs are placed in the directory specified in `STORAGE_PROJECT`, under `c
 
 ## Further Information
 
-See the [model configuration documentation](https://access-nri.github.io/access-am3-configs-doc/) for more detailed information about the configuration.
+See the [ACCESS-AM3 model configuration documentation](https://access-nri.github.io/access-am3-configs-doc/) for more detailed information about the configuration.
