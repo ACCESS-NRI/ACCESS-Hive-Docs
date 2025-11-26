@@ -14,7 +14,7 @@ Below is a list of ACCESS models supported by ACCESS-NRI.
         <div class="card-text-container">
             <span class="bold" >ACCESS-AM</span>
             <span>
-                A global atmospheric model that includes atmosphere, land, atmospheric chemistry, aerosols and land biogeochemsitry components.
+                A global atmospheric model that includes atmosphere, land, atmospheric chemistry, aerosols and land biogeochemistry components.
             </span>
         </div>
     </a>
