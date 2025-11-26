@@ -21,6 +21,7 @@ on:
       mkdocs_yaml:
         type: string
         required: false
+        default: 'mkdocs.yml'
         description: "Path to the mkdocs.yml configuration file. If not provided, 'mkdocs.yml' is used."
       lychee_config:
         type: string
@@ -29,6 +30,7 @@ on:
       python_requirements_txt:
         type: string
         required: false
+        default: 'requirements.txt'
         description: "Path to the python requirements.txt file. If not provided, 'requirements.txt' is used."
     secrets:
       repo_read_token:
@@ -37,8 +39,6 @@ on:
 
 env:
   DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/main/.github/workflows/lychee_config.toml
-  DEFAULT_MKDOCS_CONFIG: mkdocs.yml
-  DEFAULT_REQUIREMENTS_TXT: requirements.txt
   BUILD_FOLDER: ${{ github.workspace }}/docs_folder
   RTD_API_URL: https://readthedocs.org/api/v3/
 
@@ -159,12 +159,12 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install -r ${{ inputs.python_requirements_txt || env.DEFAULT_REQUIREMENTS_TXT }}
+          pip install -r ${{ inputs.python_requirements_txt }}
       
       - name: Build mkdocs site
         run: |
           export READTHEDOCS_CANONICAL_URL='${{ needs.get-rtd-info.outputs.canonical_url }}'
-          mkdocs build --config-file ${{ inputs.mkdocs_yaml || env.DEFAULT_MKDOCS_CONFIG }} -d ${{ env.BUILD_FOLDER }}
+          mkdocs build --config-file ${{ inputs.mkdocs_yaml }} -d ${{ env.BUILD_FOLDER }}
         
       - name: Check links with lychee
         id: lychee
