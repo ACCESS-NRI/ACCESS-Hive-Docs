@@ -3,7 +3,7 @@
 {% set github_ssh = "git@github.com:ACCESS-NRI/access-am3-configs.git" %}
 {% set configs_docs = "https://access-am3-configs.access-hive.org.au" %}
 {% set example_branch = "main" %}
-{% set release_notes = "" %}
+{% set release_notes = "https://forum.access-hive.org.au/t/access-am3-release-information/5446" %}
 
 # Run {{ model }}
 
