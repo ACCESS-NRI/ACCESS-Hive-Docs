@@ -54,11 +54,11 @@ jobs:
           # Get RTD project info
           rtd_project=$(curl -s '${{ env.RTD_API_URL }}projects/${{ inputs.rtd_project }}/')
           # Get documentation base URL
-          base_url=$(jq '.urls.documentation' <<< "$rtd_project" | tr -d '"')
+          base_url=$(jq -r '.urls.documentation' <<< "$rtd_project")
           echo "Base URL: $base_url"
           echo "base_url=${base_url}" >> $GITHUB_OUTPUT
           # Get URL versioning_scheme
-          versioning_scheme=$(jq '.versioning_scheme' <<< "$rtd_project" | tr -d '"')
+          versioning_scheme=$(jq -r '.versioning_scheme' <<< "$rtd_project")
           echo "Versioning scheme: $versioning_scheme"
           echo "versioning_scheme=${versioning_scheme}" >> $GITHUB_OUTPUT
       
@@ -114,7 +114,7 @@ jobs:
                 echo "Build succeeded."
                 break
             elif [ "$status" == "false" ]; then
-                build_url=$(check_latest_build | jq '.urls.build' | tr -d '"')
+                build_url=$(check_latest_build | jq -r '.urls.build')
                 echo "::error::There was an error in the ReadTheDocs build. For further information, check the build logs: $build_url"
                 exit 1
             else
