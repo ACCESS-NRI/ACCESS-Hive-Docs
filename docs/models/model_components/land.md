@@ -11,7 +11,7 @@ Refer to [CABLE documentation](https://cable.readthedocs.io/en/latest/user_guide
 
 ### Models that use CABLE
 
-- [ACCESS-AM3](/models/access_models/access-am#access-am3) (coupled into the [JULES](/models/model_components/land#jules))
+- [ACCESS-AM3](/models/access_models/access-am#access-am3) (coupled into [JULES](/models/model_components/land#jules))
 - [ACCESS-CM2](/models/access_models/access-cm#access-cm2) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
 - [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
 
