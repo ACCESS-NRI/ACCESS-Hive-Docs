@@ -79,7 +79,7 @@ where `<project>` is the project you want to start the session under, and `<name
     Persistent session names accept only a limited set of characters. We recommend using only alpha-numeric characters without spaces or underscores.
 
 <terminal-window data="input">
-    <terminal-line>persistent-sessions -p &lt;project&gt; start &lt;name&gt;</terminal-line>
+    <terminal-line>persistent-sessions start -p &lt;project&gt; &lt;name&gt;</terminal-line>
     <terminal-line data="output">session &lt;persistent-session-uuid&gt; running - connect using</terminal-line>
     <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
@@ -238,6 +238,8 @@ fcm commit
 ```
 
 ## Run the model configuration
+!!! warning
+    Before running a configuration, make sure to follow the initial setup for it (e.g., setting the correct compute project and storage resources). For details, follow the instructions relative to your specific model in the [Run a model](/models/run_a_model) page.
 
 To run the configuration, execute the following command from within the configuration directory:
 
@@ -264,9 +266,14 @@ To edit the model configuration, run the following command from the configuratio
 rose edit &
 ```
 
-This opens the _Rose_ GUI that contains information about the configuration settings. For a description of the simple configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
+This opens the _Rose_ GUI, where the configuration settings can be modified. Once you are happy with the changes, save the modified configuration by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}. 
 
-Once settings have been modified in the _Rose_ GUI, save them by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.
+Alternatively, you can edit the configuration files within the configuration directory directly using your chosen editor.
+
+!!! warning
+    Directly modifying configuration files with an editor is usually discouraged for non-expert users.
+
+For a description of some common configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
 
 You are now ready to a run a model with _Rose/Cylc_.
 
