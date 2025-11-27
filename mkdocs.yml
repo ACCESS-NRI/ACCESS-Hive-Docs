@@ -1,7 +1,7 @@
 site_name: ACCESS-Hive Docs
 
 # Site URL
-site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://docs.access-hive.org.au/"]
+site_url: !ENV READTHEDOCS_CANONICAL_URL
 # READTHEDOCS_CANONICAL_URL is set within the website build (GitHub worflow or ReadTheDocs)
 
 # Git repository (Adds a link to the GitHub repository at the top)
