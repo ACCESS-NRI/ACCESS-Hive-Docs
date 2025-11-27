@@ -237,11 +237,9 @@ To push a configuration back to the remote, from within the configuration direct
 fcm commit
 ```
 
-## Setup the configuration
-
-Configurations will require setup steps specific to the model and the user before running the configuration, e.g., choosing compute and storage projects for the experiment. Follow the instructions for your model in the Initial setup section on its Run a model page.
-
 ## Run the model configuration
+!!! warning
+    Before running a configuration, make sure to follow the initial setup for it (e.g., setting the correct compute project and storage resources). For details, follow the instructions relative to your specific model in the [Run a model](/models/run_a_model) page.
 
 To run the configuration, execute the following command from within the configuration directory:
 
