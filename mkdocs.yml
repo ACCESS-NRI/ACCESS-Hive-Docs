@@ -108,6 +108,7 @@ nav:
       - ACCESS-ESM: models/access_models/access-esm.md
       - ACCESS-OM: models/access_models/access-om.md
       - ACCESS-rAM: models/access_models/access-ram.md
+      - ACCESS-ISSM: models/access_models/access-issm.md
     - Model Components:
       - models/model_components/index.md
       - Atmosphere: models/model_components/atmosphere.md
@@ -126,6 +127,7 @@ nav:
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
       - Run ACCESS-rAM: models/run_a_model/run_access-ram.md
+      - Run ACCESS-ISSM: models/run_a_model/run_access-issm.md
     - Build a Model:
       - models/build_a_model/index.md
       - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
