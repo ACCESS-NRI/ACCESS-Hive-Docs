@@ -117,18 +117,20 @@ glob_ignore_case = false
 #    '^https://(.*\.)?github(usercontent)?\.(com|io)', # exclude common GitHub URLs
 # ]
   exclude = [
-    '^https://code\.metoffice\.gov\.uk', # MetOffice - It often needs credentials so link-checker fails
-    '^https://(www\.)?linkedin\.com/', # LinkedIn might block link-checkers
-    '^https://(www\.)?freepik\.com/', # Freepik might block link-checkers
-    '^https://www\.lanl\.gov/', # Gov website - has firewalls that block link-checkers
-    '^https://my\.nci\.org\.au/', # NCI user portal - has firewalls that block link-checkers
-    '^https://opus\.nci\.org\.au/', # NCI doc - has firewalls that block link-checkers
-    '^https://geonetwork\.nci\.org\.au/', # NCI geonetwork - has firewalls that block link-checkers
-    '^https://(www\.)?gfdl\.noaa\.gov/', # NOAA website - has firewalls that block link-checkers
-    '^https://copernicus\.nci\.org\.au/', # NCI Copernicus - has firewalls that block link-checkers
-    '^https://cds\.climate\.copernicus\.eu/', # EU Copernicus - has firewalls that block link-checkers
-    '^https://www\.nrc\.gov/', # Gov website - has firewalls that block link-checkers
-    '^https://www\.education\.gov\.au/', # AU Gov website - has firewalls that block link-checkers
+    '^https://code\.metoffice\.gov\.uk\b', # MetOffice - It often needs credentials so link-checker fails
+    '^https://(www\.)?linkedin\.com\b', # LinkedIn might block link-checkers
+    '^https://(www\.)?freepik\.com\b', # Freepik might block link-checkers
+    '^https://www\.lanl\.gov\b', # Gov website - has firewalls that block link-checkers
+    '^https://my\.nci\.org\.au\b', # NCI user portal - has firewalls that block link-checkers
+    '^https://opus\.nci\.org\.au\b', # NCI doc - has firewalls that block link-checkers
+    '^https://geonetwork\.nci\.org\.au\b', # NCI geonetwork - has firewalls that block link-checkers
+    '^https://(www\.)?gfdl\.noaa\.gov\b', # NOAA website - has firewalls that block link-checkers
+    '^https://copernicus\.nci\.org\.au\b', # NCI Copernicus - has firewalls that block link-checkers
+    '^https://cds\.climate\.copernicus\.eu\b', # EU Copernicus - has firewalls that block link-checkers
+    '^https://www\.nrc\.gov\b', # Gov website - has firewalls that block link-checkers
+    '^https://www\.education\.gov\.au\b', # AU Gov website - has firewalls that block link-checkers
+    '^https://(www\.)?github\.com/ACCESS-NRI/access-cm3-configs\b', # Private Repo
+    '^https://(www\.)?github\.com/ACCESS-NRI/UM\b', # Private Repo
   ]
 
 # Exclude paths from getting checked. The values are treated as regular expressions
