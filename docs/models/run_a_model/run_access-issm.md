@@ -222,8 +222,8 @@ Without changing any of the default options, this should generate an output simi
 Below, we provide a brief overview of the key "steps" contained in the example MISMIP configuration provided here:
 
 * **Steps 1 - 2: Model parameterisation**
-    - **Step 1 - Mesh generation:** This step generates an anisotropic model mesh based on the resolution requested (see Section 3.4).
-    - **Step 2 - Model configuration and initial conditions:** This step configures the model components and sets initial conditions based on the model requested (see Section 3.4).
+    - **Step 1 - Mesh generation:** This step generates an anisotropic model mesh based on the resolution requested (see [Model Configurations](#model-configurations)).
+    - **Step 2 - Model configuration and initial conditions:** This step configures the model components and sets initial conditions based on the model requested (see [Model Configurations](#model-configurations)).
 
 * **Steps 3 - 8: Model initialisation**
     - **Step 3 - Initial transient relaxation:** This step performs a 200,000 year relaxation transient stress balance.
@@ -234,7 +234,7 @@ Below, we provide a brief overview of the key "steps" contained in the example M
     - **Step 8 - 3D Extrusion:** This steps perfoms a 3D extrusion from a 2D model mesh to a 3D model mesh, using the final stats of Step 7 as the initial conditions.
 
 * **Steps 9 - 17: MISMIP Model experiments**
-    - **Steps 9 - 17** relate to individual MISMIP experiments, summarised in Section 4.3.
+    - **Steps 9 - 17** relate to individual MISMIP experiments, summarised in [Model Experiments](#model-experiments).
 
 #### Model parameterisation
 Steps 1 and 2 are both required for complete model parameterisation. These steps can typically be executed on a _Gadi_ login node and do not require a PBS job submission. To run steps 1 and 2, run:
@@ -245,6 +245,7 @@ python run-mismip.py --project_code <PROJECT_CODE> --steps 1 2 --execution_dir <
 ```
 
 This should generate two NetCDF files in `$EXECUTION_DIR/mismip_model_1/`:
+
 * `mismip_model_1_mesh.nc` conatins the mesh information generated in Step 1.
 * `mismip_model_1_parameterise.nc` contains the mesh information generated in Step 1 and the parameterised fields from Step 2.
 
