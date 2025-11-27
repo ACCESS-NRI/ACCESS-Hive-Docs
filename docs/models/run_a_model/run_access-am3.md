@@ -68,7 +68,8 @@ Now the configuration can be run using the [Run the model configuration](/models
 
 ## Inspecting the outputs
 
-The outputs are placed in the directory specified in `STORAGE_PROJECT`, under `cylc-run/<suite-id>`.
+The netCDF outputs are placed in `~/cylc-run/<suite-id>/share/data/History_Data/netCDF`.
+The outputs in UMFields format are placed in `~/cylc-run/<suite-id>/share/data/History_Data`.
 
 ## Further Information
 
