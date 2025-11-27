@@ -129,6 +129,8 @@ glob_ignore_case = false
     '^https://cds\.climate\.copernicus\.eu/', # EU Copernicus - has firewalls that block link-checkers
     '^https://www\.nrc\.gov/', # Gov website - has firewalls that block link-checkers
     '^https://www\.education\.gov\.au/', # AU Gov website - has firewalls that block link-checkers
+    '^https://(www\.)?github\.com/ACCESS-NRI/access-cm3-configs/', # Private Repo
+    '^https://(www\.)?github\.com/ACCESS-NRI/UM/', # Private Repo
   ]
 
 # Exclude paths from getting checked. The values are treated as regular expressions
