@@ -3,7 +3,6 @@
 #############################  Display  #############################
 
 # Verbose program output
-# Accepts log level: "error", "warn", "info", "debug", "trace"
 verbose = "info"
 
 # Don't show interactive progress bar while checking links.
@@ -14,18 +13,13 @@ output = "lychee_report"
 
 #############################  Cache  ###############################
 
-# Enable link caching. This can be helpful to avoid checking the same links on
-# multiple runs.
+# Enable link caching. This can be helpful to avoid checking the same links on multiple runs.
 cache = false
 
 # Discard all cached requests older than this duration.
 max_cache_age = "1d"
 
 #############################  Runtime  #############################
-
-# Number of threads to utilize.
-# Defaults to number of cores available to the system if omitted.
-# threads = 2
 
 # Maximum number of allowed redirects.
 max_redirects = 10
@@ -48,21 +42,10 @@ timeout = 15
 retry_wait_time = 2
 
 # Comma-separated list of accepted status codes for valid links.
-# Supported values are:
-#
-# accept = ["200..=204", "429"]
-# accept = "200..=204, 429"
-# accept = ["200", "429"]
-# accept = "200, 429"
 accept = ["200", "202", "403", "429"]
 
 # Proceed for server connections considered insecure (invalid TLS).
 insecure = false
-
-# Only test links with the given schemes (e.g. https).
-# Omit to check links with any other scheme.
-# At the moment, we support http, https, file, and mailto.
-# scheme = ["https"]
 
 # When links are available using HTTPS, treat HTTP links as errors.
 require_https = true
@@ -74,7 +57,6 @@ method = "get"
 header = { "accept" = "text/html", "x-custom-header" = "value" }
 
 # Remap URI matching pattern to different URI.
-# remap = ["https://example.com http://example.invalid"]
   remap = [
     "(https://github\\.com/[^#]*)#L[0-9].* $1", # Github lines links
   ]
@@ -82,12 +64,6 @@ header = { "accept" = "text/html", "x-custom-header" = "value" }
 # Fallback extensions to apply when a URL does not specify one.
 # This is common in documentation tools that cross-reference files without extensions.
 fallback_extensions = ["md", "html"]
-
-# Base URL or website root directory to check relative URLs.
-# base_url = "https://docs.access-hive.org.au/"
-
-# Root path to use when checking absolute local links, must be an absolute path
-# root_dir = "/"
 
 # HTTP basic auth support. This will be the username and password passed to the
 # authorization HTTP header. See
@@ -110,12 +86,6 @@ include_verbatim = false
 glob_ignore_case = false
 
 # Exclude URLs and mail addresses from checking. The values are treated as regular expressions
-# exclude = [
-#    '^https://example\.com/home$',                    # specific URL
-#    '^https?://example\.com',                         # match both HTTP and HTTPS
-#    '^https://(www\.)?linkedin\.com',                 # optional subdomains
-#    '^https://(.*\.)?github(usercontent)?\.(com|io)', # exclude common GitHub URLs
-# ]
   exclude = [
     '^https://code\.metoffice\.gov\.uk\b', # MetOffice - It often needs credentials so link-checker fails
     '^https://(www\.)?linkedin\.com\b', # LinkedIn might block link-checkers
@@ -134,31 +104,14 @@ glob_ignore_case = false
   ]
 
 # Exclude paths from getting checked. The values are treated as regular expressions
-# exclude_path = [
-#    "\\.txt$",      # skip .txt extensions
-#    "(^|/)test/",   # skip directories named "test"
-#    "[aeiouAEIOU]", # exclude paths containing vowels
-# ]
   exclude_path = [
     "site/fontello",
   ]
-
-# URLs to check (supports regex). Has preference over all excludes.
-# include = ['gist\.github\.com.*']
 
 # Exclude all private IPs from checking.
 # Equivalent to setting `exclude_private`, `exclude_link_local`, and
 # `exclude_loopback` to true.
 exclude_all_private = true
-
-# Exclude private IP address ranges from checking.
-# exclude_private = false
-
-# Exclude link-local IP address range from checking.
-# exclude_link_local = false
-
-# Exclude loopback IP address range and localhost from checking.
-# exclude_loopback = false
 
 # Check mail addresses
   include_mail = false
