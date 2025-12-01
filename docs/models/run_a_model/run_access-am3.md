@@ -16,19 +16,20 @@ The instructions below outline how to run {{ model }} using ACCESS-NRI's softwar
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
-All {{model}} configurations are licensed under the UKMO's Momentum licence. {{model}} is delivered to the community through private GitHub repositories. See the [Prerequisites](#prerequisites) section for details.
+All {{model}} configurations are licensed under the UKMO's Momentum licence. {{model}} is delivered to the community through private GitHub repositories. See the [Request access prerequisite](#request-access) for details.
 
 {{ model }} release notes are [available on the ACCESS-Hive Forum]({{release_notes}}) and are updated when new releases are made available.
 
 ## Prerequisites
 
 !!! warning
-    If you have not yet read the guide on using the _Rose/Cylc_ tool, please read our [_Rose/Cylc_ documentation](/models/run-a-model/rose-cylc.md) before continuing.
+    Before continuing, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose-cylc.md).
 
-In addition to the [prerequisites for _Rose/Cylc_](/models/run-a-model/rose-cylc/#prerequisites), you will need:
+In addition to the [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites), you will need:
 
 - **Request access to the configurations**<br>
     To request access to the configurations repository (and associated model component repositories), please contact us [through the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580/13). This step will also allow us to check you are properly licensed to use the software.
+    {: #request-access }
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
