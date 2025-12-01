@@ -1,3 +1,6 @@
+!!! release
+    This is an [Alpha Release](/about/releases).
+
 # ACCESS-AM
 
 ![ACCESS AM model](/assets/model-config-logos/configurations-without-titles/access-am.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}

@@ -5,6 +5,9 @@
 {% set example_branch = "main" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-am3-release-information/5446" %}
 
+!!! release
+    This is an [Alpha Release](/about/releases).
+
 # Run {{ model }}
 
 ## About
