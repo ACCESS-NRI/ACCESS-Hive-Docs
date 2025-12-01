@@ -59,26 +59,26 @@ In addition to the [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc
 
 ## Get {{model}} configuration
 
-Follow the instructions in the [_Rose/Cylc_ page](/models/run-a-model/rose-cylc.md) using the following specific information in the [Model configurations stored on _GitHub_](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github) section:
+Follow the instructions for [Model configurations stored on _GitHub_](/models/run_a_model/rose_cylc/#model-configurations-stored-on-github) using the following specific information:
 
 - [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
 - [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
 
 ## Initial Setup
 
-Before you can run the configuration, you need to specify which projects you want to use for data storage and compute costs. For this, in the configuration you have just retrieved from GitHub, open the `rose-suite.conf_nci_gadi` file and change:
+Before you can run {{ model }} configuration, you need to specify which projects you want to use for data storage and compute resources. For this, in the configuration directory open the `rose-suite.conf_nci_gadi` file and change:
 
 - `root_dir` to the path you want to use as a work directory for running the simulation. A space under `/scratch/<project>` is ideal, where `<project>` is the project associated with the current work. The directory will be created by the suite if it does not exist.
 - `STORAGE_PROJECT` must be the same project as used in the `root_dir` path.
-- `COMPUTE_PROJECT` to any project you want to use for the compute cost.
+- `COMPUTE_PROJECT` to any project you want to be charged for the compute resources.
 
-Now the configuration can be run using the [Run the model configuration](/models/run-a-model/rose-cylc/#run-the-model-configuration) instructions.
+Now the configuration can be run using the [Run the model configuration](/models/run_a_model/rose_cylc/#run-the-model-configuration) instructions.
 
 ## Inspecting the outputs
 
 The netCDF outputs are placed in `~/cylc-run/<suite-id>/share/data/History_Data/netCDF`.
-The outputs in UMFields format are placed in `~/cylc-run/<suite-id>/share/data/History_Data`.
+The outputs in [UM Fieldsfiles format](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) are placed in `~/cylc-run/<suite-id>/share/data/History_Data`.
 
 ## Further Information
 
-See the [ACCESS-AM3 model configuration documentation](https://access-nri.github.io/access-am3-configs-doc/) for more detailed information about the configuration.
+See [{{ model }} configuration documentation](https://access-nri.github.io/access-am3-configs-doc/) for more detailed information about {{ model }} configuration.
