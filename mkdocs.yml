@@ -7,6 +7,7 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
 repo_name: ACCESS-Hive-Docs
+edit_uri: edit/main/docs/
 
 theme:
   name: material
