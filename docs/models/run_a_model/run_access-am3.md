@@ -6,7 +6,7 @@
 {% set release_notes = "https://forum.access-hive.org.au/t/access-am3-release-information/5446" %}
 
 !!! release
-    This is an [Alpha Release](/about/releases).
+    This is an [**Alpha Release**](/about/releases), intended for use by experienced users and collaborators. Any model configuration and related source code information on this page may change during the release process.
 
 <div class="text-card-group" markdown>
 [:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}

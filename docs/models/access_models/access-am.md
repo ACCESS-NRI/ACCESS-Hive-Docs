@@ -1,5 +1,5 @@
 !!! release
-    This is an [Alpha Release](/about/releases).
+    This is an [**Alpha Release**](/about/releases), intended for use by experienced users and collaborators. Any model configuration and related source code information on this page may change during the release process.
 
 # ACCESS-AM
 
