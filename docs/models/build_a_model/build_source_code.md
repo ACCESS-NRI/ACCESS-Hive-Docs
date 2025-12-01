@@ -737,6 +737,9 @@ Once these changes have been made, concretize the environment by running:
 spack concretize -f
 ```
 
+!!! tip
+    If the concretization is failing, try `spack concretize -f --fresh` to start the concretization from scratch.
+
 Then install the environment by running:
 
 ```
