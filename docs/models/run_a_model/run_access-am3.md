@@ -8,6 +8,12 @@
 !!! release
     This is an [Alpha Release](/about/releases).
 
+<div class="text-card-group" markdown>
+[:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}
+[![Hive](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{configs_docs}}){: class="text-card"}
+[:notepad_spiral:{: class="twemoji icon-before-text"} Release notes]({{release_notes}}){: class="text-card"}
+</div>
+
 # Run {{ model }}
 
 ## About
