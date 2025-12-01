@@ -1,11 +1,8 @@
-# This file uses the following environment variables set within the build workflow:
-# - SITE_URL: the URL of the site (Falls back to a default URL)
-# For example, for PR-previews, SITE_URL is set to <default_URL>/pr-previews/pr-NUM
-
 site_name: ACCESS-Hive Docs
 
 # Site URL
-site_url: !ENV [SITE_URL, "https://docs.access-hive.org.au/"]
+site_url: !ENV READTHEDOCS_CANONICAL_URL
+# READTHEDOCS_CANONICAL_URL is set within the website build (GitHub worflow or ReadTheDocs)
 
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
@@ -39,14 +36,14 @@ theme:
     - navigation.tabs.sticky
     - navigation.indexes
     - navigation.footer
-    - navigation.tracking # The URL in the address bar is automatically updated with active anchor
-    - content.code.copy # for displaying copy icon at top right in code snippets
+    - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
+    - content.code.copy         # for displaying copy icon at top right in code snippets  
     - content.code.annotate
     - content.tabs.link
     - search.suggest
     - search.highlight
     - search.share
-    - toc.follow # the sidebar is automatically scrolled to the active anchor
+    - toc.follow                # the sidebar is automatically scrolled to the active anchor
 
   logo: assets/ACCESS_icon_HIVE.png
   favicon: assets/ACCESS_icon_HIVE.png
@@ -67,7 +64,7 @@ plugins:
   - macros
 
 # Extensions
-markdown_extensions:
+markdown_extensions: 
   - attr_list
   - abbr
   - md_in_html
@@ -84,7 +81,7 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true
+      alternate_style: true 
   - pymdownx.keys
   - pymdownx.arithmatex:
       generic: true
@@ -96,111 +93,109 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - Getting Started:
-      - getting_started/index.md
-      - Set Up your NCI Account: getting_started/set_up_nci_account.md
-      - Australian Research Environment (ARE): getting_started/are.md
-      - conda/analysis3 Python Environment: getting_started/environments.md
-      - Set up Spack for building ACCESS models: getting_started/spack.md
+  - Getting Started: 
+    - getting_started/index.md
+    - Set Up your NCI Account: getting_started/set_up_nci_account.md
+    - Australian Research Environment (ARE): getting_started/are.md
+    - conda/analysis3 Python Environment: getting_started/environments.md
+    - Set up Spack for building ACCESS models: getting_started/spack.md
 
   - Models:
-      - models/index.md
-      - ACCESS Models:
-          - models/access_models/index.md
-          - ACCESS-AM: models/access_models/access-am.md
-          - ACCESS-CM: models/access_models/access-cm.md
-          - ACCESS-ESM: models/access_models/access-esm.md
-          - ACCESS-OM: models/access_models/access-om.md
-          - ACCESS-rAM: models/access_models/access-ram.md
-      - Model Components:
-          - models/model_components/index.md
-          - Atmosphere: models/model_components/atmosphere.md
-          - Land: models/model_components/land.md
-          - Ocean: models/model_components/ocean.md
-          - Sea Ice: models/model_components/sea-ice.md
-          - Aerosols and Atmospheric Chemistry: models/model_components/aerosols_atmospheric_chemistry.md
-          - Biogeochemistry Land: models/model_components/bgc_land.md
-          - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
-          - Coupler: models/model_components/coupler.md
-      - Run a Model:
-          - models/run_a_model/index.md
-          - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
-          - Run ACCESS-AM3: models/run_a_model/run_access-am3.md
-          - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
-          - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
-          - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
-          - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
-          - Run ACCESS-rAM: models/run_a_model/run_access-ram.md
-      - Build a Model:
-          - models/build_a_model/index.md
-          - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
-          - Create Prereleases and Releases for an ACCESS Model: models/build_a_model/create_a_prerelease.md
+    - models/index.md
+    - ACCESS Models:
+      - models/access_models/index.md
+      - ACCESS-CM: models/access_models/access-cm.md
+      - ACCESS-ESM: models/access_models/access-esm.md
+      - ACCESS-OM: models/access_models/access-om.md
+      - ACCESS-rAM: models/access_models/access-ram.md
+    - Model Components:
+      - models/model_components/index.md
+      - Atmosphere: models/model_components/atmosphere.md
+      - Land: models/model_components/land.md
+      - Ocean: models/model_components/ocean.md
+      - Sea Ice: models/model_components/sea-ice.md
+      - Aerosols and Atmospheric Chemistry: models/model_components/aerosols_atmospheric_chemistry.md
+      - Biogeochemistry Land: models/model_components/bgc_land.md
+      - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
+      - Coupler: models/model_components/coupler.md
+    - Run a Model: 
+      - models/run_a_model/index.md
+      - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
+      - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
+      - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
+      - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
+      - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
+      - Run ACCESS-rAM: models/run_a_model/run_access-ram.md
+    - Build a Model:
+      - models/build_a_model/index.md
+      - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
+      - Create Prereleases and Releases for an ACCESS Model: models/build_a_model/create_a_prerelease.md
 
   - Data and Model Evaluation:
-      - model_evaluation/index.md
-      - Data:
-          - model_evaluation/data/index.md
-          - Data Format and Standards: model_evaluation/data/data_format.md
-          - Data Variables: model_evaluation/data/variables.md
-          - Observational Data: model_evaluation/data/observations.md
-          - Accessing Model Data: model_evaluation/data/model_catalogs.md
+    - model_evaluation/index.md
+    - Data: 
+      - model_evaluation/data/index.md
+      - Data Format and Standards: model_evaluation/data/data_format.md      
+      - Data Variables: model_evaluation/data/variables.md
+      - Observational Data: model_evaluation/data/observations.md
+      - Accessing Model Data: model_evaluation/data/model_catalogs.md
 
-      - Model Evaluation:
-          - model_evaluation/evaluation_on_gadi/index.md
-          # - Frameworks on Gadi:
-          - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md
-          - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
-          - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
-          - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
-          - METplus: model_evaluation/evaluation_on_gadi/metplus.md
-      - Additional Resources:
-          - Additional Resources: model_evaluation/community_med/index.md
-          - Observational Catalogues: model_evaluation/community_med/community_observational_catalogs.md
-          - Model Catalogues: model_evaluation/community_med/community_model_catalogs.md
-          - Data Formatting: model_evaluation/community_med/community_data_processing.md
-          - Evaluation Recipes: model_evaluation/community_med/community_med_recipes.md
+    - Model Evaluation: 
+      - model_evaluation/evaluation_on_gadi/index.md
+      # - Frameworks on Gadi:
+      - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
+      - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md   
+      - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
+      - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
+      - METplus: model_evaluation/evaluation_on_gadi/metplus.md
+    - Additional Resources: 
+      - Additional Resources: model_evaluation/community_med/index.md
+      - Observational Catalogues: model_evaluation/community_med/community_observational_catalogs.md
+      - Model Catalogues: model_evaluation/community_med/community_model_catalogs.md
+      - Data Formatting: model_evaluation/community_med/community_data_processing.md
+      - Evaluation Recipes: model_evaluation/community_med/community_med_recipes.md
 
   - Tutorials:
-      - tutorials/index.md
-      - ACCESS-CM2: tutorials/models.md
-      - ACCESS-NRI Intake catalog: tutorials/intake.md
-      - ESMValTool: tutorials/esmvaltool.md
-      - ILAMB: tutorials/ilamb.md
-      - Payu: tutorials/payu.md
-
+    - tutorials/index.md
+    - ACCESS-CM2: tutorials/models.md 
+    - ACCESS-NRI Intake catalog: tutorials/intake.md
+    - ESMValTool: tutorials/esmvaltool.md
+    - ILAMB: tutorials/ilamb.md
+    - Payu: tutorials/payu.md
+    
   - Community Resources:
-      - community_resources/index.md
-      # Keep this commented for future workshops
-      # - ACCESS Community Workshop 2025:
-      #   - Overview: community_resources/access_workshop_2025/index.md
-      #   - Training Day materials: community_resources/access_workshop_2025/training_materials.md
-      - Workshops and Events Archive:
-          - community_resources/workshops_events_archive/index.md
-          - ACCESS Community Workshop 2023:
-              - Overview: community_resources/workshops_events_archive/access_workshop_2023/index.md
-              - Training materials 2023: community_resources/workshops_events_archive/access_workshop_2023/training_materials.md
-          - ACCESS Community Workshop 2024:
-              - Overview: community_resources/workshops_events_archive/access_workshop_2024/index.md
-              - Training materials 2024: community_resources/workshops_events_archive/access_workshop_2024/training_materials.md
-          - ACCESS Community Workshop 2025:
-              - Overview: community_resources/workshops_events_archive/access_workshop_2025/index.md
-              - Training materials 2025: community_resources/workshops_events_archive/access_workshop_2025/training_materials.md
-      - Working Groups: community_resources/community_working_groups.md
-      - External Resources: community_resources/external_resources.md
-      - Glossaries: community_resources/glossaries.md
+    - community_resources/index.md
+    # Keep this commented for future workshops
+    # - ACCESS Community Workshop 2025: 
+    #   - Overview: community_resources/access_workshop_2025/index.md
+    #   - Training Day materials: community_resources/access_workshop_2025/training_materials.md
+    - Workshops and Events Archive:
+      - community_resources/workshops_events_archive/index.md
+      - ACCESS Community Workshop 2023: 
+        - Overview: community_resources/workshops_events_archive/access_workshop_2023/index.md
+        - Training materials 2023: community_resources/workshops_events_archive/access_workshop_2023/training_materials.md
+      - ACCESS Community Workshop 2024: 
+        - Overview: community_resources/workshops_events_archive/access_workshop_2024/index.md
+        - Training materials 2024: community_resources/workshops_events_archive/access_workshop_2024/training_materials.md
+      - ACCESS Community Workshop 2025:
+        - Overview: community_resources/workshops_events_archive/access_workshop_2025/index.md
+        - Training materials 2025: community_resources/workshops_events_archive/access_workshop_2025/training_materials.md
+    - Working Groups: community_resources/community_working_groups.md
+    - External Resources: community_resources/external_resources.md
+    - Glossaries: community_resources/glossaries.md
   - About:
-      - about/index.md
-      - Contact: about/contact.md
-      - Release stages: about/releases.md
-      - FAQ: about/faq.md
-      - User support: about/user_support.md
-      - How to Contribute: about/contribute.md
-      - License: about/License.md
+    - about/index.md
+    - Contact: about/contact.md
+    - Release stages: about/releases.md
+    - FAQ: about/faq.md
+    - User support: about/user_support.md
+    - How to Contribute: about/contribute.md
+    - License: about/License.md
 # Footer
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/bluesky
+    - icon: fontawesome/brands/bluesky 
       link: https://bsky.app/profile/access-nri.bsky.social
       name: ACCESS-NRI on Bluesky
     - icon: fontawesome/brands/linkedin
@@ -220,12 +215,12 @@ extra:
   #       - icon: material/emoticon-sad-outline
   #         name: This page could be improved
   #         data: 0
-  #         note: >-
+  #         note: >- 
   #           Thanks for your feedback!<br>
   #           Help us improve this page by <a href=/about/contribute target="_blank" rel="noopener">contributing</a>!
 
 extra_css:
-  - "https://fonts.googleapis.com/icon?family=Material+Icons" # Material Icons Reference - https://material.io/resources/icons/?style=baseline
+  - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
   - fontawesome-free-6.4.0-web/css/all.css
   - fontello/css/fontello-codes.css
   - fontello/css/fontello-ie7-codes.css
@@ -240,7 +235,7 @@ extra_javascript:
   - js/custom-tags.js
   - js/miscellaneous.js
 
-# Automatically reload page when running `mkdocs serve`, for any
+# Automatically reload page when running `mkdocs serve`, for any 
 # of the following files outside of the 'docs' directory
 watch:
   - mkdocs.yml
