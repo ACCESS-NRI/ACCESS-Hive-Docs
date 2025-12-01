@@ -50,9 +50,7 @@ In addition to the [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc
         To request membership for the _ki32_mosrs_ subproject, you need to:
         
         - already be member of the _ki32_ project
-        {: style="list-style-type: disc"}
-        - have a [MOSRS account](#mosrs-account)
-        {: style="list-style-type: disc"}
+        - have a [MOSRS account](/models/run_a_model/rose_cylc/#mosrs-account)
 
     !!! warning
         You will not be granted access to some of the projects listed here before we have checked you are properly licensed to use the software. Ensure you request access to the configurations first.

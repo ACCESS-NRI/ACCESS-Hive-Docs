@@ -461,6 +461,11 @@ h1.homepage {
 /* =============================================================== 
   Admonitions 
   (https://squidfunk.github.io/mkdocs-material/reference/admonitions/)
+*/
+
+.admonition > ul li {
+  list-style-type: disc !important;
+}
 
 /* General style admonition (In markdown --> `!!! ...`) */
 .admonition {
