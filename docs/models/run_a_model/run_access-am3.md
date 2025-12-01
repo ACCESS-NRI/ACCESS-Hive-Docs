@@ -53,7 +53,7 @@ In addition to the [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc
         - have a [MOSRS account](/models/run_a_model/rose_cylc/#mosrs-account)
 
     !!! warning
-        You will not be granted access to some of the projects listed here before we have checked you are properly licensed to use the software. Ensure you request access to the configurations first.
+        You will not be granted access to some of the projects listed here before we have checked you are properly licensed to use the software. Ensure you [request access to the configurations](#request-access) first.
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
