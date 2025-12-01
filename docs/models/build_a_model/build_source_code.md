@@ -693,14 +693,15 @@ Debugging is an important part of the development process. Using a debugger can 
 
 ### Setting up the debugger
 
-To connect to the debugger remotely from your workstation, you will need to set up the _Linaro Forge_ client locally. Download the client from the [Linaro Forge download](https://www.linaroforge.com/download-documentation) page, taking care match the version of the client with the most up-to-date version on the compute cluster (to get older versions of the client, follow the [older versions](https://www.linaroforge.com/download-forge-old-version) link). Once installed, launch the client and follow the [connecting remotely](https://www.linaroforge.com/download-forge-old-version) instructions.
+To connect to the debugger remotely from your workstation, you will need to set up the _Linaro Forge_ client locally. Download the client from the [Linaro Forge download](https://www.linaroforge.com/download-documentation) page, ensuring to match the version of the client with the most up-to-date version on the compute cluster (to get older versions of the client, follow the [older versions](https://www.linaroforge.com/download-forge-old-version) link). Once installed, launch the client and follow the [connecting remotely](https://www.linaroforge.com/download-forge-old-version) instructions.
 
 !!! tip
     To check which versions of _Linaro Forge_ are available on your compute cluster, use `module avail linaro-forge`.
 
-For Gadi, the current version of _Linaro Forge_ is `24.0` and the _Remote Launch Settings_ are:
+For Gadi, the _Linaro Forge Remote Launch Settings_ are:
+
 - __Host Name__: `<username>@nci.org.au`
-- __Remote Installation Directory__: `/apps/linaro-forge/24.0.2`
+- __Remote Installation Directory__: `/apps/linaro-forge/<version>`
 
 ### Setting up the build
 
@@ -712,7 +713,7 @@ To debug a model through the _Linaro_ debugger, the following changes to the bui
     - `'fflags="-O0 -g -traceback"'`
     - `'cflags="-O0 -g -fno-omit-frame-pointer"'`
 
-Using the `mom5_dev` example above (in the context of the _ACCESS-ESM1.5_ model), to debug the MOM5 component specifically, the changes to the `spack.yaml` are:
+Using the `mom5_dev` example above in the context of the _ACCESS-ESM1.5_ model to debug the MOM5 component, the updated `spack.yaml` would be:
 
 ```yaml
 spack:
@@ -747,7 +748,7 @@ spack install --keep-stage
 ```
 
 !!! tip
-    The `--keep-stage` option prevents _Spack_ from cleaning up the source code used to compile the executables, so it can be accessed by the debugger. Note that if you are iterating on a build, you may build up a large number of source files from successive building. These files are typically located at `/scratch/${GROUP}/${PROJECT}/tmp/spack-stage`, and should be cleaned up periodically.
+    The `--keep-stage` option prevents _Spack_ from cleaning up the source code used to compile the executables, so it can be accessed by the debugger. Note that if you are iterating on a build, you may build up a large number of source files from successive building. These files are typically located at `/scratch/$PROJECT/$USER/tmp/spack-stage`, and should be cleaned up periodically.
 
 !!! warning
     If you have an existing build that was built without the `--keep-stage` option, the model will need to be uninstalled and re-installed again with this option for the debugger to work properly.
@@ -762,10 +763,10 @@ The recommended way to execute a debugging run is by using [_payu_](https://gith
     ```
     spack find --paths
     ```
-    This commands lists the installation directories for each package in the environment. The generated executables will be located in the installation directories at `bin/<executable_name>`. Be careful to retrieve the correct executable for packages which build multiple executables e.g. CICE5.
+    This commands lists the installation directories for each package in the environment. The generated executables will be located in the installation directories at `bin/<executable_name>`. Be careful to retrieve the correct executable for packages which build multiple executables (e.g., CICE5).
     {: #exe_paths }
 2. Within the `submodels` section of the model configuration's `config.yaml` file, in the `exe` field, specify the [path to its executable](#exe_paths).
-3. In the `config.yaml` file, add `linaro-forge/24.0.2` to the `modules: load` section.
+3. In the `config.yaml` file, add `linaro-forge/<version>` to the `modules: load` section, by substituting `<version>` with the correct `linaro-forge` version.
 4. In the `config.yaml`, turn off executable reproducibility, since adding debugging options modifies the executable, by setting `manifest: reproduce: exe: False`.
 5. Tell _payu_ to pipe the run through _Linaro DDT_ by adding the following to the configuration `config.yaml`:
 
@@ -776,19 +777,19 @@ The recommended way to execute a debugging run is by using [_payu_](https://gith
 6. Run the model with `payu run`.
 
 !!! tip
-    Alternatively, it is possible to debug from an interactive job following the [instructions from NCI](https://opus.nci.org.au/spaces/Help/pages/363659856/Linaro+Forge+HPC+Tools...). While in an interactive job, call `payu-run` instead of `payu run`. If you choose this method, set `mpi: runcmd: ddt mpirun` in the `config.yaml`, instead of `mpi: runcmd: ddt --connect mpirun`.
+    Alternatively, it is possible to debug from an interactive job following the [instructions from NCI](https://opus.nci.org.au/spaces/Help/pages/363659856/Linaro+Forge+HPC+Tools...). While in an interactive job, call `payu-run` instead of `payu run`. If you choose this method, in the `config.yaml` set `mpi: runcmd: ddt mpirun` instead of `mpi: runcmd: ddt --connect mpirun`.
 
-
-A limitation of the NCI's _Linaro Forge_ license is that the maximum number of processes permitted for a _DDT_ (or _Map_ for profiling) run is 256. For some models, this is sufficient to run with the default configuration, but for some e.g. ACCESS-ESM1.5, it is not. This means the MPI configuration of the components must be changed. This process is outlined below for the common model components used in ACCESS models:
+### Changing number of processes for _Linaro DDT_
+A limitation of the NCI's _Linaro Forge_ license is that the maximum number of processes permitted for a _DDT_ (or _Map_ for profiling) run is 256. For some models (e.g., ACCESS-ESM1.5) this is not sufficient to run with the default configuration. This means the MPI configuration of the components must be changed. This process is outlined below for some of the model components used in ACCESS models:
 
 * __UM7__: In `atmosphere/um_env.yaml`, change `UM_ATM_NPROCX` and `UM_ATM_NPROCY`, which describe the number of chunks in the x and y directions, as well as `UM_NPES` to the product of `UM_ATM_NPROCX` and `UM_ATM_NPROCY`. In `config.yaml`, change the `atmosphere: ncpus` to be the same as `UM_NPES`.
 * __MOM5__: In `ocean/input.nml`, change `layout` in the `&ocean_model_nml` namelist, which describes the number of chunks in the x and y directions in `nx,ny` format. In `config.yaml`, change the `ocean: ncpus` to the product of `nx` and `ny`.
 * __CICE4__: Requires the user to have their own Spack installation. In the user's Spack installation, in `${SPACK_ROOT}/spack-packages/packages/cice4/package.py`, modify the entries in the `__targets` dictionary to the desired number of processes. In the configuration's `ice/cice_in.nml`, change `nprocs` in the `&domain_nml` namelist to the desired number of processes. Finally, in the `config.yaml`, change the `ice: ncpus` to the desired number of processes.
 * __CICE5__: Requires the user to have their own Spack installation. In the user's Spack installation, in `${SPACK_ROOT}/spack-packages/packages/cice5/package.py`, modify the entries in the `self.__targets` dictionary and `self.add_target` calls to the desired number of processes. In the configuration's `ice/cice_in.nml`, change `nprocs` in the `&domain_nml` namelist to the desired number of processes. Finally, in the `config.yaml`, change the `ice: ncpus` to the desired number of processes.
 
-In the above example, taking one of the release [_ACCESS ESM1.5_ configurations](https://github.com/ACCESS-NRI/access-esm1.5-configs), the number of processes requested is larger than the number allowed by _Linaro Forge_, so changes to the atmosphere and ocean decompositions are required. We'll reduce the number of atmosphere processes to 16 and ocean processes to 12. As CICE4 only requests 12 processes, this can remain as is. The required changes to the configuration are:
+For the example above, the number of processes requested is larger than the number allowed by _Linaro Forge_. Therefore, changes to the atmosphere (UM) and ocean (MOM5) decompositions are required. For this reason, we will reduce the number of processes to 16 for UM and to 12 for MOM5. As CICE4 only requests 12 processes, this can be kept as is. The updated configuration would look like the following:
 
-In `config.yaml`;
+In `config.yaml`:
 ```
 submodels:
     name: atmosphere
@@ -814,7 +815,7 @@ mpi:
   runcmd: ddt --connect mpirun
 ```
 
-in `atmosphere/um_env.yaml`;
+In `atmosphere/um_env.yaml`:
 ```
 ...
 UM_ATM_NPROCX: '4'  # Decomposition that multiplies to 16
@@ -823,7 +824,7 @@ UM_NPES: '16'
 ...
 ```
 
-in `ocean/input.nml`;
+In `ocean/input.nml`:
 ```
 ...
 &ocean_model_nml
