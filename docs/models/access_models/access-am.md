@@ -7,11 +7,14 @@ The ACCESS Atmosphere Model (ACCESS-AM) is a global coupled atmospheric model th
 {% set model = "ACCESS-AM3" %}
 ## {{ model }}
 
-{{ model }} is a set of coupled atmosphere-land configurations developed by ACCESS-NRI, the [Commonwealth Science and Industrial Research Organisation](https://www.csiro.au/en/research/natural-environment?start=0&count=12) (CSIRO) and the [ARC Centre of Excellence for Weather in the 21st Century](https://21centuryweather.org.au/).
+{{ model }} is a set of coupled atmosphere-land configurations developed by the ACCESS-NRI, the [Commonwealth Science and Industrial Research Organisation (CSIRO)](https://www.csiro.au/en/research/natural-environment?start=0&count=12) and the [ARC Centre of Excellence for Weather in the 21st Century](https://21centuryweather.org.au/).
 
-ACCESS-NRI has released [{{ model }} configurations](/models/run_a_model/run_access-am3).
+ACCESS-NRI has released [{{ model }} configurations](https://github.com/ACCESS-NRI/access-am3-configs).
 
-**Fill in configurations for beta release.**
+!!! tip
+    The configurations GitHub repository is private. To request access to it, follow the related instructions in the [Run {{ model }} page](/models/run_a_model/run_access-am3/#request-access).
+
+<!-- TODO: Fill in configurations for beta release. -->
 
 ### Model Components {: #model-components-{{model}} }
 
