@@ -40,6 +40,7 @@ theme:
     - content.code.copy         # for displaying copy icon at top right in code snippets  
     - content.code.annotate
     - content.tabs.link
+    - content.action.edit       # Show the edit icon at the top right of each page
     - search.suggest
     - search.highlight
     - search.share
