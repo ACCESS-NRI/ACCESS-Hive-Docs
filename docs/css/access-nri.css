@@ -968,7 +968,8 @@ details.code {
 }
 
 /* ===============================================================
-  Header Buttons CSS - "Hive Forum", "ACCESS-NRI", "Contribute"
+  Header Buttons CSS - "Hive Forum", "ACCESS-NRI", 
+  "Contribute", "Terminal"
 */
 .header-btn-container {
   max-width: 20rem;
@@ -1048,6 +1049,28 @@ details.code {
   flex-basis: 75%;
   text-align: center;
   white-space: nowrap;
+}
+
+
+.terminal-btn {
+  /* flex-basis: 33.333%; */
+  flex-basis: 25%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  height: 1.4rem;
+  font-size: large;
+}
+
+.terminal-btn:hover {
+  transition-duration: 0.3s;
+  transition-property: all;
 }
 
 /* =============================================================== 
