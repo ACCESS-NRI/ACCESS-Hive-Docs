@@ -138,7 +138,7 @@ function tabFunctionality() {
 function makeLinksExternal() {
   const externalLinkClass = "external-link";
   const currentHost = location.hostname;
-  const excludedClasses = ['.vertical-card', '.horizontal-card', '.text-card'];
+  const excludedClasses = ['.vertical-card', '.horizontal-card', '.text-card', '.md-icon'];
   document.querySelectorAll("a[href^='http']")
     .forEach(link => {
       const url = new URL(link.href);
