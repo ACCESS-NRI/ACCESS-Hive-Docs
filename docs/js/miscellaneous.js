@@ -263,7 +263,7 @@ function toggleTerminalAnimations() {
         const searchbar = document.querySelector('.md-search');
         console.log("hi");
         console.log(searchbar)
-        searchbar.after(terminalAnimationsSwitchContainer);
+        searchbar.before(terminalAnimationsSwitchContainer);
     }
 }
 
