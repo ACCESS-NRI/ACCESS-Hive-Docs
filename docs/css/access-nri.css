@@ -2,9 +2,6 @@
    ACCESS-Hive Docs CSS
 */
 
-/* Import medium-weight Roboto font for tabs */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
 :root {
   --nri-green-color: 165, 205, 58; 
   --nri-orange-color: 249, 166, 28; 
