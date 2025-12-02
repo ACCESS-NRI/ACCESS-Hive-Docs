@@ -259,10 +259,11 @@ function toggleTerminalAnimations() {
         // const h1 = document.querySelector('h1');
         // console.log("hi")
         // h1.parentElement.insertBefore(terminalAnimationsSwitchContainer, h1);
-        const h1 = document.querySelector('.md-header');
         console.log("hi");
-        console.log(h1)
-        h1.appendChild(terminalAnimationsSwitchContainer, h1);
+        const searchbar = document.querySelector('.md-search');
+        console.log("hi");
+        console.log(searchbar)
+        searchbar.after(terminalAnimationsSwitchContainer);
     }
 }
 
