@@ -165,7 +165,64 @@ function makeLinksExternal() {
 /*
   Add button to toggle terminal-animations for the whole page (next to the page title)
 */
-function toggleTerminalAnimations() {
+function toggleTerminalAnimations(){
+  
+  // If the current document consists of terminal-window, then 
+  // execute the following code.
+  if (document.querySelector('terminal-window')) {
+    
+    // Cookie text in local storage for retrieving whether
+    // terminal animation is toggled on or off by the user
+    const COOKIE_TEXT = 'ACCESS-Hive-Docs-animated-terminal-state';
+
+    // GETTER: Get the current state of the toggle button.
+    // If there is no COOKIE_TEXT in local storage, then 
+    // the state is active by default.
+    function getCookieState() {
+      return localStorage.getItem(COOKIE_TEXT) || 'active';
+    }
+
+    // SETTER: Set the current state when the button is pressed.
+    function setCookieState(state) {
+      localStorage.setItem(COOKIE_TEXT, state);
+    }
+
+    // Change the terminal state to static or animated.
+    function changeTerminalState(state) {
+      let terminalWindows = document.querySelectorAll('terminal-window')
+
+      // If the new state is active, then make the terminal
+      // as active by removing the static attribute.
+      // And vice versa in the else block.
+      if (state == 'active') {
+        terminalWindows.forEach(t => {
+          t.removeAttribute('static');
+        })
+      } else {
+        terminalWindows.forEach(t => {
+          t.setAttribute('static','')
+        })
+      }
+    }
+
+    function toggleState(state) {
+      // If the current state is active, set toggled state to inactive.
+      // And vice versa.
+      const toggledState = getState() === 'active' ? 'inactive' : 'active';
+
+      // Change the state of terminal
+      changeTerminalState(toggledState)
+
+      // Save the new state in cookies - local storage
+      setCookieState(newstate)
+    }
+
+    let state = getCookieState()
+    toggleState(state)
+  }
+} 
+
+function toggleTerminalAnimations2() {
     if (document.querySelector('terminal-window')) {
         const COOKIE_TEXT = 'ACCESS-Hive-Docs-animated-terminal-state';
         const SWITCH_IMG = '/assets/terminal_animation_switch.png';

@@ -11,6 +11,7 @@
   --nri-dark-blue-color: 0, 91, 148;
   --nri-blue-color: 1, 173, 238;
   --nri-light-blue-color: 142, 215, 248;
+  --nri-white: 255, 255, 255 /* rgb(255, 255, 255) */
   --nri-green: rgb(var(--nri-green-color)); /* rgb(166, 206, 57) */
   --nri-orange: rgb(var(--nri-orange-color)); /* rgb(250, 166, 25) */
   --nri-dark-blue: rgb(var(--nri-dark-blue-color)); /* rgb(17, 93, 151) */
@@ -1053,7 +1054,6 @@ details.code {
 
 
 .terminal-btn {
-  /* flex-basis: 33.333%; */
   flex-basis: 25%;
   flex-grow: 1;
   display: flex;
@@ -1070,7 +1070,8 @@ details.code {
 
 .terminal-btn:hover {
   transition-duration: 0.3s;
-  transition-property: all;
+  /* transition-property: all; */
+  background-color: rgba(var(--nri-white),0.7);
 }
 
 /* =============================================================== 
