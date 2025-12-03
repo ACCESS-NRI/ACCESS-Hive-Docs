@@ -8,6 +8,8 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
 repo_name: ACCESS-Hive-Docs
 
+edit_uri: edit/development/docs/
+
 theme:
   name: material
   custom_dir: overrides
@@ -39,6 +41,7 @@ theme:
     - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
     - content.code.copy         # for displaying copy icon at top right in code snippets  
     - content.code.annotate
+    - content.action.edit
     - content.tabs.link
     - search.suggest
     - search.highlight
@@ -228,7 +231,7 @@ extra_css:
 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
-  - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
+  - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.1/animated-terminal.min.js # Terminal animations
   - js/custom-tags.js
   - js/miscellaneous.js
 

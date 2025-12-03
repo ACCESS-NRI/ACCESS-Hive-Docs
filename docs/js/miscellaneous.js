@@ -138,7 +138,7 @@ function tabFunctionality() {
 function makeLinksExternal() {
   const externalLinkClass = "external-link";
   const currentHost = location.hostname;
-  const excludedClasses = ['.vertical-card', '.horizontal-card', '.text-card'];
+  const excludedClasses = ['.vertical-card', '.horizontal-card', '.text-card', '.md-content__button'];
   document.querySelectorAll("a[href^='http']")
     .forEach(link => {
       const url = new URL(link.href);
@@ -235,7 +235,7 @@ function toggleTerminalAnimations() {
         terminalAnimationsSwitch.setAttribute('src',SWITCH_IMG);
         terminalAnimationsSwitch.classList.add('terminal-switch');
         const terminalAnimationsSwitchInactive = document.createElement('img');
-        terminalAnimationsSwitchInactive.classList.add('terminal-switch');
+        terminalAnimationsSwitchInactive.classList.add('terminal-switch', 'inactive');
         terminalAnimationsSwitchInactive.setAttribute('src',SWITCH_IMG_INACTIVE);
         // Create the Animation Switch tooltip
         const terminalAnimationsTooltip = document.createElement('div');
@@ -256,8 +256,14 @@ function toggleTerminalAnimations() {
         let state = getState();
         applyState(terminalAnimationsSwitchContainer, state);
         // Place the Animation switch within the document
-        const h1 = document.querySelector('h1');
-        h1.parentElement.insertBefore(terminalAnimationsSwitchContainer, h1);
+        // If pencil icon is present, place the switch next to it, otherwise at the beginning of the 'article' element
+        const pencilIcon = document.querySelector('.md-content__button[title="Edit this page"]');
+        if (pencilIcon) {
+            pencilIcon.parentElement.insertBefore(terminalAnimationsSwitchContainer, pencilIcon.nextSibling);
+        } else {
+            const articleElement = document.querySelector('article');
+            articleElement.insertBefore(terminalAnimationsSwitchContainer, articleElement.firstChild);
+        }
     }
 }
 
