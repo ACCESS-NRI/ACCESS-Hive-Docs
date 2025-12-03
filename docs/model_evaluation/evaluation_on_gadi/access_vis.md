@@ -26,7 +26,7 @@ Also make sure to add your project scratch path `/scratch/$PROJECT` to **Storage
 
 ## Installation
 
-ACCESS-Vis is available on PyPI, and can be installed via `pip`:
+ACCESS-Vis is available on PyPI, and can be installed via `pip` on your local computer:
 
 ```bash
 pip install accessvis
