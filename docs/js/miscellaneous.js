@@ -166,6 +166,8 @@ function makeLinksExternal() {
   Add button to toggle terminal-animations for the whole page (next to the page title)
 */
 function toggleTerminalAnimations(){
+
+  // TODO change the color of the terminal button once clicked
   
   // If the current document consists of terminal-window, then 
   // execute the following code.
@@ -205,13 +207,26 @@ function toggleTerminalAnimations(){
       }
     }
 
-    function toggleState(state) {
+    // Darken the terminal icon once pressed
+    function changeIconColor(state) {
+      // Now we need an event listener here to keep the 
+      // button pressed
+      const terminalbtn = document.querySelector('#animated-terminal-icon')
+      terminalbtn.addEventListener('click', () => {
+        console.log('Button clicked');
+      })
+    }
+
+    function toggleState() {
       // If the current state is active, set toggled state to inactive.
       // And vice versa.
-      const toggledState = getState() === 'active' ? 'inactive' : 'active';
+      const newstate = getCookieState() === 'active' ? 'inactive' : 'active';
 
       // Change the state of terminal
-      changeTerminalState(toggledState)
+      changeTerminalState(newstate)
+
+      // Change the color of terminal icon
+      changeIconColor(newstate)
 
       // Save the new state in cookies - local storage
       setCookieState(newstate)
