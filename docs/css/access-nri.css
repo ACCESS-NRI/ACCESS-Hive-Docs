@@ -1072,12 +1072,12 @@ details.code {
 .terminal-btn:hover {
   transition-duration: 0.3s;
   background-color: rgba(var(--default-fg-color), 0.6);
+  transform: scale(1.05)
 }
 
 .terminal-btn:active, 
 .active {
-  /* background-color: rgba(var(--default-fg-color), 0.6); */
-  background-color: red;
+  background-color: rgba(var(--default-fg-color), 0.6);
 }
 
 /* =============================================================== 
