@@ -208,14 +208,15 @@ function toggleTerminalAnimations(){
     }
 
     // Darken the terminal icon once pressed
-    function changeIconColor(state) {
-      // Now we need an event listener here to keep the 
-      // button pressed
-      const terminalbtn = document.querySelector('#animated-terminal-icon')
-      terminalbtn.addEventListener('click', () => {
-        console.log('Button clicked');
-      })
-    }
+    // function changeIconColor(state) {
+    //   // Now we need an event listener here to keep the 
+    //   // button pressed
+    //   const terminalbtn = document.querySelector('#animated-terminal-icon')
+    //   terminalbtn.addEventListener('click', () => {
+    //     console.log('Button clicked');
+    //     terminalbtn.classList.toggle('active');
+    //   })
+    // }
 
     function toggleState() {
       // If the current state is active, set toggled state to inactive.
@@ -226,14 +227,25 @@ function toggleTerminalAnimations(){
       changeTerminalState(newstate)
 
       // Change the color of terminal icon
-      changeIconColor(newstate)
+      // changeIconColor(newstate)
 
       // Save the new state in cookies - local storage
       setCookieState(newstate)
     }
 
-    let state = getCookieState()
-    toggleState(state)
+    // let state = getCookieState()
+    // const terminalbtn = document.querySelector('#animated-terminal-icon')
+    const terminalicon = document.querySelector('.terminal-btn')
+    terminalicon.addEventListener('click', () => {
+        console.log('Button clicked');
+
+        // Grab the button child from the div with id, and then toggle the 
+        // state to active.
+        // terminalicon.querySelector('#animated-terminal-icon').classList.toggle('active');
+        terminalicon.classList.toggle('active');
+        toggleState();
+    })
+    // toggleState();
   }
 } 
 
