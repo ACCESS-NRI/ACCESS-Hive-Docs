@@ -28,7 +28,7 @@ However, for its land-surface initial conditions, {{ model }} offers flexibility
 
 Information about the amount of NCI resources (such as Service Units (SU) and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum.access-hive.org.au/t/access-ram3-release-information/4308).
 
-### Land-surface initial conditions source
+### Land-surface initial conditions source options
 - [ERA5-Land](https://www.ecmwf.int/en/era5-land) (default)
 - [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
 - [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf)

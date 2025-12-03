@@ -31,7 +31,8 @@ A description of the model and its components is available in the [{{ model }} o
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
-The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). Once you feel comfortable running the model, you can modify it as needed by, e.g., changing the region, the dates, the data source for initial conditions, or the output variables.
+The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
+It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -199,7 +200,7 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
 - **Storage** &rarr; `gdata/access+gdata/hr22+gdata/ki32+gdata/rt52+gdata/ob53+gdata/cm45+gdata/vk83` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
     Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than the ones listed in the minimum storage above, you need to add those projects to the storage path.<br>
-    For example, if your {{ model }} simulation requires data stored in `/g/data/<your-project-id>` and `/scratch/<your-project-id>`, the following should be added to the minimum storage above: `+gdata/<your-project-id>+scratch/<your-project-id>`
+    For example, if your {{ model }} simulation requires data stored in `/g/data/<project-id>` and `/scratch/<project-id>`, the following should be added to the minimum storage above: `+gdata/<project-id>+scratch/<project-id>`
     
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
@@ -262,7 +263,7 @@ The label of a newly-created _persistent session_ has the following format: <br>
 #### Specify target _persistent session_ {: .no-toc }
 
 After starting the _persistent session_, it is essential to assign it to the {{ model }} run.<br>
-The easiest way is to create a file `~/.persistent-sessions/cylc-session` that contains the target of the _persistent session_.<br>
+The easiest way is to create the file `~/.persistent-sessions/cylc-session` that contains the target of the _persistent session_.<br>
 You can do it manually, or by running the following command (by substituting `<name>` with the name given to the _persistent session_, and `<project>` with the project assigned to it):
 
 ```
@@ -425,7 +426,7 @@ The RAS takes about 1 hour to run. You can find estimates of the compute and sto
 
 To run the RAS, navigate to your RAS [suite directory](#suitedir) and run the suite:
 ```
-cd ~/roses/u-bu503
+cd ~/roses/{{ras_id}}
 rose suite-run
 ```
 
@@ -717,7 +718,7 @@ Thus, the ancillary files directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>
 
 Ancillary data files are typically output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-### OSTIA Ancillary Suite (OAS) - *optional* {: #oas }
+### OSTIA Ancillary Suite (OAS) (optional) {: #oas }
 
 Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional–use it if you want daily varying and/or higher resolution 0.05 degree SST and sea ice inputs (in this example, if you don't run OAS, the default is to use 0.25 degree `ERA5` SST and sea-ice data). OAS is included here in case you choose to run it.
 
@@ -735,11 +736,11 @@ To check the OAS suite logs, follow the steps listed in [Check suite logs](#chec
 
 #### OAS output files
 
-All the OAS output files are available in the OSTIA_OUTPUT directory.
+All the OAS output files are available in the `OSTIA_OUTPUT` directory.
 
 OAS ancillary data files are output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-For example, the global ostia ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/scratch/$PROJECT/$USER/OSTIA_ANCIL/20220226T0000Z_ostia.anc`.
+For example, the global OSTIA ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/scratch/$PROJECT/$USER/OSTIA_ANCIL/20220226T0000Z_ostia.anc`.
 
 !!! warning
     The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
@@ -747,7 +748,7 @@ For example, the global ostia ancillary file for the first cycle (`20220226T0000
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
-The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest, so you must wait for the RAS (and OAS if you chose to run that suite) to finish before running the RNS. You can find estimates of the compute and storage requirements for RNS in the [{{ model }} release notes]({{release_notes}}).
+The RNS uses the ancillary files produced by the RAS and OAS to run the regional forecast for the domain of interest. Therefore, before running the RNS you must wait for the completion of the RAS and OAS (if you chose to run it). You can find estimates of the compute and storage requirements for the RNS in the [{{ model }} release notes]({{release_notes}}).
 
 The `suite-ID` of the RNS is `{{ rns_id }}`.
 The latest release branch is `{{ branch }}`.
@@ -777,11 +778,11 @@ Each `<science_configuration>` directory has the following subdirectories:
 
 The RNS output data files are in [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment that we are running on this page (`Lismore` `nested_region_name`, using a `RAL3P3` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P3/um/umnsaa_pa000`.
+For example, the model output data for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment on this page (`Lismore` `nested_region_name`, using a `RAL3P3` `science_configuration` and `d0198` as a `nest_name`) can be found in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>/share/cycle/20220226T0000Z/Lismore/d0198/RAL3P3/um/umnsaa_pa000`.
 
 !!! tip
     The output data name format may vary depending on some configuration parameters.<br>
-    To change which output variables are produced, refer to [access-ram3-configs#Model_Outputs]({{configs_docs}}/model_outputs/)
+    To change which output variables are produced, refer to [{{ model }} configuration documentation]({{configs_docs}}/model_outputs/)
 
 
 ### Edit {{ model }} configuration
@@ -802,7 +803,8 @@ rose edit &
 !!! tip
     The `&` is optional. It allows the terminal prompt to remain active while running the `Rose` GUI as a separate process in the background.
 
-#### Change start date and/or run length
+#### Change start date and run length
+<div markdown id="run-length-mismatch">
 !!! warning
     `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br>
     The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.<br>
@@ -813,6 +815,7 @@ rose edit &
     Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
     For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
+</div>
 
 
 
@@ -913,25 +916,7 @@ Manually specifying each STASH variable can be complex. To simplify the selectio
     For example, to enable `stashpack 6` (that includes variables such as wind gust, mean sea level pressure and rainfall amount, for every model timestep) in all nests, set the `6th` button of both `rg01_rs01_m01_stashpack` and `rg01_rs02_m02_stashpack` fields to `true`.
 
 
-<!-- ACCESS-rAM Troubleshooting-->
-<a href="/models/run-a-model/access-ram-troubleshooting" class="vertical-card aspect-ratio1to1">
-    <div class="card-image-container">
-        <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_ram_model_visualisation.png" alt="ACCESS-rAM">
-    </div>
-    <div class="card-text-container bold">
-        ACCESS-rAM troubleshooting
-    </div>
-</a>
 
-<!-- ACCESS-rAM Troubleshooting-->
-<a href="/models/run-a-model/access-ram-ostia" class="vertical-card aspect-ratio1to1">
-    <div class="card-image-container">
-        <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_ram_model_visualisation.png" alt="ACCESS-rAM">
-    </div>
-    <div class="card-text-container bold">
-        ACCESS-rAM with OSTIA
-    </div>
-</a>
 
 
 
