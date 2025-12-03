@@ -46,7 +46,7 @@ pip install accessvis
 ![Sun and Seasons](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/seasons.gif?raw=true)
 
 
-### References
-
-[![DOI](https://zenodo.org/badge/875944360.svg)](https://doi.org/10.5281/zenodo.14167706)
-[![DOI](https://zenodo.org/badge/767301983.svg)](https://doi.org/10.5281/zenodo.14167608)
+<custom-references>
+- [https://doi.org/10.5281/zenodo.14167706](https://doi.org/10.5281/zenodo.14167706)
+- [https://doi.org/10.5281/zenodo.14167608](https://doi.org/10.5281/zenodo.14167608)
+</custom-references>
