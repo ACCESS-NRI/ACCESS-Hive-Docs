@@ -8,7 +8,9 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
 repo_name: ACCESS-Hive-Docs
 
-edit_uri: edit/development/docs/
+edit_uri: !ENV [EDIT_URI, ""]
+# EDIT_URI is set within the website build (ReadTheDocs) through the ACCESS-Hive-Docs repo script
+# https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/blob/main/.readthedocs/scripts/custom_build.sh
 
 theme:
   name: material

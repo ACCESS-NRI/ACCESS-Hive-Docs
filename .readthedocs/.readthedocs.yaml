@@ -21,9 +21,12 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
-  # jobs:
-    # post_checkout: # MODIFY IF NEEDED: uncomment to cancel the RTD build
-    #   - exit 183
+  jobs:
+    # post_checkout: ['exit 183'] # MODIFY IF NEEDED: uncomment to cancel the RTD build
+    build:
+      html:
+        - curl -sSL https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/davide/rtd_custom_build/.readthedocs/scripts/custom_build.sh | bash # Custom build
+    
 
 # Build documentation with Mkdocs
 mkdocs:
