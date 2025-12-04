@@ -25,7 +25,7 @@ build:
     # post_checkout: ['exit 183'] # MODIFY IF NEEDED: uncomment to cancel the RTD build
     build:
       html:
-        - curl -sSL https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/davide/rtd_custom_build/.readthedocs/scripts/custom_build.sh | bash # Custom build
+        - curl -sSL https://raw.githubusercontent.com/ACCESS-NRI/ACCESS-Hive-Docs/main/.readthedocs/scripts/custom_build.sh | bash # Custom build
     
 
 # Build documentation with Mkdocs
