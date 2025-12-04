@@ -3,8 +3,8 @@
 {% set oas_id = "u-dk517" %}
 {% set rns_id = "u-by395" %}
 {% set branch = "nci_access_ram3" %}
-{% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/7/trunk" %}
-{% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/d/g/7/6/8/trunk" %}
+{% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/u/5/0/3/ ~ branch" %}
+{% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/ ~ branch" %}
 {% set access_models = "/models/access_models/access-ram" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-ram3-release-information/4308/6" %}
 {% set configs_docs = "https://access-ram3-configs.access-hive.org.au/pr-previews/5/" %}
@@ -371,7 +371,7 @@ The RAS configuration can be copied from the MOSRS repository in 2 ways:
 - [Remote and local copy](#remote-copy)
 - [Local-only copy](#local-copy)
 
-If you're not sure which option to use, we recommend using the "remote and local copy".
+If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
 
 Suites are, by default, created in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
 This path will be referred to as the *suite directory*.
