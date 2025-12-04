@@ -917,7 +917,8 @@ Manually specifying each STASH variable can be complex. To simplify the selectio
 
 
 
-
+## Troubleshooting
+For common known errors related to {{ model}} and possible workarounds, refer to [{{ model }} configuration documentation](https://access-ram3-configs.access-hive.org.au/pr-previews/5/troubleshooting/).
 
 
 ## Get Help
