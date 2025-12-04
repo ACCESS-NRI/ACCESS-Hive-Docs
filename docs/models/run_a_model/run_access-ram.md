@@ -346,12 +346,12 @@ mosrs-auth
     This step needs to be done once for each new session (e.g., _Gadi_ login, _ARE_ terminal window)
 
 ### {{ model }} configuration
-{{ model }} comprises 2 different suites: a [Regional Ancillary Suite (RAS)](#ras) and a [Regional Nesting Suite (RNS)](#rns).
+{{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
 
-Both suites within {{ model }} have a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
+Each suite within {{ model }} has a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
 Typically, an existing suite is copied and then edited as needed for a particular experiment.
 
-For more information on {{ model }}, refer to the [{{model}} configuration]({{ access_models }}/#{{ model }}) page.
+For more information on {{ model }}, refer to the [{{model}} configuration]({{ access_models }}/{{ model }}) page.
 
 !!! info 
     Many of the following steps appear in both the RAS and RNS. For this reason, these steps will be detailed only within the RAS section below, and subsequently linked to within the RNS section.
@@ -720,7 +720,7 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 ### OSTIA Ancillary Suite (OAS) (optional) {: #oas }
 
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs ([resolution and other details are in the ACCESS-rAM3 overview]((/models/access_models/access-ram/#sst))). OAS is included here in case you choose to run it.
+Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs (resolution and other details can be found on the [{{model}} configuration]({{ access_models }}/{{ model }}/#oas) page. OAS is included here in case you choose to run it.
 
 The `suite-ID` of the OAS is `{{ oas_id }}`.
 
