@@ -168,7 +168,7 @@ git push --set-upstream origin update_mom5_dev_build
 
 #### 3. Open a PR
 To trigger a prerelease build, [open a PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with the `main` branch of the model deployment repository as the *base*. This will start a model build attempt by [GitHub's CI/CD](https://github.com/resources/articles/devops/ci-cd) infrastructure. As a result, a comment is added by `github-actions[bot]` saying that the build is deploying.<br>
-Once the deployment is [successful](#successful-deployment), you will be able to access the prerelease on the listed HPC systems by following the instructions specified in the comment's _Details and usage instructions_.
+Once the deployment is [successful](#successful-deployment), you will be able to access the prerelease on the listed HPC systems by following the instructions specified in the comment's _Usage Instructions_.
 
 !!! warning
     The deployment will only be triggered if there are no [merge conflicts](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) with `main`.
