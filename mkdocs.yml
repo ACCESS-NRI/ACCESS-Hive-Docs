@@ -220,11 +220,8 @@ extra:
   #           Help us improve this page by <a href=/about/contribute target="_blank" rel="noopener">contributing</a>!
 
 extra_css:
-  - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
-  - fontawesome-free-6.4.0-web/css/all.css
-  - fontello/css/fontello-codes.css
-  - fontello/css/fontello-ie7-codes.css
-  - fontello/css/fontello-ie7.css
+  - https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css
   - fontello/css/fontello.css
   - css/access-nri.css
   - css/responsiveness.css
