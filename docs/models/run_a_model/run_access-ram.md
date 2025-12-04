@@ -368,8 +368,8 @@ The latest release branch is `{{ branch }}`.
 
 The RAS configuration can be copied from the MOSRS repository in 2 ways:
 
-- [Remote and local copy](#remote-copy)
 - [Local-only copy](#local-copy)
+- [Remote and local copy](#remote-copy)
 
 If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
 
@@ -385,27 +385,8 @@ The suite directory contains multiple subdirectories and files, including:
 - `rose-suite.info` &rarr; suite information file.
 - `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
-##### Remote and local copy {: #remote-copy .no-toc }
-To create a new copy of the RAS both _locally_ and _remotely_ in the MOSRS repository, run: 
-```
-rosie copy {{ ras_id }}
-```
-<terminal-window>
-    <terminal-line data="input">rosie copy {{ ras_id }}</terminal-line>
-    <terminal-line>Copy "{{ ras_id }}/trunk@&lt;trunk-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ ras_id }}/trunk@&lt;trunk-ID&gt;</terminal-line>
-    <terminal-line>[INFO] {{ ras_id }}: local copy created at /home/565/&lt;$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
-</terminal-window>
-When a new suite is created in this way, a _unique_ `<suite-ID>` folder is generated within the MOSRS repository and populated with descriptive information about the suite and its initial configuration.
-
-For additional `rosie` options, run:
-```
-rosie help
-```
-
 ##### Local-only copy {: #local-copy .no-toc }
-This option is mostly used for testing and examining suites. To create a _local copy_ of the RAS from MOSRS repository, run:
+To create a _local copy_ of the RAS from MOSRS repository, run:
 ```
 rosie checkout {{ ras_id }}/{{ branch }}
 ```
@@ -414,6 +395,25 @@ rosie checkout {{ ras_id }}/{{ branch }}
     <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
     <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ ras_id }}</terminal-line>
 </terminal-window>
+
+##### Remote and local copy {: #remote-copy .no-toc }
+To create a new copy of the RAS both _locally_ and _remotely_ in the MOSRS repository, run: 
+```
+rosie copy {{ ras_id }}/{{ branch }}
+```
+<terminal-window>
+    <terminal-line data="input">rosie copy {{ ras_id }}/{{ branch }}</terminal-line>
+    <terminal-line>Copy "{{ ras_id }}/{{ branch }}@&lt;{{ branch }}-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ ras_id }}/{{ branch }}@&lt;{{ branch }}-ID&gt;</terminal-line>
+    <terminal-line>[INFO] {{ ras_id }}: local copy created at /home/565/&lt;$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
+</terminal-window>
+When a new suite is created in this way, a _unique_ `<suite-ID>` folder is generated within the MOSRS repository and populated with descriptive information about the suite and its initial configuration.
+
+For additional `rosie` options, run:
+```
+rosie help
+```
     
 
 
