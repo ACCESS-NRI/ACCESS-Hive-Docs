@@ -720,7 +720,7 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 ### OSTIA Ancillary Suite (OAS) (optional) {: #oas }
 
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional–use it if you want daily varying and/or higher resolution 0.05 degree SST and sea ice inputs (in this example, if you don't run OAS, the default is to use 0.25 degree `ERA5` SST and sea-ice data). OAS is included here in case you choose to run it.
+Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs ([resolution and other details are in the ACCESS-rAM3 overview]((/models/access_models/access-ram/#sst))). OAS is included here in case you choose to run it.
 
 The `suite-ID` of the OAS is `{{ oas_id }}`.
 
