@@ -1,6 +1,6 @@
 {% set ram3_configs_docs = "https://access-ram3-configs.access-hive.org.au" %}
 {% set model = "ACCESS-rAM3" %}
-[run_access-ram]: /models/run_a_model/run_access-ram
+[run_access-ram]: /models/run_a_model/run_access-ram3
 
 # ACCESS-rAM 
 
@@ -35,13 +35,13 @@ Information about the amount of NCI resources (such as Service Units (SU) and st
 - [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
 - [BARRA-R2](http://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf) (default)
 
-#### Sea surface temperature (SST) and sea-ice initial and boundary conditions source options
+#### Sea surface temperature (SST) and sea-ice initial and boundary conditions source options {: #sst .no-toc }
 - [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) - 0.25 degree resolution
 - [OSTIA](https://data.marine.copernicus.eu/product/SST_GLO_SST_L4_NRT_OBSERVATIONS_010_001/description) - daily 0.05 degree resolution
 
 ### Nesting configuration
 The structure, horizontal resolution and placement of [nests](#nesting) can be customised.<br>
-For details on how to modify these configuration settings, refer to [Change the nested region's nest configuration](/models/run_a_model/run_access-ram/#change-the-nested-regions-nest-configuration).
+For details on how to modify these configuration settings, refer to [Change the nested region's nest configuration](/models/run_a_model/run_access-ram3/#change-the-nested-regions-nest-configuration).
 
 The default nesting configuration for the `ERA5-Land` land-surface initial conditions are the following:
 
