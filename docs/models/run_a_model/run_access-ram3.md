@@ -2,7 +2,9 @@
 {% set ras_id = "u-bu503" %}
 {% set oas_id = "u-dk517" %}
 {% set rns_id = "u-by395" %}
-{% set branch = "nci_access_ram3" %}
+{% set branch_ras = "nci_access_ram3" %}
+{% set branch_rns = "nci_access_ram3" %}
+{% set branch_oas = "trunk" %}
 {% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/u/5/0/3/ ~ branch" %}
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/ ~ branch" %}
 {% set access_models = "/models/access_models/access-ram" %}
@@ -123,7 +125,7 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 ### Regional Ancillary Suite (RAS) {: .no-toc }
 1. **Copy the RAS from UKMO**<br>
     ```
-    rosie checkout {{ ras_id }}/{{ branch }}
+    rosie checkout {{ ras_id }}/{{ branch_ras }}
     ```
 
     For further instructions on getting the RAS configuration, refer to the [Detailed guide](#get-the-ras-configuration).
@@ -140,7 +142,7 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 ### Ostia Ancillary Suite (OAS) {: .no-toc }
 1. **Copy the OAS from UKMO**<br>
     ```
-    rosie checkout {{ oas_id }}
+    rosie checkout {{ oas_id }}/{{ branch_oas }}
     ```
 
     For further instructions on getting the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
@@ -157,7 +159,7 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 ### Regional Nesting Suite (RNS) {: .no-toc }
 1. **Copy the RNS from UKMO**<br>
     ```
-    rosie checkout {{ rns_id }}/{{ branch }}
+    rosie checkout {{ rns_id }}/{{ branch_rns }}
     ```
 
     For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-rns-configuration).
@@ -361,7 +363,7 @@ For more information on {{ model }}, refer to the [{{model}} configuration]({{ a
 For the domain of interest, the RAS generates a set of ancillary files, such as initial conditions. These ancillary files are then used by the [RNS](#rns).
 
 The `suite-ID` of the RAS is `{{ ras_id }}`.
-The latest release branch is `{{ branch }}`.
+The latest release branch of the RAS is `{{ branch_ras }}`.
 
 #### Get the RAS configuration
 [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rosie) is an [SVN](https://subversion.apache.org) repository wrapper with a set of options specific for ACCESS modelling suites. It is automatically available within the [_Rose_ setup](#rose).
@@ -388,10 +390,10 @@ The suite directory contains multiple subdirectories and files, including:
 ##### Local-only copy {: #local-copy .no-toc }
 To create a _local copy_ of the RAS from MOSRS repository, run:
 ```
-rosie checkout {{ ras_id }}/{{ branch }}
+rosie checkout {{ ras_id }}/{{ branch_ras }}
 ```
 <terminal-window>
-    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch }}</terminal-line>
+    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch_ras }}</terminal-line>
     <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
     <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ ras_id }}</terminal-line>
 </terminal-window>
@@ -399,13 +401,13 @@ rosie checkout {{ ras_id }}/{{ branch }}
 ##### Remote and local copy {: #remote-copy .no-toc }
 To create a new copy of the RAS both _locally_ and _remotely_ in the MOSRS repository, run: 
 ```
-rosie copy {{ ras_id }}/{{ branch }}
+rosie copy {{ ras_id }}/{{ branch_ras }}
 ```
 <terminal-window>
-    <terminal-line data="input">rosie copy {{ ras_id }}/{{ branch }}</terminal-line>
-    <terminal-line>Copy "{{ ras_id }}/{{ branch }}@&lt;{{ branch }}-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
+    <terminal-line data="input">rosie copy {{ ras_id }}/{{ branch_ras }}</terminal-line>
+    <terminal-line>Copy "{{ ras_id }}/{{ branch_ras }}@&lt;{{ branch_ras }}-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ ras_id }}/{{ branch }}@&lt;{{ branch }}-ID&gt;</terminal-line>
+    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ ras_id }}/{{ branch_ras }}@&lt;{{ branch_ras }}-ID&gt;</terminal-line>
     <terminal-line>[INFO] {{ ras_id }}: local copy created at /home/565/&lt;$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
 </terminal-window>
 When a new suite is created in this way, a _unique_ `<suite-ID>` folder is generated within the MOSRS repository and populated with descriptive information about the suite and its initial configuration.
@@ -728,7 +730,7 @@ The `suite-ID` of the OAS is `{{ oas_id }}`.
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
 The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
 
-To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` when copying the suite, and **do not include** the branch name `{{branch_name}}` for OAS.
+To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` and branch `{{ branch_oas }}` when copying the suite.
 
 To run the OAS configuration, follow the steps listed in [Run the suite](#run-the-ras).
 
@@ -751,7 +753,7 @@ For example, the global OSTIA ancillary file for the first cycle (`20220226T0000
 The RNS uses the ancillary files produced by the RAS and OAS to run the regional forecast for the domain of interest. Therefore, before running the RNS you must wait for the completion of the RAS and OAS (if you chose to run it). You can find estimates of the compute and storage requirements for the RNS in the [{{ model }} release notes]({{release_notes}}).
 
 The `suite-ID` of the RNS is `{{ rns_id }}`.
-The latest release branch is `{{ branch }}`.
+The latest release branch of the RNS is `{{ branch_rns }}`.
 
 #### Get and run RNS configuration
 Steps to obtain and run the RNS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
