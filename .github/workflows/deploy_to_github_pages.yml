@@ -50,7 +50,7 @@ jobs:
         id: set-condition
         run: echo "build_development_website=${{ env.BUILD_DEVELOPMENT_WEBSITE }}" >> $GITHUB_OUTPUT
 
-  # Get the root url to be used at build time to set the SITE_URL env variable
+  # Get the root url to be used at build time to set the READTHEDOCS_CANONICAL_URL env variable
   # used in the mkdocs.yml file to construct the website map for links
   get-root-url:
     name: Set root URL
@@ -157,7 +157,7 @@ jobs:
         run: |
             dir=
             site_url="${{ env.ROOT_URL }}${dir:+${dir}/}"
-            command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{env.BUILD_DIR}}"
+            command="READTHEDOCS_CANONICAL_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{env.BUILD_DIR}}"
             echo "$command"
             eval "$command"
      
@@ -214,7 +214,7 @@ jobs:
         run: |
             dir=development-website
             site_url="${{ env.ROOT_URL }}${dir:+${dir}/}"
-            command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{env.BUILD_DIR}}"
+            command="READTHEDOCS_CANONICAL_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{env.BUILD_DIR}}"
             echo "$command"
             eval "$command"
      
@@ -331,7 +331,7 @@ jobs:
         run: |
           dir=$(sed 's|^${{ env.ROOT_URL }}||' <<< ${{ matrix.pr_preview_url }})
           site_url="${{ env.ROOT_URL }}${dir:+${dir}/}"
-          command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{env.BUILD_DIR}}"
+          command="READTHEDOCS_CANONICAL_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{env.BUILD_DIR}}"
           echo "$command"
           eval "$command"
        

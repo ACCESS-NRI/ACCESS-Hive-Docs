@@ -1,0 +1,175 @@
+# Reusable workflow to check for broken links in the documentation using lychee link checker
+# (https://github.com/lycheeverse/lychee)
+
+name: Check links workflow
+
+on: 
+  workflow_call:
+    inputs:
+      repo:
+        required: true
+        type: string
+        description: "The GitHub repository in the form OWNER/REPO for which to check links."
+      rtd_project:
+        type: string
+        required: true
+        description: "The Read the Docs project name."
+      ref_name:
+        required: true
+        type: string
+        description: "The PR number or git branch/tag name for which to check links."
+      mkdocs_yaml:
+        type: string
+        required: false
+        default: 'mkdocs.yml'
+        description: "Path to the mkdocs.yml configuration file. If not provided, 'mkdocs.yml' is used."
+      lychee_config:
+        type: string
+        required: false
+        description: "Path to the lychee configuration file. If not provided, the default ACCESS-Hive-Docs one will be used."
+      python_requirements_txt:
+        type: string
+        required: false
+        default: 'requirements.txt'
+        description: "Path to the python requirements.txt file. If not provided, 'requirements.txt' is used."
+    secrets:
+      repo_read_token:
+        required: false
+        description: "Token with read permissions. Needed for private repositories."
+
+env:
+  DEFAULT_LYCHEE_CONFIG: access-nri/access-hive-docs/main/.github/workflows/lychee_config.toml
+  BUILD_FOLDER: ${{ github.workspace }}/docs_folder
+  RTD_API_URL: https://readthedocs.org/api/v3/
+
+jobs:
+  get-rtd-info:
+    runs-on: ubuntu-latest
+    outputs:
+      canonical_url: ${{ steps.set-canonical-url.outputs.canonical_url }}
+    steps:
+      - name: Get RTD base URL and versioning scheme
+        id: get-info
+        run: |
+          # Get RTD project info
+          rtd_project=$(curl -s '${{ env.RTD_API_URL }}projects/${{ inputs.rtd_project }}/')
+          # Get documentation base URL
+          base_url=$(jq -r '.urls.documentation' <<< "$rtd_project")
+          echo "Base URL: $base_url"
+          echo "base_url=${base_url}" >> $GITHUB_OUTPUT
+          # Get URL versioning_scheme
+          versioning_scheme=$(jq -r '.versioning_scheme' <<< "$rtd_project")
+          echo "Versioning scheme: $versioning_scheme"
+          echo "versioning_scheme=${versioning_scheme}" >> $GITHUB_OUTPUT
+      
+      - name: Set READTHEDOCS_CANONICAL_URL
+        id: set-canonical-url
+        env:
+          VERSIONING_SCHEME: ${{ steps.get-info.outputs.versioning_scheme }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+        run: |
+          if [ "$VERSIONING_SCHEME" == 'single_version_without_translations' ]; then
+            version=
+            elif [ "$VERSIONING_SCHEME" == 'multiple_versions_without_translations' ]; then
+            version='${{ env.PR_NUM || github.ref_name }}/'
+          else
+            echo "::error::The 'multiple_versions_with_translations' versioning scheme is not supported. 
+              Please change versioning scheme in the RTD project settings."
+          fi
+          if [ -z '${{ env.PR_NUM }}' ]; then
+            canonical_url="${{ steps.get-info.outputs.base_url }}${version}"
+            else
+            canonical_url="https://${{ inputs.rtd_project }}--${{ env.PR_NUM }}.org.readthedocs.build/${version}"
+          fi
+          echo "Canonical URL: $canonical_url"
+          echo "canonical_url=$canonical_url" >> $GITHUB_OUTPUT
+        
+
+  # We check the build status and wait for the build to complete successfully. 
+  # This is to avoid getting link-checker errors for pages that haven't been deployed yet.
+  # (https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/1074)
+  check-build-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check build status
+        run: |
+          echo "Checking build status by running:"
+          echo "curl -s ${{ env.RTD_API_URL }}projects/${{ inputs.rtd_project }}/builds/?limit=20 | 
+            jq 'first(.results.[] | select(.version == \"${{ github.event.pull_request.number || github.ref_name }}\")) | .success'"
+          # Function to get the latest build for the specific version
+          check_latest_build() {
+            curl -s ${{ env.RTD_API_URL }}projects/${{ inputs.rtd_project }}/builds/?limit=20 | \
+              jq 'first(.results.[] | select(.version == "${{ github.event.pull_request.number || github.ref_name }}"))'
+          }
+          # Loop until the build finishes (success or failure)
+          while true; do
+            status=$(check_latest_build | jq '.success')
+            if [ -z "$status" ]; then
+                echo '::error::There was an error retrieving the build status from the ReadTheDocs API'
+                exit 1
+            elif [ "$status" == "null" ]; then
+                echo "Build still in progress, waiting 10 seconds..."
+                sleep 10
+            elif [ "$status" == "true" ]; then
+                echo "Build succeeded."
+                break
+            elif [ "$status" == "false" ]; then
+                build_url=$(check_latest_build | jq -r '.urls.build')
+                echo "::error::There was an error in the ReadTheDocs build. For further information, check the build logs: $build_url"
+                exit 1
+            else
+                echo "ERROR: Unexpected build status: $status"
+                exit 1
+            fi
+          done
+
+  check-links:
+    runs-on: ubuntu-latest
+    needs: [get-rtd-info, check-build-status]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+        with:
+          repository: ${{ inputs.repo }}
+          ref: ${{ inputs.ref_name }}
+          token: ${{ secrets.repo_pat || github.token }}
+
+      # If lychee_config is not provided, use the lychee_config.toml in this repo
+      - name: Get lychee config
+        id: get-lychee-config
+        run: |
+          if [ -n '${{ inputs.lychee_config }}' ]; then
+            echo "Using provided lychee config: ${{ inputs.lychee_config }}"
+            echo "lychee_config_path=${{ inputs.lychee_config }}" >> $GITHUB_OUTPUT
+          else
+            lychee_config_path="${{ github.workspace }}/lychee_config.toml"
+            curl -sSL https://raw.githubusercontent.com/${{ env.DEFAULT_LYCHEE_CONFIG }} \
+              -o "$lychee_config_path"
+            echo "Lychee config not provided. Using default lychee config from Hive Docs repo:"
+            echo "============= LYCHEE CONFIG ============="
+            cat $lychee_config_path
+            echo "========================================="
+            echo "lychee_config_path=$lychee_config_path" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Python setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11.x
+          
+      - name: Install dependencies
+        run: |
+          pip install -r ${{ inputs.python_requirements_txt }}
+      
+      - name: Build mkdocs site
+        run: |
+          export READTHEDOCS_CANONICAL_URL='${{ needs.get-rtd-info.outputs.canonical_url }}'
+          mkdocs build --config-file ${{ inputs.mkdocs_yaml }} -d ${{ env.BUILD_FOLDER }}
+        
+      - name: Check links with lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 #v2.7.0
+        with:
+          fail: true
+          failIfEmpty: true
+          args: --config ${{ steps.get-lychee-config.outputs.lychee_config_path }} '${{ env.BUILD_FOLDER }}/**/*.html'

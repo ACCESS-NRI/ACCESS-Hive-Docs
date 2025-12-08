@@ -1,30 +1,30 @@
+# =========== IMPORTANT!! READ THIS!! ============ #
+# This file is used to check links and can be copied to be used in other websites.
+
+# When you copy this file, make sure to check and modify the fields
+# that here are marked with `MODIFY`.
+# ============================================== #
+
 name: Check links
 
-on: 
-#   pull_request: #Action fires anytime a PR is (re)opened or synchronized
-#     types:
-#       - opened
-#       - reopened
-#       - synchronize
-#   workflow_call:
-    workflow_dispatch:
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
-  link-check:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout main repo
-      if: ${{github.event_name == 'pull_request'}}
-      uses: actions/checkout@master
-
-    - name: Checkout repo
-      if: ${{github.event_name != 'pull_request'}}
-      uses: actions/checkout@master
-      with:
-        ref: main
-    
-    - name: Link checker
-      uses: lycheeverse/lychee-action@f81112d0d2814ded911bd23e3beaa9dda9093915 #v2.1.0
-      with:
-        fail: true
-        args: --config .github/workflows/lychee-config.toml './docs/**/*.md' './docs/**/*.html'
+  check-links:
+    uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@main
+    with:
+      repo: '${{ github.repository }}'
+      ref_name: "${{ github.event_name == 'pull_request' && format('refs/pull/{0}/head', github.event.pull_request.number) || github.ref_name }}"
+      rtd_project: access-hive-docs  # MODIFY: change this to the Read the Docs project
+    #   python_requirements_txt: 'requirements.txt' # MODIFY: Uncomment to add requirements.txt path. If not included, 'requirements.txt' is used.
+    #   mkdocs_yaml: '/path/to/mkdocs.yml' # MODIFY: Uncomment to add mkdocs.yml path. If not included, 'mkdocs.yml' is used.
+    #   lychee_config: '/path/to/lychee_config.toml' # MODIFY: Uncomment to add lychee config path. If not included, the Hive Docs' one gets used.
+    #   # MODIFY: Uncomment the lines below if the repo is private. You also need to create a secret named REPO_READ_TOKEN with a token that has repo read permissions.
+    # secrets:
+    #   repo_read_token: ${{ secrets.REPO_READ_TOKEN }}

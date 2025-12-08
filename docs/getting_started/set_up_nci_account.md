@@ -83,7 +83,7 @@ You will be prompted to enter your NCI password, and then you will be connected 
     <terminal-line>#&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- Obtain access to data without permission;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;#</terminal-line>
     <terminal-line>#&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- Damage, delete, alter or insert data without permission;&emsp;&nbsp;#</terminal-line>
     <terminal-line>#&emsp;&emsp;&emsp;&emsp;Use of this system requires acceptance of the Conditions of Use;&emsp;&emsp;&emsp;&emsp;#</terminal-line>
-    <terminal-line>#&emsp;&emsp;&emsp;&emsp;published at https://nci.org.au/users/nci-terms-and-conditions-access;&emsp;#</terminal-line>
+    <terminal-line>#&emsp;&emsp;&emsp;&emsp;published at https://nci.org.au/users/nci-terms-and-conditions-access ;&emsp;#</terminal-line>
     <terminal-line>###############################################################################</terminal-line>
     <terminal-line>|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;gadi.nci.org.au - 260,760 processor InfiniBand x86_64 cluster&emsp;&emsp;&nbsp;&nbsp;&nbsp;|</terminal-line>
     <terminal-line>===============================================================================</terminal-line>
@@ -218,7 +218,7 @@ For example, if you want to change your default project to `tm70` on _Gadi_:
     <terminal-line lineDelay=0>#&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- Obtain access to data without permission;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;#</terminal-line>
     <terminal-line lineDelay=0>#&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;- Damage, delete, alter or insert data without permission;&emsp;&nbsp;#</terminal-line>
     <terminal-line lineDelay=0>#&emsp;&emsp;&emsp;&emsp;Use of this system requires acceptance of the Conditions of Use;&emsp;&emsp;&emsp;&emsp;#</terminal-line>
-    <terminal-line lineDelay=0>#&emsp;&emsp;&emsp;&emsp;published at https://nci.org.au/users/nci-terms-and-conditions-access;&emsp;#</terminal-line>
+    <terminal-line lineDelay=0>#&emsp;&emsp;&emsp;&emsp;published at https://nci.org.au/users/nci-terms-and-conditions-access ;&emsp;#</terminal-line>
     <terminal-line lineDelay=0>###############################################################################</terminal-line>
     <terminal-line lineDelay=0>|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;gadi.nci.org.au - 260,760 processor InfiniBand x86_64 cluster&emsp;&emsp;&nbsp;&nbsp;&nbsp;|</terminal-line>
     <terminal-line lineDelay=0>===============================================================================</terminal-line>

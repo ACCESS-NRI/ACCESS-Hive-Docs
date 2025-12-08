@@ -25,12 +25,12 @@ Since the regional forecasting is performed separately for each nested region an
 Similar to the UKMO Regional Nesting Suite, ACCESS-rAM3 is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) dataset.<br>
 However, for its land-surface initial conditions, ACCESS-rAM3 offers flexibility by allowing the use of alternative datasets.
 
-Information about the amount of NCI resources (such as Service Units (SU) and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum./t/access-ram3-release-information/4308).
+Information about the amount of NCI resources (such as Service Units (SU) and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum.access-hive.org.au/t/access-ram3-release-information/4308).
 
 ### Land-surface initial conditions source
 - [ERA5-Land](https://www.ecmwf.int/en/era5-land) (default)
 - [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
-- [BARRA-R2](http://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf)
+- [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf)
 
 ### Nesting configuration
 The structure, horizontal resolution and placement of [nests](#nesting) can be customised.<br>

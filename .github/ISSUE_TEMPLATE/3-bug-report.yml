@@ -1,0 +1,57 @@
+name: 🪲 Bug Report
+description: Report something that isn’t working as expected on the site or in example code.
+labels: ['🪲 bug / mistake']
+title: '[BUG]: '
+body: 
+  - type: markdown
+    attributes: 
+      value: Thanks for taking the time to create this bug report!
+
+  - type: textarea
+    attributes:
+      label: Bug description
+      description: Please tell us, what happened?
+      placeholder: When running the command... I got an error... 
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Expected Behavior
+      description: What were you expecting to see?
+      placeholder: >-
+        I was expecting to see... but instead got this error...
+        This change would improve...
+    validations:
+        required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: What are the minimal step-by-step instructions for replicating the bug?
+      placeholder: Go to... Click on... Scroll down to... See error
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Screenshots or Logs
+      description: (Optional) Please copy and paste any relevant log output or screenshots.  
+
+  - type: dropdown
+    attributes: 
+      label: What browsers are you seeing the problem on?
+      description: (Optional) Select all options that apply. 
+      multiple: true
+      options: 
+        - Safari
+        - Chrome
+        - Firefox
+        - Microsoft Edge
+      
+
+  - type: textarea
+    attributes: 
+      label: Additional information
+      description: (Optional) Please add any other context about the problem here. 
+      

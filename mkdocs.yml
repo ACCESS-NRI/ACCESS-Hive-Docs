@@ -1,11 +1,8 @@
-# This file uses the following environment variables set within the build workflow:
-# - SITE_URL: the URL of the site (Falls back to a default URL)
-# For example, for PR-previews, SITE_URL is set to <default_URL>/pr-previews/pr-NUM
-
 site_name: ACCESS-Hive Docs
 
 # Site URL
-site_url: !ENV [SITE_URL, "https://docs.access-hive.org.au/"]
+site_url: !ENV READTHEDOCS_CANONICAL_URL
+# READTHEDOCS_CANONICAL_URL is set within the website build (GitHub worflow or ReadTheDocs)
 
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
@@ -123,6 +120,7 @@ nav:
       - Coupler: models/model_components/coupler.md
     - Run a Model: 
       - models/run_a_model/index.md
+      - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
       - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
@@ -222,17 +220,13 @@ extra:
   #           Help us improve this page by <a href=/about/contribute target="_blank" rel="noopener">contributing</a>!
 
 extra_css:
-  - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
-  - fontawesome-free-6.4.0-web/css/all.css
-  - fontello/css/fontello-codes.css
-  - fontello/css/fontello-ie7-codes.css
-  - fontello/css/fontello-ie7.css
+  - https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css
   - fontello/css/fontello.css
   - css/access-nri.css
   - css/responsiveness.css
 
 extra_javascript:
-  - javascripts/mathjax.js # For pymdownx.arithmatex extension
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
   - js/custom-tags.js

@@ -9,7 +9,7 @@ Variables can be stored in multidimensional [data formats](/model_evaluation/dat
 
 ## Common variables
 
-Variables used in climate modelling can differ in terms of naming conventions, units, etc. While this may be for historical reasons, the use of common variables is key not only for ease and compatibilty when working with the data, but also to unite the climate modelling community. Hence, projects will follow or relate to [CF conventions](http://cfconventions.org). These projects have current widely used lists.
+Variables used in climate modelling can differ in terms of naming conventions, units, etc. While this may be for historical reasons, the use of common variables is key not only for ease and compatibilty when working with the data, but also to unite the climate modelling community. Hence, projects will follow or relate to [CF conventions](https://cfconventions.org). These projects have current widely used lists.
 
 <!-- We have created a prototype of markdown files with variable tables that can be queried via jquery -->
 <!-- Because they were not ready for quick searches (jquery with extended html tables is slow), we did not include them in the Legacy Relase (July/August 2023). -->
