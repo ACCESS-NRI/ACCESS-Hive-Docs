@@ -126,6 +126,9 @@ nav:
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
       - Run ACCESS-rAM: models/run_a_model/run_access-ram.md
+    - Share a Model: 
+      - Share a model: models/share_model/dev_model.md     
+      - Publish a model: models/share_model/publish_model.md 
     - Build a Model:
       - models/build_a_model/index.md
       - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
