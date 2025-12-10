@@ -804,7 +804,7 @@ rose edit &
 !!! tip
     The `&` is optional. It allows the terminal prompt to remain active while running the `Rose` GUI as a separate process in the background.
 
-#### Change start date and run length
+#### Change start date and run length {: #change-run-length }
 <div markdown id="run-length-mismatch">
 !!! warning
     `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br>
