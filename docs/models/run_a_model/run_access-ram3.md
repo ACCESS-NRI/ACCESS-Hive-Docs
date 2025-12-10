@@ -4,7 +4,6 @@
 {% set rns_id = "u-by395" %}
 {% set branch_ras = "nci_access_ram3" %}
 {% set branch_rns = "nci_access_ram3" %}
-{% set branch_oas = "trunk" %}
 {% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/u/5/0/3/ ~ branch" %}
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/ ~ branch" %}
 {% set access_models = "/models/access_models/access-ram" %}
@@ -142,7 +141,7 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 ### Ostia Ancillary Suite (OAS) {: .no-toc }
 1. **Copy the OAS from UKMO**<br>
     ```
-    rosie checkout {{ oas_id }}/{{ branch_oas }}
+    rosie checkout {{ oas_id }}
     ```
 
     For further instructions on getting the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
@@ -730,7 +729,7 @@ The `suite-ID` of the OAS is `{{ oas_id }}`.
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
 The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
 
-To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` and branch `{{ branch_oas }}` when copying the suite.
+To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` without any branch when copying the suite.
 
 To run the OAS configuration, follow the steps listed in [Run the suite](#run-the-ras).
 
@@ -738,7 +737,7 @@ To check the OAS suite logs, follow the steps listed in [Check suite logs](#chec
 
 #### OAS output files
 
-All the OAS output files are available in the `OSTIA_OUTPUT` directory.
+All the OAS output files are available in the `OSTIA_OUTPUT` directory specified in OAS's configuration file `rose-suite.conf`.
 
 OAS ancillary data files are output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
