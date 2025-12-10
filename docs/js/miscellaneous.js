@@ -259,10 +259,10 @@ function toggleTerminalAnimations() {
         // If pencil icon is present, place the switch next to it, otherwise at the beginning of the 'article' element
         const pencilIcon = document.querySelector('.md-content__button[title="Edit this page"]');
         if (pencilIcon) {
-            pencilIcon.parentElement.insertBefore(terminalAnimationsSwitchContainer, pencilIcon.nextSibling);
+            pencilIcon.after(terminalAnimationsSwitchContainer)
         } else {
             const articleElement = document.querySelector('article');
-            articleElement.insertBefore(terminalAnimationsSwitchContainer, articleElement.firstChild);
+            articleElement.firstChild.before(terminalAnimationsSwitchContainer)
         }
     }
 }
