@@ -1,5 +1,6 @@
 {% set ram3_configs_docs = "https://access-ram3-configs.access-hive.org.au" %}
-[run_access-ram]: /models/run_a_model/run_access-ram
+{% set model = "ACCESS-rAM3" %}
+[run_access-ram]: /models/run_a_model/run_access-ram3
 
 # ACCESS-rAM 
 
@@ -18,23 +19,29 @@ Each region can contain multiple concentric _nests_, with each nest increasing t
 
 Since the regional forecasting is performed separately for each nested region and for every individual nest within, the total computational cost increases with both the number of nested regions and the number of nests contained within each of them.
 
-## ACCESS-rAM3
+## {{ model }}
 
 [![Config docs](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{ram3_configs_docs}}){: class="text-card"}
 
-Similar to the UKMO Regional Nesting Suite, ACCESS-rAM3 is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) dataset.<br>
-However, for its land-surface initial conditions, ACCESS-rAM3 offers flexibility by allowing the use of alternative datasets.
+Similar to the UKMO Regional Nesting Suite, {{ model }} is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) dataset.<br>
+However, for its land-surface initial conditions, {{ model }} offers flexibility by allowing the use of alternative datasets.
 
 Information about the amount of NCI resources (such as Service Units (SU) and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum.access-hive.org.au/t/access-ram3-release-information/4308).
 
-### Land-surface initial conditions source
-- [ERA5-Land](https://www.ecmwf.int/en/era5-land) (default)
+### Initial and boundary conditions
+
+#### Land-surface initial conditions source options
+- [ERA5-Land](https://www.ecmwf.int/en/era5-land)
 - [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
-- [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf)
+- [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf) (default)
+
+#### Sea surface temperature (SST) and sea-ice initial and boundary conditions source options {: #sst .no-toc }
+- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) - 0.25 degree resolution
+- [OSTIA](https://data.marine.copernicus.eu/product/SST_GLO_SST_L4_NRT_OBSERVATIONS_010_001/description) - daily 0.05 degree resolution
 
 ### Nesting configuration
 The structure, horizontal resolution and placement of [nests](#nesting) can be customised.<br>
-For details on how to modify these configuration settings, refer to [Change the nested region's nest configuration](/models/run_a_model/run_access-ram/#change-the-nested-regions-nest-configuration).
+For details on how to modify these configuration settings, refer to [Change the nested region's nest configuration](/models/run_a_model/run_access-ram3/#change-the-nested-regions-nest-configuration).
 
 The default nesting configuration for the `ERA5-Land` land-surface initial conditions are the following:
 
@@ -47,14 +54,14 @@ The default nesting configuration for the `ERA5-Land` land-surface initial condi
 
 - **Atmosphere:** [UM13.5](/models/model_components/atmosphere/#unified-model-um)<br>
    Nests > 4km: GAL9 science configuration, 70 vertical levels.<br>
-   Nests <= 4km: [RAL3.2 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
+   Nests <= 4km: [RAL3.3 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
    Spatial resolution depending on the [nesting configuration](#nesting-configuration).
 - **Land:** [Jules7.5](/models/model_components/land/#jules)<br>
    Nests > 4km: GAL9 science configuration, 70 vertical levels.<br>
-   Nests <= 4km: [RAL3.2 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
+   Nests <= 4km: [RAL3.3 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
    Spatial resolution depending on the [nesting configuration](#nesting-configuration).
 
-[Run ACCESS-rAM][run_access-ram]{: class="text-card"}
+[Run ACCESS-rAM3][run_access-ram]{: class="text-card"}
 
 <custom-references>
 - [https://gmd.copernicus.org/articles/13/1999/2020/](https://gmd.copernicus.org/articles/13/1999/2020/)
