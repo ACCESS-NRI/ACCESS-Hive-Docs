@@ -9,7 +9,7 @@
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/ ~ branch" %}
 {% set access_models = "/models/access_models/access-ram" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-ram3-release-information/4308/6" %}
-{% set configs_docs = "https://access-ram3-configs.access-hive.org.au/pr-previews/5/" %}
+{% set config_docs = "https://access-ram3-configs.access-hive.org.au" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [model components]: /models/access_models/access-ram/#model-components
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
@@ -19,7 +19,7 @@
 
 [![Met Office](/assets/met_office_logo.png){: class="icon-before-text  white-background"} RAS configuration]({{mosrs_config_ras}}){: class="text-card" style=""}
 [![Met Office](/assets/met_office_logo.png){: class="icon-before-text  white-background"} RNS configuration]({{mosrs_config_rns}}){: class="text-card"}
-[![Hive](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{configs_docs}}){: class="text-card"}
+[![Hive](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{config_docs}}){: class="text-card"}
 [:notepad_spiral:{: class="twemoji icon-before-text"} Release notes]({{release_notes}}){: class="text-card"}
 </div>
 
@@ -784,7 +784,7 @@ For example, the model output data for the first cycle (`20220226T0000Z`) of the
 
 !!! tip
     The output data name format may vary depending on some configuration parameters.<br>
-    To change which output variables are produced, refer to [{{ model }} configuration documentation]({{configs_docs}}/model_outputs/)
+    To change which output variables are produced, refer to [{{ model }} configuration documentation]({{config_docs}}/model_outputs/)
 
 
 ### Edit {{ model }} configuration
@@ -920,13 +920,13 @@ Manually specifying each STASH variable can be complex. To simplify the selectio
 
 
 ## Troubleshooting
-For common known errors related to {{ model}} and possible workarounds, refer to [{{ model }} configuration documentation](https://access-ram3-configs.access-hive.org.au/pr-previews/5/troubleshooting/).
+For common known errors related to {{ model}} and possible workarounds, refer to [{{ model }} configuration documentation]({{config_docs}}/troubleshooting/).
 
 
 ## Get Help
 If you have questions or need help regarding {{ model }}, consider creating a topic in the [Regional Nesting Suite category of the ACCESS-Hive Forum](https://forum.access-hive.org.au/c/atmosphere/regional-nesting-suite/17).<br>
 For assistance on how to request help from ACCESS-NRI, follow the [guidelines on how to get help](/about/user_support/#still-need-help).<br>
-For more detailed documentation see [access-ram3-configs]({{configs_docs}}).
+For more detailed documentation see [access-ram3-configs]({{config_docs}}).
 
 <custom-references>
 - [https://nespclimate.com.au/wp-content/uploads/2020/10/Instruction-document-Getting_started_with_ACCESS.pdf](https://nespclimate.com.au/wp-content/uploads/2020/10/Instruction-document-Getting_started_with_ACCESS.pdf)
