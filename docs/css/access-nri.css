@@ -1124,29 +1124,35 @@ pre > button:is(:hover,:focus).md-clipboard {
   word-break: normal;
 }
 
+.terminal-switch-container {
+    position: relative;
+    float: right;
+    height: 1.2rem;
+    margin: 0.4rem 0.2rem;
+}
+
 img.terminal-switch {
+  height: 100%;
+}
+
+img.terminal-switch.inactive {
   position: absolute;
-  right: 0;
-  top: -0.5em;
-  height: 1.5rem;
-  margin: 0.5rem 0.2rem;
+  left: 0;
+  top: 0;
+  z-index: 1;
 }
 
 img.terminal-switch:hover {
   cursor: pointer;
 }
 
-.terminal-switch-container {
-    position: relative;
-}
-
 .terminal-switch-tooltip {
     position: absolute;
     display: inline-block;
     z-index: 1;
-    right: 2em;
-    top: 2em;
-    max-width: 30vw;
+    right: 1.6em;
+    top: 1.1em;
+    width: clamp(20vw,10rem,30vw);
     font-size: 0.7em;
     background-color: var(--tooltip-background);
     border: solid 1.5px var(--tooltip-border-color);
