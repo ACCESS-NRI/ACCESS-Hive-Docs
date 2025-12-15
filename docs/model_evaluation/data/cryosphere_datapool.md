@@ -12,9 +12,9 @@ The Cryosphere Community Datapool (CCP) is a joint project between ACCESS-NRI an
 
 5. [**Surface forcing**](#surface-forcing) - These datasets contain surface forcing fields, such as temperature and surface mass balance.
 
-4. [**ISMIP6 simulation**](#ismip6-simulation-data) - These data include results from ISMIP6 model simulations of Antarctica and Greenland.
+6. [**ISMIP6 simulation**](#ismip6-simulation-data) - These data include results from ISMIP6 model simulations of Antarctica and Greenland.
 
-5. [**ISMIP6 forcing**](#ismip6-forcing-data) - These datasets include forcing parameters, such as surface mass balance, surface temperature, surface wind speeds and geothermal heat flux.
+7. [**ISMIP6 forcing**](#ismip6-forcing-data) - These datasets include forcing parameters, such as surface mass balance, surface temperature, surface wind speeds and geothermal heat flux.
 
 
 ## Data hosting and access
