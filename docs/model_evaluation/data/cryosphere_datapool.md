@@ -1,6 +1,6 @@
 # Cryosphere Community Datapool
 
-The Cryosphere Community Datapool (CCP) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCP has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used to parameterise ice sheet models. Datasets are currently grouped into (*but not limited to*) the following categories:
+The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used to parameterise ice sheet models. Datasets are currently grouped into (*but not limited to*) the following categories:
 
 1. [**Elevation and geometry**](#elevation-and-geometry-data) - These datasets contain digital elevation models and key geometry attributes, including bed topography/bathymetry, ice surface elevation, ice thickness, and ice/ocean masks.
 
@@ -18,10 +18,10 @@ The Cryosphere Community Datapool (CCP) is a joint project between ACCESS-NRI an
 
 
 ## Data hosting and access
-All data in the CCP are securely hosted on the [National Computational Infrastructure (NCI) Gadi supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) within the `av17` and `cm45` projects, and are available to all users with an NCI account. If you do not have an NCI account, you can sign up [here](https://my.nci.org.au/mancini/signup) for free. If you do have a NCI Gadi account but are not a member of `av17` and `cm45`, you must apply to join the project from within your [NCI account](https://my.nci.org.au/mancini/login).
+All data in the CCD are securely hosted on the [National Computational Infrastructure (NCI) Gadi supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) within the `av17` and `cm45` projects, and are available to all users with an NCI account. If you do not have an NCI account, you can sign up [here](https://my.nci.org.au/mancini/signup) for free. If you do have a NCI Gadi account but are not a member of `av17` and `cm45`, you must apply to join the project from within your [NCI account](https://my.nci.org.au/mancini/login).
 
 ## Available data
-The data listed in the following summary tables are currently hosted in the CCP. All data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `av17` and `cm45` project memberships. [ISMIP6 datasets](#ismip6-datasets) can be found at `/g/data/cm45/access-nri/ismip6/`, while all other datsets and can be found at `/g/data/av17/access-nri/cryosphere-data-pool/`.
+The data listed in the following summary tables are currently hosted in the CCD. All data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `av17` and `cm45` project memberships. [ISMIP6 datasets](#ismip6-datasets) can be found at `/g/data/cm45/access-nri/ismip6/`, while all other datsets and can be found at `/g/data/av17/access-nri/cryosphere-data-pool/`.
 
 ### Elevation and geometry data 
 [[back to top]](#cryosphere-community-datapool)
@@ -85,7 +85,7 @@ The data listed in the following summary tables are currently hosted in the CCP.
 | <b>RACMO2.4p1 - Monthly data for Antarctica (11 km) - 1979 to 2023, Version 1</b>  | Various surface mass balance, surface energy budget, grid, elevation, mask, and other atmospheric variables | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/surface_forcing/racmo2.4p1_monthly_11km_1979-2023/v1</code></pre> | [Source Link](https://zenodo.org/records/14217232) |
 
 ### ISMIP6 datasets
-The data listed in the following summary tables are currently hosted as part of the CCP on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384). All ISMIP6 data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `cm45` project membership, and can be found at `/g/data/cm45/access-nri/ismip6/`.
+The data listed in the following summary tables are currently hosted as part of the CCD on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384). All ISMIP6 data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `cm45` project membership, and can be found at `/g/data/cm45/access-nri/ismip6/`.
 
 #### ISMIP6 simulation data
 [[back to top]](#cryosphere-community-datapool)
@@ -109,6 +109,6 @@ The data listed in the following summary tables are currently hosted as part of 
 
 
 ## How to contribute
-The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCP Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
+The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCD Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
 
 
