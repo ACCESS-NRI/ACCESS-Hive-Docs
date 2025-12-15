@@ -10,7 +10,8 @@ set -e
 if [ "$READTHEDOCS_VERSION_TYPE" == external ]; then # PR preview build
     # Download jq
     export JQ_EXE=$(pwd)/jq
-    wget -q https://github.com/stedolan/jq/releases/latest/download/jq-linux64 -O "$JQ_EXE"
+    JQ_VERSION='jq-1.8.1'
+    wget -q https://github.com/stedolan/jq/releases/download/$JQ_VERSION/jq-linux64 -O "$JQ_EXE"
     chmod +x "$JQ_EXE"
     "$JQ_EXE" --version
     # Get full repo
@@ -33,7 +34,8 @@ fi
 
 # Download yq
 export YQ_EXE=$(pwd)/yq
-wget -q https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O "$YQ_EXE"
+YQ_VERSION='v4.50.1'
+wget -q https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/yq_linux_amd64 -O "$YQ_EXE"
 chmod +x "$YQ_EXE"
 "$YQ_EXE" --version
 
