@@ -26,14 +26,14 @@
 
 ## About
 
-{{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling.<br>
-A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
+{{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
-The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
+The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
+
+The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/rose_cylc.md) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -43,19 +43,12 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Prerequisites
 
-- **NCI Account**<br> 
-    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
-
-- **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
-    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
-    {: #mosrs-account}
+- All [prerequisites listed on the Run models using Rose/Cylc page](/rose_cylc.md#prerequisites).
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
     - [access](https://my.nci.org.au/mancini/project/access/join)
-    - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
     - [rt52](https://my.nci.org.au/mancini/project/rt52/join)
@@ -63,19 +56,21 @@ All {{model}} configurations are available on MOSRS via links at the top of this
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
+    _Time estimate: ~5 minutes to request the memberships, and up to several days for the membership requests to be approved_
+
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
         
         - already be member of the _ki32_ project
         {: style="list-style-type: disc"}
-        - have a [MOSRS account](#mosrs-account)
+        - have a [MOSRS account](rose_cylc.md#mosrs-account)
         {: style="list-style-type: disc"}
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
     
 
 !!! warning
-    The waiting time to complete some of the above prerequisites may be 2-3 weeks.
+    The waiting time to complete some of the above prerequisites may be 2-3 weeks. See [prerequisites listed on the Run models using Rose/Cylc page](/rose_cylc.md#prerequisites) for specific time estimates.
 
 ## Quick Start guide
 

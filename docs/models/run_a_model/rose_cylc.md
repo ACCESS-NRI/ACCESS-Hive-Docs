@@ -14,17 +14,24 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 ## Prerequisites
 
 - **NCI account**<br>
-    Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+    Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).<br> _Time estimate: ~5 minutes to sign up, ~a few hours for the account to be set up._
 
 - **MOSRS account**<br>
     The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run some ACCESS configurations.<br>
     To apply for a MOSRS account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
     {: #mosrs-account}
 
+    !!! warning
+    The waiting time to obtain a MOSRS account may be 2-3 weeks.
+
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
+
+    _Time estimate: up to ~2 days_
+
+
     
 ## Connecting to Gadi
 
