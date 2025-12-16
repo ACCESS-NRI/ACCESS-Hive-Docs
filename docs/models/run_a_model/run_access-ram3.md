@@ -134,43 +134,26 @@ Follow the [Quick guide to setting up Rose/Cylc](rose_cylc.md#quick-guide-to-set
 
 ## Detailed guide
 
-### Set up an ARE VDI Desktop (optional)
-!!! info 
-    If you want to skip this step and run {{ model }} from _Gadi_ login node instead, refer directly to the instructions on how to [Set up _persistent session_](#set-up-persistent-session).
+### Connect to Gadi
 
-If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
+Follow the instructions [Connecting to Gadi on the Run models using Rose/Cylc page](rose_cylc/#connecting-to-gadi). If you choose to connect via the ARE VDI, note the following changes required before you launch the VDI session.
 
-#### Launch ARE VDI Session  {: .no-toc }
-Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
+#### Changes required if launching ARE VDI session
 
 - **Walltime (hours)** &rarr; `5`<br>
-    This is the amount of time the ARE VDI session will stay active for.<br>
-    {{ model }} does not run directly on ARE.<br>
-    This means that the ARE VDI session only needs to carry out setup steps as well as starting the run itself.
     
 - **Queue** &rarr; `normalbw`
     
 - **Compute Size** &rarr; `tiny` (1 CPU)<br>
-    As mentioned above, the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
+    As mentioned in the [Run models using Rose/Cylc page](rose_cylc#launch-are-vdi-desktop), the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
 
 - **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
-    For more information, refer to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 - **Storage** &rarr; `gdata/access+gdata/hr22+gdata/ki32+gdata/rt52+gdata/ob53+gdata/cm45+gdata/vk83` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
     Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than the ones listed in the minimum storage above, you need to add those projects to the storage path.<br>
     For example, if your {{ model }} simulation requires data stored in `/g/data/<project-id>` and `/scratch/<project-id>`, the following should be added to the minimum storage above: `+gdata/<project-id>+scratch/<project-id>`
-    
-Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
-![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
-
-#### Open the terminal in the VDI Desktop {: .no-toc }
-Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
-To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
-
-![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
 
 
 ### Set up _persistent session_ 

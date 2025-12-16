@@ -94,7 +94,7 @@ If you are not familiar with ARE, check out the [Getting Started on ARE](/gettin
 !!! tip
     The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_. The model tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
 
-The following options are recommended for your ARE VDI desktop session:
+Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
 
 - **Walltime (hours)** &rarr; `2`<br>
     Amount of hours the ARE VDI session will remain active for. This is only setup time, and does not reflect how long the actual configuration will take to run.
@@ -109,7 +109,14 @@ The following options are recommended for your ARE VDI desktop session:
 - **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
 
-Once the ARE VDI session opens in your browser, click the terminal icon at the top of the window to open a terminal. Use this terminal for all subsequent steps in this guide.
+Launch the ARE session and, once it opens in your browser, click on _Launch VDI Desktop_. 
+
+![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
+
+Once the new tab opens, you will see a Desktop with a few folders on the left. Click the terminal icon at the top of the window to open a terminal. You should now be connected to a _Gadi_ computing node. Use this terminal for all subsequent steps in this guide.
+
+![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
+
 
 ## Set up a persistent session
 
