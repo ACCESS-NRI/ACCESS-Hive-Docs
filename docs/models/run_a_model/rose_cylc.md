@@ -146,6 +146,9 @@ where `<project>` is the project you want to start the session under, and `<name
     <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
+The label of a newly-created _persistent session_ has the following format: <br>
+`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.
+
 !!! tip
     If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
@@ -200,7 +203,7 @@ persistent-sessions kill <persistent-session-uuid>
 !!! warning
     When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
 
-## Rose/Cylc Setup
+## Set up Rose/Cylc
 
 ### Rose and Cylc executables
 
@@ -259,6 +262,21 @@ There are two ways of getting a local copy of a configuration hosted on MOSRS:
 - [Local-only copy](#rosie-checkout)
 - [Local and remote copy (new remote configuration)](#rosie-copy)
 
+Both options use [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rosie) - an [SVN](https://subversion.apache.org) repository wrapper with a set of options specific for ACCESS modelling suites. It is automatically available within the [_Rose_ setup](#rose).
+
+If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
+
+Suites are, by default when copying from MOSRS, created in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
+This path will be referred to as the *suite directory*.
+{: #suitedir }
+
+The suite directory contains multiple subdirectories and files, including:
+
+- `app` &rarr; directory containing the configuration files for various tasks within the suite.
+- `meta` &rarr; directory containing the GUI metadata.
+- `rose-suite.conf` &rarr; main suite configuration file.
+- `rose-suite.info` &rarr; suite information file.
+- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
 #### Local-only copy {: #rosie-checkout }
 
@@ -296,7 +314,7 @@ title=<suite-title>
 When you exit the editor, you will have to confirm that you want to copy the suite:
 
 <terminal-window>
-    <terminal-line data="input">rosie copy <suite-id>/<branch></terminal-line>
+    <terminal-line data="input">rosie copy &lt;suite-id&gt;/&lt;branch&gt;</terminal-line>
     <terminal-line>Copy "&lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-id&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-id&gt;: copied items from &lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;</terminal-line>
@@ -309,6 +327,12 @@ To push a configuration back to the remote, from within the configuration direct
 
 ```
 fcm commit
+```
+
+
+For additional `rosie` options, run:
+```
+rosie help
 ```
 
 ## Run the model configuration

@@ -136,7 +136,7 @@ Follow the [Quick guide to setting up Rose/Cylc](rose_cylc.md#quick-guide-to-set
 
 ### Connect to Gadi
 
-Follow the instructions [Connecting to Gadi on the Run models using Rose/Cylc page](rose_cylc/#connecting-to-gadi). If you choose to connect via the ARE VDI, note the following changes required before you launch the VDI session.
+Follow the instructions in [Connecting to Gadi on the Run models using Rose/Cylc page](rose_cylc/#connecting-to-gadi). If you choose to connect via the ARE VDI, note the following changes required before you launch the VDI session.
 
 #### Changes required if launching ARE VDI session
 
@@ -156,137 +156,21 @@ Follow the instructions [Connecting to Gadi on the Run models using Rose/Cylc pa
 
 
 
-### Set up _persistent session_ 
-To support the use of long-running processes, such as ACCESS model runs, NCI provides a service on _Gadi_ called [_persistent sessions_](https://opus.nci.org.au/display/Help/Persistent+Sessions).
+### Set up a persistent session
 
-To run {{ model }}, you need to start a _persistent session_ and set it as the target session for the model run.
+Follow the instructions in [Set up a persistent session on the Run models using Rose/Cylc page](rose_cylc#set-up-a-persistent-session).
 
 #### Set up SSH-keys (once-only) {: .no-toc }
 
 Follow the [initialization step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
 
-#### Start a new _persistent session_ {: .no-toc }
-To start a new _persistent session_, using either a _Gadi_ login node or an ARE terminal instance, run the following command:
-```
-persistent-sessions start <name>
-```
+### Set up Rose/Cylc
 
-This will start a _persistent session_ with the given `name` that runs under your [default project].<br>
-If you want to assign a different project to the _persistent session_, use the option `-p`:
-```
-persistent-sessions start -p <project> <name>
-```
-
-!!! tip
-    While the project assigned to a _persistent session_ does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _Service Units (SU)_.<br>
-    For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
-
-<terminal-window data="input">
-    <terminal-line>persistent-sessions start &lt;name&gt;</terminal-line>
-    <terminal-line data="output">session &lt;persistent-session-uuid&gt; running - connect using</terminal-line>
-    <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-</terminal-window>
-
-To list all active _persistent sessions_ run:
-```
-persistent-sessions list
-```
-
-<terminal-window data="input">
-    <terminal-line>persistent-sessions list</terminal-line>
-    <terminal-line data="output">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;UUID&emsp;&emsp;PROJECT&emsp;&ensp;&ensp;ADDRESS&emsp;&emsp;&emsp;&emsp;CPUTIME&emsp;MEMORY</terminal-line>
-    <terminal-line data="output">&lt;persistent-session-uuid&gt;&emsp;&lt;project&gt;&emsp;10.9.0.62&emsp;00:00:05.213&emsp;30.5M</terminal-line>
-</terminal-window>
-
-
-The label of a newly-created _persistent session_ has the following format: <br>
-`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.
-
-
-#### Specify target _persistent session_ {: .no-toc }
-
-After starting the _persistent session_, it is essential to assign it to the {{ model }} run.<br>
-The easiest way is to create the file `~/.persistent-sessions/cylc-session` that contains the target of the _persistent session_.<br>
-You can do it manually, or by running the following command (by substituting `<name>` with the name given to the _persistent session_, and `<project>` with the project assigned to it):
-
-```
-echo "<name>.$USER.<project>.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
-```
-
-For example, if the user `abc123` started a _persistent session_ named `cylc` under the project `xy00`, the command will be:
-
-<terminal-window data="input">
-    <terminal-line>echo "cylc.$USER.xy00.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
-    </terminal-line>
-    <terminal-line data="input" linedelay="1000">cat ~/.persistent-sessions/cylc-session</terminal-line>
-    <terminal-line data="output">cylc.abc123.xy00.ps.gadi.nci.org.au</terminal-line>
-</terminal-window>
-
-For more information on how to specify the target session, refer to [Specify Target Session with Cylc7 Suites](https://opus.nci.org.au/display/DAE/Run+Cylc7+Suites#RunCylc7Suites-SpecifyTargetSession).
-
-!!! tip
-    You can simultaneously submit multiple {{ model }} runs using the same _persistent session_ without needing to start a new one. Hence, the process of specifying the target _persistent session_ for {{ model }} should only be done once. Then, to run {{ model }}, you just need to ensure that you have an active _persistent session_ named like the target one you specified above. If the _persistent session_ is not active, simply [start one](#start-a-new-persistent-session).
-
-#### Terminate a _persistent session_ {: .no-toc }
-!!! tip
-    Logging out of a *Gadi* login node or an ARE terminal instance will not affect your _persistent session_. 
-
-To stop a _persistent session_, run:
-```
-persistent-sessions kill <persistent-session-uuid>
-```
-!!! warning
-    When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
-
-### Rose/Cylc/MOSRS setup
-
-To run {{ model }}, access to multiple software and MOSRS authentication is needed.
-
-#### Cylc setup {: #cylc .no-toc }
-
-[_Cylc_](https://cylc.github.io/cylc-doc/7.8.8/html/index.html) (pronounced ‘silk’) is a workflow manager that automatically executes tasks according to the model's main cycle script `suite.rc`. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
-
-To get the _Cylc_ setup required to run {{ model }}, execute the following commands:
-```
-module use /g/data/hr22/modulefiles
-module load cylc7
-```
-<terminal-window data="input">
-    <terminal-line>module use /g/data/hr22/modulefiles</terminal-line>
-    <terminal-line>module load cylc7</terminal-line>
-    <terminal-line data="output">Using the cylc session &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-    <terminal-line data="output"></terminal-line>
-    <terminal-line data="output">Loading cylc7/24.03</terminal-line>
-    <terminal-line data="output">&emsp;Loading requirement: mosrs-setup/2.0.1</terminal-line>
-</terminal-window>
+Follow the instructions in [Set up Rose/Cylc on the Run models using Rose/Cylc page](rose_cylc#set-up-rose/cylc).
 
 !!! warning
     _Cylc_ version >= `cylc7/24.03` required.<br>
-    
-    Also, before loading the _Cylc_ module, make sure to have started a _persistent session_ and have assigned it to the {{ model }} workflow. For more information about these steps, refer to [Set up _persistent session_](#set-up-persistent-session).
 
-#### Rose setup {: #rose .no-toc }
-[Rose](https://metomi.github.io/rose/doc/html/index.html) is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
-
-By completing the [_Cylc_ setup](#cylc), also _Rose_ will be automatically available. Hence, no additional step is required.
-
-#### MOSRS authentication {: .no-toc }
-To authenticate using your _MOSRS_ credentials, run:
-```
-mosrs-auth
-```
-<terminal-window>
-    <terminal-line data="input">mosrs-auth</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: You need to enter your MOSRS credentials here so that GPG can cache your password.</terminal-line>
-    <terminal-line>Please enter the MOSRS password for &lt;MOSRS-username&gt;:</terminal-line>
-    <terminal-line lineDelay=1500>Checking your credentials using Subversion. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed Subversion with your credentials.</terminal-line>
-    <terminal-line lineDelay=100><span style="color: #559cd5;">INFO</span>: Checking your credentials using rosie. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
-</terminal-window>
-
-!!! warning
-    This step needs to be done once for each new session (e.g., _Gadi_ login, _ARE_ terminal window)
 
 ### {{ model }} configuration
 {{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
@@ -307,7 +191,7 @@ The `suite-ID` of the RAS is `{{ ras_id }}`.
 The latest release branch of the RAS is `{{ branch_ras }}`.
 
 #### Get the RAS configuration
-[Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rosie) is an [SVN](https://subversion.apache.org) repository wrapper with a set of options specific for ACCESS modelling suites. It is automatically available within the [_Rose_ setup](#rose).
+
 
 The RAS configuration can be copied from the MOSRS repository in 2 ways:
 
