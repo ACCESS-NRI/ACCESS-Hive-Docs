@@ -31,7 +31,8 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 !!! warning
     Before continuing, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose-cylc.md).
 
-In addition to the [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites), you will need:
+- **Rose/Cylc prerequisites**
+  All [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites).
 
 - **Request access to the configurations**<br>
     To request access to the configurations repository (and associated model component repositories), please contact us [through the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580/13). This step will also allow us to check you are properly licensed to use the software.
