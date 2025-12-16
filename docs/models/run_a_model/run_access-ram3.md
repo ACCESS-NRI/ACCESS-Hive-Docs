@@ -166,7 +166,7 @@ Follow the [initialization step](https://opus.nci.org.au/spaces/DAE/pages/249495
 
 ### Set up Rose/Cylc
 
-Follow the instructions in [Set up Rose/Cylc on the Run models using Rose/Cylc page](rose_cylc#set-up-rose/cylc).
+Follow the instructions in [Set up Rose/Cylc on the Run models using Rose/Cylc page](rose_cylc#set-up-rosecylc).
 
 !!! warning
     _Cylc_ version >= `cylc7/24.03` required.<br>
@@ -192,81 +192,17 @@ The latest release branch of the RAS is `{{ branch_ras }}`.
 
 #### Get the RAS configuration
 
-
-The RAS configuration can be copied from the MOSRS repository in 2 ways:
-
-- [Local-only copy](#local-copy)
-- [Remote and local copy](#remote-copy)
-
-If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
-
-Suites are, by default, created in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
-This path will be referred to as the *suite directory*.
-{: #suitedir }
-
-The suite directory contains multiple subdirectories and files, including:
-
-- `app` &rarr; directory containing the configuration files for various tasks within the suite.
-- `meta` &rarr; directory containing the GUI metadata.
-- `rose-suite.conf` &rarr; main suite configuration file.
-- `rose-suite.info` &rarr; suite information file.
-- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
-
-##### Local-only copy {: #local-copy .no-toc }
-To create a _local copy_ of the RAS from MOSRS repository, run:
-```
-rosie checkout {{ ras_id }}/{{ branch_ras }}
-```
-<terminal-window>
-    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch_ras }}</terminal-line>
-    <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
-    <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ ras_id }}</terminal-line>
-</terminal-window>
-
-##### Remote and local copy {: #remote-copy .no-toc }
-To create a new copy of the RAS both _locally_ and _remotely_ in the MOSRS repository, run: 
-```
-rosie copy {{ ras_id }}/{{ branch_ras }}
-```
-<terminal-window>
-    <terminal-line data="input">rosie copy {{ ras_id }}/{{ branch_ras }}</terminal-line>
-    <terminal-line>Copy "{{ ras_id }}/{{ branch_ras }}@&lt;{{ branch_ras }}-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ ras_id }}/{{ branch_ras }}@&lt;{{ branch_ras }}-ID&gt;</terminal-line>
-    <terminal-line>[INFO] {{ ras_id }}: local copy created at /home/565/&lt;$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
-</terminal-window>
-When a new suite is created in this way, a _unique_ `<suite-ID>` folder is generated within the MOSRS repository and populated with descriptive information about the suite and its initial configuration.
-
-For additional `rosie` options, run:
-```
-rosie help
-```
+Follow the instructions in [Get the model configuration on the Run models using Rose/Cylc page](rose_cylc#get-the-model-configuration).
     
 
 
 #### Run the RAS
-{{ model }} suites run on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) through a [PBS job] submission.<br>
-When a suite runs, its configuration files are copied in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>`. A symbolic link to this directory is also created in the `$USER`'s home directory under `~/cylc-run/<suite-ID>`.<br>
-{{ model }} suites comprise several tasks, such as checking out code repositories, compiling and building the different model components, running the model, etc. The workflow of these tasks is controlled by [_Cylc_](#cylc).
+
+To run the RAS, follow the instructions in [Run the model configuration on the Run models using Rose/Cylc page](rose_cylc#run-the-model-configuration).
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-To run the RAS, navigate to your RAS [suite directory](#suitedir) and run the suite:
-```
-cd ~/roses/{{ras_id}}
-rose suite-run
-```
-
-After the initial tasks are executed, the _Cylc_ GUI will open, where it is possible to view and control the different tasks in the suite as they are run.
-
-!!! tip
-    The _Cylc_ GUI can be safely closed without impacting the experiment run.<br>
-    To open it again, run the following command from within the [suite directory](#suitedir):
-```
-rose suite-gcontrol
-```
-
-All steps are completed!! <br>
+All steps are completed - you have succesfully run the RAS!! <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
@@ -553,11 +489,13 @@ The `suite-ID` of the OAS is `{{ oas_id }}`.
 
 #### Get and run OAS configuration
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
+The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. 
+
+The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
 
 To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` without any branch when copying the suite.
 
-To run the OAS configuration, follow the steps listed in [Run the suite](#run-the-ras).
+To run the OAS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
 
 To check the OAS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
 
@@ -586,7 +524,7 @@ The main difference is the `suite-ID`, which for the RNS is `{{ rns_id }}`.
 
 To get the RNS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), making sure you use the correct RNS `suite-ID` `{{ rns_id }}` when copying the suite.
 
-To run the RNS configuration, follow the steps listed in [Run the suite](#run-the-ras).
+To run the RNS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
 
 To check the RNS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
 
@@ -622,13 +560,8 @@ In general, ACCESS modelling suites can be edited either by directly modifying t
     Unless you are an experienced user, directly modifying configuration files is usually discouraged to avoid encountering errors.
 
 ##### Rose GUI {: #rosegui }
-To open the [_Rose_](#rose) GUI, run the following command from within the [suite directory](#suitedir): 
-```
-rose edit &
-```
 
-!!! tip
-    The `&` is optional. It allows the terminal prompt to remain active while running the `Rose` GUI as a separate process in the background.
+Follow the instructions in [Rose GUI on the Run models using Rose/Cylc page](rose_cylc#rose-gui).
 
 #### Change start date and run length {: #change-run-length }
 <div markdown id="run-length-mismatch">

@@ -339,14 +339,16 @@ rosie help
 !!! warning
     Before running a configuration, make sure to follow the initial setup for it (e.g., setting the correct compute project and storage resources). For details, follow the instructions relative to your specific model in the [Run a model](/models/run_a_model) page.
 
-To run the configuration:
+ACCESS model suites run on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) through a [PBS job] submission. The suites comprise several tasks, such as checking out code repositories, compiling and building the different model components, running the model, etc. The workflow of these tasks is controlled by [_Cylc_](#cylc).
+
+To run the configuration, execute the following commands:
 
 ```
 cd ~/roses/<suite-id>
 rose suite-run
 ```
 
-This moves you into the configuration directory, launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). If you closed the GUI and want to re-open it, run:
+This moves you into the configuration directory, launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). The _Cylc_ GUI allow you to view and control the different tasks in the suite as they are run. The _Cylc_ GUI can be safely closed without impacting the experiment run. If you closed the GUI and want to re-open it, run:
 
 ```
 cd ~/roses/<suite-id>
@@ -356,9 +358,13 @@ rose suite-gcontrol &
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. See the respective [Run a model](/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
+By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. A symbolic link to this directory is also created in the `$USER`'s home directory under `~/cylc-run/<suite-ID>`. See the respective [Run a model](/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
 
 ## Edit the model configuration
+
+In general, ACCESS modelling suites can be edited either by directly modifying the configuration files within the suite directory, or by using the [_Rose_ GUI](#rosegui).
+
+### Rose GUI
 
 To edit the model configuration, run the following:
 
@@ -367,7 +373,12 @@ cd ~/roses/<suite-id>
 rose edit &
 ```
 
-This opens the _Rose_ GUI, where the configuration settings can be modified. Once you are happy with the changes, save the modified configuration by clicking on the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}. 
+This opens the _Rose_ GUI, where the configuration settings can be modified. Once you are happy with the changes, save the modified configuration by clicking on the _Save_ button. ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}
+
+!!! tip
+    The `&` is optional. It allows the terminal prompt to remain active while running the `Rose` GUI as a separate process in the background.
+
+### Modify configuration files directly
 
 Alternatively, you can edit the configuration files within the configuration directory directly using your chosen editor.
 
