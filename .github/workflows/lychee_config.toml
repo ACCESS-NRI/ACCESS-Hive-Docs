@@ -45,7 +45,7 @@ retry_wait_time = 2
 accept = ["200", "202", "403", "429"]
 
 # Proceed for server connections considered insecure (invalid TLS).
-insecure = false
+insecure = true
 
 # When links are available using HTTPS, treat HTTP links as errors.
 require_https = true
