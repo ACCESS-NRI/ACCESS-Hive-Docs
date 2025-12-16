@@ -8,10 +8,11 @@
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA)
-* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. 
+* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). Cylc is a workflow manager that automatically executes tasks according to the model's main cycle script `suite.rc`. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
+* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
 
 A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_.
+
 
 ## Prerequisites
 
@@ -128,7 +129,7 @@ Note that persistent sessions are terminated during the quarterly maintenance at
 
 ### Start a new persistent session
 
-Start a new persistent session by running:
+Start a new persistent session by running (from either a _Gadi_ login node or an ARE VDI terminal instance):
 
 ```
 persistent-sessions start -p <project> <name>
@@ -148,7 +149,11 @@ where `<project>` is the project you want to start the session under, and `<name
 !!! tip
     If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
-Persistent sessions can run simulations using compute and storage resources from any project, independently of the project used for the persistent session itself. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
+
+!!! tip
+    While the project assigned to a _persistent session_ does not have to be the same as the project used to run the ACCESS model configuration, it does need to have allocated _Service Units (SU)_.<br>
+
+The project assigned to a _persistent session_ does not have to be the same as the project used to run the ACCESS model configuration. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
 ### Assign the persistent session to Cylc
 
@@ -172,9 +177,11 @@ For example, if user `abc123` started a persistent session named `ForCylc` under
     <terminal-line data="output">ForCylc.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
+For more information on how to specify the target session, refer to [Specify Target Session with Cylc7 Suites](https://opus.nci.org.au/display/DAE/Run+Cylc7+Suites#RunCylc7Suites-SpecifyTargetSession).
+
 ### List active persistent sessions {: .no-toc }
 
-To list currently active sessions, use:
+To list your currently active sessions, use:
 
 ```
 persistent-sessions list
@@ -186,6 +193,12 @@ To end a specific session, use:
 ```
 persistent-sessions kill <persistent-session-uuid>
 ```
+
+!!! tip
+    Logging out of a *Gadi* login node or an ARE VDI terminal instance will not affect your _persistent session_.
+
+!!! warning
+    When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
 
 ## Rose/Cylc Setup
 
