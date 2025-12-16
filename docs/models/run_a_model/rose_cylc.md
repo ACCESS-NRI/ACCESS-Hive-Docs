@@ -1,3 +1,5 @@
+[gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
+
 # Run models using Rose/Cylc
 
 !!! warning
@@ -32,7 +34,46 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
     _Time estimate: up to ~2 days_
 
 
-    
+ ## Quick guide to setting up Rose/Cylc
+
+ These are the basic steps to set up Rose/Cylc before running an ACCESS model. For more detailed explanations and extra setup information, please refer to the sections below, starting with [Connecting to Gadi](#connecting-to-gadi).
+
+- **Start a new [_persistent session_](https://opus.nci.org.au/display/Help/Persistent+Sessions)**<br> 
+    In a [Gadi][gadi] login node or from an ARE terminal instance run:
+    ```
+    persistent-sessions start -p <project> <name>
+    ```
+
+    Further instructions in [Set up a persistent session](#set-up-a-persistent-session) below.
+
+- **Assign the _persistent session_ to Cylc**<br>
+    Run the following command:
+    ```
+    cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
+    ```
+
+    !!! tip
+        This step should only be done once - you can run multiple Cylc sessions from the same persistent session.
+
+    Further instructions in [Assign the persistent session to Cylc](#assign-the-persistent-session-to-cylc) below.
+
+- **Rose/Cylc setup**<br>
+    To get the required _Rose/Cylc_ setup, run:
+    ```
+    module use /g/data/hr22/modulefiles
+    module load cylc7
+    ```
+
+    Further instructions in [Rose and Cylc executables](##rose-and-cylc-executables) below.
+
+- **MOSRS authentication**<br>
+    Authenticate using your MOSRS credentials:
+    ```
+    mosrs-auth
+    ```
+
+    Further instructions in [MOSRS authentication](#mosrs-authentication) below.
+
 ## Connecting to Gadi
 
 You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](/getting_started/are/#vdi). If you wish to use the _Gadi_ login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
@@ -96,7 +137,7 @@ where `<project>` is the project you want to start the session under, and `<name
 
 Persistent sessions can run simulations using compute and storage resources from any project, independently of the project used for the persistent session itself. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
-### Assign the persistent session to Cylc {: .no-toc }
+### Assign the persistent session to Cylc
 
 Once the session is running, it needs to be assigned to _Cylc_. This is done by inserting the persistent session label into `~/.persistent-sessions/cylc-session`, which can be done with the following command (substituting `<name>` and `<project>` with the name and project used to create the persistent session).
 
