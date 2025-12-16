@@ -78,43 +78,7 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 
 ### Required setup for running {{ model }} {: .no-toc }
 
-- **Start a new [_persistent session_](https://opus.nci.org.au/display/Help/Persistent+Sessions)**<br> 
-    In a [Gadi][gadi] login node or from an ARE terminal instance run:
-    ```
-    persistent-sessions start <name>
-    ```
-    This will use your [default project].
-
-    For further instructions on starting a _persistent session_, refer to the [Detailed guide](#start-a-new-persistent-session).
-
-- **Assign the _persistent session_ to Rose/Cylc workflows**<br>
-    Run the following command:
-    ```
-    echo "<name>.${USER}.<project>.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
-    ```
-    substituting `<name>` with the name given to your _persistent session_, and `<project>` with the project assigned to it.
-
-    !!! tip
-        This step should only be done once
-
-    For further instructions on assigning the target _persistent session_, refer to the [Detailed guide](#specify-target-persistent-session).
-
-- **Rose/Cylc setup**<br>
-    To get the required _Rose/Cylc_ setup, run:
-    ```
-    module use /g/data/hr22/modulefiles
-    module load cylc7
-    ```
-
-    For further instructions on getting the _Rose/Cylc_ setup, refer to the [Detailed guide](#rosecylcmosrs-setup).
-
-- **MOSRS authentication**<br>
-    Authenticate using your MOSRS credentials:
-    ```
-    mosrs-auth
-    ```
-
-    For further instructions on MOSRS authentication, refer to the [Detailed guide](#mosrs-authentication).
+Follow the [Quick guide to setting up Rose/Cylc](rose_cylc.md#quick-guide-to-setting-up-rosecylc).
 
 ### Regional Ancillary Suite (RAS) {: .no-toc }
 1. **Copy the RAS from UKMO**<br>
