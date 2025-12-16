@@ -295,15 +295,17 @@ fcm commit
 !!! warning
     Before running a configuration, make sure to follow the initial setup for it (e.g., setting the correct compute project and storage resources). For details, follow the instructions relative to your specific model in the [Run a model](/models/run_a_model) page.
 
-To run the configuration, execute the following command from within the configuration directory:
+To run the configuration:
 
 ```
+cd ~/roses/<suite-id>
 rose suite-run
 ```
 
-This launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). If you closed the GUI and want to re-open it, navigate to the configuration directory and run:
+This moves you into the configuration directory, launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). If you closed the GUI and want to re-open it, run:
 
 ```
+cd ~/roses/<suite-id>
 rose suite-gcontrol &
 ```
 
@@ -314,9 +316,10 @@ By default, the configuration, log files and outputs are copied to `/scratch/<pr
 
 ## Edit the model configuration
 
-To edit the model configuration, run the following command from the configuration directory:
+To edit the model configuration, run the following:
 
 ```
+cd ~/roses/<suite-id>
 rose edit &
 ```
 
