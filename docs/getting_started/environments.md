@@ -10,8 +10,13 @@
     All users are advised to [update their workflows](#update-workflows) to replace the `hh5` `conda/analysis3` environment with the `xp65` `conda/analysis3` environment as soon as possible to ensure continued support and access to the latest features. The `hh5` `conda/analysis3` environment is no longer actively maintained and, **after 30 May 2025**, may be taken down without prior notice.
    
 
-ACCESS-NRI now supports and maintains the `conda/analysis3` _Python_ environment, housed within the [xp65 NCI project](https://my.nci.org.au/mancini/project/xp65/join). This environment includes _Python_ libraries commonly used for climate data processing and analysis, allowing users to run workflows on _Gadi_ without having to manage package installations themselves. This is the continuation of the environments formerly [maintained by CLEX](#acknowledgements) within the `hh5` NCI project.
+ACCESS-NRI now supports and maintains the `conda/analysis3` _Python_ environment, housed within the xp65 NCI project. This environment includes _Python_ libraries commonly used for climate data processing and analysis, allowing users to run workflows on _Gadi_ without having to manage package installations themselves. This is the continuation of the environments formerly [maintained by CLEX](#acknowledgements) within the `hh5` NCI project.
 
+## Prerequisites
+- **NCI Account**<br> 
+    This is available on _Gadi_, to use it you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+- **Member of the <i>xp65</i> NCI project**<br>
+    The _Python_ environment available within [xp65](https://my.nci.org.au/mancini/project/xp65/join).
 
 ## How to use the _xp65_ _conda/analysis3_ environment
  There are 3 main ways to use the `conda/analysis3` environment:  
