@@ -76,14 +76,20 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 
 ## Connecting to Gadi
 
-You can run _Rose/Cylc_ either from a _Gadi_ login node, or via an [ARE VDI session](/getting_started/are/#vdi). If you wish to use the _Gadi_ login node, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
+You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node), or via an [ARE VDI session](#launch-are-vdi-desktop). 
+
+### Connect via Gadi login node
 
 <div markdown id="x11-forwarding">
 !!! warning "X11 Forwarding"
     When connecting via SSH from a terminal, it is recommended to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
 </div>
 
+Once you've connected, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
+
 ### Launch ARE VDI Desktop
+
+If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
 
 !!! tip
     The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_. The model tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
