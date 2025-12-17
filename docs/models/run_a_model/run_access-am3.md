@@ -62,8 +62,8 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 
 Follow the instructions for [Model configurations stored on _GitHub_](/models/run_a_model/rose_cylc/#model-configurations-stored-on-github) using the following specific information:
 
-- [Repository](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ github_ssh }}
-- [Branch](/models/run-a-model/rose-cylc/#model-configurations-stored-on-github): {{ example_branch }}
+- **Repository:** {{ github_ssh }}
+- **Branch:** {{ example_branch }}
 
 ## Initial Setup
 
