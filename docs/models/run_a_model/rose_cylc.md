@@ -336,7 +336,7 @@ rosie help
 !!! warning
     Before running a configuration, make sure to follow the initial setup for it (e.g., setting the correct compute project and storage resources). For details, follow the instructions relative to your specific model in the [Run a model](/models/run_a_model) page.
 
-ACCESS model suites run on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) through a [PBS job] submission. The suites comprise several tasks, such as checking out code repositories, compiling and building the different model components, running the model, etc. The workflow of these tasks is controlled by [_Cylc_](#cylc).
+ACCESS model configurations run on [_Gadi_][gadi] through [PBS jobs][PBS job] submissions. They often comprise several tasks, such as checking out code repositories, compiling and building different model components, running the model, etc. The workflow of these tasks is controlled by _Cylc_.
 
 To run the configuration, execute the following commands:
 
@@ -372,9 +372,6 @@ This opens the _Rose_ GUI, where the configuration settings can be modified. Onc
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-### Modify configuration files directly
-
-Alternatively, you can edit the configuration files within the configuration directory directly using your chosen editor.
 
 !!! warning
     Directly modifying configuration files with an editor is usually discouraged for non-expert users.

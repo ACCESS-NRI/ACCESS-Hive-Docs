@@ -43,6 +43,8 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Prerequisites
 
+!!! warning
+    If you are new to Rose/Cylc, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose-cylc.md) before continuing on this page.
 - **Rose/Cylc prerequisites**
   All [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites).
 
