@@ -44,7 +44,7 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 ## Prerequisites
 
 !!! warning
-    If you are new to Rose/Cylc, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose-cylc.md) before continuing on this page.
+    If you are new to Rose/Cylc, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose_cylc.md) before continuing on this page.
 - **Rose/Cylc prerequisites**
   All [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites).
 
@@ -76,11 +76,46 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Quick Start guide
 
-These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for new users, please refer to the [Detailed guide](#detailed-guide).
+These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for new users, please refer to the [Rose/Cylc page](rose_cylc.md) for the Rose/Cylc steps and the [Detailed guide](#detailed-guide) below for the {{ model }} steps.
 
-### Required setup for running {{ model }} {: .no-toc }
+### Required Rose/Cylc setup for running {{ model }} {: .no-toc }
 
-Follow the [Quick guide to setting up Rose/Cylc](rose_cylc.md#quick-guide-to-setting-up-rosecylc).
+- **Start a new [_persistent session_](https://opus.nci.org.au/display/Help/Persistent+Sessions)**<br> 
+    
+    ```
+    persistent-sessions start -p <project> <name>
+    ```
+
+    Further instructions in [Set up a persistent session](#set-up-a-persistent-session) below.
+
+- **Assign the _persistent session_ to Cylc**<br>
+    
+    ```
+    cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
+    ```
+
+    !!! tip
+        This step should only be done once - you can run multiple Cylc sessions from the same persistent session.
+
+    Further instructions in [Assign the persistent session to Cylc](#assign-the-persistent-session-to-cylc) below.
+
+- **Rose/Cylc setup**<br>
+    
+    ```
+    module use /g/data/hr22/modulefiles
+    module load cylc7
+    ```
+
+    Further instructions in [Rose and Cylc executables](##rose-and-cylc-executables) below.
+
+- **MOSRS authentication**<br>
+    
+    ```
+    mosrs-auth
+    ```
+
+    Further instructions in [MOSRS authentication](#mosrs-authentication) below.
+
 
 ### Regional Ancillary Suite (RAS) {: .no-toc }
 1. **Copy the RAS from UKMO**<br>
@@ -143,24 +178,6 @@ Connect to _Gadi_ by following the [related instructions in the _Rose/Cylc_ page
 !!! warning 
     If you choose to connect via the [ARE VDI](/models/run_a_model/rose_cylc/#launch-are-vdi-desktop), consider setting **Walltime** to `5` (5 hours), as {{ model }} might require greater setup time.
 
-#### Changes required if launching ARE VDI session
-
-- **Walltime (hours)** &rarr; `5`<br>
-    
-- **Queue** &rarr; `normalbw`
-    
-- **Compute Size** &rarr; `tiny` (1 CPU)<br>
-    As mentioned in the [Run models using Rose/Cylc page](rose_cylc#launch-are-vdi-desktop), the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
-
-- **Project** &rarr; a project of which you are a member.<br>
-
-- **Storage** &rarr; `gdata/access+gdata/hr22+gdata/ki32+gdata/rt52+gdata/ob53+gdata/cm45+gdata/vk83` (minimum)<br>
-    This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
-    Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than the ones listed in the minimum storage above, you need to add those projects to the storage path.<br>
-    For example, if your {{ model }} simulation requires data stored in `/g/data/<project-id>` and `/scratch/<project-id>`, the following should be added to the minimum storage above: `+gdata/<project-id>+scratch/<project-id>`
-
-
-
 ### Set up a persistent session
 
 Set up a persistent session by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#set-up-a-persistent-session).
@@ -172,9 +189,6 @@ Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495
 ### Set up Rose/Cylc
 
 Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
-
-!!! warning
-    _Cylc_ version >= `cylc7/24.03` required.<br>
 
 
 ### {{ model }} configuration
@@ -394,7 +408,7 @@ Logs for individual tasks are located in subfolders within the logs folder, foll
 ```
 ~/cylc-run/<suite-ID>/log/job/<cylc-cycle-point>/<task-name>/<retry-number>
 ```
-The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` (because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle.
+The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle.
 
 For example, logs for most recent retry of a task named `Lismore_d1100_ancil_um_mean_orog` at _Cylc_ cycle point `1` can be found in the folder `~/cylc-run/<suite-ID>/log/job/1/Lismore_d1100_ancil_mean_orog/NN`.
 
@@ -491,7 +505,7 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 ### OSTIA Ancillary Suite (OAS) (optional) {: #oas }
 
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs (resolution and other details can be found on the [{{model}} configuration]({{ access_models }}/{{ model }}/#oas) page. OAS is included here in case you choose to run it.
+Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs (resolution and other details can be found on the [{{model}} configuration]({{ access_models }}/{{ model }}/#oas) page). OAS is included here in case you choose to run it.
 
 The `suite-ID` of the OAS is `{{ oas_id }}`.
 
@@ -578,7 +592,8 @@ In general, ACCESS modelling suites can be edited either by directly modifying t
 
 ##### Rose GUI {: #rosegui }
 
-Follow the instructions in [Rose GUI on the Run models using Rose/Cylc page](rose_cylc#rose-gui).
+Basic instructions on how to edit a model configuration using the Rose GUI can be found on the [related Rose/Cylc page](rose_cylc#rose-gui).
+
 
 #### Change start date and run length {: #change-run-length }
 <div markdown id="run-length-mismatch">
@@ -612,7 +627,7 @@ Follow the instructions in [Rose GUI on the Run models using Rose/Cylc page](ros
       
 
     To modify these parameters within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Nesting Suite &rarr; Cycling options_. Edit the related field and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.<br>
-    For example, to run the experiment for 2 days starting on the 5th April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S` (due to the [run length mismatch](#run-length-mismatch)).
+    For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S` (due to the [run length mismatch](#run-length-mismatch)).
 
 #### Change the land-surface initial conditions source
 - **RNS**<br>

@@ -34,49 +34,9 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 
 
 
- ## Quick guide to setting up Rose/Cylc
-
- These are the basic steps to set up Rose/Cylc before running an ACCESS model. For more detailed explanations and extra setup information, please refer to the sections below, starting with [Connecting to Gadi](#connecting-to-gadi).
-
-- **Start a new [_persistent session_](https://opus.nci.org.au/display/Help/Persistent+Sessions)**<br> 
-    In a [Gadi][gadi] login node or from an ARE terminal instance run:
-    ```
-    persistent-sessions start -p <project> <name>
-    ```
-
-    Further instructions in [Set up a persistent session](#set-up-a-persistent-session) below.
-
-- **Assign the _persistent session_ to Cylc**<br>
-    Run the following command:
-    ```
-    cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
-    ```
-
-    !!! tip
-        This step should only be done once - you can run multiple Cylc sessions from the same persistent session.
-
-    Further instructions in [Assign the persistent session to Cylc](#assign-the-persistent-session-to-cylc) below.
-
-- **Rose/Cylc setup**<br>
-    To get the required _Rose/Cylc_ setup, run:
-    ```
-    module use /g/data/hr22/modulefiles
-    module load cylc7
-    ```
-
-    Further instructions in [Rose and Cylc executables](##rose-and-cylc-executables) below.
-
-- **MOSRS authentication**<br>
-    Authenticate using your MOSRS credentials:
-    ```
-    mosrs-auth
-    ```
-
-    Further instructions in [MOSRS authentication](#mosrs-authentication) below.
-
 ## Connecting to Gadi
 
-You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node), or via an [ARE VDI session](#launch-are-vdi-desktop). 
+You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node) or via an [ARE VDI session](#launch-are-vdi-desktop). 
 
 ### Connect via Gadi login node
 Follow the steps to [login to _Gadi_](/getting_started/set_up_nci_account/#login-to-gadi), making sure to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
@@ -237,7 +197,16 @@ After the first authentication, you will need to run `mosrs-auth` every 24 hours
 
 Depending on the specific model, its configuration will be hosted either on _GitHub_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
 
-Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS).
+Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS). This directory will be referred to as the *configuration directory*.
+{: #configdir }
+
+This configuration directory contains multiple subdirectories and files, including:
+
+- `app` &rarr; directory containing specific configuration files for various model tasks.
+- `meta` &rarr; directory containing the _Rose_ GUI metadata.
+- `rose-suite.conf` &rarr; main model configuration file.
+- `rose-suite.info` &rarr; configuration information file.
+- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
 ### Model configurations stored on _GitHub_
 
@@ -263,17 +232,8 @@ Both options use [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/fu
 
 If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
 
-Configurations copied from MOSRS are created by default in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
-This path will be referred to as the *configuration directory*.
-{: #configdir }
+Configurations copied from MOSRS are created by default in the user's _Gadi_ home directory under `~/roses/<suite-ID>` (this is the configuration directory).
 
-The configuration directory contains multiple subdirectories and files, including:
-
-- `app` &rarr; directory containing specific configuration files for various model tasks.
-- `meta` &rarr; directory containing the _Rose_ GUI metadata.
-- `rose-suite.conf` &rarr; main model configuration file.
-- `rose-suite.info` &rarr; configuration information file.
-- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
 #### Local-only copy {: #rosie-checkout }
 
