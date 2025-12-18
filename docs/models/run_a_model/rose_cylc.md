@@ -344,7 +344,7 @@ To run the configuration, execute the following commands:
 rose suite-run -C ~/roses/<suite-id>
 ```
 
-This moves you into the configuration directory, launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). The _Cylc_ GUI allow you to view and control the different tasks in the suite as they are run. The _Cylc_ GUI can be safely closed without impacting the experiment run. If you closed the GUI and want to re-open it, run:
+This launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). The _Cylc_ GUI allows you to view and control the different tasks in the configuration as they run. The _Cylc_ GUI can be safely closed without impacting the model run. If you closed the GUI and want to re-open it, run:
 
 ```
 rose suite-gcontrol --name=<suite-id> &
