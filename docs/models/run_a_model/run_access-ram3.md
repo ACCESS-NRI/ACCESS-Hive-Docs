@@ -43,7 +43,8 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Prerequisites
 
-- All [prerequisites listed on the Run models using Rose/Cylc page](/rose_cylc.md#prerequisites).
+- **Rose/Cylc prerequisites**
+  All [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites).
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
@@ -56,21 +57,20 @@ All {{model}} configurations are available on MOSRS via links at the top of this
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
-    _Time estimate: ~5 minutes to request the memberships, and up to several days for the membership requests to be approved_
 
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
         
         - already be member of the _ki32_ project
         {: style="list-style-type: disc"}
-        - have a [MOSRS account](rose_cylc.md#mosrs-account)
+        - have a [MOSRS account](/models/run_a_model/rose_cylc/#mosrs-account)
         {: style="list-style-type: disc"}
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
     
 
 !!! warning
-    The waiting time to complete some of the above prerequisites may be 2-3 weeks. See [prerequisites listed on the Run models using Rose/Cylc page](/rose_cylc.md#prerequisites) for specific time estimates.
+    The waiting time to complete some of the above prerequisites may be 2-3 weeks.
 
 ## Quick Start guide
 
@@ -136,7 +136,10 @@ Follow the [Quick guide to setting up Rose/Cylc](rose_cylc.md#quick-guide-to-set
 
 ### Connect to Gadi
 
-Follow the instructions in [Connecting to Gadi on the Run models using Rose/Cylc page](rose_cylc/#connecting-to-gadi). If you choose to connect via the ARE VDI, note the following changes required before you launch the VDI session.
+Connect to _Gadi_ by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#connecting-to-gadi). 
+
+!!! warning 
+    If you choose to connect via the [ARE VDI](/models/run_a_model/rose_cylc/#launch-are-vdi-desktop), consider setting **Walltime** to `5` (5 hours), as {{ model }} might require greater setup time.
 
 #### Changes required if launching ARE VDI session
 
@@ -158,15 +161,15 @@ Follow the instructions in [Connecting to Gadi on the Run models using Rose/Cylc
 
 ### Set up a persistent session
 
-Follow the instructions in [Set up a persistent session on the Run models using Rose/Cylc page](rose_cylc#set-up-a-persistent-session).
+Set up a persistent session by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#set-up-a-persistent-session).
 
-#### Set up SSH-keys (once-only) {: .no-toc }
+### Set up SSH-keys (once-only) {: .no-toc }
 
 Follow the [initialization step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
-
+Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
 ### Set up Rose/Cylc
 
-Follow the instructions in [Set up Rose/Cylc on the Run models using Rose/Cylc page](rose_cylc#set-up-rosecylc).
+Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
 
 !!! warning
     _Cylc_ version >= `cylc7/24.03` required.<br>
@@ -192,17 +195,20 @@ The latest release branch of the RAS is `{{ branch_ras }}`.
 
 #### Get the RAS configuration
 
-Follow the instructions in [Get the model configuration on the Run models using Rose/Cylc page](rose_cylc#get-the-model-configuration).
+Get the RAS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
+
+- **Suite-ID:** {{ ras_id }}
+- **Branch:** {{ branch_ras }}
     
 
 
 #### Run the RAS
 
-To run the RAS, follow the instructions in [Run the model configuration on the Run models using Rose/Cylc page](rose_cylc#run-the-model-configuration).
+Run the RAS by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#run-the-model-configuration).
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-All steps are completed - you have succesfully run the RAS!! <br>
+All steps are completed. _You have successfully run the RAS!!_ <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
@@ -489,7 +495,10 @@ The `suite-ID` of the OAS is `{{ oas_id }}`.
 
 #### Get and run OAS configuration
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. 
+The main difference is the OAS configuration specific information: 
+
+- **Suite-ID:** {{ oas_id }}
+- **Branch:** trunk (alternatively, simply omit the `/<branch>` portion when obtaining the configuration)
 
 The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
 
@@ -522,7 +531,13 @@ The latest release branch of the RNS is `{{ branch_rns }}`.
 Steps to obtain and run the RNS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
 The main difference is the `suite-ID`, which for the RNS is `{{ rns_id }}`.
 
-To get the RNS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), making sure you use the correct RNS `suite-ID` `{{ rns_id }}` when copying the suite.
+To get the RNS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration).
+
+The main difference is the RNS configuration specific information: 
+
+- **Suite-ID:** {{ rns_id }}
+- **Branch:** {{ branch_rns }}
+
 
 To run the RNS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
 

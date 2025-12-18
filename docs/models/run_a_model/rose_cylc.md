@@ -1,5 +1,5 @@
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
-
+[PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 # Run models using Rose/Cylc
 
 !!! warning
@@ -8,10 +8,10 @@
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). Cylc is a workflow manager that automatically executes tasks according to the model's main cycle script `suite.rc`. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
-* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
+* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). Cylc is a workflow manager that automatically executes tasks according to the model's configuration. It also monitors all tasks, reporting any errors that may occur.
+* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UK Met Office (UKMO) which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
 
-A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_.
+A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_. Every _suite_ has a unique identifier called `suite-ID` in the form `u-LLNNN`, where `L` is a letter and N is a number (e.g., u-ab123).
 
 
 ## Prerequisites
@@ -25,14 +25,13 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
     {: #mosrs-account}
 
     !!! warning
-    The waiting time to obtain a MOSRS account may be 2-3 weeks.
+        The waiting time to obtain a MOSRS account can be up to 3 weeks.
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
 
-    _Time estimate: up to ~2 days_
 
 
  ## Quick guide to setting up Rose/Cylc
@@ -80,13 +79,9 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node), or via an [ARE VDI session](#launch-are-vdi-desktop). 
 
 ### Connect via Gadi login node
+Follow the steps to [login to _Gadi_](/getting_started/set_up_nci_account/#login-to-gadi), making sure to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
 
-<div markdown id="x11-forwarding">
-!!! warning "X11 Forwarding"
-    When connecting via SSH from a terminal, it is recommended to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ and _Cylc_ GUIs to be launched on your local machine.
-</div>
-
-Once you've connected, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
+Once you are connected, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
 
 ### Launch ARE VDI Desktop
 
@@ -110,10 +105,12 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
 - **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
 
-Launch the ARE session and, once it opens in your browser, click on _Launch VDI Desktop_. 
+Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
 ![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
 
+!!! warning
+    This example is provided for reference only. Please use the resource specifications listed above when starting the ARE VDI session.
 Once the new tab opens, you will see a Desktop with a few folders on the left. Click the terminal icon at the top of the window to open a terminal. You should now be connected to a _Gadi_ computing node. Use this terminal for all subsequent steps in this guide.
 
 ![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
@@ -129,7 +126,7 @@ Note that persistent sessions are terminated during the quarterly maintenance at
 
 ### Start a new persistent session
 
-Start a new persistent session by running (from either a _Gadi_ login node or an ARE VDI terminal instance):
+Start a new persistent session by running:
 
 ```
 persistent-sessions start -p <project> <name>
@@ -153,10 +150,10 @@ The label of a newly-created _persistent session_ has the following format: <br>
     If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
 
-!!! tip
-    While the project assigned to a _persistent session_ does not have to be the same as the project used to run the ACCESS model configuration, it does need to have allocated _Service Units (SU)_.<br>
 
-The project assigned to a _persistent session_ does not have to be the same as the project used to run the ACCESS model configuration. The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
+!!! tip 
+    The project assigned to a _persistent session_ does not have to be the same as the project used to run the ACCESS model configuration. In addition, the same persistent session can be used to run multiple simulations simultaneously.<br>
+    The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
 ### Assign the persistent session to Cylc
 
@@ -266,16 +263,16 @@ Both options use [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/fu
 
 If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
 
-Suites are, by default when copying from MOSRS, created in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
-This path will be referred to as the *suite directory*.
-{: #suitedir }
+Configurations copied from MOSRS are created by default in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
+This path will be referred to as the *configuration directory*.
+{: #configdir }
 
-The suite directory contains multiple subdirectories and files, including:
+The configuration directory contains multiple subdirectories and files, including:
 
-- `app` &rarr; directory containing the configuration files for various tasks within the suite.
-- `meta` &rarr; directory containing the GUI metadata.
-- `rose-suite.conf` &rarr; main suite configuration file.
-- `rose-suite.info` &rarr; suite information file.
+- `app` &rarr; directory containing specific configuration files for various model tasks.
+- `meta` &rarr; directory containing the _Rose_ GUI metadata.
+- `rose-suite.conf` &rarr; main model configuration file.
+- `rose-suite.info` &rarr; configuration information file.
 - `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
 #### Local-only copy {: #rosie-checkout }
@@ -344,39 +341,36 @@ ACCESS model suites run on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welc
 To run the configuration, execute the following commands:
 
 ```
-cd ~/roses/<suite-id>
-rose suite-run
+rose suite-run -C ~/roses/<suite-id>
 ```
 
 This moves you into the configuration directory, launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't appear, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). The _Cylc_ GUI allow you to view and control the different tasks in the suite as they are run. The _Cylc_ GUI can be safely closed without impacting the experiment run. If you closed the GUI and want to re-open it, run:
 
 ```
-cd ~/roses/<suite-id>
-rose suite-gcontrol &
+rose suite-gcontrol --name=<suite-id> &
 ```
 
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
-By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. A symbolic link to this directory is also created in the `$USER`'s home directory under `~/cylc-run/<suite-ID>`. See the respective [Run a model](/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
+By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. A symbolic link to this directory is also created in your home directory under `~/cylc-run/<suite-ID>`. See the respective [Run a model](/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
 
 ## Edit the model configuration
 
-In general, ACCESS modelling suites can be edited either by directly modifying the configuration files within the suite directory, or by using the [_Rose_ GUI](#rosegui).
+In general, ACCESS modelling suites can be edited either by directly modifying the configuration files within the configuration directory, or by using the [_Rose_ GUI](#rosegui).
 
 ### Rose GUI
 
 To edit the model configuration, run the following:
 
 ```
-cd ~/roses/<suite-id>
-rose edit &
+rose edit -C ~/roses/<suite-id> &
 ```
 
 This opens the _Rose_ GUI, where the configuration settings can be modified. Once you are happy with the changes, save the modified configuration by clicking on the _Save_ button. ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}
 
 !!! tip
-    The `&` is optional. It allows the terminal prompt to remain active while running the `Rose` GUI as a separate process in the background.
+    The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
 ### Modify configuration files directly
 
