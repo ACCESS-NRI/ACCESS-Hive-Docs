@@ -74,9 +74,9 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 !!! warning
     The waiting time to complete some of the above prerequisites may be 2-3 weeks.
 
-## Quick Start guide
+## Quick guide
 
-These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for new users, please refer to the [Rose/Cylc page](rose_cylc.md) for the Rose/Cylc steps and the [Detailed guide](#detailed-guide) below for the {{ model }} steps.
+This quick guide outlines the basic steps to run {{ model }} and is tailored to users who already have some experience running {{ model }}. For new users, please refer to the [Detailed guide](#detailed-guide) below that includes more explanations and extra setup information.
 
 ### Required Rose/Cylc setup for running {{ model }} {: .no-toc }
 
@@ -176,7 +176,7 @@ These are the basic steps to run {{ model }}. For more detailed explanations and
 Connect to _Gadi_ by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#connecting-to-gadi). 
 
 !!! warning 
-    If you choose to connect via the [ARE VDI](/models/run_a_model/rose_cylc/#launch-are-vdi-desktop), consider setting **Walltime** to `5` (5 hours), as {{ model }} might require greater setup time.
+    If you choose to connect via the [ARE VDI](/models/run_a_model/rose_cylc/#launch-are-vdi-desktop), consider setting **Walltime** to `5` (5 hours), as {{ model }} might require longer setup time.
 
 ### Set up a persistent session
 
@@ -224,7 +224,7 @@ Run the RAS by following the [related instructions on the _Rose/Cylc_ page](/mod
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-All steps are completed. _You have successfully run the RAS!!_ <br>
+All steps are completed. You have successfully run the RAS!! <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
