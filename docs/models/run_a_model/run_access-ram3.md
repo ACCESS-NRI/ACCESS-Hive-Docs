@@ -30,7 +30,7 @@
 
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
+The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
 
 The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/rose_cylc.md) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
@@ -77,95 +77,6 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 ## Quick guide
 
 This quick guide outlines the basic steps to run {{ model }} and is tailored to users who already have some experience running {{ model }}. For new users, please refer to the [Detailed guide](#detailed-guide) below that includes more explanations and extra setup information.
-
-### Required Rose/Cylc setup for running {{ model }} {: .no-toc }
-
-- **Start a new [_persistent session_](https://opus.nci.org.au/display/Help/Persistent+Sessions)**<br> 
-    
-    ```
-    persistent-sessions start -p <project> <name>
-    ```
-
-    Further instructions in [Set up a persistent session](#set-up-a-persistent-session) below.
-
-- **Assign the _persistent session_ to Cylc**<br>
-    
-    ```
-    cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
-    ```
-
-    !!! tip
-        This step should only be done once - you can run multiple Cylc sessions from the same persistent session.
-
-    Further instructions in [Assign the persistent session to Cylc](#assign-the-persistent-session-to-cylc) below.
-
-- **Rose/Cylc setup**<br>
-    
-    ```
-    module use /g/data/hr22/modulefiles
-    module load cylc7
-    ```
-
-    Further instructions in [Rose and Cylc executables](##rose-and-cylc-executables) below.
-
-- **MOSRS authentication**<br>
-    
-    ```
-    mosrs-auth
-    ```
-
-    Further instructions in [MOSRS authentication](#mosrs-authentication) below.
-
-
-### Regional Ancillary Suite (RAS) {: .no-toc }
-1. **Copy the RAS from UKMO**<br>
-    ```
-    rosie checkout {{ ras_id }}/{{ branch_ras }}
-    ```
-
-    For further instructions on getting the RAS configuration, refer to the [Detailed guide](#get-the-ras-configuration).
-
-2. **Run the RAS**<br>
-    ```
-    cd ~/roses/{{ras_id}}
-    rose suite-run
-    ```
-
-    For further instructions on running the RAS configuration, refer to the [Detailed guide](#run-the-ras).
-
-
-### Ostia Ancillary Suite (OAS) {: .no-toc }
-1. **Copy the OAS from UKMO**<br>
-    ```
-    rosie checkout {{ oas_id }}
-    ```
-
-    For further instructions on getting the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
-
-2. **Run the OAS**<br>
-    ```
-    cd ~/roses/{{oas_id}}
-    rose suite-run
-    ```
-
-    For further instructions on running the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
-
-
-### Regional Nesting Suite (RNS) {: .no-toc }
-1. **Copy the RNS from UKMO**<br>
-    ```
-    rosie checkout {{ rns_id }}/{{ branch_rns }}
-    ```
-
-    For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-rns-configuration).
-
-2. **Run the RNS**<br>
-    From within the RNS directory:
-    ```
-    rose suite-run
-    ```
-
-    For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-rns-configuration).
 
 1. **Start a persistent session**
     ```
@@ -226,7 +137,7 @@ Set up a persistent session by following the [related instructions on the _Rose/
 
 ### Set up SSH-keys (once-only) {: .no-toc }
 
-Follow the [initialization step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
+Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
 Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
 ### Set up Rose/Cylc
 
