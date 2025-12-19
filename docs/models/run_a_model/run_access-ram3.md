@@ -167,7 +167,49 @@ This quick guide outlines the basic steps to run {{ model }} and is tailored to 
 
     For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-rns-configuration).
 
----
+1. **Start a persistent session**
+    ```
+    persistent-sessions start -p <project> <name>
+    ```
+2. **Assign the persistent session to Cylc (once only)**
+    ```
+    cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
+    ```
+3. **Get _Rose/Cylc_ executables**
+    ```
+    module use /g/data/hr22/modulefiles
+    module load cylc7
+    ```
+4. **Authenticate to MOSRS**
+    ```
+    mosrs-auth
+    ```
+5. **Get the OSTIA Ancillary Suite (OAS) (optional)**
+    ```
+    rosie checkout {{ oas_id }}
+    ```
+6. **Get the Regional Ancillary Suite (RAS)**
+    ```
+    rosie checkout {{ ras_id }}/{{ branch_ras }}
+    ```
+7. **Get the Regional Nesting Suite (RNS)**
+    ```
+    rosie checkout {{ rns_id }}/{{ branch_rns }}
+    ```
+8. **Run the OAS (optional)**
+    ```
+    rose suite-run -C ~/roses/{{ oas_id }}
+    ```
+9. **Run the RAS**
+    ```
+    rose suite-run -C ~/roses/{{ ras_id }}
+    ```
+    This step can be carried out simultaneously with step 8.
+10. **Run the RNS**
+    This step must be carried out only after step 7 (optional) and 8 have successfully completed.
+    ```
+    rose suite-run -C ~/roses/{{ rns_id }}
+    ```
 
 ## Detailed guide
 
