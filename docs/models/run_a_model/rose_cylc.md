@@ -56,7 +56,7 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
         Amount of hours the ARE VDI session will remain active for. This is only setup time, and does not reflect how long the actual configuration will take to run.
         
     !!! tip 
-        Some model configurations might require a longer setup time. The _Walltime_ included here should be sufficient for most model configurations, but if your ARE session terminates before the model setup is complete, you will need to start a new ARE VDI session.
+        Some model configurations might require a longer setup time. The _Walltime_ included here should be sufficient for most model configurations, but if your ARE session terminates before the model setup is complete, you can start a new ARE VDI session.
 
 - **Queue** &rarr; `normalbw`
     
