@@ -104,6 +104,9 @@ glob_ignore_case = false
     '^https://(www\.)?github\.com/ACCESS-NRI/UM[/$]', # Private Repo
     '^https://forum\.access-hive\.org\.au/t/model-release-checklist-template[/$]', # Private Forum Post
     '^https://mermaid.live[/$]', # Mermaid live editor
+    '^https://doi\.org[/$]', # doi links cause problems
+    '^https://modelevaluation\.org[/$]', # Causes problems
+    '^https://gmd\.copernicus\.org[/$]', # EGU Articles cause problems 
   ]
 
 # Exclude paths from getting checked. The values are treated as regular expressions
