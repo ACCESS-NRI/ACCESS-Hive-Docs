@@ -228,7 +228,7 @@ There are two ways of getting a local copy of a configuration hosted on MOSRS:
 - [Local-only copy](#rosie-checkout)
 - [Local and remote copy (new remote configuration)](#rosie-copy)
 
-Both options use [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rosie) - an [SVN](https://subversion.apache.org) repository wrapper with a set of options specific for ACCESS modelling suites. It is automatically available within the [_Rose_ setup](#rose).
+Both options use [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rosie) - a tool that uses [SVN](https://subversion.apache.org) to manage, develop, and collaborate on Rose modelling workflows. It is automatically available within the [_Rose_ setup](#rose).
 
 If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
 
