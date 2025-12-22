@@ -1,6 +1,6 @@
 # Cryosphere Community Datapool
 ## About
-The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used to parameterise ice sheet models. Datasets are currently grouped into (*but not limited to*) the following categories:
+The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used to parameterise ice sheet models. Datasets are currently grouped into the following categories:
 
 - [**Elevation and geometry**](#elevation-and-geometry-data) - These datasets contain digital elevation models and key geometry attributes, including bed topography/bathymetry, ice surface elevation, ice thickness, and ice/ocean masks.
 
@@ -34,7 +34,7 @@ The data listed in the following summary tables are hosted in the CCD and access
 ### Elevation and geometry data 
 
 
-| Dataset name              | Key variables | NCI Gadi `av17` path | Source location |
+| Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
 | <b>BedMachine Antarctica v1</b>  | Bed topography, Bed uncertainty, Bathymetry, Ice surface elevation, Ice thickness, Ice mask, Geoid  | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_bedmachine_antarctica/v1</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0756/versions/1) |
 | <b>BedMachine Antarctica v2</b> | Bed topography, Bed uncertainty, Bathymetry, Ice surface elevation, Ice thickness, Ice mask, Geoid | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_bedmachine_antarctica/v2</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0756/versions/2) |
@@ -68,9 +68,8 @@ The data listed in the following summary tables are hosted in the CCD and access
 
 
 ### Geospatial data
-[[back to top]](#cryosphere-community-datapool)
 
-| Dataset name              | Key variables | NCI Gadi `av17` path | Source location |
+| Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
 | <b>MEaSUREs Antarctic Boundaries for IPY 2007-2009 from Satellite Radar, Version 1</b>  | Coastline, grounding line, ice shelf, IMBIE basins, drainage basins, boundaries | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_boundaries_for_ipy_2007_2009_from_satellite_radar/v1</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0709/versions/1) |
 | <b>MEaSUREs Antarctic Boundaries for IPY 2007-2009 from Satellite Radar, Version 2</b>  | Coastline, grounding line, ice shelf, IMBIE basins, drainage basins, boundaries | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_boundaries_for_ipy_2007_2009_from_satellite_radar/v2</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0709/versions/2) |
