@@ -874,6 +874,9 @@ details.code {
 :is(.funding,.partners) > *:last-child a > img {
   margin: auto;
   max-height: 4rem;
+  height: 60px;
+  width: 100%;
+  object-fit: contain;
 }
 .md-footer-meta__inner > * {
   display: flex;
