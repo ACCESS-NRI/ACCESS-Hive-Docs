@@ -1,17 +1,17 @@
 # About
 
 <div class="card-container">
-    <a href="/about/contact" class="vertical-card aspect-ratio1to1">
-        <div class="card-image-container">
-            <img src="/assets/contact_logo.png" alt="Contacts" class="img-contain white-background with-padding"></img>
-        </div>
-        <div class="card-text-container bold">Contact</div>
-    </a>
     <a href="/about/release_list" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
             <img src="/assets/rocket_release.svg" alt="Release list" class="img-contain white-background with-padding"></img>
         </div>
         <div class="card-text-container bold">ACCESS-NRI Releases</div>
+    </a>
+    <a href="/about/contact" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img src="/assets/contact_logo.png" alt="Contacts" class="img-contain white-background with-padding"></img>
+        </div>
+        <div class="card-text-container bold">Contact</div>
     </a>
     <a href="/about/faq" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">

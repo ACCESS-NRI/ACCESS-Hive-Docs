@@ -2,16 +2,15 @@
 [Hive Forum]: https://forum.access-hive.org.au
 # ACCESS-NRI supported releases
 
-Information around release terminology and support can be found on [ACCESS-NRI Release Stages](/about/releases).
 <div class="card-container">
     <a href="/about/releases" class="horizontal-card">
         <div class="card-image-container">
             <img class="img-contain white-background" src="/assets/rocket_release.svg" alt="ACCESS-NRI release stages">
         </div>
         <div class="card-text-container">
-            <span class="bold" >ACCESS-NRI release stages</span>
+            <span class="bold" >ACCESS-NRI Release Stages</span>
             <span>
-                Release terminology and general indication on the state of the product.
+                Information around release stages terminology and support which help give a general indication on the state of the product.
             </span>
         </div>
     </a>
@@ -19,7 +18,7 @@ Information around release terminology and support can be found on [ACCESS-NRI R
 
 
 ## Release type
-Types used to categorise the release product are broad. Not all releases may fall neatly into these categories. Other releases include training and explainer videos on [_YouTube_](https://www.youtube.com/@AustraliasClimateSimulator), and visualisations on [_Vimeo_](https://vimeo.com/accessnri) and may have specific uses.
+The types used to categorise the release product are broad. Not all releases fall neatly into these types. Other releases include training and explainer videos on [_YouTube_](https://www.youtube.com/@AustraliasClimateSimulator), and visualisations on [_Vimeo_](https://vimeo.com/accessnri) and may have specific uses.
 
 :octicons-ai-model-16: **Model**: Refers to climate model components and [configurations](/about/releases/#fn:1). <br>
 :material-tools: **Tool**: Refers to supporting tools which can be pre and post processing, evaluation and diagnostics. <br>
