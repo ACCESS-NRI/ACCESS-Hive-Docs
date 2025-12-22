@@ -90,8 +90,7 @@ The data listed in the following summary tables are hosted in the CCD and access
 | <b>RACMO2.4p1 - Monthly data for Antarctica (11 km) - 1979 to 2023, Version 1</b>  | Various surface mass balance, surface energy budget, grid, elevation, mask, and other atmospheric variables | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/surface_forcing/racmo2.4p1_monthly_11km_1979-2023/v1</code></pre> | [Source Link](https://zenodo.org/records/14217232) |
 
 ### ISMIP6 datasets
-The data listed in the following summary tables are currently hosted as part of the CCD on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384). ```
-The path is specified in the table so I wouldn't add information here as well.
+The data listed in the following summary tables are currently hosted as part of the CCD on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384).
 
 #### ISMIP6 simulation data
 
