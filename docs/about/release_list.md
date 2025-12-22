@@ -3,6 +3,7 @@
 # ACCESS-NRI supported releases
 
 Information around release terminology and support can be found on [ACCESS-NRI Release Stages](/about/releases).
+<div class="card-container">
     <a href="/about/releases" class="horizontal-card">
         <div class="card-image-container">
             <img class="img-contain white-background" src="/assets/rocket_release.svg" alt="ACCESS-NRI release stages">
@@ -14,10 +15,11 @@ Information around release terminology and support can be found on [ACCESS-NRI R
             </span>
         </div>
     </a>
+</div>
 
 
 ## Release type
-Types used to categorise the release product are broad. Not all releases may fall neatly into these categories. Other releases include training and explainer videos on YouTube, and visualisations on Vimeo and may have specific uses.
+Types used to categorise the release product are broad. Not all releases may fall neatly into these categories. Other releases include training and explainer videos on [_YouTube_](https://www.youtube.com/@AustraliasClimateSimulator), and visualisations on [_Vimeo_](https://vimeo.com/accessnri) and may have specific uses.
 
 :octicons-ai-model-16: **Model**: Refers to climate model components and [configurations](/about/releases/#fn:1). <br>
 :material-tools: **Tool**: Refers to supporting tools which can be pre and post processing, evaluation and diagnostics. <br>
