@@ -13,12 +13,6 @@
         </div>
         <div class="card-text-container bold">ACCESS-NRI Releases</div>
     </a>
-    <a href="/about/releases" class="vertical-card aspect-ratio1to1">
-        <div class="card-image-container">
-            <img src="/assets/rocket_release.svg" alt="Releases" class="img-contain white-background with-padding"></img>
-        </div>
-        <div class="card-text-container bold">Release stages</div>
-    </a>
     <a href="/about/faq" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
             <img src="/assets/FAQ_image.png" alt="Hive Docs FAQ" class="img-cover"></img>
