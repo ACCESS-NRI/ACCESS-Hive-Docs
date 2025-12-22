@@ -54,9 +54,8 @@ The data listed in the following summary tables are hosted in the CCD and access
 
 
 ### Ice velocity data
-[[back to top]](#cryosphere-community-datapool)
 
-| Dataset name              | Key variables | NCI Gadi `av17` path | Source location |
+| Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
 | <b>MEaSUREs Phase-Based Antarctica Ice Velocity Map, Version 1</b>  | Surface ice velocity X component, Surface ice velocity Y component, Surface ice velocity uncertainty X component, Surface ice velocity uncertainty Y component | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_phase_based_antarctica_ice_velocity_map/v1</code></pre> |[Source Link](https://nsidc.org/data/nsidc-0754/versions/1) |
 | <b>MEaSUREs Annual Antarctic Ice Velocity Maps, Version 1</b>  | Surface ice velocity X component, Surface ice velocity Y component, Surface ice velocity uncertainty X component, Surface ice velocity uncertainty Y component | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_annual_antarctic_ice_velocity_maps/v1</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0720/versions/1) |
@@ -79,25 +78,25 @@ The data listed in the following summary tables are hosted in the CCD and access
 | <b>MEaSUREs Antarctic Grounding Line from Differential Satellite Radar Interferometry, Version 2</b>  | Grounding line | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_grounding_line_from_differential_satellite_radar_interferometry/v2</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0498/versions/2) |
 
 ### Basal forcing
-[[back to top]](#cryosphere-community-datapool)
-| Dataset name              | Key variables | NCI Gadi `av17` path | Source location |
+
+| Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
 | <b>Antarctic Geothermal Heat Flow Model: Aq1, Version 1</b>  | Geothermal Heat Flow | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/basal_forcing/antarctic_geothermal_heat_flow_model_aq1/v1</code></pre> | [Source Link](https://doi.pangaea.de/10.1594/PANGAEA.924857) |
 
 ### Surface forcing
-[[back to top]](#cryosphere-community-datapool)
-| Dataset name              | Key variables | NCI Gadi `av17` path | Source location |
+
+| Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
 | <b>RACMO2.3p2 - Monthly data for Antarctica (27 km) - 1979 to 2022, Version 1</b>  | Various surface mass balance, atmospheric, surface energy budget, snow, grid, elevation, and mask variables | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/surface_forcing/racmo2.3p2_monthly_27km_1979-2022/v1</code></pre> | [Source Link](https://zenodo.org/records/7845736) |
 | <b>RACMO2.4p1 - Monthly data for Antarctica (11 km) - 1979 to 2023, Version 1</b>  | Various surface mass balance, surface energy budget, grid, elevation, mask, and other atmospheric variables | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/surface_forcing/racmo2.4p1_monthly_11km_1979-2023/v1</code></pre> | [Source Link](https://zenodo.org/records/14217232) |
 
 ### ISMIP6 datasets
-The data listed in the following summary tables are currently hosted as part of the CCD on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384). All ISMIP6 data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `cm45` project membership, and can be found at `/g/data/cm45/access-nri/ismip6/`.
+The data listed in the following summary tables are currently hosted as part of the CCD on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384). ```
+The path is specified in the table so I wouldn't add information here as well.
 
 #### ISMIP6 simulation data
-[[back to top]](#cryosphere-community-datapool)
 
-| Dataset name              | Description | NCI Gadi `cm45` path | Source location |
+| Dataset name              | Description | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :--------: |:------: |
 | <b>ISMIP6 21st Century Antarctic Projections</b> <i>[Replica]</i>  | These simulations focus on 21st century evolution of the Antarctic ice sheet under selected CMIP scenarios (RCP2.6, RCP8.5, SSP126 and SSP585) and CMIP models. | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Projection-AIS/</code></pre> | [Source Link](https://doi.org/10.5281/zenodo.11176028) |
 | <b>ISMIP6 21st Century Greenland Projections</b> <i>[Replica]</i>  | These simulations focus on 21st century evolution of the Greenland ice sheet under selected CMIP scenarios (RCP2.6, RCP8.5, SSP126 and SSP585) and CMIP models. | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Projection-GrIS/</code></pre> | [Source Link](https://doi.org/10.5281/zenodo.11176023) |
@@ -107,9 +106,8 @@ The data listed in the following summary tables are currently hosted as part of 
 | <b>ISMIP6 initMIP-Greenland simulations</b> <i>[Replica]</i>  | This dataset contains the initMIP-Greenland model simulations from the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). As described in Nowicki et al. (2016) and Goelzer et al. (2019), the initMIP-Greenland experiments focus on ice sheet initialization for the Greenland ice sheet and associated uncertainty in sea-level projections. | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Initmip-GrIS/</code></pre> | [Source Link](https://theghub.org/resources/4746) |
 
 #### ISMIP6 forcing data
-[[back to top]](#cryosphere-community-datapool)
 
-| Dataset name              | Description | NCI Gadi `cm45` path | Source location |
+| Dataset name              | Description | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :--------: |:------: |
 | <b>ISMIP6 21st Century Forcing Datasets</b> <i>[Replica]</i>  | These datasets contain the 21st century atmospheric and oceanic forcing datasets used for Greenland and Antarctic standalone ice sheet model simulations as part of the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing/</code></pre> | [Source Link](https://doi.org/10.5281/zenodo.11176009) |
 | <b>ISMIP6 23rd Century Forcing Datasets</b> <i>[Replica]</i>  | These datasets contain the ISMIP6 23rd century forcing data that focus on simulations of the Antarctic Ice Sheet (AIS) extended to year 2300. These simulations are based on CMIP5 and CMIP6 climate model outputs, and are a follow-on to the simulations to 2100. | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing-2300/</code></pre> | [Source Link](https://doi.org/10.5281/zenodo.13135571) |
