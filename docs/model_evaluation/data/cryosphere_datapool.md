@@ -1,30 +1,37 @@
 # Cryosphere Community Datapool
-
+## About
 The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used to parameterise ice sheet models. Datasets are currently grouped into (*but not limited to*) the following categories:
 
-1. [**Elevation and geometry**](#elevation-and-geometry-data) - These datasets contain digital elevation models and key geometry attributes, including bed topography/bathymetry, ice surface elevation, ice thickness, and ice/ocean masks.
+- [**Elevation and geometry**](#elevation-and-geometry-data) - These datasets contain digital elevation models and key geometry attributes, including bed topography/bathymetry, ice surface elevation, ice thickness, and ice/ocean masks.
 
-2. [**Ice velocity**](#ice-velocity-data) - These datasets contain ice velocity parameters, including surface ice velocities and associated error estimates.
+- [**Ice velocity**](#ice-velocity-data) - These datasets contain ice velocity parameters, including surface ice velocities and associated error estimates.
 
-3. [**Geospatial**](#geospatial-data) - These datasets contain geospatial information commonly used to discretise ice sheet models, including ice sheet basin boundaries and grounding line locations.
+- [**Geospatial**](#geospatial-data) - These datasets contain geospatial information commonly used to discretise ice sheet models, including ice sheet basin boundaries and grounding line locations.
 
-4. [**Basal forcing**](#basal-forcing) - These datasets contain basal forcing fields, such as geothermal heat flux and ice shelf basal melt datasets.
+- [**Basal forcing**](#basal-forcing) - These datasets contain basal forcing fields, such as geothermal heat flux and ice shelf basal melt datasets.
 
-5. [**Surface forcing**](#surface-forcing) - These datasets contain surface forcing fields, such as temperature and surface mass balance.
+- [**Surface forcing**](#surface-forcing) - These datasets contain surface forcing fields, such as temperature and surface mass balance.
 
-6. [**ISMIP6 simulation**](#ismip6-simulation-data) - These data include results from ISMIP6 model simulations of Antarctica and Greenland.
+- [**ISMIP6 simulation**](#ismip6-simulation-data) - These data include results from ISMIP6 model simulations of Antarctica and Greenland.
 
-7. [**ISMIP6 forcing**](#ismip6-forcing-data) - These datasets include forcing parameters, such as surface mass balance, surface temperature, surface wind speeds and geothermal heat flux.
+- [**ISMIP6 forcing**](#ismip6-forcing-data) - These datasets include forcing parameters, such as surface mass balance, surface temperature, surface wind speeds and geothermal heat flux.
 
 
-## Data hosting and access
-All data in the CCD are securely hosted on the [National Computational Infrastructure (NCI) Gadi supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) within the `av17` and `cm45` projects, and are available to all users with an NCI account. If you do not have an NCI account, you can sign up [here](https://my.nci.org.au/mancini/signup) for free. If you do have a NCI Gadi account but are not a member of `av17` and `cm45`, you must apply to join the project from within your [NCI account](https://my.nci.org.au/mancini/login).
+## Prerequisites
+
+- **NCI Account**
+    To access the CCD, you need to [Set Up your NCI Account](https://docs.access-hive.org.au/pr-previews/1063/getting_started/set_up_nci_account).
+
+- **Join NCI projects**
+    Join the following projects by requesting membership on their respective NCI project pages:
+    
+    - [av17](https://my.nci.org.au/mancini/project/av17/join)
+    - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
 ## Available data
-The data listed in the following summary tables are currently hosted in the CCD. All data are accessible directly via the NCI Gadi filesystem for users with NCI accounts and `av17` and `cm45` project memberships. [ISMIP6 datasets](#ismip6-datasets) can be found at `/g/data/cm45/access-nri/ismip6/`, while all other datsets and can be found at `/g/data/av17/access-nri/cryosphere-data-pool/`.
+The data listed in the following summary tables are hosted in the CCD and accessible directly on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview).
 
 ### Elevation and geometry data 
-[[back to top]](#cryosphere-community-datapool)
 
 
 | Dataset name              | Key variables | NCI Gadi `av17` path | Source location |
@@ -109,6 +116,6 @@ The data listed in the following summary tables are currently hosted as part of 
 
 
 ## How to contribute
-The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCD Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
+The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCD Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) of the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
 
 
