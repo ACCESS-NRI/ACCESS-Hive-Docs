@@ -52,7 +52,11 @@ For more information on the `spack.yaml` file, refer to  [ACCESS-NRI's DevDocs](
 
 ### The config directory
 
-The `config` directory contains two files; `versions.json` and `packages.json`. The `versions.json` file allows customisation of both the version of [`access-nri/spack`](https://github.com/ACCESS-NRI/spack) used to deploy the model and the version of [`access-nri/spack-packages`](https://github.com/ACCESS-NRI/spack-packages) that will source the recipes for the _Spack_ packages. The `packages.json` file has special packages for inclusion in the release provenance database in the `.provenance` field. Modulefiles for additional packages can also be included in the `.injection` field.
+The `config` directory contains two files:
+    -`versions.json` 
+       Allows customisation of both the version of [`access-nri/spack`](https://github.com/ACCESS-NRI/spack) used to deploy the model and the version of [`access-nri/spack-packages`](https://github.com/ACCESS-NRI/spack-packages) that will source the recipes for the _Spack_ packages.
+    - `packages.json`  
+       Has special packages for inclusion in the release provenance database in the `provenance` field. Modulefiles for additional packages can also be included in the `injection` field.
 
 ## Trigger model prerelease and release build deployments
 
@@ -185,7 +189,7 @@ There are three main _statuses_ for a deployment that can be identified by looki
   {: #failed-deployment }
 
 - **Successful**<br>
-  A successful deployment is identified by a green (_Active_ deployment) or white (_Inactive_ deployment) bubble with the GitHub Action, with the _Active_ one being the most recent deployment within the repository.<br>
+  A successful deployment is identified by a green (_Active_ deployment) or white (_Inactive_ deployment) bubble within the GitHub Actions activity line, with the _Active_ one being the most recent deployment within the repository.<br>
   If a deployment is successful, it can be accessed on HPC systems.<br>
   ![Active deployment](/assets/create_a_prerelease/active_deploy.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
   ![Inactive deployment](/assets/create_a_prerelease/inactive_deploy.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
