@@ -20,7 +20,7 @@ The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI an
 ## Prerequisites
 
 - **NCI Account**
-    To access the CCD, you need to [Set Up your NCI Account](https://docs.access-hive.org.au/pr-previews/1063/getting_started/set_up_nci_account).
+    To access the CCD, you need to [Set Up your NCI Account](https://docs.access-hive.org.au/getting_started/set_up_nci_account).
 
 - **Join NCI projects**
     Join the following projects by requesting membership on their respective NCI project pages:
