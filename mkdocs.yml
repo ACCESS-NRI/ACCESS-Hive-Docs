@@ -1,7 +1,7 @@
 site_name: ACCESS-Hive Docs
 
 # Site URL
-# site_url: !ENV READTHEDOCS_CANONICAL_URL
+site_url: !ENV READTHEDOCS_CANONICAL_URL
 # READTHEDOCS_CANONICAL_URL is set within the website build (GitHub worflow or ReadTheDocs)
 
 # Git repository (Adds a link to the GitHub repository at the top)
@@ -66,6 +66,7 @@ plugins:
   - redirects:
       redirect_maps:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
+  - resolve-absolute-urls
   - macros
 
 # Extensions
