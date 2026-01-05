@@ -64,6 +64,6 @@ Most of these model components have originated from collaborations with internat
 - [UK Met Office](https://www.metoffice.gov.uk): [UM atmospheric model](/models/model_components/atmosphere#unified-model-um).
 - [NOAA / GFDL](https://www.gfdl.noaa.gov): [MOM ocean model](/models/model_components/ocean#modular-ocean-model-mom).
 - [LANL](https://www.lanl.gov/): [CICE sea ice model](/models/model_components/sea-ice#cice).
-- [CERFACS](https://cerfacs.fr/en/): [OASIS3-MCT coupling software package](/models/model_components/coupler#oasis3-mct).
+- [CERFACS](https://cerfacs.fr/en/home/): [OASIS3-MCT coupling software package](/models/model_components/coupler#oasis3-mct).
 - [UKCA](https://www.ukca.ac.uk): [UKCA atmospheric chemistry-aerosol model](/models/model_components/aerosols_atmospheric_chemistry#ukca).
 - [CSIRO](https://www.csiro.au), [CLEX](https://www.climateextremes.org.au) and [COSIMA](https://www.cosima.org.au/): [CABLE land surface model](/models/model_components/land#cable), [WOMBAT ocean biogeochemistry package](/models/model_components/bgc_ocean#wombat) and [CASA land biogeochemistry model](/models/model_components/bgc_land#casa-cnp). All developed in Australia.
