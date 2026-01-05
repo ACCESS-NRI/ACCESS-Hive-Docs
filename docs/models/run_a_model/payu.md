@@ -7,7 +7,17 @@
 
 [_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
 
-You can find a [full documentation](https://payu.readthedocs.io/en/latest/) for _payu_ online. This page summarises the _payu_ capabilities that are most commonly required to run an ACCESS model's configuration.
+This page summarises the _payu_ capabilities that are most commonly required to run an ACCESS model's configuration. This page presents generic information on: 
+
+- the setup of _payu_
+- running _payu_-based ACCESS model's configurations
+- monitoring a _payu_-based experiment
+- modifying a _payu_-based configurations for the most commonly customised aspects of the configurations
+- the data organisation for a _payu_-based experiment
+
+This page is to be used in conjunction with the Run a Model page for the chosen configuration. The Run a Model page will give information specific to that model (e.g. additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
+
+There is also [technical documentation](https://payu.readthedocs.io/en/latest/) for how to configure _payu_. 
 
 ## Prerequisites
 
@@ -33,11 +43,6 @@ To check that _payu_ is available, run:
 
     payu --version
     
-<terminal-window>
-    <terminal-line data="input">payu --version</terminal-line>
-    <terminal-line lineDelay="1000">1.1.3</terminal-line>
-</terminal-window>
-
 ## Get the model configuration
 
 All model configurations are hosted on GitHub.<br>
@@ -210,11 +215,11 @@ This command will:
 
 <terminal-window>
     <terminal-line data="input">payu setup</terminal-line>
-    <terminal-line>laboratory path: /scratch/$PROJECT/$USER/access-om2</terminal-line>
-    <terminal-line>binary path: /scratch/$PROJECT/$USER/access-om2/bin</terminal-line>
-    <terminal-line>input path: /scratch/$PROJECT/$USER/access-om2/input</terminal-line>
-    <terminal-line>work path: /scratch/$PROJECT/$USER/access-om2/work</terminal-line>
-    <terminal-line>archive path: /scratch/$PROJECT/$USER/access-om2/archive</terminal-line>
+    <terminal-line>laboratory path: /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
+    <terminal-line>binary path: /scratch/\$PROJECT/\$USER/access-om2/bin</terminal-line>
+    <terminal-line>input path: /scratch/\$PROJECT/\$USER/access-om2/input</terminal-line>
+    <terminal-line>work path: /scratch/\$PROJECT/\$USER/access-om2/work</terminal-line>
+    <terminal-line>archive path: /scratch/\$PROJECT/\$USER/access-om2/archive</terminal-line>
     <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
     <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
     <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
