@@ -616,12 +616,12 @@ In the `suite.rc` file, within the `[[ocean_ke_check]]` task, update the module-
 - module use /g/data/hh5/public/modules
 + module use /g/data/xp65/public/modules
 module unload python
-- module load conda/analysis3
-+ module load conda/analysis3-25.05
+module load conda/analysis3
 ```
 
 !!! warning
-    The `conda/analysis3-25.05` version is the latest working version for {{ model }} setup. Therefore, we strongly recommend loading this version. For further information, refer to the [related Hive Forum post](https://forum.access-hive.org.au/t/issues-when-transitioning-from-hh5-to-xp65-in-suite-runs/4544).
+    To ensure reproducibility, it is suggested to use a specific version of the `conda/analysis3` (e.g., `conda/analysis3-25.05`).
+    For more information about `conda/analysis3` Python environment, refer to the [conda/analysis3 Python Environment page](/getting_started/environments/).
 
 #### 3. Update netcdf_conversion task {: .no-toc }
 In the `suite.rc` file, within the `[[netcdf_conversion]]` task, update the module-loading line to use `xp65` instead of `hh5`:
