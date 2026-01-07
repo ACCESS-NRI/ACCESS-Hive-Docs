@@ -603,7 +603,7 @@ Files formatted as `<suite-name>a.xhist-<year><month><day>` contain metadata inf
 ## Troubleshooting
 ### Update suites still relying on hh5
 The `hh5` NCI project used to host Python environments and software often used within suites (e.g., `conda/analysis3` environemnts, `pythonlib/um2netcdf4` utility).<br>
-Due to `hh5` decommissioning, these instances of `hh5` need to be replaced with the folders where updated versions of the environemnts and software are currently hosted. For suites derived from the example suite `{{ suite_id }}` above, the updated are stored in `xp65`.
+Due to `hh5` decommissioning, all references to `hh5` must be replaced with the project storing the updated versions of the environemnts and software. For suites derived from the example suite above (`{{ suite_id }}` ), the updated versions are stored in `xp65`.
 
 If your {{ model }} suite relies on `hh5`, update it by following the steps below:
 
