@@ -33,7 +33,7 @@
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
 
-The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/rose_cylc.md) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
+The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/rose_cylc) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -44,7 +44,7 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 ## Prerequisites
 
 !!! warning
-    If you are new to Rose/Cylc, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose_cylc.md) before continuing on this page.
+    If you are new to Rose/Cylc, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose_cylc) before continuing on this page.
 - **Rose/Cylc prerequisites**
   All [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites).
 
