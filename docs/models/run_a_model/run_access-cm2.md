@@ -600,11 +600,46 @@ For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 
 Files formatted as `<suite-name>a.xhist-<year><month><day>` contain metadata information.
 
-## Port suites from accessdev
+## Troubleshooting
+### Update suites still relying on hh5
+The `hh5` NCI project used to host Python environents and software often used within suites (e.g., `conda/analysis3` environemnts, `pythonlib/um2netcdf4` utility).<br>
+Due to `hh5` decommissioning, these instances of `hh5` need to be replaced with the folders where updated versions of the environemnts and software are currently hosted. For suites derived from the example suite `{{ suite_id }}` above, the updated are stored in `xp65`.
+
+If your {{ model }} suite relies on `hh5`, update it by following the steps below:
+
+#### 1. Update storage flags {: .no-toc }
+In the `suite.rc` file, look for all `-l storage` instances and replace `hh5` occurrencies with `xp65`
+
+#### 2. Update ocean_ke_check task {: .no-toc }
+In the `suite.rc` file, within the `[[ocean_ke_check]]` task, update the module-loading lines to use `xp65` instead of `hh5`:
+```diff
+- module use /g/data/hh5/public/modules
++ module use /g/data/xp65/public/modules
+module unload python
+- module load conda/analysis3
++ module load conda/analysis3-25.05
+```
+
+!!! warning
+    The `conda/analysis3-25.05` version is the latest working version for {{ model }} setup. Therefore, we strongly recommend loading this version. For further information, refer to the [related Hive Forum post](https://forum.access-hive.org.au/t/issues-when-transitioning-from-hh5-to-xp65-in-suite-runs/4544).
+
+#### 3. Update netcdf_conversion task {: .no-toc }
+In the `suite.rc` file, within the `[[netcdf_conversion]]` task, update the module-loading line to use `xp65` instead of `hh5`:
+```diff
+- module load pythonlib/um2netcdf4
++ module load pythonlib/um2netcdf4/xp65
+```
+
+!!! warning
+    Some suites might still not work when ported this way.<br>
+    If you have a suite that was relying on `hh5` and, even after following the steps above, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
+
+
+### Port suites from accessdev
 _accessdev_ was the server used for {{ model }} run submission workflow before the update to persistent sessions.<br>
 If you have a suite that was running on accessdev, you can run it using persistent sessions by carrying out the following steps:
 
-### Initialisation step
+#### 1. Initialisation step {: .no-toc }
 To set the correct SSH configuration for _Cylc_, some SSH keys need to be created in the `~/.ssh` directory.<br>
 To create the required SSH keys, run the following command:
 ```
@@ -613,7 +648,7 @@ To create the required SSH keys, run the following command:
 !!! tip
     You only need to run this initialisation step once.
 
-### Set host to localhost
+#### 2. Set host to localhost {: .no-toc }
 To enable _Cylc_ to submit PBS jobs directly from the persistent session, the suite configuration should have its `host` set as `localhost`.<br>
 You can manually set all occurrences of `host` to `localhost` in the suite configuration files.<br>
 Alternatively, you can run the following command in the suite folder:
@@ -621,7 +656,7 @@ Alternatively, you can run the following command in the suite folder:
 grep -rl --exclude-dir=.svn "host\s*=" . | xargs sed -i 's/\(host\s*=\s*\).*/\1localhost/g'
 ```
 
-### Add _gdata/hr22_ and _gdata/ki32_ in the PBS storage directives
+#### 3. Add _gdata/hr22_ and _gdata/ki32_ in the PBS storage directives {: .no-toc }
 As the persistent sessions workflow uses files in the `hr22` and `ki32` project folders on _Gadi_, the respective folders need to be added to the `storage` directive in the suite configuration files.<br>
 You can do this manually or run the following command from within the suite directory:
 ```
@@ -632,8 +667,8 @@ grep -rl --exclude-dir=.svn "\-l\s*storage\s*=" . | xargs sed -i '/\-l\s*storage
     Some suites might not be ported this way.<br>
     If you have a suite that was running on _accessdev_ and, even after following the steps above, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
 
-## Known issues
-Below are listed some {{ model }} known issues which will not be fixed.
+### Known issues
+Below are listed some {{ model }} known issues which are not going to be fixed.
 
 - [Different cycling frequencies break reproducibility](https://forum.access-hive.org.au/t/different-cycling-frequencies-in-access-cm2-lead-to-different-solutions/4539)
 {: #issues-cycling-repro }
