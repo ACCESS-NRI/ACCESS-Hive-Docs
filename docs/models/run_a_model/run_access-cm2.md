@@ -608,7 +608,7 @@ Due to `hh5` decommissioning, all references to `hh5` must be replaced with the 
 If your {{ model }} suite relies on `hh5`, update it by following the steps below:
 
 #### 1. Update storage flags {: .no-toc }
-In the `suite.rc` file, look for all `-l storage` instances and replace `hh5` occurrencies with `xp65`
+In the `suite.rc` file, look for all `-l storage` instances and replace `hh5` occurrences with `xp65`
 
 #### 2. Update ocean_ke_check task {: .no-toc }
 In the `suite.rc` file, within the `[[ocean_ke_check]]` task, update the module-loading lines to use `xp65` instead of `hh5`:
