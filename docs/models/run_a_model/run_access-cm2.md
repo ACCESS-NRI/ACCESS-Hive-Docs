@@ -602,40 +602,40 @@ Files formatted as `<suite-name>a.xhist-<year><month><day>` contain metadata inf
 
 ## Troubleshooting
 ### Update suites still relying on hh5
+!!! warning
+    Some suites might still not work when ported this way.<br>
+    If you have a suite that was relying on `hh5` and, even after following the steps below, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
+
 Previously, the `hh5` NCI project hosted the Python environments and software often used within suites (e.g., `conda/analysis3` environemnts, `pythonlib/um2netcdf4` utility).<br>
 Due to `hh5` decommissioning, all references to `hh5` must be replaced with the project storing the updated versions of the environments and software. For suites derived from the example suite above (`{{ suite_id }}` ), the updated versions are stored in `xp65`.
 
-If your {{ model }} suite relies on `hh5`, update it by following the steps below:
-
-#### 1. Update storage flags {: .no-toc }
-In the `suite.rc` file, look for all `-l storage` instances and replace `hh5` occurrences with `xp65`
-
-#### 2. Update ocean_ke_check task {: .no-toc }
-In the `suite.rc` file, within the `[[ocean_ke_check]]` task, update the module-loading lines to use `xp65` instead of `hh5`:
-```diff
-- module use /g/data/hh5/public/modules
-+ module use /g/data/xp65/public/modules
-module unload python
-module load conda/analysis3
+To check if your {{ model }} suite relies on `hh5`, run the following command from your suite directory:
+```
+grep -r hh5 --exclude-dir=.svn .
 ```
 
+Then, follow the steps below to ensure your suite is not using `hh5`.
+
+#### 1. Replace hh5 with xp65 {: .no-toc }
+If you see any output from the command above, replace any `hh5` occurrency with `xp65`.<br>
+Lines that you will likely need to replace include storage specification lines (e.g., `-l storage = ...+gdata/hh5...`) and modules (e.g., `module use /g/data/hh5/public/modules`).
+
 !!! warning
-    To ensure reproducibility, it is suggested to use a specific version of the `conda/analysis3` (e.g., `conda/analysis3-25.05`).
+    If your suite loads `conda/analysis3`, to ensure reproducibility it is suggested to use a specific version of the environment (e.g., `conda/analysis3-25.11`).
     For more information about `conda/analysis3` Python environment, refer to the [conda/analysis3 Python Environment page](/getting_started/environments/).
 
-#### 3. Update netcdf_conversion task {: .no-toc }
-In the `suite.rc` file, within the `[[netcdf_conversion]]` task, update the module-loading line to use `xp65` instead of `hh5`:
+#### 2. Update netcdf_conversion task {: .no-toc }
+In the `suite.rc` file, within the `[[netcdf_conversion]]` task, update the loading of `pythonlib/um2netcdf4` to be using `pythonlib/um2netcdf4/xp65` instead:
 ```diff
 - module load pythonlib/um2netcdf4
 + module load pythonlib/um2netcdf4/xp65
 ```
 
-!!! warning
-    Some suites might still not work when ported this way.<br>
-    If you have a suite that was relying on `hh5` and, even after following the steps above, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
-
-
 ### Port suites from accessdev
+!!! warning
+    Some suites might not be ported this way.<br>
+    If you have a suite that was running on _accessdev_ and even after following the steps below the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
+
 _accessdev_ was the server used for {{ model }} run submission workflow before the update to persistent sessions.<br>
 If you have a suite that was running on accessdev, you can run it using persistent sessions by carrying out the following steps:
 
@@ -662,10 +662,6 @@ You can do this manually or run the following command from within the suite dire
 ```
 grep -rl --exclude-dir=.svn "\-l\s*storage\s*=" . | xargs sed -i '/\-l\s*storage\s*=\s*.*gdata\/hr22.*/! s/\(\-l\s*storage\s*=\s*.*\)/\1+gdata\/hr22/g ; /\-l\s*storage\s*=\s*.*gdata\/ki32.*/! s/\(\-l\s*storage\s*=\s*.*\)/\1+gdata\/ki32/g'
 ```
-
-!!! warning
-    Some suites might not be ported this way.<br>
-    If you have a suite that was running on _accessdev_ and, even after following the steps above, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
 
 ### Known issues
 Below are listed some {{ model }} known issues which are not going to be fixed.
