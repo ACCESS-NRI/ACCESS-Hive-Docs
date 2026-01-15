@@ -16,6 +16,12 @@ This sections describes some concepts and tools mainly around model output data.
         </div>
         <div class="card-text-container bold ">Data Variables</div>
     </a>
+    <a href="/model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img src="../../assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding"></img>
+        </div>
+        <div class="card-text-container bold ">Cryosphere Community Datapool</div>
+    </a>
 </div>
 <div class="card-container">
     <a href="/model_evaluation/data/observations" class="vertical-card aspect-ratio1to1">
