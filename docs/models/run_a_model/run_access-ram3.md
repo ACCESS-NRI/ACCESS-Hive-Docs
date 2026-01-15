@@ -33,7 +33,7 @@
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
 
-The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/models/run_a_model/rose_cylc).page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
+The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/models/run_a_model/rose_cylc) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -117,7 +117,7 @@ This quick guide outlines the basic steps to run {{ model }} and is tailored to 
     ```
     This step can be carried out simultaneously with step 8.
 10. **Run the RNS**
-    This step must be carried out only after step 7 (optional) and 8 have successfully completed.
+    This step must be carried out only after step 8 (optional) and 9 have successfully completed.
     ```
     rose suite-run -C ~/roses/{{ rns_id }}
     ```
@@ -545,7 +545,7 @@ In general, ACCESS modelling suites can be edited either by directly modifying t
 
 ##### Rose GUI {: #rosegui }
 
-Basic instructions on how to edit a model configuration using the Rose GUI can be found on the [related Rose/Cylc page](rose_cylc#rose-gui).
+Basic instructions on how to edit a model configuration using the Rose GUI can be found on the [related Rose/Cylc page](/models/run_a_model/rose_cylc#rose-gui).
 
 
 #### Change start date and run length {: #change-run-length }
