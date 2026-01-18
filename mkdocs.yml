@@ -105,6 +105,7 @@ nav:
     - Australian Research Environment (ARE): getting_started/are.md
     - conda/analysis3 Python Environment: getting_started/environments.md
     - Set up Spack for building ACCESS models: getting_started/spack.md
+    - Test: getting_started/test.md
 
   - Models:
     - models/index.md
