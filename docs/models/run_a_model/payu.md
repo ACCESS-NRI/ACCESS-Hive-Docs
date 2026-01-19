@@ -7,15 +7,15 @@
 
 [_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
 
-This page summarises the _payu_ capabilities that are most commonly required to run an ACCESS model's configuration. This page presents generic information on: 
+This page summarises the _payu_ capabilities that are most commonly required to run an ACCESS model's configuration on the _Gadi_ supercomputer. This page presents generic information on: 
 
 - the setup of _payu_
 - running _payu_-based ACCESS model's configurations
-- monitoring a _payu_-based experiment
+- monitoring a _payu_-based experiment on _Gadi_
 - modifying a _payu_-based configurations for the most commonly customised aspects of the configurations
 - the data organisation for a _payu_-based experiment
 
-This page is to be used in conjunction with the Run a Model page for the chosen configuration. The Run a Model page will give information specific to that model (e.g. additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
+This page is to be used in conjunction with the Run a Model page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
 
 There is also [technical documentation](https://payu.readthedocs.io/en/latest/) for how to configure _payu_. 
 
@@ -85,7 +85,7 @@ To get the configuration as chosen, run:
 The general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and serves as the execution directory for running the model. You created the _control_ directory when you cloned the configuration you want to use.
-- The _laboratory_ directory, where all the model components reside. It is typically `/scratch/$PROJECT/$USER/<model_name>` and is created by _payu_.
+- The _laboratory_ directory, where all the model components reside. It is typically `/scratch/$PROJECT/$USER/<model_name>` and is created by _payu_. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your default project and your username respectively.
 
 This separates the small text configuration files from the larger binary outputs and inputs. In this way, the _control_ directory can be in the `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
 
