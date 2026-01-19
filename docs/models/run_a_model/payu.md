@@ -137,7 +137,7 @@ For example, to run an experiment for a total of 50 years with a default run len
 _payu_ provides the `payu status` command for monitoring jobs (see [documentation](https://payu.readthedocs.io/en/1.2.0/usage.html#monitoring-payu-jobs)). This command can return the scheduler job ID, and the stage the payu run is currently at. When the job is complete, it displays the exit statuses from the model and overall payu run, and points to the PBS log files. 
 
 !!! note
-   `payu status` is available in _payu_ versions 1.2.0 and later. This command does not yet support monitoring post-processing jobs from the configuration, e.g. `payu collate` and `payu sync`.
+    `payu status` is available in _payu_ versions 1.2.0 and later. This command does not yet support monitoring post-processing jobs from the configuration, e.g. `payu collate` and `payu sync`.
 
 
 You can also use the PBS `job-ID` to monitor the job using the PBS commands available from NCI. 
