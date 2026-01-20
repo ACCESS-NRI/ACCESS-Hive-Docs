@@ -268,11 +268,41 @@ To find out more about configuration settings for the `config.yaml` file, refer 
 
 ### Change run length
 
-_Gadi_ imposes a maximum wall time for submitted jobs. This means most experiments need several jobs to simulate the total time required.<br>
-As seen previously in [Run an experiment](#run-an-experiment), _payu_ handles this by splitting a simulation in sections and automatically running each section one after the other in separate jobs. As such the total run length is the product of:
+One of the most common changes is to adjust the duration of the model run.<br> With _payu_, simulations are split into smaller _run lengths_, each with the duration specified by the `runtime` settings in the `config.yaml` file:
 
-- the run length of each individual submission. This is set differently depending on the model, so refer to the [Run a Model][Run a Model] page for details. It is important to set this run length so that the simulation finishes within the maximum wall time for the job (set with the `walltime` entry in the `config.yaml` file) and for the queue (refer to [NCI's documentation](https://opus.nci.org.au/spaces/Help/pages/236881198/Queue+Limits...)).
-- the number of automatic resubmissions by _payu_. This is set through the command line option `-n`. It defaults to 1 and there is no limit on this number.
+```yml
+    runtime:
+        years: 1
+        months: 0
+        days: 0
+```
+At the end of each run length, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
+
+#### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
+
+It is possible to have more than one model run per queue submit. With the correct use of [`runtime`](#runtime), `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
+
+- `runtime` defines the _run length_.
+- `runspersub` defines the maximum number of runs for every [PBS job] submission.
+- `-n` sets the number of runs to be performed.
+- `walltime` defines the maximum time of every [PBS job] submission.
+
+Now some practical examples:
+
+- **Run 20 years of simulation with resubmission every 5 years**<br>
+    To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `5` and increase `walltime` to allow for 5 years of simulation within a PBS job. Then, run the configuration with `-n` set to `20`:
+    ```
+    payu run -f -n 20
+    ```
+    This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
+
+- **Run 7 years of simulation with resubmission every 3 years**<br>
+    To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `3` and increase `walltime` to allow for 3 years of simulation within a PBS job. Then, run the configuration with `-n` set to `7`:
+    ```
+    payu run -f -n 7
+    ```
+    This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
+
 
 ### Start the run from a specific restart file {: id='specific-restart'}
 
@@ -439,6 +469,22 @@ A dictionary to run scripts or subcommands at various stages of a _payu_ submiss
 - `sync` gets called at the start of the sync pbs job. For more information refer to [Syncing output data](#syncing-output-data).
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#postprocessing).
+
+#### Postscripts {: .no-toc }
+Postprocessing scripts that run after _payu_ has completed all steps of each run (for example, with `payu run -n 10`, the postscript will run 10 times). Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
+
+```yaml
+postscript: -v PAYU_CURRENT_OUTPUT_DIR,PROJECT -lstorage=${PBS_NCI_STORAGE} ./scripts/NetCDF-conversion/UM_conversion_job.sh
+```
+
+#### Miscellaneous {: .no-toc }
+
+The following configuration settings should never require changing:
+
+```yaml
+stacksize: unlimited
+qsub_flags: -W umask=027
+```
 
 ## Edit a model components' configuration
 
