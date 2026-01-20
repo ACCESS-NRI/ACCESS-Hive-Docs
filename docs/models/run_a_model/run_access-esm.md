@@ -6,6 +6,7 @@
 [payu]: https://github.com/payu-org/payu
 [model components]: /models/access_models/access-esm/#model-components
 [model configurations]: /models/access_models/access-esm/#access-esm15
+[payu-info]:/models/run_a_model/payu.md
 
 <div class="text-card-group" markdown>
 
@@ -31,7 +32,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 ## Prerequisites
 
 - **Payu instructions**<br>
-    Before running {{ model }}, please get familiar with [our instructions for the workflow manager, _payu_](payu.md). In particular, make sure you follow the prerequisites instructions for _payu_ and that you can access the _payu_ software.
+    Before running {{ model }}, please get familiar with [our instructions for the workflow manager, _payu_][payu-info]. In particular, make sure you follow the prerequisites instructions for _payu_ and that you can access the _payu_ software.
 
 - **_MOSRS_ account**<br>
     The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
@@ -65,11 +66,12 @@ For more information on {{ model }} configurations, check [{{model}}][model conf
 
 More information about the available experiments and the naming scheme of the branches can also be found in the [{{ model }} configs]({{github_configs}}) GitHub repository.
 
-Once you have chosen a configuration to start with, follow the [_payu_ instructions](payu.md#get-the-model-configuration) to source the configuration, modify it, run it and monitor the run. Additional information specific to {{ model }} is listed below. It is organised using the same headers as in the _payu_ instructions to simplify cross-referencing.
-
+Once you have chosen a configuration to start with, follow the [_payu_ instructions](payu.md#get-the-model-configuration) to source the configuration, run it and monitor the run. 
 ----------------------------------------------------------------------------------------
 
 ## Edit {{ model }} configuration {: #edit-{{ model.lower() }}-configuration }
+
+Generic information about editing a _payu_-based configuration is available on [our _payu_ page][payu-info]. In this section, you can find additional information specific to {{ model }}. The information is organised using the same headers as on the _payu_ page to simplify cross-referencing.
 
 ### Change run length {: #runtime .no-toc }
 
