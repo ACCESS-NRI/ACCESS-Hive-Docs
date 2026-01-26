@@ -26,14 +26,14 @@
 
 ## About
 
-{{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling.<br>
-A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
+{{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].<br>
-The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February, 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
+The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
+
+The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/models/run_a_model/rose_cylc) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -43,19 +43,15 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 
 ## Prerequisites
 
-- **NCI Account**<br> 
-    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
-
-- **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
-    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
-    {: #mosrs-account}
+!!! warning
+    If you are new to Rose/Cylc, make sure you have read the guide on [running models using _Rose/Cylc_](/models/run-a-model/rose_cylc) before continuing on this page.
+- **Rose/Cylc prerequisites**
+  All [prerequisites for _Rose/Cylc_](/models/run_a_model/rose_cylc/#prerequisites).
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
     - [access](https://my.nci.org.au/mancini/project/access/join)
-    - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
     - [rt52](https://my.nci.org.au/mancini/project/rt52/join)
@@ -63,12 +59,13 @@ All {{model}} configurations are available on MOSRS via links at the top of this
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
+
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
         
         - already be member of the _ki32_ project
         {: style="list-style-type: disc"}
-        - have a [MOSRS account](#mosrs-account)
+        - have a [MOSRS account](/models/run_a_model/rose_cylc/#mosrs-account)
         {: style="list-style-type: disc"}
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
@@ -77,274 +74,76 @@ All {{model}} configurations are available on MOSRS via links at the top of this
 !!! warning
     The waiting time to complete some of the above prerequisites may be 2-3 weeks.
 
-## Quick Start guide
+## Quick guide
 
-These are the basic steps to run {{ model }}. For more detailed explanations and extra setup information for new users, please refer to the [Detailed guide](#detailed-guide).
+This quick guide outlines the basic steps to run {{ model }} and is tailored to users who already have some experience running {{ model }}. For new users, please refer to the [Detailed guide](#detailed-guide) below that includes more explanations and extra setup information.
 
-### Required setup for running {{ model }} {: .no-toc }
-
-- **Start a new [_persistent session_](https://opus.nci.org.au/display/Help/Persistent+Sessions)**<br> 
-    In a [Gadi][gadi] login node or from an ARE terminal instance run:
+1. **Start a persistent session**
     ```
-    persistent-sessions start <name>
+    persistent-sessions start -p <project> <name>
     ```
-    This will use your [default project].
-
-    For further instructions on starting a _persistent session_, refer to the [Detailed guide](#start-a-new-persistent-session).
-
-- **Assign the _persistent session_ to Rose/Cylc workflows**<br>
-    Run the following command:
+2. **Assign the persistent session to Cylc (once only)**
     ```
-    echo "<name>.${USER}.<project>.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
+    cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
     ```
-    substituting `<name>` with the name given to your _persistent session_, and `<project>` with the project assigned to it.
-
-    !!! tip
-        This step should only be done once
-
-    For further instructions on assigning the target _persistent session_, refer to the [Detailed guide](#specify-target-persistent-session).
-
-- **Rose/Cylc setup**<br>
-    To get the required _Rose/Cylc_ setup, run:
+3. **Get _Rose/Cylc_ executables**
     ```
     module use /g/data/hr22/modulefiles
     module load cylc7
     ```
-
-    For further instructions on getting the _Rose/Cylc_ setup, refer to the [Detailed guide](#rosecylcmosrs-setup).
-
-- **MOSRS authentication**<br>
-    Authenticate using your MOSRS credentials:
+4. **Authenticate to MOSRS**
     ```
     mosrs-auth
     ```
-
-    For further instructions on MOSRS authentication, refer to the [Detailed guide](#mosrs-authentication).
-
-### Regional Ancillary Suite (RAS) {: .no-toc }
-1. **Copy the RAS from UKMO**<br>
-    ```
-    rosie checkout {{ ras_id }}/{{ branch_ras }}
-    ```
-
-    For further instructions on getting the RAS configuration, refer to the [Detailed guide](#get-the-ras-configuration).
-
-2. **Run the RAS**<br>
-    ```
-    cd ~/roses/{{ras_id}}
-    rose suite-run
-    ```
-
-    For further instructions on running the RAS configuration, refer to the [Detailed guide](#run-the-ras).
-
-
-### Ostia Ancillary Suite (OAS) {: .no-toc }
-1. **Copy the OAS from UKMO**<br>
+5. **Get the OSTIA Ancillary Suite (OAS) (optional)**
     ```
     rosie checkout {{ oas_id }}
     ```
-
-    For further instructions on getting the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
-
-2. **Run the OAS**<br>
+6. **Get the Regional Ancillary Suite (RAS)**
     ```
-    cd ~/roses/{{oas_id}}
-    rose suite-run
+    rosie checkout {{ ras_id }}/{{ branch_ras }}
     ```
-
-    For further instructions on running the OAS configuration, refer to the [Detailed guide](#get-and-run-oas-configuration).
-
-
-### Regional Nesting Suite (RNS) {: .no-toc }
-1. **Copy the RNS from UKMO**<br>
+7. **Get the Regional Nesting Suite (RNS)**
     ```
     rosie checkout {{ rns_id }}/{{ branch_rns }}
     ```
-
-    For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-rns-configuration).
-
-2. **Run the RNS**<br>
-    From within the RNS directory:
+8. **Run the OAS (optional)**
     ```
-    rose suite-run
+    rose suite-run -C ~/roses/{{ oas_id }}
     ```
-
-    For further instructions on getting the RNS configuration, refer to the [Detailed guide](#get-and-run-rns-configuration).
-
----
+9. **Run the RAS**
+    ```
+    rose suite-run -C ~/roses/{{ ras_id }}
+    ```
+    This step can be carried out simultaneously with step 8.
+10. **Run the RNS**
+    
+    This step must be carried out only after step 8 (optional) and 9 have successfully completed.
+    ```
+    rose suite-run -C ~/roses/{{ rns_id }}
+    ```
 
 ## Detailed guide
 
-### Set up an ARE VDI Desktop (optional)
-!!! info 
-    If you want to skip this step and run {{ model }} from _Gadi_ login node instead, refer directly to the instructions on how to [Set up _persistent session_](#set-up-persistent-session).
+### Connect to Gadi
 
-If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
+Connect to _Gadi_ by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#connecting-to-gadi). 
 
-#### Launch ARE VDI Session  {: .no-toc }
-Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
+!!! warning 
+    If you choose to connect via the [ARE VDI](/models/run_a_model/rose_cylc/#launch-are-vdi-desktop), consider setting **Walltime** to `5` (5 hours), as {{ model }} might require longer setup time.
 
-- **Walltime (hours)** &rarr; `5`<br>
-    This is the amount of time the ARE VDI session will stay active for.<br>
-    {{ model }} does not run directly on ARE.<br>
-    This means that the ARE VDI session only needs to carry out setup steps as well as starting the run itself.
-    
-- **Queue** &rarr; `normalbw`
-    
-- **Compute Size** &rarr; `tiny` (1 CPU)<br>
-    As mentioned above, the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
+### Set up a persistent session
 
-- **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
-    For more information, refer to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+Set up a persistent session by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#set-up-a-persistent-session).
 
-- **Storage** &rarr; `gdata/access+gdata/hr22+gdata/ki32+gdata/rt52+gdata/ob53+gdata/cm45+gdata/vk83` (minimum)<br>
-    This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
-    Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than the ones listed in the minimum storage above, you need to add those projects to the storage path.<br>
-    For example, if your {{ model }} simulation requires data stored in `/g/data/<project-id>` and `/scratch/<project-id>`, the following should be added to the minimum storage above: `+gdata/<project-id>+scratch/<project-id>`
-    
-Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
+### Set up SSH-keys (once-only) {: .no-toc }
 
-![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
+Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
+Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
+### Set up Rose/Cylc
 
-#### Open the terminal in the VDI Desktop {: .no-toc }
-Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
-To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
+Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
 
-![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
-
-
-### Set up _persistent session_ 
-To support the use of long-running processes, such as ACCESS model runs, NCI provides a service on _Gadi_ called [_persistent sessions_](https://opus.nci.org.au/display/Help/Persistent+Sessions).
-
-To run {{ model }}, you need to start a _persistent session_ and set it as the target session for the model run.
-
-#### Set up SSH-keys (once-only) {: .no-toc }
-
-Follow the [initialization step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
-
-#### Start a new _persistent session_ {: .no-toc }
-To start a new _persistent session_, using either a _Gadi_ login node or an ARE terminal instance, run the following command:
-```
-persistent-sessions start <name>
-```
-
-This will start a _persistent session_ with the given `name` that runs under your [default project].<br>
-If you want to assign a different project to the _persistent session_, use the option `-p`:
-```
-persistent-sessions start -p <project> <name>
-```
-
-!!! tip
-    While the project assigned to a _persistent session_ does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _Service Units (SU)_.<br>
-    For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
-
-<terminal-window data="input">
-    <terminal-line>persistent-sessions start &lt;name&gt;</terminal-line>
-    <terminal-line data="output">session &lt;persistent-session-uuid&gt; running - connect using</terminal-line>
-    <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-</terminal-window>
-
-To list all active _persistent sessions_ run:
-```
-persistent-sessions list
-```
-
-<terminal-window data="input">
-    <terminal-line>persistent-sessions list</terminal-line>
-    <terminal-line data="output">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;UUID&emsp;&emsp;PROJECT&emsp;&ensp;&ensp;ADDRESS&emsp;&emsp;&emsp;&emsp;CPUTIME&emsp;MEMORY</terminal-line>
-    <terminal-line data="output">&lt;persistent-session-uuid&gt;&emsp;&lt;project&gt;&emsp;10.9.0.62&emsp;00:00:05.213&emsp;30.5M</terminal-line>
-</terminal-window>
-
-
-The label of a newly-created _persistent session_ has the following format: <br>
-`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.
-
-
-#### Specify target _persistent session_ {: .no-toc }
-
-After starting the _persistent session_, it is essential to assign it to the {{ model }} run.<br>
-The easiest way is to create the file `~/.persistent-sessions/cylc-session` that contains the target of the _persistent session_.<br>
-You can do it manually, or by running the following command (by substituting `<name>` with the name given to the _persistent session_, and `<project>` with the project assigned to it):
-
-```
-echo "<name>.$USER.<project>.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
-```
-
-For example, if the user `abc123` started a _persistent session_ named `cylc` under the project `xy00`, the command will be:
-
-<terminal-window data="input">
-    <terminal-line>echo "cylc.$USER.xy00.ps.gadi.nci.org.au" > ~/.persistent-sessions/cylc-session
-    </terminal-line>
-    <terminal-line data="input" linedelay="1000">cat ~/.persistent-sessions/cylc-session</terminal-line>
-    <terminal-line data="output">cylc.abc123.xy00.ps.gadi.nci.org.au</terminal-line>
-</terminal-window>
-
-For more information on how to specify the target session, refer to [Specify Target Session with Cylc7 Suites](https://opus.nci.org.au/display/DAE/Run+Cylc7+Suites#RunCylc7Suites-SpecifyTargetSession).
-
-!!! tip
-    You can simultaneously submit multiple {{ model }} runs using the same _persistent session_ without needing to start a new one. Hence, the process of specifying the target _persistent session_ for {{ model }} should only be done once. Then, to run {{ model }}, you just need to ensure that you have an active _persistent session_ named like the target one you specified above. If the _persistent session_ is not active, simply [start one](#start-a-new-persistent-session).
-
-#### Terminate a _persistent session_ {: .no-toc }
-!!! tip
-    Logging out of a *Gadi* login node or an ARE terminal instance will not affect your _persistent session_. 
-
-To stop a _persistent session_, run:
-```
-persistent-sessions kill <persistent-session-uuid>
-```
-!!! warning
-    When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
-
-### Rose/Cylc/MOSRS setup
-
-To run {{ model }}, access to multiple software and MOSRS authentication is needed.
-
-#### Cylc setup {: #cylc .no-toc }
-
-[_Cylc_](https://cylc.github.io/cylc-doc/7.8.8/html/index.html) (pronounced ‘silk’) is a workflow manager that automatically executes tasks according to the model's main cycle script `suite.rc`. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
-
-To get the _Cylc_ setup required to run {{ model }}, execute the following commands:
-```
-module use /g/data/hr22/modulefiles
-module load cylc7
-```
-<terminal-window data="input">
-    <terminal-line>module use /g/data/hr22/modulefiles</terminal-line>
-    <terminal-line>module load cylc7</terminal-line>
-    <terminal-line data="output">Using the cylc session &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-    <terminal-line data="output"></terminal-line>
-    <terminal-line data="output">Loading cylc7/24.03</terminal-line>
-    <terminal-line data="output">&emsp;Loading requirement: mosrs-setup/2.0.1</terminal-line>
-</terminal-window>
-
-!!! warning
-    _Cylc_ version >= `cylc7/24.03` required.<br>
-    
-    Also, before loading the _Cylc_ module, make sure to have started a _persistent session_ and have assigned it to the {{ model }} workflow. For more information about these steps, refer to [Set up _persistent session_](#set-up-persistent-session).
-
-#### Rose setup {: #rose .no-toc }
-[Rose](https://metomi.github.io/rose/doc/html/index.html) is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
-
-By completing the [_Cylc_ setup](#cylc), also _Rose_ will be automatically available. Hence, no additional step is required.
-
-#### MOSRS authentication {: .no-toc }
-To authenticate using your _MOSRS_ credentials, run:
-```
-mosrs-auth
-```
-<terminal-window>
-    <terminal-line data="input">mosrs-auth</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: You need to enter your MOSRS credentials here so that GPG can cache your password.</terminal-line>
-    <terminal-line>Please enter the MOSRS password for &lt;MOSRS-username&gt;:</terminal-line>
-    <terminal-line lineDelay=1500>Checking your credentials using Subversion. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed Subversion with your credentials.</terminal-line>
-    <terminal-line lineDelay=100><span style="color: #559cd5;">INFO</span>: Checking your credentials using rosie. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
-</terminal-window>
-
-!!! warning
-    This step needs to be done once for each new session (e.g., _Gadi_ login, _ARE_ terminal window)
 
 ### {{ model }} configuration
 {{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
@@ -365,82 +164,21 @@ The `suite-ID` of the RAS is `{{ ras_id }}`.
 The latest release branch of the RAS is `{{ branch_ras }}`.
 
 #### Get the RAS configuration
-[Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/furthertopics/rosie) is an [SVN](https://subversion.apache.org) repository wrapper with a set of options specific for ACCESS modelling suites. It is automatically available within the [_Rose_ setup](#rose).
 
-The RAS configuration can be copied from the MOSRS repository in 2 ways:
+Get the RAS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
-- [Local-only copy](#local-copy)
-- [Remote and local copy](#remote-copy)
-
-If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
-
-Suites are, by default, created in the user's _Gadi_ home directory under `~/roses/<suite-ID>`.
-This path will be referred to as the *suite directory*.
-{: #suitedir }
-
-The suite directory contains multiple subdirectories and files, including:
-
-- `app` &rarr; directory containing the configuration files for various tasks within the suite.
-- `meta` &rarr; directory containing the GUI metadata.
-- `rose-suite.conf` &rarr; main suite configuration file.
-- `rose-suite.info` &rarr; suite information file.
-- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
-
-##### Local-only copy {: #local-copy .no-toc }
-To create a _local copy_ of the RAS from MOSRS repository, run:
-```
-rosie checkout {{ ras_id }}/{{ branch_ras }}
-```
-<terminal-window>
-    <terminal-line data="input">rosie checkout {{ ras_id }}/{{ branch_ras }}</terminal-line>
-    <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
-    <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ ras_id }}</terminal-line>
-</terminal-window>
-
-##### Remote and local copy {: #remote-copy .no-toc }
-To create a new copy of the RAS both _locally_ and _remotely_ in the MOSRS repository, run: 
-```
-rosie copy {{ ras_id }}/{{ branch_ras }}
-```
-<terminal-window>
-    <terminal-line data="input">rosie copy {{ ras_id }}/{{ branch_ras }}</terminal-line>
-    <terminal-line>Copy "{{ ras_id }}/{{ branch_ras }}@&lt;{{ branch_ras }}-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
-    <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ ras_id }}/{{ branch_ras }}@&lt;{{ branch_ras }}-ID&gt;</terminal-line>
-    <terminal-line>[INFO] {{ ras_id }}: local copy created at /home/565/&lt;$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
-</terminal-window>
-When a new suite is created in this way, a _unique_ `<suite-ID>` folder is generated within the MOSRS repository and populated with descriptive information about the suite and its initial configuration.
-
-For additional `rosie` options, run:
-```
-rosie help
-```
+- **Suite-ID:** {{ ras_id }}
+- **Branch:** {{ branch_ras }}
     
 
 
 #### Run the RAS
-{{ model }} suites run on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview) through a [PBS job] submission.<br>
-When a suite runs, its configuration files are copied in `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>`. A symbolic link to this directory is also created in the `$USER`'s home directory under `~/cylc-run/<suite-ID>`.<br>
-{{ model }} suites comprise several tasks, such as checking out code repositories, compiling and building the different model components, running the model, etc. The workflow of these tasks is controlled by [_Cylc_](#cylc).
+
+Run the RAS by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#run-the-model-configuration).
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-To run the RAS, navigate to your RAS [suite directory](#suitedir) and run the suite:
-```
-cd ~/roses/{{ras_id}}
-rose suite-run
-```
-
-After the initial tasks are executed, the _Cylc_ GUI will open, where it is possible to view and control the different tasks in the suite as they are run.
-
-!!! tip
-    The _Cylc_ GUI can be safely closed without impacting the experiment run.<br>
-    To open it again, run the following command from within the [suite directory](#suitedir):
-```
-rose suite-gcontrol
-```
-
-All steps are completed!! <br>
+All steps are completed. You have successfully run the RAS!! <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
@@ -624,7 +362,7 @@ Logs for individual tasks are located in subfolders within the logs folder, foll
 ```
 ~/cylc-run/<suite-ID>/log/job/<cylc-cycle-point>/<task-name>/<retry-number>
 ```
-The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` (because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle.
+The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle.
 
 For example, logs for most recent retry of a task named `Lismore_d1100_ancil_um_mean_orog` at _Cylc_ cycle point `1` can be found in the folder `~/cylc-run/<suite-ID>/log/job/1/Lismore_d1100_ancil_mean_orog/NN`.
 
@@ -721,17 +459,22 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 ### OSTIA Ancillary Suite (OAS) (optional) {: #oas }
 
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs (resolution and other details can be found on the [{{model}} configuration]({{ access_models }}/{{ model }}/#oas) page. OAS is included here in case you choose to run it.
+Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs (resolution and other details can be found on the [{{model}} configuration]({{ access_models }}/{{ model }}/#oas) page). OAS is included here in case you choose to run it.
 
 The `suite-ID` of the OAS is `{{ oas_id }}`.
 
 #### Get and run OAS configuration
 Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the `suite-ID`, which for the OAS is `{{ oas_id }}`. The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
+The main difference is the OAS configuration specific information: 
+
+- **Suite-ID:** {{ oas_id }}
+- **Branch:** trunk (alternatively, simply omit the `/<branch>` portion when obtaining the configuration)
+
+The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
 
 To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` without any branch when copying the suite.
 
-To run the OAS configuration, follow the steps listed in [Run the suite](#run-the-ras).
+To run the OAS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
 
 To check the OAS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
 
@@ -744,7 +487,7 @@ OAS ancillary data files are output in the [UM fieldsfile](https://code.metoffic
 For example, the global OSTIA ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/scratch/$PROJECT/$USER/OSTIA_ANCIL/20220226T0000Z_ostia.anc`.
 
 !!! warning
-    The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
+    The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times)). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
     For example, if a suite has the `INITIAL_CYCLE_POINT` set to `20250612T0000Z` (i.e., 12 Jun 2025 at midnight), it will also require the OSTIA ancillary files for the 11 Jun 2025.
 
 ### Regional Nesting Suite (RNS) {: #rns }
@@ -758,9 +501,15 @@ The latest release branch of the RNS is `{{ branch_rns }}`.
 Steps to obtain and run the RNS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
 The main difference is the `suite-ID`, which for the RNS is `{{ rns_id }}`.
 
-To get the RNS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), making sure you use the correct RNS `suite-ID` `{{ rns_id }}` when copying the suite.
+To get the RNS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration).
 
-To run the RNS configuration, follow the steps listed in [Run the suite](#run-the-ras).
+The main difference is the RNS configuration specific information: 
+
+- **Suite-ID:** {{ rns_id }}
+- **Branch:** {{ branch_rns }}
+
+
+To run the RNS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
 
 To check the RNS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
 
@@ -796,13 +545,9 @@ In general, ACCESS modelling suites can be edited either by directly modifying t
     Unless you are an experienced user, directly modifying configuration files is usually discouraged to avoid encountering errors.
 
 ##### Rose GUI {: #rosegui }
-To open the [_Rose_](#rose) GUI, run the following command from within the [suite directory](#suitedir): 
-```
-rose edit &
-```
 
-!!! tip
-    The `&` is optional. It allows the terminal prompt to remain active while running the `Rose` GUI as a separate process in the background.
+Basic instructions on how to edit a model configuration using the Rose GUI can be found on the [related Rose/Cylc page](/models/run_a_model/rose_cylc#rose-gui).
+
 
 #### Change start date and run length {: #change-run-length }
 <div markdown id="run-length-mismatch">
@@ -836,7 +581,7 @@ rose edit &
       
 
     To modify these parameters within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Nesting Suite &rarr; Cycling options_. Edit the related field and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.<br>
-    For example, to run the experiment for 2 days starting on the 5th April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S` (due to the [run length mismatch](#run-length-mismatch)).
+    For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S` (due to the [run length mismatch](#run-length-mismatch)).
 
 #### Change the land-surface initial conditions source
 - **RNS**<br>

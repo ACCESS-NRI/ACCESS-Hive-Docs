@@ -52,7 +52,11 @@ For more information on the `spack.yaml` file, refer to  [ACCESS-NRI's DevDocs](
 
 ### The config directory
 
-The `config` directory contains a single `versions.json` file. This file allows customisation of both the version of [`access-nri/spack`](https://github.com/ACCESS-NRI/spack) used to deploy the model and the version of [`access-nri/spack-packages`](https://github.com/ACCESS-NRI/spack-packages) that will source the recipes for the _Spack_ packages.
+The `config` directory contains two files:
+    -`versions.json` 
+       Allows customisation of both the version of [`access-nri/spack`](https://github.com/ACCESS-NRI/spack) used to deploy the model and the version of [`access-nri/spack-packages`](https://github.com/ACCESS-NRI/spack-packages) that will source the recipes for the _Spack_ packages.
+    - `packages.json`  
+       Has special packages for inclusion in the release provenance database in the `provenance` field. Modulefiles for additional packages can also be included in the `injection` field.
 
 ## Trigger model prerelease and release build deployments
 
@@ -168,29 +172,31 @@ git push --set-upstream origin update_mom5_dev_build
 
 #### 3. Open a PR
 To trigger a prerelease build, [open a PR](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with the `main` branch of the model deployment repository as the *base*. This will start a model build attempt by [GitHub's CI/CD](https://github.com/resources/articles/devops/ci-cd) infrastructure. As a result, a comment is added by `github-actions[bot]` saying that the build is deploying.<br>
-Once the deployment is [successful](#successful-deployment), you will be able to access the prerelease on the listed HPC systems by following the instructions specified in the comment's _Details and usage instructions_.
+Once the deployment is [successful](#successful-deployment), you will be able to access the prerelease on the listed HPC systems by following the instructions specified in the comment's _Usage Instructions_.
 
-There are three main _statuses_ for a deployment that can be identified by looking at the [GitHub Environment dialog box](https://github.com/ACCESS-NRI/ACCESS-OM2/pull/94#:~:text=Show%20environments) in the related PR:
+!!! warning
+    The deployment will only be triggered if there are no [merge conflicts](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts) with `main`.
 
-- **Successful**<br>
-  A successful deployment is identified by a green (_Active_ deployment) or white (_Inactive_ deployment) icon, with the _Active_ one being the most recent deployment within the repository.<br>
-  If a deployment is successful, it can be accessed on HPC systems.<br>
-  ![Active deployment](/assets/create_a_prerelease/active_deployment.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
-  ![Inactive deployment](/assets/create_a_prerelease/inactive_deployment.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
-  {: #successful-deployment }
+There are three main _statuses_ for a deployment that can be identified by looking at the conversation in the related PR on GitHub:
 
 - **In Progress**<br>
   The deployment is still ongoing. It will soon become [successful](#successful-deployment) or [fail](#failed-deployment).<br>
-  ![In progress deployment](/assets/create_a_prerelease/in_progress_deployment.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
   {: #in-progress-deployment }
 
 - **Failed**<br>
-  The deployment failed and the CI/CD log can be viewed by clicking on [Show environments](https://github.com/ACCESS-NRI/ACCESS-OM2/pull/94#:~:text=Show%20environments) in the GitHub Environment dialog box.<br>
-  ![Failed deployment](/assets/create_a_prerelease/failed_deployment.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
+  The deployment failed and the CI/CD log can be viewed by clicking on _had a problem deploying_ in the GitHub Actions activity line. There will also be an associated comment with this attempt.<br>
+  ![Failed deployment](/assets/create_a_prerelease/failed_deploy.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
   {: #failed-deployment }
 
-If we open a PR to the [ACCESS-OM2 deployment repository][om2 repo] with our `update_mom5_dev_build` branch as the *base*, we will get a [comment](https://github.com/ACCESS-NRI/ACCESS-OM2/pull/94#issuecomment-2594604585). Once deployed, the prerelease build can be accessed through the module `access-om2/pr94-1`:
-![GitHub bot comment](/assets/create_a_prerelease/comment.png){: class="example-img"}
+- **Successful**<br>
+  A successful deployment is identified by a green (_Active_ deployment) or white (_Inactive_ deployment) bubble within the GitHub Actions activity line, with the _Active_ one being the most recent deployment within the repository.<br>
+  If a deployment is successful, it can be accessed on HPC systems.<br>
+  ![Active deployment](/assets/create_a_prerelease/active_deploy.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
+  ![Inactive deployment](/assets/create_a_prerelease/inactive_deploy.png){: style="max-width: 650px;" class="example-img" loading="lazy"}
+  {: #successful-deployment }
+
+If we open a PR to the [ACCESS-OM2 deployment repository][om2 repo] to merge our `update_mom5_dev_build` branch to `main`, with a successful deployment we will get an associated comment similar to the example below. Once deployed, the prerelease build can be accessed through the module `access-om2/pr94-1`:
+![GitHub bot comment](/assets/create_a_prerelease/comment_success.png){: class="example-img"}
 
 !!! tip
     If further changes are required within the same PR, additional commits can be pushed onto the feature branch to create more prerelease builds. This does not remove earlier prerelease builds, allowing concurrent testing of multiple different builds.<br>

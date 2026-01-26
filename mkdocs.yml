@@ -39,7 +39,7 @@ theme:
     - navigation.indexes
     - navigation.footer
     - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
-    - content.code.copy         # for displaying copy icon at top right in code snippets  
+    - content.code.copy         # for displaying copy icon at top right in code snippets
     - content.code.annotate
     - content.action.edit
     - content.tabs.link
@@ -63,11 +63,14 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - bibtex:
       bib_file: "references.bib"
+  - redirects:
+      redirect_maps:
+        'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
   - resolve-absolute-urls
   - macros
 
 # Extensions
-markdown_extensions: 
+markdown_extensions:
   - attr_list
   - abbr
   - md_in_html
@@ -84,7 +87,7 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.keys
   - pymdownx.arithmatex:
       generic: true
@@ -96,7 +99,7 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - Getting Started: 
+  - Getting Started:
     - getting_started/index.md
     - Set Up your NCI Account: getting_started/set_up_nci_account.md
     - Australian Research Environment (ARE): getting_started/are.md
@@ -121,7 +124,7 @@ nav:
       - Biogeochemistry Land: models/model_components/bgc_land.md
       - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
       - Coupler: models/model_components/coupler.md
-    - Run a Model: 
+    - Run a Model:
       - models/run_a_model/index.md
       - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
@@ -137,10 +140,11 @@ nav:
 
   - Data and Model Evaluation:
     - model_evaluation/index.md
-    - Data: 
+    - Data:
       - model_evaluation/data/index.md
-      - Data Format and Standards: model_evaluation/data/data_format.md      
+      - Data Format and Standards: model_evaluation/data/data_format.md
       - Data Variables: model_evaluation/data/variables.md
+      - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
       - Observational Data: model_evaluation/data/observations.md
       - Accessing Model Data: model_evaluation/data/model_catalogs.md
     - Model Evaluation: 
@@ -152,7 +156,7 @@ nav:
       - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
       - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
       - METplus: model_evaluation/evaluation_on_gadi/metplus.md
-    - Additional Resources: 
+    - Additional Resources:
       - Additional Resources: model_evaluation/community_med/index.md
       - Observational Catalogues: model_evaluation/community_med/community_observational_catalogs.md
       - Model Catalogues: model_evaluation/community_med/community_model_catalogs.md
@@ -161,24 +165,24 @@ nav:
 
   - Tutorials:
     - tutorials/index.md
-    - ACCESS-CM2: tutorials/models.md 
+    - ACCESS-CM2: tutorials/models.md
     - ACCESS-NRI Intake catalog: tutorials/intake.md
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
-    
+
   - Community Resources:
     - community_resources/index.md
     # Keep this commented for future workshops
-    # - ACCESS Community Workshop 2025: 
+    # - ACCESS Community Workshop 2025:
     #   - Overview: community_resources/access_workshop_2025/index.md
     #   - Training Day materials: community_resources/access_workshop_2025/training_materials.md
     - Workshops and Events Archive:
       - community_resources/workshops_events_archive/index.md
-      - ACCESS Community Workshop 2023: 
+      - ACCESS Community Workshop 2023:
         - Overview: community_resources/workshops_events_archive/access_workshop_2023/index.md
         - Training materials 2023: community_resources/workshops_events_archive/access_workshop_2023/training_materials.md
-      - ACCESS Community Workshop 2024: 
+      - ACCESS Community Workshop 2024:
         - Overview: community_resources/workshops_events_archive/access_workshop_2024/index.md
         - Training materials 2024: community_resources/workshops_events_archive/access_workshop_2024/training_materials.md
       - ACCESS Community Workshop 2025:
@@ -199,7 +203,7 @@ nav:
 extra:
   generator: false
   social:
-    - icon: fontawesome/brands/bluesky 
+    - icon: fontawesome/brands/bluesky
       link: https://bsky.app/profile/access-nri.bsky.social
       name: ACCESS-NRI on Bluesky
     - icon: fontawesome/brands/linkedin
@@ -219,7 +223,7 @@ extra:
   #       - icon: material/emoticon-sad-outline
   #         name: This page could be improved
   #         data: 0
-  #         note: >- 
+  #         note: >-
   #           Thanks for your feedback!<br>
   #           Help us improve this page by <a href=/about/contribute target="_blank" rel="noopener">contributing</a>!
 
@@ -236,7 +240,7 @@ extra_javascript:
   - js/custom-tags.js
   - js/miscellaneous.js
 
-# Automatically reload page when running `mkdocs serve`, for any 
+# Automatically reload page when running `mkdocs serve`, for any
 # of the following files outside of the 'docs' directory
 watch:
   - mkdocs.yml
