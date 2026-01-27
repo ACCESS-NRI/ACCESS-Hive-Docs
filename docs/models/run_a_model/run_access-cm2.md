@@ -606,30 +606,30 @@ Files formatted as `<suite-name>a.xhist-<year><month><day>` contain metadata inf
     Some suites might still not work when ported this way.<br>
     If you have a suite that was relying on `hh5` and, even after following the steps below, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
 
-Previously, the `hh5` NCI project hosted the Python environments and software often used within suites (e.g., `conda/analysis3` environemnts, `pythonlib/um2netcdf4` utility).<br>
+Previously, the `hh5` NCI project hosted the Python environments and software often used within suites (e.g., `conda/analysis3` environments, `pythonlib/um2netcdf4` utility).<br>
 Due to `hh5` decommissioning, all references to `hh5` must be replaced with the project storing the updated versions of the environments and software. For suites derived from the example suite above (`{{ suite_id }}` ), the updated versions are stored in `xp65`.
 
-To check if your {{ model }} suite relies on `hh5`, run the following command from your suite directory:
-```
-grep -r hh5 --exclude-dir=.svn .
-```
+Follow the steps below to ensure your suite is not using software from `hh5`:
 
-Then, follow the steps below to ensure your suite is not using `hh5`.
-
-#### 1. Replace hh5 with xp65 {: .no-toc }
-If you see any output from the command above, replace any `hh5` occurrency with `xp65`.<br>
-Lines that you will likely need to replace include storage specification lines (e.g., `-l storage = ...+gdata/hh5...`) and modules (e.g., `module use /g/data/hh5/public/modules`).
-
-!!! warning
-    If your suite loads `conda/analysis3`, to ensure reproducibility it is suggested to use a specific version of the environment (e.g., `conda/analysis3-25.11`).
-    For more information about `conda/analysis3` Python environment, refer to the [conda/analysis3 Python Environment page](/getting_started/environments/).
-
-#### 2. Update netcdf_conversion task {: .no-toc }
+#### 1. Update netcdf_conversion task {: .no-toc }
 In the `suite.rc` file, within the `[[netcdf_conversion]]` task, update the loading of `pythonlib/um2netcdf4` to be using `pythonlib/um2netcdf4/xp65` instead:
 ```diff
 - module load pythonlib/um2netcdf4
 + module load pythonlib/um2netcdf4/xp65
 ```
+
+#### 2. Replace hh5 with xp65 {: .no-toc }
+To check if your {{ model }} suite relies on `hh5`, run the following command from your suite directory:
+```
+grep -r hh5 --exclude-dir=.svn .
+```
+
+Then, if you see any output from the command above, replace any `hh5` occurrency with `xp65`.<br>
+Lines that you will likely need to replace include storage specification lines (e.g., `-l storage = ...+gdata/hh5...`) and modules (e.g., `module use /g/data/hh5/public/modules`).
+
+!!! warning
+    If your suite loads `conda/analysis3`, to ensure reproducibility it is suggested to use a specific version of the environment (e.g., `conda/analysis3-25.11`).
+    For more information about `conda/analysis3` Python environment, refer to the [conda/analysis3 Python Environment page](/getting_started/environments/).
 
 ### Port suites from accessdev
 !!! warning
