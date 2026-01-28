@@ -1,5 +1,5 @@
 !!! danger
-    This page is tailored to experienced users and collaborators developing ACCESS models.<br>
+    This page is tailored to experienced users and collaborators developing ACCESS models ([example](https://docs.access-hive.org.au/models/build_a_model/build_source_code/)).<br>
     This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 # Set up Spack for building ACCESS models
@@ -9,6 +9,8 @@
 To use _Spack_, please familiarise yourself with the [Basic Usage instructions](https://spack.readthedocs.io/en/latest/basic_usage.html) and [Environments](https://spack.readthedocs.io/en/latest/environments.html).
 
 We also recommend that you refer to the [Spack 101 Tutorial](https://spack-tutorial.readthedocs.io/en/latest/).
+
+Installing Spack enables a user to: build an ACCESS model from the source code, swap the model's components or modify the source code. Once you've installed Spack, you can see next steps [here](https://docs.access-hive.org.au/models/build_a_model/build_source_code/).
 
 ## Prerequisites
 - **NCI Account**<br> 
