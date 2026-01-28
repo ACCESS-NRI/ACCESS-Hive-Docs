@@ -194,7 +194,7 @@ nav:
     - about/index.md
     - ACCESS-NRI Releases:
       - Release list: about/release_list.md
-      - Releases stages: about/releases.md
+      - Release stages: about/releases.md
     - Contact: about/contact.md
     - FAQ: about/faq.md
     - User support: about/user_support.md
