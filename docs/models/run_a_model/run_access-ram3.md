@@ -178,7 +178,7 @@ Run the RAS by following the [related instructions on the _Rose/Cylc_ page](/mod
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-All steps are completed. You have successfully run the RAS!! <br>
+All steps are completed. You have successfully run the RAS! <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
