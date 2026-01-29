@@ -39,7 +39,7 @@ The {{ model }} suites are run using the Rose/Cylc workflow management tool. The
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
-All {{model}} configurations are available on MOSRS via links at the top of this page.
+All {{model}} configurations are available on MOSRS via links at the [top of this page](/models/run_a_model/run_access-ram3/).
 
 [{{ model }} release notes]({{release_notes}}) are available on the ACCESS-Hive Forum and are updated when new releases are made available.
 
