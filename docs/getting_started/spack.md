@@ -10,7 +10,7 @@ To use _Spack_, please familiarise yourself with the [Basic Usage instructions](
 
 We also recommend that you refer to the [Spack 101 Tutorial](https://spack-tutorial.readthedocs.io/en/latest/).
 
-Installing _Spack_ allows users to build ACCESS models directly from the source code and carry out development testing that involves modifying the source code.<br>
+Installing _Spack_ allows users to build ACCESS models directly from the source code, swap model components, and carry out development testing that involves modifying the source code.<br>
 After installing _Spack_, refer to the [Build a model](https://docs.access-hive.org.au/models/build_a_model/build_source_code/) page for the next steps.
 
 ## Prerequisites
