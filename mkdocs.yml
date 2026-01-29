@@ -141,11 +141,7 @@ nav:
     - model_evaluation/index.md
     - Data:
       - model_evaluation/data/index.md
-      - Data Format and Standards: model_evaluation/data/data_format.md
-      - Data Variables: model_evaluation/data/variables.md
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
-      - Observational Data: model_evaluation/data/observations.md
-      - Accessing Model Data: model_evaluation/data/model_catalogs.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
       # - Frameworks on Gadi:
