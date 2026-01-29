@@ -153,8 +153,6 @@ Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ pag
 Each suite within {{ model }} has a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
 Typically, an existing suite is copied and then edited as needed for a particular experiment.
 
-For more information on {{ model }}, refer to the [{{model}} configuration]({{ access_models }}/{{ model }}) page.
-
 !!! info 
     Many of the following steps appear in both the RAS and RNS. For this reason, these steps will be detailed only within the RAS section below, and subsequently linked to within the RNS section.
 
