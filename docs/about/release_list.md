@@ -1,6 +1,6 @@
 
 [Hive Forum]: https://forum.access-hive.org.au
-# ACCESS-NRI release list
+# ACCESS-NRI Release List
 
 <div class="card-container">
     <a href="/about/releases" class="horizontal-card">
