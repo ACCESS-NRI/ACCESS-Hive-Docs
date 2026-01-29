@@ -1,5 +1,5 @@
 !!! danger
-    This page is tailored to experienced users and collaborators developing ACCESS models ([example](https://docs.access-hive.org.au/models/build_a_model/build_source_code/)).<br>
+    This page is tailored to experienced users and collaborators developing ACCESS models.<br>
     This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 # Set up Spack for building ACCESS models
