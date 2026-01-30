@@ -552,13 +552,11 @@ Basic instructions on how to edit a model configuration using the Rose GUI can b
 #### Change start date and run length {: #change-run-length }
 <div markdown id="run-length-mismatch">
 !!! warning
-    `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br>
-    The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.<br>
-    This means, for example, that with `INITIAL_CYCLE_POINT` set to `20220226T0000Z`, and `FINAL_CYCLE_POINT` set to `+P1D` (plus 1 day), 2 _Cylc_ cycle points will be set (`20220226T0000Z` and `20220227T0000Z`). Therefore, the model will run for a total of 2 days!<br>
-    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` such that the model runs for the number of days specified in the relative duration (refer to the example below).
-
-    The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.<br>
-    Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+    `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br><br>
+    The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.<br><br>
+    This means, for example, that with `INITIAL_CYCLE_POINT` set to `20220226T0000Z`, and `FINAL_CYCLE_POINT` set to `+P1D` (plus 1 day), 2 _Cylc_ cycle points will be set (`20220226T0000Z` and `20220227T0000Z`). Therefore, the model will run for a total of 2 days!<br><br>
+    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` such that the model runs for the number of days specified in the relative duration (refer to the example below). The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.<br><br>
+    Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).<br><br>
 
     For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
 </div>
