@@ -535,7 +535,7 @@ For example, the model output data for the first cycle (`20220226T0000Z`) of the
     To change which output variables are produced, refer to [{{ model }} configuration documentation]({{config_docs}}/model_outputs/)
 
 
-### Edit {{ model }} configuration
+## Edit {{ model }} configuration
 
 This section describes how to modify the {{ model }} configuration.
 
