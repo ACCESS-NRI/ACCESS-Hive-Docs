@@ -167,7 +167,7 @@ The latest release branch of the RAS is `{{ branch_ras }}`.
 
 Get the RAS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
-- **Suite-ID:** {{ ras_id }}
+- **Suite-ID:** `{{ ras_id }}`
 - **Branch:** {{ branch_ras }}
     
 
