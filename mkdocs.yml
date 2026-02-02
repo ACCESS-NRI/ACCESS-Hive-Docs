@@ -141,6 +141,7 @@ nav:
     - model_evaluation/index.md
     - Data:
       - model_evaluation/data/index.md
+      - Basics of ACCESS Data: model_evaluation/data/data_basics.md
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
