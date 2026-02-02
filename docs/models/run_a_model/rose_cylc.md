@@ -224,7 +224,8 @@ where `<repository>` and `<branch>` are specific to the chosen model configurati
 If you want to make exploratory changes within the configuration, and have those changes tracked, please [fork the configuration repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and commit your changes there.<br>
 
 !!! warning
-    When forking the repository, make sure you uncheck the option `Copy the DEFAULT branch only` if you want to work with other branches.
+    Configuration repositories store each configuration in their own branch, while the `main` branch only keeps minimal setup.<br>
+    For this reason, when forking the repository, ensure that all branches are included by unchecking the option “Copy the `main` branch only”.
 
 If you think your new configuration provides significant value to the broader community, refer to the respective model configuration documentation for instructions on how to have it officially supported by ACCESS-NRI.
 
