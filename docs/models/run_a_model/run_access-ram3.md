@@ -32,7 +32,7 @@
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details, see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 
-!!! note 
+!!! tip 
     It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
 
 The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/models/run_a_model/rose_cylc) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
@@ -168,7 +168,7 @@ The latest release branch of the RAS is `{{ branch_ras }}`.
 Get the RAS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
 - **Suite-ID:** `{{ ras_id }}`
-- **Branch:** {{ branch_ras }}
+- **Branch:** `{{ branch_ras }}`
     
 
 
