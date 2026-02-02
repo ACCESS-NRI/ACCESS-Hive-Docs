@@ -1,0 +1,86 @@
+# ACCESS Output Data Specifications
+This document provides an overview of the data specifications for data produced
+by ACCESS models.
+The initial draft of this specification targets ESM1.6 and will be expanded to other ACCESS models in time.
+This version of the specification is intended to be relatively lightweight as a first step towards bringing data
+produced in the ACCESS ecosystem towards a common data and metadata standard.
+
+Included here are file and directory naming conventions, variable conventions, and variable and global attributes.
+Variable mappings from ACCESS output variables to CMIP6/7 variables can be found [here](mapping.md).
+
+More information on the ACCESS models can be found [here](https://www.access-nri.org.au/models/).
+Please direct any issues, feedback or queries on the data specification to <data.access.nri@anu.edu.au>.
+
+## Directory and Filename
+### Directory Structure
+The directory structure for ACCESS-ESM1.6 data output is still being finalised.
+The current draft has the following structure under the current working directory:
+
+`<run>/output<xxx>/<realm>/<filename.nc>`
+
+### File naming
+ACCESS-ESM1.6 filenames are also still under development
+
+All information contained in filenames should be present in file metadata attributes.
+
+## File content
+Output files should be NetCDF4 files wherever practical.
+Data variables should be compressed using `zlib` with deflate level of at least 1 and shuffle enabled — if the compression level used is greater than 1 please consider the benefit of improved compression ratios against cost of increased compression/decompression times.
+
+Where possible files should conform to the CF metadata conventions (version 1.11) and use the CF Convention Standard Name Table.
+
+For ACCESS-ESM1.6 every file should contain a single data variable/field from a single simulation.
+
+## Time Dimensions
+Time dimensions should use the `proleptic Gregorian` calendar with units of `days since yyyy-mm-dd hh:mm`.
+Where possible `time_bnds` should be included as an additional coordinate variable.
+
+## Metadata Attributes
+
+### Global Attributes
+Global attributes provide information on the context for the data such as the creation time, experiment it is part of, or science configurations used.
+All the attributes in the table below are recommended but not all are required, see the `Required` column, and attributes not specified are permitted.
+All these global attributes have type `string`.
+Where possible sort the attributes alphabetically by name.
+
+Note that for any given experiment run the combination of `model` and `model_version` should identify the code, and `experiment_repo` and `run_id` should identify a specific commit in the repository containing the configuration used.
+
+| Title                  | Description                                                                                                                                                                                                                   | Examples                                                                                                                  | Rules                                                                                                                                                                                            | Required   |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
+| base_configuration     | Configuration modified for experiment, see configs repo: https://github.com/ACCESS-NRI/access-esm1.6-configs                                                                                                                  | release-preindustrial+concentrations-2.0                                                                                  |                                                                                                                                                                                                  | Yes        |
+| contact                | Email address or other contact details for who to contact regarding this data.                                                                                                                                                | <ul><li>access.nri@anu.edu.au</li><li>John Smith (john.smith@email.com)</li></ul>                                         |                                                                                                                                                                                                  | Yes        |
+| Conventions            | Convention(s) used with their versions, as a comma separated list                                                                                                                                                             | CF-1.11,ACDD-1.3                                                                                                          |                                                                                                                                                                                                  | Yes        |
+| data_specification     | Version of this data specification used to generate the data                                                                                                                                                                  | ACCESS Output Data Specification v2-0-0 XX.XXXX/zenodo.XXXXX                                                              |                                                                                                                                                                                                  | Yes        |
+| date_created           | Date and time the file was created. Follow ISO 8601, i.e. 'YYYY-MM-DDTHH:MM:SSZ'                                                                                                                                              | 2025-10-07T11:10:00Z                                                                                                      | Must match regex: ^\d{4}-(1[012]\|0[1-9])-(3[01]\|[12][0-9]\|0[1-9])T([01][0-9]\|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$                                                                                 | Yes        |
+| date_metadata_modified | Date and time the metadata for this file was last modified. Note that this applied just to the metadata, not the data. Follow ISO 8601, i.e. 'YYYY-MM-DDTHH:MM:SSZ'                                                           | 2025-10-07T11:10:00Z                                                                                                      | Must match regex: ^\d{4}-(1[012]\|0[1-9])-(3[01]\|[12][0-9]\|0[1-9])T([01][0-9]\|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$                                                                                 | No         |
+| date_modified          | Date and time the data for this file was last modified. Note that this applied just to the data, not the metadata. Follow ISO 8601, i.e. 'YYYY-MM-DDTHH:MM:SSZ'                                                               | 2025-10-07T11:10:00Z                                                                                                      | Must match regex: ^\d{4}-(1[012]\|0[1-9])-(3[01]\|[12][0-9]\|0[1-9])T([01][0-9]\|2[0-3]):[0-5][0-9]:[0-5][0-9]Z$                                                                                 | No         |
+| experiment_repo        | Git repository URL that describes the experiment                                                                                                                                                                              | https://github.com/ACCESS-NRI/access-esm1.6-configs/                                                                      |                                                                                                                                                                                                  | No         |
+| experiment_uuid        | The experiment UUID generated by Payu. Note: this may be the same as id.                                                                                                                                                      | 698E600B-BECF-4CBA-994F-A663A22FCDDF                                                                                      |                                                                                                                                                                                                  | Yes        |
+| frequency              | Sampling frequency of the data                                                                                                                                                                                                | <ul><li>12hr</li><li>1day</li><li>1yr</li></ul>                                                                           | Must match one of these regex: <ul><li>^fx$</li><li>^subhr$</li><li>^\d+min$</li><li>^\d+hr$</li><li>^\d+day$</li><li>^\d+mon$</li><li>^\d+yr$</li><li>^\d+dec$</li></ul>                        | Yes        |
+| grid                   | Brief description of output grid characteristics or reference to grid specification. Should be included if the grid is not defined by the dimensions in the file.                                                             |                                                                                                                           |                                                                                                                                                                                                  | No         |
+| license                | Information on the license for the data to ensure all users have access to the terms of use. Use SPDX license identifiers where possible. The default license for ACCESS-NRI is CC-BY-4.0, users should change as needed.     | CC-BY-4.0                                                                                                                 |                                                                                                                                                                                                  | Yes        |
+| model                  | Name of the model used to create the data                                                                                                                                                                                     | ACCESS-ESM1.6                                                                                                             |                                                                                                                                                                                                  | Yes        |
+| model_version          | Version of the model used to create the data. Please note here if the model has been modified from an official release, ideally with links to the changes.                                                                    | <ul><li>2025.06.001</li><li>2025.06.001 (modified by John Smith, [link to repo/paper describing modifications])</li></ul> |                                                                                                                                                                                                  | Yes        |
+| realm                  | Realm where the data variable is defined                                                                                                                                                                                      | <ul><li>atmos</li><li>landIce</li></ul>                                                                                   | Must be one of the following: <ul><li>aerosol</li><li>atmos</li><li>atmosChem</li><li>land</li><li>landIce</li><li>none</li><li>ocean</li><li>ocnBgchem</li><li>seaIce</li><li>unknown</li></ul> | Yes        |
+| run_id                 | Git hash for the commit associated with the experiment run                                                                                                                                                                    | <ul><li>3a38fe4</li><li>3a38fe435e156700ab649c4921e99f7c68a168bc</li></ul>                                                |                                                                                                                                                                                                  | Yes        |
+| title                  | Name of the dataset. Typically following the Payu naming scheme detailed here - https://payu.readthedocs.io/en/stable/usage.html#experiment-names                                                                             | my_expt-perturb-416af8c6                                                                                                  |                                                                                                                                                                                                  | Yes        |
+| variable_id            | A list of short variable names, separated by commas, for the data variable/s that appear in this file (e.g. tas for surface temperature but not time/latitude/longitude). These names should match the netCDF variable names. | <ul><li>tas</li><li>huss</li><li>uas,vas</li></ul>                                                                        |                                                                                                                                                                                                  | No         |
+
+### Variable Attributes
+Variable attributes provide information on the data variable such as the units used, standard_name, or cell_methods used to generate the data.
+In netCDF files there can be multiple coordinate variables such as `time`, `latitude`, or `time_bnds` and the main output field variable of which there should be only one.
+Where possible variables and their attributes should follow CF-v1.11 conventions.
+
+| Title         | Description                                                                                                                                                                  | Type   | Examples                                                                                                                           |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+| cell_methods  | A string comprising a list of space-separated pairs, "name:method", which indicate that for axis "name" the values representing the fields have been determined by "method". | string | <ul><li>time: point</li><li>time: mean (interval: 1 hour)</li><li>time: maximum (interval: 1D) time: mean (interval: 1M)</li></ul> |
+| long_name     | A long descriptive name which may, for example, be used for labelling plots.                                                                                                 | string | <ul><li>Near-Surface Air Temperature</li><li>latitude</li><li>Potential Evapotranspiration</li></ul>                               |
+| standard_name | Where posisble use the CF standard_name of the variable, otherwise use a unique short phrase separated by underscores to describe the variable.                              | string | <ul><li>air_pressure_at_sea_level</li><li>latitude</li><li>water_potential_evaporation_flux</li></ul>                              |
+| units         | The units of measurement for the variable                                                                                                                                    | string | <ul><li>K</li><li>m-2 s-1</li></ul>                                                                                                |
+
+## Acknowledgements
+We would like to acknowlege the specifications and conventions we have used and consulted to construct this specification and the tremendous work of their authors:
+
+- [CMIP6](https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html)
+- [CORDEX](https://cordex.org/2024/04/12/the-cordex-cmip6-archiving-specifications-for-dynamical-downscaling-now-published/)
+- [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3)
