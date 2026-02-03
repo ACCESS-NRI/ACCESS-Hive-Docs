@@ -1,11 +1,7 @@
 # Accessing Model Data on Gadi
 
-To assist with finding and accessing model data on Gadi, ACCESS-NRI has created a catalog called the ACCESS-NRI Intake catalog.
+To assist with finding and accessing model data on Gadi, ACCESS-NRI maintains a catalog called the ACCESS-NRI Intake catalog.
 This aims to provide a way for Python users to discover and load data across a broad range of climate data products available on <i>Gadi</i>. 
-
-For detailed information, tutorials and more, please go to [ACCESS-NRI intake catalog documentation](https://access-nri-intake-catalog.readthedocs.io/en/latest/index.html).
-
-To explore the catalog interactively, please visit the [Interactive Catalog Explorer](https://charles-turner-1.github.io/catalog-viewer-spa/#/).
 
 ## What is the ACCESS-NRI Intake catalog?
 
