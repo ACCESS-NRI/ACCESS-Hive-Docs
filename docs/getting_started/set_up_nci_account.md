@@ -108,10 +108,10 @@ You will be prompted to create a passphrase linked to the SSH key, which you wil
     <terminal-line>Generating public/private rsa key pair.</terminal-line>
     <terminal-line>Enter passphrase (empty for no passphrase):</terminal-line>
     <terminal-line lineDelay=3000>Enter same passphrase again:</terminal-line>
-    <terminal-line lineDelay=3000>Your identification has been saved in &lt;$HOME&gt;/.ssh/id_gadi</terminal-line>
-    <terminal-line>Your public key has been saved in &lt;$HOME&gt;/.ssh/id_gadi.pub</terminal-line>
+    <terminal-line lineDelay=3000>Your identification has been saved in &lt;&#36;HOME&gt;/.ssh/id_gadi</terminal-line>
+    <terminal-line>Your public key has been saved in &lt;&#36;HOME&gt;/.ssh/id_gadi.pub</terminal-line>
     <terminal-line lineDelay=0>The key fingerprint is:</terminal-line>
-    <terminal-line lineDelay=0>SHA256:&lt;fingerprint-code&gt; &lt;$USER@hostname&gt;</terminal-line>
+    <terminal-line lineDelay=0>SHA256:&lt;fingerprint-code&gt; &lt;&#36;USER@hostname&gt;</terminal-line>
     <terminal-line lineDelay=0>The key's randomart image is:</terminal-line>
     <terminal-line lineDelay=0>+--[ED25519 256]--+</terminal-line>
     <terminal-line lineDelay=0>|xxxxxxxxxxxxxxxxx|</terminal-line>
@@ -139,11 +139,11 @@ ssh-add <span tabcontentfor="macos" markdown>--apple-use-keychain </span>~/.ssh/
 
 You will be prompted to enter your SSH key passphrase, which will be stored inside the SSH-agent:
 <terminal-window>
-    <terminal-line data="input">eval "$(ssh-agent -s)"</terminal-line>
+    <terminal-line data="input">eval "&#36;(ssh-agent -s)"</terminal-line>
     <terminal-line>Agent pid &lt;agent-PID&gt;</terminal-line>
     <terminal-line data="input">ssh-add <span tabcontentfor="macos" markdown>--apple-use-keychain</span> ~/.ssh/id_gadi</terminal-line>
-    <terminal-line>Enter passphrase for &lt;$HOME&gt;/.ssh/id_gadi:</terminal-line>
-    <terminal-line lineDelay=3000>Identity added: &lt;$HOME&gt;/.ssh/id_gadi &lt;$USER@hostname&gt;</terminal-line>
+    <terminal-line>Enter passphrase for &lt;&#36;HOME&gt;/.ssh/id_gadi:</terminal-line>
+    <terminal-line lineDelay=3000>Identity added: &lt;&#36;HOME&gt;/.ssh/id_gadi &lt;&#36;USER@hostname&gt;</terminal-line>
     </terminal-window>
 </terminal-window>
 <div tabcontentfor="macos" markdown>

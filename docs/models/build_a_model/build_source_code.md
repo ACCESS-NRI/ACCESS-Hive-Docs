@@ -87,7 +87,7 @@ spack env create mom5_dev ACCESS-ESM1.5/spack.yaml
   <terminal-line>Receiving objects: 100% (29/29), 16.40 KiB | 2.38 MiB/s, done.</terminal-line>
   <terminal-line>Resolving deltas: 100% (6/6), done.</terminal-line>
   <terminal-line data="input">spack env create mom5_dev ACCESS-ESM1.5/spack.yaml</terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">mom5_dev</span> in: <span class="spack-cyan">/g/data/$PROJECT/$USER/spack/0.22/environments/mom5_dev</span></terminal-line>
+  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">mom5_dev</span> in: <span class="spack-cyan">/g/data/&#36;PROJECT/&#36;USER/spack/0.22/environments/mom5_dev</span></terminal-line>
   <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env activate mom5_dev</span></terminal-line>
 </terminal-window>
 

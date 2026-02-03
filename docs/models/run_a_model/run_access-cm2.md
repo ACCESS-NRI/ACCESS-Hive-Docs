@@ -234,8 +234,8 @@ rosie checkout {{ suite_id }}
 ```
 <terminal-window>
     <terminal-line data="input">rosie checkout {{ suite_id }}</terminal-line>
-    <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/roses</terminal-line>
-    <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;$USER&gt;/roses/{{ suite_id }}</terminal-line>
+    <terminal-line>[INFO] create: /home/565/&lt;\$USER&gt;/roses</terminal-line>
+    <terminal-line>[INFO] &lt;suite-ID&gt;: local copy created at /home/565/&lt;\$USER&gt;/roses/{{ suite_id }}</terminal-line>
 </terminal-window>
 This option is mostly used for testing and examining suites.
     
@@ -249,7 +249,7 @@ rosie copy {{ suite_id }}
     <terminal-line>Copy "{{ suite_id }}/trunk@&lt;trunk-ID&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-ID&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-ID&gt;: copied items from {{ suite_id }}/trunk@&lt;trunk-ID&gt;</terminal-line>
-    <terminal-line>[INFO] {{ suite_id }}: local copy created at /home/565/&lt;$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
+    <terminal-line>[INFO] {{ suite_id }}: local copy created at /home/565/&lt;\$USER&gt;/roses/&lt;new-suite-ID&gt;</terminal-line>
 </terminal-window>
 When a new suite is created in this way, a _unique_ `<suite-ID>` folder is generated within the MOSRS repository and populated with descriptive information about the suite and its initial configuration.
 
@@ -341,7 +341,7 @@ After the initial tasks are executed, the _Cylc_ GUI will open. You can now view
     <terminal-line>export ROSE_ORIG_HOST=&lt;gadi-cpu&gt;.gadi.nci.org.au</terminal-line>
     <terminal-line>[INFO] export ROSE_SITE=nci</terminal-line>
     <terminal-line>[INFO] export ROSE_VERSION=2019.01.7</terminal-line>
-    <terminal-line>[INFO] create: /home/565/&lt;$USER&gt;/cylc-run/&lt;suite-ID&gt;</terminal-line>
+    <terminal-line>[INFO] create: /home/565/&lt;\$USER&gt;/cylc-run/&lt;suite-ID&gt;</terminal-line>
     <terminal-line>[INFO] create: log.&lt;timestamp&gt;</terminal-line>
     <terminal-line>[INFO] symlink: log.&lt;timestamp&gt; <= log</terminal-line>
     <terminal-line>[INFO] create: log/suite</terminal-line>
@@ -350,14 +350,14 @@ After the initial tasks are executed, the _Cylc_ GUI will open. You can now view
     <terminal-line>[INFO] symlink: rose-conf/&lt;timestamp&gt;-run.version <= log/rose-suite-run.version</terminal-line>
     <terminal-line>[INFO] create: meta</terminal-line>
     <terminal-line>[INFO] install: meta</terminal-line>
-    <terminal-line>&emsp;&emsp;&emsp;&emsp;source: /home/565/&lt;$USER&gt;/roses/&lt;suite-ID&gt;/meta</terminal-line>
+    <terminal-line>&emsp;&emsp;&emsp;&emsp;source: /home/565/&lt;\$USER&gt;/roses/&lt;suite-ID&gt;/meta</terminal-line>
     <terminal-line>[INFO] install: rose-suite.info</terminal-line>
-    <terminal-line>&emsp;&emsp;&emsp;&emsp;source: /home/565/&lt;$USER&gt;/roses/&lt;suite-ID&gt;/rose-suite.info</terminal-line>
+    <terminal-line>&emsp;&emsp;&emsp;&emsp;source: /home/565/&lt;\$USER&gt;/roses/&lt;suite-ID&gt;/rose-suite.info</terminal-line>
     <terminal-line>[INFO] create: app</terminal-line>
     <terminal-line>[INFO] install: app</terminal-line>
-    <terminal-line>&emsp;&emsp;&emsp;&emsp;source: /home/565/&lt;$USER&gt;/roses/&lt;suite-ID&gt;/app</terminal-line>
+    <terminal-line>&emsp;&emsp;&emsp;&emsp;source: /home/565/&lt;\$USER&gt;/roses/&lt;suite-ID&gt;/app</terminal-line>
     <terminal-line>[INFO] install: suite.rc</terminal-line>
-    <terminal-line>[INFO] REGISTERED &lt;suite-ID&gt; -> /home/565/&lt;$USER&gt;/cylc-run/&lt;suite-ID&gt;</terminal-line>
+    <terminal-line>[INFO] REGISTERED &lt;suite-ID&gt; -> /home/565/&lt;\$USER&gt;/cylc-run/&lt;suite-ID&gt;</terminal-line>
     <terminal-line>[INFO] create: share</terminal-line>
     <terminal-line>[INFO] create: share/cycle</terminal-line>
     <terminal-line>[INFO] create: work</terminal-line>
@@ -390,9 +390,9 @@ After the initial tasks are executed, the _Cylc_ GUI will open. You can now view
 !!! warning
     After running the command `rose suite-run`, if you get an error similar to the following:
     <pre><code><span style="color: orangered">[FAIL]</span> Suite "&lt;suite-ID&gt;" appears to be running:
-    <span style="color: orangered">[FAIL]</span> Contact info from: "/home/565/&lt;$USER&gt;/cylc-run/&lt;suite-ID&gt;/.service/contact"
+    <span style="color: orangered">[FAIL]</span> Contact info from: "/home/565/&lt;&#36;USER&gt;/cylc-run/&lt;suite-ID&gt;/.service/contact"
     <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_HOST=&lt;persistent-session-full-name&gt;
-    <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_OWNER=&lt;$USER&gt;
+    <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_OWNER=&lt;&#36;USER&gt;
     <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_PORT=&lt;port&gt;
     <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_PROCESS=&lt;PID&gt; /g/data/hr22/apps/cylc7/bin/python -s /g/data/hr22/apps/cylc7/cylc_7.9.7/bin/cylc-run &lt;suite-ID&gt; --host=localhost
     <span style="color: orangered">[FAIL]</span> Try "cylc stop '&lt;suite-ID&gt;'" first?</code></pre>
@@ -578,12 +578,12 @@ For the atmospheric output data, the files are typically a [UM fieldsfile](https
 For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 <terminal-window>
     <terminal-line data="input">cd /scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive">ls</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive">ls</terminal-line>
     <terminal-line class="ls-output-format">cy339 &lt;other-suite-name&gt; &lt;other-suite-name&gt;</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive">cd cy339</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive/cy339">ls</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive">cd cy339</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive/cy339">ls</terminal-line>
     <terminal-line class="ls-output-format">history restart</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive/cy339">ls history/atm</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive/cy339">ls history/atm</terminal-line>
     <terminal-line class="ls-output-format">cy339a.pd0950apr.nc cy339a.pd0950aug.nc cy339a.pd0950dec.nc cy339a.pd0950feb.nc cy339a.pd0950jan.nc cy339a.pd0950jul.nc cy339a.pd0950jun.nc cy339a.pd0950mar.nc cy339a.pd0950may.nc cy339a.pd0950nov.nc cy339a.pd0950oct.nc cy339a.pd0950sep.nc cy339a.pd0951apr.nc cy339a.pd0951aug.nc cy339a.pd0951dec.nc cy339a.pm0950apr.nc cy339a.pm0950aug.nc cy339a.pm0950dec.nc cy339a.pm0950feb.nc cy339a.pm0950jan.nc cy339a.pm0950jul.nc cy339a.pm0950jun.nc cy339a.pm0950mar.nc cy339a.pm0950may.nc cy339a.pm0950nov.nc cy339a.pm0950oct.nc cy339a.pm0950sep.nc cy339a.pm0951apr.nc cy339a.pm0951aug.nc cy339a.pm0951dec.nc netCDF</terminal-line>
 </terminal-window>
 
@@ -593,7 +593,7 @@ The atmospheric restart files, which are [UM fieldsfiles](https://code.metoffice
 
 For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 <terminal-window>
-    <terminal-line data="input">ls /scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive/cy339/restart/atm</terminal-line>
+    <terminal-line data="input">ls /scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive/cy339/restart/atm</terminal-line>
     <terminal-line class="ls-output-format">cy339a.da09500201_00 cy339a.da09510101_00 cy339.xhist-09500131 cy339.xhist-09501231 </terminal-line>
 </terminal-window>
 

@@ -274,12 +274,12 @@ This command will:
 
 <terminal-window>
     <terminal-line data="input">payu setup</terminal-line>
-    <terminal-line>laboratory path: /scratch/$PROJECT/$USER/access-esm</terminal-line>
-    <terminal-line>binary path: /scratch/$PROJECT/$USER/access-esm/bin</terminal-line>
-    <terminal-line>input path: /scratch/$PROJECT/$USER/access-esm/input</terminal-line>
-    <terminal-line>work path: /scratch/$PROJECT/$USER/access-esm/work</terminal-line>
-    <terminal-line>archive path: /scratch/$PROJECT/$USER/access-esm/archive</terminal-line>
-    <terminal-line>Found experiment archive: /scratch/$PROJECT/$USER/access-esm/archive/preindustrial+concentrations-expt-0635396b</terminal-line>
+    <terminal-line>laboratory path: /scratch/&#36;PROJECT/&#36;USER/access-esm</terminal-line>
+    <terminal-line>binary path: /scratch/&#36;PROJECT/&#36;USER/access-esm/bin</terminal-line>
+    <terminal-line>input path: /scratch/&#36;PROJECT/&#36;USER/access-esm/input</terminal-line>
+    <terminal-line>work path: /scratch/&#36;PROJECT/&#36;USER/access-esm/work</terminal-line>
+    <terminal-line>archive path: /scratch/&#36;PROJECT/&#36;USER/access-esm/archive</terminal-line>
+    <terminal-line>Found experiment archive: /scratch/&#36;PROJECT/&#36;USER/access-esm/archive/preindustrial+concentrations-expt-0635396b</terminal-line>
     <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
     <terminal-line>Loading access-esm1p5/2024.12.0</terminal-line>
     <terminal-line>    Loading requirement: cice4/2024.05.21-izhg4i3 mom5/access-esm1.5_2024.08.23-m5h4mmw um7/2024.10.17-l3w5m5u</terminal-line>

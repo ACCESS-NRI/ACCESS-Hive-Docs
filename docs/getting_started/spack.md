@@ -101,7 +101,7 @@ spack env create test ACCESS-TEST/spack.yaml
     <terminal-line>Receiving objects: 100% (33/33), 15.92 KiB | 1.06 MiB/s, done.</terminal-line>
     <terminal-line>Resolving deltas: 100% (12/12), done.</terminal-line>
   <terminal-line data="input">spack env create test ACCESS-TEST/spack.yaml</terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">test</span> in: <span class="spack-cyan">/g/data/$PROJECT/$USER/spack/0.22/environments/test</span></terminal-line>
+  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">test</span> in: <span class="spack-cyan">/g/data/\$PROJECT/\$USER/spack/0.22/environments/test</span></terminal-line>
   <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env -p activate test</span></terminal-line>
 </terminal-window>
 
