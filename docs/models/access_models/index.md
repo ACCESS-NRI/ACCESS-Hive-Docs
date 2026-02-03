@@ -6,7 +6,6 @@ Developed in collaboration with international climate modeling institutions, the
 Below is a list of ACCESS models supported by ACCESS-NRI.
 
 <div class="card-container">
-    <!-- ACCESS-CM -->
     <a href="access-cm/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model-config-logos/configurations-without-titles/access-cm.png" class="white-background img-contain"></img> 
@@ -18,7 +17,6 @@ Below is a list of ACCESS models supported by ACCESS-NRI.
             </span>
         </div>
     </a>
-    <!-- ACCESS-ESM -->
     <a href="access-esm/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model-config-logos/configurations-without-titles/access-esm.png" class="white-background img-contain"></img> 
@@ -30,7 +28,6 @@ Below is a list of ACCESS models supported by ACCESS-NRI.
             </span>
         </div>
     </a>
-    <!-- ACCESS-OM -->
     <a href="access-om/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model-config-logos/configurations-without-titles/access-om.png" class="white-background img-contain"></img> 
