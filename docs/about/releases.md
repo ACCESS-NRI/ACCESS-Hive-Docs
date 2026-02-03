@@ -23,7 +23,7 @@ We develop and share our model configurations[^1] and tools in stages. Each stag
         <div class="card-text-container">
             <span class="bold" >ACCESS-NRI Release List</span>
             <span>
-                See a list of 'full' releases and links to release notes.
+                See a list of <i>Full Releases</i> with links to release notes.
             </span>
         </div>
     </a>
