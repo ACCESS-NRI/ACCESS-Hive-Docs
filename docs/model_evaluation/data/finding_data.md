@@ -30,16 +30,19 @@ See the **[NCI Data Catalogue User Guide](https://opus.nci.org.au/spaces/Help/pa
 
 
 
-## ACCESS-NRI Data Catalogue
-The ACCESS-NRI Data catalogue supports discovery of ACCESS model and other related datasets across a wide range of model configurations and experiments, including datasets that may not yet be formally published.
 
-Unlike the NCI Data Catalogue, the ACCESS-NRI catalogue enables searching based on metadata describing the contents of the data itself, including:
+## ACCESS-NRI Data Catalogue
+The ACCESS-NRI Data Catalogue supports discovery of ACCESS model and other related datasets across a wide range of model configurations and experiments, including datasets that may not yet be formally published.
+
+Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue enables searching based on metadata describing the contents of the data itself, including:
+
 - variable names
 - temporal frequency of output
 - realms
 - model components, configurations, and experiments
 
-The ACCESS-NRI catalogue is accessible via a Python API ([The ACCESS-NRI Intake Catalog](/model_evaluation/data/access_nri_intake)), allowing users to query and filter metadata. An interactive, web-based version of the catalogue is currently in development ([The ACCESS-NRI Interactive Data Catalog](https://charles-turner-1.github.io/catalog-viewer-spa/#/)).
+
+The ACCESS-NRI Catalogue is accessible via a Python API ([The ACCESS-NRI Intake Catalog](/model_evaluation/data/access_nri_intake)), allowing users to query and filter metadata. An interactive, web-based version of the catalogue is currently in development ([The ACCESS-NRI Interactive Data Catalog](https://charles-turner-1.github.io/catalog-viewer-spa/#/)).
 
 Note that the ACCESS-NRI catalogue includes the ACCESS-related datasets that are in the NCI Data Catalogue.
 

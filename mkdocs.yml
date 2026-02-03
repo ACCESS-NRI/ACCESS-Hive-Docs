@@ -141,6 +141,7 @@ nav:
     - model_evaluation/index.md
     - Data:
       - model_evaluation/data/index.md
+      - Finding ACCESS Data: model_evaluation/data/finding_data.md
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
       - ACCESS-NRI Intake Catalog: model_evaluation/data/access_nri_intake.md
       - ACCESS-NRI Interactive Catalog: model_evaluation/data/interactive_catalogue.md
