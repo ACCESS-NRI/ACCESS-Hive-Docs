@@ -577,7 +577,7 @@ For the atmospheric output data, the files are typically a [UM fieldsfile](https
 
 For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 <terminal-window>
-    <terminal-line data="input">cd /scratch/&lt;$PROJECT&gt;/&lt;$USER&gt;/archive</terminal-line>
+    <terminal-line data="input">cd /scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive</terminal-line>
     <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive">ls</terminal-line>
     <terminal-line class="ls-output-format">cy339 &lt;other-suite-name&gt; &lt;other-suite-name&gt;</terminal-line>
     <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive">cd cy339</terminal-line>
