@@ -22,8 +22,6 @@ If you want to modify and build a model, while maintaining a clear record of you
 
 The build workflow described in this page is specifically designed to run on the [National Computating Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
 
-The following instructions outline how to trigger a prerelease build of [ACCESS-ESM1.5][esm1.5 config] after modifying its [MOM5 component]. All other components of the official [ACCESS-ESM1.5 release]({{esm1_5_build_config}}) will remain unchanged.
-
 As an example, in the following instructions we will show how to modify [MOM5 component] for [ACCESS-ESM1.5][esm1.5 config] and re-compile the relevant ACCESS-ESM1.5 dependencies. All other components and packages (i.e., dependencies) of the official [ACCESS-ESM1.5 release]({{esm1_5_build_config}}) will remain unchanged.
 
 !!! tip
@@ -89,7 +87,7 @@ spack env create mom5_dev ACCESS-ESM1.5/spack.yaml
   <terminal-line>Receiving objects: 100% (29/29), 16.40 KiB | 2.38 MiB/s, done.</terminal-line>
   <terminal-line>Resolving deltas: 100% (6/6), done.</terminal-line>
   <terminal-line data="input">spack env create mom5_dev ACCESS-ESM1.5/spack.yaml</terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">mom5_dev</span> in: <span class="spack-cyan">/g/data/$PROJECT/$USER/spack/0.22/environments/mom5_dev</span></terminal-line>
+  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">mom5_dev</span> in: <span class="spack-cyan">/g/data/\$PROJECT/\$USER/spack/0.22/environments/mom5_dev</span></terminal-line>
   <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env activate mom5_dev</span></terminal-line>
 </terminal-window>
 
@@ -204,106 +202,106 @@ spack install
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">glibc-2.28-mqjolvbeskcnhz5chvtdshk4x4sfnycs</span> <span class="bold">[1/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/glibc-2.28-mqjolvbeskcnhz5chvtdshk4x4sfnycs
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/glibc-2.28-mqjolvbeskcnhz5chvtdshk4x4sfnycs
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc</span> <span class="bold">[2/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">openmpi-4.0.2-ikhujrkyukytbkxxyk3mub44v63vuzfz</span> <span class="bold">[3/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/openmpi-4.0.2-ikhujrkyukytbkxxyk3mub44v63vuzfz
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/openmpi-4.0.2-ikhujrkyukytbkxxyk3mub44v63vuzfz
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6</span> <span class="bold">[4/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">fcm-2021.05.0-ho2ie66tizhxpjjiilnrjnlnbi6safwq</span> <span class="bold">[5/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/fcm-2021.05.0-ho2ie66tizhxpjjiilnrjnlnbi6safwq
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/fcm-2021.05.0-ho2ie66tizhxpjjiilnrjnlnbi6safwq
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">zlib-ng-2.1.6-h45fvywj47wc4uwa37mfzkdsqrgcqxux</span> <span class="bold">[6/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/zlib-ng-2.1.6-h45fvywj47wc4uwa37mfzkdsqrgcqxux
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/zlib-ng-2.1.6-h45fvywj47wc4uwa37mfzkdsqrgcqxux
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">dummygrib-1.0-qy5w2d7tmsbmvnqng2xlopdkd4m2grvb</span> <span class="bold">[7/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/dummygrib-1.0-qy5w2d7tmsbmvnqng2xlopdkd4m2grvb
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/dummygrib-1.0-qy5w2d7tmsbmvnqng2xlopdkd4m2grvb
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">pkgconf-2.2.0-ugenh6g4dnhti4p6ktbkfku6pzlq5fkr</span> <span class="bold">[8/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/pkgconf-2.2.0-ugenh6g4dnhti4p6ktbkfku6pzlq5fkr
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/pkgconf-2.2.0-ugenh6g4dnhti4p6ktbkfku6pzlq5fkr
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">gcom4-git.2024.05.28=access-esm1.5-xalavwvyp3jv6emsnj7yecrqprwp3kag</span> <span class="bold">[9/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gcom4-git.2024.05.28_access-esm1.5-xalavwvyp3jv6emsnj7yecrqprwp3kag
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gcom4-git.2024.05.28_access-esm1.5-xalavwvyp3jv6emsnj7yecrqprwp3kag
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">hdf5-1.10.11-yfo7fumh2agj6itfzqa6l2dpccrypp2l</span> <span class="bold">[10/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/hdf5-1.10.11-yfo7fumh2agj6itfzqa6l2dpccrypp2l
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/hdf5-1.10.11-yfo7fumh2agj6itfzqa6l2dpccrypp2l
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">netcdf-c-4.7.4-725rz7cn7qupsi4egyeaix2crssvtoxp</span> <span class="bold">[11/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-c-4.7.4-725rz7cn7qupsi4egyeaix2crssvtoxp
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-c-4.7.4-725rz7cn7qupsi4egyeaix2crssvtoxp
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">netcdf-fortran-4.5.2-5xcyy2h34vaq77ouwsgd6lfes5zycoii</span> <span class="bold">[12/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-fortran-4.5.2-5xcyy2h34vaq77ouwsgd6lfes5zycoii
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-fortran-4.5.2-5xcyy2h34vaq77ouwsgd6lfes5zycoii
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">oasis3-mct-git.access-esm1.5_2024.05.24=access-esm1.5-py3awb76nw3lwjw5ea3uktmh2nm254gi</span> <span class="bold">[13/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/oasis3-mct-git.access-esm1.5_2024.05.24_access-esm1.5-py3awb76nw3lwjw5ea3uktmh2nm254gi
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/oasis3-mct-git.access-esm1.5_2024.05.24_access-esm1.5-py3awb76nw3lwjw5ea3uktmh2nm254gi
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">mom5-git.access-esm1.5_2024.08.23=access-esm1.5-oopqoqgqu65cybqht23l6m6coxbrpzqh</span> <span class="bold">[14/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/mom5-git.access-esm1.5_2024.08.23_access-esm1.5-oopqoqgqu65cybqht23l6m6coxbrpzqh
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/mom5-git.access-esm1.5_2024.08.23_access-esm1.5-oopqoqgqu65cybqht23l6m6coxbrpzqh
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">um7-git.2024.07.03=access-esm1.5-udr7pbnflpwzuawejuuc4xpmfuwtpc4x</span> <span class="bold">[15/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/um7-git.2024.07.03_access-esm1.5-udr7pbnflpwzuawejuuc4xpmfuwtpc4x
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/um7-git.2024.07.03_access-esm1.5-udr7pbnflpwzuawejuuc4xpmfuwtpc4x
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">cice4-git.2024.05.21=access-esm1.5-hhtnigwxdyz7ta4dv3gvhwulze6hxqra</span> <span class="bold">[16/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cice4-git.2024.05.21_access-esm1.5-hhtnigwxdyz7ta4dv3gvhwulze6hxqra
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cice4-git.2024.05.21_access-esm1.5-hhtnigwxdyz7ta4dv3gvhwulze6hxqra
   </terminal-line>
   <terminal-line>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">access-esm1p5-git.2024.05.1=2024.05.1-nkvasig2zrq2ocz6evva6bmurdq7nh3h</span> <span class="bold">[17/17]</span>
   </terminal-line>
   <terminal-line>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/access-esm1p5-git.2024.05.1_2024.05.1-nkvasig2zrq2ocz6evva6bmurdq7nh3h
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/access-esm1p5-git.2024.05.1_2024.05.1-nkvasig2zrq2ocz6evva6bmurdq7nh3h
   </terminal-line>
   <terminal-line>
-    <span class="spack-indigo bold">\==></span> Updating view at /g/data/$PROJECT/$USER/spack/0.22/environments/mom5_dev/.spack-env/view
+    <span class="spack-indigo bold">\==></span> Updating view at /g/data/\$PROJECT/\$USER/spack/0.22/environments/mom5_dev/.spack-env/view
   </terminal-line>
 </terminal-window>
 
@@ -579,64 +577,64 @@ spack install
   </terminal-line>
   <terminal-line data="input" directory="[mom5_dev]" lineDelay=200 class="spack">spack install</terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/glibc-2.28-mqjolvbeskcnhz5chvtdshk4x4sfnycs
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/glibc-2.28-mqjolvbeskcnhz5chvtdshk4x4sfnycs
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/openmpi-4.0.2-ikhujrkyukytbkxxyk3mub44v63vuzfz
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/openmpi-4.0.2-ikhujrkyukytbkxxyk3mub44v63vuzfz
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/fcm-2021.05.0-ho2ie66tizhxpjjiilnrjnlnbi6safwq
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/fcm-2021.05.0-ho2ie66tizhxpjjiilnrjnlnbi6safwq
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/zlib-ng-2.1.6-h45fvywj47wc4uwa37mfzkdsqrgcqxux
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/zlib-ng-2.1.6-h45fvywj47wc4uwa37mfzkdsqrgcqxux
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/dummygrib-1.0-qy5w2d7tmsbmvnqng2xlopdkd4m2grvb
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/dummygrib-1.0-qy5w2d7tmsbmvnqng2xlopdkd4m2grvb
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/pkgconf-2.2.0-ugenh6g4dnhti4p6ktbkfku6pzlq5fkr
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/pkgconf-2.2.0-ugenh6g4dnhti4p6ktbkfku6pzlq5fkr
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gcom4-git.2024.05.28_access-esm1.5-xalavwvyp3jv6emsnj7yecrqprwp3kag
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/gcom4-git.2024.05.28_access-esm1.5-xalavwvyp3jv6emsnj7yecrqprwp3kag
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/hdf5-1.10.11-yfo7fumh2agj6itfzqa6l2dpccrypp2l
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/hdf5-1.10.11-yfo7fumh2agj6itfzqa6l2dpccrypp2l
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-c-4.7.4-725rz7cn7qupsi4egyeaix2crssvtoxp
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-c-4.7.4-725rz7cn7qupsi4egyeaix2crssvtoxp
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-fortran-4.5.2-5xcyy2h34vaq77ouwsgd6lfes5zycoii
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/netcdf-fortran-4.5.2-5xcyy2h34vaq77ouwsgd6lfes5zycoii
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/oasis3-mct-git.access-esm1.5_2024.05.24_access-esm1.5-py3awb76nw3lwjw5ea3uktmh2nm254gi
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/oasis3-mct-git.access-esm1.5_2024.05.24_access-esm1.5-py3awb76nw3lwjw5ea3uktmh2nm254gi
   </terminal-line>
   <terminal-line lineDelay=200>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">mom5-git.access-esm1.5_2024.08.23=access-esm1.5-l34w7is54xzer7s4ztvb5ymgjbtduknh</span> <span class="bold">[14/17]</span>
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/mom5-git.access-esm1.5_2024.08.23_access-esm1.5-l34w7is54xzer7s4ztvb5ymgjbtduknh
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/mom5-git.access-esm1.5_2024.08.23_access-esm1.5-l34w7is54xzer7s4ztvb5ymgjbtduknh
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/um7-git.2024.07.03_access-esm1.5-udr7pbnflpwzuawejuuc4xpmfuwtpc4x
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/um7-git.2024.07.03_access-esm1.5-udr7pbnflpwzuawejuuc4xpmfuwtpc4x
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cice4-git.2024.05.21_access-esm1.5-hhtnigwxdyz7ta4dv3gvhwulze6hxqra
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/cice4-git.2024.05.21_access-esm1.5-hhtnigwxdyz7ta4dv3gvhwulze6hxqra
   </terminal-line>
   <terminal-line lineDelay=200>
     <span class="spack-indigo bold">\==></span> <span class="bold">Installing</span> <span class="spack-green">access-esm1p5-git.2024.05.1_2024.05.1-nkvasig2zrq2ocz6evva6bmurdq7nh3h</span> <span class="bold">[17/17]</span>
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/access-esm1p5-git.2024.05.1_2024.05.1-nkvasig2zrq2ocz6evva6bmurdq7nh3h
+    <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/restricted/ukmo/release/linux-rocky8-x86_64_v4/intel-19.0.3.199/access-esm1p5-git.2024.05.1_2024.05.1-nkvasig2zrq2ocz6evva6bmurdq7nh3h
   </terminal-line>
   <terminal-line lineDelay=200>
-    <span class="spack-indigo bold">\==></span> Updating view at /g/data/$PROJECT/$USER/spack/0.22/environments/mom5_dev/.spack-env/view
+    <span class="spack-indigo bold">\==></span> Updating view at /g/data/\$PROJECT/\$USER/spack/0.22/environments/mom5_dev/.spack-env/view
   </terminal-line>
 </terminal-window>
 
