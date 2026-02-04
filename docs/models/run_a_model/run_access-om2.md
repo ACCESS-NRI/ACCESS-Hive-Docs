@@ -274,11 +274,11 @@ This command will:
 
 <terminal-window>
     <terminal-line data="input">payu setup</terminal-line>
-    <terminal-line>laboratory path: /scratch/$PROJECT/$USER/access-om2</terminal-line>
-    <terminal-line>binary path: /scratch/$PROJECT/$USER/access-om2/bin</terminal-line>
-    <terminal-line>input path: /scratch/$PROJECT/$USER/access-om2/input</terminal-line>
-    <terminal-line>work path: /scratch/$PROJECT/$USER/access-om2/work</terminal-line>
-    <terminal-line>archive path: /scratch/$PROJECT/$USER/access-om2/archive</terminal-line>
+    <terminal-line>laboratory path: /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
+    <terminal-line>binary path: /scratch/\$PROJECT/\$USER/access-om2/bin</terminal-line>
+    <terminal-line>input path: /scratch/\$PROJECT/\$USER/access-om2/input</terminal-line>
+    <terminal-line>work path: /scratch/\$PROJECT/\$USER/access-om2/work</terminal-line>
+    <terminal-line>archive path: /scratch/\$PROJECT/\$USER/access-om2/archive</terminal-line>
     <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
     <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
     <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
