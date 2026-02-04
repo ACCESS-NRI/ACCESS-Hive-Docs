@@ -157,7 +157,7 @@ spack install
     </terminal-line>
     <terminal-line></terminal-line>
     <terminal-line>
-        <span class="spack-indigo">\==></span> Updating view at /g/data/&#36;PROJECT/&#36;USER/spack/0.22/environments/test/.spack-env/view</terminal-line>
+        <span class="spack-indigo">\==></span> Updating view at /g/data/\$PROJECT/\$USER/spack/0.22/environments/test/.spack-env/view</terminal-line>
     </terminal-line>
     <!-- spack install -->
     <terminal-line directory="[test]" class="spack" lineDelay=2000 data="input">
@@ -167,37 +167,37 @@ spack install
         <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p</span> <span class="spack-highlighted">[1/6]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/&#36;PROJECT/&#36;USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p
+        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p
     </terminal-line>
     <terminal-line>
         <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc</span> <span class="spack-highlighted">[2/6]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/&#36;PROJECT/&#36;USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
+        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
     </terminal-line>
     <terminal-line>
         <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f</span> <span class="spack-highlighted">[3/6]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/&#36;PROJECT/&#36;USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f
+        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f
     </terminal-line>
     <terminal-line>
         <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6</span> <span class="spack-highlighted">[4/6]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/&#36;PROJECT/&#36;USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
+        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
     </terminal-line>
     <terminal-line>
         <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx</span> <span class="spack-highlighted">[5/6]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/&#36;PROJECT/&#36;USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx
+        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx
     </terminal-line>
     <terminal-line>
         <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr</span> <span class="spack-highlighted">[6/6]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/&#36;PROJECT/&#36;USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr
+        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr
     </terminal-line>
 </terminal-window>
 

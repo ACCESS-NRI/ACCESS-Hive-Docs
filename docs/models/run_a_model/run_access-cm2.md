@@ -390,9 +390,9 @@ After the initial tasks are executed, the _Cylc_ GUI will open. You can now view
 !!! warning
     After running the command `rose suite-run`, if you get an error similar to the following:
     <pre><code><span style="color: orangered">[FAIL]</span> Suite "&lt;suite-ID&gt;" appears to be running:
-    <span style="color: orangered">[FAIL]</span> Contact info from: "/home/565/&lt;&#36;USER&gt;/cylc-run/&lt;suite-ID&gt;/.service/contact"
+    <span style="color: orangered">[FAIL]</span> Contact info from: "/home/565/&lt;\$USER&gt;/cylc-run/&lt;suite-ID&gt;/.service/contact"
     <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_HOST=&lt;persistent-session-full-name&gt;
-    <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_OWNER=&lt;&#36;USER&gt;
+    <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_OWNER=&lt;\$USER&gt;
     <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_PORT=&lt;port&gt;
     <span style="color: orangered">[FAIL]</span>    CYLC_SUITE_PROCESS=&lt;PID&gt; /g/data/hr22/apps/cylc7/bin/python -s /g/data/hr22/apps/cylc7/cylc_7.9.7/bin/cylc-run &lt;suite-ID&gt; --host=localhost
     <span style="color: orangered">[FAIL]</span> Try "cylc stop '&lt;suite-ID&gt;'" first?</code></pre>
@@ -577,13 +577,13 @@ For the atmospheric output data, the files are typically a [UM fieldsfile](https
 
 For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 <terminal-window>
-    <terminal-line data="input">cd /scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive">ls</terminal-line>
+    <terminal-line data="input">cd /scratch/&lt;\$PROJECT&gt;/&lt;\$USER&gt;/archive</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;\$PROJECT&gt;/&lt;\$USER&gt;/archive">ls</terminal-line>
     <terminal-line class="ls-output-format">cy339 &lt;other-suite-name&gt; &lt;other-suite-name&gt;</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive">cd cy339</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive/cy339">ls</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;\$PROJECT&gt;/&lt;\$USER&gt;/archive">cd cy339</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;\$PROJECT&gt;/&lt;\$USER&gt;/archive/cy339">ls</terminal-line>
     <terminal-line class="ls-output-format">history restart</terminal-line>
-    <terminal-line data="input" directory="/scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive/cy339">ls history/atm</terminal-line>
+    <terminal-line data="input" directory="/scratch/&lt;\$PROJECT&gt;/&lt;\$USER&gt;/archive/cy339">ls history/atm</terminal-line>
     <terminal-line class="ls-output-format">cy339a.pd0950apr.nc cy339a.pd0950aug.nc cy339a.pd0950dec.nc cy339a.pd0950feb.nc cy339a.pd0950jan.nc cy339a.pd0950jul.nc cy339a.pd0950jun.nc cy339a.pd0950mar.nc cy339a.pd0950may.nc cy339a.pd0950nov.nc cy339a.pd0950oct.nc cy339a.pd0950sep.nc cy339a.pd0951apr.nc cy339a.pd0951aug.nc cy339a.pd0951dec.nc cy339a.pm0950apr.nc cy339a.pm0950aug.nc cy339a.pm0950dec.nc cy339a.pm0950feb.nc cy339a.pm0950jan.nc cy339a.pm0950jul.nc cy339a.pm0950jun.nc cy339a.pm0950mar.nc cy339a.pm0950may.nc cy339a.pm0950nov.nc cy339a.pm0950oct.nc cy339a.pm0950sep.nc cy339a.pm0951apr.nc cy339a.pm0951aug.nc cy339a.pm0951dec.nc netCDF</terminal-line>
 </terminal-window>
 
@@ -593,7 +593,7 @@ The atmospheric restart files, which are [UM fieldsfiles](https://code.metoffice
 
 For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 <terminal-window>
-    <terminal-line data="input">ls /scratch/&lt;&#36;PROJECT&gt;/&lt;&#36;USER&gt;/archive/cy339/restart/atm</terminal-line>
+    <terminal-line data="input">ls /scratch/&lt;\$PROJECT&gt;/&lt;\$USER&gt;/archive/cy339/restart/atm</terminal-line>
     <terminal-line class="ls-output-format">cy339a.da09500201_00 cy339a.da09510101_00 cy339.xhist-09500131 cy339.xhist-09501231 </terminal-line>
 </terminal-window>
 
