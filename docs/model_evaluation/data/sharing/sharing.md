@@ -12,8 +12,13 @@ datasets, as long as the data is of value to the ACCESS community then support
 may be available.
 These storage options are funded by ACCESS-NRI and allocated based on their
 merit to the ACCESS community.
-Datasets participating in this scheme will be periodically reviewed on their
-continued merit and the storage capacity available to ACCESS-NRI.
+
+Regular reviews of the datasets will be conducted to ensure they demonstrate
+ongoing value.
+As the scheme matures and available storage becomes limited, recommendations
+for changes, including retirement or transition of low-value datasets and
+adjustments to the approach or processes for approving requests and reviewing
+allocations, will be submitted to the ACCESS-NRI SAC for advice.
 
 |                         | Working Group | Sandbox    | Reference Dataset |
 | ----------------------: | :-----------: | :--------: | :---------------: |
