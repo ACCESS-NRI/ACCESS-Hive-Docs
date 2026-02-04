@@ -119,7 +119,7 @@ persistent-sessions list
 
 
 The label of a newly-created persistent session has the following format: <br>
-`<name>.<$USER&gt;.<project>.ps.gadi.nci.org.au`.
+`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.
 
 ### Specify {{ model }} target persistent session
 
