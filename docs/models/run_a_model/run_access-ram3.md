@@ -4,8 +4,8 @@
 {% set rns_id = "u-by395" %}
 {% set branch_ras = "nci_access_ram3" %}
 {% set branch_rns = "nci_access_ram3" %}
-{% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/u/5/0/3/ ~ branch" %}
-{% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/ ~ branch" %}
+{% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/u/5/0/3/nci_access_ram3 ~ branch" %}
+{% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/nci_access_ram3 ~ branch" %}
 {% set access_models = "/models/access_models/access-ram" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-ram3-release-information/4308/6" %}
 {% set config_docs = "https://access-ram3-configs.access-hive.org.au" %}
