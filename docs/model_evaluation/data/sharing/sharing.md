@@ -65,7 +65,7 @@ The Datapool is managed by the ACCESS-NRI Data team.
 ACCESS-NRI also supports a number of Reference datasets which are considered of
 value to the community are intended for support broad access, use, and citation.
 These datasets are more carefully curated, can be given DOIs, can be exposed
-to the public via NCI's THREDDS service, and are typically part of [NCI's data
+to the public via NCI's THREDDS service, and are typically published in [NCI's data
 catalogue](https://geonetwork.nci.org.au).
 
 The ACCESS Reference Datasets are managed by the ACCESS-NRI Data team and NCI.
