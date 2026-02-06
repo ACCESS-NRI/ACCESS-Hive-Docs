@@ -1,7 +1,7 @@
 # Sharing ACCESS Data
 
 ACCESS-NRI has a number of options to support the ACCESS community with sharing
-data at NCI, roughly divided into three areas:
+data at NCI, divided into three areas:
 
 - ACCESS Working Group Storage
 - ACCESS Community Datapool
