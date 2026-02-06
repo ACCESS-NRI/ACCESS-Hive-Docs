@@ -19,7 +19,7 @@ for changes, including retirement or transition of datasets, will be submitted t
 the [ACCESS-NRI Scientific Advisory Committee](https://www.access-nri.org.au/about/scientific-advisory-committee-sac/)
 for advice.
 
-The following table gives a rough guidelines for these storage options:
+The following table gives rough guidelines for usage of the three storage options:
 
 |                         | Working Group | Datapool   | Reference Datasets |
 | ----------------------: | :-----------: | :--------: | :----------------: |
