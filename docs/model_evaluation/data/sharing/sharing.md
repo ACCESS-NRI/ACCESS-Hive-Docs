@@ -22,16 +22,17 @@ for advice.
 
 The following table gives a rough guidelines for these storage options:
 
-|                        | Working Group | Datapool   | Reference Datasets |
-| ---------------------: | :-----------: | :--------: | :----------------: |
-| **Timeframe Guidline** | <1 year       | 1-2 years  | >2 years           |
-| **Data State**         | Any           | Stable     | Finalised          |
-| **Sharing Scope**      | Working group | Gadi       | Global             |
-| **Managed by**         | Working group | ACCESS-NRI | ACCESS-NRI & NCI   |
-| **Metadata Overhead**  | Minimal       | Small      | Medium             |
-| **NCI Catalogue**      | ✗             | ✗          | ✓                  |
-| **DOI**                | ✗             | ✗          | ✓                  |
-| **Public Access**      | ✗             | ✗          | ✓                  |
+|                         | Working Group | Datapool   | Reference Datasets |
+| ----------------------: | :-----------: | :--------: | :----------------: |
+| **Timeframe Guideline** | <1 year       | 1-2 years  | >2 years           |
+| **Data State**          | Any           | Stable     | Finalised          |
+| **Sharing Scope**       | Working group | Gadi       | Global             |
+| **Managed by**          | Working group | ACCESS-NRI | ACCESS-NRI & NCI   |
+| **Metadata Overhead**   | Minimal       | Small      | Medium             |
+| **ACCESS Catalogue**    | ✗             | ✓          | ✓                  |
+| **NCI Catalogue**       | ✗             | ✗          | ✓                  |
+| **DOI**                 | ✗             | ✗          | ✓                  |
+| **Public Access**       | ✗             | ✗          | ✓                  |
 
 
 ## Working Group Storage
