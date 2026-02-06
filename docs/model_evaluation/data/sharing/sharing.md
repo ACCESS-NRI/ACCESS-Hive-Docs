@@ -46,7 +46,7 @@ See this page for more information on
 Working group storage is ideal for data that is under active development or only
 needs to be shared within the working group.
 
-Each working group's storage is managed by the working group themselves.
+Each working group's storage is managed by the working group members.
 
 
 ## ACCESS Community Datapool
