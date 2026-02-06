@@ -12,10 +12,11 @@ datasets, as long as the data is of value to the ACCESS community.
 These storage options are supplied by ACCESS-NRI and support is given based on
 value to the ACCESS community.
 
-Regular reviews of the datasets are conducted to ensure datasets demonstrate
-ongoing value.
-As the scheme matures and available storage becomes limited, recommendations
-for changes, including retirement or transition of datasets, will be submitted to
+Regular reviews of the Datapool and Reference datasets are conducted to ensure
+these datasets demonstrate ongoing value for the ACCESS community.
+As usage across these storage options increases and we develop a better
+understanding of community needs and interests, recommendations for changes,
+including retirement or transition of datasets, will be submitted to
 the [ACCESS-NRI Scientific Advisory Committee](https://www.access-nri.org.au/about/scientific-advisory-committee-sac/)
 for advice.
 
