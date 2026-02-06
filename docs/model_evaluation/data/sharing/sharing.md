@@ -9,7 +9,6 @@ data at NCI, divided into three areas:
 
 These storage options are suitable for both ACCESS model output data and other
 datasets, as long as the data is of value to the ACCESS community.
-may be available.
 These storage options are supplied by ACCESS-NRI and support is given based on
 value to the ACCESS community.
 
