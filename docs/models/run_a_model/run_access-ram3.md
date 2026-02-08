@@ -30,14 +30,16 @@
 
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
-It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
+The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details, see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
+
+!!! tip 
+    It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
 
 The {{ model }} suites are run using the Rose/Cylc workflow management tool. The [Run models using Rose/Cylc](/models/run_a_model/rose_cylc) page has instructions for how to set up and use Rose/Cylc, and the below steps link to the relevant sections.
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
-All {{model}} configurations are available on MOSRS via links at the top of this page.
+All {{model}} configurations are available on MOSRS via links at the [top of this page](/models/run_a_model/run_access-ram3/).
 
 [{{ model }} release notes]({{release_notes}}) are available on the ACCESS-Hive Forum and are updated when new releases are made available.
 
@@ -139,7 +141,7 @@ Set up a persistent session by following the [related instructions on the _Rose/
 ### Set up SSH-keys (once-only) {: .no-toc }
 
 Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
-Follow the [initialisation step](https://opus.nci.org.au/spaces/DAE/pages/249495793/Run+Cylc7+Suites#RunCylc7Suites-InitialisationStep(once-onlyforaccessdevcompatible-mode)) to accurately set up your ssh keys so you can run the model from outside of the persistent session.
+
 ### Set up Rose/Cylc
 
 Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
@@ -150,8 +152,6 @@ Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ pag
 
 Each suite within {{ model }} has a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
 Typically, an existing suite is copied and then edited as needed for a particular experiment.
-
-For more information on {{ model }}, refer to the [{{model}} configuration]({{ access_models }}/{{ model }}) page.
 
 !!! info 
     Many of the following steps appear in both the RAS and RNS. For this reason, these steps will be detailed only within the RAS section below, and subsequently linked to within the RNS section.
@@ -167,8 +167,8 @@ The latest release branch of the RAS is `{{ branch_ras }}`.
 
 Get the RAS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
-- **Suite-ID:** {{ ras_id }}
-- **Branch:** {{ branch_ras }}
+- **Suite-ID:** `{{ ras_id }}`
+- **Branch:** `{{ branch_ras }}`
     
 
 
@@ -178,7 +178,7 @@ Run the RAS by following the [related instructions on the _Rose/Cylc_ page](/mod
 
 The RAS takes about 1 hour to run. You can find estimates of the compute and storage requirements for RAS in the [{{ model }} release notes]({{release_notes}}).
 
-All steps are completed. You have successfully run the RAS!! <br>
+All steps are completed. You have successfully run the RAS! <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
@@ -535,7 +535,7 @@ For example, the model output data for the first cycle (`20220226T0000Z`) of the
     To change which output variables are produced, refer to [{{ model }} configuration documentation]({{config_docs}}/model_outputs/)
 
 
-### Edit {{ model }} configuration
+## Edit {{ model }} configuration
 
 This section describes how to modify the {{ model }} configuration.
 
@@ -552,12 +552,14 @@ Basic instructions on how to edit a model configuration using the Rose GUI can b
 #### Change start date and run length {: #change-run-length }
 <div markdown id="run-length-mismatch">
 !!! warning
-    `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.<br>
-    The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.<br>
-    This means, for example, that with `INITIAL_CYCLE_POINT` set to `20220226T0000Z`, and `FINAL_CYCLE_POINT` set to `+P1D` (plus 1 day), 2 _Cylc_ cycle points will be set (`20220226T0000Z` and `20220227T0000Z`). Therefore, the model will run for a total of 2 days!<br>
-    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` such that the model runs for the number of days specified in the relative duration (refer to the example below).
-
-    The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.<br>
+    `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` define all the [_Cylc_ cycle points](https://cylc.github.io/cylc-doc/7.9.3/html/terminology.html?highlight=cycle%20point#cycle-points) that are set within the experiment run.
+    
+    The model will always run for a full _cycling frequency_ (1 day) for each _Cylc_ cycle point.
+    
+    This means, for example, that with `INITIAL_CYCLE_POINT` set to `20220226T0000Z`, and `FINAL_CYCLE_POINT` set to `+P1D` (plus 1 day), 2 _Cylc_ cycle points will be set (`20220226T0000Z` and `20220227T0000Z`). Therefore, the model will run for a total of 2 days!
+    
+    To avoid running the model for longer than desired, we suggest adding `-PT1S` (minus 1 second) to the relative duration specified in the `FINAL_CYCLE_POINT` such that the model runs for the number of days specified in the relative duration (refer to the example below). The _run length_ is calculated using the `INITIAL_CYCLE_POINT` and `FINAL_CYCLE_POINT` fields.
+    
     Both these fields use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, with `FINAL_CYCLE_POINT` also accepting relative [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 
     For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
