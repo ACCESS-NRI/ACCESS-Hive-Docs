@@ -6,7 +6,6 @@ This version of the specification is intended to be relatively lightweight as a 
 produced in the ACCESS ecosystem towards a common data and metadata standard.
 
 Included here are file and directory naming conventions, variable conventions, and variable and global attributes.
-Variable mappings from ACCESS output variables to CMIP6/7 variables can be found [here](mapping.md).
 
 More information on the ACCESS models can be found [here](https://www.access-nri.org.au/models/).
 Please direct any issues, feedback or queries on the data specification to <data.access.nri@anu.edu.au>.
