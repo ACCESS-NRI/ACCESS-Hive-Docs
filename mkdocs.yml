@@ -144,7 +144,6 @@ nav:
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
       - Sharing Data:
         - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
-        - ACCESS/CMIP Variable Mappings: model_evaluation/data/sharing/mapping.md
         - ACCESS Output Data Specifications: model_evaluation/data/sharing/specification.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
