@@ -43,8 +43,8 @@ The following table gives guidelines for usage of the three storage options:
 
 ## Working Group Storage
 
-Each of the [ACCESS Community Working Groups](/community_resources/community_working_groups) has a storage allocation to support
-the group in their research efforts.
+Each of the [ACCESS Community Working Groups](/community_resources/community_working_groups)
+has a storage allocation to support the group in their research efforts.
 See this page for more information on
 [joining ACCESS working groups](https://www.access-nri.org.au/join-community-working-groups/).
 
