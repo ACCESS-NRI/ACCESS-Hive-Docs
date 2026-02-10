@@ -19,4 +19,7 @@ This is where we put links to our new pages on `Working with ACCESS Data`
 
 ### Sharing ACCESS Data
 
-This is where we put links to our new pages on `Sharing ACCESS Data`
+For more information on methods for sharing ACCESS data see the following pages:
+
+- [ACCESS-NRI Data Sharing and Storage Support](sharing/sharing)
+- [ACCESS Output Data Specifications](sharing/specification)
