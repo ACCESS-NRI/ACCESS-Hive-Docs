@@ -56,11 +56,12 @@ Each working group's storage is managed by the working group members.
 
 ## ACCESS Community Datapool
 
-ACCESS-NRI maintains the ACCESS Community Datapool on Gadi under the project `av17`.
+ACCESS-NRI maintains the **ACCESS Community Datapool** on Gadi under the project `av17`.
 The Datapool supports datasets that are of value to be shared with the community
 but may not be considered ready or appropriate for publication as a Curated Dataset.
-Datapool storage is ideal for stable data that needs to be shared amongst the
-ACCESS community.
+Datapool storage is ideal for stable data that needs to be shared widely amongst
+the ACCESS community but does not require the additional stability and functionality
+available to a Curated Dataset.
 
 The Datapool is managed by the ACCESS-NRI Data team.
 
@@ -69,9 +70,11 @@ The Datapool is managed by the ACCESS-NRI Data team.
 
 ACCESS-NRI also supports datasets which are more carefully curated, can be given
 DOIs, exposed to the public via NCI's THREDDS service, and are typically
-published in [NCI's data catalogue](https://geonetwork.nci.org.au).
-These datasets are prepared with NCI's data team and are more tightly controlled
-than Datapool datasets.
+published in [NCI's data catalogue](https://geonetwork.nci.org.au), such data are
+referred to as **ACCESS Curated Datasets**.
+These datasets are prepared in collarboration with NCI's data team and are more
+tightly controlled and documented than Datapool datasets in order to ensure they
+remain accessible, trustworthy, and (re)usable.
 
 The ACCESS Curated Datasets are managed collaboratively by the ACCESS-NRI and
 NCI data teams.
