@@ -192,8 +192,10 @@ nav:
     - Glossaries: community_resources/glossaries.md
   - About:
     - about/index.md
+    - ACCESS-NRI Releases:
+      - Release list: about/release_list.md
+      - Release stages: about/releases.md
     - Contact: about/contact.md
-    - Release stages: about/releases.md
     - FAQ: about/faq.md
     - User support: about/user_support.md
     - How to Contribute: about/contribute.md
