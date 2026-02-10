@@ -15,6 +15,20 @@ We develop and share our model configurations[^1] and tools in stages. Each stag
 !!! info
     These release definitions will not be applied retroactively to any model configuration or tool release.
 
+<div class="card-container">
+    <a href="/about/release_list" class="horizontal-card">
+        <div class="card-image-container">
+            <img class="img-contain white-background" src="/assets/rocket_release.svg" alt="ACCESS-NRI release list">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS-NRI Release List</span>
+            <span>
+                See a list of <i>Full Releases</i> with links to release notes.
+            </span>
+        </div>
+    </a>
+</div>
+
 ## Release stages for model configurations[^1]
 The table below has some details for each release stage of ACCESS-NRI supported model configurations. Note that this table is valid only for model configurations, and not for tools.
 
