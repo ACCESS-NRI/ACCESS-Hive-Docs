@@ -16,31 +16,22 @@ The ACCESS-NRI Intake catalog enables users to find products that satisfy their 
 A simple use case of the ACCESS-NRI Intake catalog is a user wants to plot a timeseries of a variable from a specific data product.<br>
 For example, the user is interested in plotting a scalar ocean variable called _temp\_global\_ave_ for an [ACCESS-ESM1.5](/models/access-esm) run called _HI\_CN\_05_ (data product). This is an historical run using the same configuration as CMIP6 ACCESS-ESM1.5 historical _r1i1p1f1_, except that the phosphorus limitation within [CASA-CNP](/models/model_components/bgc_land#casa-cnp) is disabled.
 
-First, load the catalog as follows:
+We can load and plot <i>temp_global_ave</i> for <i>HI_CN_05</i> as follows:
 
 ```python
 import intake
-catalog = intake.cat.access_nri
-```
-
-To see all available catalogs, run:
-```
-catalog
-```
-
-Now you can load and plot available datasets for the <i>temp_global_ave</i> variable of the <i>HI_CN_05</i> data product as follows:
-
-```python
 import matplotlib.pyplot as plt
 
-# This returns an xarray Dataset
+# Load the catalogue
+catalog = intake.cat.access_nri
+
+# This returns an Xarray Dataset
 dataset = catalog["HI_CN_05"].search(variable="temp_global_ave").to_dask()
 
 # Plot the data
 dataset["temp_global_ave"].plot()
 plt.title("")
 plt.grid()
-```
 
 <div style="text-align: center;">
     <img src="../../../assets/model_evaluation/intake_example.png" alt="Plot af timeseries of global average temperatures" width="50%"/>
