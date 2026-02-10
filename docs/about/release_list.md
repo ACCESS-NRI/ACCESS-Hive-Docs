@@ -20,23 +20,23 @@
 ## Release type
 The types used to categorise the release products are broad and not all releases fall neatly into these types. Some ACCESS-NRI releases involving training, informational videos on [_YouTube_](https://www.youtube.com/@AustraliasClimateSimulator) and visualisations on [_Vimeo_](https://vimeo.com/accessnri) are not included in the tables below.
 
-:octicons-ai-model-16: [**Model**](#model): Refers to climate model components and [configurations](/about/releases/#fn:1). <br>
-:material-tools: [**Tool**](#tool): Refers to supporting tools used for pre- and post- processing, evaluation and diagnostics. <br>
+:octicons-ai-model-16: [**Model**](#models): Refers to climate model components and [configurations](/about/releases/#fn:1). <br>
+:material-tools: [**Tool**](#tools): Refers to supporting tools used for pre- and post- processing, evaluation and diagnostics. <br>
 :material-database: [**Data**](#data): Collections listed are curated collections which can include data required for model runs, observations for evaluation and some model outputs.
 
 Links in the tables below point to release notes that are usually posted on the [Hive Forum]. 
 In these release notes, make sure you scroll down to the latest post for most recent updates.
 
 
-### Model
+### Models
 | |  |
 | :--- | :---------- |
-|[CABLE](https://forum.access-hive.org.au/t/cable-is-now-under-git-and-github/1643) | Land surface model in ACCESS models. Code available on GitHub |
+|[ACCESS-ESM1.5](https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352) | A coupled global Earth system model |
 |[ACCESS-OM2](https://forum.access-hive.org.au/t/access-om2-release-information/1602) | Global coupled Ocean-Sea Ice Model developed by COSIMA |
-| [ACCESS-ESM1.5](https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352) | A coupled global earth system model |
-|[Regional nesting suite (rAM3)](https://forum.access-hive.org.au/t/access-ram3-release-information/4308) | An implementation of the UK Met Office (UKMO) regional nesting suite that supports creating regional atmosphere/land configurations in an Australian context |
+|[ACCESS-rAM3](https://forum.access-hive.org.au/t/access-ram3-release-information/4308) | An implementation of the UK Met Office (UKMO) regional nesting suite that supports creating regional atmosphere/land configurations in an Australian context |
+|[CABLE](https://forum.access-hive.org.au/t/cable-is-now-under-git-and-github/1643) | Land surface model in ACCESS models. Code available on GitHub |
 
-### Tool
+### Tools
 | |  |
 | :--- | :---------- |
 |[ESMValTool Workflow](https://forum.access-hive.org.au/t/esmvaltool-workflow-releases/1599) | NCI configuration of ESMValTool developed for evaluations of Earth System Models in CMIP |
@@ -54,5 +54,5 @@ In these release notes, make sure you scroll down to the latest post for most re
 |  |  |
 | :--- | :---------- |
 |[Replicated datasets for evaluation](https://forum.access-hive.org.au/t/official-release-of-the-access-nri-replicated-datasets-for-climate-model-evaluation-nci-data-collection/1661) | Observational datasets in a format that the evaluation frameworks supported by ACCESS-NRI can use |
-| [AUS2200](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f6014_0604_9188_1923) | AUS2200 is a high-resolution regional atmospheric model configuration that covers the entire Australian continent and surrounding oceans at 2.2km grid spacing, using the UM atmospheric model|
+|[AUS2200](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f6014_0604_9188_1923) | A high-resolution regional atmospheric model configuration that covers the entire Australian continent and surrounding oceans at 2.2km grid spacing, using the UM atmospheric model|
 |[Ancillary Data](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f9243_2030_4580_5589) | This collection provides access to replica, ancillary and other useful data for ACCESS-NRI and the broader community |
