@@ -20,6 +20,7 @@ The catalogue allows you to search and browse at the dataset level, including:
 - model, experiment, and project information
 - publication status and citation details
 - links to documentation and data locations at NCI
+- download files from supported datasets over the web via THREDDS
 
 **Best for:** finding known, published ACCESS datasets <br>
 **Without an NCI account:** browse the catalogue and view all high-level dataset metadata <br>
@@ -47,7 +48,7 @@ The ACCESS-NRI Catalogue is accessible in two ways:
 - via a web-based version, the [ACCESS-NRI Interactive Catalog](/model_evaluation/data/interactive_catalogue)) (currently in alpha testing).
 
 **Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
-**Without an NCI account:** catalogue is currently not accessible <br>
-**With an NCI account:** required to access the catalogue and datasets within the catalogue <br>
+**Without an NCI account:** catalogue can be [viewed](/model_evaluation/data/interactive_catalogue) but data will not be accessible <br>
+**With an NCI account:** required to access the catalogue and datasets on Gadi <br>
 **More information:**
 See the **[ACCESS-NRI Data catalogue documentation](https://access-nri-intake-catalog.readthedocs.io/en/latest/index.html)**
