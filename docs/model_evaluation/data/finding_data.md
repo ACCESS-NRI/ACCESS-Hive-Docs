@@ -46,7 +46,7 @@ The ACCESS-NRI Catalogue is accessible via a Python API ([The ACCESS-NRI Intake 
 
 Note that the ACCESS-NRI catalogue includes the ACCESS-related datasets that are in the NCI Data Catalogue.
 
-**Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading an using data<br>
+**Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
 **Without an NCI account:** catalogue is currently not accessible <br>
 **With an NCI account:** required to access the catalogue and datasets within the catalogue <br>
 **More information:**
