@@ -42,7 +42,7 @@ Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue enables searching based 
 - model components, configurations, and experiments
 
 
-The ACCESS-NRI Catalogue is accessible via a Python API ([The ACCESS-NRI Intake Catalog](/model_evaluation/data/access_nri_intake)), allowing users to query and filter metadata. An interactive, web-based version of the catalogue is currently in development ([The ACCESS-NRI Interactive Data Catalog](https://charles-turner-1.github.io/catalog-viewer-spa/#/)).
+The ACCESS-NRI Catalogue is accessible via a Python API ([The ACCESS-NRI Intake Catalog](/model_evaluation/data/access_nri_intake)), allowing users to query and filter metadata. An interactive, web-based version of the catalogue is currently in development ([The ACCESS-NRI Interactive Data Catalog](https://charles-turner-1.github.io/catalog-viewer-spa/)).
 
 Note that the ACCESS-NRI catalogue includes the ACCESS-related datasets that are in the NCI Data Catalogue.
 
