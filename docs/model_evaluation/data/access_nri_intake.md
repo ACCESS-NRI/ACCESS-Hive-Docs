@@ -1,19 +1,19 @@
 # Accessing Model Data on Gadi
 
-To assist with finding and accessing model data on Gadi, ACCESS-NRI maintains a catalog called the ACCESS-NRI Intake catalog.
-This aims to provide a way for Python users to discover and load data across a broad range of climate data products available on <i>Gadi</i>. 
+To assist with finding and accessing model data on Gadi, ACCESS-NRI maintains the ACCESS-NRI Data Catalogue.
+This aims to provide a way for users to discover and load data across a broad range of climate data products available on <i>Gadi</i>. 
 
-For detailed information, tutorials and more, please go to [ACCESS-NRI intake catalog documentation](https://access-nri-intake-catalog.readthedocs.io/en/latest/index.html).
+For detailed information, Python tutorials and more, please see the [ACCESS-NRI Catalogue documentation](https://access-nri-intake-catalog.readthedocs.io/en/latest/index.html).
 
-## What is the ACCESS-NRI Intake catalog?
+## What is the ACCESS-NRI Data Catalogue?
 
-The ACCESS-NRI Intake catalog is essentially a table of climate data products available on _Gadi_.
+The ACCESS-NRI Data Catalogue is essentially a table of climate data products available on _Gadi_.
 
 Each entry in the table corresponds to a different product, where the columns contain attributes associated with that product (e.g., available models, frequencies and data variables). Users can search on the attributes to find the products that might be useful to them. For example, a user may want to know which data products contain variables X, Y and Z at monthly frequency. 
 
-The ACCESS-NRI Intake catalog enables users to find products that satisfy their query and to subsequently load their data without having to know the location and structure of the underlying files.
+The ACCESS-NRI Data Catalogue enables users to find products that satisfy their query and to subsequently load their data without having to know the location and structure of the underlying files.
 
-## Example: use ACCESS-NRI Intake to find, load and plot data
+## Example: using the ACCESS-NRI Data Catalogue to find, load and plot data
 
 A user might be interested in plotting a scalar ocean variable called _temp\_global\_ave_ for an [ACCESS-ESM1.5](/models/access-esm) run called _HI\_CN\_05_ (data product). This is an historical run using the same configuration as CMIP6 ACCESS-ESM1.5 historical _r1i1p1f1_, except that the phosphorus limitation within [CASA-CNP](/models/model_components/bgc_land#casa-cnp) is disabled.
 
