@@ -1,5 +1,6 @@
-> [!WARNING]
-> The ACCESS-NRI Interactive Data Catalog is currently in active development - functionality may therefore change from that described here. For the most reliable access to ACCESS model data, please use the ACCESS-NRI Intake Catalog via Python as described in the [ACCESS-NRI Intake Catalog documentation](https://access-nri-intake-catalog.readthedocs.io/en/latest/index.html).
+!!! warning
+    The ACCESS-NRI Interactive Data Catalog is currently under development - functionality may therefore change from that described here.
+    For the most reliable access to ACCESS model data, please use the ACCESS-NRI Intake Catalog via Python as described in the [ACCESS-NRI Intake Catalog documentation](https://access-nri-intake-catalog.readthedocs.io/en/latest/index.html).
 
 # What is ACCESS-NRI Interactive Data Catalog
 
@@ -11,7 +12,7 @@ It is not a separate catalog from the ACCESS-NRI Intake Catalog, but rather a co
 
 # Explore the Interactive Data Catalog
 
-> [!WARNING]
-> The Interactive Data Catalog is currently hosted in a temporary development location, and liable to change.
+!!! warning
+    The Interactive Data Catalog is currently hosted in a temporary development location, and liable to change.
 
 The Interactive Data Catalog is hosted on GitHub Pages and can be accessed at the following URL: [https://charles-turner-1.github.io/catalog-viewer-spa/](https://charles-turner-1.github.io/interactive-catalogue/)
