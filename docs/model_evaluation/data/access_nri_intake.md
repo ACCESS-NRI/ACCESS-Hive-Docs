@@ -33,6 +33,7 @@ dataset = catalog["HI_CN_05"].search(variable="temp_global_ave").to_dask()
 dataset["temp_global_ave"].plot()
 plt.title("")
 plt.grid()
+```
 
 <div style="text-align: center;">
     <img src="../../../assets/model_evaluation/intake_example.png" alt="Plot af timeseries of global average temperatures" width="50%"/>
