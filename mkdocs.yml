@@ -142,11 +142,14 @@ nav:
     - Data:
       - model_evaluation/data/index.md
       - Basics of ACCESS Data: model_evaluation/data/data_basics.md
-      - Finding ACCESS Data: model_evaluation/data/finding_data.md
-      - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
+      - Finding ACCESS Data:
+        - model_evaluation/data/finding/index.md
+        - Intake Catalog: model_evaluation/data/finding/access_nri_intake.md
+        - Interactive Catalog: model_evaluation/data/finding/interactive_catalogue.md
       - Sharing Data:
         - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
         - ACCESS Output Data Specifications: model_evaluation/data/sharing/specification.md
+      - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
       # - Frameworks on Gadi:
