@@ -4,9 +4,9 @@ There are two main data catalogues to find ACCESS model data, depending on what 
 
 ## Which catalogue should you use?
 - I’m looking for a published, citable ACCESS-related dataset
-  → Use the NCI Data Catalogue
+  <br>→ Use the NCI Data Catalogue
 - I want to discover what ACCESS data exists (e.g. by variable, frequency, or resolution), or find data that may not yet be published
-  → Use the ACCESS-NRI Data Catalogue
+  <br>→ Use the ACCESS-NRI Data Catalogue
 
 Both catalogues are open to browse. Access to the data files themselves will usually require an NCI account and NCI project membership, with a few exceptions noted below.
 
