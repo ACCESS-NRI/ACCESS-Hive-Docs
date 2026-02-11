@@ -142,6 +142,7 @@ nav:
     - Data:
       - model_evaluation/data/index.md
       - Basics of ACCESS Data: model_evaluation/data/data_basics.md
+      - Finding ACCESS Data: model_evaluation/data/finding_data.md
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
       - Sharing Data:
         - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
