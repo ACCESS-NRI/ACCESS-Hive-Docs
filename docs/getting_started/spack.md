@@ -83,35 +83,20 @@ module purge
 To test that your Spack installation works as expected, we will create an `ACCESS-TEST` environment and build the relevant packages (this will take approximately 30 minutes). Then, we will uninstall all the packages and remove the environment.
 
 
-### Create a Spack managed environment
+### Clone a Spack environment
 
 ```
 git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git
-spack env create test ACCESS-TEST/spack.yaml
 ```
-
-<terminal-window>
-  <terminal-line data="input">git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git</terminal-line>
-    <terminal-line>Cloning into 'ACCESS-TEST'...</terminal-line>
-    <terminal-line>remote: Enumerating objects: 33, done.</terminal-line>
-    <terminal-line>remote: Counting objects: 100% (33/33), done.</terminal-line>
-    <terminal-line>remote: Compressing objects: 100% (20/20), done.</terminal-line>
-    <terminal-line>remote: Total 33 (delta 12), reused 27 (delta 9), pack-reused 0 (from 0)</terminal-line>
-    <terminal-line>Receiving objects: 100% (33/33), 15.92 KiB | 1.06 MiB/s, done.</terminal-line>
-    <terminal-line>Resolving deltas: 100% (12/12), done.</terminal-line>
-  <terminal-line data="input">spack env create test ACCESS-TEST/spack.yaml</terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">test</span> in: <span class="spack-cyan">/g/data/\$PROJECT/\$USER/spack/1.1/environments/test</span></terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env -p activate test</span></terminal-line>
-</terminal-window>
 
 ### Activate the environment
 Activate the `test` _Spack_ environment by running:
 ```
-spack env activate -p test
+spack env activate -p ./ACCESS-TEST
 ```
 <terminal-window>
-    <terminal-line data="input">spack env activate -p test</terminal-line>
-    <terminal-line data="input" directory="[test]" class="spack" lineDelay=0></terminal-line>
+    <terminal-line data="input">spack env activate -p ./ACCESS-TEST</terminal-line>
+    <terminal-line data="input" directory="[ACCESS-TEST]" class="spack" lineDelay=0></terminal-line>
 </terminal-window>
 
 ### Compile packages
@@ -127,14 +112,14 @@ spack install
 
 <terminal-window lineDelay=0>
     <!-- spack find -->
-    <terminal-line directory="[test]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
+    <terminal-line directory="[ACCESS-TEST]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
     <terminal-line lineDelay=500><span class="spack-indigo">\==></span> In environment test</terminal-line>
     <terminal-line><span class="spack-indigo">\==></span> 1 root specs</terminal-line>
     <terminal-line><span class="spack-grey keep-blanks"> - </span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span></terminal-line>
     <terminal-line></terminal-line>
     <terminal-line><span class="spack-indigo">\==></span> 0 installed packages</terminal-line>
     <!-- spack concretize -->
-    <terminal-line lineDelay=600 directory="[test]" class="spack" data="input">spack concretize -f --fresh</terminal-line>
+    <terminal-line lineDelay=600 directory="[ACCESS-TEST]" class="spack" data="input">spack concretize -f --fresh</terminal-line>
     <terminal-line lineDelay=2000><span class="spack-indigo">\==></span> Concretized access-test@git.2025.04.000=2025.04.000</terminal-line>
     <terminal-line>
         <span class="spack-grey keep-blanks"> -   ih4cowp</span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">+mpi build_system=bundle</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
@@ -159,7 +144,7 @@ spack install
         <span class="spack-indigo">\==></span> Updating view at /g/data/\$PROJECT/\$USER/spack/1.1/environments/test/.spack-env/view</terminal-line>
     </terminal-line>
     <!-- spack install -->
-    <terminal-line directory="[test]" class="spack" lineDelay=2000 data="input">
+    <terminal-line directory="[ACCESS-TEST]" class="spack" lineDelay=2000 data="input">
         spack install
     </terminal-line>
     <terminal-line>
@@ -209,7 +194,7 @@ spack install
 spack find
 ```
 <terminal-window lineDelay=0>
-    <terminal-line directory="[test]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
+    <terminal-line directory="[ACCESS-TEST]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
     <terminal-line lineDelay=500>
         <span class="spack-indigo">\==></span> In environment test
     </terminal-line>
@@ -241,7 +226,6 @@ spack find
 ```
 spack uninstall --remove --all
 spack env deactivate
-spack env rm test
 rm -rf ACCESS-TEST
 ```
 
@@ -314,35 +298,20 @@ module purge
 To test that your Spack installation works as expected, we will create an `ACCESS-TEST` environment and build the relevant packages (this will take approximately 30 minutes). Then, we will uninstall all the packages and remove the environment.
 
 
-### Create a Spack managed environment
+### Clone a Spack environment
 
 ```
 git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git --branch api-v1
-spack env create test ACCESS-TEST/spack.yaml
 ```
-
-<terminal-window>
-  <terminal-line data="input">git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git</terminal-line>
-    <terminal-line>Cloning into 'ACCESS-TEST'...</terminal-line>
-    <terminal-line>remote: Enumerating objects: 33, done.</terminal-line>
-    <terminal-line>remote: Counting objects: 100% (33/33), done.</terminal-line>
-    <terminal-line>remote: Compressing objects: 100% (20/20), done.</terminal-line>
-    <terminal-line>remote: Total 33 (delta 12), reused 27 (delta 9), pack-reused 0 (from 0)</terminal-line>
-    <terminal-line>Receiving objects: 100% (33/33), 15.92 KiB | 1.06 MiB/s, done.</terminal-line>
-    <terminal-line>Resolving deltas: 100% (12/12), done.</terminal-line>
-  <terminal-line data="input">spack env create test ACCESS-TEST/spack.yaml</terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">test</span> in: <span class="spack-cyan">/g/data/\$PROJECT/\$USER/spack/0.22/environments/test</span></terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env -p activate test</span></terminal-line>
-</terminal-window>
 
 ### Activate the environment
 Activate the `test` _Spack_ environment by running:
 ```
-spack env activate -p test
+spack env activate -p ./ACCESS-TEST
 ```
 <terminal-window>
-    <terminal-line data="input">spack env activate -p test</terminal-line>
-    <terminal-line data="input" directory="[test]" class="spack" lineDelay=0></terminal-line>
+    <terminal-line data="input">spack env activate -p ./ACCESS-TEST</terminal-line>
+    <terminal-line data="input" directory="[ACCESS-TEST]" class="spack" lineDelay=0></terminal-line>
 </terminal-window>
 
 ### Compile packages
@@ -358,14 +327,14 @@ spack install
 
 <terminal-window lineDelay=0>
     <!-- spack find -->
-    <terminal-line directory="[test]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
+    <terminal-line directory="[ACCESS-TEST]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
     <terminal-line lineDelay=500><span class="spack-indigo">\==></span> In environment test</terminal-line>
     <terminal-line><span class="spack-indigo">\==></span> 1 root specs</terminal-line>
     <terminal-line><span class="spack-grey keep-blanks"> - </span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span></terminal-line>
     <terminal-line></terminal-line>
     <terminal-line><span class="spack-indigo">\==></span> 0 installed packages</terminal-line>
     <!-- spack concretize -->
-    <terminal-line lineDelay=600 directory="[test]" class="spack" data="input">spack concretize -f --fresh</terminal-line>
+    <terminal-line lineDelay=600 directory="[ACCESS-TEST]" class="spack" data="input">spack concretize -f --fresh</terminal-line>
     <terminal-line lineDelay=2000><span class="spack-indigo">\==></span> Concretized access-test@git.2025.04.000=2025.04.000</terminal-line>
     <terminal-line>
         <span class="spack-grey keep-blanks"> -   ih4cowp</span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">+mpi build_system=bundle</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
@@ -390,7 +359,7 @@ spack install
         <span class="spack-indigo">\==></span> Updating view at /g/data/\$PROJECT/\$USER/spack/0.22/environments/test/.spack-env/view</terminal-line>
     </terminal-line>
     <!-- spack install -->
-    <terminal-line directory="[test]" class="spack" lineDelay=2000 data="input">
+    <terminal-line directory="[ACCESS-TEST]" class="spack" lineDelay=2000 data="input">
         spack install
     </terminal-line>
     <terminal-line>
@@ -440,7 +409,7 @@ spack install
 spack find
 ```
 <terminal-window lineDelay=0>
-    <terminal-line directory="[test]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
+    <terminal-line directory="[ACCESS-TEST]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
     <terminal-line lineDelay=500>
         <span class="spack-indigo">\==></span> In environment test
     </terminal-line>
@@ -472,7 +441,6 @@ spack find
 ```
 spack uninstall --remove --all
 spack env deactivate
-spack env rm test
 rm -rf ACCESS-TEST
 ```
 
