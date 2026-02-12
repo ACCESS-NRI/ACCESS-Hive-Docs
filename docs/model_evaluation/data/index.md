@@ -4,7 +4,7 @@
     <!-- Basics of ACCESS Data -->
     <a href="data_basics" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/model_evaluation_model_catalog.jpg" alt="MED Conda Environment" class="img-contain white-background with-padding"></img>
+            <img src="/assets/model_evaluation/model_evaluation_model_catalog.jpg" alt="MED Conda Environment" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
             <span class="bold" >Basics of ACCESS Data</span>
@@ -16,7 +16,7 @@
     <!-- Finding of ACCESS Data -->
     <a href="finding" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover"></img>
+            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
         </div>
         <div class="card-text-container">
             <span class="bold" >Finding ACCESS Data</span>
@@ -28,7 +28,7 @@
     <!-- Sharing ACCESS Data -->
     <a href="sharing/sharing" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/external-links.jpg" alt="MED Conda Environment" class="img-cover"></img>
+            <img src="/assets/external-links.jpg" alt="MED Conda Environment" class="img-cover">
         </div>
         <div class="card-text-container">
             <span class="bold" >Sharing ACCESS Data</span>
@@ -40,7 +40,7 @@
     <!-- ACCESS Output Data Specification -->
     <a href="sharing/specification" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding"></img>
+            <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
             <span class="bold" >ACCESS Output Data Specification</span>
@@ -52,7 +52,7 @@
     <!-- Cryosphere Community Datapool -->
     <a href="cryosphere_datapool" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding"></img>
+            <img src="/assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
             <span class="bold" >Cryosphere Community Datapool</span>
@@ -62,3 +62,5 @@
         </div>
     </a>
 </div>
+
+<!-- Why do the cards dissappear with no text here? -->
