@@ -62,7 +62,3 @@
         </div>
     </a>
 </div>
-
-### Working with ACCESS Data
-
-This is where we put links to our new pages on `Working with ACCESS Data`
