@@ -1,6 +1,7 @@
 # Finding ACCESS data
 
-There are two main data catalogues to find ACCESS model data, depending on what you’re trying to do.
+There are two data catalogues that can be used to find ACCESS model data.
+The ideal catalogue to use depends on what data you’re trying to find.
 
 ## Which catalogue should you use?
 - I’m looking for a published, citable ACCESS-related dataset
@@ -8,23 +9,25 @@ There are two main data catalogues to find ACCESS model data, depending on what 
 - I want to discover what ACCESS data exists (e.g. by variable, frequency, or resolution), or find data that may not yet be published
   <br>→ Use the **[ACCESS-NRI Data Catalogue](#access-nri-data-catalogue)**
 
-Both catalogues are open to browse. Access to the data files themselves will usually require an NCI account and NCI project membership, with a few exceptions noted below.
+Both catalogues are publically available but access to the data files themselves
+will usually require an NCI account and membership to certain NCI projects, with
+a few exceptions noted below.
 
 
 ## NCI Data Catalogue
 The **[NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/home)** is a web-based catalogue that anyone can access through a browser. It is the authoritative source for published and curated ACCESS datasets hosted at the National Computational Infrastructure (NCI).
 
-The catalogue allows you to search and browse at the dataset level, including:
+The catalogue allows you to search and browse for data at the dataset level and includes:
 
 - dataset titles and descriptions
 - model, experiment, and project information
 - publication status and citation details
 - links to documentation and data locations at NCI
-- download files from supported datasets over the web via THREDDS
+- links to download files from supported datasets over the web via THREDDS
 
-**Best for:** finding known, published ACCESS datasets <br>
-**Without an NCI account:** browse the catalogue and view all high-level dataset metadata <br>
-**With an NCI account:** access the data files themselves <br>
+**Best for:** finding published ACCESS datasets <br>
+**Without an NCI account:** browse the catalogue, view all dataset metadata, download some data <br>
+**With an NCI account:** access all data files themselves <br>
 **More information:**
 See the **[NCI Data Catalogue User Guide](https://opus.nci.org.au/spaces/Help/pages/114884997/1.+Finding+data)** for guidance on data access, project membership, and storage systems
 
@@ -35,13 +38,12 @@ See the **[NCI Data Catalogue User Guide](https://opus.nci.org.au/spaces/Help/pa
 The ACCESS-NRI Data Catalogue supports discovery of ACCESS model and other related datasets across a wide range of model configurations and experiments, including datasets that may not yet be formally published.
 Note that many datasets are present in both the ACCESS-NRI catalogue and the NCI catalogue.
 
-Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue enables searching based on metadata describing the contents of the data itself, including:
+Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue allows searching based on metadata describing the contents of the data, including:
 
 - variable names
 - temporal frequency of output
 - realms
 - model components, configurations, and experiments
-
 
 The ACCESS-NRI Catalogue is accessible in two ways:
 
