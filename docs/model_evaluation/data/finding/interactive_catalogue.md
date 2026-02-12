@@ -15,4 +15,5 @@ It is not a separate catalog from the ACCESS-NRI Intake Catalog, but rather a co
 !!! warning
     The Interactive Data Catalog is currently hosted in a temporary development location, and liable to change.
 
-The Interactive Data Catalog is hosted on GitHub Pages and can be accessed at the following URL: [https://charles-turner-1.github.io/catalog-viewer-spa/](https://charles-turner-1.github.io/interactive-catalogue/)
+The Interactive Data Catalog is hosted on GitHub Pages and can be accessed at the following URL:<br>
+[https://access-nri.github.io/interactive-data-catalogue/](https://access-nri.github.io/interactive-data-catalogue/)
