@@ -110,117 +110,127 @@ spack install
 !!! warning
     Some of the commands above might take several minutes to complete.
 
-<terminal-window lineDelay=0>
-    <!-- spack find -->
-    <terminal-line directory="[ACCESS-TEST]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
-    <terminal-line lineDelay=500><span class="spack-indigo">\==></span> In environment test</terminal-line>
-    <terminal-line><span class="spack-indigo">\==></span> 1 root specs</terminal-line>
-    <terminal-line><span class="spack-grey keep-blanks"> - </span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span></terminal-line>
-    <terminal-line></terminal-line>
-    <terminal-line><span class="spack-indigo">\==></span> 0 installed packages</terminal-line>
-    <!-- spack concretize -->
-    <terminal-line lineDelay=600 directory="[ACCESS-TEST]" class="spack" data="input">spack concretize -f --fresh</terminal-line>
-    <terminal-line lineDelay=2000><span class="spack-indigo">\==></span> Concretized access-test@git.2025.04.000=2025.04.000</terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   ih4cowp</span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">+mpi build_system=bundle</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   bcixn5z    </span> <span>^access-test-component<span class="spack-cyan">@main</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~ipo+mpi build_system=cmake build_type=Release generator=make</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   rldyvqn        </span> <span>^cmake<span class="spack-cyan">@3.24.2</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~doc+ncurses+ownlibs build_system=generic build_type=Release</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   doeoclg        </span> <span>^gmake<span class="spack-cyan">@4.4.1</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~guile build_system=generic</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   qg5spmh        </span> <span>^openmpi<span class="spack-cyan">@4.1.5</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~atomics\~cuda\~cxx\~cxx_exceptions\~gpfs\~internal-hwloc\~internal-libevent\~internal-pmix\~java\~legacylaunchers\~lustre\~memchecker\~openshmem\~orterunprefix\~romio+rsh\~singularity\~static+vt+wrapper-rpath build_system=autotools fabrics=none romio-filesystem=none schedulers=none</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   5elnsoi    </span> <span>^glibc<span class="spack-cyan">@2.28</span><span class="spack-green">%intel@2021.10.0</span> <span class="spack-indigo">build_system=autotools</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line></terminal-line>
-    <terminal-line>
-        <span class="spack-indigo">\==></span> Updating view at /g/data/\$PROJECT/\$USER/spack/1.1/environments/test/.spack-env/view</terminal-line>
-    </terminal-line>
-    <!-- spack install -->
-    <terminal-line directory="[ACCESS-TEST]" class="spack" lineDelay=2000 data="input">
-        spack install
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p</span> <span class="spack-highlighted">[1/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/1.1/release/linux-rocky8-x86_64/intel-2021.10.0/glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc</span> <span class="spack-highlighted">[2/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/1.1/release/linux-rocky8-x86_64/intel-2021.10.0/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f</span> <span class="spack-highlighted">[3/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/1.1/release/linux-rocky8-x86_64/intel-2021.10.0/openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6</span> <span class="spack-highlighted">[4/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/1.1/release/linux-rocky8-x86_64/intel-2021.10.0/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx</span> <span class="spack-highlighted">[5/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/1.1/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr</span> <span class="spack-highlighted">[6/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/\$PROJECT/\$USER/spack/1.1/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr
-    </terminal-line>
-</terminal-window>
+```
+[ACCESS-TEST] $ spack find
+==> In environment /g/data/$PROJECT/$USER/test-v1.1.1-docs/ACCESS-TEST
+==> 1 root specs
+-- no arch / no compilers ---------------------------------------
+ -  access-test
 
-!!! info
-    The full output has been truncated for brevity.
+==> 0 installed packages
+==> 0 concretized packages to be installed (show with `spack find -c`)
+```
+
+```
+[ACCESS-TEST] $ spack concretize -f --fresh
+
+==> Fetching https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:2b43bf55db86d86ac4b5f49ae909d5a479a846e3db301c12dbfcc0ee088e0f33
+==> Fetching https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:526d468db326aea1e36183b68a7f81cc5fa8094b03162baab76b9fbf88567f60
+==> Installing "clingo-bootstrap@=spack~apps~docs+ipo+optimized+python+static_libstdcpp build_system=cmake build_type=Release commit=2a025667090d71b2c9dce60fe924feb6bde8f667 generator=make patches:=bebb819,ec99431 platform=linux os=centos7 target=x86_64" from a buildcache
+==> Concretized 1 spec:
+ -   uhzojqi  access-test@git.2025.09.000=2025.09.000+mpi build_system=bundle commit=7e4b4ddab9e17ef8080ed99f4fc069aed65615cb platform=linux os=rocky8 target=x86_64 
+ -   tqipco4      ^access-test-component@main~ipo+mpi build_system=cmake build_type=Release commit=19cbd388607dc3d1f4d989e1b3b1e3b73445d131 generator=make platform=linux os=rocky8 target=x86_64 %fortran=oneapi@2025.2.0
+[e]  mujmtqs          ^cmake@3.31.6~doc+ncurses+ownlibs~qtgui build_system=generic build_type=Release platform=linux os=rocky8 target=x86_64 
+ -   ixud2sr          ^compiler-wrapper@1.0 build_system=generic platform=linux os=rocky8 target=x86_64 
+[e]  vuczjrb          ^glibc@2.28 build_system=autotools platform=linux os=rocky8 target=x86_64 
+ -   tkjgj5m          ^gmake@4.4.1~guile build_system=generic platform=linux os=rocky8 target=x86_64 %c=oneapi@2025.2.0
+[e]  mq7p2hd          ^intel-oneapi-compilers@2025.2.0~amd+envmods~nvidia build_system=generic platform=linux os=rocky8 target=x86_64 
+ -   u3ougvf          ^intel-oneapi-runtime@2025.2.0 build_system=generic platform=linux os=rocky8 target=x86_64 
+ -   bmm7r6l              ^gcc-runtime@15.1.0 build_system=generic platform=linux os=rocky8 target=x86_64 
+[e]  g6f4l7z                  ^gcc@15.1.0~binutils+bootstrap~graphite~mold~nvptx~piclibs~profiled~strip build_system=autotools build_type=RelWithDebInfo languages:='c,c++,fortran' platform=linux os=rocky8 target=x86_64 
+[e]  ubzln4f          ^openmpi@4.1.5+atomics~cuda~cxx~cxx_exceptions~debug+fortran~gpfs~internal-hwloc~internal-libevent~internal-pmix~ipv6~java~lustre~memchecker~openshmem~orterunprefix~rocm+romio+rsh~static~two_level_namespace+vt+wrapper-rpath build_system=autotools fabrics:=none romio-filesystem:=none schedulers:=none platform=linux os=rocky8 target=x86_64 
+```
+
+```
+[ACCESS-TEST] $ spack install
+[+] /apps/cmake/3.31.6 (external cmake-3.31.6-mujmtqs66bqhzcljyokay5gjhouhzgic)
+==> No binary for compiler-wrapper-1.0-ixud2srhgiuagq3k7w346tsabbealrja found: installing from source
+==> Installing compiler-wrapper-1.0-ixud2srhgiuagq3k7w346tsabbealrja [2/11]
+==> Fetching https://mirror.spack.io/_source-cache/archive/a5/a5ff4fcdbeda284a7993b87f294b6338434cffc84ced31e4d04008ed5ea389bf
+    [100%]   30.08 KB @   11.6 MB/s
+==> No patches needed for compiler-wrapper
+==> compiler-wrapper: Executing phase: 'install'
+==> compiler-wrapper: Successfully installed compiler-wrapper-1.0-ixud2srhgiuagq3k7w346tsabbealrja
+  Stage: 0.07s.  Install: 0.03s.  Post-install: 0.20s.  Total: 0.37s
+[+] /g/data/$PROJECT/$USER/test-v1.1.1-docs/release/linux-x86_64/compiler-wrapper-1.0-ixud2srhgiuagq3k7w346tsabbealrja
+[+] /usr (external glibc-2.28-vuczjrbyzfif5nzgt5gqbrdrzaioihy6)
+==> intel-oneapi-compilers@2025.2.0 : has external module in ['intel-compiler-llvm/2025.2.0']
+[+] /apps/intel-tools/.packages/2025.2.0.575 (external intel-oneapi-compilers-2025.2.0-mq7p2hdwp3jz3at5qyaeun4csqwjghh2)
+==> gcc@15.1.0 : has external module in ['gcc/15.1.0']
+[+] /apps/gcc/15.1.0/wrappers (external gcc-15.1.0-g6f4l7zob7gi5hnduqrc7m7lpwslgiz3)
+==> openmpi@4.1.5 : has external module in ['openmpi/4.1.5']
+[+] /apps/openmpi/4.1.5 (external openmpi-4.1.5-ubzln4fyaveasthybe62jlck23soyhad)
+==> No binary for gcc-runtime-15.1.0-bmm7r6lkfxqislzdkrl7juy2jgjmiboq found: installing from source
+==> Installing gcc-runtime-15.1.0-bmm7r6lkfxqislzdkrl7juy2jgjmiboq [7/11]
+==> No patches needed for gcc-runtime
+==> gcc-runtime: Executing phase: 'install'
+==> gcc-runtime: Successfully installed gcc-runtime-15.1.0-bmm7r6lkfxqislzdkrl7juy2jgjmiboq
+  Stage: 0.00s.  Install: 2.85s.  Post-install: 0.33s.  Total: 3.25s
+[+] /g/data/$PROJECT/$USER/test-v1.1.1-docs/release/linux-x86_64/gcc-runtime-15.1.0-bmm7r6lkfxqislzdkrl7juy2jgjmiboq
+==> No binary for intel-oneapi-runtime-2025.2.0-u3ougvfqcvostnjs4crekptewk7zzebc found: installing from source
+==> Installing intel-oneapi-runtime-2025.2.0-u3ougvfqcvostnjs4crekptewk7zzebc [8/11]
+==> No patches needed for intel-oneapi-runtime
+==> intel-oneapi-runtime: Executing phase: 'install'
+==> intel-oneapi-runtime: Successfully installed intel-oneapi-runtime-2025.2.0-u3ougvfqcvostnjs4crekptewk7zzebc
+  Stage: 0.00s.  Install: 2.90s.  Post-install: 0.23s.  Total: 3.19s
+[+] /g/data/$PROJECT/$USER/test-v1.1.1-docs/release/linux-x86_64/intel-oneapi-runtime-2025.2.0-u3ougvfqcvostnjs4crekptewk7zzebc
+==> No binary for gmake-4.4.1-tkjgj5mjr7c6lwakcxc7bvbjyhiir5z7 found: installing from source
+==> Installing gmake-4.4.1-tkjgj5mjr7c6lwakcxc7bvbjyhiir5z7 [9/11]
+==> Fetching https://mirror.spack.io/_source-cache/archive/dd/dd16fb1d67bfab79a72f5e8390735c49e3e8e70b4945a15ab1f81ddb78658fb3.tar.gz
+    [100%]    2.35 MB @   28.0 MB/s
+==> No patches needed for gmake
+==> gmake: Executing phase: 'install'
+==> gmake: Successfully installed gmake-4.4.1-tkjgj5mjr7c6lwakcxc7bvbjyhiir5z7
+  Stage: 0.86s.  Install: 1m 10.94s.  Post-install: 0.16s.  Total: 1m 12.04s
+[+] /g/data/$PROJECT/$USER/test-v1.1.1-docs/release/linux-x86_64/gmake-4.4.1-tkjgj5mjr7c6lwakcxc7bvbjyhiir5z7
+==> No binary for access-test-component-main-tqipco4m6gr76hnjttlr3shjzfix32g4 found: installing from source
+==> Installing access-test-component-main-tqipco4m6gr76hnjttlr3shjzfix32g4 [10/11]
+==> No patches needed for access-test-component
+==> access-test-component: Executing phase: 'cmake'
+==> access-test-component: Executing phase: 'build'
+==> access-test-component: Executing phase: 'install'
+==> access-test-component: Successfully installed access-test-component-main-tqipco4m6gr76hnjttlr3shjzfix32g4
+  Stage: 1.81s.  Cmake: 15.36s.  Build: 3.36s.  Install: 0.15s.  Post-install: 0.13s.  Total: 20.93s
+[+] /g/data/$PROJECT/$USER/test-v1.1.1-docs/release/linux-x86_64/access-test-component-main-tqipco4m6gr76hnjttlr3shjzfix32g4
+==> No binary for access-test-git.2025.09.000=2025.09.000-uhzojqiue66luxzlvzaxi66k3rqaa7qq found: installing from source
+==> Installing access-test-git.2025.09.000=2025.09.000-uhzojqiue66luxzlvzaxi66k3rqaa7qq [11/11]
+==> No patches needed for access-test
+==> access-test: Executing phase: 'install'
+==> access-test: Successfully installed access-test-git.2025.09.000=2025.09.000-uhzojqiue66luxzlvzaxi66k3rqaa7qq
+  Stage: 0.00s.  Install: 0.00s.  Post-install: 0.13s.  Total: 0.22s
+[+] /g/data/$PROJECT/$USER/test-v1.1.1-docs/release/linux-x86_64/access-test-git.2025.09.000_2025.09.000-uhzojqiue66luxzlvzaxi66k3rqaa7qq
+==> Updating view at /g/data/$PROJECT/$USER/test-v1.1.1-docs/ACCESS-TEST/.spack-env/view
+```
+
 
 ### Check installed packages
 
 ```
 spack find
 ```
-<terminal-window lineDelay=0>
-    <terminal-line directory="[ACCESS-TEST]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
-    <terminal-line lineDelay=500>
-        <span class="spack-indigo">\==></span> In environment test
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo">\==></span> 1 root specs
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green"> [+] </span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span>
-    </terminal-line>
-    <terminal-line></terminal-line>
-    <terminal-line>
-        <span class="spack-indigo">\==></span> installed packages
-    </terminal-line>
-    <terminal-line>
-        -- <span class="spack-pink">linux-rocky8-x86_64</span> / <span class="spack-green">intel@2021.10.0</span> ------------------------
-    </terminal-line>
-    <terminal-line class="ls-output-format">
-        <span class="spack-highlighted">access-test</span><span class="spack-cyan">@git.2025.04.000=2025.04.000</span> 
-        access-test-component<span class="spack-cyan">@main</span> 
-        cmake<span class="spack-cyan">@3.24.2</span> 
-        glibc<span class="spack-cyan">@2.28</span> 
-        gmake<span class="spack-cyan">@4.4.1</span> 
-        openmpi@4.1.5<span class="spack-cyan">@1.5.6</span> 
-    </terminal-line>
-    <terminal-line><span class="spack-indigo">\==></span> 6 installed packages</terminal-line>
-</terminal-window>
+
+```
+[ACCESS-TEST] $ spack find
+==> In environment /g/data/$PROJECT/$USER/test-v1.1.1-docs/ACCESS-TEST
+==> 1 root specs
+-- no arch / no compilers ---------------------------------------
+[+] access-test@git.2025.09.000=2025.09.000
+
+-- linux-rocky8-x86_64 / %c=oneapi@2025.2.0 ---------------------
+gmake@4.4.1
+
+-- linux-rocky8-x86_64 / %fortran=oneapi@2025.2.0 ---------------
+access-test-component@main
+
+-- linux-rocky8-x86_64 / no compilers ---------------------------
+access-test@git.2025.09.000=2025.09.000  glibc@2.28
+cmake@3.31.6                             intel-oneapi-compilers@2025.2.0
+compiler-wrapper@1.0                     intel-oneapi-runtime@2025.2.0
+gcc@15.1.0                               openmpi@4.1.5
+gcc-runtime@15.1.0
+==> 11 installed packages
+==> 0 concretized packages to be installed (show with `spack find -c`)
+```
 
 ### Cleanup
 ```
