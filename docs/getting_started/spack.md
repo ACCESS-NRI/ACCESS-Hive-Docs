@@ -90,7 +90,7 @@ git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git
 ```
 
 ### Activate the environment
-Activate the `test` _Spack_ environment by running:
+Activate the `ACCESS-TEST` _Spack_ environment by running:
 ```
 spack env activate -p ./ACCESS-TEST
 ```
@@ -123,7 +123,6 @@ spack install
 
 ```
 [ACCESS-TEST] $ spack concretize -f --fresh
-
 ==> Fetching https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:2b43bf55db86d86ac4b5f49ae909d5a479a846e3db301c12dbfcc0ee088e0f33
 ==> Fetching https://ghcr.io/v2/spack/bootstrap-buildcache-v2.2/blobs/sha256:526d468db326aea1e36183b68a7f81cc5fa8094b03162baab76b9fbf88567f60
 ==> Installing "clingo-bootstrap@=spack~apps~docs+ipo+optimized+python+static_libstdcpp build_system=cmake build_type=Release commit=2a025667090d71b2c9dce60fe924feb6bde8f667 generator=make patches:=bebb819,ec99431 platform=linux os=centos7 target=x86_64" from a buildcache
@@ -241,7 +240,7 @@ rm -rf ACCESS-TEST
 
 ## Update Spack on Gadi
 
-Keep your Spack instance up-to-date by doing the following:
+Keep your _Spack_ instance up-to-date by doing the following:
 
 ```
 cd /g/data/$PROJECT/$USER/spack/1.1
@@ -315,7 +314,7 @@ git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git --branch api-v1
 ```
 
 ### Activate the environment
-Activate the `test` _Spack_ environment by running:
+Activate the `ACCESS-TEST` _Spack_ environment by running:
 ```
 spack env activate -p ./ACCESS-TEST
 ```
