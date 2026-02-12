@@ -46,7 +46,7 @@ Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue enables searching based 
 The ACCESS-NRI Catalogue is accessible in two ways:
 
 - via a Python API, the [ACCESS-NRI Intake Catalogue](access_nri_intake), and
-- via a web-based version, the [ACCESS-NRI Interactive Catalog](interactive_catalogue) (currently in alpha testing).
+- via a web-based version, the [ACCESS-NRI Interactive Catalogue](interactive_catalogue) (currently in alpha testing).
 
 **Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
 **Without an NCI account:** catalogue can be [viewed](interactive_catalogue) but data will not be accessible <br>

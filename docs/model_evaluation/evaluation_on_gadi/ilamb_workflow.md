@@ -62,7 +62,7 @@ While these files can be self-defined, ACCESS-NRI provides the necessary files a
 <br>
 NCI hosts replicas of the <i>ILAMB</i> observational data sets through the NCI project <a href="https://my.nci.org.au/mancini/project/ct11/join" target="_blank">ct11</a> as well as a large amount of model outputs are available on <i>Gadi</i>, such as ACCESS model output.
 
-For more information, refer to <a href="\model_evaluation/data/observations" target="_blank">Observational Data Catalogue</a> on how to find observational data on NCI and <a href="/model_evaluation/data/model_catalogs" target="_blank">ACCESS-NRI Intake Catalog</a> for how to find model outputs.
+For more information, refer to [Finding ACCESS Data](/model_evaluation/data/finding) on how to find data on NCI.
 <br>
 To learn more about how to adjust the <i>ILAMB</i> setup, refer to the official <a href="https://www.ilamb.org/doc/" target="_blank">ILAMB documentation</a> and relevant <a href="https://www.ilamb.org/doc/tutorial.html" target="_blank">tutorials</a>.
 

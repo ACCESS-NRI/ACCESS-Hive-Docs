@@ -144,8 +144,8 @@ nav:
       - Basics of ACCESS Data: model_evaluation/data/data_basics.md
       - Finding ACCESS Data:
         - model_evaluation/data/finding/index.md
-        - Intake Catalog: model_evaluation/data/finding/access_nri_intake.md
-        - Interactive Catalog: model_evaluation/data/finding/interactive_catalogue.md
+        - Intake Catalogue: model_evaluation/data/finding/access_nri_intake.md
+        - Interactive Catalogue: model_evaluation/data/finding/interactive_catalogue.md
       - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
       - ACCESS Output Data Specifications: model_evaluation/data/sharing/specification.md
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
@@ -168,7 +168,7 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - ACCESS-CM2: tutorials/models.md
-    - ACCESS-NRI Intake catalog: tutorials/intake.md
+    - ACCESS-NRI Intake Catalogue: tutorials/intake.md
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
