@@ -9,7 +9,7 @@ If you are new to MED and are wondering [*"What is Model Evaluation and Diagnost
 <div class="card-container">
     <a href="/model_evaluation/data" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img src="../assets/model_evaluation/model_evaluation_variables.png" alt="Data" class="img-cover"></img>
+            <img src="/assets/model_evaluation/model_earth.jpg" alt="Data" class="img-cover"></img>
         </div>
         <div class="card-text-container bold ">Data</div>
     </a>  
