@@ -51,7 +51,7 @@ The ACCESS-NRI Catalogue is accessible in two ways:
 - via a web-based version, the [ACCESS-NRI Interactive Catalogue](interactive_catalogue) (currently in alpha testing).
 
 **Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
-**Without an NCI account:** catalogue can be [viewed](interactive_catalogue) but data will not be accessible <br>
+**Without an NCI account:** catalogue can be [viewed](https://access-nri.github.io/interactive-data-catalogue/) but data will not be accessible <br>
 **With an NCI account:** required to access the catalogue and datasets on Gadi <br>
 **More information:**
 See the pages for the **[Intake](access_nri_intake)** and **[Interactive](interactive_catalogue)** interfaces to the catalogue.
