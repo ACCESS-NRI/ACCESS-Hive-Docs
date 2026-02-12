@@ -9,7 +9,7 @@ data at NCI, divided into three areas:
 
 These storage options are suitable for both ACCESS model output data and other
 datasets, as long as the data is of value to the ACCESS community.
-These storage options are supplied by ACCESS-NRI and support is given based on
+These storage options are funded by ACCESS-NRI and support is given based on
 value to the ACCESS community.
 ACCESS-NRI endeavours to follow the
 [FAIR](https://ardc.edu.au/resource-hub/making-data-fair/) and
@@ -17,16 +17,16 @@ ACCESS-NRI endeavours to follow the
 data supported by these options.
 
 Regular reviews of the Datapool and Curated datasets are conducted to ensure
-these datasets demonstrate ongoing value for the ACCESS community.
-As usage across these storage options increases and we develop a better
-understanding of community needs and interests, recommendations for changes,
-including retirement or transition of datasets, will be submitted to
+datasets demonstrate ongoing value for the ACCESS community.
+As usage across these storage options increases and a better understanding of
+community needs and interests is developed, recommendations for changes,
+including retirement or transition of datasets to other options, will be submitted to
 the [ACCESS-NRI Scientific Advisory Committee](https://www.access-nri.org.au/about/scientific-advisory-committee-sac/)
 for advice.
 
 ## Which storage option should I choose?
 
-The following table gives guidelines for usage of the three storage options:
+The following table gives guidelines for the three storage options:
 
 |                         | Working Group | Datapool   | Curated Datasets |
 | ----------------------: | :-----------: | :--------: | :--------------: |
@@ -59,6 +59,7 @@ Each working group's storage is managed by the working group members.
 ACCESS-NRI maintains the **ACCESS Community Datapool** on Gadi under the project `av17`.
 The Datapool supports datasets that are of value to be shared with the community
 but may not be considered ready or appropriate for publication as a Curated Dataset.
+
 Datapool storage is ideal for stable data that needs to be shared widely amongst
 the ACCESS community but does not require the additional stability and functionality
 available to a Curated Dataset.
@@ -72,9 +73,12 @@ ACCESS-NRI also supports datasets which are more carefully curated, can be given
 DOIs, exposed to the public via NCI's THREDDS service, and are typically
 published in [NCI's data catalogue](https://geonetwork.nci.org.au), such data are
 referred to as **ACCESS Curated Datasets**.
-These datasets are prepared in collarboration with NCI's data team and are more
+These datasets are prepared in collaboration with NCI's data team and are more
 tightly controlled and documented than Datapool datasets in order to ensure they
 remain accessible, trustworthy, and (re)usable.
+
+Curated Datasets are ideal for finalised data that has been involved in academic
+publications, needs a DOI, or needs to be shared with non-NCI users.
 
 The ACCESS Curated Datasets are managed collaboratively by the ACCESS-NRI and
 NCI data teams.
