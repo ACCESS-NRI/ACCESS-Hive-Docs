@@ -7,8 +7,9 @@ hide:
 This document provides an overview of the data specifications for data produced
 by ACCESS models.
 The initial draft of this specification targets ESM1.6 and will be expanded to other ACCESS models in time.
-This version of the specification is intended to be relatively lightweight as a first step towards bringing data
-produced in the ACCESS ecosystem towards a common data and metadata standard.
+This version of the specification is intended to be relatively lightweight, as a first step towards the standardisations of data
+produced by the ACCESS ecosystem.
+The goal of this specification is to provide a consistent and uniform experience for users across all ACCESS models by enabling the embedding of established community conventions and defined data specifications directly in the ACCESS software and release processes.
 
 Included here are file and directory naming conventions, variable conventions, and variable and global attributes.
 
