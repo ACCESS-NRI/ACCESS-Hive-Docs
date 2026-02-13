@@ -128,7 +128,7 @@ nav:
       - models/run_a_model/index.md
       - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
-      - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
+      - Run ACCESS-ESM1.5: models/run_a_model/run_access-esm.md
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
       - Run ACCESS-rAM3: models/run_a_model/run_access-ram3.md
@@ -195,8 +195,10 @@ nav:
     - Glossaries: community_resources/glossaries.md
   - About:
     - about/index.md
+    - ACCESS-NRI Releases:
+      - Release list: about/release_list.md
+      - Release stages: about/releases.md
     - Contact: about/contact.md
-    - Release stages: about/releases.md
     - FAQ: about/faq.md
     - User support: about/user_support.md
     - How to Contribute: about/contribute.md
