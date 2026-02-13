@@ -76,6 +76,7 @@ referred to as **ACCESS Curated Datasets**.
 These datasets are prepared in collaboration with NCI's data team and are more
 tightly controlled and documented than Datapool datasets in order to ensure they
 remain accessible, trustworthy, and (re)usable.
+ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for example the ACCESS [COSIMA Model Output Collection](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f1296_4979_4319_7298), and the non-ACCESS [Replicated Datasets for Climate Model Evaluation](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f7199_2480_5432_9703).
 
 Curated Datasets are ideal for finalised data that has been involved in academic
 publications, needs a DOI, or needs to be shared with non-NCI users.
