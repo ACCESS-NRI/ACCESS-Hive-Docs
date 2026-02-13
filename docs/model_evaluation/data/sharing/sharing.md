@@ -11,10 +11,10 @@ These storage options are suitable for both ACCESS model output data and other
 datasets, as long as the data is of value to the ACCESS community.
 These storage options are funded by ACCESS-NRI and support is given based on
 value to the ACCESS community.
-ACCESS-NRI endeavours to follow the
+ACCESS-NRI provides suppport for datasets to follow the
 [FAIR](https://ardc.edu.au/resource-hub/making-data-fair/) and
-[CARE](https://ardc.edu.au/resource/the-care-principles/) principles for all
-data supported by these options.
+[CARE](https://ardc.edu.au/resource/the-care-principles/) principles particularly 
+for the Datapool and Curated storage options.
 
 Regular reviews of the Datapool and Curated datasets are conducted to ensure
 datasets demonstrate ongoing value for the ACCESS community.
