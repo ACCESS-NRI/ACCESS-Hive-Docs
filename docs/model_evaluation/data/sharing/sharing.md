@@ -20,9 +20,8 @@ Regular reviews of the Datapool and Curated datasets are conducted to ensure
 datasets demonstrate ongoing value for the ACCESS community.
 As usage across these storage options increases and a better understanding of
 community needs and interests is developed, recommendations for changes,
-including retirement or transition of datasets to other options, will be submitted to
-the [ACCESS-NRI Scientific Advisory Committee](https://www.access-nri.org.au/about/scientific-advisory-committee-sac/)
-for advice.
+including retirement or transition of datasets to other options, will be overseen by
+the [ACCESS-NRI Scientific Advisory Committee](https://www.access-nri.org.au/about/scientific-advisory-committee-sac/).
 
 ## Which storage option should I choose?
 
