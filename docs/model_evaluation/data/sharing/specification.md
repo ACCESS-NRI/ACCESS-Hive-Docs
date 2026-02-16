@@ -13,7 +13,7 @@ The goal of this specification is to provide a consistent and uniform experience
 
 Data specifications included below are file and directory naming conventions, variable conventions, and variable and global attributes.
 
-More information on the ACCESS models can be found [here](https://www.access-nri.org.au/models/).
+Refer to the [ACCESS models](https://www.access-nri.org.au/models/) page for more information.
 Please direct any issues, feedback or queries on the data specification to <data.access.nri@anu.edu.au>.
 
 ## Directory and Filename
