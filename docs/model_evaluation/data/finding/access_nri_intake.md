@@ -7,7 +7,7 @@ For detailed information, Python tutorials and usage examples, please refer to t
 
 Each catalogue entry corresponds to a different data product, where the columns describe the attributes associated with that product (e.g., available models, frequencies and data variables).
 Users can filter or search these attributes to find the products relevant to their needs.
-For example, a user may want to know which data products contain variables X, Y and Z at monthly frequency.
+For example, a user could search for data products containing variables `X`, `Y` and `Z` at a `monthly` frequency.
 
 The ACCESS-NRI Intake Catalogue also enables users to directly load the desired data in Python, without having to know the location or structure of the underlying files.
 
