@@ -4,7 +4,7 @@ ACCESS-NRI has a number of options to support data sharing among the ACCESS comm
 
 - [ACCESS Working Group Storage](#working-group-storage)
 - [ACCESS Community Datapool](#access-community-datapool)
-- [ACCESS-NRI Curated Datasets](#curated-datasets)
+- [ACCESS-NRI Curated Datasets](#access-nri-curated-datasets)
 
 These storage options are suitable for both ACCESS model output data and other
 datasets, as long as the data is of value to the ACCESS community.
