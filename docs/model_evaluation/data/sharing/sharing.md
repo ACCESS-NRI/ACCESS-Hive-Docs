@@ -53,7 +53,7 @@ Each working group's storage is managed by the working group members.
 
 ## ACCESS Community Datapool
 
-ACCESS-NRI maintains the **ACCESS Community Datapool** on Gadi under the project `av17`.
+ACCESS-NRI maintains the **ACCESS Community Datapool** on _Gadi_ under the project `av17`.
 The Datapool supports datasets that are of value to be shared with the community
 but may not be considered ready or appropriate for publication as a Curated Dataset.
 
