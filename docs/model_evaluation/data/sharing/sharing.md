@@ -85,7 +85,7 @@ NCI data teams.
 ## How to Request Support
 
 To request assistance with data storage from ACCESS-NRI please submit your request to
-a relevant working group or by sending an email to ACCESS-NRI's data team at 
+a relevant working group or send an email to ACCESS-NRI's data team at 
 [data.access.nri@anu.edu.au](mailto:data.access.nri@anu.edu.au).
 
 When submitting a data request please include as much of the following information
