@@ -36,7 +36,7 @@ For ACCESS-ESM1.6, every file should contain a single data variable/field from a
 
 ## Time Dimensions
 Time dimensions should use the `proleptic Gregorian` calendar with units of `days since yyyy-mm-dd hh:mm`.
-Where possible `time_bnds` should be included as an additional coordinate variable.
+Where possible, `time_bnds` should be included as an additional coordinate variable.
 
 ## Metadata Attributes
 
