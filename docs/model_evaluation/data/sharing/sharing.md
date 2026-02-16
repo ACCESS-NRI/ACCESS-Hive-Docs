@@ -1,22 +1,21 @@
 # Sharing ACCESS Data
 
-ACCESS-NRI has a number of options to support the ACCESS community with sharing
-data at NCI, divided into three areas:
+ACCESS-NRI has a number of options to support data sharing among the ACCESS community at NCI, organised into three main areas:
 
-- ACCESS Working Group Storage
-- ACCESS Community Datapool
-- ACCESS Curated Datasets
+- [ACCESS Working Group Storage](#working-group-storage)
+- [ACCESS Community Datapool](#access-community-datapool)
+- [ACCESS Curated Datasets](#curated-datasets)
 
 These storage options are suitable for both ACCESS model output data and other
 datasets, as long as the data is of value to the ACCESS community.
-These storage options are funded by ACCESS-NRI and support is given based on
-value to the ACCESS community.
+They are funded by ACCESS-NRI and support is allocated based on
+the dataset’s relevance to the ACCESS community.
 ACCESS-NRI provides suppport for datasets to follow the
 [FAIR](https://ardc.edu.au/resource-hub/making-data-fair/) and
 [CARE](https://ardc.edu.au/resource/the-care-principles/) principles particularly 
 for the Datapool and Curated storage options.
 
-Regular reviews of the Datapool and Curated datasets are conducted to ensure
+Regular reviews of the Datapool and Curated datasets are performed to ensure
 datasets demonstrate ongoing value for the ACCESS community.
 As usage across these storage options increases and a better understanding of
 community needs and interests is developed, recommendations for changes,
@@ -25,7 +24,7 @@ the [ACCESS-NRI Scientific Advisory Committee](https://www.access-nri.org.au/abo
 
 ## Which storage option should I choose?
 
-The following table gives guidelines for the three storage options:
+The following table gives guidelines for the different storage options:
 
 |                         | Working Group | Datapool   | Curated Datasets |
 | ----------------------: | :-----------: | :--------: | :--------------: |
@@ -44,8 +43,7 @@ The following table gives guidelines for the three storage options:
 
 Each of the [ACCESS Community Working Groups](/community_resources/community_working_groups)
 has a storage allocation to support the group in their research efforts.
-See this page for more information on
-[joining ACCESS working groups](https://www.access-nri.org.au/join-community-working-groups/).
+For more information, refer to [joining ACCESS working groups](https://www.access-nri.org.au/join-community-working-groups/).
 
 Working group storage is ideal for data that is under active development or only
 needs to be shared within the working group.

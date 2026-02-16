@@ -53,7 +53,7 @@ Click on the questions to unfold the answers. If your question is not answered, 
     
     Both observational and model data is hosted by the National Computational Infrastructure (NCI) under different projects. 
 
-    Please go to our [**Data**](/model_evaluation/data) section on the ACCESS-Hive Docs to learn how to find and access ACCESS model and observational data.
+    Please go to our [**Data**](/model_evaluation/data) section on the ACCESS-Hive Docs to learn how to find and retrieve ACCESS model and observational data.
 
     In both cases, you need to have access to the specific projects at NCI in order to read the data. For more information, check how to [**Set Up your NCI Account**](/getting_started/set_up_nci_account).
 
