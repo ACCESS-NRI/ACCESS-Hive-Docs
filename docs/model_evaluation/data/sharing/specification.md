@@ -74,7 +74,7 @@ Note that for any given experiment run, the combination of `model` and `model_ve
 | variable_id            | A list of short variable names, separated by commas, for the data variable/s that appear in this file (e.g. tas for surface temperature but not time/latitude/longitude). These names should match the netCDF variable names. | <ul><li>tas</li><li>huss</li><li>uas,vas</li></ul>                                                                        |                                                                                                                                                                                                  | No         |
 
 ### Variable Attributes
-Variable attributes provide information on the data variable such as the units used, standard_name, or cell_methods used to generate the data.
+Variable attributes provide information on the data variable such as the units used, standard name, or cell methods used to generate the data.
 NetCDF files may contain several coordinate variables such as `time`, `latitude`, or `time_bnds`, but should contain only one primary output variable.
 Where possible, variables and their attributes should follow CF-v1.11 conventions.
 
