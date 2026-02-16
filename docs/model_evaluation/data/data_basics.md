@@ -9,7 +9,7 @@ Because of this, ACCESS model output is highly structured. Each dataset contains
 
 ### NetCDF: data and metadata
 
-ACCESS model data is typically stored in **[netCDF (Network Common Data Form)](https://www.unidata.ucar.edu/software/netcdf)** files. NetCDF is well suited to climate and geoscience data because it stores:
+ACCESS model data is typically stored in **[netCDF (Network Common Data Form)](https://www.unidata.ucar.edu/software/netcdf)** files. The NetCDF format is well suited to climate and geoscience data because it stores:
 
 - the data values themselves 
 - metadata that describe what the data represent
