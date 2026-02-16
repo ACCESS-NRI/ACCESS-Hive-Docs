@@ -75,7 +75,7 @@ Note that for any given experiment run, the combination of `model` and `model_ve
 
 ### Variable Attributes
 Variable attributes provide information on the data variable such as the units used, standard_name, or cell_methods used to generate the data.
-In netCDF files there can be multiple coordinate variables such as `time`, `latitude`, or `time_bnds` and the main output field variable of which there should be only one.
+NetCDF files may contain several coordinate variables such as `time`, `latitude`, or `time_bnds`, but should contain only one primary output variable.
 Where possible variables and their attributes should follow CF-v1.11 conventions.
 
 | Title         | Description                                                                                                                                                                  | Type   | Examples                                                                                                                           |
