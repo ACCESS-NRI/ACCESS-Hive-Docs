@@ -28,7 +28,7 @@ All information contained in filenames should be present in file metadata attrib
 
 ## File content
 Output files should be NetCDF4 files.
-Data variables should be compressed using `zlib` with deflate level of at least 1 and shuffle enabled — if the compression level used is greater than 1 please consider the benefit of improved compression ratios against cost of increased compression/decompression times.
+Data variables should be compressed using `zlib` with deflate level of at least 1 and shuffle enabled. If the compression level used is greater than 1, please consider the benefit of improved compression ratios against cost of increased compression/decompression times.
 
 Where possible files should conform to the CF metadata conventions (version 1.11) and use the CF Convention Standard Name Table.
 
