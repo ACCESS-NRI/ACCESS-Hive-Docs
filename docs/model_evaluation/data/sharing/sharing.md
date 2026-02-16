@@ -4,7 +4,7 @@ ACCESS-NRI has a number of options to support data sharing among the ACCESS comm
 
 - [ACCESS Working Group Storage](#working-group-storage)
 - [ACCESS Community Datapool](#access-community-datapool)
-- [ACCESS Curated Datasets](#curated-datasets)
+- [ACCESS-NRI Curated Datasets](#curated-datasets)
 
 These storage options are suitable for both ACCESS model output data and other
 datasets, as long as the data is of value to the ACCESS community.
@@ -64,12 +64,12 @@ available to a Curated Dataset.
 The Datapool is managed by the ACCESS-NRI Data team.
 
 
-## Curated Datasets
+## ACCESS-NRI Curated Datasets
 
 ACCESS-NRI also supports carefully curated datasets, which can be assigned DOIs,
 made publicly available via NCI's THREDDS service, and are typically published in
 [NCI's data catalogue](https://geonetwork.nci.org.au).
-These datasets are referred to as ACCESS Curated Datasets.
+These datasets are referred to as ACCESS-NRI Curated Datasets.
 They are prepared in collaboration with NCI's data team and are more
 tightly controlled and documented than Datapool datasets in order to ensure they
 remain accessible, trustworthy, and (re)usable.
@@ -78,7 +78,7 @@ ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for
 Curated Datasets are ideal for finalised data that has been involved in academic
 publications, needs a DOI, or needs to be shared with non-NCI users.
 
-The ACCESS Curated Datasets are managed collaboratively by the ACCESS-NRI and
+The ACCESS-NRI Curated Datasets are managed collaboratively by the ACCESS-NRI and
 NCI data teams.
 
 
