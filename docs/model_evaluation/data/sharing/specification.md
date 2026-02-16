@@ -32,7 +32,7 @@ Data variables should be compressed using `zlib` with deflate level of at least 
 
 Where possible, files should conform to the [CF metadata conventions](https://cfconventions.org/) (version 1.11) and use the CF Convention Standard Name Table.
 
-For ACCESS-ESM1.6 every file should contain a single data variable/field from a single simulation.
+For ACCESS-ESM1.6, every file should contain a single data variable/field from a single simulation.
 
 ## Time Dimensions
 Time dimensions should use the `proleptic Gregorian` calendar with units of `days since yyyy-mm-dd hh:mm`.
