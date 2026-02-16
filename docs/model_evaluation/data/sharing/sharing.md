@@ -104,5 +104,4 @@ as possible:
 - **Person who will have ongoing responsibility for the data at NCI**
 
 For additional information on the processes and conditions for Datapool and
-Curated Dataset support please follow this
-[link](https://www.access-nri.org.au/access-nri-merit-allocations-for-reference-datasets/).
+Curated Dataset support please refer to [ACCESS-NRI Merit Allocations for Reference Datasets](https://www.access-nri.org.au/access-nri-merit-allocations-for-reference-datasets/).
