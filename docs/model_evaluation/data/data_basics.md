@@ -44,6 +44,6 @@ These conventions make datasets easier for humans to understand and machines to 
 
 ### Large datasets: chunks
 
-ACCESS model output can be very large, often spanning many files and many terabytes of data. To support efficient access and analysis, data is often stored in chunks — smaller blocks of data organised within files.
+ACCESS model output can be very large, often spanning many files and many terabytes of data. To support efficient access and analysis, data is often stored in chunks — smaller blocks of data organised within the same file.
 
 Chunking allows analysis tools to read only the portions of data needed for a given task, rather than loading entire datasets into memory. While largely invisible to end users, chunking is an important concept when working with large-scale model output.
