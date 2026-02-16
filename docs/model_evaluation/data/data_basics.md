@@ -26,7 +26,7 @@ A netCDF file is more than a container of numbers. It explicitly defines:
 - **variables** (data arrays associated with those dimensions)  
 - **attributes** (metadata describing variables and the dataset as a whole)
 
-Tools such as `ncdump` allow users to inspect this structure directly, showing how variables are defined and how metadata is stored alongside the data. This self-describing nature is a key strength of netCDF.
+Tools such as `ncdump` allow users to inspect this format directly, showing how variables are defined and how metadata is stored alongside the data. This self-describing nature is a key strength of netCDF.
 
 
 
