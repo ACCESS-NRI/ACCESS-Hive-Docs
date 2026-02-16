@@ -19,9 +19,7 @@ Please direct any issues, feedback or queries on the data specification to <data
 ## Directory and Filename
 ### Directory Structure
 The directory structure for ACCESS-ESM1.6 data output is still being finalised.
-The current draft has the following structure under the current working directory:
-
-`<run>/output<xxx>/<realm>/<filename.nc>`
+The current draft has the following structure under the current working directory: `<run>/output<xxx>/<realm>/<filename.nc>`
 
 ### File naming
 ACCESS-ESM1.6 filenames are also still under development
