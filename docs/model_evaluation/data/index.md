@@ -1,39 +1,66 @@
-# Data
-
-This sections describes some concepts and tools mainly around model output data. This is important to understand to help you find the information you are interested in. Data standards are also important for sharing, collaboration, cataloguing and enable the use of outputs. This will allow for model comparisons and evaluation of results
-
+# ACCESS Data
 
 <div class="card-container">
-    <a href="/model_evaluation/data/data_format" class="vertical-card aspect-ratio1to1">
+    <!-- Basics of ACCESS Data -->
+    <a href="data_basics" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/netcdf_example.png" alt="Data format and standards" title="Picture from https://pro.arcgis.com/en/pro-app/latest/tool-reference/geostatistical-analyst/ga-layer-3d-to-netcdf.htm" class="img-contain white-background with-padding"></img>
+            <img src="/assets/model_evaluation/model_evaluation_model_catalog.jpg" alt="MED Conda Environment" class="img-contain white-background with-padding">
         </div>
-        <div class="card-text-container bold ">Data Format</div>
+        <div class="card-text-container">
+            <span class="bold" >Basics of ACCESS Data</span>
+            <span>
+                Overview of the fundamentals of working with ACCESS Data
+            </span>
+        </div>
     </a>
-    <a href="/model_evaluation/data/variables" class="vertical-card aspect-ratio1to1">
+    <!-- Finding of ACCESS Data -->
+    <a href="finding" class="horizontal-card">
         <div class="card-image-container">
-            <img src="../../assets/model_evaluation/model_evaluation_variables.png" alt="Data variables" class="img-contain white-background with-padding"></img>
+            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
         </div>
-        <div class="card-text-container bold ">Data Variables</div>
+        <div class="card-text-container">
+            <span class="bold" >Finding ACCESS Data</span>
+            <span>
+                Information on finding ACCESS Data using the ACCESS-NRI & NCI catalogues
+            </span>
+        </div>
     </a>
-    <a href="/model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio1to1">
+    <!-- Sharing ACCESS Data -->
+    <a href="sharing/sharing" class="horizontal-card">
         <div class="card-image-container">
-            <img src="../../assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding"></img>
+            <img src="/assets/external-links.jpg" alt="MED Conda Environment" class="img-cover">
         </div>
-        <div class="card-text-container bold ">Cryosphere Community Datapool</div>
+        <div class="card-text-container">
+            <span class="bold" >Sharing ACCESS Data</span>
+            <span>
+                Options for sharing ACCESS data and the support available from ACCESS-NRI
+            </span>
+        </div>
+    </a>
+    <!-- ACCESS Output Data Specification -->
+    <a href="sharing/specification" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS Output Data Specification</span>
+            <span>
+                Details on the specification for ACCESS model output data
+            </span>
+        </div>
+    </a>
+    <!-- Cryosphere Community Datapool -->
+    <a href="cryosphere_datapool" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Cryosphere Community Datapool</span>
+            <span>
+                How to find and access the Cryosphere Datapool
+            </span>
+        </div>
     </a>
 </div>
-<div class="card-container">
-    <a href="/model_evaluation/data/observations" class="vertical-card aspect-ratio1to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold ">Observational Data</div>
-    </a>
-    <a href="/model_evaluation/data/model_catalogs" class="vertical-card aspect-ratio1to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/model_evaluation_model_catalog.jpg" alt="MED Conda Environment" class="img-contain white-background with-padding"></img>
-        </div>
-        <div class="card-text-container bold ">Model Data</div>
-    </a>
-</div>
+
+<!-- Why do the cards dissappear with no text here? -->
