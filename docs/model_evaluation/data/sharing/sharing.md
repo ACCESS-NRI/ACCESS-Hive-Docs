@@ -91,7 +91,7 @@ a relevant working group or send an email to ACCESS-NRI's data team at
 When submitting a data request please include as much of the following information
 as possible:
 
-- **Brief description** (or link to catalogue record)
+- **Brief description of the data** (or link to catalogue record)
 - **Source location** (where the data is currently stored)
 - **Licence** (if known)
 - **Approximate storage volume required**
