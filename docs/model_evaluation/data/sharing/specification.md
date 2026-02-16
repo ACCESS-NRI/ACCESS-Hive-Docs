@@ -44,8 +44,10 @@ Where possible `time_bnds` should be included as an additional coordinate variab
 
 ### Global Attributes
 Global attributes provide information on the context for the data such as the creation time, experiment it is part of, or science configurations used.
-All the attributes in the table below are recommended but not all are required, see the `Required` column, and attributes not specified are permitted.
-All these global attributes have type `string`.
+All attributes in the table below are recommended, but only those indicated in the `Required` column are mandatory. Additional, unspecified attributes are permitted.
+
+All the global attributes below have type `string`.
+
 Attributes should be sorted alphabetically by name.
 
 Note that for any given experiment run the combination of `model` and `model_version` should identify the code used to generate the data, and `experiment_repo` and `run_id` should identify a specific commit in the repository containing the configuration used.
