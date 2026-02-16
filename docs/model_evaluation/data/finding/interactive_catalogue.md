@@ -7,9 +7,9 @@
 The ACCESS-NRI Interactive Data Catalogue is a web-based application that allows users to explore and discover climate data products available on NCI's _Gadi_ supercomputer.
 It provides an intuitive interface for searching and filtering datasets based on various attributes such as variables, models, frequencies, and realms.
 
-The Interactive Catalogue also allows users to subset and query data in order to select the minimal subset of data files they wish to open on gadi, and provides Python code snippets to allow users to load the selected data using the ACCESS-NRI Intake Catalogue.
+The Interactive Catalogue also allows users to subset and query data to identify the minimal set of files they need to open on Gadi. It also generates Python code snippets that enable users to load the selected data using the ACCESS-NRI Intake Catalogue.
 
-It is not a separate catalogue from the ACCESS-NRI Intake Catalogue, but rather a complementary tool that provides a user-friendly way to interact with and share the same underlying data, without having to log into Gadi or write code.
+It is not a separate catalogue from the ACCESS-NRI Intake Catalogue, but rather a complementary tool that provides a user-friendly way to interact with the same underlying data, without requiring users to log in to Gadi or write code.
 
 # Explore the Interactive Data Catalog
 
