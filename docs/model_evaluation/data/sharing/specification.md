@@ -22,7 +22,7 @@ The directory structure for ACCESS-ESM1.6 data output is still being finalised.
 The current draft has the following structure under the current working directory: `<run>/output<xxx>/<realm>/<filename.nc>`
 
 ### File naming
-ACCESS-ESM1.6 filenames are also still under development
+ACCESS-ESM1.6 filenames are also still under development.
 
 All information contained in filenames should be present in file metadata attributes.
 
