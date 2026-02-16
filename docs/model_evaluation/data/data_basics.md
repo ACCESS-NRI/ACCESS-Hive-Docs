@@ -7,7 +7,7 @@ ACCESS climate models simulate the Earth system on three-dimensional grids, repr
 Because of this, ACCESS model output is highly structured. Each dataset contains many variables (such as temperature, wind, or precipitation), each defined on specific grids and time intervals. Preserving this structure is essential for correctly interpreting and analysing the data.
 
 
-### NetCDF: data and metadata
+### The NetCDF format
 
 ACCESS model data is typically stored in **[netCDF (Network Common Data Form)](https://www.unidata.ucar.edu/software/netcdf)** files. The NetCDF format is well suited to climate and geoscience data because it stores:
 
