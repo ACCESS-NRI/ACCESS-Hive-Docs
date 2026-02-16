@@ -66,10 +66,10 @@ The Datapool is managed by the ACCESS-NRI Data team.
 
 ## Curated Datasets
 
-ACCESS-NRI also supports datasets which are more carefully curated, can be given
-DOIs, exposed to the public via NCI's THREDDS service, and are typically
-published in [NCI's data catalogue](https://geonetwork.nci.org.au), such data are
-referred to as **ACCESS Curated Datasets**.
+ACCESS-NRI also supports carefully curated datasets, which can be assigned DOIs,
+made publicly available via NCI's THREDDS service, and are typically published in
+[NCI's data catalogue](https://geonetwork.nci.org.au).
+These datasets are referred to as ACCESS Curated Datasets.
 These datasets are prepared in collaboration with NCI's data team and are more
 tightly controlled and documented than Datapool datasets in order to ensure they
 remain accessible, trustworthy, and (re)usable.
