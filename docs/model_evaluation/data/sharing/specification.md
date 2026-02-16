@@ -1,7 +1,3 @@
----
-hide:
-  - toc
----
 
 # ACCESS Output Data Specifications
 This document provides an overview of the data specifications for data produced
