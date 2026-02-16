@@ -58,7 +58,7 @@ The Datapool supports datasets that are of value to be shared with the community
 but may not be considered ready or appropriate for publication as a Curated Dataset.
 
 Datapool storage is ideal for stable data that needs to be shared widely amongst
-the ACCESS community but does not require the additional stability and functionality
+the ACCESS community, but does not require the additional stability and functionality
 available to a Curated Dataset.
 
 The Datapool is managed by the ACCESS-NRI Data team.
