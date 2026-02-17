@@ -3,7 +3,7 @@
     This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 !!! tip
-    13/02/2026: ACCESS-NRI has migrated from Spack v0.22 to Spack v1.1. If you had followed these instructions in the past, for Spack v0.22, you will have to repeat these instructions again, to install Spack v1.1.
+    **13/02/2026:** ACCESS-NRI has migrated from *Spack* `v0.22` to *Spack* `v1.1`. If you previously followed these instructions to set up *Spack* `v0.22`, you will need to repeat the setup process below to install *Spack* `v1.1`.
 
 # Set up Spack for building ACCESS models (v2)
 
