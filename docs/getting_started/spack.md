@@ -5,7 +5,7 @@
 !!! tip
     **13/02/2026:** ACCESS-NRI has migrated from *Spack* `v0.22` to *Spack* `v1.1`. If you previously followed these instructions to set up *Spack* `v0.22`, you will need to repeat the setup process below to install *Spack* `v1.1`.
 
-# Set up Spack for building ACCESS models (v2)
+# Set up Spack for building ACCESS models
 
 [Spack](https://spack.io/about/) is a build-from-source package manager, specifically designed to simplify the installation of scientific software on supercomputers.
 
