@@ -32,4 +32,4 @@ It produces physical climate simulations.
 
 Compared to previous model versions, ACCESS-CM2 shows better global hydrological balance, more realistic ocean water properties (in terms of spatial distribution) and meridional overturning circulation in the Southern Ocean. It does, however, produce a poorer simulation of the Antarctic sea ice and a larger energy imbalance at the top of atmosphere. ACCESS-CM2 has a relatively high equilibrium climate sensivity of 4.7°C for doubled CO~2~ concentration.
 
-[Run ACCESS-CM](/models/run_a_model/run_access-cm2){: class="text-card"}
+[Run ACCESS-CM2](/models/run_a_model/run_access-cm2){: class="text-card"}

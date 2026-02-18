@@ -2,6 +2,9 @@
     This page is tailored to experienced users and collaborators developing ACCESS models.<br>
     This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
+!!! tip
+    **13/02/2026:** ACCESS-NRI has migrated from *Spack* `v0.22` to *Spack* `v1.1`. If you previously followed these instructions to set up *Spack* `v0.22`, you will need to repeat the setup process below to install *Spack* `v1.1`.
+
 # Set up Spack for building ACCESS models
 
 [Spack](https://spack.io/about/) is a build-from-source package manager, specifically designed to simplify the installation of scientific software on supercomputers.
@@ -9,6 +12,9 @@
 To use _Spack_, please familiarise yourself with the [Basic Usage instructions](https://spack.readthedocs.io/en/latest/basic_usage.html) and [Environments](https://spack.readthedocs.io/en/latest/environments.html).
 
 We also recommend that you refer to the [Spack 101 Tutorial](https://spack-tutorial.readthedocs.io/en/latest/).
+
+Installing _Spack_ allows users to build ACCESS models directly from the source code, swap model components, and carry out development testing that involves modifying the source code.<br>
+After installing _Spack_, refer to the [Build a model](https://docs.access-hive.org.au/models/build_a_model/build_source_code/) page for the next steps.
 
 ## Prerequisites
 - **NCI Account**<br> 
@@ -28,15 +34,15 @@ We also recommend that you refer to the [Spack 101 Tutorial](https://spack-tutor
 ## Set up Spack on Gadi
 
 !!! tip
-    The steps in this section only need to be done once.
+    The steps in this section only need to be completed once.
 
 ### Create a directory for Spack
 
-Create a directory on the filesystem where _Spack_ will be installed (e.g. `/g/data/$PROJECT/$USER/spack/0.22`). Use the `/g/data` filesystem if you wish to run the binaries on the compute nodes.
+Create a directory on the filesystem where _Spack_ will be installed (e.g. `/g/data/$PROJECT/$USER/spack/1.1`). Use the `/g/data` filesystem if you wish to run the binaries on the compute nodes.
 
 ```
-mkdir -p /g/data/$PROJECT/$USER/spack/0.22
-cd /g/data/$PROJECT/$USER/spack/0.22
+mkdir -p /g/data/$PROJECT/$USER/spack/1.1
+cd /g/data/$PROJECT/$USER/spack/1.1
 ```
 
 ### Clone the relevant git repositories
@@ -45,15 +51,14 @@ cd /g/data/$PROJECT/$USER/spack/0.22
     ACCESS-NRI maintains a [fork of Spack](https://github.com/ACCESS-NRI/spack) to enable back-porting fixes from more recent spack versions. This fork is the one used in these instructions.
 
 ```
-git clone -c feature.manyFiles=true https://github.com/ACCESS-NRI/spack.git --branch releases/v0.22
-git clone https://github.com/ACCESS-NRI/spack-packages.git --branch main
+git clone https://github.com/ACCESS-NRI/spack.git --branch releases/v1.1
 git clone https://github.com/ACCESS-NRI/spack-config.git --branch main
 ```
 
 ### Link Spack configuration files to the Spack instance
 
 ```
-ln -s -r -v spack-config/v0.22/gadi/* spack/etc/spack/
+ln -s -r -v spack-config/v1.1/gadi/* spack/etc/spack/
 ```
 
 !!! success
@@ -68,7 +73,7 @@ For instructions on how to build an ACCESS model using _Spack_, refer to [Modify
     Additionally, this step must be repeated for every new login or new shell session.
 
 ```
-cd /g/data/$PROJECT/$USER/spack/0.22
+cd /g/data/$PROJECT/$USER/spack/1.1
 module purge
 . spack-config/spack-enable.bash
 ```
@@ -81,35 +86,20 @@ module purge
 To test that your Spack installation works as expected, we will create an `ACCESS-TEST` environment and build the relevant packages (this will take approximately 30 minutes). Then, we will uninstall all the packages and remove the environment.
 
 
-### Create a Spack managed environment
+### Clone a Spack environment
 
 ```
 git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git
-spack env create test ACCESS-TEST/spack.yaml
 ```
-
-<terminal-window>
-  <terminal-line data="input">git clone https://github.com/ACCESS-NRI/ACCESS-TEST.git</terminal-line>
-    <terminal-line>Cloning into 'ACCESS-TEST'...</terminal-line>
-    <terminal-line>remote: Enumerating objects: 33, done.</terminal-line>
-    <terminal-line>remote: Counting objects: 100% (33/33), done.</terminal-line>
-    <terminal-line>remote: Compressing objects: 100% (20/20), done.</terminal-line>
-    <terminal-line>remote: Total 33 (delta 12), reused 27 (delta 9), pack-reused 0 (from 0)</terminal-line>
-    <terminal-line>Receiving objects: 100% (33/33), 15.92 KiB | 1.06 MiB/s, done.</terminal-line>
-    <terminal-line>Resolving deltas: 100% (12/12), done.</terminal-line>
-  <terminal-line data="input">spack env create test ACCESS-TEST/spack.yaml</terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Created environment <span class="spack-cyan">test</span> in: <span class="spack-cyan">/g/data/$PROJECT/$USER/spack/0.22/environments/test</span></terminal-line>
-  <terminal-line><span class="spack-indigo bold">\==></span> Activate with: <span class="spack-cyan">spack env -p activate test</span></terminal-line>
-</terminal-window>
 
 ### Activate the environment
-Activate the `test` _Spack_ environment by running:
+Activate the `ACCESS-TEST` _Spack_ environment by running:
 ```
-spack env activate -p test
+spack env activate -p ./ACCESS-TEST
 ```
 <terminal-window>
-    <terminal-line data="input">spack env activate -p test</terminal-line>
-    <terminal-line data="input" directory="[test]" class="spack" lineDelay=0></terminal-line>
+    <terminal-line data="input">spack env activate -p ./ACCESS-TEST</terminal-line>
+    <terminal-line data="input" directory="[ACCESS-TEST]" class="spack" lineDelay=0></terminal-line>
 </terminal-window>
 
 ### Compile packages
@@ -126,133 +116,119 @@ spack install
 <terminal-window lineDelay=0>
     <!-- spack find -->
     <terminal-line directory="[test]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
-    <terminal-line lineDelay=500><span class="spack-indigo">\==></span> In environment test</terminal-line>
+    <terminal-line lineDelay=500><span class="spack-indigo">\==></span> In environment &lt;/path/to/environment/ACCESS-TEST&gt;</terminal-line>
     <terminal-line><span class="spack-indigo">\==></span> 1 root specs</terminal-line>
-    <terminal-line><span class="spack-grey keep-blanks"> - </span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span></terminal-line>
+    <terminal-line>-- <span class="spack-pink">no arch</span> / <span class="spack-green">no compilers</span> ---------------------------------------</terminal-line>
+    <terminal-line><span class="spack-grey keep-blanks"> - </span> access-test</terminal-line>
     <terminal-line></terminal-line>
     <terminal-line><span class="spack-indigo">\==></span> 0 installed packages</terminal-line>
+    <terminal-line><span class="spack-indigo">\==></span> 0 concretized packages to be installed (show with `spack find -c`)</terminal-line>
     <!-- spack concretize -->
     <terminal-line lineDelay=600 directory="[test]" class="spack" data="input">spack concretize -f --fresh</terminal-line>
-    <terminal-line lineDelay=2000><span class="spack-indigo">\==></span> Concretized access-test@git.2025.04.000=2025.04.000</terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line lineDelay=2000><span class="spack-indigo">\==></span> Concretized 1 spec:</terminal-line>
     <terminal-line>
-        <span class="spack-grey keep-blanks"> -   ih4cowp</span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">+mpi build_system=bundle</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
+        <span class="spack-grey keep-blanks"> -   &lt;spec-id&gt; </span> access-test<span class="spack-cyan">@&lt;version-info&gt;</span><span class="spack-indigo">&lt;build-info&gt;</span> <span class="spack-pink">&lt;architecture-info&gt;</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-grey keep-blanks"> -   bcixn5z    </span> <span>^access-test-component<span class="spack-cyan">@main</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~ipo+mpi build_system=cmake build_type=Release generator=make</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
+        <span class="spack-grey keep-blanks"> -   &lt;spec-id&gt;    </span> ^&lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span><span class="spack-indigo">&lt;build-info&gt;</span> <span class="spack-pink">&lt;architecture-info&gt;</span>
     </terminal-line>
+    <terminal-line>...</terminal-line>
     <terminal-line>
-        <span class="spack-grey keep-blanks"> -   rldyvqn        </span> <span>^cmake<span class="spack-cyan">@3.24.2</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~doc+ncurses+ownlibs build_system=generic build_type=Release</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   doeoclg        </span> <span>^gmake<span class="spack-cyan">@4.4.1</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~guile build_system=generic</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   qg5spmh        </span> <span>^openmpi<span class="spack-cyan">@4.1.5</span><span class="spack-green">%intel@2021.10.0</span><span class="spack-indigo">\~atomics\~cuda\~cxx\~cxx_exceptions\~gpfs\~internal-hwloc\~internal-libevent\~internal-pmix\~java\~legacylaunchers\~lustre\~memchecker\~openshmem\~orterunprefix\~romio+rsh\~singularity\~static+vt+wrapper-rpath build_system=autotools fabrics=none romio-filesystem=none schedulers=none</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-grey keep-blanks"> -   5elnsoi    </span> <span>^glibc<span class="spack-cyan">@2.28</span><span class="spack-green">%intel@2021.10.0</span> <span class="spack-indigo">build_system=autotools</span> <span class="spack-pink">arch=linux-rocky8-x86_64</span>
-    </terminal-line>
-    <terminal-line></terminal-line>
-    <terminal-line>
-        <span class="spack-indigo">\==></span> Updating view at /g/data/$PROJECT/$USER/spack/0.22/environments/test/.spack-env/view</terminal-line>
+        <span class="spack-grey keep-blanks"> -   &lt;spec-id&gt;        </span> ^&lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span><span class="spack-indigo">&lt;build-info&gt;</span> <span class="spack-pink">&lt;architecture-info&gt;</span>
     </terminal-line>
     <!-- spack install -->
     <terminal-line directory="[test]" class="spack" lineDelay=2000 data="input">
         spack install
     </terminal-line>
     <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p</span> <span class="spack-highlighted">[1/6]</span>
+        ...
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/glibc-2.28-5elnsoiqgcg5k5zmmwsp33bmnmaa3g5p
+        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">&lt;spack-package&gt;&lt;hash&gt;</span> <span class="spack-highlighted">[1/&lt;N&gt;]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc</span> <span class="spack-highlighted">[2/6]</span>
+        ...
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/cmake-3.24.2-vc4y4c64s55j5u6kp37ciw2hcghuxhhc
+        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">&lt;spack-package&gt;&lt;hash&gt;</span> <span class="spack-highlighted">[2/&lt;N&gt;]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f</span> <span class="spack-highlighted">[3/6]</span>
+        ...
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/openmpi-4.1.5-qg5spmhetxnuvtyi7nuobd3nv7zwnu5f
+        <span class="spack-indigo bold">\==></span> <span class="spack-highlighted">Installing</span> <span class="spack-green">access-test-&lt;version-info&gt;&lt;hash&gt;</span> <span class="spack-highlighted">[&lt;N&gt;/&lt;N&gt;]</span>
     </terminal-line>
     <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6</span> <span class="spack-highlighted">[4/6]</span>
+        ...
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/gmake-4.4.1-j6yscmmcn3qws7n35klote7rivw7foa6
+        <span class="spack-indigo bold">\==></span> access-test: Successfully installed access-test-&lt;version-info&gt;&lt;hash&gt;
     </terminal-line>
     <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx</span> <span class="spack-highlighted">[5/6]</span>
+        ...
     </terminal-line>
     <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-component-main-bcixn5z6ou7vlnogzgyy5z23jb4qeunx
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo bold">\==></span> <span   class="spack-highlighted">Installing</span> <span class="spack-green">access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr</span> <span class="spack-highlighted">[6/6]</span>
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green">[+]</span> /g/data/$PROJECT/$USER/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-test-git.2025.04.000_2025.04.000-ih4cowpiz2kv6tnz4rkualxuly54tizr
+        <span class="spack-indigo bold">\==></span> Updating view at &lt;/path/to/ACCESS-TEST/.spack-env/view&gt;
     </terminal-line>
 </terminal-window>
 
 !!! info
-    The full output has been truncated for brevity.
+    The animation above is a generalised example of the expected output, shortened and modified for clarity. Your actual output might vary.
+
 
 ### Check installed packages
 
 ```
 spack find
 ```
+
 <terminal-window lineDelay=0>
+    <!-- spack find -->
     <terminal-line directory="[test]" class="spack" data="input" lineDelay=600>spack find</terminal-line>
-    <terminal-line lineDelay=500>
-        <span class="spack-indigo">\==></span> In environment test
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-indigo">\==></span> 1 root specs
-    </terminal-line>
-    <terminal-line>
-        <span class="spack-green"> [+] </span> access-test<span class="spack-cyan">@git.2025.04.000=2025.04.000</span>
+    <terminal-line lineDelay=500><span class="spack-indigo">\==></span> In environment &lt;/path/to/environment/ACCESS-TEST&gt;</terminal-line>
+    <terminal-line><span class="spack-indigo">\==></span> 1 root specs</terminal-line>
+    <terminal-line>-- <span class="spack-pink">no arch</span> / <span class="spack-green">no compilers</span> ---------------------------------------</terminal-line>
+    <terminal-line><span class="spack-green"> [+] </span> access-test</terminal-line>
+    <terminal-line></terminal-line>
+    <terminal-line>-- <span class="spack-pink">&lt;architecture-info&gt;</span> / <span class="spack-green">&lt;compilers-info&gt;</span> -----------------------</terminal-line>
+    <terminal-line class="ls-output-format">
+        &lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span>
+        &lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span>
     </terminal-line>
     <terminal-line></terminal-line>
-    <terminal-line>
-        <span class="spack-indigo">\==></span> installed packages
-    </terminal-line>
-    <terminal-line>
-        -- <span class="spack-pink">linux-rocky8-x86_64</span> / <span class="spack-green">intel@2021.10.0</span> ------------------------
-    </terminal-line>
+    <terminal-line>-- <span class="spack-pink">&lt;architecture-info&gt;</span> / <span class="spack-green">&lt;compilers-info&gt;</span> -----------------------</terminal-line>
     <terminal-line class="ls-output-format">
-        <span class="spack-highlighted">access-test</span><span class="spack-cyan">@git.2025.04.000=2025.04.000</span> 
-        access-test-component<span class="spack-cyan">@main</span> 
-        cmake<span class="spack-cyan">@3.24.2</span> 
-        glibc<span class="spack-cyan">@2.28</span> 
-        gmake<span class="spack-cyan">@4.4.1</span> 
-        openmpi@4.1.5<span class="spack-cyan">@1.5.6</span> 
+        &lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span>
+        &lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span>
+        &lt;spack-package&gt;<span class="spack-cyan">@&lt;version-info&gt;</span>
     </terminal-line>
-    <terminal-line><span class="spack-indigo">\==></span> 6 installed packages</terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line><span class="spack-indigo">\==></span> &lt;N&gt; installed packages</terminal-line>
+    <terminal-line><span class="spack-indigo">\==></span> 0 concretized packages to be installed (show with `spack find -c`)</terminal-line>
 </terminal-window>
+
+!!! info
+    The animation above is a generalised example of the expected output, shortened and modified for clarity. Your actual output might vary.
 
 ### Cleanup
 ```
 spack uninstall --remove --all
 spack env deactivate
-spack env rm test
 rm -rf ACCESS-TEST
 ```
 
 ## Update Spack on Gadi
 
-Keep your Spack instance up-to-date by doing the following:
+Keep your _Spack_ instance up-to-date by doing the following:
 
 ```
-cd /g/data/$PROJECT/$USER/spack/0.22
+cd /g/data/$PROJECT/$USER/spack/1.1
 git -C spack fetch --all -Pp
-git -C spack reset --hard origin/releases/v0.22
+git -C spack reset --hard origin/releases/v1.1
 git -C spack-config pull
-git -C spack-packages pull
+. spack-config/spack-enable.bash
+spack repo update
 ```
 
 <custom-references>

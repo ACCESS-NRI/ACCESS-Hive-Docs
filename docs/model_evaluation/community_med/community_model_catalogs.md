@@ -42,7 +42,7 @@ Please let us know, if we are missing an important catalogue. Check [How To Cont
 <td width="75%">
     <div align='center' width="100%" >
         This is an intake catalogue maintained by the ARC Centre of Excellence for Climate Extremes <a href="https://climateextremes.org.au/" target="_blank">CLEX</a>.
-        Only datasets from the NCI Catalog are referenced.
+        Only datasets from the NCI Catalogue are referenced.
         The catalogue is available in intake's default catalogue list in the CLEX Conda environment.
         Two notebooks are provided in the docs folder showing how to access the ERA5 and CMIP6 datasets.
     </div>

@@ -19,7 +19,7 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_cm_model_visualisation.png" alt="ACCESS-CM">
         </div>
         <div class="card-text-container bold">   
-            Run ACCESS-CM
+            Run ACCESS-CM2
         </div>
     </a>
     <!-- Run ACCESS-rAM -->
@@ -49,7 +49,7 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm_model_visualisation.png" alt="ACCESS-ESM">
         </div>
         <div class="card-text-container bold">   
-            Run ACCESS-ESM
+            Run ACCESS-ESM1.5
         </div>
     </a>
     <!-- Run ACCESS-OM2 -->

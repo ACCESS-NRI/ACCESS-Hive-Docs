@@ -130,7 +130,7 @@ nav:
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
       - Run ACCESS-rAM3: models/run_a_model/run_access-ram3.md
       - Run models using Payu: models/run_a_model/payu.md
-      - Run ACCESS-ESM: models/run_a_model/run_access-esm.md
+      - Run ACCESS-ESM1.5: models/run_a_model/run_access-esm.md
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
     - Build a Model:
@@ -142,11 +142,14 @@ nav:
     - model_evaluation/index.md
     - Data:
       - model_evaluation/data/index.md
-      - Data Format and Standards: model_evaluation/data/data_format.md
-      - Data Variables: model_evaluation/data/variables.md
+      - Basics of ACCESS Data: model_evaluation/data/data_basics.md
+      - Finding ACCESS Data:
+        - model_evaluation/data/finding/index.md
+        - ACCESS-NRI Intake Catalogue: model_evaluation/data/finding/access_nri_intake.md
+        - ACCESS-NRI Interactive Catalogue: model_evaluation/data/finding/interactive_catalogue.md
+      - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
+      - ACCESS Output Data Specifications: model_evaluation/data/sharing/specification.md
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
-      - Observational Data: model_evaluation/data/observations.md
-      - Accessing Model Data: model_evaluation/data/model_catalogs.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
       # - Frameworks on Gadi:
@@ -166,7 +169,7 @@ nav:
   - Tutorials:
     - tutorials/index.md
     - ACCESS-CM2: tutorials/models.md
-    - ACCESS-NRI Intake catalog: tutorials/intake.md
+    - ACCESS-NRI Intake Catalogue: tutorials/intake.md
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
@@ -193,8 +196,10 @@ nav:
     - Glossaries: community_resources/glossaries.md
   - About:
     - about/index.md
+    - ACCESS-NRI Releases:
+      - Release list: about/release_list.md
+      - Release stages: about/releases.md
     - Contact: about/contact.md
-    - Release stages: about/releases.md
     - FAQ: about/faq.md
     - User support: about/user_support.md
     - How to Contribute: about/contribute.md
