@@ -14,8 +14,6 @@ on:
     branches:
       - main
       - development # MODIFY IF NEEDED - If you don't have a development branch, you can remove this line.
-    paths:
-      - './**' # MODIFY IF NEEDED - This should be changed to be DOC_DIR/** based on the env variable DOC_DIR below
   pull_request: # Action also fires anytime a PR is (re)opened, closed or synchronized
     types:
       - opened
