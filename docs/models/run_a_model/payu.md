@@ -46,7 +46,7 @@ An experiment is a series of runs of a configuration to cover a longer time peri
 
 A representation of the data organisation for _payu_ is given in the following diagram:
 
-![payu directory structure](/docs/assets/payu_directory_structure.png){: class="example-img" loading="lazy"}
+![payu directory structure](/assets/payu_directory_structure.png){: class="example-img" loading="lazy"}
 
 This design was chosen to separate the small files that define the configuration and the larger binary output and input files needed for a realisation of a configuration. This ensures the configuration definition is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data to be run simultaneously.
 
