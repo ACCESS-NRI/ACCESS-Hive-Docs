@@ -920,11 +920,8 @@ details.code {
 }
 
 /* Adjust anchors to links */
-:target::before {
-  content: "";
-  display: block;
-  height: 1rem; /* This identifies the distance of the element from the banner when clicking on an achor link */
-  margin-top: -1rem; /* This should be match the height with the sign switched */
+[id] {
+  scroll-margin-top: 7rem !important;
 }
 
 
