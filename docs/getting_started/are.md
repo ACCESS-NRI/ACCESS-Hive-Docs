@@ -50,7 +50,7 @@ Hence, there are multiple [PBS directives](https://opus.nci.org.au/display/Help/
 - **Storage**<br>
     `/g/data` (inserted as _gdata/&lt;project-ID&gt;_) `/scratch` (inserted as _scratch/&lt;project-ID&gt;_) data storage projects that will be available to the session.<br>
     In ARE, data storage locations need to be explicitly defined. This means that you need to insert any `/g/data` and `/scratch` project folders you want to execute data I/O operations from.<br>
-    Multiple storage projects are separated by a plus (_+_) (e.g., _gdata/tm70+gdata/hh5+scratch/xp65_).
+    Multiple storage projects are separated by a plus (_+_) (e.g., _gdata/tm70+gdata/xp65+scratch/xp65_).
 {: id="storage-option"}
 
     !!! warning

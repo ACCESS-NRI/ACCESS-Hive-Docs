@@ -7,7 +7,7 @@ The following instructions explain how to load the curated python environment on
 ???+ warning "ACCESS-NRI provides code and support, but not computing resources"
     You do not automatically have access to all `/g/data/` storage on <i>Gadi</i>. You need to <a href="/getting_started/set_up_nci_account#join-relevant-nci-projects">join an NCI project</a> to view files on `/g/data/$PROJECT`.
     <br>
-    For model evaluation and diagnostics, you need to join projects `xp65` and `hh5` for code access and a `$PROJECT` with sufficient compute resources.
+    For model evaluation and diagnostics, you need to join project `xp65` for code access and a `$PROJECT` with sufficient compute resources.
 
 ## What is the `access-med` environment?
 
@@ -114,7 +114,7 @@ Below are some example values that you should change to match your `$PROJECT` an
 - **Queue** `normalbw` 
 - **Compute Size** `tiny` 
 - **Project** `iq82` (This should match your `$PROJECT` with compute resources)
-- **Storage** `gdata/xp65+gdata/hh5` (Select all that match your project's `/g/data` storage)
+- **Storage** `gdata/xp65` (Select all that match your project's `/g/data` storage)
 - *Advanced Options ...* (click button to expand) 
 - **Module directories** `/g/data/xp65/public/modules`
 - **Modules** `conda/are`
@@ -132,7 +132,7 @@ Launch JupyterLab by clicking on the <i>Open JupyterLab</i> button at the bottom
 <br>
 This will open a window which contains a directory structure on the left and a Jupyter notebook on the right, as shown below. 
 <br>
-If you loaded the modules from `hh5` or `xp65`, you should be able to import python packages such as `numpy`, `xarray` or `intake`, as shown below:
+If you loaded the modules from `xp65`, you should be able to import python packages such as `numpy`, `xarray` or `intake`, as shown below:
 
 <div style="text-align: center;">
     <img src="../../../assets/getting_started/are_2.png" alt="Example of a JupyterLab session with directory tree to the left and jupyter notebook to the right, showing successfully imported python packages." width="75%" />
