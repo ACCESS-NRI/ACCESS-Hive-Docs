@@ -27,6 +27,7 @@
 
     - [access](https://my.nci.org.au/mancini/project/access/join)
     - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
+    - [xp65](https://my.nci.org.au/mancini/project/xp65/join)
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
     
@@ -64,10 +65,10 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
     The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
     For more information, refer to how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
-- **Storage** &rarr; `gdata/access+gdata/hh5+gdata/hr22+gdata/ki32` (minimum)<br>
+- **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
-    Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than `access`, `hh5`, `hr22` or `ki32`, you need to add those projects to the storage path.<br>
-    For example, if your {{ model }} simulation requires data stored in `/g/data/tm70` and `/scratch/w40`, your full storage path will be: `gdata/access+gdata/hh5+gdata/hr22+gdata/ki32+gdata/tm70+scratch/w40`
+    Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than `access`, `xp65`, `hr22` or `ki32`, you need to add those projects to the storage path.<br>
+    For example, if your {{ model }} simulation requires data stored in `/g/data/tm70` and `/scratch/w40`, your full storage path will be: `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32+gdata/tm70+scratch/w40`
     
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
@@ -599,11 +600,46 @@ For the `{{ suite_id }}` suite in this example, the `atm` directory contains:
 
 Files formatted as `<suite-name>a.xhist-<year><month><day>` contain metadata information.
 
-## Port suites from accessdev
+## Troubleshooting
+### Update suites still relying on hh5
+!!! warning
+    Some suites might still not work when ported this way.<br>
+    If you have a suite that was relying on `hh5` and, even after following the steps below, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
+
+Previously, the `hh5` NCI project hosted the Python environments and software often used within suites (e.g., `conda/analysis3` environments, `pythonlib/um2netcdf4` utility).<br>
+Due to `hh5` decommissioning, all references to `hh5` must be replaced with the project storing the updated versions of the environments and software. For suites derived from the example suite above (`{{ suite_id }}` ), the updated versions are stored in `xp65`.
+
+Follow the steps below to ensure your suite is not using software from `hh5`:
+
+#### 1. Update netcdf_conversion task {: .no-toc }
+In the `suite.rc` file, within the `[[netcdf_conversion]]` task, update the loading of `pythonlib/um2netcdf4` to be using `pythonlib/um2netcdf4/xp65` instead:
+```diff
+- module load pythonlib/um2netcdf4
++ module load pythonlib/um2netcdf4/xp65
+```
+
+#### 2. Replace hh5 with xp65 {: .no-toc }
+To check if your {{ model }} suite relies on `hh5`, run the following command from your suite directory:
+```
+grep -r hh5 --exclude-dir=.svn .
+```
+
+Then, if you see any output from the command above, replace any `hh5` occurrency with `xp65`.<br>
+Lines that you will likely need to replace include storage specification lines (e.g., `-l storage = ...+gdata/hh5...`) and modules (e.g., `module use /g/data/hh5/public/modules`).
+
+!!! warning
+    If your suite loads `conda/analysis3`, to ensure reproducibility it is suggested to use a specific version of the environment (e.g., `conda/analysis3-25.11`).
+    For more information about `conda/analysis3` Python environment, refer to the [conda/analysis3 Python Environment page](/getting_started/environments/).
+
+### Port suites from accessdev
+!!! warning
+    Some suites might not be ported this way.<br>
+    If you have a suite that was running on _accessdev_ and even after following the steps below the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
+
 _accessdev_ was the server used for {{ model }} run submission workflow before the update to persistent sessions.<br>
 If you have a suite that was running on accessdev, you can run it using persistent sessions by carrying out the following steps:
 
-### Initialisation step
+#### 1. Initialisation step {: .no-toc }
 To set the correct SSH configuration for _Cylc_, some SSH keys need to be created in the `~/.ssh` directory.<br>
 To create the required SSH keys, run the following command:
 ```
@@ -612,7 +648,7 @@ To create the required SSH keys, run the following command:
 !!! tip
     You only need to run this initialisation step once.
 
-### Set host to localhost
+#### 2. Set host to localhost {: .no-toc }
 To enable _Cylc_ to submit PBS jobs directly from the persistent session, the suite configuration should have its `host` set as `localhost`.<br>
 You can manually set all occurrences of `host` to `localhost` in the suite configuration files.<br>
 Alternatively, you can run the following command in the suite folder:
@@ -620,19 +656,15 @@ Alternatively, you can run the following command in the suite folder:
 grep -rl --exclude-dir=.svn "host\s*=" . | xargs sed -i 's/\(host\s*=\s*\).*/\1localhost/g'
 ```
 
-### Add _gdata/hr22_ and _gdata/ki32_ in the PBS storage directives
+#### 3. Add _gdata/hr22_ and _gdata/ki32_ in the PBS storage directives {: .no-toc }
 As the persistent sessions workflow uses files in the `hr22` and `ki32` project folders on _Gadi_, the respective folders need to be added to the `storage` directive in the suite configuration files.<br>
 You can do this manually or run the following command from within the suite directory:
 ```
 grep -rl --exclude-dir=.svn "\-l\s*storage\s*=" . | xargs sed -i '/\-l\s*storage\s*=\s*.*gdata\/hr22.*/! s/\(\-l\s*storage\s*=\s*.*\)/\1+gdata\/hr22/g ; /\-l\s*storage\s*=\s*.*gdata\/ki32.*/! s/\(\-l\s*storage\s*=\s*.*\)/\1+gdata\/ki32/g'
 ```
 
-!!! warning
-    Some suites might not be ported this way.<br>
-    If you have a suite that was running on _accessdev_ and, even after following the steps above, the run submission fails, consider [getting help on the Hive Forum](/about/user_support/ask_on_forum).
-
-## Known issues
-Below are listed some {{ model }} known issues which will not be fixed.
+### Known issues
+Below are listed some {{ model }} known issues which are not going to be fixed.
 
 - [Different cycling frequencies break reproducibility](https://forum.access-hive.org.au/t/different-cycling-frequencies-in-access-cm2-lead-to-different-solutions/4539)
 {: #issues-cycling-repro }
