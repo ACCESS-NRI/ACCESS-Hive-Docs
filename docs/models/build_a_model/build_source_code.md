@@ -111,7 +111,7 @@ To exactly match the version of access-spack-packages to the released model, che
 
 ```
 cd /g/data/\$PROJECT/\$USER/spack/0.22/access-spack-packages
-git fetch origin --tag
+git fetch origin --tags
 git checkout <spack_packages_version>
 ```
 
