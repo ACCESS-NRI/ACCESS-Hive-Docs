@@ -83,7 +83,7 @@ You can find this information by viewing your Eventbrite ticket, which you can f
 You should receive automated emails from NCI as your memberships are approved. You can also check on the status of your project memberships by logging into MyNCI.  
  
 ### Wondering why you have to join so many NCI projects? 
-NCI compute and storage space is organized into projects. In order to get access to our Training Day compute resources, you will need access to project nf33. Most of the other projects listed above are for accessing datasets and/or software tools that are stored at NCI in specific projects. For instance, oi10 and fs38 house CMIP6 datasets. 
+NCI compute and storage space is organised into projects. In order to get access to our Training Day compute resources, you will need access to project nf33. Most of the other projects listed above are for accessing datasets and/or software tools that are stored at NCI in specific projects. For instance, oi10 and fs38 house CMIP6 datasets. 
  
 ### Training Day program and other information 
 - [Link to Training Day information on the ACCESS-NRI website](https://www.access-nri.org.au/event/access-training-day-2-september-2024/)

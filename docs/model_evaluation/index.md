@@ -43,9 +43,9 @@ While this work is in progress, you can refer to a collection of links to existi
 
 ## TBD: CMORisation
 
-TBD: Raw data vs. curated data: CMORized vs. not! What does CMORized actually mean (look at ESMValTool documentation)?
+TBD: Raw data vs. curated data: CMORised vs. not! What does CMORised actually mean (look at ESMValTool documentation)?
 TBD: Add APP4 to navigation (replace **Model Format Processing**?)
 TBD: Tools to check if data is CMOR-compliant (raise issue)
-TBD: Discuss with Dougie: How can we identify what is CMORized and what is not?
+TBD: Discuss with Dougie: How can we identify what is CMORised and what is not?
 
 -->
