@@ -91,7 +91,7 @@ If we are missing an important tool please let us know.<br> Check [How To Contri
 </td>
 <td width="75%">
     <div align='center' width="100%" >
-        This package facilitates the cleaning, organization and interactive analysis of Model Intercomparison Projects (MIPs) within the Pangeo software stack.
+        This package facilitates the cleaning, organisation and interactive analysis of Model Intercomparison Projects (MIPs) within the Pangeo software stack.
         <br>
         <a href="https://cmip6-preprocessing.readthedocs.io/en/latest/?badge=latest" target="_blank">Documentation</a> |
         <a href="https://github.com/jbusecke/xMIP" target="_blank">Source Code</a> |
