@@ -512,7 +512,7 @@ spack install
 !!! warning
     Although this time the `spack install` command will only build the development package, it might still take a long time to complete, depending on the specific package.
 
-    If the concretization step fails, try running the following command instead:
+    If the concretisation step fails, try running the following command instead:
     ```
     spack concretize -f --fresh
     ```
@@ -642,7 +642,7 @@ spack install
     The full output has been truncated for brevity.
 
 !!! tip
-    From now on, the source code can be modified and the _Spack_ environment installed without repeating the concretization step.<br>
+    From now on, the source code can be modified and the _Spack_ environment installed without repeating the concretisation step.<br>
     The _Spack_ environment will need to be re-concretized only if further changes occur in the `spack.yaml` file.
 
 ## Output directory for compiled packages
@@ -737,7 +737,7 @@ spack concretize -f
 ```
 
 !!! tip
-    If the concretization is failing, try `spack concretize -f --fresh` to start the concretization from scratch.
+    If the concretisation is failing, try `spack concretize -f --fresh` to start the concretisation from scratch.
 
 Then install the environment by running:
 

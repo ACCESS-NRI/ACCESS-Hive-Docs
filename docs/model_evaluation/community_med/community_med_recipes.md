@@ -250,7 +250,7 @@ IOMB uses the same code base as the International Land Model Benchmarking (ILAMB
         <a href="https://teca.readthedocs.io/en/latest" target="_blank">Documentation</a> |
         <a href="https://github.com/LBL-EESA/TECA" target="_blank">Tutorial</a> |
         <a href="https://sourceforge.net/p/teca/TECA_tutorials/HEAD/tree" target="_blank">Source Code</a>
-        <!-- TECA is a general purpose tool for detecting discrete events in climate model output. It leverages a map-reduce framework for efficient parallelization at large scales (order 10K+ cores). Currently, TECA contains detection algorithms for tropical cyclones, atmospheric rivers, and extratropical cyclones; and plans are underway to implement algorithms for mesoscale convective complexes, African Easterly waves, atmospheric blocks, and fronts. -->
+        <!-- TECA is a general purpose tool for detecting discrete events in climate model output. It leverages a map-reduce framework for efficient parallelisation at large scales (order 10K+ cores). Currently, TECA contains detection algorithms for tropical cyclones, atmospheric rivers, and extratropical cyclones; and plans are underway to implement algorithms for mesoscale convective complexes, African Easterly waves, atmospheric blocks, and fronts. -->
     </div>
 </td>
 </tr>
