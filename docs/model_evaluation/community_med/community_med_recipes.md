@@ -180,7 +180,7 @@ IOMB uses the same code base as the International Land Model Benchmarking (ILAMB
     <div align='center' width="100%" >
         <a href="https://pcmdi.github.io/pcmdi_metrics/index.html" target="_blank">Documentation</a> |
         <a href="https://github.com/PCMDI/pcmdi_metrics" target="_blank">Source Code</a>
-        <!-- The PMP is used to provide “quick-look” objective comparisons of Earth System Models (ESMs) with one another and available observations. Results are produced in the context of all model simulations contributed to CMIP6 and earlier CMIP phases. Currently, the comparisons emphasize metrics of large- to global-scale annual cycle and both tropical and extra-tropical modes of variability. Ongoing work in v1.x development branches include established statistics for ENSO, MJO, regional monsoons, and high frequency characteristics of simulated precipitation. -->
+        <!-- The PMP is used to provide “quick-look” objective comparisons of Earth System Models (ESMs) with one another and available observations. Results are produced in the context of all model simulations contributed to CMIP6 and earlier CMIP phases. Currently, the comparisons emphasise metrics of large- to global-scale annual cycle and both tropical and extra-tropical modes of variability. Ongoing work in v1.x development branches include established statistics for ENSO, MJO, regional monsoons, and high frequency characteristics of simulated precipitation. -->
     </div>
 </td>
 </tr>
@@ -274,7 +274,7 @@ IOMB uses the same code base as the International Land Model Benchmarking (ILAMB
         <a href="https://github.com/noaa-oar-arl/monet" target="_blank">Source Code</a> |
         <a href="https://www.mdpi.com/2073-4433/8/11/210" target="_blank">Paper</a>
         <!-- MONET is an open source project and Python package that aims to create a common platform for atmospheric composition data analysis for weather and air quality models.
-        MONET was developed to evaluate the Community Multiscale Air Quality Model (CMAQ) for the NOAA National Air Quality Forecast Capability (NAQFC) modeling system. MONET is designed to be a modularized Python package for (1) pairing model output to observational data in space and time; (2) leveraging the Pandas Python package for easy searching and grouping; and (3) analyzing and visualizing data. This process introduces a convenient method for evaluating model output. -->
+        MONET was developed to evaluate the Community Multiscale Air Quality Model (CMAQ) for the NOAA National Air Quality Forecast Capability (NAQFC) modeling system. MONET is designed to be a modularised Python package for (1) pairing model output to observational data in space and time; (2) leveraging the Pandas Python package for easy searching and grouping; and (3) analyzing and visualizing data. This process introduces a convenient method for evaluating model output. -->
     </div>
 </td>
 </tr>
