@@ -1,7 +1,7 @@
 # ACCESS Models
 
 ACCESS models are computer programs that represent key components of the Earth's climate system, including the atmosphere, oceans, land surface, and sea ice. These models use complex mathematical equations to simulate past, present, and future weather and climate conditions, as well as idealised scenarios. Different ACCESS models are configured with varying combinations of Earth system components to address specific research needs.<br>
-Developed in collaboration with international climate modeling institutions, these models are optimized for Australia’s high-performance computing (HPC) systems and tailored for Australian researchers.
+Developed in collaboration with international climate modeling institutions, these models are optimised for Australia’s high-performance computing (HPC) systems and tailored for Australian researchers.
 
 Below is a list of ACCESS models supported by ACCESS-NRI.
 

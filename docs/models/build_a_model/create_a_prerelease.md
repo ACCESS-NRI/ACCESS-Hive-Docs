@@ -211,7 +211,7 @@ If the PR gets merged, an official ACCESS-NRI release build of the given model w
 
 ## Draft vs non-draft PR
 The prerelease build workflow used to [trigger model prereleases](#trigger-model-prerelease-and-release-build-deployments) differs depending on whether the open PR is a _draft_ or a _regular_ PR.
-The differences are summarized in the table below:
+The differences are summarised in the table below:
 
 |**Type**|**Used for**|**CI Checks**|
 |---|---|---|
