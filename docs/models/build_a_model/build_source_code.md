@@ -110,7 +110,7 @@ By default, spack installations will checkout the latest from the default branch
 To exactly match the version of spack packages to the released model, checkout the version (e.g. `2025.03.006`) defined in [ACCESS-ESM1.5 Spack deployment]({{esm1_5_build_config}}/blob/-/config/versions.json):
 
 ```
-cd /g/data/\$PROJECT/\$USER/spack/0.22/spack-packages
+cd /g/data/$PROJECT/$USER/spack/0.22/spack-packages
 git fetch --unshallow
 git switch -c <spack_packages_version> <spack_packages_version>
 ```
