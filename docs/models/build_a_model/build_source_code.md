@@ -107,7 +107,7 @@ spack env activate -p mom5_dev
 
 By default, spack installations will checkout the latest from the default branch of [access-spack-packages](https://github.com/ACCESS-NRI/access-spack-packages). Occasionally, there will be changes to access-spack-packages which are incompatible with the spack environment being installed.
 
-To exactly match the version of access-spack-packages to the released model, checkout the version (e.g. `2025.03.006`) defined in [ACCESS-ESM1.5 Spack deployment]({{esm1_5_build_config}}/blob/config/versions.json):
+To exactly match the version of access-spack-packages to the released model, checkout the version (e.g. `2025.03.006`) defined in [ACCESS-ESM1.5 Spack deployment]({{esm1_5_build_config}}/blob/-/config/versions.json):
 
 ```
 cd /g/data/\$PROJECT/\$USER/spack/0.22/spack-packages
