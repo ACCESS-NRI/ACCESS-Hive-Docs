@@ -715,9 +715,9 @@ For Gadi, the _Linaro Forge Remote Launch Settings_ are:
 
 ### Setting up the build
 
-To debug a model through the _Linaro_ debugger, the following changes to the build's `spack.yaml` are required:
+To debug a model through the _Linaro_ debugger, the following settings in the build's `spack.yaml` are required:
 
-1. Change the version of OpenMPI to `openmpi/4.1.3`.
+1. OpenMPI version 4 should be used. `openmpi@4.1.3` and `openmpi@4.1.7` have been tested.
 
 2. Modify the compilation options to include debug information and prevent the compiler from re-ordering the code for the purpose of optimisation. Add the following entries to the `require` section of the components you want to debug:
     - `'fflags="-O0 -g -traceback"'`
