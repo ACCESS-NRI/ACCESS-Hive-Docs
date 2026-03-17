@@ -1,4 +1,5 @@
-# Cryosphere Community Datapool
+# Cryosphere Community Datapool (CCD)
+
 ## About
 The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34). The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used to parameterise ice sheet models. Datasets are currently grouped into the following categories:
 
@@ -27,6 +28,9 @@ The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI an
     
     - [av17](https://my.nci.org.au/mancini/project/av17/join)
     - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
+
+## How to contribute
+The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCD Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) of the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
 
 ## Available data
 The data listed in the following summary tables are hosted in the CCD and accessible directly on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview).
@@ -110,8 +114,5 @@ The data listed in the following summary tables are currently hosted as part of 
 | <b>ISMIP6 21st Century Forcing Datasets</b> <i>[Replica]</i>  | These datasets contain the 21st century atmospheric and oceanic forcing datasets used for Greenland and Antarctic standalone ice sheet model simulations as part of the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing/</code></pre> | [Source Link](https://doi.org/10.5281/zenodo.11176009) |
 | <b>ISMIP6 23rd Century Forcing Datasets</b> <i>[Replica]</i>  | These datasets contain the ISMIP6 23rd century forcing data that focus on simulations of the Antarctic Ice Sheet (AIS) extended to year 2300. These simulations are based on CMIP5 and CMIP6 climate model outputs, and are a follow-on to the simulations to 2100. | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Forcing-2300/</code></pre> | [Source Link](https://doi.org/10.5281/zenodo.13135571) |
 
-
-## How to contribute
-The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCD Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) of the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
 
 
