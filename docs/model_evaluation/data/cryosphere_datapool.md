@@ -29,11 +29,19 @@ The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI an
     - [av17](https://my.nci.org.au/mancini/project/av17/join)
     - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
+## CCD Python API `ccdtools`
+**ccdtools** is the Python CCD interface developed by ACCESS-NRI that provides seamless access to the data located within the CCD from with your Python workflows and scripts. The **ccdtools** library offers an intuitive interface for discovering, accessing, and analysing diverse data sources including satellite observations, in-situ measurements, and model outputs. The package features a powerful dataset catalog system, enabling users to efficiently retrieve and work with data commonly used for ice sheet modelling, climate analysis, and cryospheric studies.
+
+To learn more about **ccdtools** and get started, please visit the [ccdtools documentation](https://ccdtools.readthedocs.io/latest/)
+
+
 ## How to contribute
-The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) in the [CCD Github repository](https://github.com/ACCESS-NRI/access-cryosphere-data-pool). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) of the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
+The Cryosphere Community Datapool is always growing and evolving to meet the changing needs of the Australian cryosphere community, so if you have suggestions for additional datasets not listed above, please [create an Issue](https://github.com/ACCESS-NRI/ccdtools/issues) using the **New Dataset Request** template in the [ccdtools Github repository](https://github.com/ACCESS-NRI/ccdtools). For broader discussions around cryospheric data, please start a thread in the [Cryosphere Data Category](https://forum.access-hive.org.au/c/cryosphere/data) of the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). 
+
 
 ## Available data
 The data listed in the following summary tables are hosted in the CCD and accessible directly on [_Gadi_](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview).
+
 
 ### Elevation and geometry data 
 
