@@ -715,9 +715,9 @@ For Gadi, the _Linaro Forge Remote Launch Settings_ are:
 
 ### Setting up the build
 
-To debug a model through the _Linaro_ debugger, the following changes to the build's `spack.yaml` are required:
+To debug a model through the _Linaro_ debugger, the following settings in the build's `spack.yaml` are required:
 
-1. Change the version of OpenMPI to `openmpi/4.1.3`.
+1. OpenMPI version 4 should be used. `openmpi@4.1.3` and `openmpi@4.1.7` have been tested.
 
 2. Modify the compilation options to include debug information and prevent the compiler from re-ordering the code for the purpose of optimisation. Add the following entries to the `require` section of the components you want to debug:
     - `'fflags="-O0 -g -traceback"'`
@@ -796,6 +796,7 @@ A limitation of the NCI's _Linaro Forge_ license is that the maximum number of p
 * __MOM5__: In `ocean/input.nml`, change `layout` in the `&ocean_model_nml` namelist, which describes the number of chunks in the x and y directions in `nx,ny` format. In `config.yaml`, change the `ocean: ncpus` to the product of `nx` and `ny`.
 * __CICE4__: To change the number of processes used by _CICE4_, the _CICE4_ executable needs to be recompiled. This requires the user to modify their own _Spack_ installation. In the user's Spack installation, in `${SPACK_ROOT}/spack-packages/packages/cice4/package.py`, modify the entries in the `__targets` dictionary to the desired number of processes and blocks (the product of the blocks must be the same as the processes). The resulting executable name is `cice_<driver>_<grid>_<blocks>_<nprocs>p.exe`, which must be specified in the `config.yaml`. In the configuration's `ice/cice_in.nml`, change `nprocs` in the `&domain_nml` namelist to the desired number of processes. Finally, in the `config.yaml`, change the `ice: ncpus` to the desired number of processes.
 * __CICE5__: To change the number of processes used by CICE5, the CICE5 executable needs to be recompiled, and the new blocksizes need to be specified. In `spack.yaml`, modify or add the [five variants _nxglob_, _nyglob_, _blckx_, _blcky_, _mxblcks_](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-spack-packages+%5C%22nxglob%5C%22+%5C%22nyglob%5C%22+%5C%22blckx%5C%22+%5C%22blcky%5C%22+%5C%22mxblcks%5C%22&type=code) to the desired number of processes and blocks. For ACCESS-ESM1.6, nprocs must be a divisor of _nxglob_(=360), therefore set _blckx = 360/nprocs_ and _mxblcks=1_. For ACCESS-OM2, there are more options (see Section 4.7 of the CICE5 [documentation](https://github.com/ACCESS-NRI/cice5/blob/master/doc/cicedoc.pdf)). In the configuration's `ice/cice_in.nml`, change `nprocs` in the `&domain_nml` namelist to the desired number of processes. Finally, in the `config.yaml`, change the executable name to the new build and change `ice: ncpus` to the desired number of processes.
+* __ACCESS-OM3__: In `nuopc.runconfig` change `_ntasks` for each model component to be less than or equal to 256. Change `_rootpe` for every component to 0 (or such that `_rootpe` + `_ntasks` is less than 256). In `MOM_Input`, add `AUTO_MASKTABLE = True`, and remove entries for `MASKTABLE`, `LAYOUT` and `IO_LAYOUT`. Finally in `config.yaml`, change `ncpus` to the desired number of processes.
 
 For the example above, the number of processes requested is larger than the number allowed by _Linaro Forge_. Therefore, changes to the atmosphere (UM) and ocean (MOM5) decompositions are required. For this reason, we will reduce the number of processes to 16 for UM and to 12 for MOM5. As CICE4 only requests 12 processes, this can be kept as is. The updated configuration would look like the following:
 
