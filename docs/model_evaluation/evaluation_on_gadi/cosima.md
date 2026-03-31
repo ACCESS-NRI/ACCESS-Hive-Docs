@@ -39,3 +39,7 @@ For more information on the <i>COSIMA Cookbook</i>, refer to the <a href="https:
 - <a href="https://github.com/COSIMA/cosima-recipes/tree/cosima_cookbook/ACCESS-OM2-GMD-Paper-Figs" target="_blank">Notebooks</a> to reproduce figures of the <a href="https://gmd.copernicus.org/articles/13/401/2020/" target="_blank">ACCESS-OM2 announcement paper</a>
 
 
+### Help evaluate and improve applications of OM3
+We have a community based group the "ACCESS-OM3 model evaluation team" that are helping with OM3 evaluation and development. Contributions from people of all career stages and backgrounds are highly encouraged.
+
+All community members can get write access to the [OM3 evaluation repository](https://github.com/ACCESS-Community-Hub/access-om3-paper-1). To get write access, you need to create an issue and request access, please use [this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md). Evaluation figures are being coordinated in [issue #23](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23) of that repo. Instructions to get started are in the README of the repo.
