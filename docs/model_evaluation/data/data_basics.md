@@ -30,7 +30,7 @@ Tools such as `ncdump` allow users to inspect this format directly, showing how 
 
 
 
-### CF conventions
+### CF conventions and CMOR standards
 
 Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conventions](https://cfconventions.org)**. CF conventions provide standardised ways to describe:
 
@@ -40,10 +40,12 @@ Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conven
 
 These conventions make datasets easier for humans to understand and machines to interpret. Many analysis and visualisation tools (such as [Xarray](https://xarray.dev)) rely on CF conventions to automatically recognise coordinates, apply units correctly, and handle data consistently across different models and datasets.
 
+The term 'CMORised' data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI(Program for Climate Model Diagnosis and Intercomparison) to apply CMIP(Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions whihc can allow for the multi-model analysis in the CMIP phases and between the generations. 
 
+ACCESS-NRI supports CMORisation of ACCESS models with ACCESS-MOPPy.
 
 ### Large datasets: chunks
 
 ACCESS model output can be very large, often spanning many files and many terabytes of data. To support efficient access and analysis, data is often stored in chunks — smaller blocks of data organised within the same file.
 
-Chunking allows analysis tools to read only the portions of data needed for a given task, rather than loading entire datasets into memory. While largely invisible to end users, chunking is an important concept when working with large-scale model output.
+Chunking allows analysis tools to read only the portions of data needed for a given task, rather than loading entire datasets into memory. While largely invisible to end users, chunking is an important concept when working with large-scale model output. For more information see [NetCDF chunking](https://acdguide.github.io/BigData/data/data-netcdf.html#what-is-data-chunking) and [Xarray with Dask user guide](https://docs.xarray.dev/en/latest/user-guide/dask.html)
