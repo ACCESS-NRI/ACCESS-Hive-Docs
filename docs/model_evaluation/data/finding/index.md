@@ -8,13 +8,15 @@ There are two data catalogues that can be used to find ACCESS model data. Which 
 <div class="card-container">
     <a href="#nci-data-catalogue" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
-            <img src="/assets/nci_logo.svg" alt="NCI Data Catalogue" class="img-cover"></img>
+            <img src="/assets/nci_logo.svg" alt="NCI" class="img-cover"></img>
         </div>
+        <div class="card-text-container bold ">NCI Data Catalogue</div>
     </a>
     <a href="#access-nri-data-catalogue" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/accessnri_intake.jpg" alt="ACCESS-NRI Data Catalogue" class="img-cover"></img>
+            <img src="/assets/model_evaluation/accessnri_intake.jpg" alt="ACCESS-NRI intake" class="img-cover"></img>
         </div>
+        <div class="card-text-container bold ">ACCESS-NRI Data Catalogue</div>
     </a>
 </div>
 

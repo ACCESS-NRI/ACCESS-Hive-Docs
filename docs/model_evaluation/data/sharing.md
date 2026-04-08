@@ -1,4 +1,4 @@
-# Sharing ACCESS Data
+# Sharing ACCESS Data and Community Data
 
 ACCESS-NRI has a number of options to support data sharing among the ACCESS community at NCI, organised into three main areas:
 
@@ -63,6 +63,18 @@ available to a Curated Dataset.
 
 The Datapool is managed by the ACCESS-NRI Data team.
 
+Part of the Datapool is the Cryoshpere Community Datapool (CCD) which is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
+
+<div class="card-container">
+    <a href="model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio2to1">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Cryosphere Community Datapool</span>
+        </div>
+    </a>
+</div>
 
 ## ACCESS-NRI Curated Datasets
 
@@ -81,6 +93,16 @@ publications, needs a DOI, or needs to be shared with non-NCI users.
 The ACCESS-NRI Curated Datasets are managed collaboratively by the ACCESS-NRI and
 NCI data teams.
 
+<div class="card-container">
+    <a href="model_evaluation/data/observations#access-nri-replicated-datasets-for-climate-model-evaluation" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Replicated Datasets for Climate Model Evaluation</span>
+        </div>
+    </a>
+</div>
 
 ## How to Request Support
 
