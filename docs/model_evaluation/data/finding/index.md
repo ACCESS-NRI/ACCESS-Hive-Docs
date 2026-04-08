@@ -14,7 +14,7 @@ There are two data catalogues that can be used to find ACCESS model data. Which 
     </a>
     <a href="#access-nri-data-catalogue" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/accessnri_intake.jpg" alt="ACCESS-NRI intake" class="img-cover"></img>
+            <img src="/assets/model_evaluation/accessnri_intake.png" alt="ACCESS-NRI intake" class="img-cover"></img>
         </div>
         <div class="card-text-container bold ">ACCESS-NRI Data Catalogue</div>
     </a>
@@ -72,7 +72,7 @@ The ACCESS-NRI Catalogue is accessible in the following ways:
 <div class="card-container">
     <a href="access_nri_intake" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/accessnri_intake.jpg" alt="ACCESS-NRI intake" class="img-contain white-background with-padding">
+            <img src="/assets/model_evaluation/accessnri_intake.png" alt="ACCESS-NRI intake" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
             <span class="bold" >ACCESS-NRI Intake Catalogue</span>

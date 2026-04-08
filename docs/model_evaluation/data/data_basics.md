@@ -40,9 +40,10 @@ Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conven
 
 These conventions make datasets easier for humans to understand and machines to interpret. Many analysis and visualisation tools (such as [Xarray](https://xarray.dev)) rely on CF conventions to automatically recognise coordinates, apply units correctly, and handle data consistently across different models and datasets.
 
-The term 'CMORised' data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI(Program for Climate Model Diagnosis and Intercomparison) to apply CMIP(Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions whihc can allow for the multi-model analysis in the CMIP phases and between the generations. 
+The term 'CMORised' data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI(Program for Climate Model Diagnosis and Intercomparison) to apply CMIP(Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions which can allow for the multi-model analysis in the CMIP phases and between the generations. 
 
 ACCESS-NRI supports CMORisation of ACCESS models with ACCESS-MOPPy.
+<!-- card for moppy -->
 
 ### Large datasets: chunks
 
