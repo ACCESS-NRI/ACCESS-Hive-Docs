@@ -1,11 +1,24 @@
 # Finding ACCESS data
 
-There are two data catalogues that can be used to find ACCESS model data:
+There are two data catalogues that can be used to find ACCESS model data. Which catalogue to use depends on the type of data you are looking for.
 
-- [NCI Data Catalogue](#nci-data-catalogue)
-- [ACCESS-NRI Data Catalogue](#access-nri-data-catalogue)
+<!-- - [NCI Data Catalogue](#nci-data-catalogue)
+- [ACCESS-NRI Data Catalogue](#access-nri-data-catalogue) -->
 
-[Which catalogue to use](#which-data-catalogue-should-i-use) depends on the type of data you are looking for.
+<div class="card-container">
+    <a href="#nci-data-catalogue" class="vertical-card aspect-ratio2to1">
+        <div class="card-image-container">
+            <img src="/assets/nci_logo.svg" alt="NCI Data Catalogue" class="img-cover"></img>
+        </div>
+    </a>
+    <a href="#access-nri-data-catalogue" class="vertical-card aspect-ratio2to1">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/accessnri_intake.jpg" alt="ACCESS-NRI Data Catalogue" class="img-cover"></img>
+        </div>
+    </a>
+</div>
+
+<!-- [Which catalogue to use](#which-data-catalogue-should-i-use) depends on the type of data you are looking for. -->
 ## Which data catalogue should I use?
 - If you are looking for a published, citable ACCESS-related dataset:
   <br>→ Use the **[NCI Data Catalogue](#nci-data-catalogue)**
@@ -51,11 +64,42 @@ Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue allows searching based o
 
 The ACCESS-NRI Catalogue is accessible in the following ways:
 
-- via the [ACCESS-NRI Intake Catalogue](access_nri_intake) Python API
-- via the [ACCESS-NRI Interactive Catalogue](interactive_catalogue) web-based version (currently in alpha testing)
+<!-- - via the [ACCESS-NRI Intake Catalogue](access_nri_intake) Python API
+- via the [ACCESS-NRI Interactive Catalogue](interactive_catalogue) web-based version (currently in alpha testing) -->
+
+<div class="card-container">
+    <a href="access_nri_intake" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/accessnri_intake.jpg" alt="ACCESS-NRI intake" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS-NRI Intake Catalogue</span>
+            <span>
+                via the ACCESS-NRI Intake Catalogue Python API
+            </span>
+        </div>
+    </a>
+    <a href="interactive_catalogue" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/looking.png" alt="Look by Freepik - Flaticon" class="img-cover">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS-NRI Interactive Catalogue</span>
+            <span>
+                via the ACCESS-NRI Interactive Catalogue web-based discovery version.
+            </span>
+        </div>
+    </a>
+  </div>
+
 
 **Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
 **Without an NCI account:** [view the catalogue](https://access-nri.github.io/interactive-data-catalogue/) (data will not be accessible) <br>
 **With an NCI account:** access the catalogue and datasets on _Gadi_ <br>
 **More information:**
 Refer to the **[ACCESS-NRI Intake Catalogue](access_nri_intake)** and **[ACCESS-NRI Interactive Catalogue](interactive_catalogue)** pages.
+
+
+<custom-references>
+Look icon by [Freepick](https://www.flaticon.com/free-icons/look) on Flaticon
+</custom-references>
