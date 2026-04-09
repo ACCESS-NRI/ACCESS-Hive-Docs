@@ -53,7 +53,9 @@ theme:
   icon:
     edit: material/pencil
     view: material/eye
-copyright: Copyright &copy; 2025 ACCESS-NRI
+hooks:
+  - docs/hooks/copyright_year.py
+copyright: Copyright &copy; {year} ACCESS-NRI
 
 plugins:
   - git-revision-date-localized:
