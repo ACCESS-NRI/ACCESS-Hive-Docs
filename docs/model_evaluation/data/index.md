@@ -26,7 +26,7 @@
         </div>
     </a>
     <!-- Sharing ACCESS Data -->
-    <a href="sharing/sharing" class="horizontal-card">
+    <a href="sharing" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/external-links.jpg" alt="MED Conda Environment" class="img-cover">
         </div>
@@ -38,7 +38,7 @@
         </div>
     </a>
     <!-- ACCESS Output Data Specification -->
-    <a href="sharing/specification" class="horizontal-card">
+    <a href="specification" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
         </div>

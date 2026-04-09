@@ -63,10 +63,10 @@ available to a Curated Dataset.
 
 The Datapool is managed by the ACCESS-NRI Data team.
 
-Part of the Datapool is the Cryoshpere Community Datapool (CCD) which is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
+The Cryoshpere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
 
 <div class="card-container">
-    <a href="model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio2to1">
+    <a href="/model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding">
         </div>
@@ -94,7 +94,7 @@ The ACCESS-NRI Curated Datasets are managed collaboratively by the ACCESS-NRI an
 NCI data teams.
 
 <div class="card-container">
-    <a href="model_evaluation/data/observations#access-nri-replicated-datasets-for-climate-model-evaluation" class="horizontal-card">
+    <a href="/model_evaluation/data/observations#access-nri-replicated-datasets-for-climate-model-evaluation" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
         </div>

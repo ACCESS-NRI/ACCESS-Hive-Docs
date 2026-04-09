@@ -32,7 +32,8 @@ Tools such as `ncdump` allow users to inspect this format directly, showing how 
 
 ### CF conventions and CMOR standards
 
-Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conventions](https://cfconventions.org)**. CF conventions provide standardised ways to describe:
+Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conventions](https://zenodo.org/records/17801666)**. CF conventions provide standardised ways to describe:
+<!-- https://cfconventions.org server error April2026-->
 
 - coordinates and grids  
 - physical quantities and units  

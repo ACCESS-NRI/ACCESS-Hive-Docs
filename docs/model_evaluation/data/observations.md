@@ -22,7 +22,7 @@ ACCESS-NRI has a curated data collection for Climate Model Evaluation in NCI pro
 This data collection can be found by entering *ACCESS-NRI* in the [NCI data collections](https://geonetwork.nci.org.au/) search field.  
 
 <div style="text-align: center;">
-    <a href="https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f7199_2480_5432_9703" target="_blank"><img src=".assets/model_evaluation/obs_data_ct11.png" alt="Edited Screenshot of NCI Data Catalogue for ACCESS-NRI replicated data" width="75%"/></a>
+    <a href="https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f7199_2480_5432_9703" target="_blank"><img src="/assets/model_evaluation/obs_data_ct11.png" alt="Edited Screenshot of NCI Data Catalogue for ACCESS-NRI replicated data" width="75%"/></a>
 </div>
 
 <!-- In particular, we want to highlight the Coupled Model Intercomparison Project Phases 6 and 5 that are hosted by NCI as a sponsor of the [Earth System Grid Federation (ESGF)](https://esgf.nci.org.au/projects/esgf-nci/). The ESGF are federated data centres across the globe that enable access to the largest archive of climate data world-wide. This portal allows you to find, select and download data files from the federation. -->
