@@ -110,10 +110,6 @@ Typically, an existing suite is copied and then edited as needed for a particula
 
 For the domain of interest, the RAS generates a set of ancillary files, such as initial conditions. These ancillary files are then used by the [RNS](#rns).
 
-The `suite-ID` of the RAS is `{{ ras_id }}`.
-The latest release branch of the RAS is `{{ branch_ras }}`.
-The latest release revision of the RAS is `{{ revision_ras }}`.
-
 #### Get the RAS configuration
 
 Get the RAS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
@@ -153,13 +149,8 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest. Therefore, before running the RNS you must wait for the completion of the RAS. You can find estimates of the compute and storage requirements for the RNS in the [{{ model }} release notes]({{release_notes}}).
 
-The `suite-ID` of the RNS is `{{ rns_id }}`.
-The latest release branch of the RNS is `{{ branch_rns }}`.
-The latest release revision of the RNS is `{{ revision_rns }}`.
-
 #### Get and run RNS configuration
 Steps to obtain and run the RNS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the `suite-ID`, which for the RNS is `{{ rns_id }}`.
 
 Get the RNS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
