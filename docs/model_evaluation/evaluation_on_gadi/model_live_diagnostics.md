@@ -2,9 +2,12 @@
 
 ## What is Model Live Diagnostics?
 
-<i>Model Live Diagnostics</i> is a simple, accessible and easy-to-use Jupyter notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (<i>live</i>) while they run on <i>Gadi</i>.
+_Model Live Diagnostics_ is a simple, accessible and easy-to-use Jupyter notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (_live_) while they run on _Gadi_.
 
 In addition to monitoring a live model, the package also provides the functionality to load, visualise and compare legacy ACCESS model data with the live model.
+
+???+ warning "Support Level: Supported on _Gadi_, not in active development"
+    Model Live Diagnostics Tool is not in active development and can be used on _Gadi_ provided 3rd party packages are compatible.
 
 Below, we show an example of the Model Live Diagnostics Tool. For more information and tutorials, please visit <a href="https://med-live-diagnostics.readthedocs.io/en/latest/index.html" target="_blank">Model Diagnostics Documentation</a>.
 <!-- <div class="card-container">
@@ -64,7 +67,7 @@ Use the dropdown menu to select and plot any available model variables listed.
     <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Plot of total liquid seawater mass over time of the ‘live’ ACCES CM2 run." width="75%"/>
 </div>
 
-The plot above shows the users own 'live' data so doesn't have a name. It is also possible to load and compare <i>legacy data</i>, such as other previous ACCESS-CM2 model runs (<i>by578</i> and <i>by578a</i> etc.)
+The plot above shows the users own 'live' data so doesn't have a name. It is also possible to load and compare _legacy data_, such as other previous ACCESS-CM2 model runs (_by578_ and _by578a_ etc.)
 
 <div style="text-align: center;">
     <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_7.png" alt="Plot of total liquid seawater mass over time of the ‘live’ ACCES CM2 run when compared to legacy model data." width="75%"/>
