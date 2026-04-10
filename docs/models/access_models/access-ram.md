@@ -30,13 +30,14 @@ Information about the amount of NCI resources (such as Service Units (SU) and st
 
 ### Initial and boundary conditions
 
+#### Atmospheric initial and boundary conditions source options
+- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) - 0.25 degree resolution
+
 #### Land-surface initial conditions source options
 - [ERA5-Land](https://www.ecmwf.int/en/era5-land)
-- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
 - [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf) (default)
 
 #### Sea surface temperature (SST) and sea-ice initial and boundary conditions source options {: #sst .no-toc }
-- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) - 0.25 degree resolution
 - [OSTIA](https://data.marine.copernicus.eu/product/SST_GLO_SST_L4_NRT_OBSERVATIONS_010_001/description) - daily 0.05 degree resolution
 
 ### Nesting configuration
