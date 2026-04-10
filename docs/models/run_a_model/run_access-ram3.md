@@ -406,38 +406,6 @@ Thus, the ancillary files directory `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>
 
 Ancillary data files are typically output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
 
-### OSTIA Ancillary Suite (OAS) (optional) {: #oas }
-
-Archived Operational Sea Surface Temperature and Sea Ice Analysis (OSTIA) data can be packaged into ancillary files for use in the RNS. Running the OAS is optional and needed only if you require daily varying and/or higher resolution SST and sea ice inputs (resolution and other details can be found on the [{{model}} configuration]({{ access_models }}/{{ model }}/#oas) page). OAS is included here in case you choose to run it.
-
-The `suite-ID` of the OAS is `{{ oas_id }}`.
-
-#### Get and run OAS configuration
-Steps to obtain and run the OAS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
-The main difference is the OAS configuration specific information: 
-
-- **Suite-ID:** {{ oas_id }}
-- **Branch:** trunk (alternatively, simply omit the `/<branch>` portion when obtaining the configuration)
-
-The OAS and RAS can run concurrently, but the RNS can only be started once both have finished. The OAS takes about 10 minutes to run. You can find estimates of the compute and storage requirements for OAS in the [{{ model }} release notes]({{release_notes}}).
-
-To get the OAS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration), but use the OAS `suite-ID` `{{ oas_id }}` without any branch when copying the suite.
-
-To run the OAS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
-
-To check the OAS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
-
-#### OAS output files
-
-All the OAS output files are available in the `OSTIA_OUTPUT` directory specified in OAS's configuration file `rose-suite.conf`.
-
-OAS ancillary data files are output in the [UM fieldsfile](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_F03.pdf) format.
-
-For example, the global OSTIA ancillary file for the first cycle (`20220226T0000Z`) of the _Lismore_ experiment can be found in `/scratch/$PROJECT/$USER/OSTIA_ANCIL/20220226T0000Z_ostia.anc`.
-
-!!! warning
-    The RNS updates OSTIA data daily at `T0600Z` (or `T06Z` in [ISO 8601 time format](https://en.wikipedia.org/wiki/ISO_8601#Times)). If the time of the `INITIAL_CYCLE_POINT` of your suite is set before `T0600Z`, you will also need OSTIA ancillary files for the day before the starting day of your suite.<br>
-    For example, if a suite has the `INITIAL_CYCLE_POINT` set to `20250612T0000Z` (i.e., 12 Jun 2025 at midnight), it will also require the OSTIA ancillary files for the 11 Jun 2025.
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
