@@ -28,7 +28,7 @@
 
 {{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
-{{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
+{{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) that generate ancillary files (i.e., input files) and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details, see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 
@@ -97,7 +97,7 @@ Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ pag
 
 
 ### {{ model }} configuration
-{{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
+{{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras) and a [Regional Nesting Suite (RNS)](#rns).
 
 Each suite within {{ model }} has a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
 Typically, an existing suite is copied and then edited as needed for a particular experiment.
@@ -311,7 +311,7 @@ Logs for individual tasks are located in subfolders within the logs folder, foll
 ```
 ~/cylc-run/<suite-ID>/log/job/<cylc-cycle-point>/<task-name>/<retry-number>
 ```
-The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` because the jobs are run in one cycle.  For the OAS and RNS the `<cylc-cycle-point>` is the date/time of the cycle.
+The `<retry-number>` indicates the number of retries for the same task, with the latest retry symlinked to `NN`.  For the RAS, the `<cylc-cycle-point>` is `1` because the jobs are run in one cycle.  For the RNS the `<cylc-cycle-point>` is the date/time of the cycle.
 
 For example, logs for most recent retry of a task named `Lismore_d1100_ancil_um_mean_orog` at _Cylc_ cycle point `1` can be found in the folder `~/cylc-run/<suite-ID>/log/job/1/Lismore_d1100_ancil_mean_orog/NN`.
 
@@ -409,7 +409,7 @@ Ancillary data files are typically output in the [UM fieldsfile](https://code.me
 
 ### Regional Nesting Suite (RNS) {: #rns }
 
-The RNS uses the ancillary files produced by the RAS and OAS to run the regional forecast for the domain of interest. Therefore, before running the RNS you must wait for the completion of the RAS and OAS (if you chose to run it). You can find estimates of the compute and storage requirements for the RNS in the [{{ model }} release notes]({{release_notes}}).
+The RNS uses the ancillary files produced by the RAS to run the regional forecast for the domain of interest. Therefore, before running the RNS you must wait for the completion of the RAS. You can find estimates of the compute and storage requirements for the RNS in the [{{ model }} release notes]({{release_notes}}).
 
 The `suite-ID` of the RNS is `{{ rns_id }}`.
 The latest release branch of the RNS is `{{ branch_rns }}`.
@@ -482,14 +482,6 @@ Basic instructions on how to edit a model configuration using the Rose GUI can b
     For example, to run the experiment for 2 days starting on 5 April 2000, set `INITIAL_CYCLE_POINT` to `20000405T0000Z` and `FINAL_CYCLE_POINT` to `+P2D-PT1S`.
 </div>
 
-
-
-- **OAS**<br>
-    The RNS requires the global OSTIA ancillary files to be available on disk for each day of the run. If a simulation date/time changes such that the required global OSTIA ancillary files are not already present, the OAS must be re-run with the new date/time.
-    The OAS runs in multiple [PBS jobs][PBS job] submissions with each job preparing global OSTIA ancillary information for one day.  The job scheduler automatically resubmits the suite every chosen _cycling frequency_ until the total _run length_ is reached.<br>
-    
-    To modify these parameters within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Ostia ancillary Generation Suite &rarr; Cycling options_. 
-    Edit the related field and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.<br>
 
 - **RNS**<br>
     The RNS runs in multiple [PBS jobs][PBS job] submissions, each one constituting a _cycle_. The job scheduler automatically resubmits the suite every chosen _cycling frequency_ until the total _run length_ is reached.<br>
