@@ -129,6 +129,7 @@ The RAS takes about 1 hour to run. You can find estimates of the compute and sto
 All steps are completed. You have successfully run the RAS! <br>
 
 You will be able to check the [suite output files](#ras-output-files) after the run successfully completes.<br>
+
 If you get errors or you can't find the outputs, [check the suite logs](#check-suite-logs) for debugging.
 
 #### Check suite logs
@@ -318,78 +319,6 @@ Within this directory, the `job.out` and `job.err` files (representing `STDOUT` 
 
 !!! tip
     Within the _Cylc_ GUI, logs for a specific task can be viewed by right-clicking on the task and selecting the desired log from the _View Job Logs (Viewer)_ menu.
-
-#### Stop, restart, reload and clean suites
-In some cases, you may want to control the running state of a suite.<br>
-If your _Cylc_ GUI has been closed and you are unsure whether your suite is still running, you can scan for active suites and reopen the GUI.<br>
-To scan for active suites, run:
-```
-cylc scan
-```
-To reopen the _Cylc_ GUI, run the following command from within the [suite directory](#suitedir):
-```
-rose suite-gcontrol
-```
-
-##### STOP a suite {: .no-toc }
-To shutdown a suite in a safe manner, run the following command from within the [suite directory](#suitedir):
-```
-rose suite-stop -y
-```
-Alternatively, you can directly kill the [PBS jobs][PBS job] connected to your run. To do so:
-
-1. Check the status of all your PBS jobs:
-```
-qstat -u $USER
-```
-
-1. Delete any job related to your run:
-```
-qdel <job-ID>
-```
-
-##### RESTART a suite {: .no-toc }
-There are two main ways to restart a suite:
-
-- **_SOFT_ restart**<br>
-    To reinstall the suite and reopen _Cylc_ in the same state it was prior to being stopped, run the following command from within the [suite directory](#suitedir):
-    ```
-    rose suite-run --restart
-    ```
-
-    !!! warning
-        You may need to manually trigger failed tasks from the _Cylc_ GUI.
-
-- **HARD restart**<br>
-    To overwrite any previous runs of the suite and start afresh, run the following command from within the [suite directory](#suitedir):
-    ```
-    rose suite-run --new
-    ```
-
-    !!! warning
-        This will overwrite all existing model output and logs for the same suite.
-
-##### RELOAD a suite {: .no-toc }
-In some cases, the suite needs to be updated without necessarily having to stop it (e.g., after fixing a typo in a file). Updating an active suite is called a _reload_, where the suite is _re-installed_ and _Cylc_ is updated with the changes. This is similar to a _SOFT_ restart, except new changes are installed, so you may need to manually trigger failed tasks from the _Cylc_ GUI.
-
-To reload a suite, run the following command from within the [suite directory](#suitedir):
-```
-rose suite-run --reload
-```
-
-##### CLEAN a suite {: .no-toc }
-To remove all files and folders created by the suite within the `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>` directory, run the following command from within the [suite directory](#suitedir):
-```
-rose suite-clean
-```
-
-Alternatively, you can achieve the same behaviour within a new submission of an experiment, by appending the `--new` option to the `rose suite-run` command:
-```
-rose suite-run --new
-```
-
-!!! warning
-    Cleaning a suite folder will remove any non-archived data (i.e., output files, logs, executables, etc.) associated with the suite.
 
 #### RAS output files
 
