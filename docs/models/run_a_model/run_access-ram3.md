@@ -4,6 +4,8 @@
 {% set rns_id = "u-by395" %}
 {% set branch_ras = "nci_access_ram3" %}
 {% set branch_rns = "nci_access_ram3" %}
+{% set revision_ras = "333862" %}
+{% set revision_rns = "335209" %}
 {% set mosrs_config_ras = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/u/5/0/3/" ~ branch_ras %}
 {% set mosrs_config_rns = "https://code.metoffice.gov.uk/trac/roses-u/browser/b/y/3/9/5/" ~ branch_rns %}
 {% set access_models = "/models/access_models/access-ram" %}
@@ -110,6 +112,7 @@ For the domain of interest, the RAS generates a set of ancillary files, such as 
 
 The `suite-ID` of the RAS is `{{ ras_id }}`.
 The latest release branch of the RAS is `{{ branch_ras }}`.
+The latest release revision of the RAS is `{{ revision_ras }}`.
 
 #### Get the RAS configuration
 
@@ -117,6 +120,7 @@ Get the RAS configuration by following the [related instructions in the _Rose/Cy
 
 - **Suite-ID:** `{{ ras_id }}`
 - **Branch:** `{{ branch_ras }}`
+- **Revision:** `{{ revision_ras }}`
     
 
 
@@ -151,20 +155,25 @@ The RNS uses the ancillary files produced by the RAS to run the regional forecas
 
 The `suite-ID` of the RNS is `{{ rns_id }}`.
 The latest release branch of the RNS is `{{ branch_rns }}`.
+The latest release revision of the RNS is `{{ revision_rns }}`.
 
 #### Get and run RNS configuration
 Steps to obtain and run the RNS, as well as monitor logs, are similar to those listed above for the [RAS](#ras).<br>
 The main difference is the `suite-ID`, which for the RNS is `{{ rns_id }}`.
 
-To get the RNS configuration, follow the steps listed in [Get the RAS configuration](#get-the-ras-configuration).
-
-The main difference is the RNS configuration specific information: 
+Get the RNS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
 - **Suite-ID:** {{ rns_id }}
 - **Branch:** {{ branch_rns }}
+- **Revision:** {{ revision_rns }}
 
+Run the RNS by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#run-the-model-configuration).
 
-To run the RNS configuration, follow the steps listed in [Run the RAS](#run-the-ras).
+The RNS takes about 2 hours to run. You can find estimates of the compute and storage requirements for RNS in the [{{ model }} release notes]({{release_notes}}).
+
+All steps are completed. You have successfully run the RNS! <br>
+
+You will be able to check the [suite output files](#rns-output-files) after the run successfully completes.<br>
 
 To check the RNS suite logs, follow the steps listed in [Check suite logs](#check-suite-logs).
 
