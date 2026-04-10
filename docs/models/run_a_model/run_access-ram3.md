@@ -59,7 +59,6 @@ All {{model}} configurations are available on MOSRS via links at the [top of thi
     - [rt52](https://my.nci.org.au/mancini/project/rt52/join)
     - [ob53](https://my.nci.org.au/mancini/project/ob53/join)
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
-    - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
 
 
     !!! tip
