@@ -246,13 +246,14 @@ Configurations copied from MOSRS are created by default in the user's _Gadi_ hom
 #### Local-only copy {: #rosie-checkout }
 
 ```
-rosie checkout <suite-id>/<branch>
+rosie checkout <suite-id>/<branch>@<revision>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation. This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
+where `<suite-id>`, `<branch>` and `revision` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation. This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
+    To copy from the head of a branch, omit the `@<revision>` portion of the command.
 
 Configurations obtained in this way cannot be pushed back to the remote. Therefore, the use of this command is recommended for testing and examining configurations.
 
@@ -261,13 +262,14 @@ Configurations obtained in this way cannot be pushed back to the remote. Therefo
 Before creating a new remote copy of the configuration, please read [these guidelines](https://code.metoffice.gov.uk/trac/roses-u/) on what should be stored in the Rosie repository.
 
 ```
-rosie copy <suite-id>/<branch>
+rosie copy <suite-id>/<branch>@<revision>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run_a_model/).
+where `<suite-id>`, `<branch>` and `<revision>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run_a_model/).
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
+    To copy from the head of a branch, omit the `@<revision>` portion of the command.
 
 After running this command, a text editor will open in your terminal, where you can define metadata for the new configuration (the default text editor is _Vim_, and [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor) is a good reference if you're unfamiliar with it). The metadata fields are expressed as `key=value` pairs, pre-filled with values copied from the original configuration. You can modify these values or add new metadata as needed. Note that `owner`, `project` and `title` are required keys. 
 ```
@@ -279,7 +281,7 @@ title=<suite-title>
 When you exit the editor, you will have to confirm that you want to copy the suite:
 
 <terminal-window>
-    <terminal-line data="input">rosie copy &lt;suite-id&gt;/&lt;branch&gt;</terminal-line>
+    <terminal-line data="input">rosie copy &lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;</terminal-line>
     <terminal-line>Copy "&lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-id&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-id&gt;: copied items from &lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;</terminal-line>
