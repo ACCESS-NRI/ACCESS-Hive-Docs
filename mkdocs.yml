@@ -98,6 +98,8 @@ markdown_extensions:
   - tables
   - toc:
       title: On this page
+      permalink: true
+      permalink_title: Copy permalink to clipboard
 
 # Navigation
 nav:
