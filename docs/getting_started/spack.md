@@ -55,12 +55,6 @@ git clone https://github.com/ACCESS-NRI/spack.git --branch releases/v1.1
 git clone https://github.com/ACCESS-NRI/spack-config.git --branch main
 ```
 
-### Link Spack configuration files to the Spack instance
-
-```
-ln -s -r -v spack-config/v1.1/gadi/* spack/etc/spack/
-```
-
 !!! success
     Your _Spack_ setup is complete!
 
@@ -75,7 +69,7 @@ For instructions on how to build an ACCESS model using _Spack_, refer to [Modify
 ```
 cd /g/data/$PROJECT/$USER/spack/1.1
 module purge
-. spack-config/spack-enable.bash
+. spack/share/spack/setup-env.sh
 ```
 
 !!! warning
