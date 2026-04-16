@@ -218,10 +218,11 @@ Keep your _Spack_ instance up-to-date by doing the following:
 
 ```
 cd /g/data/$PROJECT/$USER/spack/1.1
+find spack/etc/spack -type l -exec rm {} \;
 git -C spack fetch --all -Pp
 git -C spack reset --hard origin/releases/v1.1
 git -C spack-config pull
-. spack-config/spack-enable.bash
+. spack/share/spack/setup-env.sh
 spack repo update
 ```
 
