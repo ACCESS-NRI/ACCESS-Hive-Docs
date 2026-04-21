@@ -6,7 +6,7 @@
 ???+ warning "Support Level: Supported on <i>Gadi</i>, but not owned by ACCESS-NRI"
     <!-- Who develped the tool? -->
     The <i>COSIMA Cookbook</i> is developed and maintained by COSIMA. While ACCESS-NRI does not contribute to the scientific scope of the code, it actively supports the use of the recipes within the <i>COSIMA Cookbook</i> on <i>Gadi</i>. 
-    ACCESS-NRI provides an environment that can run the latest version of <i>COSIMA Recipes</i> via the `xp65` `conda/analysis3` conda environment for Model Evaluation on Gadi, provided 3rd party packages maintain compatibility.
+    ACCESS-NRI provides an environment that can run the latest version of <i>COSIMA Recipes</i> via the `xp65` `conda/analysis3` conda environment for Model Evaluation on Gadi, as long as 3rd party packages maintain compatibility.
 
 The <i>COSIMA Cookbook</i> framework focuses on the <a href="/models/access_models/access-om">ACCESS-OM2 and ACCESS-OM3</a> suite of models being developed and run by members of <a href="https://cosima.org.au/" target="_blank">COSIMA</a> and ACCESS-NRI. This framework demonstrates how to analyse output from MOM5/MOM6 and CICE5/CICE6.
 
