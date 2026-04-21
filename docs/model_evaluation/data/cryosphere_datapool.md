@@ -32,7 +32,7 @@ The Cryosphere Community Datapool (CCD) is a joint project between ACCESS-NRI an
 ## ccdtools (CCD Python API)
 _ccdtools_ is the open-source Python CCD interface developed by ACCESS-NRI that provides seamless access to the data located within the CCD from with your Python workflows and scripts. The _ccdtools_ library offers an intuitive interface for discovering, accessing, and analysing diverse data sources including satellite observations, in-situ measurements, and model outputs. The package features a powerful dataset catalog system, enabling users to efficiently retrieve and work with data commonly used for ice sheet modelling, climate analysis, and cryospheric studies.
 
-To learn more about **ccdtools** and get started, please visit the [ccdtools documentation](https://ccdtools.readthedocs.io/latest/) or visit the [ccdtools Github repository](https://github.com/ACCESS-NRI/ccdtools) to get involved in the development!
+To learn more and get started with _ccdtools_, refer to the [ccdtools documentation](https://ccdtools.readthedocs.io/latest/) or visit the [ccdtools Github repository](https://github.com/ACCESS-NRI/ccdtools) to get involved in the development!
 
 
 ## How to contribute
