@@ -761,7 +761,7 @@ details.code {
 }
 
 /* =============================================================== 
-  Left Navigation and right "On this page" navigation 
+  Left Navigation and right "On this page" navigation (TOC)
 */
 .md-nav--primary {
   font-size: 1.7em;
@@ -788,6 +788,23 @@ details.code {
 /* Hide navigation part toggling from burger menu if it has no subpages (e.g. Home) */
 .md-nav__item--active [data-md-level="1"].md-nav:not(:has(li)) {
   visibility: hidden;
+}
+
+/* TOC Level 1 link */
+.md-nav--secondary .md-nav__item .md-nav__link {
+  font-weight: 550;
+}
+/* TOC Level 2 link */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__link {
+  font-weight: 400;
+}
+/* TOC Level 3 link */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
+  font-weight: 300;
+}
+/* TOC Level 4 link */
+.md-nav--secondary .md-nav__item .md-nav__item .md-nav__item .md-nav__link {
+  font-weight: 200;
 }
 
 /* =============================================================== 
@@ -923,7 +940,6 @@ details.code {
 [id] {
   scroll-margin-top: 7rem !important;
 }
-
 
 /* Tab section */
 .md-tabs {
