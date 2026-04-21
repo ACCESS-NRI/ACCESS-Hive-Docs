@@ -1,5 +1,41 @@
 'use strict';
 
+// Use the mkdocs-material way to show a notification at the bottom of the screen
+// exploiting the md-dialog class enabled by the code.code.copy feature (needs to be enabled in mkdocs.yaml)
+// https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-copy-button
+const notification = document.querySelector('.md-dialog > .md-dialog__inner');
+function showNotification(text) {
+    notification.innerHTML = text;
+    notification.parentElement.classList.add("md-dialog--active");
+    setTimeout(function () {
+        notification.parentElement.classList.remove("md-dialog--active");
+    }, 2000);
+}
+
+// Set up permalinks (clickable symbol shown when headers are hovered over):
+// - Remove their default behaviour of linking to themselves (treat them as buttons instead of links)
+// - Copy the URL to clipboard when clicking on it
+// - Change symbol to custom one 
+function setUpPermalinks() {
+    document.querySelectorAll(".headerlink").forEach(function (link) {
+        let permalink = link.href;
+        // Replace the link behaviour by replacing it with a <span> element
+        const span = document.createElement("span");
+        Array.from(link.attributes).forEach(attr => {
+            if (attr.name !== "href") span.setAttribute(attr.name, attr.value);
+        });
+        span.innerHTML = '<i class="fa-solid fa-link fa-xs"></i>'; // Link icon from fontawesome
+        link.replaceWith(span);
+        span.style.cursor = "pointer";
+        span.addEventListener("click", function () {
+            // Copy permalink to clipboard
+            navigator.clipboard.writeText(permalink);
+            // Show "Copied to clipboard" notification
+            showNotification("Copied to clipboard");
+        });
+    });
+}
+
 // Hide Table of Content items whose related paragraph has the 'no-toc' class
 function hideTocItems() {
   document.querySelectorAll('[aria-label="On this page"] .md-nav__item').forEach(item => {
@@ -318,6 +354,7 @@ function main() {
   fitText();
   toggleTerminalAnimations();
   makeCitationLinks();
+  setUpPermalinks();
 }
 
 // Run all functions after every navigation event
