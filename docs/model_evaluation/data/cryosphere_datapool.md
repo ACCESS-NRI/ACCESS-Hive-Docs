@@ -44,7 +44,6 @@ The data listed in the following summary tables are hosted in the CCD and access
 
 
 ### Elevation and geometry data 
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
@@ -66,7 +65,6 @@ The data listed in the following summary tables are hosted in the CCD and access
 
 
 ### Ice velocity data
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
@@ -81,7 +79,6 @@ The data listed in the following summary tables are hosted in the CCD and access
 
 
 ### Geospatial data
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
@@ -91,14 +88,12 @@ The data listed in the following summary tables are hosted in the CCD and access
 | <b>MEaSUREs Antarctic Grounding Line from Differential Satellite Radar Interferometry, Version 2</b>  | Grounding line | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_grounding_line_from_differential_satellite_radar_interferometry/v2</code></pre> | [Source Link](https://nsidc.org/data/nsidc-0498/versions/2) |
 
 ### Basal forcing
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
 | <b>Antarctic Geothermal Heat Flow Model: Aq1, Version 1</b>  | Geothermal Heat Flow | <pre><code>/g/data/av17/access-nri/cryosphere-data-pool/basal_forcing/antarctic_geothermal_heat_flow_model_aq1/v1</code></pre> | [Source Link](https://doi.pangaea.de/10.1594/PANGAEA.924857) |
 
 ### Surface forcing
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Key variables | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :-------- |:------: |
@@ -109,7 +104,6 @@ The data listed in the following summary tables are hosted in the CCD and access
 The data listed in the following summary tables are currently hosted as part of the CCD on the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f8457_7185_0011_6384).
 
 #### ISMIP6 simulation data
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Description | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :--------: |:------: |
@@ -121,7 +115,6 @@ The data listed in the following summary tables are currently hosted as part of 
 | <b>ISMIP6 initMIP-Greenland simulations</b> <i>[Replica]</i>  | This dataset contains the initMIP-Greenland model simulations from the Ice Sheet Model Intercomparison Project for CMIP6 (ISMIP6). As described in Nowicki et al. (2016) and Goelzer et al. (2019), the initMIP-Greenland experiments focus on ice sheet initialisation for the Greenland ice sheet and associated uncertainty in sea-level projections. | <pre><code>/g/data/cm45/access-nri/ismip6/ISMIP6-Initmip-GrIS/</code></pre> | [Source Link](https://theghub.org/resources/4746) |
 
 #### ISMIP6 forcing data
-[Back to top](#cryosphere-community-datapool-ccd)
 
 | Dataset name              | Description | NCI _Gadi_ path | Source |
 | :------------------------ | :------------ | :--------: |:------: |
