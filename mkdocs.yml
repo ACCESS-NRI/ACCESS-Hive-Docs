@@ -98,6 +98,8 @@ markdown_extensions:
   - tables
   - toc:
       title: On this page
+      permalink: true
+      permalink_title: Copy permalink to clipboard
 
 # Navigation
 nav:
@@ -150,7 +152,7 @@ nav:
         - ACCESS-NRI Interactive Catalogue: model_evaluation/data/finding/interactive_catalogue.md
       - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
       - ACCESS Output Data Specifications: model_evaluation/data/sharing/specification.md
-      - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
+      - Cryosphere Community Datapool (CCD): model_evaluation/data/cryosphere_datapool.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
       # - Frameworks on Gadi:
