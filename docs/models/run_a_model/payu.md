@@ -1,7 +1,7 @@
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [Run a Model]: /models/run_a_model
 
-# Run models using payu
+# Run Models Using Payu
 
 ## About
 
@@ -74,7 +74,7 @@ Within each of the `work` and `archive` directories, _payu_ automatically create
 The `archive` and `work` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
 !!! warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ For example, say you want to do a sensitivity experiment to the diffusivity in A
 
 - `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
 - `<configurations-directory>`: store the all your ACCESS-OM2 configurations under `~/access-om2/`
-- `<local-branch>`: name your experiment `diffuse_test1-1deg_jra55_ryf`
+- `<local-branch>`: name your branch `diffuse_test1-1deg_jra55_ryf`
 - `<control-directory>`: store the configurations for this research project under `diffuse_exps-1deg_jra55_ryf`
 
 To get the configuration as chosen, run:
@@ -139,15 +139,49 @@ To get the configuration as chosen, run:
 
 To verify everything is set correctly, it is recommended to first test the configuration as-is.
 
-To run the configuration, execute the following command from within the `control` directory:
+You can test all the paths and setup are correct by running `payu setup` from the `control` directory:
 
-    payu run
+    payu setup
+
+<terminal-window>
+    <terminal-line data="input">payu setup</terminal-line>
+    <terminal-line>laboratory path: /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
+    <terminal-line>binary path: /scratch/\$PROJECT/\$USER/access-om2/bin</terminal-line>
+    <terminal-line>input path: /scratch/\$PROJECT/\$USER/access-om2/input</terminal-line>
+    <terminal-line>work path: /scratch/\$PROJECT/\$USER/access-om2/work</terminal-line>
+    <terminal-line>archive path: /scratch/\$PROJECT/\$USER/access-om2/archive</terminal-line>
+    <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
+    <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
+    <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
+    <terminal-line>Setting up atmosphere</terminal-line>
+    <terminal-line>Setting up ocean</terminal-line>
+    <terminal-line>Setting up ice</terminal-line>
+    <terminal-line>Setting up access-om2</terminal-line>
+    <terminal-line>Checking exe and input manifests</terminal-line>
+    <terminal-line>Updating full hashes for 3 files in manifests/exe.yaml</terminal-line>
+    <terminal-line>Creating restart manifest</terminal-line>
+    <terminal-line>Writing manifests/restart.yaml</terminal-line>
+    <terminal-line>Writing manifests/exe.yaml</terminal-line>
+</terminal-window>
+
+This command: 
+  
+  - creates the _laboratory_ and `work` directories based on the experiment configuration
+  - generates manifests
+  - reports useful information to the user, such as the location of the _laboratory_ where the `work` and `archive` directories are located
+
+This can help to isolate issues such as permission problems accessing files and directories, missing files or malformed/incorrect paths.
+
+
+To test the configuration, execute the following command from within the `control` directory:
+
+    payu run -f
 
 This will submit a single job to the queue. 
 
 !!! tip
-    `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running [`payu setup`](#trouble-shooting)).<br>
-    You can add the `-f` option to `payu run` to let the model run in all cases and delete any existing data under `work`.
+    `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running [`payu setup`].<br>
+    The `-f` option to `payu run` lets the model run in all cases and delete any existing data under `work`.
 
 ### Run the experiment
 
@@ -242,40 +276,12 @@ You can examine the contents of these files to check on the status of a run as i
 !!! warning
     At the end of a successful run, the model log files are archived to the `archive` directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 
-### Trouble-shooting
 
-If _payu_ doesn't run correctly for some reason, a good first step is to run the following command from within the _control_ directory:
 
-    payu setup
 
-This command will: 
-  
-  - create the _laboratory_ and `work` directories based on the experiment configuration
-  - generate manifests
-  - report useful information to the user, such as the location of the _laboratory_ where the `work` and `archive` directories are located
 
-<terminal-window>
-    <terminal-line data="input">payu setup</terminal-line>
-    <terminal-line>laboratory path: /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
-    <terminal-line>binary path: /scratch/\$PROJECT/\$USER/access-om2/bin</terminal-line>
-    <terminal-line>input path: /scratch/\$PROJECT/\$USER/access-om2/input</terminal-line>
-    <terminal-line>work path: /scratch/\$PROJECT/\$USER/access-om2/work</terminal-line>
-    <terminal-line>archive path: /scratch/\$PROJECT/\$USER/access-om2/archive</terminal-line>
-    <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
-    <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
-    <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
-    <terminal-line>Setting up atmosphere</terminal-line>
-    <terminal-line>Setting up ocean</terminal-line>
-    <terminal-line>Setting up ice</terminal-line>
-    <terminal-line>Setting up access-om2</terminal-line>
-    <terminal-line>Checking exe and input manifests</terminal-line>
-    <terminal-line>Updating full hashes for 3 files in manifests/exe.yaml</terminal-line>
-    <terminal-line>Creating restart manifest</terminal-line>
-    <terminal-line>Writing manifests/restart.yaml</terminal-line>
-    <terminal-line>Writing manifests/exe.yaml</terminal-line>
-</terminal-window>
 
-This can help to isolate issues such as permissions problems accessing files and directories, missing files or malformed/incorrect paths.
+
 
 ## Edit a _payu_ configuration
 
@@ -419,9 +425,9 @@ The `name` field, for the model section, is not actually used for the configurat
 
 #### Submodels {: .no-toc }
 
-Coupled models deploy multiple submodels, a.k.a. the model components.
+Coupled models typically deploy multiple submodels, a.k.a. the model components.
 
-This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model correctly and the location of all inputs required for this submodel.
+This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel.
 
 
 #### Runlog {: .no-toc }
@@ -429,7 +435,8 @@ This section of the _payu_ configuration file specifies the submodels, the confi
 ```yaml
 runlog: true
 ```
-When running a new configuration, _payu_ automatically commits changes with _git_ if `runlog` is set to `true`.
+
+When running an experiment,  if `runlog` is set to `true`, _payu_ saves a history of the experiment. It does this using _git_, by automatically committing changes to the control directory repository.
 
 !!! warning
     This should not be changed as it is an essential part of the provenance of an experiment.<br>
@@ -444,10 +451,10 @@ userscripts:
     sync: /g/data/vk83/apps/om2-scripts/concatenate_ice/concat_ice_daily.sh 
 ```
 
-A dictionary to run scripts or subcommands at various stages of a _payu_ submission:
+They are used to run scripts or subcommands at various stages of a _payu_ submission:
 
-- `error` gets called if the model does not run correctly and returns an error code.
-- `run` gets called after the model successful execution, but prior to model output archive.
+- `error` gets called if the model does not run correctly and exits with an error.
+- `run` gets called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
 - `sync` gets called at the start of the sync pbs job. For more information refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/stable/config.html#postprocessing).
@@ -473,5 +480,5 @@ qsub_flags: -W umask=027
 Each of the model components contains additional configuration options that are read in when the model component is running.<br>
 These options are typically useful to modify the physics used in the model, the input data, or the model variables saved in the output files.
 
-These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section (e.g., configuration options for the _ocean_ component are in the `ocean` sub-directory).<br>
-To modify these options please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
+These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels) (e.g., configuration options for the _ocean_ component are in the `ocean` sub-directory).<br>
+To modify these options, please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
