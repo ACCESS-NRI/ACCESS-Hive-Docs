@@ -63,7 +63,8 @@ available to a Curated Dataset.
 
 The Datapool is managed by the ACCESS-NRI Data team.
 
-The Cryoshpere Community Datapool (CCD) is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
+!!! Note
+    One notable set of data in the Datapool is the [Cryoshpere Community Datapool (CCD)](/model_evaluation/data/cryosphere_datapool), which is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
 
 <div class="card-container">
     <a href="/model_evaluation/data/cryosphere_datapool" class="vertical-card aspect-ratio2to1">

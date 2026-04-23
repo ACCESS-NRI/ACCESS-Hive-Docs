@@ -14,7 +14,7 @@ The ACCESS-NRI Intake Catalogue also enables users to directly load the desired 
 ## Prerequisites
 - **Join the _xp65_ NCI project**<br>
     The catalogue table files are in the `conda/analysis3` environment in _xp65_. Join the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project by requesting membership on its NCI project page.
-- **Join any projects that has the data you're interested in.**
+- **Join any projects that have data you're interested in.**
 
 The easiest way to use the catalogue is through _JupyterLab_ on the [Australian Research Environment(ARE)](/getting_started/are).
 
