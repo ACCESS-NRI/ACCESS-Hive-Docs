@@ -22,7 +22,7 @@ Once you sign up, you will be assigned a _username_ (e.g., `ab1234`).
 
 ## Join relevant NCI projects
 
-NCI provides multiple [services](https://nci.org.au/our-services) that are necessary for climate research. These include the access to supercomputing resources, data storage, and data collections management.
+NCI provides multiple [services](https://nci.org.au/services) that are necessary for climate research. These include the access to supercomputing resources, data storage, and data collections management.
 
 For technical reasons, to access either of these services you need to join a specific `project`.
 Each project has an ID (e.g. `xp65`), which is what the term _project_ actually refers to.
@@ -46,7 +46,7 @@ For tasks supported by ACCESS-NRI (e.g., running a supported model configuration
     <button id="linux">Linux</button>
     <button id="windows">Windows</button>
 </div>
-Operations involving model runs and data collections take place on the [_Gadi_ supercomputer](https://nci.org.au/our-systems/hpc-systems).
+Operations involving model runs and data collections take place on the [_Gadi_ supercomputer](https://nci.org.au/infrastructure/hpc-systems).
 
 ### Prerequisites
 - **Internet connection**
