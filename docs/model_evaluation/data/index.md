@@ -31,13 +31,13 @@
             <img src="/assets/external-links.jpg" alt="MED Conda Environment" class="img-cover">
         </div>
         <div class="card-text-container">
-            <span class="bold" >Sharing ACCESS Data</span>
+            <span class="bold" >Sharing ACCESS Community Data</span>
             <span>
                 Options for sharing ACCESS data and the support available from ACCESS-NRI
             </span>
         </div>
     </a>
-    <!-- ACCESS Output Data Specification -->
+    <!-- ACCESS Output Data Specification - change to link to readthedocs-->
     <a href="specification" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
