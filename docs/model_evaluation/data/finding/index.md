@@ -71,7 +71,7 @@ The ACCESS-NRI Catalogue is accessible in the following ways:
 **Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
 **Without an NCI account:** [view the catalogue](https://access-nri.github.io/interactive-data-catalogue/) (data will not be accessible) <br>
 **With an NCI account:** access the catalogue and datasets on _Gadi_ <br>
-**More information:** Refer to the following pages.
+**More information:**
 
 <div class="card-container">
     <a href="access_nri_intake" class="horizontal-card">
@@ -87,7 +87,7 @@ The ACCESS-NRI Catalogue is accessible in the following ways:
     </a>
     <a href="interactive_catalogue" class="horizontal-card">
         <div class="card-image-container">
-            <img src="/assets/model_evaluation/looking.png" alt="Look by Freepik - Flaticon" class="img-cover">
+            <img src="/assets/model_evaluation/Mar-Business_2.jpg" alt="Look by Freepik - Flaticon" class="img-cover">
         </div>
         <div class="card-text-container">
             <span class="bold" >ACCESS-NRI Interactive Catalogue</span>
@@ -99,5 +99,5 @@ The ACCESS-NRI Catalogue is accessible in the following ways:
   </div>
 
 <custom-references>
-Look icon by [Freepick](https://www.flaticon.com/free-icons/look) on Flaticon
+[Image by jcomp on Freepik](https://www.freepik.com/free-vector/work-office-computer-man-woman-business-character-marketing-online-employee-technology-business-man-cartoon-co-working-flat-design-freelance_13744794.htm#fromView=keyword&page=1&position=1&uuid=69ad7f5f-035d-43cd-a8f5-1bab7cf4c85d)
 </custom-references>

@@ -38,14 +38,14 @@
         </div>
     </a>
     <!-- ACCESS Output Data Specification - change to link to readthedocs-->
-    <a href="specification" class="horizontal-card">
+    <a href="https://access-output-data-specifications.readthedocs.io/en/latest/specification/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
             <span class="bold" >ACCESS Output Data Specification</span>
             <span>
-                Details on the specification for ACCESS model output data
+                Documentation on the specification for ACCESS model output data.
             </span>
         </div>
     </a>
@@ -58,6 +58,17 @@
             <span class="bold" >Cryosphere Community Datapool</span>
             <span>
                 How to find and access the Cryosphere Datapool
+            </span>
+        </div>
+    </a>
+    <a href="/model_evaluation/data/observations" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Observational Data for Evaluation</span>
+            <span>
+                How to find observational data collections for climate model evaluation.
             </span>
         </div>
     </a>
