@@ -42,7 +42,7 @@ All contributions need to have an associated [GitHub issue](https://docs.github.
 
 ### Quick fix 
 
-If you'd like to do a quick fix, such as fixing a typo or updating wording, you can do so by editing the markdown file directly in the GitHub repo. For instance, if you want to update something on this page, you can navigate to `docs/about/contribute.md' on the GitHub website and click the pencil icon in the top right to edit in the browser.
+If you'd like to do a quick fix, such as fixing a typo or updating wording, you can do so by editing the markdown file directly in the GitHub repo. For instance, if you want to update something on this page, you can navigate to `docs/about/contribute.md` on the GitHub website and click the pencil icon in the top right to edit in the browser.
 
 ### Fork the ACCESS-Hive Docs GitHub repository
 
