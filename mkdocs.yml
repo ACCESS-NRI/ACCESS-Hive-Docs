@@ -165,7 +165,9 @@ nav:
       - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
       - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
       - ACCESS-Vis: model_evaluation/evaluation_on_gadi/access_vis.md
-      - Community recipes: model_evaluation/evaluation_on_gadi/community_recipes.md
+      - Community recipes: 
+        - model_evaluation/evaluation_on_gadi/community_recipes.md
+        - COSIMA Cookbook: model_evaluation/evaluation_on_gadi/cosima.md
       - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
     - Additional Resources:
       - Additional Resources: model_evaluation/community_med/index.md
