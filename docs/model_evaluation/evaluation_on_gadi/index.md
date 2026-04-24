@@ -34,12 +34,6 @@ While evaluation and diagnostics can be described separately they often overlap 
         </div>
         <div class="card-text-container bold">ACCESS-Vis</div>
     </a>
-    <a href="/model_evaluation/evaluation_on_gadi/cosima" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/logo_cosima.png" alt="Pangeo/COSIMA" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold">COSIMA cookbook</div>
-    </a>
     <a href="/model_evaluation/evaluation_on_gadi/model_live_diagnostics" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
             <img src="../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Model Live Diagnostics" class="img-contain white-background"></img>
