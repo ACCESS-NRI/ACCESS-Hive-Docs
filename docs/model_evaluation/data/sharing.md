@@ -107,6 +107,26 @@ ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for
     </a>
 </div>
 
+## ACCESS Output Data Specifications
+
+ACCESS-NRI have put together data specifications for data produced by ACCESS models. This is initially targeting ACCESS-ESM1.6
+as a step to standardisations of data produced by the ACCESS ecosystem. This includes file and directory naming conventions, 
+variable conventions, and variable and global attributes.
+
+<div class="card-container">
+    <a href="https://access-output-data-specifications.readthedocs.io/en/latest/specification/" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS Output Data Specification</span>
+            <span>
+                Documentation on the specification for ACCESS model output data.
+            </span>
+        </div>
+    </a>
+</div>
+
 ## How to Request Support
 
 To request assistance with data storage from ACCESS-NRI please submit your request to
