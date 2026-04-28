@@ -907,6 +907,15 @@ details.code {
   align-self: center;
 }
 
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  padding: 1rem;
+}
+
 /* =============================================================== 
   Header 
 */
@@ -1401,6 +1410,10 @@ img.intro-img {
 
 .large-text {
   font-size: 1.4em !important;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .display-block {
