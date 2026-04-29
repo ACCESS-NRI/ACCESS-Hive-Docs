@@ -59,16 +59,19 @@
     </div>
   </div>
   <hr>
-  <div class="footer-container md-grid">
-    <div class="footer-item">
+  <div class="md-footer-meta__inner md-grid">
+    <div class="footer-left-components">
       {% include "partials/copyright.html" %}
+
+      <div class="md-copyright">
+        <a class="md-copyright__highlight" href="https://reporting.access-nri-store.cloud.edu.au/privacy">
+          Privacy notice
+        </a>
+      </div>
       
       {% if config.extra.social %}
         {% include "partials/social.html" %}
       {% endif %}    
-    </div>
-    <div class="footer-item underline med-text"> 
-      <a href="https://reporting.access-nri-store.cloud.edu.au/privacy">Privacy notice</a>
     </div>
   </div>
 </footer>
