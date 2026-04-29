@@ -123,8 +123,9 @@
   .md-footer-meta__inner {
     flex-direction: column;
   }
-  .md-footer-meta__inner > * {
-    gap: 1rem;
+  
+  .footer-left-components {
+    display: contents;
   }
 }
 

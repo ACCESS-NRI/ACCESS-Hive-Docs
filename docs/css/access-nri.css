@@ -907,6 +907,10 @@ details.code {
   align-self: center;
 }
 
+.md-footer-meta__inner.md-grid {
+  text-align: center;
+}
+
 /* =============================================================== 
   Header 
 */
@@ -1401,6 +1405,10 @@ img.intro-img {
 
 .large-text {
   font-size: 1.4em !important;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .display-block {
