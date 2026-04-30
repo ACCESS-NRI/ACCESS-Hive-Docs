@@ -64,7 +64,7 @@ available to a Curated Dataset.
 The Datapool is managed by the ACCESS-NRI Data team.
 
 !!! Note
-    One notable set of data in the Datapool is the [Cryoshpere Community Datapool (CCD)](/model_evaluation/data/cryosphere_datapool), which is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
+    One notable set of data in the Datapool is the [Cryosphere Community Datapool (CCD)](/model_evaluation/data/cryosphere_datapool), which is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
 
 <div class="card-container">
     <a href="/model_evaluation/data/cryosphere_datapool" class="horizontal-card">
@@ -102,14 +102,14 @@ ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for
             <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
         </div>
         <div class="card-text-container">
-            <span class="bold" >Replicated Datasets for Climate Model Evaluation</span>
+            <span class="bold" >Replicated Observation Datasets for Climate Model Evaluation</span>
         </div>
     </a>
 </div>
 
 ## ACCESS Output Data Specifications
 
-ACCESS-NRI have put together data specifications for data produced by ACCESS models. This is initially targeting ACCESS-ESM1.6
+ACCESS-NRI has put together data specifications for data produced by ACCESS models. This is initially targeting ACCESS-ESM1.6
 as a step to standardisations of data produced by the ACCESS ecosystem. This includes file and directory naming conventions, 
 variable conventions, and variable and global attributes.
 

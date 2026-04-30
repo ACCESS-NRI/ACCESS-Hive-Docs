@@ -63,15 +63,11 @@ Unlike the NCI Data Catalogue, the ACCESS-NRI Catalogue allows searching based o
 - realms
 - model components, configurations, and experiments
 
-The ACCESS-NRI Catalogue is accessible in the following ways:
-
-- via the [ACCESS-NRI Intake Catalogue](access_nri_intake) Python API
-- via the [ACCESS-NRI Interactive Catalogue](interactive_catalogue) web-based version (currently in alpha testing)
-
 **Best for:** exploring what ACCESS data exists and discovering datasets based on their metadata attributes, loading and using data<br>
 **Without an NCI account:** [view the catalogue](https://access-nri.github.io/interactive-data-catalogue/) (data will not be accessible) <br>
 **With an NCI account:** access the catalogue and datasets on _Gadi_ <br>
-**More information:**
+
+The ACCESS-NRI Catalogue is accessible in the following ways:
 
 <div class="card-container">
     <a href="access_nri_intake" class="horizontal-card">
@@ -92,7 +88,7 @@ The ACCESS-NRI Catalogue is accessible in the following ways:
         <div class="card-text-container">
             <span class="bold" >ACCESS-NRI Interactive Catalogue</span>
             <span>
-                via the ACCESS-NRI Interactive Catalogue web-based discovery version.
+                via the ACCESS-NRI Interactive Catalogue web-based discovery version (currently in alpha testing)
             </span>
         </div>
     </a>

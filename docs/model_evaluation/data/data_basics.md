@@ -43,7 +43,7 @@ These conventions make datasets easier for humans to understand and machines to 
 
 The term _CMORised_ data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI (Program for Climate Model Diagnosis and Intercomparison) to apply CMIP (Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions, allowing consistent multi-model analysis both within and across CMIP generations.
 
-ACCESS-NRI supports CMORisation of ACCESS models with ACCESS-MOPPy.
+ACCESS-NRI supports CMORisation of ACCESS models with [ACCESS-MOPPy](https://github.com/ACCESS-NRI/ACCESS-MOPPy/tree/main#access-moppy-model-output-post-processor).
 <!-- card for moppy -->
 
 These standards can be applied alongside the [ACCESS output data specifications](/model_evaluation/data/sharing#access-output-data-specifications).
