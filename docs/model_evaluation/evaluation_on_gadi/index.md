@@ -40,6 +40,12 @@ While evaluation and diagnostics can be described separately they often overlap 
         </div>
         <div class="card-text-container bold">conda/analysis3 Environment</div>
     </a>
+        <a href="/model_evaluation/evaluation_on_gadi/community_recipes" class="vertical-card aspect-ratio2to1">
+        <div class="card-image-container">
+            <img class="white-background" src="/assets/workshop_and_events.jpeg" alt="ACCESS Workshop 2023">
+        </div>
+        <div class="card-text-container bold">Community recipes</div>
+    </a>
     <a href="/model_evaluation/evaluation_on_gadi/model_live_diagnostics" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
             <img src="../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Model Live Diagnostics" class="img-contain white-background"></img>
