@@ -37,15 +37,15 @@
             </span>
         </div>
     </a>
-    <!-- ACCESS Output Data Specification - change to link to readthedocs-->
-    <a href="https://access-output-data-specifications.readthedocs.io/en/latest/specification/" class="horizontal-card">
+    <!-- ACCESS Output Data Specifications -->
+    <a href="https://access-output-data-specifications.readthedocs.io/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
-            <span class="bold" >ACCESS Output Data Specification</span>
+            <span class="bold" >ACCESS Output Data Specifications</span>
             <span>
-                Documentation on the specification for ACCESS model output data.
+                Documentation on the data specifications for data produced by ACCESS models
             </span>
         </div>
     </a>
@@ -68,7 +68,7 @@
         <div class="card-text-container">
             <span class="bold" >Observational Data for Evaluation</span>
             <span>
-                How to find observational data collections for climate model evaluation.
+                How to find observational data collections for climate model evaluation
             </span>
         </div>
     </a>

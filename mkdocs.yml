@@ -153,8 +153,7 @@ nav:
         - ACCESS-NRI Intake Catalogue: model_evaluation/data/finding/access_nri_intake.md
         - ACCESS-NRI Interactive Catalogue: model_evaluation/data/finding/interactive_catalogue.md
       - Sharing ACCESS Community Data: model_evaluation/data/sharing.md
-      # - ACCESS MOPPy: model_evaluation/data/moppy.md # to be created
-      # - ACCESS Output Data Specifications: model_evaluation/data/specification.md # link to external
+      - ACCESS Output Data Specifications: https://access-output-data-specifications.readthedocs.io/
       - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
       - Observational Data for Evaluation: model_evaluation/data/observations.md
     - Model Evaluation: 

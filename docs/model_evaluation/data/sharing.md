@@ -121,7 +121,7 @@ variable conventions, and variable and global attributes.
         <div class="card-text-container">
             <span class="bold" >ACCESS Output Data Specification</span>
             <span>
-                Documentation on the specification for ACCESS model output data.
+                Documentation on the data specifications for data produced by ACCESS models
             </span>
         </div>
     </a>

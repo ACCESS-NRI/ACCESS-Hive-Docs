@@ -32,7 +32,7 @@ Tools such as `ncdump` allow users to inspect this format directly, showing how 
 
 ### CF conventions and CMOR standards
 
-Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conventions](https://zenodo.org/records/17801666)**. CF conventions provide standardised ways to describe:
+Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conventions]((https://cfconventions.org)**. CF conventions provide standardised ways to describe:
 <!-- https://cfconventions.org server error April2026-->
 
 - coordinates and grids  
@@ -41,7 +41,7 @@ Most ACCESS netCDF files follow the **[Climate and Forecast (CF) metadata conven
 
 These conventions make datasets easier for humans to understand and machines to interpret. Many analysis and visualisation tools (such as [Xarray](https://xarray.dev)) rely on CF conventions to automatically recognise coordinates, apply units correctly, and handle data consistently across different models and datasets.
 
-The term 'CMORised' data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI (Program for Climate Model Diagnosis and Intercomparison) to apply CMIP (Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions which can allow for the multi-model analysis in the CMIP phases and between the generations. 
+The term _CMORised_ data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI (Program for Climate Model Diagnosis and Intercomparison) to apply CMIP (Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions, allowing consistent multi-model analysis both within and across CMIP generations.
 
 ACCESS-NRI supports CMORisation of ACCESS models with ACCESS-MOPPy.
 <!-- card for moppy -->
