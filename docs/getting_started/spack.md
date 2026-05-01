@@ -51,7 +51,7 @@ cd /g/data/$PROJECT/$USER/spack/1.1
     ACCESS-NRI maintains a [fork of Spack](https://github.com/ACCESS-NRI/spack) to enable back-porting fixes from more recent spack versions. This fork is the one used in these instructions.
 
 ```
-git clone https://github.com/ACCESS-NRI/spack.git --branch releases/v1.1
+git clone https://github.com/ACCESS-NRI/spack.git --branch access/releases/v1.1
 git clone https://github.com/ACCESS-NRI/spack-config.git --branch main
 ```
 
@@ -218,9 +218,10 @@ Keep your _Spack_ instance up-to-date by doing the following:
 
 ```
 cd /g/data/$PROJECT/$USER/spack/1.1
-find spack/etc/spack -type l -exec rm {} \;
+find spack/etc/spack -type l -name '*.yaml' -exec rm {} \;
 git -C spack fetch --all -Pp
-git -C spack reset --hard origin/releases/v1.1
+git -C spack switch access/releases/v1.1
+git -C spack reset --hard origin/access/releases/v1.1
 git -C spack-config pull
 . spack/share/spack/setup-env.sh
 spack repo update
