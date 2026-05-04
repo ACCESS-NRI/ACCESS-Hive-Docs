@@ -81,12 +81,12 @@ module load conda/analysis3
 ```
 
 ### Installing pyISSM
-Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed, it's good practice to install the latest development version directly from Github.
+Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed, we recommend installing the latest development version directly from Github.
 
 !!! warning
-    These instructions install pyISSM in your `$HOME` directory on NCI _Gadi_. You may adjust the installation location if you prefer.
+    These instructions install pyISSM into your `$HOME` directory on NCI _Gadi_. You may adjust the installation location if you prefer.
 
-To install pyISSM, simple run the following in a new terminal (accessed from the JupyterLab Launcher panel):
+To install pyISSM, simply run the following in a new terminal (accessed from the JupyterLab Launcher panel):
 ```bash
 cd ~
 git clone https://github.com/ACCESS-NRI/pyISSM.git
@@ -95,6 +95,117 @@ pip install .
 ```
 
 The installation may take a few minutes. Once the installation completes successfully, you will see `Successfully installed pyissm-...`.
+
+### Run the "Square Ice Shelf" Tutorial
+You're now ready to get started with pyISSM and execute your first ISSM model using ACCESS-ISSM! Using the file explorer of your ARE JupyterLab Session, simply navigate to the '~/pyissm/tutorials/` directory and open the "ex1_SquareIceShelf.ipynb" notebook. The following steps are taken directly from the tutorial notebook.
+
+#### Import required Python modules
+Import pyISSM and other required Python modules as follows:
+```python
+import os
+import pyissm
+import numpy as np
+from pathlib import Path
+import matplotlib.pyplot as plt
+```
+
+#### Configure your modelling environment
+By default, the Square Ice Shelf tutorial is designed to be executed on NCI _Gadi_. To ensure your modelling environment is configured correctly, execute the following cell:
+```python
+## Set required paths
+tutorial_dir = str(Path.home() / 'pyISSM' / 'tutorials')
+asset_dir = tutorial_dir + '/assets'
+execution_dir = tutorial_dir + '/models'
+
+# Check that execution directory exists. If not, create it
+if not os.path.isdir(execution_dir):
+    os.mkdir(execution_dir)
+
+# Print the paths for visibility
+print(f"The following `tutorial_dir` is set: {tutorial_dir}")
+print(f"The following `asset_dir` is set: {asset_dir}")
+print(f"The following `execution_dir` is set: {execution_dir}")
+```
+
+If pyISSM was installed in your `$HOME` directory (as described above), you should see an output like this:
+```
+The following `tutorial_dir` is set: ~/home/<CODE>/<USER>/pyISSM/tutorials
+The following `asset_dir` is set: /home/<CODE>/<USER>/pyISSM/tutorials/assets
+The following `execution_dir` is set: /home/<CODE>/<USER>/pyISSM/tutorials/models
+```
+
+where `<CODE>` is your NCI _Gadi_ group code and `<USER>` is your NCI username.
+
+#### Initialise an empty model
+To begin building an ISSM model, we first initialise an empty model. For more information about the `md` object, refer to the [Introduction to pyISSM tutorial](https://github.com/ACCESS-NRI/pyISSM/blob/main/tutorials/1_pyISSM_intro.ipynb).
+
+```python
+# Create an empty model
+md = pyissm.model.Model()
+
+md
+```
+The empty ISSM model object (`md`) will provide an overview of all available model fields
+
+```
+ISSM Model Class                         
+                                            
+               mesh:  mesh properties         
+               mask:  defines grounded and floating elements 
+           geometry:  surface elevation, bedrock topography, ice thickness, ... 
+          constants:  physical constants      
+                smb:  surface mass balance    
+      basalforcings:  bed forcings            
+          materials:  material properties     
+             damage:  damage propagation laws 
+           friction:  basal friction / drag properties 
+       flowequation:  flow equations          
+       timestepping:  timestepping for transient models 
+     initialization:  initial guess / state   
+              rifts:  rifts properties        
+         solidearth:  solidearth inputs and settings 
+                dsl:  dynamic sea level       
+              debug:  debugging tools (valgrind, gprof 
+            verbose:  verbosity level in solve 
+           settings:  settings properties     
+           toolkits:  PETSc options for each solution 
+            cluster:  cluster parameters (number of CPUs...) 
+   balancethickness:  parameters for balancethickness solution 
+      stressbalance:  parameters for stressbalance solution 
+      groundingline:  parameters for groundingline solution 
+          hydrology:  parameters for hydrology solution 
+      masstransport:  parameters for masstransport solution 
+            thermal:  parameters for thermal solution 
+        steadystate:  parameters for steadystate solution 
+          transient:  parameters for transient solution 
+           levelset:  parameters for moving boundaries (level-set method) 
+            calving:  parameters for calving  
+    frontalforcings:  parameters for frontalforcings 
+                esa:  parameters for elastic adjustment solution 
+           sampling:  parameters for stochastic sampler 
+               love:  parameters for love solution 
+           autodiff:  automatic differentiation parameters 
+          inversion:  parameters for inverse methods 
+                qmu:  Dakota properties       
+                amr:  adaptive mesh refinement properties 
+   outputdefinition:  output definition       
+            results:  model results           
+       radaroverlay:  radar image for plot overlay 
+      miscellaneous:  miscellaneous fields    
+  stochasticforcing:  stochasticity applied to model forcings 
+  ```
+
+#### Create a model mesh
+```python
+# Build a model mesh using the domain outline (SquareShelf_DomainOutline.exp) with a resolution of 50 km.
+md = pyissm.model.mesh.triangle(md,
+                                domain_name = asset_dir + '/Exp/SquareIceShelf_DomainOutline.exp',
+                                resolution = 50000
+                               )
+
+# Inspect the created mesh
+md.mesh
+```
 
 ## Get help
 
