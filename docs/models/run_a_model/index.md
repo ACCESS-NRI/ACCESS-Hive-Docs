@@ -58,4 +58,13 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             Run ACCESS-rAM3
         </div>
     </a>
+    <!-- Run ACCESS-ISSM -->
+    <a href="run_access-issm" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_issm_model_visualisation_placeholder.png" alt="ACCESS-ISSM">
+        </div>
+        <div class="card-text-container bold">   
+            Run ACCESS-ISSM
+        </div>
+    </a>
 </div>
