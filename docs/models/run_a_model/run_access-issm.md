@@ -39,21 +39,21 @@ Here, we provide guidance on getting started with pyISSM and ACCESS-ISSM on [NCI
 All pyISSM tutorials are presented as Jupyter Notebooks and can be executed easily using an [ARE JupyterLab session](https://docs.access-hive.org.au/getting_started/are/#jupyterlab). To start an appropriate ARE JupyterLab session go to the [ARE JupyterLab](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/jupyter/ncigadi/session_contexts/new) page and follow these steps:
 
 - Step 1:
-    Log in with your NCI Username and password. You'll be presented with a new JupyterLab session configuration, similar to the one shown below.
+    - Log in with your NCI Username and password. You'll be presented with a new JupyterLab session configuration, similar to the one shown below.
 
     ![New ARE JupyterLab Session](../../assets/run_access-issm/are_dashboard.png)
 
 - Step 2:
     - Configure the ARE JupyterLab session with the required fields. The following entries are recommended for this simple tutorial and can be cusomtised as necessary for larger model simulations.
-    
-    !!! warning
-        Note that the `Project` and `Storage` fields will vary depending on your chosen project with allocated Service Units. 
 
         - Walltime (hours): `1`
         - Queue: `normalbw`
         - Compute Size: `small`
         - Project: `<USER SELECTED PROJECT>`
-        - Storage:  `gdata/xp65+gdata/vk83+<USER SELECTED PROJECT STORAGE>`
+        - Storage:  `gdata/xp65+gdata/vk83`
+
+    !!! warning
+        Note that the `Project` field will vary depending on your chosen project with allocated Service Units. 
 
     - Click on "Show advanced settings" and enter the following field entries:
         - Module directories: `/g/data/vk83/modules /g/data/xp65/public/modules`
@@ -81,13 +81,14 @@ module load conda/analysis3
 ```
 
 ### Installing pyISSM
-Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed, it's good practice to install the latest development version directly from Github. To avoid inode limits on _Gadi_, we recommend installing pyISSM in a `gdata` location. To do so, ensure you have access to your preferred storage location and follow the below steps:
+Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed, it's good practice to install the latest development version directly from Github.
 
 !!! warning
-    In this example, we will use the sample project `tm70` and sample username `user`; however, you should replace all instances of `tm70` with your preferred `gdata` storage location and all instances of `user` with yout NCI username.
+    These instructions install pyISSM in your `$HOME` directory on NCI _Gadi_. You may adjust the installation location if you prefer.
 
-```
-cd /g/data/tm70/user
+To install pyISSM, simple run the following in a new terminal (accessed from the JupyterLab Launcher panel):
+```bash
+cd ~
 git clone https://github.com/ACCESS-NRI/pyISSM.git
 cd pyISSM
 pip install .
