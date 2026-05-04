@@ -5,7 +5,7 @@
 
 ## About
 
-[_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
+[_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software package, distributed under an Apache 2.0 Licence.
 
 This page summarises the _payu_ capabilities that are most commonly required to run ACCESS models on the _Gadi_ supercomputer. This page presents generic information on: 
 
@@ -55,14 +55,13 @@ A representation of the data organisation for _payu_ is given in the following d
 
 ![payu directory structure](/assets/payu_directory_structure.png){: class="example-img" loading="lazy"}
 
-
 As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and is the directory from which the model run is started.  
-  {: #control-directory }. This directory contains information to manage the simulation, it also contains the scientific options for each model component that define the physics used in the model component or the diagnostics saved by the model component. These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels). To modify these options please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
+  This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. If a model has only one model component, the files with the scientific options are located directly in the _control_ directory. If the model has several model components, the files are locate inside subfolders of the _control_ directory named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels). To modify these options please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
 - The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
 
-On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast I/O for large data and where there is adequate space available for large model output.  
+On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast reading and writing of large data and where there is adequate space available for large model output.  
 
 Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
 
@@ -112,17 +111,17 @@ All model configurations are hosted in a git repository on GitHub, and each conf
 To get a local copy of a configuration, you need to:
 
 - identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub. See the information on the [Run a Model][Run a Model] page of your chosen model for this step.
-- decide where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under $HOME. This directory must exist before running _payu_.
-- decide on a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment.
+- decide where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
 - decide on a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+- decide on a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
 
 Then, you can get the chosen configuration using `payu clone`.
 
 For example, say you want to do a sensitivity experiment to the diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide to:
 
 - `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
-- `<configurations-directory>`: store the all your ACCESS-OM2 configurations under `~/access-om2/`
-- `<local-branch>`: name your branch `diffuse_test1-1deg_jra55_ryf`
+- `<configurations-directory>`: store all your ACCESS-OM2 configurations under `~/access-om2/`
+- `<local-branch>`: name your branch `diffuse_test1`
 - `<control-directory>`: store the configurations for this research project under `diffuse_exps-1deg_jra55_ryf`
 
 To get the configuration as chosen, run:
@@ -156,13 +155,13 @@ To get the configuration as chosen, run:
 </terminal-window>
 
 !!! tip
-    Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.    
+    Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
 
 ### Test the configuration
 
 To verify everything is set correctly, it is recommended to first test the configuration as-is.
 
-You can test all the paths and setup are correct by running `payu setup` from the `control` directory:
+You can test the setup and paths are correct by running `payu setup` from the _control_ directory:
 
     payu setup
 
@@ -225,6 +224,43 @@ _payu_ provides the `payu status` command for monitoring jobs (see [documentatio
 
 !!! note
     `payu status` is available in _payu_ versions 1.2.0 and later. This command does not yet support monitoring post-processing jobs from the configuration, e.g. `payu collate` and `payu sync`.
+
+Example output from `payu status` for a running simulation:
+
+```
+========================================  
+Run: 8  
+  Job ID:            running_example.gadi-pbs  
+  Run ID:            xxxx  
+  Stage:             model-run  
+  Current Expt Time: 1950-10-01T00:00:00  
+  Exit Status:       0 (Success)  
+  Model Exit Code:   0 (Success)  
+  Output Log:        /home/189/USER/expt.o100  
+  Error Log:         /home/189/USER/expt.3100  
+  Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/running_example.gadi-pbs.json  
+========================================  
+```
+
+Example output from `payu status` for an archived simulation:
+
+```
+========================================
+Run: 8
+  Job ID:            archive_example.gadi-pbs
+  Run ID:            xxxx
+  Stage:             archive
+  Total Queue Time:  0h 1m 7s
+  Model Finish Time: 1950-10-01T00:00:00
+  Exit Status:       0 (Success)
+  Model Exit Code:   0 (Success)
+  Output Log:        /home/189/USER/expt.o100
+  Error Log:         /home/189/USER/expt.3100
+  Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+========================================
+```
+
+To monitor the current queue time of a queued job, use `payu status --update`.
 
 
 Alternatively, you can also use the PBS `job-ID` to monitor the job using the PBS commands available from NCI. 
@@ -321,7 +357,7 @@ Adjusting the duration of the model run is one of the most common change to appl
 ### Start the run from a specific restart file {: id='specific-restart'}
 
 To configure the experiment to start from specific restart files, add a [`restart:` entry](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) to the `config.yaml` file, specifying the path to a folder containing existing restart files.
-Or, to do this automatically when setting up an experiment using `payu clone` interactive, give the restart path when prompted: `Do you want to specify a custom restart path?`. 
+Or to do this automatically when setting up an experiment using `payu clone` interactive, give the restart path when prompted: `Do you want to specify a custom restart path?`. 
 
 !!! warning
     In some cases, if the supplied restart file is not fully compatible with the model configuration, experiments using a custom restart file may require additional manual adjustments to run correctly.
@@ -448,10 +484,9 @@ The `name` field, for the model section, is not actually used for the configurat
 
 #### Submodels {: .no-toc }
 
-Coupled models typically deploy multiple submodels, a.k.a. the model components.
+Coupled models may deploy the model components as multiple submodels.
 
 This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel.
-
 
 #### Runlog {: .no-toc }
 
@@ -478,7 +513,7 @@ They are used to run scripts or subcommands at various stages of a _payu_ submis
 
 - `error` gets called if the model does not run correctly and exits with an error.
 - `run` gets called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
-- `sync` gets called at the start of the sync pbs job. For more information refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+- `sync` gets called at the start of the sync PBS job. For more information refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/stable/config.html#postprocessing).
 
