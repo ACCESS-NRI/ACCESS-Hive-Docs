@@ -102,7 +102,10 @@ ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for
             <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
         </div>
         <div class="card-text-container">
-            <span class="bold" >Replicated Observation Datasets for Climate Model Evaluation</span>
+            <span class="bold" >Observation Datasets for Climate Model Evaluation</span>
+            <span>
+                Expanding on the _Replicated Datasets for Climate Model Evaluation_ collection with more NCI collections of observational data.
+            </span>
         </div>
     </a>
 </div>
