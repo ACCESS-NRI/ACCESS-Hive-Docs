@@ -1,3 +1,11 @@
+# ACCESS Evaluation Recipes
+
+ACCESS-NRI have assisted in writing a collection of jupyter notebooks utilising the ESMValTool framework and initially focused on the CLIVAR ENSO metrics package. You can find the repository:
+
+Relationship to ESMValTool and community recipes
+
+Adaptable, running on Gadi and the repo can be cloned to be edited how it suits. these can be updated and added to from collaborative work with researchers.
+
 # Community Evaluation Recipes
 
 ## ACCESS-OM3 applications
@@ -19,7 +27,7 @@ The [COSIMA cookbook](https://cosima-recipes.readthedocs.io/en/latest/) has tuto
 <div class="card-container">
     <a href="/model_evaluation/evaluation_on_gadi/cosima" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
-            <img src="../../assets/model_evaluation/logo_cosima.png" alt="Pangeo/COSIMA" class="img-cover"></img>
+            <img src="/assets/model_evaluation/logo_cosima.png" alt="Pangeo/COSIMA" class="img-cover"></img>
         </div>
         <div class="card-text-container bold">COSIMA cookbook</div>
     </a>

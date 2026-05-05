@@ -16,7 +16,7 @@ ACCESS-NRI is a member of the [ESMValTool Consortium](https://esmvaltool.org/202
 
 ### Pre-requisites
 
-_ESMValTool_ is provided through the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project on Gadi via the _analysis3_ environment. To enable the _analysis3_ environemnt, you need to be a member of the _xp65_ NCI project.
+_ESMValTool_ is provided through the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project on Gadi via the _analysis3_ environment. To enable the _analysis3_ environment, you need to be a member of the _xp65_ NCI project.
 
 Depending on your needs, you may want to also join the following supported data collections:
 
@@ -28,20 +28,20 @@ Depending on your needs, you may want to also join the following supported data 
 
 ### Loading the _analysis3_ module
 
-See [use the environment in a pbs job](/getting_started/environments#use-the-environment-within-a-pbs-job) which you can use to set up a pbs job to run a recipe.
-Within the pbs job script you can use the `run` to run a recipe:
+See [use the environment in a pbs job](/getting_started/environments#use-the-environment-within-a-pbs-job) which you can use to set up a _pbs_ job to run a recipe.
+Within the _pbs_ job script you can use the `run` command to run a recipe:
 ```
 esmvaltool run examples/recipe_python.yml
 ```
 See the [ESMValTool running documentation page](http://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/run.html) for more information.
 
-Use the following commands in the pbs job or manually to use the `esmvaltool` commands including the `config` commands:
+Use the following commands in the _pbs_ job or manually to use the `esmvaltool` commands including the `config` commands:
 ```
-    module use /g/data/xp65/public/modules
-    module load conda/analysis3
+module use /g/data/xp65/public/modules
+module load conda/analysis3
 ```
 
-This environemnt is pre-configured to access CMIP and observation datasets available on Gadi. For more information on configuration see the [ESMValTool documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
+This environment is pre-configured to access CMIP and observation datasets available on Gadi. For more information on configuration see the [ESMValTool documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
 
 By default from version 2.12, ESMValTool looks for the configuration files in the home directory, inside the `~/.config/esmvaltool` folder.
 To start, you can get a copy of user configuration file in your default folder, run the following.
@@ -95,7 +95,8 @@ CFG.load_from_dirs(['/<USER>/.config/esmvaltool'])
 ```
 
 #### ESMValCore preprocessors
-You can take advantage of the built in commonly used preprocessors. See the [API reference]() for using the preprocessors.
+You can take advantage of the built in commonly used preprocessors. 
+See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html#) for using the preprocessors.
 The below example shows finding the monthly anomalies and the annual mean.
 ```python
 from esmvalcore.preprocessor import annual_statistics, anomalies
@@ -111,7 +112,7 @@ cube = annual_statistics(cube, operator='mean')
 ```
 
 ### Tutorials 
-For tutorial series andmaterial from previous workshops see:
+For tutorial series and material from previous workshops see:
 <div class="card-container">
     <a href="/tutorials/esmvaltool" target="_blank" class="vertical-card aspect-ratio2to1">
         <div class="card-image-container">
