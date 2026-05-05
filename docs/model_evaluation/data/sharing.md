@@ -104,7 +104,7 @@ ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for
         <div class="card-text-container">
             <span class="bold" >Observation Datasets for Climate Model Evaluation</span>
             <span>
-                Expanding on the _Replicated Datasets for Climate Model Evaluation_ collection with more NCI collections of observational data.
+                Expanding on the <i>Replicated Datasets for Climate Model Evaluation</i> collection with more NCI collections of observational data.
             </span>
         </div>
     </a>
