@@ -1,4 +1,5 @@
 {% set model = "ACCESS-ESM1.5" %}
+{% set model2 = "ACCESS-ESM1.6" %}
 {% set github_configs = "https://github.com/ACCESS-NRI/access-esm1.5-configs" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
@@ -13,25 +14,27 @@
 [:notepad_spiral:{: class="twemoji icon-before-text"} Release notes]({{release_notes}}){: class="text-card"}
 </div>
 
-# Run {{ model }}
+# Run  {{ model }} or  {{ model2 }}
 
 ## About
 
-{{ model }} is a fully-coupled global climate model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [{{ model }} overview][model configurations].
+ACCESS-ESM is a fully-coupled global climate model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [model overview][/models/configurations/access-esm/].
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
+The instructions below outline how to run {{ model }} or {{ model2 }}  using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
 
-If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
+If you are unsure whether {{ model }} or  {{ model2 }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
 All {{model}} configurations are open source, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1")![CC icon](https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1){: style="height:1em;margin-left:0.2em;vertical-align:text-top;"}![BY icon](https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1){: style="height:1em;margin-left:0.2em;vertical-align:text-top;"} and available on [ACCESS-NRI GitHub]({{github_configs}}).
 
 {{ model }} release notes are [available on the ACCESS-Hive Forum]({{release_notes}}) and are updated when new releases are made available.
+{{ model2 }} release notes are UPDATEME and are updated when new releases are made available.
 
+Downloading and running {{ model2 }} is very similar to {{ model }}, these instructions are written with a {{ model }} focus where necessary diffeerences for running {{ model2 }} are highlighted.
 
 ## Prerequisites
 
 - **NCI Account**<br> 
-    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+    Before running {{ model }} or  {{ model2 }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_MOSRS_ account**<br>
     The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
@@ -126,6 +129,26 @@ to a new experiment branch (`-b expt`) to a directory named `preindustrial+conce
     _payu_ uses branches to differentiate between different experiments in the same local git repository.<br>
     For this reason, it is recommended to always set the cloned branch name (`expt` in the example above) to something meaningful for the planned experiment.<br>
     For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+
+----------------------------------------------------------------------------------------
+
+## Get {{ model2 }} configuration
+!!! tip
+    Downloading and running {{ model2 }} is very similar to {{ model }}, here we show the key difference for how to run {{ model2 }} as compared to running {{ model1 }} .
+
+All released {{ model2 }} configurations are available from the [{{ model2 }} configs](https://github.com/aCCESS-NRI/accESS-esm1.6-configs) GitHub repository.
+
+The first step is to choose a configuration from those available.<br>
+
+For example, if the required configuration is the co2 concentration driven pre-industrial configuration, then the branch to select is [`dev-preindustrial+concentrations`](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/dev-preindustrial%2Bconcentrations).
+
+Similar to the above instructions for {{ model }} above, to clone this branch to a location on _Gadi_, run:
+    
+    mkdir -p ~/access-esm1.6
+    cd ~/access-esm1.6
+    payu clone -b expt -B dev-preindustrial+concentrations [{{ github_configs }}](https://github.com/ACCESS-NRI/access-esm1.6-configs.git) preindustrial+concentrations
+
+One can then follow the steps outlined for {{ model }}.
 
 ----------------------------------------------------------------------------------------
 
