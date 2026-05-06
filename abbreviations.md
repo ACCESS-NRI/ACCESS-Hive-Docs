@@ -8,3 +8,4 @@
 *[HPC]: High-Performance Computing
 *[NCI]: (Australian) National Computational Infrastructure
 *[ARE]: Australian Research Environment
+*[COSIMA]: Consortium for Ocean-Sea Ice Modelling in Australia
