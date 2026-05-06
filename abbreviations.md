@@ -11,3 +11,4 @@
 *[ARE]: Australian Research Environment
 *[COSIMA]: Consortium for Ocean-Sea Ice Modelling in Australia
 *[SU]: Service Units
+*[MED]: Model Evaluation and Diagnostics
