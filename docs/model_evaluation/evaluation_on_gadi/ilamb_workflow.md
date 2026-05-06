@@ -68,7 +68,7 @@ To learn more about how to adjust the <i>ILAMB</i> setup, refer to the official 
 
 ## Example: CMIP6 comparisons and ACCESS ESM1.5 benchmarking
 
-ACCESS-NRI is maintaining a collection of benchmark comparisons for the ACCESS community, such as that with Coupled Model Intercomparison Project (CMIP) data, see in the <a href="https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri" target="_blank">workflow documentation.</a>
+ACCESS-NRI is maintaining a collection of benchmark comparisons for the ACCESS community, such as that with CMIP data, see in the <a href="https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri" target="_blank">workflow documentation.</a>
 
 
 In the following example, the supported <a href="/models/access_models/access-esm#access-esm1.5" target="_blank">ACCESS-ESM1.5</a> is compared with two other ESM models:
