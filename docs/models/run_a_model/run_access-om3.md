@@ -28,7 +28,7 @@
 
 {{ model }} is an ocean-sea ice model. More information is available in the [{{ model }} overview][model configurations].
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's deployed software, on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
+The instructions below outline how to run {{ model }} using ACCESS-NRI's deployed software, on on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 

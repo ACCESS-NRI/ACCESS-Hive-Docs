@@ -11,7 +11,7 @@ The steps in this section are aimed at new users who would like to do any of the
 
 ## Create an NCI user account
 
-Most of the data and models you will need are available at the [National Computing Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are).<br>
+Most of the data and models you will need are available at [NCI](https://nci.org.au/about-us/who-we-are).<br>
 To access these, you need an [NCI account](https://opus.nci.org.au/display/Help/How+to+create+an+NCI+user+account). If you do not have one, [sign up here](https://my.nci.org.au/mancini/signup/0").
 
 !!! warning
