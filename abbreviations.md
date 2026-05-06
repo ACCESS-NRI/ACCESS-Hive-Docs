@@ -7,3 +7,4 @@
 *[CMIP7]: Coupled Model Intercomparison Project 7
 *[HPC]: High-Performance Computing
 *[NCI]: (Australian) National Computational Infrastructure
+*[ARE]: Australian Research Environment

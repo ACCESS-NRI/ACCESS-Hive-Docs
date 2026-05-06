@@ -101,7 +101,7 @@ For more information on running PBS jobs on <i>Gadi</i>, refer to <a href="https
 
 ## Running the `access-med` environment on ARE 
 
-NCI also supports an interactive coding environment called the Australian Research Environment (ARE). Its use is similar to submitting a PBS job via `qsub -I`, but with an added bonus of a dedicated graphical user interface for Jupyter notebooks. 
+NCI also supports an interactive coding environment called ARE. Its use is similar to submitting a PBS job via `qsub -I`, but with an added bonus of a dedicated graphical user interface for Jupyter notebooks. 
 <br>
 <br>
 For more information, check the <a href="/getting_started/are">Australian Research Environment (ARE) getting started</a>.

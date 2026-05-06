@@ -42,7 +42,7 @@
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
 - **Connection to an ARE VDI Desktop (optional)**<br>
-    To run {{ model }}, start an [Australian Research Environment (ARE) VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
+    To run {{ model }}, start an [ARE VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
     If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
 
 ## Set up an ARE VDI Desktop (optional)
