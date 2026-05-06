@@ -62,7 +62,7 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
     As mentioned above, the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
 
 - **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
+    The project must have allocated _SU_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
     For more information, refer to how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 - **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
@@ -98,7 +98,7 @@ persistent-sessions start -p <project> <name>
 ```
 
 !!! tip
-    While the project assigned to a persistent session does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _Service Units (SU)_.<br>
+    While the project assigned to a persistent session does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _SU_.<br>
     For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 <terminal-window data="input">
@@ -294,7 +294,7 @@ For example, to run an {{ model }} suite under the `tm70` project (ACCESS-NRI), 
 ![Rose change project example](/assets/run_access_cm/rose_change_project_are.gif){: class="example-img" loading="lazy"}
 
 !!! warning
-    To run {{ model }}, you need to be a member of a project with allocated _Service Units (SU)_. For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 ### Change run length and cycling frequency
 

@@ -451,7 +451,7 @@ project: lg87
     If more than one project is used to run an {{ model }} configuration the `shortpath` option also needs to be uncommented and the path to the desired `/scratch/PROJECT_CODE` directory added.<br>
     This ensures the same `/scratch` location is used for the _laboratory_, regardless of which project is used to run the experiment.
     <br><br>
-    To run {{ model }}, you need to be a member of a project with allocated _Service Units (SU)_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 ### Syncing output data
 

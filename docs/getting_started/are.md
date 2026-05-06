@@ -44,7 +44,7 @@ Hence, there are multiple [PBS directives](https://opus.nci.org.au/display/Help/
     You must be a member of the specified project.
     
     !!! warning
-        The specified project must have allocated _Service Units (SU)_.<br>
+        The specified project must have allocated _SU_.<br>
         For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 - **Storage**<br>

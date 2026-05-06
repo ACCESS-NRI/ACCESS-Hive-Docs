@@ -39,7 +39,7 @@ Detailed documentation on the configurations can be found in the [{{ model }} co
 ## Prerequisites
 
 !!! warning
-    To run {{ model }}, you need to be a member of a project with allocated _Service Units (SU)_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 - **NCI Account**<br> 
     Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).

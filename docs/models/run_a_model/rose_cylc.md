@@ -63,7 +63,7 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
 - **Compute Size** &rarr; `tiny` (1 CPU)<br>
 
 - **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...). By default, this will be set to your default project `$PROJECT`.
+    The project must have allocated [_SU_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...). By default, this will be set to your default project `$PROJECT`.
 
 - **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
