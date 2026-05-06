@@ -88,7 +88,7 @@ The ACCESS-NRI Catalogue is accessible in the following ways:
         <div class="card-text-container">
             <span class="bold" >ACCESS-NRI Interactive Catalogue</span>
             <span>
-                via the ACCESS-NRI Interactive Catalogue web-based discovery version (currently in alpha testing)
+                via the ACCESS-NRI Interactive Catalogue web-based discovery version
             </span>
         </div>
     </a>
