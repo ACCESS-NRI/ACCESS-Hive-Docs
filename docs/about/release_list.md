@@ -45,7 +45,7 @@ In these release notes, make sure you scroll down to the latest post for most re
 |[Model Live Diagnostics](https://forum.access-hive.org.au/t/official-model-live-diagnotics-v1-0-released-today-read-on-to-find-out-more/1647) | Framework to check, monitor, visualise and evaluate model behaviour and progress for models currently running on _Gadi_ |
 |[ACCESS Intake Catalog](https://forum.access-hive.org.au/t/access-nri-intake-catalog-a-way-to-find-load-and-share-data-on-gadi/1659) | Find, load and share ACCESS & ACCESS-related model data on _Gadi_ |
 |[Payu](https://forum.access-hive.org.au/t/payu-a-workflow-manager-for-some-access-models/1098) | Tool used to run a number of ACCESS models on NCI hardware |
-|[um2nc](https://forum.access-hive.org.au/t/um2nc-a-utility-for-converting-unified-model-files-to-netcdf/3968) | Utility for converting Unified Model (UM) data files to netCDF |
+|[um2nc](https://forum.access-hive.org.au/t/um2nc-a-utility-for-converting-unified-model-files-to-netcdf/3968) | Utility for converting UM data files to netCDF |
 |[ACCESS-Vis and Visualisation recipes](https://forum.access-hive.org.au/t/access-visualisation-recipes-1-0-0-is-now-available/3970) | Collection of notebooks to enhance the visualisation of ACCESS climate model data using the `accessvis` python package |
 |[Model tools](https://forum.access-hive.org.au/t/model-tools/4696) | Multiple tools deployed on _Gadi_ to support model tasks, such as FRE-NCtools, mppnccombine-fast, esmf, etc. |
 |[ACCESS Model Scaling](https://forum.access-hive.org.au/t/access-nri-model-scaling-repository-a-collection-of-parallel-scalability-studies/5426) | A collection of Jupyter Notebooks that generate and display scaling data for ACCESS-NRI models |
