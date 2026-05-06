@@ -13,3 +13,4 @@
 *[COSIMA]: Consortium for Ocean-Sea Ice Modelling in Australia
 *[SU]: Service Units
 *[MED]: Model Evaluation and Diagnostics
+*[ILAMB]: International Land Model Benchmarking

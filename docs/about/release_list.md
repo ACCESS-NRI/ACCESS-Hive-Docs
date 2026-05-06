@@ -40,7 +40,7 @@ In these release notes, make sure you scroll down to the latest post for most re
 | |  |
 | :--- | :---------- |
 |[ESMValTool Workflow](https://forum.access-hive.org.au/t/esmvaltool-workflow-releases/1599) | NCI configuration of ESMValTool developed for evaluations of Earth System Models in CMIP |
-|[iLAMB workflow](https://forum.access-hive.org.au/t/ilamb-workflow-v1-0-launches-today-here-is-what-you-need-to-know/1600) | NCI configurations of International Land Model Benchmarking (ILAMB)|
+|[iLAMB workflow](https://forum.access-hive.org.au/t/ilamb-workflow-v1-0-launches-today-here-is-what-you-need-to-know/1600) | NCI configurations of ILAMB|
 |[Benchcab](https://forum.access-hive.org.au/t/benchcab-python-based-software-for-the-evaluation-of-cable/873/11) | Python-based software for the scientific evaluation of CABLE on NCI |
 |[Model Live Diagnostics](https://forum.access-hive.org.au/t/official-model-live-diagnotics-v1-0-released-today-read-on-to-find-out-more/1647) | Framework to check, monitor, visualise and evaluate model behaviour and progress for models currently running on _Gadi_ |
 |[ACCESS Intake Catalog](https://forum.access-hive.org.au/t/access-nri-intake-catalog-a-way-to-find-load-and-share-data-on-gadi/1659) | Find, load and share ACCESS & ACCESS-related model data on _Gadi_ |
