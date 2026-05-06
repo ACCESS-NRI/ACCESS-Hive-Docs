@@ -1,4 +1,4 @@
-# Sharing ACCESS Data
+# Sharing ACCESS Community Data
 
 ACCESS-NRI has a number of options to support data sharing among the ACCESS community at NCI, organised into three main areas:
 
@@ -63,6 +63,19 @@ available to a Curated Dataset.
 
 The Datapool is managed by the ACCESS-NRI Data team.
 
+!!! Note
+    One notable set of data in the Datapool is the [Cryosphere Community Datapool (CCD)](/model_evaluation/data/cryosphere_datapool), which is a joint project between ACCESS-NRI and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
+
+<div class="card-container">
+    <a href="/model_evaluation/data/cryosphere_datapool" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/access_icesheet_icon.png" alt="Cryosphere Community Datapool" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Cryosphere Community Datapool</span>
+        </div>
+    </a>
+</div>
 
 ## ACCESS-NRI Curated Datasets
 
@@ -73,7 +86,6 @@ These datasets are referred to as ACCESS-NRI Curated Datasets.
 They are prepared in collaboration with NCI's data team and are more
 tightly controlled and documented than Datapool datasets in order to ensure they
 remain accessible, trustworthy, and (re)usable.
-ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for example the ACCESS [COSIMA Model Output Collection](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f1296_4979_4319_7298), and the non-ACCESS [Replicated Datasets for Climate Model Evaluation](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f7199_2480_5432_9703).
 
 Curated Datasets are ideal for finalised data that has been involved in academic
 publications, needs a DOI, or needs to be shared with non-NCI users.
@@ -81,6 +93,42 @@ publications, needs a DOI, or needs to be shared with non-NCI users.
 The ACCESS-NRI Curated Datasets are managed collaboratively by the ACCESS-NRI and
 NCI data teams.
 
+ACCESS-NRI supports both ACCESS and non-ACCESS datasets as Curated datasets, for example the ACCESS [COSIMA Model Output Collection](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f1296_4979_4319_7298), and the non-ACCESS [Replicated Datasets for Climate Model Evaluation](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f7199_2480_5432_9703).
+
+
+<div class="card-container">
+    <a href="/model_evaluation/data/observations" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Observation Datasets for Climate Model Evaluation</span>
+            <span>
+                Expanding on the <i>Replicated Datasets for Climate Model Evaluation</i> collection with more NCI collections of observational data.
+            </span>
+        </div>
+    </a>
+</div>
+
+## ACCESS Output Data Specifications
+
+ACCESS-NRI has put together data specifications for data produced by ACCESS models. This is initially targeting ACCESS-ESM1.6
+as a step to standardisations of data produced by the ACCESS ecosystem. This includes file and directory naming conventions, 
+variable conventions, and variable and global attributes.
+
+<div class="card-container">
+    <a href="https://access-output-data-specifications.readthedocs.io/en/latest/specification/" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS Output Data Specification</span>
+            <span>
+                Documentation on the data specifications for data produced by ACCESS models
+            </span>
+        </div>
+    </a>
+</div>
 
 ## How to Request Support
 
