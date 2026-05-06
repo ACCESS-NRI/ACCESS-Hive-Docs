@@ -11,6 +11,14 @@ For example, a user could search for data products containing variables `X`, `Y`
 
 The ACCESS-NRI Intake Catalogue also enables users to directly load the desired data in Python, without having to know the location or structure of the underlying files.
 
+## Prerequisites
+- **Join the _xp65_ NCI project**<br>
+    The catalogue table files are in the `conda/analysis3` environment in _xp65_. Join the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project by requesting membership on its NCI project page.
+- **Join any projects that have data you're interested in.**
+
+The easiest way to use the catalogue is through _JupyterLab_ on the [Australian Research Environment(ARE)](/getting_started/are/#jupyterlab).
+
+
 ## Example: using the ACCESS-NRI Intake Catalogue to find, load and plot data with Python
 
 We can plot an ocean variable called `temp_global_ave` for an [ACCESS-ESM1.5](/models/access_models/access-esm) run called `HI_CN_05` as follows:
