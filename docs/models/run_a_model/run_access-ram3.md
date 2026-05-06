@@ -26,7 +26,7 @@
 
 ## About
 
-{{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
+{{ model }} is an ACCESS-NRI-supported configuration of the [UKMO](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
