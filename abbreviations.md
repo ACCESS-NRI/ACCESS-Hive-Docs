@@ -6,6 +6,7 @@
 *[CMIP5]: Coupled Model Intercomparison Project 5
 *[CMIP6]: Coupled Model Intercomparison Project 6
 *[CMIP7]: Coupled Model Intercomparison Project 7
+*[AMIP]: Atmospheric Model Intercomparison Project
 *[HPC]: High-Performance Computing
 *[NCI]: (Australian) National Computational Infrastructure
 *[ARE]: Australian Research Environment
