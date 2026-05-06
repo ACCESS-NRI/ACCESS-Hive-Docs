@@ -1,10 +1,33 @@
+# Evaluations recipes
+
+There is a range of resources supported by ACCESS-NRI and created by the community to evaluate model data and compare to observations. 
+Researchers can build on existing code to suit their interests and load data formatted for comparison to model experiments.
+
+### Pre-requisites
+
+For running these evaluation recipes on _Gadi_ it is expected you would be familar with [ARE](https://are.nci.org.au/) 
+and the _conda/analysis3_ Python environment. 
+For guidance on usage: 
+- refer to instructions on [Getting Started with ARE](/getting_started/are), in particular starting a _JuypyterLab_ session. 
+- refer to [conda/analysis3](/getting_started/environments), and in particular using within ARE JupyterLab instance.
+
 # ACCESS Evaluation Recipes
 
-ACCESS-NRI have assisted in writing a collection of jupyter notebooks utilising the ESMValTool framework and initially focused on the CLIVAR ENSO metrics package. You can find the repository:
+ACCESS-NRI have assisted in writing a collection of jupyter notebooks utilising the ESMValTool framework 
+and initially focused on the [CLIVAR ENSO metrics package](https://doi.org/10.1175/BAMS-D-19-0337.A). You can find a notebook for each metric in the
+[repository](https://github.com/ACCESS-NRI/ACCESS-ENSO-recipes), [doi](https://doi.org/10.5281/zenodo.15421653).
 
-Relationship to ESMValTool and community recipes
+This collection has been expanded to include IOD(Indian Ocean Dipole) recipes, some tutorials and exercises and a number of ocean recipes
+that have been ported into this [ESMValTool framework](/model_evaluation/evaluation_on_gadi/esmvaltool_workflow) which leverages 
+data finding and loading and the common preprocessors built into ESMValCore.
 
-Adaptable, running on Gadi and the repo can be cloned to be edited how it suits. these can be updated and added to from collaborative work with researchers.
+### Relationship to ESMValTool and notebook-based recipes
+
+These notebook-based workflows allow easier entry to get started analyzing climate data on _Gadi_ and developing the diagnostic. 
+They are adaptable by cloning the repository and editing to how it suits. These can be updated and added to from collaborative work with researchers.
+As the framework is based on using the ESMValCore package, this makes the conversion to an ESMValTool _.yml_ simplier, 
+which will allow for running the diagnostic on multiple models in bulk.
+
 
 # Community Evaluation Recipes
 
