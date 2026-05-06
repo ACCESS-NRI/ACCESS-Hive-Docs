@@ -3,7 +3,7 @@
 There is a range of resources supported by ACCESS-NRI and created by the community to evaluate model data and compare to observations. 
 Researchers can build on existing code to suit their interests and load data formatted for comparison to model experiments.
 
-### Pre-requisites
+**Pre-requisites**
 
 For running these evaluation recipes on _Gadi_ it is expected you would be familar with [ARE](https://are.nci.org.au/) 
 and the _conda/analysis3_ Python environment. 
@@ -12,7 +12,7 @@ For guidance on usage:
 - refer to instructions on [Getting Started with ARE](/getting_started/are), in particular starting a _JuypyterLab_ session. 
 - refer to [conda/analysis3](/getting_started/environments), and in particular using within ARE JupyterLab instance.
 
-# ACCESS Evaluation Recipes
+## ACCESS Evaluation Recipes
 
 ACCESS-NRI have assisted in writing a collection of jupyter notebooks utilising the ESMValTool framework 
 and initially focused on the [CLIVAR ENSO metrics package](https://doi.org/10.1175/BAMS-D-19-0337.A). 
@@ -39,15 +39,15 @@ As the framework is based on using the ESMValCore package, this makes the conver
 which will allow for running the diagnostic on multiple models in bulk.
 
 
-# Community Evaluation Recipes
+## Community Evaluation Recipes
 
-## ACCESS-OM3 applications
+### ACCESS-OM3 applications
 
 There is a community based group (ACCESS-OM3 model evaluation team) that are helping with OM3 evaluation and development. Contributions from people of all career stages and backgrounds are highly encouraged.
 
 All community members can get write access to the [OM3 evaluation repository](https://github.com/ACCESS-Community-Hub/access-om3-paper-1). To get write access, you need to create an issue and request access, please use [this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md). Evaluation figures are being coordinated in [issue #23](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23) of the repository. Instructions to get started are in the README of the repository.
 
-## ACCESS-CM3 applications
+### ACCESS-CM3 applications
 
 A collaborative project for evaluation of ACCESS-CM3 can be found in the [access-cm3-paper-1](https://github.com/acCESS-Community-Hub/access-cm3-paper-1/) repository. 
 
@@ -58,7 +58,7 @@ All community members can get write access to this repository. To get write acce
     in either the [COSIMA](https://forum.access-hive.org.au/c/cosima/working-group/42) or 
     [ESM](https://forum.access-hive.org.au/c/esm/esm-working-group/43) working groups.
 
-## COSIMA cookbook
+### COSIMA cookbook
 
 The [COSIMA cookbook](https://cosima-recipes.readthedocs.io/en/latest/) has tutorials and recipes to help the community get started on writing their own recipes.
 
