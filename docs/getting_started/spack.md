@@ -79,6 +79,8 @@ module purge
 
 To test that your Spack installation works as expected, we will create an `ACCESS-TEST` environment and build the relevant packages (this will take approximately 30 minutes). Then, we will uninstall all the packages and remove the environment.
 
+!!! tip
+    ACCESS-NRI suggests users use Spack with ["independent" Spack environments](https://spack.readthedocs.io/en/latest/environments.html#independent-environments). Independent environments mean that clones of model deployment respositories have their `Spack.yaml` build file associated with the location they are cloned in rather than being centrally managed in the case of [managed environments](https://spack.readthedocs.io/en/latest/environments.html#creating-a-managed-environment). 
 
 ### Clone a Spack environment
 
@@ -95,6 +97,9 @@ spack env activate -p ./ACCESS-TEST
     <terminal-line data="input">spack env activate -p ./ACCESS-TEST</terminal-line>
     <terminal-line data="input" directory="[ACCESS-TEST]" class="spack" lineDelay=0></terminal-line>
 </terminal-window>
+
+!!! tip
+    `spack env activate` above is creating an activating an [independent Spack environment](https://spack.readthedocs.io/en/latest/environments.html#independent-environments). In this instance, the `create` command is not required because the `spack.yaml` file is already present in the `ACCESS-TEST` folder. Should one wish to modify the specifics of the build for `ACCESS-TEST`, then you can directly edit `spack.yaml` and run the below compile package steps again.
 
 ### Compile packages
 
