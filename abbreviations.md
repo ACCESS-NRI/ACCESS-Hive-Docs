@@ -15,3 +15,4 @@
 *[MED]: Model Evaluation and Diagnostics
 *[ILAMB]: International Land Model Benchmarking
 *[PBS]: Portable Batch System
+*[VDI]: Virtual Desktop Interface
