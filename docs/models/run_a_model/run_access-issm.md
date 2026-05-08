@@ -142,7 +142,7 @@ If pyISSM was installed in your `$HOME` directory (as described above), you shou
 > The following `tutorial_dir` is set: ~/home/<CODE>/<USER>/pyISSM/tutorials
 > The following `asset_dir` is set: /home/<CODE>/<USER>/pyISSM/tutorials/assets
 > The following `execution_dir` is set: /home/<CODE>/<USER>/pyISSM/tutorials/models
-```
+
 
 where `<CODE>` is your NCI _Gadi_ group code and `<USER>` is your NCI username.
 
@@ -153,8 +153,10 @@ To begin building an ISSM model, we first initialise an empty model. For more in
 # Create an empty model
 md = pyissm.model.Model()
 
+# Inspect the empty model
 md
 ```
+
 Inspecting the empty ISSM model object (`md`) will provide an overview of all available model fields
 
 > ISSM Model Class                         
@@ -205,6 +207,8 @@ Inspecting the empty ISSM model object (`md`) will provide an overview of all av
 
 
 #### Create a model mesh
+The first step when building any ISSM model is to generate a model mesh. This contains the information onto which all model fields and parameters are stored. Here, we use an `*.exp` file to define the outline of our model domain and generate a triangular mesh with a resolution of 50 km.
+
 ```python
 # Build a model mesh using the domain outline (SquareShelf_DomainOutline.exp) with a resolution of 50 km.
 md = pyissm.model.mesh.triangle(md,
@@ -215,6 +219,56 @@ md = pyissm.model.mesh.triangle(md,
 # Inspect the created mesh
 md.mesh
 ```
+
+> 2D tria Mesh (horizontal):
+>       Elements and vertices:
+>          numberofelements       : 614             -- number of elements
+>          numberofvertices       : 340             -- number of vertices
+>          elements               : (614, 3)        -- vertex indices of the mesh elements
+>          x                      : (340,)          -- vertices x coordinate [m]
+>          y                      : (340,)          -- vertices y coordinate [m]
+>          edges                  : N/A             -- edges of the 2d mesh (vertex1 vertex2 element1 element2)
+>          numberofedges          : 0               -- number of edges of the 2d mesh
+>
+>       Properties:
+>          vertexonboundary       : (340,)          -- vertices on the boundary of the domain flag list
+>          segments               : (64, 3)         -- edges on domain boundary (vertex1 vertex2 element)
+>          segmentmarkers         : (64,)           -- number associated to each segment
+>          vertexconnectivity     : (340, 101)      -- list of elements connected to vertex_i
+>          elementconnectivity    : (614, 3)        -- list of elements adjacent to element_i
+>          average_vertex_conne...: 25              -- average number of vertices connected to one vertex
+>
+>       Extracted model:
+>          extractedvertices      : N/A             -- vertices extracted from the model
+>          extractedelements      : N/A             -- elements extracted from the model
+>
+>       Projection:
+>          lat                    : N/A             -- vertices latitude [degrees]
+>          long                   : N/A             -- vertices longitude [degrees]
+>          epsg                   : 0               -- EPSG code (ex: 3413 for UPS Greenland, 3031 for UPS Antarctica)
+>          scale_factor           : N/A             -- Projection correction for volume, area, etc. computation
+
+We can visualise the mesh as follows:
+
+```python
+# Plot the mesh with customised options
+fig, ax = pyissm.plot.plot_mesh2d(md,
+                                  color = 'blue',
+                                  linewidth = 0.5,
+                                  show_nodes = True,
+                                  node_kwargs = {'s': 20,
+                                                 'color': 'red',
+                                                 'alpha': 0.5})
+
+# We can interact with the plot using standard matplotlib functions
+ax.set_xlabel('X Coordinate (m)')
+ax.set_ylabel('Y Coordinate (m)')
+ax.set_title('Square Ice Shelf Mesh')
+```
+
+> ![Model mesh](../../assets/run_access-issm/model_mesh.png)
+
+#### Model mask
 
 ## Get help
 
