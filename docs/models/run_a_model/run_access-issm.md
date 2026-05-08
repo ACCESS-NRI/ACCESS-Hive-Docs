@@ -499,7 +499,7 @@ md.materials
 >```
 
 #### Boundary conditions
-In this example, we run a "Stress balance" solution to compute ice velocity in steady-state.
+In this example, we run a "Stress balance" solution to compute ice velocity in steady-state. The stress balance conditions are defined by combination of fields in md.stressbalance.spcvx, md.stressbalance.spcvy, md.stressbalance.spcvz.
 
 ```python
 # Set ice shelf boundary conditions.
@@ -560,6 +560,116 @@ ax.set_title('Square Ice Shelf Boundary Conditions')
 
 > ![Model boundary conditions](../../assets/run_access-issm/model_bcs.png)
 
+#### Set the flow equation
+This example uses the Shelfy-Stream Approximation (SSA) of the Full-Stokes equation across the whole domain. 
+
+```python
+# Use the SSA flow approximation across the whole domain
+md = pyissm.model.param.set_flow_equation(md, SSA = 'all')
+
+# Inspect the flowequation parameters
+md.flowequation
+```
+
+>```
+>   flow equation parameters:
+>         isSIA                  : 0               -- is the Shallow Ice Approximation (SIA) used?
+>         isSSA                  : 1               -- is the Shelfy-Stream Approximation (SSA) used?
+>         isL1L2                 : 0               -- are L1L2 equations used?
+>         isMOLHO                : 0               -- are MOno-layer Higher-Order (MOLHO) equations used?
+>         isHO                   : 0               -- is the Higher-Order (HO) approximation used?
+>         isFS                   : 0               -- are the Full-FS (FS) equations used?
+>         isNitscheBC            : 0               -- is weakly imposed condition used?
+>         FSNitscheGamma         : 1000000.0       -- Gamma value for the Nitsche term (default: 1e6)
+>         fe_SSA                 : 'P1'            -- Finite Element for SSA: 'P1', 'P1bubble' 'P1bubblecondensed' 'P2'
+>         fe_HO                  : 'P1'            -- Finite Element for HO:  'P1', 'P1bubble', 'P1bubblecondensed', 'P1xP2', 'P2xP1', 'P2', 'P2bubble', 'P1xP3', 'P2xP4'
+>         fe_FS                  : 'MINIcondensed' -- Finite Element for FS:  'P1P1' (debugging only) 'P1P1GLS' 'MINIcondensed' 'MINI' 'TaylorHood' 'LATaylorHood' 'XTaylorHood'
+>         vertex_equation        : (340,)          -- flow equation for each vertex
+>         element_equation       : (614,)          -- flow equation for each element
+>         borderSSA              : (340,)          -- vertices on SSA's border (for tiling)
+>         borderHO               : (340,)          -- vertices on HO's border (for tiling)
+>         borderFS               : (340,)          -- vertices on FS' border (for tiling)
+>```
+
+#### Execute the model
+To compute the velocity of the ice shelf, we use the "Stress Balance" solution. To run this example, we use the default `md.cluster` as this model is small enough to run on an NCI _Gadi_ login node, or directly on local machines.
+
+Here, the results are loaded back onto md.results once the model run has finished.
+
+```python
+md.cluster.executionpath = execution_dir
+md.miscellaneous.name = 'SquareIceShelf'
+md = pyissm.model.execute.solve(md, 'Stressbalance')
+```
+
+Once the model is executed, you'll see san output similar to this (the gadi login node name and the date/time stamp on the file name will vary):
+
+>```
+> Checking model consistency...
+> Marshalling for SquareIceShelf.bin
+> Transferring SquareIceShelf-05-08-2026-14-23-23-566667.tar.gz to cluster gadi-cpu-bdw-0007.gadi.nci.org.au...
+> Launching job SquareIceShelf on cluster gadi-cpu-bdw-0007.gadi.nci.org.au...
+> 
+> Ice-sheet and Sea-level System Model (ISSM) version  4.24
+> (GitHub: https://issmteam.github.io/ISSM-Documentation/ Documentation: https://github.com/ISSMteam/ISSM/)
+> 
+> call computational core:
+>    computing new velocity
+> write lock file:
+> 
+>    FemModel initialization elapsed time:   0.0283942
+>    Total Core solution elapsed time:       0.57823
+>    Linear solver elapsed time:             0.189537 (33%)
+> 
+>    Total elapsed time: 0 hrs 0 min 0 sec
+> Waiting for job to complete...
+> Job completed -- loading results from cluster...
+> Retrieving results from cluster gadi-cpu-bdw-0007.gadi.nci.org.au...
+> ```
+
+#### Visualise the model results
+Once the model run has finished, we can query the output as follows:
+
+```python
+# View a summary of the model solution
+pyissm.tools.general.summarize_solution(md.results.StressbalanceSolution)
+```
+
+>```
+> Field                               Type                 Shape / Length
+> ---------------------------------------------------------------------------
+> StressbalanceConvergenceNumSteps    ndarray              (1,)
+> step                                int32                scalar
+> time                                float64              scalar
+> Vx                                  ndarray              (340,)
+> Vy                                  ndarray              (340,)
+> Vel                                 ndarray              (340,)
+> Pressure                            ndarray              (340,)
+> SolutionType                        str                  scalar
+> errlog                              list                 len=0
+> outlog                              str                  scalar
+>```
+
+We can visualise the resultant velocity field as follows:
+
+```python
+# Visualise the resultant velocity field
+fig, ax = pyissm.plot.plot_model_field(md,
+                                       field = md.results.StressbalanceSolution.Vel,
+                                       show_cbar = True,
+                                       cbar_kwargs={'label': 'Ice Velocity (m/a)'},
+                                       show_mesh = True)
+ax.set_title('Square Ice Shelf Velocity Field')
+```
+> ![Model results](../../assets/run_access-issm/model_results.png)
+
+#### Save model
+That's it! You've now run your first ISSM model using pyISSM. You can now save the model as a NetCDF file as follows:
+
+```python
+# Save model
+pyissm.model.io.save_model(md, tutorial_dir + '/ex1_SquareIceShelf.nc')
+```
 
 ## Get help
 
