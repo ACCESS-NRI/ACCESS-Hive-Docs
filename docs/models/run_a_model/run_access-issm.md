@@ -11,7 +11,7 @@
 
 ## About
 
-ACCESS-ISSM is the Ice-sheet and Sea-level System Model (ISSM) maintained by ACCESS-NRI. Hosted on the [NCI _Gadi_ supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview), ACCESS-ISSM makes centrally-managed ISSM executables available to the Australian ice sheet modelling community. ACCESS-ISSM is being used to integrate ISSM into the ACCESS climate modelling framework, with development of [ACCESS-AIS3](https://github.com/ACCESS-NRI/ACCESS-AIS3), a whole-Antarctic ISSM configuration ongoing.
+ACCESS-ISSM is the Ice-sheet and Sea-level System Model (ISSM) maintained by ACCESS-NRI. Hosted on the [NCI _Gadi_ supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview), ACCESS-ISSM makes centrally-managed ISSM executables available to the Australian ice sheet modelling community. ACCESS-ISSM is being used to integrate ISSM into the ACCESS climate modelling framework, with development of [ACCESS-AIS3](https://github.com/ACCESS-NRI/ACCESS-AIS3), a whole-Antarctic ISSM configuration.
 
 While ACCESS-ISSM provides centrally-managed model executables, [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is used to develop model configurations and for model execution on [NCI _Gadi_](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview). [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is the Python API for ISSM, developed and managed by ACCESS-NRI. [pyISSM](https://github.com/ACCESS-NRI/pyISSM) contains various [Tutorials](https://pyissm.readthedocs.io/latest/tutorials.html) for using pyISSM.
 
@@ -61,19 +61,18 @@ All pyISSM tutorials are presented as Jupyter Notebooks and can be executed easi
 
 - Step 3:
     - Click on the _Launch_ button to launch the session. You will be prompted to your Interactive Sessions page and you will see your last requested session at the top.
-    - Wait until your session starts and then click on the _Open JupyterLab_ button to open a new tab with the JupyterLab interface. Inside the JupyterLab interface, you can open a new notebook by clicking on the Python3 Notebook button in the Launcher panel (to open a new Laucher panel, click on the plus button next to your current tab).
-
+    - Wait until your session starts and then click on the _Open JupyterLab_ button to open a new tab with the JupyterLab interface. Inside the JupyterLab interface, you can open a new Terminal instance in the Launcher panel by scrolling down and selecting "Terminal". Click on the plus button next to your current tab in the JupyterLab interface to open a new Launcher panel.
 
 ### Setup environment requirements
 
-Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be set to use an appropriate executable. This is handled automatically when loading the {{ model }} module on _Gadi_. To set these variables in preparation for running an ISSM model, run:
+Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be set to use an appropriate executable. This is handled automatically when loading the {{ model }} module on _Gadi_. To set these variables in preparation for running an ISSM model, run the following code block in your Terminal tab:
 
 ```bash
 module use /g/data/vk83/modules
 module load access-issm/2025.11.0
 ```
 
-In addition, to prevent the need for all users to maintain individual Python environments, we can leverage the `conda/analysis3` environment maintained by ACCESS-NRI. To load the Python environment, run:
+In addition, to prevent the need for all users to maintain individual Python environments, we can leverage the `conda/analysis3` environment maintained by ACCESS-NRI. To load the Python environment, run the following code block in your Terminal tab:
 
 ```bash
 module use /g/data/xp65/public/modules
@@ -499,7 +498,7 @@ md.materials
 > ```
 
 #### Boundary conditions
-In this example, we run a "Stress balance" solution to compute ice velocity in steady-state. The stress balance conditions are defined by combination of fields in md.stressbalance.spcvx, md.stressbalance.spcvy, md.stressbalance.spcvz.
+In this example, we run a "Stress balance" solution to compute ice velocity in steady-state. The stress balance conditions are defined by combination of fields in `md.stressbalance.spcvx`, `md.stressbalance.spcvy`, `md.stressbalance.spcvz`.
 
 ```python
 # Set ice shelf boundary conditions.
@@ -594,7 +593,7 @@ md.flowequation
 #### Execute the model
 To compute the velocity of the ice shelf, we use the "Stress Balance" solution. To run this example, we use the default `md.cluster` as this model is small enough to run on an NCI _Gadi_ login node, or directly on local machines.
 
-Here, the results are loaded back onto md.results once the model run has finished.
+Here, the results are loaded back onto `md.results` once the model run has finished.
 
 ```python
 md.cluster.executionpath = execution_dir
