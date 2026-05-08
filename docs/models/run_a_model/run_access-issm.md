@@ -85,7 +85,7 @@ Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed
 !!! warning
     These instructions install pyISSM into your `$HOME` directory on NCI _Gadi_. You may adjust the installation location if you prefer.
 
-To install pyISSM, simply run the following in a new terminal (accessed from the JupyterLab Launcher panel):
+To install pyISSM, simply run the following in a new Terminal (accessed from the JupyterLab Launcher panel):
 ```bash
 cd ~
 git clone https://github.com/ACCESS-NRI/pyISSM.git
@@ -99,7 +99,7 @@ The installation may take a few minutes. Once the installation completes success
 You're now ready to get started with pyISSM and execute your first ISSM model using ACCESS-ISSM! 
 
 !!! info
-    We recommend working through this tutorial directly in the `~/pyISSM/tutorials/ex1_SquuareIceShelf.ipynb` file, where more detailed explainations of the different modelling steps are provided. Use file explorer of your ARE JupyterLab Session to navigate to and open the file.
+    We recommend working through this tutorial directly in the `~/pyISSM/tutorials/ex1_SquuareIceShelf.ipynb` file, where more detailed explainations of the different modelling steps are provided. Use the file explorer of your ARE JupyterLab Session to navigate to and open the file.
 
 Below, we provide only the code blocks taken directly from the tutorial notebook for brevity.
 
