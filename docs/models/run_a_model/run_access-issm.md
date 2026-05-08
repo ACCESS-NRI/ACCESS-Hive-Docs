@@ -143,7 +143,6 @@ If pyISSM was installed in your `$HOME` directory (as described above), you shou
 > The following `asset_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/assets`
 > The following `execution_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/models`
 
-
 where `<CODE>` is your NCI _Gadi_ group code and `<USER>` is your NCI username.
 
 #### Initialise an empty model
@@ -159,6 +158,7 @@ md
 
 Inspecting the empty ISSM model object (`md`) will provide an overview of all available model fields
 
+> ```text
 > ISSM Model Class                         
 >                                             
 >               mesh:  mesh properties         
@@ -204,6 +204,7 @@ Inspecting the empty ISSM model object (`md`) will provide an overview of all av
 >       radaroverlay:  radar image for plot overlay 
 >      miscellaneous:  miscellaneous fields    
 >  stochasticforcing:  stochasticity applied to model forcings 
+> ```
 
 
 #### Create a model mesh
@@ -220,6 +221,7 @@ md = pyissm.model.mesh.triangle(md,
 md.mesh
 ```
 
+> ```text
 > 2D tria Mesh (horizontal):
 >       Elements and vertices:
 >          numberofelements       : 614             -- number of elements
@@ -247,6 +249,7 @@ md.mesh
 >          long                   : N/A             -- vertices longitude [degrees]
 >          epsg                   : 0               -- EPSG code (ex: 3413 for UPS Greenland, 3031 for UPS Antarctica)
 >          scale_factor           : N/A             -- Projection correction for volume, area, etc. computation
+> ```
 
 We can visualise the mesh as follows:
 
