@@ -109,7 +109,7 @@ Below, we provide only the code blocks taken directly from the tutorial notebook
     ```python
     Code here
     ```
-    > ```text
+    > ```
     > Output here
     >```
 
@@ -146,7 +146,7 @@ print(f"The following `execution_dir` is set: {execution_dir}")
 
 If pyISSM was installed in your `$HOME` directory (as described above), you should see an output like this:
 
->```text
+>```
 > The following `tutorial_dir` is set: `~/home/<CODE>/<USER>/pyISSM/tutorials`
 > The following `asset_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/assets`
 > The following `execution_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/models`
@@ -167,7 +167,7 @@ md
 
 Inspecting the empty ISSM model object (`md`) will provide an overview of all available model fields
 
-> ```text
+> ```
 > ISSM Model Class                         
 >                                             
 >               mesh:  mesh properties         
@@ -230,7 +230,7 @@ md = pyissm.model.mesh.triangle(md,
 md.mesh
 ```
 
-> ```text
+> ```
 > 2D tria Mesh (horizontal):
 >       Elements and vertices:
 >          numberofelements       : 614             -- number of elements
@@ -293,7 +293,7 @@ md = pyissm.model.param.set_mask(md,
 md.mask
 ```
 
->```text
+>```
 > mask parameters:
 >         ice_levelset           : (340,)          -- presence of ice if < 0, icefront position if = 0, no ice if > 0
 >         ocean_levelset         : (340,)          -- presence of ocean if < 0, coastline/grounding line if = 0, no ocean if > 0
@@ -334,6 +334,232 @@ plt.tight_layout()
 ```
 
 > ![Model mask](../../assets/run_access-issm/model_mask.png)
+
+#### Parameterisation
+Before we can execute a model, we must "parameterise" the model to define necessary components. This includes specifying model components such as ice geometry, initial conditions, friction representation, etc.
+
+!!! note "pyissm.model.param.parameterize()"
+
+    In this example, we explicitly include the code used to parameterise the model. However, you might choose to move this parameterisation code to a secondary `*.py` file and use `pyissm.model.param.parameterize()` instead.
+
+    This functions **exactly** the same as running the code directly, but helps to keep your main model execution scripts clean.
+
+##### Define Geometry
+
+```python
+# Define constants
+hmin = 300
+hmax = 1000
+ymin = np.nanmin(md.mesh.y)
+ymax = np.nanmax(md.mesh.y)
+
+# Assign geometry to the model
+md.geometry.thickness = hmax + (hmin - hmax) * (md.mesh.y - ymin) / (ymax - ymin)
+md.geometry.base = - md.materials.rho_ice / md.materials.rho_water * md.geometry.thickness
+md.geometry.surface = md.geometry.base + md.geometry.thickness
+
+# Inspect the geometry
+md.geometry
+```
+
+>```
+>   geometry parameters:
+>         surface                : (340,)          -- ice upper surface elevation [m]
+>         thickness              : (340,)          -- ice thickness [m]
+>         base                   : (340,)          -- ice base elevation [m]
+>         bed                    : N/A             -- bed elevation [m]
+>         hydrostatic_ratio      : N/A             -- hydrostatic ratio for floating ice
+>```
+
+We can visualise the geometry fields as follows:
+
+```python
+# Visualise the model geometry
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(12, 4))
+
+## Ice thickness
+pyissm.plot.plot_model_field(md,
+                             md.geometry.thickness,
+                             show_cbar = True,
+                             show_mesh = True,
+                             ax = ax1,
+                             cbar_kwargs = {'label': 'Ice thickness (m)'})
+ax1.set_title('md.geometry.thickness')
+
+## Ice base
+pyissm.plot.plot_model_field(md,
+                             md.geometry.base,
+                             show_cbar = True,
+                             show_mesh = True,
+                             ax = ax2,
+                             cbar_kwargs = {'label': 'Ice base elevation (m)'})
+ax2.set_title('md.geometry.base')
+
+## Ice surface
+pyissm.plot.plot_model_field(md,
+                             md.geometry.surface,
+                             show_cbar = True,
+                             show_mesh = True,
+                             ax = ax3,
+                             cbar_kwargs = {'label': 'Ice surface elevation (m)'})
+ax3.set_title('md.geometry.surface')
+
+plt.tight_layout()
+```
+
+> ![Model geometry](../../assets/run_access-issm/model_geometry.png)
+
+
+##### Define Friction
+
+```python
+# Define friction parameters
+md.friction.coefficient = np.zeros(md.mesh.numberofvertices, )
+md.friction.p = np.zeros(md.mesh.numberofelements, )
+md.friction.q = np.zeros(md.mesh.numberofelements, )
+
+# Inspect friction parameters
+md.friction
+```
+
+>```
+> Basal shear stress parameters: Sigma_b = coefficient^2 * Neff ^r * |u_b|^(s - 1) * u_b,
+> (effective stress Neff = rho_ice * g * thickness + rho_water * g * base, r = q / p and s = 1 / p)
+>          coefficient            : (340,)          -- friction coefficient [SI]
+>          p                      : (614,)          -- p exponent
+>          q                      : (614,)          -- q exponent
+>          coupling               : 0               -- Coupling flag 0: uniform sheet (negative pressure ok, default), 1: ice pressure only, 2: water pressure assuming uniform sheet (no negative pressure), 3: use provided effective_pressure, 4: used coupled model (not implemented yet)
+>          linearize              : 0               -- 0: not linearized, 1: interpolated linearly, 2: constant per element (default is 0)
+>          effective_pressure     : N/A             -- Effective Pressure for the forcing if not coupled [Pa]
+>          effective_pressure_l...: 0               -- Neff do not allow to fall below a certain limit: effective_pressure_limit * rho_ice * g * thickness (default 0)
+>```
+
+##### Define initial ice velocity
+
+```python
+# Define initial velocities
+md.initialization.vx = np.zeros(md.mesh.numberofvertices, )
+md.initialization.vy = np.zeros(md.mesh.numberofvertices, )
+md.initialization.vz = np.zeros(md.mesh.numberofvertices, )
+md.initialization.vel = np.zeros(md.mesh.numberofvertices, )
+
+# Inspect initialization fields
+md.initialization
+```
+
+>```
+>   initial field values:
+>         vx                     : (340,)          -- x component of velocity [m/yr]
+>         vy                     : (340,)          -- y component of velocity [m/yr]
+>         vz                     : (340,)          -- z component of velocity [m/yr]
+>         vel                    : (340,)          -- velocity norm [m/yr]
+>         pressure               : N/A             -- pressure [Pa]
+>         temperature            : N/A             -- temperature [K]
+>         enthalpy               : N/A             -- enthalpy [J]
+>         waterfraction          : N/A             -- fraction of water in the ice
+>         watercolumn            : N/A             -- thickness of subglacial water [m]
+>         sediment_head          : N/A             -- sediment water head of subglacial system [m]
+>         epl_head               : N/A             -- epl water head of subglacial system [m]
+>         epl_thickness          : N/A             -- thickness of the epl [m]
+>         hydraulic_potential    : N/A             -- Hydraulic potential (for GlaDS) [Pa]
+>         channelarea            : N/A             -- subglaciale water channel area (for GlaDS) [m2]
+>         sample                 : N/A             -- Realization of a Gaussian random field
+>         debris                 : N/A             -- Surface debris layer [m]
+>         age                    : N/A             -- Initial age [yr]
+>```
+
+##### Define flow law parameters
+
+```python
+# Define materials parameters
+md.materials.rheology_B = pyissm.tools.materials.paterson(273.15 - 20) * np.ones(md.mesh.numberofvertices, )
+md.materials.rheology_n = 3 * np.ones(md.mesh.numberofelements, )
+
+# Inspect the materials parameters
+md.materials
+```
+
+>```
+>   Materials (ice):
+>         rho_ice                : 917.0           -- ice density [kg/m^3]
+>         rho_water              : 1023.0          -- ocean water density [kg/m^3]
+>         rho_freshwater         : 1000.0          -- fresh water density [kg/m^3]
+>         mu_water               : 0.001787        -- water viscosity [N s/m^2]
+>         heatcapacity           : 2093.0          -- heat capacity [J/kg/K]
+>         thermalconductivity    : 2.4             -- ice thermal conductivity [W/m/K]
+>         temperateiceconducti...: 0.24            -- temperate ice thermal conductivity [W/m/K]
+>         meltingpoint           : 273.15          -- melting point of ice at 1atm in K
+>         latentheat             : 334000.0        -- latent heat of fusion [J/m^3]
+>         beta                   : 9.8e-08         -- rate of change of melting point with pressure [K/Pa]
+>         mixed_layer_capacity   : 3974.0          -- mixed layer capacity [W/kg/K]
+>         thermal_exchange_vel...: 0.0001          -- thermal exchange velocity [m/s]
+>         rheology_B             : (340,)          -- flow law parameter [Pa s^(1/n)]
+>         rheology_n             : (614,)          -- Glen's flow law exponent
+>         rheology_law           : 'Paterson'      -- law for the temperature dependance of the rheology: 'None', 'BuddJacka', 'Cuffey', 'CuffeyTemperate', 'Paterson', 'Arrhenius', 'LliboutryDuval', 'NyeCO2', or 'NyeH2O'
+>```
+
+#### Boundary conditions
+In this example, we run a "Stress balance" solution to compute ice velocity in steady-state.
+
+```python
+# Set ice shelf boundary conditions.
+md = pyissm.model.bc.set_ice_shelf_bc(md, asset_dir + '/Exp/SquareIceShelf_IceFront.exp')
+
+# Inspect boundary conditions
+# Stress balance boundary conditions are defined by combination of fields in md.stressbalance.spcvx, md.stressbalance.spcvy, md.stressbalance.spcvz.
+md.stressbalance
+```
+
+>```
+>   StressBalance solution parameters:
+>      Convergence criteria:
+>         restol                 : 0.0001          -- mechanical equilibrium residual convergence criterion
+>         reltol                 : 0.01            -- velocity relative convergence criterion, NaN: not applied
+>         abstol                 : 10              -- velocity absolute convergence criterion, NaN: not applied
+>         isnewton               : 0               -- 0: Picard's fixed point, 1: Newton's method, 2: hybrid
+>         maxiter                : 100             -- maximum number of nonlinear iterations
+>
+>      boundary conditions:
+>         spcvx                  : (340,)          -- x-axis velocity constraint (NaN means no constraint) [m / yr]
+>         spcvy                  : (340,)          -- y-axis velocity constraint (NaN means no constraint) [m / yr]
+>         spcvz                  : (340,)          -- z-axis velocity constraint (NaN means no constraint) [m / yr]
+>
+>      MOLHO boundary conditions:
+>         spcvx_base             : N/A             -- x-axis basal velocity constraint (NaN means no constraint) [m / yr]
+>         spcvy_base             : N/A             -- y-axis basal velocity constraint (NaN means no constraint) [m / yr]
+>         spcvx_shear            : N/A             -- x-axis shear velocity constraint (NaN means no constraint) [m / yr]
+>         spcvy_shear            : N/A             -- y-axis shear velocity constraint (NaN means no constraint) [m / yr]
+>
+>      Rift options:
+>         rift_penalty_threshold : 0               -- threshold for instability of mechanical constraints
+>         rift_penalty_lock      : 10              -- number of iterations before rift penalties are locked
+>
+>      Penalty options:
+>         penalty_factor         : 3               -- offset used by penalties: penalty = Kmax * 10^offset
+>         vertex_pairing         : N/A             -- pairs of vertices that are penalized
+>
+>      Hydrology layer:
+>         ishydrologylayer       : 0               -- (SSA only) 0: no subglacial hydrology layer in driving stress, 1: hydrology layer in driving stress
+>
+>      Other:
+>         shelf_dampening        : 0               -- use dampening for floating ice ? Only for FS model
+>         FSreconditioning       : 10000000000000  -- multiplier for incompressibility equation. Only for FS model
+>         referential            : (340, 6)        -- local referential
+>         loadingforce           : (340, 3)        -- loading force applied on each point [N/m^3]
+>         requested_outputs      : ['default',]    -- additional outputs requested
+>```
+
+We can visualise the boundary conditions as follows:
+
+```python
+# Visualise boundary conditions
+fig, ax = pyissm.plot.plot_model_bc(md)
+
+ax.set_title('Square Ice Shelf Boundary Conditions')
+```
+
+> ![Model boundary conditions](../../assets/run_access-issm/model_bcs.png)
+
 
 ## Get help
 
