@@ -139,9 +139,9 @@ print(f"The following `execution_dir` is set: {execution_dir}")
 
 If pyISSM was installed in your `$HOME` directory (as described above), you should see an output like this:
 
-> The following `tutorial_dir` is set: ~/home/<CODE>/<USER>/pyISSM/tutorials
-> The following `asset_dir` is set: /home/<CODE>/<USER>/pyISSM/tutorials/assets
-> The following `execution_dir` is set: /home/<CODE>/<USER>/pyISSM/tutorials/models
+> The following `tutorial_dir` is set: `~/home/<CODE>/<USER>/pyISSM/tutorials`
+> The following `asset_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/assets`
+> The following `execution_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/models`
 
 
 where `<CODE>` is your NCI _Gadi_ group code and `<USER>` is your NCI username.
