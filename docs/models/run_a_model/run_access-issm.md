@@ -111,7 +111,7 @@ Below, we provide only the code blocks taken directly from the tutorial notebook
     ```
     > ```
     > Output here
-    >```
+    > ```
 
 
 #### Import required Python modules
@@ -146,7 +146,7 @@ print(f"The following `execution_dir` is set: {execution_dir}")
 
 If pyISSM was installed in your `$HOME` directory (as described above), you should see an output like this:
 
->```
+> ```
 > The following `tutorial_dir` is set: `~/home/<CODE>/<USER>/pyISSM/tutorials`
 > The following `asset_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/assets`
 > The following `execution_dir` is set: `/home/<CODE>/<USER>/pyISSM/tutorials/models`
@@ -293,11 +293,11 @@ md = pyissm.model.param.set_mask(md,
 md.mask
 ```
 
->```
+> ```
 > mask parameters:
 >         ice_levelset           : (340,)          -- presence of ice if < 0, icefront position if = 0, no ice if > 0
 >         ocean_levelset         : (340,)          -- presence of ocean if < 0, coastline/grounding line if = 0, no ocean if > 0
->```
+> ```
 
 We can visualise the mask as follows:
 
@@ -362,14 +362,14 @@ md.geometry.surface = md.geometry.base + md.geometry.thickness
 md.geometry
 ```
 
->```
+> ```
 >   geometry parameters:
 >         surface                : (340,)          -- ice upper surface elevation [m]
 >         thickness              : (340,)          -- ice thickness [m]
 >         base                   : (340,)          -- ice base elevation [m]
 >         bed                    : N/A             -- bed elevation [m]
 >         hydrostatic_ratio      : N/A             -- hydrostatic ratio for floating ice
->```
+> ```
 
 We can visualise the geometry fields as follows:
 
@@ -422,7 +422,7 @@ md.friction.q = np.zeros(md.mesh.numberofelements, )
 md.friction
 ```
 
->```
+> ```
 > Basal shear stress parameters: Sigma_b = coefficient^2 * Neff ^r * |u_b|^(s - 1) * u_b,
 > (effective stress Neff = rho_ice * g * thickness + rho_water * g * base, r = q / p and s = 1 / p)
 >          coefficient            : (340,)          -- friction coefficient [SI]
@@ -432,7 +432,7 @@ md.friction
 >          linearize              : 0               -- 0: not linearized, 1: interpolated linearly, 2: constant per element (default is 0)
 >          effective_pressure     : N/A             -- Effective Pressure for the forcing if not coupled [Pa]
 >          effective_pressure_l...: 0               -- Neff do not allow to fall below a certain limit: effective_pressure_limit * rho_ice * g * thickness (default 0)
->```
+> ```
 
 ##### Define initial ice velocity
 
@@ -447,7 +447,7 @@ md.initialization.vel = np.zeros(md.mesh.numberofvertices, )
 md.initialization
 ```
 
->```
+> ```
 >   initial field values:
 >         vx                     : (340,)          -- x component of velocity [m/yr]
 >         vy                     : (340,)          -- y component of velocity [m/yr]
@@ -466,7 +466,7 @@ md.initialization
 >         sample                 : N/A             -- Realization of a Gaussian random field
 >         debris                 : N/A             -- Surface debris layer [m]
 >         age                    : N/A             -- Initial age [yr]
->```
+> ```
 
 ##### Define flow law parameters
 
@@ -479,7 +479,7 @@ md.materials.rheology_n = 3 * np.ones(md.mesh.numberofelements, )
 md.materials
 ```
 
->```
+> ```
 >   Materials (ice):
 >         rho_ice                : 917.0           -- ice density [kg/m^3]
 >         rho_water              : 1023.0          -- ocean water density [kg/m^3]
@@ -496,7 +496,7 @@ md.materials
 >         rheology_B             : (340,)          -- flow law parameter [Pa s^(1/n)]
 >         rheology_n             : (614,)          -- Glen's flow law exponent
 >         rheology_law           : 'Paterson'      -- law for the temperature dependance of the rheology: 'None', 'BuddJacka', 'Cuffey', 'CuffeyTemperate', 'Paterson', 'Arrhenius', 'LliboutryDuval', 'NyeCO2', or 'NyeH2O'
->```
+> ```
 
 #### Boundary conditions
 In this example, we run a "Stress balance" solution to compute ice velocity in steady-state. The stress balance conditions are defined by combination of fields in md.stressbalance.spcvx, md.stressbalance.spcvy, md.stressbalance.spcvz.
@@ -510,7 +510,7 @@ md = pyissm.model.bc.set_ice_shelf_bc(md, asset_dir + '/Exp/SquareIceShelf_IceFr
 md.stressbalance
 ```
 
->```
+> ```
 >   StressBalance solution parameters:
 >      Convergence criteria:
 >         restol                 : 0.0001          -- mechanical equilibrium residual convergence criterion
@@ -547,7 +547,7 @@ md.stressbalance
 >         referential            : (340, 6)        -- local referential
 >         loadingforce           : (340, 3)        -- loading force applied on each point [N/m^3]
 >         requested_outputs      : ['default',]    -- additional outputs requested
->```
+> ```
 
 We can visualise the boundary conditions as follows:
 
@@ -571,7 +571,7 @@ md = pyissm.model.param.set_flow_equation(md, SSA = 'all')
 md.flowequation
 ```
 
->```
+> ```
 >   flow equation parameters:
 >         isSIA                  : 0               -- is the Shallow Ice Approximation (SIA) used?
 >         isSSA                  : 1               -- is the Shelfy-Stream Approximation (SSA) used?
@@ -589,7 +589,7 @@ md.flowequation
 >         borderSSA              : (340,)          -- vertices on SSA's border (for tiling)
 >         borderHO               : (340,)          -- vertices on HO's border (for tiling)
 >         borderFS               : (340,)          -- vertices on FS' border (for tiling)
->```
+> ```
 
 #### Execute the model
 To compute the velocity of the ice shelf, we use the "Stress Balance" solution. To run this example, we use the default `md.cluster` as this model is small enough to run on an NCI _Gadi_ login node, or directly on local machines.
@@ -604,7 +604,7 @@ md = pyissm.model.execute.solve(md, 'Stressbalance')
 
 Once the model is executed, you'll see san output similar to this (the gadi login node name and the date/time stamp on the file name will vary):
 
->```
+> ```
 > Checking model consistency...
 > Marshalling for SquareIceShelf.bin
 > Transferring SquareIceShelf-05-08-2026-14-23-23-566667.tar.gz to cluster gadi-cpu-bdw-0007.gadi.nci.org.au...
@@ -635,7 +635,7 @@ Once the model run has finished, we can query the output as follows:
 pyissm.tools.general.summarize_solution(md.results.StressbalanceSolution)
 ```
 
->```
+> ```
 > Field                               Type                 Shape / Length
 > ---------------------------------------------------------------------------
 > StressbalanceConvergenceNumSteps    ndarray              (1,)
@@ -648,7 +648,7 @@ pyissm.tools.general.summarize_solution(md.results.StressbalanceSolution)
 > SolutionType                        str                  scalar
 > errlog                              list                 len=0
 > outlog                              str                  scalar
->```
+> ```
 
 We can visualise the resultant velocity field as follows:
 
