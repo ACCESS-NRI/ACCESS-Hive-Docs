@@ -82,7 +82,7 @@ To open the terminal, click on the black terminal icon at the top of the window.
 
 ## Set up {{ model }} persistent session
 
---8<-- "includes/persistent_session.md"
+{% include "persistent_session.md" %}
 
 ## Rose/Cylc/MOSRS setup
 
