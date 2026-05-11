@@ -98,7 +98,7 @@ Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ pag
 
 
 ### {{ model }} configuration
-{{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras) and a [Regional Nesting Suite (RNS)](#rns).
+{{ model }} comprises two different suites: a [Regional Ancillary Suite (RAS)](#ras) and a [Regional Nesting Suite (RNS)](#rns).
 
 Each suite within {{ model }} has a `suite-ID` in the format `u-<suite-name>`, where `<suite-name>` is a unique identifier.<br>
 Typically, an existing suite is copied and then edited as needed for a particular experiment.
