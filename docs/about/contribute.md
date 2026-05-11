@@ -5,7 +5,7 @@
 
 We welcome contributions from the entire ACCESS Community. Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone.
 
-<b>You don't need to edit the documentation yourself to contribute.</b>
+**You don't need to edit the documentation yourself to contribute.**
 
 Simply reporting an issue or suggesting an improvement is already a valuable and appreciated contribution.
 
@@ -13,8 +13,8 @@ Simply reporting an issue or suggesting an improvement is already a valuable and
 
 There are two main ways to contribute:
 
-1. <b>Suggest a change or report a problem</b> by [opening an issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
-2. <b>Edit a page directly</b> using the edit (pencil) icon on the top right.
+1. **Suggest a change or report a problem** by [opening an issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
+2. **Edit a page directly** using the edit (pencil) icon on the top right.
 
 Both are equally welcome - feel free to choose whichever works best for you.
 
@@ -25,9 +25,48 @@ If you notice something that could be improved, you can [open an issue](https://
 This is a great option if you:
 
 - Spot a typo, error, or broken link.
-- Find
+- Find something confusing or unclear.
+- Have an idea for improvement.
+- Don't want to edit the page yourself.
+
+Once submitted, the ACCESS-NRI team (or other contributors) would be happy to take it from there.
 
 ### 2. Edit a page
+If you’d like to make the change yourself, you can edit pages directly using the edit (pencil) icon. 
+
+When you click the edit (pencil) icon, GitHub will take you to the source file for that page. 
+ 
+#### If you are outside ACCESS-NRI GitHub Organisation:
+ 
+1. You will be prompted to **fork the repository**   
+2. Click **Fork this repository**   
+3. GitHub will create your copy and open the file in edit mode   
+
+Then: 
+ 
+4. Make your changes in the editor   
+5. Scroll down to the **Commit changes** section   
+6. Add a short description of what you changed   
+7. Click **Propose changes**   
+8. Click **Create pull request**   
+9. Add any additional context and submit   
+
+#### If you are in ACCESS-NRI:
+ 
+1. You will be prompted to create a **new branch**   
+2. Enter a branch name (or use the default)   
+3. Make your changes   
+4. Click **Propose changes**   
+5. Open a pull request and add a short description   
+
+
+
+
+## Best Practices TODO
+1. Include best practices for creating issues, PRs, and branch names.
+2. Include that we have two branches - main and development where development is the staging branch. And the development branch is merged into main daily at ... time.
+3. For PRs, adding extra context is optional but strongly encouraged. Clearly explaining the changes would make it easier for reviewers to understand them, and help reduce back-n-forth in the followups.
+
 
 <!-- ----------------------------------------------------------- -->
 
