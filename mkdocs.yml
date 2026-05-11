@@ -69,7 +69,8 @@ plugins:
       redirect_maps:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
   - resolve-absolute-urls
-  - macros
+  - macros:
+      include_dir: docs/includes
 
 # Extensions
 markdown_extensions:
