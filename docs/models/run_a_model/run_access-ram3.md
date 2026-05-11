@@ -30,7 +30,7 @@
 
 {{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
-{{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) that generate ancillary files (i.e., input files) and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
+{{ model }} comprises two suites: the [Regional Ancillary Suite (RAS)](#ras) that generates ancillary files (i.e., input files) and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast. There is an optional third suite to generate ancillary files using OSTIA initial and boundary conditions - see instructions on how to run the OSTIA suite in the [access-ram3-configs]({{config_docs}}).
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details, see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 
