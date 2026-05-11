@@ -6,7 +6,7 @@ There are catalogues and tools supported on _Gadi_ for the ACCESS community with
 
 If you are new to using the Gadi supercomputer, visit the [Set Up your NCI Account](/getting_started/set_up_nci_account) section 
 for instructions on how to get an account, log in, and get set up to access climate data on Gadi. 
-ACCESS-NRI supports and maintains the [conda/analysis3 _Python_ environment](/getting_started/environments) 
+ACCESS-NRI supports and maintains the [conda/analysis3 _Python_ environment](/getting_started/environments){: data-preview } 
 which supports most of the evaluation and data tools described.
 
 ## Connecting Data, Evaluation and Diagnostics with Frameworks and Recipes
