@@ -1,6 +1,38 @@
 {% set hive_docs_repo_name = "ACCESS-Hive-Docs" %}
 {% set hive_docs_repo = "https://github.com/ACCESS-NRI/" ~ "ACCESS-Hive-Docs" %}
 
+# Contribute to ACCESS-Hive Docs
+
+We welcome contributions from the entire ACCESS Community. Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone.
+
+<b>You don't need to edit the documentation yourself to contribute.</b>
+
+Simply reporting an issue or suggesting an improvement is already a valuable and appreciated contribution.
+
+## How to contribute
+
+There are two main ways to contribute:
+
+1. <b>Suggest a change or report a problem</b> by [opening an issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
+2. <b>Edit a page directly</b> using the edit (pencil) icon on the top right.
+
+Both are equally welcome - feel free to choose whichever works best for you.
+
+### 1. Suggest a change or report a problem
+
+If you notice something that could be improved, you can [open an issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose) to let us know.
+
+This is a great option if you:
+
+- Spot a typo, error, or broken link.
+- Find
+
+### 2. Edit a page
+
+<!-- ----------------------------------------------------------- -->
+
+<!-- OLD VERSION ---------------------------------------------------------------- -->
+
 # How to Contribute?
 
 ACCESS-Hive Docs is a website that hosts the documentation relevant to the Australian Community Climate and Earth System Simulator (ACCESS) community.
@@ -24,12 +56,14 @@ Contributions are encouraged from any member of the community regarding any aspe
 </div>
 
 If you'd like to take a more hands-on approach, the following steps illustrate how to contribute directly on GitHub by adding content to the repository yourself.
+
 ## Write your own content
 
 ### Prerequisites
+
 :fontawesome-regular-square-check:{: class="twemoji icon-before-text nri-green-color"} If you are new to GitHub, you will first need to [sign up](https://github.com) for a GitHub account.
 
-:material-head-lightbulb-outline:{: class="twemoji icon-before-text nri-orange-color"} We also encourage you to complete [self-paced GitHub learning courses](#additional-github-learning-resources) for brushing up on basic GitHub skills. 
+:material-head-lightbulb-outline:{: class="twemoji icon-before-text nri-orange-color"} We also encourage you to complete [self-paced GitHub learning courses](#additional-github-learning-resources) for brushing up on basic GitHub skills.
 
 ### Let's get started!
 
@@ -40,7 +74,7 @@ For a quick reference on how to use Markdown syntax you can refer to the [Markdo
 
 All contributions need to have an associated [GitHub issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/) that explains the content and importance of the contribution. If your contribution does not already have an associated issue, [create a new issue]({{hive_docs_repo}}/issues/new?template=simple-issue-template.md) related to it. Feel free to assign the related issue to yourself if you intend to work on it.
 
-### Quick fix 
+### Quick fix
 
 If you'd like to do a quick fix, such as fixing a typo or updating wording, you can do so by editing the markdown file directly in the GitHub repo. For instance, if you want to update something on this page, you can navigate to `docs/about/contribute.md` on the GitHub website and click the pencil icon in the top right to edit in the browser.
 
@@ -49,7 +83,8 @@ If you'd like to do a quick fix, such as fixing a typo or updating wording, you 
 After raising a GitHub issue about your contribution, you need to [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo?platform=mac&tool=webui) the [ACCESS-Hive Docs GitHub repository]({{hive_docs_repo}}).
 
 ### Clone the forked ACCESS-Hive Docs GitHub repository locally
-For cloning the forked repository onto your local computer, we encourage you to first add your local SSH keys to your GitHub profile. 
+
+For cloning the forked repository onto your local computer, we encourage you to first add your local SSH keys to your GitHub profile.
 
 To start with, if you have an [existing SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys), then simply [add this key to your github account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account), and you are all set to clone the repository. In case you don't have the SSH keys set up on your local computer, it's easy to [create a new SSH key locally](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), and then [feel free to link this key to your github account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
@@ -66,7 +101,8 @@ To start with, if you have an [existing SSH key](https://docs.github.com/en/auth
 </terminal-window>
 
 ### Make changes locally
-After cloning the repository locally, create a new branch to make your local changes and then push it to GitHub: 
+
+After cloning the repository locally, create a new branch to make your local changes and then push it to GitHub:
 
 <terminal-window>
     <terminal-line data="input">git checkout -b spongebob/fix-hive-title-issue-234</terminal-line>
@@ -118,7 +154,8 @@ While working on a local branch, please make sure to regularly pull changes from
 This would make sure that the local branch `spongebob/fix-hive-title-issue-234` is always in sync with the latest changes in the remote `main` branch.
 
 ### Deploying Website Preview
-MkDocs includes a live preview server, so you can preview your changes as you write your documentation. The server will automatically rebuild the site upon saving. 
+
+MkDocs includes a live preview server, so you can preview your changes as you write your documentation. The server will automatically rebuild the site upon saving.
 
 To build the site locally, you need to install [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and other plugins. You can find a full list in the `requirements.txt` file (in the root of the [ACCESS-Hive Docs GitHub repository]({{hive_docs_repo}})). Please use `pip` for the installation as some of the packages are not updated or not available on conda:
 
@@ -141,17 +178,17 @@ To start the server, open terminal and navigate to your ACCESS-Hive Docs local r
     <terminal-line>INFO     -  [09:19:05] Browser connected: http://127.0.0.1:8000/about/contribute/contribute_on_github/</terminal-line>
 </terminal-window>
 
-Your documentation will be built on http://127.0.0.1:8000. Open this URL in your browser to see a preview of the documentation. The URL is given in the terminal when running the `mkdocs serve` command. Make sure you keep the command running so as to see live updates on saving your modifications. 
+Your documentation will be built on http://127.0.0.1:8000. Open this URL in your browser to see a preview of the documentation. The URL is given in the terminal when running the `mkdocs serve` command. Make sure you keep the command running so as to see live updates on saving your modifications.
 
 ### Create a Pull Request for the final changes
 
-Once the changes on your local branch `spongebob/fix-hive-title-issue-234` are ready to be integrated with the `development` branch, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) and GitHub will automatically build a preview of the documentation using [GitHub Actions](https://docs.github.com/en/actions). 
+Once the changes on your local branch `spongebob/fix-hive-title-issue-234` are ready to be integrated with the `development` branch, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) and GitHub will automatically build a preview of the documentation using [GitHub Actions](https://docs.github.com/en/actions).
 
-![GitHub preview](/assets/github-preview-link.png){: class="example-img"  loading="lazy"}
+![GitHub preview](/assets/github-preview-link.png){: class="example-img" loading="lazy"}
 
-After a PR is created and tested, feel free to ask for reviews by tagging the ACCESS-NRI/WebOps team and reply if any changes are being requested in the PR. 
+After a PR is created and tested, feel free to ask for reviews by tagging the ACCESS-NRI/WebOps team and reply if any changes are being requested in the PR.
 
-## Additional GitHub learning resources 
+## Additional GitHub learning resources
 
 - [Introduction to GitHub](https://github.com/skills/introduction-to-github)
 - [Setting up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
