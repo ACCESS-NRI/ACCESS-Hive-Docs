@@ -154,9 +154,9 @@ Steps to obtain and run the RNS, as well as monitor logs, are similar to those l
 
 Get the RNS configuration by following the [related instructions in the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#model-configurations-stored-on-mosrs) using the following specific information:
 
-- **Suite-ID:** {{ rns_id }}
-- **Branch:** {{ branch_rns }}
-- **Revision:** {{ revision_rns }}
+- **Suite-ID:** `{{ rns_id }}`
+- **Branch:** `{{ branch_rns }}`
+- **Revision:** `{{ revision_rns }}`
 
 Run the RNS by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#run-the-model-configuration).
 
