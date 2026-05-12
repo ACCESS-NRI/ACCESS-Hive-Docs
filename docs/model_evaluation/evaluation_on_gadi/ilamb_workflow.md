@@ -5,7 +5,7 @@
 The [International Land Model Benchmarking (_ILAMB_)](https://www.ilamb.org/) benchmarking system is a python framework used to quantitatively compare a defined set of observable variables with a number of land models.
 
 
-This documentation is tailored to using _ILAMB_ on _Gadi_ and, hence, it supplements rather than replaces the official documentation. Users are encouraged to read the  [ILAMB documentation](https://www.ilamb.org/doc/) and relevant  [tutorials](https://www.ilamb.org/doc/tutorial.html).
+This documentation is tailored to using _ILAMB_ on _Gadi_ and, hence, it supplements rather than replaces the official documentation. Users are encouraged to read the  [ILAMB documentation](https://www.ilamb.org/doc/) and relevant [tutorials](https://www.ilamb.org/doc/tutorial.html).
 
 !!! note
     ACCESS-NRI is supporting an NCI configuration of ILAMB under the name _ILAMB-workflow_ via the [_conda/analysis3_](/getting_started/environments) environment.
