@@ -88,15 +88,20 @@ This workflow is useful for larger or multi-page updates.
 ## Best Practices for
 ??? info "Creating issues"
     Creating clear and well-labelled issues helps contributors to quickly understand the type, purpose, and urgency of a task. 
+
     1. Use a clear and descriptive title that summarises the issue.
+
     2. Include enough context for others to understand the problem. 
+
     3. Keep issues focused on a single topic where possible. Smaller, targeted issues are generally easier to discuss and resolve.
 
 ??? info "Branching Workflows and Naming"
     This repository currently uses two primary branches - `main` and `development`. `main` is the production-ready branch, and `development` is the staging branch where latest changes are pushed before merging into `main` branch.
+
     Contributors should generally:
     - Create a feature branch from `development`.
     - Open pull requests targeting to `development`. 
+    
     The `development` branch is automatically merged into `main` daily. This reduces the risk to include breaking changes into the production branch. 
 
     For branch naming, using consistent branch names makes it easier to identify the purpose of a branch. Recommended naming patterns include:
@@ -107,7 +112,7 @@ This workflow is useful for larger or multi-page updates.
 
     Use short, descriptive, and lowercase names separated by hyphens.
 
-??? info Pull Requests
+??? info "Pull Requests"
     Well-documented pull requests help reviewers understand the intent of changes and reduces the turnaround time of the review. 
 
     When opening a PR:
