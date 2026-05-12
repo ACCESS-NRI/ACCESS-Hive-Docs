@@ -9,7 +9,7 @@ for instructions on how to get an account, log in, and get set up to access clim
 ACCESS-NRI supports and maintains the [conda/analysis3 _Python_ environment](/getting_started/environments){: data-preview } 
 which supports most of the evaluation and data tools described.
 
-## Connecting Data, Evaluation and Diagnostics with Frameworks and Recipes
+## Connecting Data and Evaluation
 Climate data is at the start of any workflow. Sources include published CMIP(Coupled Model Intercomparison Project), observations,
 reanalysis products and climate simulations. They need to be found, preprocessed and standardised for evaluation.
 
@@ -60,7 +60,7 @@ See [User support](/about/user_support) for more details.
 
 
 <div class="card-container">
-    <a href="/model_evaluation/community_med" class="vertical-card aspect-ratio1to1">
+    <a href="/model_evaluation/community_med" class="horizontal-card">
          <div class="card-image-container">
              <img class="img-cover" src="/assets/external-links.jpg" alt="External Resources and Links">
          </div>
