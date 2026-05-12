@@ -303,13 +303,8 @@ Typically, nests within the same nested region are arranged concentrically, with
 
 #### Change the output variables
 [UM](/models/model_components/atmosphere/#unified-model-um) outputs are usually provided as a list of [STASH](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_C04.pdf) variables.<br>
-Manually specifying each STASH variable can be complex. To simplify the selection process for commonly used climate analysis variables, predefined groups of STASH variables are set up, known as _stashpacks_.
-
-- **RNS**<br>
-    To toggle a _stashpack_ within the [Rose GUI](#rosegui), navigate to _suite conf &rarr; Nesting Suite &rarr; Nested region 1 setup &rarr; Resolution 1 setup &rarr; Config 1 setup_. Toggle a specific _stashpack_ within the `rg01_rs01_m01_stashpack` field and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}.<br>
-    Similar steps can be repeated for the _suite conf &rarr; Nesting Suite &rarr; Nested region 1 setup &rarr; Resolution 2 setup &rarr; Config 2 setup_ `rg01_rs02_m02_stashpack` field.<br>
-    For example, to enable `stashpack 6` (that includes variables such as wind gust, mean sea level pressure and rainfall amount, for every model timestep) in all nests, set the `6th` button of both `rg01_rs01_m01_stashpack` and `rg01_rs02_m02_stashpack` fields to `true`.
-
+Manually specifying each STASH variable can be complex. 
+To change which output variables are produced, refer to [{{ model }} configuration documentation]({{config_docs}}/model_outputs/)
 
 
 ## Troubleshooting
