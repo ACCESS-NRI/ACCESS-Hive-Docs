@@ -246,13 +246,14 @@ Configurations copied from MOSRS are created by default in the user's _Gadi_ hom
 #### Local-only copy {: #rosie-checkout }
 
 ```
-rosie checkout <suite-id>/<branch>
+rosie checkout <suite-id>/<branch>@<revision>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation. This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
+where `<suite-id>`, `<branch>` and `revision` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation. This creates a local copy of the configuration, which is placed in the `~/roses/<suite-id>` folder.
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
+    To copy from the head of a branch, omit the `@<revision>` portion of the command.
 
 Configurations obtained in this way cannot be pushed back to the remote. Therefore, the use of this command is recommended for testing and examining configurations.
 
@@ -261,13 +262,14 @@ Configurations obtained in this way cannot be pushed back to the remote. Therefo
 Before creating a new remote copy of the configuration, please read [these guidelines](https://code.metoffice.gov.uk/trac/roses-u/) on what should be stored in the Rosie repository.
 
 ```
-rosie copy <suite-id>/<branch>
+rosie copy <suite-id>/<branch>@<revision>
 ```
 
-where `<suite-id>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run_a_model/).
+where `<suite-id>`, `<branch>` and `<revision>` are specific to the chosen model configuration and can be found in the respective [Run a Model documentation](/models/run_a_model/).
 
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
+    To copy from the head of a branch, omit the `@<revision>` portion of the command.
 
 After running this command, a text editor will open in your terminal, where you can define metadata for the new configuration (the default text editor is _Vim_, and [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor) is a good reference if you're unfamiliar with it). The metadata fields are expressed as `key=value` pairs, pre-filled with values copied from the original configuration. You can modify these values or add new metadata as needed. Note that `owner`, `project` and `title` are required keys. 
 ```
@@ -279,7 +281,7 @@ title=<suite-title>
 When you exit the editor, you will have to confirm that you want to copy the suite:
 
 <terminal-window>
-    <terminal-line data="input">rosie copy &lt;suite-id&gt;/&lt;branch&gt;</terminal-line>
+    <terminal-line data="input">rosie copy &lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;</terminal-line>
     <terminal-line>Copy "&lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;" to "u-?????"? [y or n (default)]</terminal-line> <terminal-line data="input">y</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-id&gt;: created at https://code.metoffice.gov.uk/svn/roses-u/&lt;suite-n/a/m/e/&gt;</terminal-line>
     <terminal-line>[INFO] &lt;new-suite-id&gt;: copied items from &lt;suite-id&gt;/&lt;branch&gt;@&lt;revision&gt;</terminal-line>
@@ -322,6 +324,80 @@ rose suite-gcontrol --name=<suite-id> &
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
 By default, the configuration, log files and outputs are copied to `/scratch/<project>/${USER}/cylc-run/<suite-id>`. A symbolic link to this directory is also created in your home directory under `~/cylc-run/<suite-ID>`. See the respective [Run a model](/models/run_a_model/) documentation for details on what outputs are generated and where to find them.
+
+
+#### Stop, restart, reload and clean suites
+In some cases, you may want to control the running state of a suite.<br>
+If your _Cylc_ GUI has been closed and you are unsure whether your suite is still running, you can scan for active suites and reopen the GUI.<br>
+To scan for active suites, run:
+```
+cylc scan
+```
+To reopen the _Cylc_ GUI, run the following command from within the [suite directory](#suitedir):
+```
+rose suite-gcontrol
+```
+
+##### STOP a suite {: .no-toc }
+To shutdown a suite in a safe manner, run the following command from within the [suite directory](#suitedir):
+```
+rose suite-stop -y
+```
+Alternatively, you can directly kill the [PBS jobs][PBS job] connected to your run. To do so:
+
+1. Check the status of all your PBS jobs:
+```
+qstat -u $USER
+```
+
+1. Delete any job related to your run:
+```
+qdel <job-ID>
+```
+
+##### RESTART a suite {: .no-toc }
+There are two main ways to restart a suite:
+
+- **_SOFT_ restart**<br>
+    To reinstall the suite and reopen _Cylc_ in the same state it was prior to being stopped, run the following command from within the [suite directory](#suitedir):
+    ```
+    rose suite-run --restart
+    ```
+
+    !!! warning
+        You may need to manually trigger failed tasks from the _Cylc_ GUI.
+
+- **HARD restart**<br>
+    To overwrite any previous runs of the suite and start afresh, run the following command from within the [suite directory](#suitedir):
+    ```
+    rose suite-run --new
+    ```
+
+    !!! warning
+        This will overwrite all existing model output and logs for the same suite.
+
+##### RELOAD a suite {: .no-toc }
+In some cases, the suite needs to be updated without necessarily having to stop it (e.g., after fixing a typo in a file). Updating an active suite is called a _reload_, where the suite is _re-installed_ and _Cylc_ is updated with the changes. This is similar to a _SOFT_ restart, except new changes are installed, so you may need to manually trigger failed tasks from the _Cylc_ GUI.
+
+To reload a suite, run the following command from within the [suite directory](#suitedir):
+```
+rose suite-run --reload
+```
+
+##### CLEAN a suite {: .no-toc }
+To remove all files and folders created by the suite within the `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>` directory, run the following command from within the [suite directory](#suitedir):
+```
+rose suite-clean
+```
+
+Alternatively, you can achieve the same behaviour within a new submission of an experiment, by appending the `--new` option to the `rose suite-run` command:
+```
+rose suite-run --new
+```
+
+!!! warning
+    Cleaning a suite folder will remove any non-archived data (i.e., output files, logs, executables, etc.) associated with the suite.
+
 
 ## Edit the model configuration
 
