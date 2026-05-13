@@ -62,7 +62,7 @@ _python_ libraries, more specifc packages or leverage APIs to work with evaluati
 <div class="card-container">
     <a href="/model_evaluation/evaluation_on_gadi/recipes" class="horizontal-card">
         <div class="card-image-container">
-            <img class="white-background" src="/assets/model_evaluation/esmvaltool/fig-9-8.pngg" alt="Near surface temperature">
+            <img class="white-background" src="/assets/model_evaluation/esmvaltool/fig-9-8.png" alt="Near surface temperature">
         </div>
         <div class="card-text-container bold">
             <span class="bold">Evaluation recipes</span>
