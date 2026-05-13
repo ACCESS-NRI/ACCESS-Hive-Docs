@@ -1,6 +1,7 @@
 {% set ram3_configs_docs = "https://access-ram3-configs.access-hive.org.au" %}
 {% set model = "ACCESS-rAM3" %}
 [run_access-ram]: /models/run_a_model/run_access-ram3
+[era5]: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview
 
 # ACCESS-rAM 
 
@@ -23,7 +24,7 @@ Since the regional forecasting is performed separately for each nested region an
 
 [![Config docs](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{ram3_configs_docs}}){: class="text-card"}
 
-Similar to the UKMO Regional Nesting Suite, {{ model }} is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) dataset.<br>
+Similar to the UKMO Regional Nesting Suite, {{ model }} is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)][era5] dataset.<br>
 However, for its land-surface initial conditions, {{ model }} offers flexibility by allowing the use of alternative datasets.
 
 Information about the amount of NCI resources (such as SU and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum.access-hive.org.au/t/access-ram3-release-information/4308).
@@ -32,11 +33,11 @@ Information about the amount of NCI resources (such as SU and storage) used by a
 
 #### Land-surface initial conditions source options
 - [ERA5-Land](https://www.ecmwf.int/en/era5-land)
-- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
+- [ERA5][era5]
 - [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf) (default)
 
 #### Sea surface temperature (SST) and sea-ice initial and boundary conditions source options {: #sst .no-toc }
-- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) - 0.25 degree resolution
+- [ERA5][era5] - 0.25 degree resolution
 - [OSTIA](https://data.marine.copernicus.eu/product/SST_GLO_SST_L4_NRT_OBSERVATIONS_010_001/description) - daily 0.05 degree resolution
 
 ### Nesting configuration
