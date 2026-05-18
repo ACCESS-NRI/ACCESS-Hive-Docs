@@ -63,10 +63,10 @@ While _ESMValTool_ is used as a term to include both _ESMValTool_ and _ESMValCor
 The example below shows how to use _ESMValCore_ API within a Jupyter notebook.
 
 #### Start an ARE session
-To get started follow the guide on [using the environment in ARE](/getting_started/environments#use-the-environment-within-are) to start an ARE session.
+Start an [ARE Jupyterlab](/getting_started/are/#jupyterlab) session with the [additional settings required by the conda/analysis3 environment](/getting_started/environments#use-the-environment-within-are).
 
 #### Find and load datasets 
-You can find available datasets with the `'*'` wildcard, the example below finds all available ensemble members.
+You can find available datasets with the `'*'` wildcard. The example below finds all available ensemble members:
 
 ``` python
 from esmvalcore.dataset import Dataset
@@ -84,7 +84,7 @@ ensemble_datasets = list(dataset_search.from_files())
 print([ds['ensemble'] for ds in ensemble_datasets])
 ```
 
-You can load the dataset you are interested in with `.load()` in the example below:
+To load the desired dataset you can use the `.load()` method:
 
 ```python
 dataset = ensemble_datasets[0]
@@ -93,32 +93,12 @@ cube = dataset.load()
 
 #### Custom configuration
 
-You can load your own saved configuration from your configuration folder with the below code.
-You may have different configurations to find your own data in other locations.
-For more information on configuration see the [configure documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
-
-``` python
-from esmvalcore.config import CFG
-CFG.load_from_dirs(['/<USER>/.config/esmvaltool'])
+To load your own custom configuration from your esmvaltool configuration folder you can use:
 ```
 
-#### ESMValCore preprocessors
-You can take advantage of the built in commonly used preprocessors. 
-See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html#) for using the preprocessors.
-The below example shows finding the monthly anomalies and the annual mean.
-```python
-from esmvalcore.preprocessor import annual_statistics, anomalies
+You can take advantage of built-in preprocessors. 
 
-# Set the reference period for anomalies 
-reference_period = {
-    "start_year": 1950, "start_month": 1, "start_day": 1,
-    "end_year": 1979, "end_month": 12, "end_day": 31,
-}
-
-cube = anomalies(cube, reference=reference_period, period='month')
-cube = annual_statistics(cube, operator='mean')
-```
-
+The example below shows how to find the monthly anomalies and the annual mean of a dataset:
 ### Tutorials 
 For tutorial series and material from previous workshops see [ESMValTool Tutorials](/tutorials/esmvaltool).
 
