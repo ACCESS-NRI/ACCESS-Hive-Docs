@@ -34,27 +34,18 @@ _ESMValTool_ YAML recipes should be run as a script within a [PBS job](https://o
 _ESMValTool_ is provided on _Gadi_ within the `conda/analysis3` environment.
 See [use the environment in a pbs job](/getting_started/environments#use-the-environment-within-a-pbs-job) which you can use to set up a _pbs_ job to run a recipe.
 
-To be able to use the `esmvaltool` command, load the the `conda/analysis3` environment by adding:
+To be able to use the `esmvaltool` command, load the `conda/analysis3` environment by adding:
+```
+module use /g/data/xp65/public/modules
+module load conda/analysis3
+```
+
 Within the _pbs_ job script you can use the `run` command to run a recipe:
 ```
 esmvaltool run examples/recipe_python.yml
 ```
 See the [ESMValTool running documentation page](http://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/run.html) for more information.
 
-Use the following commands in the _pbs_ job or manually to use the `esmvaltool` commands including the `config` commands:
-```
-module use /g/data/xp65/public/modules
-module load conda/analysis3
-```
-
-This environment is pre-configured to access CMIP and observation datasets available on Gadi. For more information on configuration see the [ESMValTool documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
-
-By default from version 2.12, ESMValTool looks for the configuration files in the home directory, inside the `~/.config/esmvaltool` folder.
-To start, you can get a copy of user configuration file in your default folder, run the following.
-
-```
-esmvaltool config copy defaults/config-user.yml
-```
 
 ### Using ESMValCore API in a Jupyter notebook
 
@@ -91,15 +82,55 @@ dataset = ensemble_datasets[0]
 cube = dataset.load()
 ```
 
-#### Custom configuration
-
-To load your own custom configuration from your esmvaltool configuration folder you can use:
-```
-
+#### ESMValCore preprocessors
 You can take advantage of built-in preprocessors. 
 
 The example below shows how to find the monthly anomalies and the annual mean of a dataset:
-### Tutorials 
+```python
+from esmvalcore.preprocessor import annual_statistics, anomalies
+
+# Set the reference period for anomalies 
+reference_period = {
+    "start_year": 1950, "start_month": 1, "start_day": 1,
+    "end_year": 1979, "end_month": 12, "end_day": 31,
+}
+
+cube = anomalies(cube, reference=reference_period, period='month')
+cube = annual_statistics(cube, operator='mean')
+```
+
+See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html#) for further information on using preprocessors.
+
+### Custom configuration
+
+By default from version 2.12, ESMValTool looks for the configuration files in the home directory, inside the `~/.config/esmvaltool` folder.
+
+To start, you can get a copy of user configuration file in your default folder.
+Use the `esmvaltool config` commands from the _conda/analysis3_ environment with the following.
+
+```
+module use /g/data/xp65/public/modules
+module load conda/analysis3
+
+esmvaltool config copy defaults/config-user.yml
+```
+
+You can edit configuration files in your default folder to suit your needs, overwriting the default configuration in _conda/analysis3._
+This environment is pre-configured to access CMIP and observation datasets available on Gadi.
+For more information on configuration see the [ESMValTool documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
+
+
+To load your own custom configuration from your esmvaltool configuration folder in a Jupyter notebook you can use:
+``` python
+from esmvalcore.config import CFG
+import os
+
+USER=os.environ["USER"]
+CFG.load_from_dirs([f'/{USER}/.config/esmvaltool'])
+```
+
+### Tutorials
+
 For tutorial series and material from previous workshops see [ESMValTool Tutorials](/tutorials/esmvaltool).
 
 ## ESMValTool example recipes

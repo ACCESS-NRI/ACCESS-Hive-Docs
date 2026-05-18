@@ -52,10 +52,13 @@ ACCESS-NRI currently provides support for the following model evaluation framewo
 </div>
 
 ## Evaluation recipes
-Recipes provide a workflow to reproduce diagnostics calculations and analysis visualisations on model outputs.
-This can allow scientists to build upon existing community workflows. They can be written in a way that can be run 
-and repeated on multiple different datasets, checking on model performance and improvements. They can use common
-_python_ libraries, more specifc packages or leverage APIs to work with evaluation frameworks.
+These recipes provide workflows to reproduce diagnostics calculations and analysis visualisations of model outputs. 
+This allows scientists to construct their own evaluation workflows by building upon existing community workflows.
+
+They can use common _python_ libraries, more specifc packages, leverage APIs to work with evaluation frameworks or a combination.
+Diagnostic calculations can be ported between these methods depending on a user's familiarity with them. 
+An advantage of using standard frameworks includes the scalability for bulk running on multiple different datasets. 
+This is a principle for the development of the [Rapid Evaluation Framework(REF)](https://dashboard.climate-ref.org/) for CMIP7.
 
 <div class="card-container">
     <a href="/model_evaluation/evaluation_on_gadi/recipes" class="horizontal-card">
@@ -72,11 +75,16 @@ _python_ libraries, more specifc packages or leverage APIs to work with evaluati
 </div>
 
 ### Contributing to recipes and diagnostics
-See evaluation recipes on community papers open for contribution. Guidelines are given in each GitHub repository.
-Contributing to a particular framework will be following their guidelines, the repositories also on GitHub.
-General github interactions include creating an issue in the relevant repo to discuss ideas and making a pull request
-to add the recipe, documentation, links. For [support](/about/user_support/), join and reach out on
+All evaluation recipes on community papers are open for contribution. To contribute to a specific evaluation framework or recipe, follow the contribution guidelines in its GitHub repository.<br>
+General steps include:
+
+1. Opening an issue in the relevant repository to discuss your idea
+2. Submitting a Pull Request to add your recipe, documentation, and links 
+
+### Support
+To get further support on Model Evaluation on _Gadi_, refer to [User support](/about/user_support/) and reach out on
 [ACCESS-Hive Forum](https://forum.access-hive.org.au/)
+
 
 ## More Evaluation Tools
 

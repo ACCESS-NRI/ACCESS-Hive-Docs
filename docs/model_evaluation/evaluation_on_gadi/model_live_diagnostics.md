@@ -2,7 +2,7 @@
 
 ## What is Model Live Diagnostics?
 
-_Model Live Diagnostics_ is a simple, accessible and easy-to-use Jupyter notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (_live_) while they run on _Gadi_.
+_Model Live Diagnostics_ is an accessible Jupyter notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (_live_) while they run on _Gadi_.
 
 In addition to monitoring a live model, the package also provides the functionality to load, visualise and compare legacy ACCESS model data with the live model.
 
@@ -10,14 +10,7 @@ In addition to monitoring a live model, the package also provides the functional
     Model Live Diagnostics Tool is not in active development and can be used on _Gadi_ provided 3rd party packages are compatible.
 
 Below, we show an example of the Model Live Diagnostics Tool. For more information and tutorials, please visit <a href="https://med-live-diagnostics.readthedocs.io/en/latest/index.html" target="_blank">Model Diagnostics Documentation</a>.
-<!-- <div class="card-container">
-    <a href="https://med-live-diagnostics.readthedocs.io/en/latest/index.html" class="vertical-card aspect-ratio2to1" target="_blank">
-        <div class="card-image-container">
-            <img src="../../../assets/ACCESS_NRI_full_logo.png" alt="ACCESS-NRI Model Diagnostics Documentation" class="img-contain white-background with-padding"></img>
-        </div>
-        <div class="card-text-container bold ">Model Diagnostics Documentation</div>
-    </a>
-</div> -->
+
 
 ## Example: Monitoring total seawater mass of an ACCESS-CM2 run
 

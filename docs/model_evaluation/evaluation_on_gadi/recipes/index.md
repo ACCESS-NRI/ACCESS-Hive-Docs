@@ -16,18 +16,11 @@ For guidance on usage:
 
 ACCESS-NRI have assisted in writing a collection of jupyter notebooks utilising the ESMValTool framework 
 and initially focused on the [CLIVAR ENSO metrics package](https://doi.org/10.1175/BAMS-D-19-0337.A). 
-You can find a notebook for each metric in the repository.
 
-<div class="card-container">
-    <a href="https://github.com/ACCESS-NRI/ACCESS-ENSO-recipes" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="/assets/model_evaluation/sst_bias.png" alt="SST bias" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold">ACCESS-ENSO-recipes</div>
-    </a>
-</div>
+You can find a notebook for each metric in the [repository](https://github.com/ACCESS-NRI/ACCESS-ENSO-recipes).
+Get started by cloning the repository on _Gadi_ and using the _conda/analysis3_ Python environment.
 
-This collection has expanded to include Indian Ocean Dipole (IOD) recipes, tutorials, and exercises, as well as ocean recipes ported into the [ESMValCore/ESMValTool framework on _Gadi_](https://docs.access-hive.org.au/pr-previews/1180/model_evaluation/evaluation_on_gadi/esmvaltool_workflow). These leverage ESMValCore's built-in data discovery, loading, and preprocessing capabilities, and can be found in the repository subfolders.
+This collection has expanded to include Indian Ocean Dipole (IOD) recipes, tutorials, and exercises, as well as ocean recipes ported into the [ESMValCore/ESMValTool framework on _Gadi_](/model_evaluation/evaluation_on_gadi/esmvaltool_workflow). These leverage ESMValCore's built-in data discovery, loading, and preprocessing capabilities, and can be found in the repository subfolders.
 
 ### Relationship to ESMValTool and notebook-based recipes
 
@@ -62,12 +55,4 @@ Instructions to get started can be found in the repository [README](https://gith
 ### COSIMA cookbook
 
 The [COSIMA cookbook](https://cosima-recipes.readthedocs.io/en/latest/) has tutorials and recipes to help the community get started on writing their own recipes.
-
-<div class="card-container">
-    <a href="/model_evaluation/evaluation_on_gadi/cosima" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="/assets/model_evaluation/logo_cosima.png" alt="Pangeo/COSIMA" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold">COSIMA cookbook</div>
-    </a>
-</div>
+See [this COSIMA cookbook page](/model_evaluation/evaluation_on_gadi/cosima) to get started.

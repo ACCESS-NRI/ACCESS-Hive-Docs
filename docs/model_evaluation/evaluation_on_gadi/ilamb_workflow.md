@@ -16,15 +16,14 @@ This documentation is tailored to using _ILAMB_ on _Gadi_ and, hence, it supplem
 - a series of *ILAMB* outputs for ACCESS model evaluation,
 - the *ILAMB-Data* collection of observational datasets. 
 
-ILAMB-workflow is configured to use the existing NCI supported CMIP data collections.
+ILAMB-workflow is configured to use the existing NCI-supported CMIP data collections.
 
 ## Using ILAMB on Gadi
 
 ### Pre-requisites
 
-To use *ILAMB* on *Gadi* ensure you fulfill the [Set Up your NCI Account](/getting_started/set_up_nci_account) section.
-_ILAMB_ is provided through the [xp65](https://my.nci.org.au/mancini/project/xp65/join) NCI projects on _Gadi_, so you need to have an NCI account and be a member of this projects to use it. 
-
+- Have an [NCI Account](/getting_started/set_up_nci_account)
+- Join the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project for the [_conda/analysis3_](/getting_started/environments) environment.
 
 Depending on your needs, you may want to also join the following supported data collections:
 
@@ -33,14 +32,13 @@ Depending on your needs, you may want to also join the following supported data 
 
 ### Enable ILAMB-workflow commands
 
-To enable the _ILAMB-workflow_ command, load the the `conda/analysis3` module by running:
+_ILAMB_ is provided through the _conda/analysis3_ environment. To enable the _ILAMB-workflow_ commands, load the module by running:
 ```
     module use /g/data/xp65/public/modules
     module load conda/analysis3
 ```
 
-Visit [ILAMB-workflow documentation](https://ilamb-workflow.readthedocs.io/en/latest/?badge=latest) for further information on how to use _ILAMB_ on _Gadi_.
-
+### How to use ILAMB-workflow
 
 To run _ILAMB_, you need to execute the command `ilamb-run` with a number of arguments/ files:
 ```
@@ -57,9 +55,11 @@ NCI hosts replicas of the _ILAMB_ observational data sets through the NCI projec
 
 For more information, refer to [Finding ACCESS Data](/model_evaluation/data/finding) on how to find data on NCI.
 
+Visit [ILAMB-workflow documentation](https://ilamb-workflow.readthedocs.io/en/latest/?badge=latest) for further information on how to use _ILAMB_ on _Gadi_.
+
 To learn more about how to adjust the _ILAMB_ setup, refer to the official [ILAMB documentation](https://www.ilamb.org/doc/) and relevant [tutorials](https://www.ilamb.org/doc/tutorial.html).
 
-## Example: CMIP6 comparisons and ACCESS ESM1.5 benchmarking
+#### Example: CMIP6 comparisons and ACCESS ESM1.5 benchmarking
 
 ACCESS-NRI maintains a collection of benchmark comparisons for the ACCESS community, including comparisons with data from CMIP. See the [workflow documentation](https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri) for details.
 
