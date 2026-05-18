@@ -3,7 +3,7 @@
 There is a range of resources supported by ACCESS-NRI and created by the community to evaluate model data and compare it to observations. 
 Researchers can build on existing code to suit their interests and load data formatted for comparison to model experiments.
 
-**Pre-requisites**
+**Prerequisites**
 
 For running these evaluation recipes on _Gadi_ it is expected you would be familar with [ARE](https://are.nci.org.au/) 
 and the _conda/analysis3_ Python environment. 
@@ -27,9 +27,7 @@ You can find a notebook for each metric in the repository.
     </a>
 </div>
 
-This collection has been expanded to include IOD(Indian Ocean Dipole) recipes, some tutorials and exercises and a number of ocean recipes
-that have been ported into this [ESMValCore/ESMValTool framework](/model_evaluation/evaluation_on_gadi/esmvaltool_workflow) which leverages 
-data finding and loading and the common preprocessors built into ESMValCore. These can be found in the subfolders of the repository.
+This collection has expanded to include Indian Ocean Dipole (IOD) recipes, tutorials, and exercises, as well as ocean recipes ported into the [ESMValCore/ESMValTool framework on _Gadi_](https://docs.access-hive.org.au/pr-previews/1180/model_evaluation/evaluation_on_gadi/esmvaltool_workflow). These leverage ESMValCore's built-in data discovery, loading, and preprocessing capabilities, and can be found in the repository subfolders.
 
 ### Relationship to ESMValTool and notebook-based recipes
 
@@ -41,21 +39,25 @@ which will allow for running the diagnostic on multiple models in bulk.
 
 ## Community Evaluation Recipes
 
-### ACCESS-OM3 applications
+### ACCESS-OM3
 
-There is a community based group (ACCESS-OM3 model evaluation team) that are helping with OM3 evaluation and development. Contributions from people of all career stages and backgrounds are highly encouraged.
+The _ACCESS-OM3 model evaluation team_ is a community-based group helping with ACCESS-OM3 evaluation and development. Contributions from people of all career stages and backgrounds are highly encouraged.
 
-All community members can get write access to the [OM3 evaluation repository](https://github.com/ACCESS-Community-Hub/access-om3-paper-1). To get write access, you need to create an issue and request access, please use [this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md). Evaluation figures are being coordinated in [issue #23](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23) of the repository. Instructions to get started are in the README of the repository.
+All community members can get write access to the [ACCESS-OM3 evaluation repository](https://github.com/ACCESS-Community-Hub/access-om3-paper-1) by creating an issue (using [this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md)) and requesting access.
 
-### ACCESS-CM3 applications
+Evaluation figures are being coordinated within the repository [issue #23](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23). Instructions to get started can be found in the repository [README](https://github.com/ACCESS-Community-Hub/access-om3-paper-1#access-om3-paper-1).
+
+### ACCESS-CM3
 
 A collaborative project for evaluation of ACCESS-CM3 can be found in the [access-cm3-paper-1](https://github.com/acCESS-Community-Hub/access-cm3-paper-1/) repository. 
 
-All community members can get write access to this repository. To get write access, you need to create an issue requesting access using [this template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md). Instructions to get started are in the README of the repository.
+All community members can get write access to the ACCESS-CM3 evaluation repository by creating an issue (using [this issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md)) and requesting access.
+
+Instructions to get started can be found in the repository [README](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1#access-cm3-paper-1).
 
 ???+ tip "Join the conversation!"
-    With either ACCESS-OM3 and ACCESS-CM3, you can also join the conversation on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/), 
-    in either the [COSIMA](https://forum.access-hive.org.au/c/cosima/working-group/42) or 
+    For both ACCESS-OM3 and ACCESS-CM3, you can also join the conversation on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/), 
+    in the respective [COSIMA](https://forum.access-hive.org.au/c/cosima/working-group/42) or 
     [ESM](https://forum.access-hive.org.au/c/esm/esm-working-group/43) working groups.
 
 ### COSIMA cookbook
