@@ -16,7 +16,8 @@ ACCESS-NRI is a member of the [ESMValTool Consortium](https://esmvaltool.org/202
 
 ### Prerequisites
 
-_ESMValTool_ is provided through the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project on Gadi via the _analysis3_ environment. To enable the _analysis3_ environment, you need to be a member of the _xp65_ NCI project.
+- Have an [NCI Account](/getting_started/set_up_nci_account)
+- Join the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project for the [_conda/analysis3_](/getting_started/environments) environment.
 
 Depending on your needs, you may want to also join the following supported data collections:
 
@@ -26,9 +27,14 @@ Depending on your needs, you may want to also join the following supported data 
 - ERA5 and ERA5-Land: [rt52](https://my.nci.org.au/mancini/project/rt52/join), [zz93](https://my.nci.org.au/mancini/project/zz93/join)
 - obs4MIPs: [qv56](https://my.nci.org.au/mancini/project/qv56/join)
 
-### Loading the _analysis3_ module
+###  Using ESMValTool in a PBS job
 
+_ESMValTool_ YAML recipes should be run as a script within a [PBS job](https://opus.nci.org.au/display/Help/4.+PBS).
+
+_ESMValTool_ is provided on _Gadi_ within the `conda/analysis3` environment.
 See [use the environment in a pbs job](/getting_started/environments#use-the-environment-within-a-pbs-job) which you can use to set up a _pbs_ job to run a recipe.
+
+To be able to use the `esmvaltool` command, load the the `conda/analysis3` environment by adding:
 Within the _pbs_ job script you can use the `run` command to run a recipe:
 ```
 esmvaltool run examples/recipe_python.yml
