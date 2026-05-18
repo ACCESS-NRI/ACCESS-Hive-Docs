@@ -81,6 +81,8 @@ Once the new tab opens, you will see a Desktop with a few folders on the left. C
 
 ## Set up a persistent session
 
+<!--persistent-session-start-->
+
 NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to enable long running processes, like _Cylc_, to stay active even when the user disconnects from _Gadi_.
 
 It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
@@ -162,6 +164,8 @@ persistent-sessions kill <persistent-session-uuid>
 
 !!! warning
     When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
+
+<!--persistent-session-end-->
 
 ## Set up Rose/Cylc
 
