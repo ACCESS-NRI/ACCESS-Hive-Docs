@@ -120,20 +120,12 @@ cube = annual_statistics(cube, operator='mean')
 ```
 
 ### Tutorials 
-For tutorial series and material from previous workshops see:
-<div class="card-container">
-    <a href="/tutorials/esmvaltool" target="_blank" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="/assets/model_evaluation/logo_esmvaltool.png" alt="ESMValTool" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold">Tutorials</div>
-    </a>
-</div>
+For tutorial series and material from previous workshops see [ESMValTool Tutorials](/tutorials/esmvaltool).
 
-## ESMValTool recipe examples
+## ESMValTool example recipes
 
 <!-- Explain what the Tiers mean: Tier3 not to be distributed / license issue, Tier2: some restrictions, but can be redistributed while citing papers etc., Tier1: open for everyone -->
-Some example recipes are provided below:
+Some _ESMValTool_ example recipes are provided below:
 
 
 <!-- Compare to list from https://github.com/ACCESS-NRI/ESMValTool-workflow/issues/103 -->
@@ -161,19 +153,20 @@ Some example recipes are provided below:
 
 ## Support
 
-To get help using ESMValTool on _Gadi_, you can ask for help on the [ACCESS-Hive Forum](https://forum.access-hive.org.au).
+For further assistance on using ESMValTool on _Gadi_, refer to the [ACCESS-Hive Forum](https://forum.access-hive.org.au).
 
-General ESMValTool support (i.e. non-specific to _Gadi_) can be found on the [ESMValTool Discussions](https://github.com/ESMValGroup/ESMValTool/discussions) page, where users can also post technical questions on the ESMValTool installation, application and development. There are community meetings to keep up to date on developments or ask questions to other users. These are announced on the [ESMValTool Community repository](https://github.com/ESMValGroup/Community/discussions) or you can join the [mailing list](https://docs.esmvaltool.org/en/latest/introduction.html#mailing-list).
+General _ESMValTool_ support (i.e. non-specific to _Gadi_) can be found on the [ESMValTool Discussions](https://github.com/ESMValGroup/ESMValTool/discussions) page, where users can also post technical questions on the _ESMValTool_ installation, application and development. There are community meetings to keep up to date on developments or ask questions to other users. These are announced on the [ESMValTool Community repository](https://github.com/ESMValGroup/Community/discussions). You can also join the [ESMValTool mailing list](https://docs.esmvaltool.org/en/latest/introduction.html#mailing-list).
 
 ### Recipes and diagnostics
 
-Contacts for specific diagnostic sets are the authors listed in the source code and corresponding [recipe and diagnostic documentation](https://docs.esmvaltool.org/en/latest/recipes/index.html#recipes).
+Contacts for specific diagnostic sets are listed as authors in the source code and in the corresponding [recipe and diagnostic documentation](https://docs.esmvaltool.org/en/latest/recipes/index.html#recipes).
 
 
 ### License
 
-The _ESMValTool_ is released under the Apache License, version 2.0. Citation of the _ESMValTool_ paper (“Software Documentation Paper”) is requested upon use, along with the software DOI for _ESMValTool_ (doi:10.5281/zenodo.3401363) and _ESMValCore_ (doi:10.5281/zenodo.3387139) together with the version:
+The _ESMValTool_ is released under the Apache License, version 2.0.<br>
+Citation of the _ESMValTool_ paper (“Software Documentation Paper”) is requested upon use, along with the software DOI for _ESMValTool_ (**doi:10.5281/zenodo.3401363**) and _ESMValCore_ (**doi:10.5281/zenodo.3387139**) together with the version:
 
 > Righi, M., Andela, B., Eyring, V., Lauer, A., Predoi, V., Schlund, M., Vegas-Regidor, J., Bock, L., Brötz, B., de Mora, L., Diblen, F., Dreyer, L., Drost, N., Earnshaw, P., Hassler, B., Koldunov, N., Little, B., Loosveldt Tomas, S., and Zimmermann, K.: Earth System Model Evaluation Tool (ESMValTool) v2.0 – technical overview, Geosci. Model Dev., 13, 1179–1199, https://doi.org/10.5194/gmd-13-1179-2020, 2020.
 
-Besides the above citation, users are asked to register any journal articles (or other scientific documents) that use the software at the [ESMValTool webpage](https://www.esmvaltool.org/). Citing the Software Documentation Paper and registering your paper(s) will serve to document the scientific impact of the Software, which is important for securing future funding. You should consider this an obligation if you have taken advantage of the _ESMValTool_, which represents the end product of considerable effort by the development team.
+Besides the above citation, users are asked to register any journal articles or other scientific documents that use the software on the [ESMValTool website](https://www.esmvaltool.org/). Citing the Software Documentation Paper and registering your papers will serve to document the scientific impact of the Software, which is important for securing future funding. You should consider this an obligation if you have taken advantage of the _ESMValTool_, which represents the end product of considerable effort by the development team.
