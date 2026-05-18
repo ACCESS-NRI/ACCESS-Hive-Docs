@@ -2,15 +2,15 @@
 
 ## What is ILAMB?
 
-The [International Land Model Benchmarking (_ILAMB_)](https://www.ilamb.org/) benchmarking system is a python framework used to quantitatively compare a defined set of observable variables with a number of land models.
+The [International Land Model Benchmarking (_ILAMB_)](https://www.ilamb.org/) benchmarking system is a Python framework used to quantitatively compare a defined set of observable variables with a number of land models.
 
 
-This documentation is tailored to using _ILAMB_ on _Gadi_ and, hence, it supplements rather than replaces the official documentation. Users are encouraged to read the  [ILAMB documentation](https://www.ilamb.org/doc/) and relevant [tutorials](https://www.ilamb.org/doc/tutorial.html).
+This documentation is tailored to using _ILAMB_ on _Gadi_ and, hence, it supplements _ILAMB_'s official documentation rather than replacing it. Users are encouraged to read the [ILAMB official documentation](https://www.ilamb.org/doc/) and relevant [tutorials](https://www.ilamb.org/doc/tutorial.html).
 
 !!! note
-    ACCESS-NRI is supporting an NCI configuration of ILAMB under the name _ILAMB-workflow_ via the [_conda/analysis3_](/getting_started/environments) environment.
+    ACCESS-NRI is supporting an NCI configuration of _ILAMB_ under the name _ILAMB-workflow_ via the [_conda/analysis3_](/getting_started/environments) environment.
 
-*ILAMB-workflow* is the ACCESS-NRI software and data infrastructure that enables the ILAMB evaluation framework on NCI Gadi. It includes the 
+*ILAMB-workflow* is the ACCESS-NRI software and data infrastructure that enables the _ILAMB_ evaluation framework on NCI _Gadi_. It includes:
 
 - *ILAMB* Python packages, 
 - a series of *ILAMB* outputs for ACCESS model evaluation,
@@ -31,15 +31,15 @@ Depending on your needs, you may want to also join the following supported data 
 - CMIP6: [fs38](https://my.nci.org.au/mancini/project/fs38/join), [oi10](https://my.nci.org.au/mancini/project/oi10/join)
 - CMIP5: [rr3](https://my.nci.org.au/mancini/project/rr3/join), [al33](https://my.nci.org.au/mancini/project/al33/join)
 
-### Loading the ILAMB-workflow modules
+### Enable ILAMB-workflow commands
 
-To load the the *ilamb* module, execute the following commands:
+To enable the _ILAMB-workflow_ command, load the the `conda/analysis3` module by running:
 ```
     module use /g/data/xp65/public/modules
     module load conda/analysis3
 ```
 
-Visit [ACCESS-NRI documentation](https://ilamb-workflow.readthedocs.io/en/latest/?badge=latest) on how to run _ILAMB_ on _Gadi_.
+Visit [ILAMB-workflow documentation](https://ilamb-workflow.readthedocs.io/en/latest/?badge=latest) for further information on how to use _ILAMB_ on _Gadi_.
 
 
 To run _ILAMB_, you need to execute the command `ilamb-run` with a number of arguments/ files:
@@ -61,17 +61,17 @@ To learn more about how to adjust the _ILAMB_ setup, refer to the official [ILAM
 
 ## Example: CMIP6 comparisons and ACCESS ESM1.5 benchmarking
 
-ACCESS-NRI is maintaining a collection of benchmark comparisons for the ACCESS community, such as that with CMIP data, see in the [workflow documentation.](https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri)
+ACCESS-NRI maintains a collection of benchmark comparisons for the ACCESS community, including comparisons with data from CMIP. See the [workflow documentation](https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri) for details.
 
 
-In the following example, the supported [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm1.5) is compared with two other ESM models:
+In the following example, [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm1.5) is compared with two other ESM models:
 
 - [BCC ESM1 (Beijing Climate Center Earth System Model version 1)](https://gmd.copernicus.org/articles/13/977/2020/)
 - [CanESM5 (Canadian Earth System Model version 5)](https://gmd.copernicus.org/articles/12/4823/2019/gmd-12-4823-2019.html)
 
 Numerous benchmark comparisons have been defined in the configuration file. The comparison of variables have been organised under different sections, such as the _Hydrology Cycle_. 
 
-For other variables, such as the _Gross Primary Productivity_ (*gpp*), one or more datasets are available. For example, the gross primary productivity measurements of [FLUXNET2015](https://fluxnet.org/data/fluxnet2015-dataset/). 
+For other variables, such as the _Gross Primary Productivity_ (*gpp*), one or more datasets are available (e.g. the gross primary productivity measurements of [FLUXNET2015](https://fluxnet.org/data/fluxnet2015-dataset/)). 
 
 <br>
 By clicking on a row in the table, you can expand it to see the underlying datasets used. The table's colourmap extends from best values in purple to worse data in orange.

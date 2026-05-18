@@ -67,7 +67,7 @@ Use the dropdown menu to select and plot any available model variables listed.
     <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Plot of total liquid seawater mass over time of the ‘live’ ACCES CM2 run." width="75%"/>
 </div>
 
-The plot above shows the users own 'live' data so doesn't have a name. It is also possible to load and compare _legacy data_, such as other previous ACCESS-CM2 model runs (_by578_ and _by578a_ etc.)
+The plot above shows the user's own _live_ data, which has no name assigned. It is also possible to load and compare _legacy data_, such as outputs from previous ACCESS-CM2 model runs (e.g., _by578_ and _by578a_).
 
 <div style="text-align: center;">
     <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_7.png" alt="Plot of total liquid seawater mass over time of the ‘live’ ACCES CM2 run when compared to legacy model data." width="75%"/>

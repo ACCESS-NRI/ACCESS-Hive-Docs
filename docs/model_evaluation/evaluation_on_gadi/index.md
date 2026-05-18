@@ -3,17 +3,15 @@
 Model evaluation is about measuring how fit for purpose a particular model is. Model evaluation in climate science is the process of assessing the performance and reliability of computational models that simulate the Earth's climate system. It involves comparing model predictions to observed data to determine the model's accuracy and usefulness. In doing so, we can understand how well a model represents real-world climate processes and make predictions about future climate trends. Such rigorous model evaluation allows scientists to identify model strengths, weaknesses and uncertainties, as well as refine models to enhance their predictive capabilities. 
 
 ## Data workflows
-FAIR(findable, accessible, interoperable and reusable) data is required for model evaluation. 
+FAIR (Findable, Accessible, Interoperable and Reusable) data is required for model evaluation. 
 Some of these evaluation workflows use data tools and catalogues outlined in the [ACCESS data](/model_evaluation/data) section.
 [ACCESS-MOPPy](https://access-moppy.readthedocs.io/en/latest/) can also be integrated with these evaluation frameworks on _Gadi_.
 [Observations](/model_evaluation/data/observations) have been collated for model evaluation so that they can be ingested directly
 by the frameworks on _Gadi_.
 
 ## Use on Gadi
-Evaluation in commonly done in _Python_. Therefore, scientists need to use or create _Python_ environments for their workflows. 
-These environments need to be managed and maintained with the required dependencies for open source and developing software.
-ACCESS-NRI supports the `conda/analysis3` environment in the `xp65` NCI project which includes commonly used _Python_ libraries
-and have these evaluation frameworks installed.
+Model evaluation is tipically carried out using _Python_. Therefore, scientists need suitable _Python_ environments for their workflows, which need to be managed and maintained with the required dependencies for open source and developing software.
+ACCESS-NRI supports the `conda/analysis3` environment in the `xp65` NCI project which includes commonly used _Python_ libraries and have these evaluation frameworks already installed.
 
 <div class="card-container">
     <a href="/getting_started/environments" class="horizontal-card">
@@ -80,7 +78,7 @@ General github interactions include creating an issue in the relevant repo to di
 to add the recipe, documentation, links. For [support](/about/user_support/), join and reach out on
 [ACCESS-Hive Forum](https://forum.access-hive.org.au/)
 
-## More Tools
+## More Evaluation Tools
 
 <div class="card-container">
     <a href="/model_evaluation/evaluation_on_gadi/access_vis" class="horizontal-card">
