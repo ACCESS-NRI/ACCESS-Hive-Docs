@@ -164,7 +164,7 @@ Some _ESMValTool_ example recipes are provided below:
 
 ## Support
 
-For further assistance on using ESMValTool on _Gadi_, refer to the [ACCESS-Hive Forum](https://forum.access-hive.org.au).
+For further assistance on using ESMValTool on _Gadi_, refer to [User support](/about/user_support/) on [ACCESS-Hive Forum](https://forum.access-hive.org.au).
 
 General _ESMValTool_ support (i.e. non-specific to _Gadi_) can be found on the [ESMValTool Discussions](https://github.com/ESMValGroup/ESMValTool/discussions) page, where users can also post technical questions on the _ESMValTool_ installation, application and development. There are community meetings to keep up to date on developments or ask questions to other users. These are announced on the [ESMValTool Community repository](https://github.com/ESMValGroup/Community/discussions). You can also join the [ESMValTool mailing list](https://docs.esmvaltool.org/en/latest/introduction.html#mailing-list).
 
