@@ -31,10 +31,9 @@ This collection has expanded to include Indian Ocean Dipole (IOD) recipes, tutor
 
 ### Relationship to ESMValTool and notebook-based recipes
 
-These notebook-based workflows allow easier entry to get started analysing climate data on _Gadi_ and developing the diagnostic. 
-They are adaptable by cloning the repository and editing to how it suits. These can be updated and added to from collaborative work with researchers.
-As the framework is based on using the ESMValCore package, this makes the conversion to an ESMValTool _.yml_ simplier, 
-which will allow for running the diagnostic on multiple models in bulk.
+These notebook-based workflows provide an accessible starting point for analysing climate data on _Gadi_ and developing the diagnostic. 
+They can be adapted by cloning the repository and editing as needed, and are open to collaborations with researchers.
+Because the framework is built on ESMValCore, converting a notebook to an ESMValTool YAML configuration is straightforward, enabling diagnostics to be run across multiple models in bulk.
 
 
 ## Community Evaluation Recipes
