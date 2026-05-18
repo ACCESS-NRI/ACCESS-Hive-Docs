@@ -2,7 +2,7 @@
 
 ## What is Model Live Diagnostics?
 
-_Model Live Diagnostics_ is an accessible Jupyter notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (_live_) while they run on _Gadi_.
+_Model Live Diagnostics_ is an easily-accessible Jupyter-notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (_live_) while they run on _Gadi_.
 
 In addition to monitoring a live model, the package also provides the functionality to load, visualise and compare legacy ACCESS model data with the live model.
 

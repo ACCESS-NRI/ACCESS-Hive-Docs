@@ -101,7 +101,7 @@ cube = annual_statistics(cube, operator='mean')
 
 See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html#) for further information on using preprocessors.
 
-### Custom configuration
+### Custom ESMValTool configuration
 
 By default from version 2.12, ESMValTool looks for the configuration files in the home directory, inside the `~/.config/esmvaltool` folder.
 

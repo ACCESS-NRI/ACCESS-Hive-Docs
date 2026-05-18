@@ -24,7 +24,7 @@ ACCESS-NRI supports the `conda/analysis3` environment in the `xp65` NCI project 
 
 ## Evaluation Frameworks
 
-ACCESS-NRI currently provides support for the following model evaluation frameworks on <i>Gadi</i>:
+ACCESS-NRI currently provides support for the following model evaluation frameworks on _Gadi_:
 
 <div class="card-container">
     <a href="/model_evaluation/evaluation_on_gadi/esmvaltool_workflow" class="horizontal-card">

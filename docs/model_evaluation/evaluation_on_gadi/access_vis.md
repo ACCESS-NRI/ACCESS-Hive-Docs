@@ -15,7 +15,6 @@ These recipes help users easily visualise and analyse climate model data using A
   Your browser does not support the video tag.
 </video>
 
-<!-- ![Heights of Land and Depth of Oceans](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/earth_rotating.gif?raw=true) -->
 
 
 ## Use ACCESS-Vis on Gadi
@@ -44,7 +43,6 @@ pip install accessvis
 <video width="500" autoplay loop muted playsinline>
   <source src="/assets/model_evaluation/vis/max_ozone_level.mp4" type="video/mp4">
 </video>
-<!-- ![Max Ozone Hole](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/max_ozone_level.gif?raw=true) -->
 
 #### Change the Earth and Sun Based on Time
 
@@ -53,7 +51,6 @@ pip install accessvis
 <video width="500" autoplay loop muted playsinline>
   <source src="/assets/model_evaluation/vis/seasons.mp4" type="video/mp4">
 </video>
-<!-- ![Sun and Seasons](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/seasons.gif?raw=true) -->
 
 
 <custom-references>
