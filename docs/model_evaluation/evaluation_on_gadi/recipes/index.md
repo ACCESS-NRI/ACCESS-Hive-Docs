@@ -1,6 +1,6 @@
 # Evaluation recipes
 
-There is a range of resources supported by ACCESS-NRI and created by the community to evaluate model data and compare to observations. 
+There is a range of resources supported by ACCESS-NRI and created by the community to evaluate model data and compare it to observations. 
 Researchers can build on existing code to suit their interests and load data formatted for comparison to model experiments.
 
 **Pre-requisites**
