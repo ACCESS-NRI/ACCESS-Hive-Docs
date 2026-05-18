@@ -8,13 +8,13 @@ For more information, refer to the official [ESMValTool documentation](https://d
 
 !!! note 
     ACCESS-NRI is supporting a Gadi-specific configuration of ESMValTool via the [_conda/analysis3_](/getting_started/environments) environment. 
-    It includes the [ESMValTool](https://github.com/ESMValGroup/ESMValTool) and [ESMValCore](https://github.com/ESMValGroup/ESMValCore) Python packages, with the [ESMValTool collection of recipes and diagnostics](https://docs.esmvaltool.org/en/latest/recipes/index.html). It is configured to use the existing NCI supported CMIP data collections and [Replicated observational datasets](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f0550_0998_4567_4139). 
+    It includes the [ESMValTool](https://github.com/ESMValGroup/ESMValTool) and [ESMValCore](https://github.com/ESMValGroup/ESMValCore) Python packages, with the [ESMValTool collection of recipes and diagnostics](https://docs.esmvaltool.org/en/latest/recipes/index.html). It is configured to use the existing NCI-supported CMIP data collections and [Replicated observational datasets](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f0550_0998_4567_4139). 
 
 ACCESS-NRI is a member of the [ESMValTool Consortium](https://esmvaltool.org/2024-12-11-Consortium_agreement/) and is contributing to the development of the tool for the Australian climate community.
 
 ## Using ESMValTool on Gadi
 
-### Pre-requisites
+### Prerequisites
 
 _ESMValTool_ is provided through the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project on Gadi via the _analysis3_ environment. To enable the _analysis3_ environment, you need to be a member of the _xp65_ NCI project.
 
@@ -52,7 +52,9 @@ esmvaltool config copy defaults/config-user.yml
 
 ### Using ESMValCore API in a Jupyter notebook
 
-While ESMValTool is used as a term to include both ESMValTool and ESMValCore packages together, they are separate packages. ESMValCore is the software package which provides the core functionality for ESMValTool, finding CMIP data and apply commonly used preprocessing functions. ESMValCore can be used without ESMValTool, this can be shown in a Jupyter notebook.
+While _ESMValTool_ is used as a term to include both _ESMValTool_ and _ESMValCore_ packages together, they are separate packages. _ESMValCore_ is the software package which provides the core functionality for _ESMValTool_, such as finding CMIP data and applying commonly-used preprocessing functions, and can be used without _ESMValTool_. 
+
+The example below shows how to use _ESMValCore_ API within a Jupyter notebook.
 
 #### Start an ARE session
 To get started follow the guide on [using the environment in ARE](/getting_started/environments#use-the-environment-within-are) to start an ARE session.
