@@ -11,7 +11,7 @@ The steps in this section are aimed at new users who would like to do any of the
 
 ## Create an NCI user account
 
-Most of the data and models you will need are available at the [National Computing Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are).<br>
+Most of the data and models you will need are available at [NCI](https://nci.org.au/about-us/who-we-are).<br>
 To access these, you need an [NCI account](https://opus.nci.org.au/display/Help/How+to+create+an+NCI+user+account). If you do not have one, [sign up here](https://my.nci.org.au/mancini/signup/0").
 
 !!! warning
@@ -29,7 +29,7 @@ Each project has an ID (e.g. `xp65`), which is what the term _project_ actually 
 
 If you are interested in datasets and data collections, you can browse the [NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/search) and follow the [NCI Data Catalogue User Guide](https://opus.nci.org.au/display/Help/Data+Catalogue+User+Guide).
 
-To run models on _Gadi_ instead, you need to join a project with computing resources, also called _Service Units (SU)_. The project ID will be provided by your supervisor, research project or institution.
+To run models on _Gadi_ instead, you need to join a project with computing resources, also called _SU_. The project ID will be provided by your supervisor, research project or institution.
 
 To join a project, search for it on [NCI website](https://my.nci.org.au/mancini/project-search) and request membership.
 

@@ -1,12 +1,13 @@
 {% set ram3_configs_docs = "https://access-ram3-configs.access-hive.org.au" %}
 {% set model = "ACCESS-rAM3" %}
 [run_access-ram]: /models/run_a_model/run_access-ram3
+[era5]: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview
 
 # ACCESS-rAM 
 
 ![ACCESS RAM model](/assets/model-config-logos/configurations-without-titles/access-ram.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
 
-The ACCESS Regional Atmosphere Model (ACCESS-rAM) is an implementation of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite, comprising [atmosphere](/models/model_components/atmosphere) and [land](/models/model_components/land) components.<br>
+The ACCESS Regional Atmosphere Model (ACCESS-rAM) is an implementation of the [UKMO](https://www.metoffice.gov.uk/) Regional Nesting Suite, comprising [atmosphere](/models/model_components/atmosphere) and [land](/models/model_components/land) components.<br>
 Unlike the UKMO Regional Nesting Suite that relies on operational land-surface initial conditions, ACCESS-rAM derives its initial conditions from alternative sources, enhancing its capability for high-resolution regional atmosphere modelling on [Gadi](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview).
 
 ACCESS-rAM requires both initial conditions and lateral boundary (_driving_) conditions. It also supports multiple [_nesting_](#nesting) configurations, automatically providing their necessary initial and lateral boundary conditions.
@@ -23,20 +24,20 @@ Since the regional forecasting is performed separately for each nested region an
 
 [![Config docs](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{ram3_configs_docs}}){: class="text-card"}
 
-Similar to the UKMO Regional Nesting Suite, {{ model }} is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) dataset.<br>
+Similar to the UKMO Regional Nesting Suite, {{ model }} is configured to derive its initial and lateral boundary conditions from the [ECMWF Reanalysis v5 (ERA5)][era5] dataset.<br>
 However, for its land-surface initial conditions, {{ model }} offers flexibility by allowing the use of alternative datasets.
 
-Information about the amount of NCI resources (such as Service Units (SU) and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum.access-hive.org.au/t/access-ram3-release-information/4308).
+Information about the amount of NCI resources (such as SU and storage) used by a typical ACCESS-rAM3 experiment run are available on the [ACCESS-Hive Forum release notes page](https://forum.access-hive.org.au/t/access-ram3-release-information/4308).
 
 ### Initial and boundary conditions
 
 #### Land-surface initial conditions source options
 - [ERA5-Land](https://www.ecmwf.int/en/era5-land)
-- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5)
+- [ERA5][era5]
 - [BARRA-R2](https://www.bom.gov.au/research/publications/researchreports/BRR-067.pdf) (default)
 
 #### Sea surface temperature (SST) and sea-ice initial and boundary conditions source options {: #sst .no-toc }
-- [ERA5](https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5) - 0.25 degree resolution
+- [ERA5][era5] - 0.25 degree resolution
 - [OSTIA](https://data.marine.copernicus.eu/product/SST_GLO_SST_L4_NRT_OBSERVATIONS_010_001/description) - daily 0.05 degree resolution
 
 ### Nesting configuration

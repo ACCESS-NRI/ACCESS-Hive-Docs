@@ -43,6 +43,7 @@ theme:
     - content.code.annotate
     - content.action.edit
     - content.tabs.link
+    - content.tooltips
     - search.suggest
     - search.highlight
     - search.share
@@ -83,7 +84,9 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - abbreviations.md
   - pymdownx.highlight
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -158,13 +161,14 @@ nav:
       - Observational Data for Evaluation: model_evaluation/data/observations.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
-      # - Frameworks on Gadi:
+      - conda/analysis3 Python Environment: getting_started/environments.md
       - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
       - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
+      - Evaluation Recipes: 
+        - model_evaluation/evaluation_on_gadi/recipes/index.md
+        - COSIMA Cookbook: model_evaluation/evaluation_on_gadi/recipes/cosima.md
       - ACCESS-Vis: model_evaluation/evaluation_on_gadi/access_vis.md
-      - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
       - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
-      - METplus: model_evaluation/evaluation_on_gadi/metplus.md
     - Additional Resources:
       - Additional Resources: model_evaluation/community_med/index.md
       - Observational Catalogues: model_evaluation/community_med/community_observational_catalogs.md
@@ -256,3 +260,4 @@ extra_javascript:
 watch:
   - mkdocs.yml
   - overrides/
+  - abbreviations.md

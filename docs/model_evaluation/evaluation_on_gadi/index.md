@@ -2,60 +2,115 @@
 
 Model evaluation is about measuring how fit for purpose a particular model is. Model evaluation in climate science is the process of assessing the performance and reliability of computational models that simulate the Earth's climate system. It involves comparing model predictions to observed data to determine the model's accuracy and usefulness. In doing so, we can understand how well a model represents real-world climate processes and make predictions about future climate trends. Such rigorous model evaluation allows scientists to identify model strengths, weaknesses and uncertainties, as well as refine models to enhance their predictive capabilities. 
 
-## What is Model Evaluation and Diagnostics?
+## Data workflows
+FAIR (Findable, Accessible, Interoperable and Reusable) data is required for model evaluation. 
+Some of these evaluation workflows use data tools and catalogues outlined in the [ACCESS data](/model_evaluation/data) section.
+[ACCESS-MOPPy](https://access-moppy.readthedocs.io/en/latest/) can also be integrated with these evaluation frameworks on _Gadi_.
+[Observations](/model_evaluation/data/observations) have been collated for model evaluation so that they can be ingested directly
+by the frameworks on _Gadi_.
 
-Model Evaluation and Diagnostics (often shortened to "MED" at ACCESS-NRI) of ACCESS models includes:
-
-- **Evaluation**<br>
-    Model evaluation involves scrutinising a model's performance by comparing its output with observations. It also includes experiment comparisons, model testing with different scenarios and inter-model comparisons such as those used to prepare for Coupled Model Intercomparison Project (CMIP) submissions. For further explanations on experiments, see [here](/about/user_support/#frequently-asked-questions-faq).
-
-- **Diagnostics**<br>
-    Model diagnostics is the constant monitoring of model runs to detect any anomalies or inconsistencies. 
-
-
-While evaluation and diagnostics can be described separately they often overlap and can use similar tools. ACCESS-NRI currently provides support for the following model evaluation and diagnostics frameworks on <i>Gadi</i>:
+## Use on Gadi
+Model evaluation is tipically carried out using _Python_. Therefore, scientists need suitable _Python_ environments for their workflows, which need to be managed and maintained with the required dependencies for open source and developing software.
+ACCESS-NRI supports the `conda/analysis3` environment in the `xp65` NCI project which includes commonly used _Python_ libraries and have these evaluation frameworks already installed.
 
 <div class="card-container">
-    <a href="/model_evaluation/evaluation_on_gadi/esmvaltool_workflow" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/logo_esmvaltool.png" alt="ESMValTool" class="img-cover"></img>
-        </div>
-        <!--<div class="card-text-container bold">ESMValTool</div> -->
-    </a>
-    <a href="/model_evaluation/evaluation_on_gadi/ilamb_workflow" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/logo_ilamb.png" alt="ILAMB" class="img-cover"></img>
-        </div>
-        <!-- <div class="card-text-container bold">ILAMB</div> -->
-    </a>
-    <a href="/model_evaluation/evaluation_on_gadi/access_vis" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="/assets/model_evaluation/clouds.png" alt="CloudsGlobe" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold">ACCESS-Vis</div>
-    </a>
-    <a href="/model_evaluation/evaluation_on_gadi/cosima" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/logo_cosima.png" alt="Pangeo/COSIMA" class="img-cover"></img>
-        </div>
-        <div class="card-text-container bold">COSIMA cookbook</div>
-    </a>
-    <a href="/model_evaluation/evaluation_on_gadi/model_live_diagnostics" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Model Live Diagnostics" class="img-contain white-background"></img>
-        </div>
-        <div class="card-text-container bold">Model Live Diagnostics</div>
-    </a>
-    <a href="/model_evaluation/evaluation_on_gadi/metplus" class="vertical-card aspect-ratio2to1">
-        <div class="card-image-container">
-            <img src="../../assets/model_evaluation/METplus_logo.png" alt="METplus" class="img-contain white-background"></img>
-        </div>
-        <!-- <div class="card-text-container bold">METplus</div> -->
-    </a>
-    <a href="/getting_started/environments" class="vertical-card aspect-ratio2to1">
+    <a href="/getting_started/environments" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/python_logo.png" alt="Python environment" class="img-contain white-background" ></img>
         </div>
         <div class="card-text-container bold">conda/analysis3 Environment</div>
     </a>
 </div>
+
+## Evaluation Frameworks
+
+ACCESS-NRI currently provides support for the following model evaluation frameworks on _Gadi_:
+
+<div class="card-container">
+    <a href="/model_evaluation/evaluation_on_gadi/esmvaltool_workflow" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="../../assets/model_evaluation/logo_esmvaltool.png" alt="ESMValTool" class="img-cover"></img>
+        </div>
+        <div class="card-text-container">
+            <!-- <span class="bold" >ESMValTool</span> -->
+            <span>
+                Earth System Model eValuation Tool framework supported via <i>conda/analysis3</i>
+            </span>
+        </div>
+    </a>
+    <a href="/model_evaluation/evaluation_on_gadi/ilamb_workflow" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="../../assets/model_evaluation/logo_ilamb.png" alt="ILAMB" class="img-cover"></img>
+        </div>
+        <div class="card-text-container">
+            <!-- <span class="bold" >ILAMB</span> -->
+            <span>
+                International Land Model Benchmarking framework supported via <i>conda/analysis3</i>
+            </span>
+        </div>
+    </a>
+</div>
+
+## Evaluation recipes
+These recipes provide workflows to reproduce diagnostics calculations and analysis visualisations of model outputs. 
+This allows scientists to construct their own evaluation workflows by building upon existing community workflows.
+
+They can use any _Python_ library, including leveraging evaluation frameworks APIs.
+Diagnostic calculations can be ported between using common or scientific libraries and evaluation frameworks
+depending on a user's preference and familiarity with them. 
+An advantage of using standard frameworks includes possibility to scale the analyses by running them in on multiple different datasets. 
+This is a principle for the development of the [Rapid Evaluation Framework(REF)](https://dashboard.climate-ref.org/) for CMIP7.
+
+<div class="card-container">
+    <a href="/model_evaluation/evaluation_on_gadi/recipes" class="horizontal-card">
+        <div class="card-image-container">
+            <img class="white-background" src="/assets/model_evaluation/esmvaltool/fig-9-8.png" alt="Near surface temperature">
+        </div>
+        <div class="card-text-container bold">
+            <span class="bold">Evaluation recipes</span>
+            <span>
+                A collection of shared repositories with community recipes.
+            </span>
+        </div>
+    </a>
+</div>
+
+### Contributing to recipes and diagnostics
+All evaluation recipes on community papers are open for contribution. To contribute to a specific evaluation framework or recipe, follow the contribution guidelines in its GitHub repository.<br>
+General steps include:
+
+1. Opening an issue in the relevant repository to discuss your idea
+2. Submitting a Pull Request to add your recipe, documentation, and links 
+
+### Support
+To get further support on Model Evaluation on _Gadi_, refer to [User support](/about/user_support/) and reach out on
+[ACCESS-Hive Forum](https://forum.access-hive.org.au/)
+
+
+## More Evaluation Tools
+
+<div class="card-container">
+    <a href="/model_evaluation/evaluation_on_gadi/access_vis" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/clouds.png" alt="CloudsGlobe" class="img-cover"></img>
+        </div>
+        <div class="card-text-container">
+            <span class="bold">ACCESS-Vis</span>
+            <span>
+                A package for advanced visualisations, including interactive 3D climate data visualisations
+            </span>
+        </div>
+    </a>
+    <a href="/model_evaluation/evaluation_on_gadi/model_live_diagnostics" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Model Live Diagnostics" class="img-contain white-background"></img>
+        </div>
+        <div class="card-text-container">
+            <span class="bold">Model Live Diagnostics</span>
+            <span>
+                A framework to monitor, visualise and evaluate the behaviour of models in real time.
+            </span>
+        </div>
+    </a>
+</div>
+
