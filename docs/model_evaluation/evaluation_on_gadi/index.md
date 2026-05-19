@@ -34,7 +34,7 @@ ACCESS-NRI currently provides support for the following model evaluation framewo
         <div class="card-text-container">
             <!-- <span class="bold" >ESMValTool</span> -->
             <span>
-                Earth System Model eValuation Tool framework supported on Gadi via analysis3
+                Earth System Model eValuation Tool framework supported via <i>conda/analysis3</i>
             </span>
         </div>
     </a>
@@ -45,7 +45,7 @@ ACCESS-NRI currently provides support for the following model evaluation framewo
         <div class="card-text-container">
             <!-- <span class="bold" >ILAMB</span> -->
             <span>
-                International Land Model Benchmarking framework supported on Gadi via analysis3
+                International Land Model Benchmarking framework supported via <i>conda/analysis3</i>
             </span>
         </div>
     </a>

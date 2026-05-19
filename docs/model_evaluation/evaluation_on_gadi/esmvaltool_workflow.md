@@ -2,7 +2,7 @@
 
 ## What is ESMValTool?
 
-The Earth System Model Evaluation Tool (ESMValTool) is a tool developed for evaluation of Earth System Models in CMIP (Climate Model Intercomparison Projects). It allows for routine comparison of single or multiple models, either against predecessor versions or against observations. ESMValTool is a community-developed climate model diagnostics and evaluation software package, driven both by computational performance and scientific accuracy and reproducibility. It is open to both users and developers, encouraging open exchange of diagnostic source code and evaluation results from the CMIP ensemble of models. 
+The Earth System Model Evaluation Tool (ESMValTool) is a tool developed for evaluation of Earth System Models in CMIP. It allows for routine comparison of single or multiple models, either against predecessor versions or against observations. ESMValTool is a community-developed climate model diagnostics and evaluation software package, driven both by computational performance and scientific accuracy and reproducibility. It is open to both users and developers, encouraging open exchange of diagnostic source code and evaluation results from the CMIP ensemble of models. 
 
 For more information, refer to the official [ESMValTool documentation](https://docs.esmvaltool.org/en/latest).
 
@@ -29,10 +29,10 @@ Depending on your needs, you may want to also join the following supported data 
 
 ###  Using ESMValTool in a PBS job
 
-_ESMValTool_ YAML recipes should be run as a script within a [PBS job](https://opus.nci.org.au/display/Help/4.+PBS).
+_ESMValTool_ YAML recipes should be run within a [PBS job](https://opus.nci.org.au/display/Help/4.+PBS).
 
 _ESMValTool_ is provided on _Gadi_ within the `conda/analysis3` environment.
-See [use the environment in a pbs job](/getting_started/environments#use-the-environment-within-a-pbs-job) which you can use to set up a _pbs_ job to run a recipe.
+See [use the environment in a PBS job](/getting_started/environments#use-the-environment-within-a-pbs-job).
 
 To be able to use the `esmvaltool` command, load the `conda/analysis3` environment by adding:
 ```
@@ -40,7 +40,7 @@ module use /g/data/xp65/public/modules
 module load conda/analysis3
 ```
 
-Within the _pbs_ job script you can use the `run` command to run a recipe:
+Within the _PBS_ job script you can use the `run` command to run a recipe:
 ```
 esmvaltool run examples/recipe_python.yml
 ```
@@ -49,7 +49,7 @@ See the [ESMValTool running documentation page](http://docs.esmvaltool.org/proje
 
 ### Using ESMValCore API in a Jupyter notebook
 
-While _ESMValTool_ is used as a term to include both _ESMValTool_ and _ESMValCore_ packages together, they are separate packages. _ESMValCore_ is the software package which provides the core functionality for _ESMValTool_, such as finding CMIP data and applying commonly-used preprocessing functions, and can be used without _ESMValTool_. 
+While _ESMValTool_ is used as a term to include both _ESMValTool_ and _ESMValCore_ packages together, though they are separate packages. _ESMValCore_ is the software package which provides the core functionality for _ESMValTool_, such as finding CMIP data and applying commonly-used preprocessing functions, and can be used without _ESMValTool_. 
 
 The example below shows how to use _ESMValCore_ API within a Jupyter notebook.
 
@@ -76,7 +76,7 @@ ensemble_datasets = list(dataset_search.from_files())
 print([ds['ensemble'] for ds in ensemble_datasets])
 ```
 
-To load the desired dataset you can use the `.load()` method:
+To load the first ensemble from the desired datasets you can use the `.load()` method:
 
 ```python
 dataset = ensemble_datasets[0]
@@ -106,7 +106,7 @@ See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/lates
 
 From version 2.12, ESMValTool looks for its configuration files in the `~/.config/esmvaltool` directory.
 
-To copy a custom _ESMValTool_ configuration file to this default directory you can use the `esmvaltool config copy` command.
+To copy an example _ESMValTool_ configuration file to this default directory you can use the `esmvaltool config copy` command.
 You can list available example configuration files with `esmvaltool config list`. <br>
 For example, to copy the custom configuration `defaults/config-user.yml` to _ESMValTool_'s default directory you can run:
 
@@ -118,23 +118,24 @@ You can edit configuration files in _ESMValTool's_ default folder to suit your n
 this would be added to the configuration in _conda/analysis3_.
 This environment is pre-configured to access CMIP and observation datasets available on _Gadi_.
 
-For more information on configuration see the [ESMValTool documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
+For more information on configuration see the [ESMValTool configure documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
 
 
-To load your own custom configuration from your esmvaltool configuration folder in an _ARE_ Jupyter notebook you can use:
+To load your own custom configuration from your _ESMValTool_ configuration folder in an _ARE_ Jupyter notebook you can use (You will need to include the full path for your HOME directory in an _ARE_ notebook):
 ``` python
 from esmvalcore.config import CFG
 
-CFG.load_from_dirs(['~/.config/esmvaltool']) # ~ is your HOME directory! (e.g. /home/111/userid)
+CFG.load_from_dirs(['~/.config/esmvaltool']) 
+# ~ is your HOME directory (e.g. /home/111/userid)
 ```
 
 !!! tip
     This will overwrite the _conda/analysis3_ configuration so you will need to have [data sources](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#data-sources) configured to find data. This function takes a list so you can combine multiple configuration directories.<br>
-    You will need to include the full path for HOME in an _ARE_ notebook.
 
 ### Tutorials
 
 For tutorial series and material from previous workshops see [ESMValTool Tutorials](/tutorials/esmvaltool).
+There is also a [tutorial](https://tutorial.esmvaltool.org/) with the ESMValTool organisation which you might find useful though is not taylored for use on _Gadi_.
 
 ## ESMValTool example recipes
 
