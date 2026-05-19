@@ -3,9 +3,9 @@
 *[UM]: Unified Model
 *[ESM]: Earth System Model
 *[CMIP]: Coupled Model Intercomparison Project
-*[CMIP5]: Coupled Model Intercomparison Project 5
-*[CMIP6]: Coupled Model Intercomparison Project 6
-*[CMIP7]: Coupled Model Intercomparison Project 7
+*[CMIP5]: Coupled Model Intercomparison Project Phase 5
+*[CMIP6]: Coupled Model Intercomparison Project Phase 6
+*[CMIP7]: Coupled Model Intercomparison Project Phase 7
 *[AMIP]: Atmospheric Model Intercomparison Project
 *[HPC]: High-Performance Computing
 *[NCI]: (Australian) National Computational Infrastructure
