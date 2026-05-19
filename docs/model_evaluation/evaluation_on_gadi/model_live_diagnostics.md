@@ -7,7 +7,7 @@ _Model Live Diagnostics_ is an easily-accessible Jupyter-notebook-based framewor
 In addition to monitoring a live model, the package also provides the functionality to load, visualise and compare legacy ACCESS model data with the live model.
 
 ???+ warning "Support Level: Supported on _Gadi_, not in active development"
-    Model Live Diagnostics Tool is not in active development and can be used on _Gadi_ provided 3rd party packages are compatible.
+    Model Live Diagnostics Tool is not in active development so support may be slow but can be used on _Gadi_.
 
 Below, we show an example of the Model Live Diagnostics Tool. For more information and tutorials, please visit <a href="https://med-live-diagnostics.readthedocs.io/en/latest/index.html" target="_blank">Model Diagnostics Documentation</a>.
 

@@ -57,7 +57,8 @@ The example below shows how to use _ESMValCore_ API within a Jupyter notebook.
 Start an [ARE Jupyterlab](/getting_started/are/#jupyterlab) session with the [additional settings required by the conda/analysis3 environment](/getting_started/environments#use-the-environment-within-are).
 
 #### Find and load datasets 
-You can find available datasets with the `'*'` wildcard. The example below finds all available ensemble members:
+The example below finds all available ensemble members for the dataset defined. 
+The `'*'` wildcard is used to find all available entries for the `ensemble` facet.
 
 ``` python
 from esmvalcore.dataset import Dataset
@@ -103,31 +104,33 @@ See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/lates
 
 ### Custom ESMValTool configuration
 
-By default from version 2.12, ESMValTool looks for the configuration files in the home directory, inside the `~/.config/esmvaltool` folder.
+From version 2.12, ESMValTool looks for its configuration files in the `~/.config/esmvaltool` directory.
 
-To start, you can get a copy of user configuration file in your default folder.
-Use the `esmvaltool config` commands from the _conda/analysis3_ environment with the following.
+To copy a custom _ESMValTool_ configuration file to this default directory you can use the `esmvaltool config copy` command.
+You can list available example configuration files with `esmvaltool config list`. <br>
+For example, to copy the custom configuration `defaults/config-user.yml` to _ESMValTool_'s default directory you can run:
 
 ```
-module use /g/data/xp65/public/modules
-module load conda/analysis3
-
 esmvaltool config copy defaults/config-user.yml
 ```
 
-You can edit configuration files in your default folder to suit your needs, overwriting the default configuration in _conda/analysis3._
-This environment is pre-configured to access CMIP and observation datasets available on Gadi.
+You can edit configuration files in _ESMValTool's_ default folder to suit your needs, 
+this would be added to the configuration in _conda/analysis3_.
+This environment is pre-configured to access CMIP and observation datasets available on _Gadi_.
+
 For more information on configuration see the [ESMValTool documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
 
 
-To load your own custom configuration from your esmvaltool configuration folder in a Jupyter notebook you can use:
+To load your own custom configuration from your esmvaltool configuration folder in an _ARE_ Jupyter notebook you can use:
 ``` python
 from esmvalcore.config import CFG
-import os
 
-USER=os.environ["USER"]
-CFG.load_from_dirs([f'/{USER}/.config/esmvaltool'])
+CFG.load_from_dirs(['~/.config/esmvaltool']) # ~ is your HOME directory! (e.g. /home/111/userid)
 ```
+
+!!! tip
+    This will overwrite the _conda/analysis3_ configuration so you will need to have [data sources](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#data-sources) configured to find data. This function takes a list so you can combine multiple configuration directories.<br>
+    You will need to include the full path for HOME in an _ARE_ notebook.
 
 ### Tutorials
 
@@ -138,8 +141,6 @@ For tutorial series and material from previous workshops see [ESMValTool Tutoria
 <!-- Explain what the Tiers mean: Tier3 not to be distributed / license issue, Tier2: some restrictions, but can be redistributed while citing papers etc., Tier1: open for everyone -->
 Some _ESMValTool_ example recipes are provided below:
 
-
-<!-- Compare to list from https://github.com/ACCESS-NRI/ESMValTool-workflow/issues/103 -->
 
 <div class="card-container">
     <a href="https://docs.esmvaltool.org/en/latest/recipes/recipe_ipccwg1ar5ch9.html" target="_blank" class="vertical-card aspect-ratio1to1">

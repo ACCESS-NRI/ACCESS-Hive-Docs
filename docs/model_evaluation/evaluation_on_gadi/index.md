@@ -55,9 +55,10 @@ ACCESS-NRI currently provides support for the following model evaluation framewo
 These recipes provide workflows to reproduce diagnostics calculations and analysis visualisations of model outputs. 
 This allows scientists to construct their own evaluation workflows by building upon existing community workflows.
 
-They can use common _python_ libraries, more specifc packages, leverage APIs to work with evaluation frameworks or a combination.
-Diagnostic calculations can be ported between these methods depending on a user's familiarity with them. 
-An advantage of using standard frameworks includes the scalability for bulk running on multiple different datasets. 
+They can use any _Python_ library, including leveraging evaluation frameworks APIs.
+Diagnostic calculations can be ported between using common or scientific libraries and evaluation frameworks
+depending on a user's preference and familiarity with them. 
+An advantage of using standard frameworks includes possibility to scale the analyses by running them in on multiple different datasets. 
 This is a principle for the development of the [Rapid Evaluation Framework(REF)](https://dashboard.climate-ref.org/) for CMIP7.
 
 <div class="card-container">
