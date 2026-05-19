@@ -3,6 +3,7 @@
 NCI not only hosts numerous datasets for climate research, it also manages and optimises curated data collections. Data collections allow for easier access and use of the numerous datasets created by different organisations, optimising evaluation where numerous datasets are used. You can browse and search the available [NCI data collections](https://geonetwork.nci.org.au/).
 
 Some examples of NCI data collections include:
+
 - [Earth Systems Grid Federation](https://esgf.llnl.gov/) data hosted at the [NCI ESGF Node](https://esgf.nci.org.au/projects/esgf-nci/).
 - [ECMWF atmospheric reanalyses (ERA5)](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) data. For more information, refer to the [NCI ERA5 Community Page](https://opus.nci.org.au/display/ERA5/ERA5+Community+Home).
 - [Sentinel Australasia Regional Access (SARA)](https://copernicus.nci.org.au/sara.client/#/home) data obtained from the European Space Agency's multi-petabyte Sentinel satellite.
