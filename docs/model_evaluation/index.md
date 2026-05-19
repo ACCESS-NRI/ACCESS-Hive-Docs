@@ -4,23 +4,23 @@ This section links climate datasets, shared frameworks, diagnostics, and visuali
 Standardisation through the workflows will support reproducible, transparent, scalable, and community-driven evaluation.
 There are catalogues and tools supported on _Gadi_ for the ACCESS community with training resources available.
 
-If you are new to using the Gadi supercomputer, visit the [Set Up your NCI Account](/getting_started/set_up_nci_account) section 
-for instructions on how to get an account, log in, and get set up to access climate data on Gadi. 
-ACCESS-NRI supports and maintains the [conda/analysis3 _Python_ environment](/getting_started/environments){: data-preview } 
+If you are new to using the _Gadi_ supercomputer, visit the [Set Up your NCI Account](/getting_started/set_up_nci_account) section 
+for instructions on how to create an account, log in, and get set up to access climate data on _Gadi_. 
+ACCESS-NRI supports and maintains the [conda/analysis3 _Python_ environment](/getting_started/environments)
 which supports most of the evaluation and data tools described.
 
 ## Connecting Data and Evaluation
-Climate data is at the start of any workflow. Sources include published CMIP(Coupled Model Intercomparison Project), observations,
+Climate data is at the center of any workflow. Sources include published CMIP, observations,
 reanalysis products and climate simulations. They need to be found, preprocessed and standardised for evaluation.
 
 Evaluation **frameworks** provide the structure for running diagnostics, benchmarking simulations,
-and comparing model performance across datasets. They are developed specifically for the climate community to leverage common data processing functions.
+and comparing model performance across datasets. They are developed specifically for the climate community to leverage common data-processing functions.
 The determined structure allows for easier sharing and scalability of common diagnostics.
 
 **Recipes** in this context are a set of instructions that define reusable workflows into a single reproducible analysis pipeline.
-Recipes are often shared in the community for visibility and reuse, helping accelerate collaborative climate science. 
-An individual recipe may take advantage of existing frameworks (e.g ESMValTool, ILAMB)
-or may read data directly from file path and just use major _python_ libraries such as _xarray_ and _numpy_.
+Recipes are often shared in the community for visibility and reusability, helping accelerate collaborative climate science. 
+An individual recipe may take advantage of existing evaluation frameworks (e.g ESMValTool, ILAMB)
+or implement its custom logic by using _Python_ libraries such as _xarray_ and _numpy_.
 
 <div class="card-container">
     <a href="/model_evaluation/data" class="horizontal-card">
@@ -49,13 +49,12 @@ or may read data directly from file path and just use major _python_ libraries s
 
 ### Training Materials
 
-The pages for each tool should have links to further documentation and some tutorials.
-Also see the [Tutorials page](/tutorials/), which includes material from previous workshops and events grouped by model/tool.
+See the [Tutorials page](/tutorials/) for material taken from previous workshops and events grouped by model/tool.<br>
+Each subcategory page has links to further documentation and tutorials.
 
 ### Support and new requests
 
-For infrastructure support and requesting new diagnostics and features
-reach out on the [ACCESS-HIVE Forum](https://forum.access-hive.org.au/), create a topic and tag with `#help`.
+For infrastructure support and to request new diagnostics and features, reach out on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/), create a topic and tag with `#help`.
 See [User support](/about/user_support) for more details.
 
 
