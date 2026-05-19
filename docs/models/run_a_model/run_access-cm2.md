@@ -83,7 +83,7 @@ To open the terminal, click on the black terminal icon at the top of the window.
 ## Set up {{ model }} persistent session
 
 {%
-    include-markdown "/docs/includes/rose_cylc.md"
+    include-markdown "includes/rose_cylc.md"
     start="<!--persistent-session-start-->"
     end="<!--persistent-session-end-->"
 %}
