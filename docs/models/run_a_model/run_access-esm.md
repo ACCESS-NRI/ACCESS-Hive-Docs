@@ -19,7 +19,7 @@
 
 {{ model }} is a fully-coupled global climate model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [{{ model }} overview][model configurations].
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
+The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -34,7 +34,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
+    [MOSRS](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
     To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
     {: #mosrs-account}
 
@@ -451,7 +451,7 @@ project: lg87
     If more than one project is used to run an {{ model }} configuration the `shortpath` option also needs to be uncommented and the path to the desired `/scratch/PROJECT_CODE` directory added.<br>
     This ensures the same `/scratch` location is used for the _laboratory_, regardless of which project is used to run the experiment.
     <br><br>
-    To run {{ model }}, you need to be a member of a project with allocated _Service Units (SU)_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 ### Syncing output data
 

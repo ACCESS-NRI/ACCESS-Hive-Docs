@@ -12,7 +12,7 @@ The <i>COSIMA Cookbook</i> framework focuses on the <a href="/models/access_mode
 
 ## Getting Started
 
-The easiest way to use the _COSIMA Cookbook_ is through the [Australian Research Environment (ARE)](https://are.nci.org.au)" on _Gadi_.<br>
+The easiest way to use the _COSIMA Cookbook_ is through [ARE](https://are.nci.org.au)" on _Gadi_.<br>
 To be able to access _Gadi_ you need to have an NCI account. For more information, check how to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 To use the <i>COSIMA Cookbook</i> in the `conda/analysis3` environment of *xp65*, you need to <a href="https://my.nci.org.au/mancini/project/xp65" target="_blank">join NCI project *xp65*</a>.
