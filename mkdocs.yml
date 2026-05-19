@@ -43,6 +43,7 @@ theme:
     - content.code.annotate
     - content.action.edit
     - content.tabs.link
+    - content.tooltips
     - search.suggest
     - search.highlight
     - search.share
@@ -83,7 +84,9 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - abbreviations.md
   - pymdownx.highlight
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -256,3 +259,4 @@ extra_javascript:
 watch:
   - mkdocs.yml
   - overrides/
+  - abbreviations.md
