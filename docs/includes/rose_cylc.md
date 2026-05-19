@@ -85,6 +85,8 @@ Once the new tab opens, you will see a Desktop with a few folders on the left. C
 
 NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to enable long running processes, like _Cylc_, to stay active even when the user disconnects from _Gadi_.
 
+You will need to start a persistent session in order to run {{ model }}.
+
 It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
 
 Note that persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously.
