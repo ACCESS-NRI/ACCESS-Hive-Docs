@@ -1,6 +1,6 @@
 
 {% set esm1_5_build_config = "https://github.com/ACCESS-NRI/ACCESS-ESM1.5" %}
-{% set spack_setup = "/getting_started/spack" %}
+{% set use_spack = "/getting_started/spack" %}
 [ACCESS models]: /models
 [esm1.5 config]: /models/access_models/access-esm/#access-esm15
 [mom5 component]: /models/model_components/ocean/#mom5
@@ -8,8 +8,8 @@
 [spack-configuration-scopes-documentation]: https://spack.readthedocs.io/en/latest/configuration.html#configuration-scopes
 
 !!! danger
-    This page is tailored to experienced users and collaborators developing ACCESS models.<br>
-    This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
+    This page is for users needing to change the source code and recompile ACCESS models.<br>
+    This step is *not* required if you *only* want to run an ACCESS released model configuration. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
 # Modify and build an ACCESS model's source code
 
@@ -17,7 +17,7 @@
 
 The following instructions outline how to build an ACCESS model and its dependencies, using the build-from-source package manager [Spack](https://spack.readthedocs.io).<br>
 
-These instructions may suit more advanced users who are making iterative changes and need to repeatedly modify the source code, recompile it and run tests. This option also requires setting up a Spack build environment.<br>
+These instructions may suit users who are making iterative changes and need to repeatedly modify the source code, recompile it and run tests. This option also requires setting up a Spack build environment.<br>
 If you want to modify and build a model, while maintaining a clear record of your changes and being able to share the modified builds with others, refer to [Create Prereleases and Releases for an ACCESS Model](/models/build_a_model/create_a_prerelease) instead.
 
 The build workflow described in this page is specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
@@ -33,29 +33,15 @@ As an example, in the following instructions we will show how to modify [MOM5 co
   Before building a model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_Spack_**<br>
-  To set up _Spack_ on _Gadi_, refer to [Set up Spack for building ACCESS models]({{spack_setup}}).
-
-## Navigate into your Spack directory
-Navigate into the directory where you cloned the _Spack_ repositories during the [Spack setup]({{spack_setup}}).<br>
-The suggested directory is `/g/data/$PROJECT/$USER/spack/1.1`:
-```
-cd /g/data/$PROJECT/$USER/spack/1.1
-```
+  To use _Spack_ on _Gadi_, refer to [How to use Spack on Gadi for building ACCESS models]({{use_spack}}).
 
 ## Enable spack
 
-!!! warning
-    For this step, it is recommended to use a new login _Bash_ shell environment to avoid conflicting environment variables.
-    Additionally, this step must be repeated for every new login or new shell session.
-
-To add the `spack` command to your shell, as well as other settings, run:
+To use _Spack_, run:
 ```
-module purge
-. spack-config/spack-enable.bash
+module use /g/data/vk83/modules
+module load spack
 ```
-
-!!! warning
-    There is a space between the `.` and the path to the file, as we are [sourcing](https://tldp.org/HOWTO/Bash-Prompt-HOWTO/x237.html#:~:text=When%20a%20file%20is%20sourced,the%20file%20they%20are%20in.) the file.
 
 ## Create a Spack development environment
 
@@ -65,7 +51,7 @@ _Spack_ [managed environments](https://spack.readthedocs.io/en/latest/environmen
 {: id="spack-environment-folder"}
 
 !!! warning
-    _Spack_ managed environments' location can be changed within _Spack_ configuration files and the directory specified above represents the default location for a _Spack_ instance that has been set up following the [Spack setup instructions]({{spack_setup}}).
+    _Spack_ managed environments' location can be changed within _Spack_ configuration files and the directory specified above represents the default location for a _Spack_ instance that has been set up following the [Spack setup instructions]({{use_spack}}).
 
 ### Create the environment
 
@@ -110,7 +96,7 @@ By default, spack installations will checkout the latest from the default branch
 To exactly match the version of spack packages to the released model, checkout the version (e.g. `2025.03.006`) defined in [ACCESS-ESM1.5 Spack deployment]({{esm1_5_build_config}}/blob/-/config/versions.json):
 
 ```
-cd /g/data/$PROJECT/$USER/spack/0.22/spack-packages
+cd /g/data/$PROJECT/$USER/spack/1.1/spack-packages
 git fetch --unshallow
 git switch -c <spack_packages_version> <spack_packages_version>
 ```
@@ -660,9 +646,9 @@ spack install
 ## Output directory for compiled packages
 
 !!! tip
-    For the _Spack_ instance obtained through the [Spack setup instructions]({{spack_setup}}), `$spack`(referred to as `$(prefix)` in [_Spack_ configuration scopes documentation][spack-configuration-scopes-documentation]) corresponds to the `/g/data/$PROJECT/$USER/spack/1.1/spack` directory.
+    For the _Spack_ instance obtained through the [Spack setup instructions]({{use_spack}}), `$spack`(referred to as `$(prefix)` in [_Spack_ configuration scopes documentation][spack-configuration-scopes-documentation]) corresponds to the `/g/data/$PROJECT/$USER/spack/1.1/spack` directory.
 
-For the Spack instance obtained through the [Spack setup instructions]({{spack_setup}}), all compiled packages will be placed in directories having the following format: `<install_tree.root>/<architecture>/<compiler.name>-<compiler.version>/<name>-<version>-<hash>`.
+For the Spack instance obtained through the [Spack setup instructions]({{use_spack}}), all compiled packages will be placed in directories having the following format: `<install_tree.root>/<architecture>/<compiler.name>-<compiler.version>/<name>-<version>-<hash>`.
 
 `<install_tree.root>` depends on the [`install_tree.root`](https://spack.readthedocs.io/en/latest/config_yaml.html#install-tree-root) configuration field. _Spack_ reads this configuration field from files in several directories, following [Spack's configuration scopes][spack-configuration-scopes-documentation].
 
