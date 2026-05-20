@@ -1,7 +1,7 @@
 # Community Model Evaluation and Diagnostics (MED) Recipe Gallery
 
 ???+ danger "Support Level: NOT supported by ACCESS-NRI"
-    Here, we collate lists of useful resources for MED. Contrary to the supported content of our [ACCESS-NRI Model Evaluation pages](/model_evaluation), the information below is not supported by ACCESS-NRI unless stated otherwise.
+    Here, we collate lists of useful resources for model evaluation and diagnostics. Contrary to the supported content of our [ACCESS-NRI Model Evaluation pages](/model_evaluation), the information below is not supported by ACCESS-NRI unless stated otherwise.
 
 While this is a continous effort, this site is intented for a list of model evaluation and diagnostics recipes that are not (yet) ingested but may be interesting for the community:
 
