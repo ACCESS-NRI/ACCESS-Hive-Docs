@@ -112,7 +112,7 @@ Compiling all the packages present in a _Spack_ environment is referred to as [i
 
 To concretize the `mom5_dev` environment, run:
 ```
-spack concretize -f --reuse-deps
+spack concretize -f
 ```
 
 !!! warning
@@ -125,7 +125,7 @@ spack concretize -f --reuse-deps
 
 <terminal-window lineDelay=0>
   <terminal-line data="input" lineDelay=200 directory="[mom5_dev]" class="spack">
-    spack concretize -f --reuse-deps
+    spack concretize -f
   </terminal-line>
   <terminal-line lineDelay=2000>
     <span class="spack-indigo bold">\==></span> Concretized access-esm1p5@git.2024.05.1=2024.05.1
@@ -504,7 +504,7 @@ spack:
 After setting a development package the _Spack_ environment needs to be re-concretized (because the `spack.yaml` file changed). The _Spack_ environment can be concretized following the same steps listed in [Concretize the Spack environment](#concretize-the-spack-environment). Then, the new package can be built following the steps listed in [Compile Spack environment packages](#compile-spack-environment-packages-optional):
 
 ```
-spack concretize -f --reuse-deps
+spack concretize -f
 spack install
 ```
 !!! warning
@@ -517,7 +517,7 @@ spack install
 
 <terminal-window lineDelay=0>
   <terminal-line data="input" lineDelay=200 directory="[mom5_dev]" class="spack">
-    spack concretize -f --reuse-deps
+    spack concretize -f
   </terminal-line>
   <terminal-line lineDelay=2000>
     <span class="spack-indigo bold">\==></span> Concretized access-esm1p5@git.2024.05.1=2024.05.1
