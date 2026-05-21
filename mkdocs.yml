@@ -113,7 +113,7 @@ nav:
     - Set Up your NCI Account: getting_started/set_up_nci_account.md
     - Australian Research Environment (ARE): getting_started/are.md
     - conda/analysis3 Python Environment: getting_started/environments.md
-    - Set up Spack for building ACCESS models: getting_started/spack.md
+    - How to use Spack on Gadi for building ACCESS models: getting_started/spack.md
 
   - Models:
     - models/index.md
