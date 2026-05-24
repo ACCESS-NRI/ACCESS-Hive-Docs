@@ -51,7 +51,7 @@ _Spack_ [managed environments](https://spack.readthedocs.io/en/latest/environmen
 {: id="spack-environment-folder"}
 
 !!! warning
-    _Spack_ managed environments' location can be changed within _Spack_ configuration files and the directory specified above represents the default location for a _Spack_ instance that has been set up following the [Spack setup instructions]({{use_spack}}).
+    _Spack_ managed environments' location can be changed within _Spack_ configuration files and the directory specified above represents the default location chosen by ACCESS-NRI.
 
 ### Create the environment
 
@@ -645,10 +645,7 @@ spack install
 
 ## Output directory for compiled packages
 
-!!! tip
-    For the _Spack_ instance obtained through the [Spack setup instructions]({{use_spack}}), `$spack`(referred to as `$(prefix)` in [_Spack_ configuration scopes documentation][spack-configuration-scopes-documentation]) corresponds to the `/g/data/$PROJECT/$USER/spack/1.1/spack` directory.
-
-For the Spack instance obtained through the [Spack setup instructions]({{use_spack}}), all compiled packages will be placed in directories having the following format: `<install_tree.root>/<architecture>/<compiler.name>-<compiler.version>/<name>-<version>-<hash>`.
+All compiled packages will be placed in directories having the following format: `<install_tree.root>/<architecture>/<compiler.name>-<compiler.version>/<name>-<version>-<hash>`.
 
 `<install_tree.root>` depends on the [`install_tree.root`](https://spack.readthedocs.io/en/latest/config_yaml.html#install-tree-root) configuration field. _Spack_ reads this configuration field from files in several directories, following [Spack's configuration scopes][spack-configuration-scopes-documentation].
 
