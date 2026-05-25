@@ -22,6 +22,7 @@ on:
   workflow_dispatch: # Action can also be triggered manually
 env:
   TZ: Australia/Canberra
+  PIP_UPLOADED_PRIOR_TO: P7D
   DOC_DIR: '.' # MODIFY IF NEEDED - Directory where the mkdocs.yml file is located relative to the repository root
   BUILD_DEVELOPMENT_WEBSITE: true # MODIFY IF NEEDED - Set to 'true' to build also the development website from the 'development' branch
   BUILD_DIR: ${{ github.workspace }}/website-build
