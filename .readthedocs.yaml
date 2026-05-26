@@ -21,6 +21,10 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
+  jobs:
+    post_create_environment:
+      - mkdir -p "$HOME/.config/pip"
+      - printf "[global]\nuploaded-prior-to = P7D\n" > "$HOME/.config/pip/pip.conf"
   # jobs:
     # post_checkout: # MODIFY IF NEEDED: uncomment to cancel the RTD build
     #   - exit 183
