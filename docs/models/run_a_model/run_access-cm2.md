@@ -21,7 +21,7 @@
 %}
 A full description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
-{{ model }} is run using the Rose/Cylc workflow management tool on the Gadi supercomputer. Follow the steps below to set up and run the model.
+{{ model }} runs using the Rose/Cylc workflow management tool on the Gadi supercomputer. Follow the steps below to set up and run the model.
 
 ## Prerequisites
 
