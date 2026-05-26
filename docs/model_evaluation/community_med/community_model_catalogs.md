@@ -1,7 +1,7 @@
 # Community Model Data Catalogues
 
 ???+ danger "Support Level: NOT supported by ACCESS-NRI"
-    Here, we collate lists of useful resources for Model Evaluation and Diagnostics (MED). Contrary to the supported content of our [ACCESS-NRI Model Evaluation pages](/model_evaluation), the information below is not supported by ACCESS-NRI unless stated otherwise.
+    Here, we collate lists of useful resources for model evaluation and diagnostics. Contrary to the supported content of our [ACCESS-NRI Model Evaluation pages](/model_evaluation), the information below is not supported by ACCESS-NRI unless stated otherwise.
 
 
 Please let us know, if we are missing an important catalogue. Check [How To Contribute](/about/contribute) to get in touch.
@@ -83,7 +83,7 @@ Please let us know, if we are missing an important catalogue. Check [How To Cont
 </td>
 <td width="75%">
     <div align='center' width="100%" >
-        The Intake-Ilamb catalog provides an yaml-style intake catalogue of the reference data used for ESM model benchmarking in the International Land Model Benchmarking <a href="https://www.ilamb.org/" target="_blank">(ILAMB)</a> effort.
+        The Intake-Ilamb catalog provides a yaml-style intake catalogue of the reference data used for ESM model benchmarking in <a href="https://www.ilamb.org/" target="_blank">ILAMB</a>.
     </div>
 </td>
 </tr>

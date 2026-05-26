@@ -4,12 +4,13 @@ hide:
   - toc
 ---
 
-<h1 class="homepage"></h1>
+#
+
 <div class="introduction">
     <div>
         <div>Welcome to ACCESS-Hive Docs!</div>
         <div>
-            Documentation for ACCESS users: getting set up, running models and model evaluation
+            Documentation for <abbr title="Australian Community Climate and Earth System Simulator">ACCESS</abbr> users: getting set up, running models and model evaluation
         </div>
     </div>
     <div>

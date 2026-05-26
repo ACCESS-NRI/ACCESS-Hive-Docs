@@ -16,7 +16,7 @@ It produces physical climate simulations.
 !!! danger
     ACCESS-NRI does not maintain an official {{model}} release, but we continue to support the community in using this model where possible.
 
-[ACCESS-CM2](https://www.publish.csiro.au/es/ES19040) [@Bi2020] was initially developed by [CSIRO](https://www.csiro.au/) and is one of Australia’s contributions to the World Climate Research Programme’s [Coupled Model Intercomparison Project Phase 6 (CMIP6)](https://wcrp-cmip.org/cmip6/).
+[ACCESS-CM2](https://www.publish.csiro.au/es/ES19040) [@Bi2020] was initially developed by [CSIRO](https://www.csiro.au/) and is one of Australia’s contributions to the World Climate Research Programme’s [CMIP6](https://wcrp-cmip.org/cmip6/).
 
 ### Model components
 - **Atmosphere**: [UM10.6](/models/model_components/atmosphere#unified-model-um), GA7.1 science configuration.<br>

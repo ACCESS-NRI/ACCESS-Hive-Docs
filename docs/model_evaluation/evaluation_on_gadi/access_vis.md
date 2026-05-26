@@ -10,8 +10,11 @@ The [ACCESS Visualisation Recipes](https://github.com/ACCESS-NRI/ACCESS-Visualis
 hosts a collection of visualisation workflows developed for the ACCESS community. 
 These recipes help users easily visualise and analyse climate model data using ACCESS-Vis. The resources were developed by [Owen Kaluza](https://www.access-nri.org.au/person/owen-kaluza/) at ACCESS-NRI.
 
+<video width="500" autoplay loop muted playsinline>
+  <source src="/assets/model_evaluation/vis/earth_rotating.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-![Heights of Land and Depth of Oceans](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/earth_rotating.gif?raw=true)
 
 
 ## Use ACCESS-Vis on Gadi
@@ -37,13 +40,17 @@ pip install accessvis
 #### Plot Ozone Concentration
 [This example](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/Examples/annual_maximum_ozone.ipynb) shows how to visualise the maximum ozone concentration for each year (both historical and predicted). 
 
-![Max Ozone Hole](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/max_ozone_level.gif?raw=true)
+<video width="500" autoplay loop muted playsinline>
+  <source src="/assets/model_evaluation/vis/max_ozone_level.mp4" type="video/mp4">
+</video>
 
 #### Change the Earth and Sun Based on Time
 
 [This example](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/02-Sun-And-Seasons.ipynb) shows how to visualise the change in sun position, ice cover and greenery based on the time of day/year.
 
-![Sun and Seasons](https://github.com/ACCESS-NRI/ACCESS-Visualisation-Recipes/blob/main/assets/gallery/seasons.gif?raw=true)
+<video width="500" autoplay loop muted playsinline>
+  <source src="/assets/model_evaluation/vis/seasons.mp4" type="video/mp4">
+</video>
 
 
 <custom-references>
