@@ -27,8 +27,8 @@ A full description of the model and its components is available in the [{{ model
 
 {%
     include-markdown "includes/rose_cylc.md"
-    start="<!--nci-and-mosrs-acount-start-->"
-    end="<!--nci-and-mosrs-acount-end-->"
+    start="<!--nci-and-mosrs-account-start-->"
+    end="<!--nci-and-mosrs-account-end-->"
 %}
 
 - **Join NCI projects**<br>
