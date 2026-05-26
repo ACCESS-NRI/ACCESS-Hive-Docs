@@ -12,15 +12,24 @@
     If you were an _accessdev_ user, make sure you are a member of [hr22](https://my.nci.org.au/mancini/project/hr22/join) and [ki32](https://my.nci.org.au/mancini/project/ki32/join) projects.<br>
     Then, refer to instructions on how to [Set up persistent session workflow for {{ model }}]({{ '#set-up-%s-persistent-session'%model.lower() }}), and how to [port suites from accessdev](#port-suites-from-accessdev).
 
+## About
+
+{%
+    include-markdown "models/access_models/access-cm.md"
+    start="<!--cm2-description-start-->"
+    end="<!--cm2-description-end-->"
+%}
+A full description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
+
+{{ model }} is run using the Rose/Cylc workflow management tool on the Gadi supercomputer. Follow the steps below to set up and run the model.
+
 ## Prerequisites
 
-- **NCI Account**<br> 
-    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
-
-- **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
-    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
-    {: #mosrs-account}
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--nci-and-mosrs-acount-start-->"
+    end="<!--nci-and-mosrs-acount-end-->"
+%}
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
@@ -41,44 +50,24 @@
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
-- **Connection to an ARE VDI Desktop (optional)**<br>
-    To run {{ model }}, start an [Australian Research Environment (ARE) VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
-    If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
+## Connecting to Gadi
 
-## Set up an ARE VDI Desktop (optional)
-To skip this step and instead run {{ model }} from _Gadi_ login node, refer to instructions on how to [Set up {{ model }} persistent session]({{ '#set-up-%s-persistent-session'%model.lower() }}).
-
-### Launch ARE VDI Session
-Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
-
-- **Walltime (hours)** &rarr; `2`<br>
-    This is the amount of time the ARE VDI session will stay active for.<br>
-    {{ model }} does not run directly on ARE.<br>
-    This means that the ARE VDI session only needs to carry out setup steps as well as starting the run itself. All these tasks can be done within 2 hours.
-    
-- **Queue** &rarr; `normalbw`
-    
-- **Compute Size** &rarr; `tiny` (1 CPU)<br>
-    As mentioned above, the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
-
-- **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
-    For more information, refer to how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--connecting-to-gadi-until-vdi-storage-start-->"
+    end="<!--connecting-to-gadi-until-vdi-storage-end-->"
+%}
 
 - **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
     Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than `access`, `xp65`, `hr22` or `ki32`, you need to add those projects to the storage path.<br>
     For example, if your {{ model }} simulation requires data stored in `/g/data/tm70` and `/scratch/w40`, your full storage path will be: `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32+gdata/tm70+scratch/w40`
-    
-Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
-![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
-
-### Open the terminal in the VDI Desktop
-Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
-To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
-
-![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--connecting-to-gadi-after-vdi-storage-start-->"
+    end="<!--connecting-to-gadi-after-vdi-storage-end-->"
+%}
 
 ## Set up {{ model }} persistent session
 

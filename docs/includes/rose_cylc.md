@@ -16,6 +16,8 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 
 ## Prerequisites
 
+<!--nci-and-mosrs-account-start-->
+
 - **NCI account**<br>
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
@@ -27,6 +29,8 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
     !!! warning
         The waiting time to obtain a MOSRS account can be up to 3 weeks.
 
+<!--nci-and-mosrs-account-end-->
+
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
@@ -35,6 +39,8 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 
 
 ## Connecting to Gadi
+
+<!--connecting-to-gadi-until-vdi-storage-start-->
 
 You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node) or via an [ARE VDI session](#launch-are-vdi-desktop). 
 
@@ -65,8 +71,12 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
 - **Project** &rarr; a project of which you are a member.<br>
     The project must have allocated [_Service Units (SU)_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...). By default, this will be set to your default project `$PROJECT`.
 
+<!--connecting-to-gadi-until-vdi-storage-end-->
+
 - **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
+
+<!--connecting-to-gadi-after-vdi-storage-start-->
 
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
@@ -77,6 +87,8 @@ Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 Once the new tab opens, you will see a Desktop with a few folders on the left. Click the terminal icon at the top of the window to open a terminal. You should now be connected to a _Gadi_ computing node. Use this terminal for all subsequent steps in this guide.
 
 ![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
+
+<!--connecting-to-gadi-after-vdi-storage-end-->
 
 
 ## Set up a persistent session
