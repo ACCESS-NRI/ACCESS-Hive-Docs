@@ -1,3 +1,5 @@
+# Code of conduct
+
 This Code of Conduct outlines our behaviour expectations as members of the ACCESS-NRI community in all our activities both offline and online. ACCESS-NRI is committed to building a community and creating a welcoming, supportive, safe and inclusive environment for all of our members. Everyone’s participation is contingent upon following these guidelines in all activities managed by the NRI including, but not limited to:
 
 Conferences, workshops, work meetings and webinars
