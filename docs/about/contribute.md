@@ -3,25 +3,44 @@
 
 # Contribute to ACCESS-Hive Docs
 
-We welcome contributions from the entire ACCESS Community. Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone.
+ACCESS-Hive Docs is a resource for the Australian Community Climate and Earth System Simulator (ACCESS) community. We welcome all kinds of contributions! Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone.
 
 !!! tip
-    You don't need to edit the documentation yourself to contribute.
+    You don't need to edit the documentation yourself to contribute. Simply reporting an issue or suggesting an improvement is a valuable and appreciated contribution.
 
-Simply reporting an issue or suggesting an improvement is already a valuable and appreciated contribution.
 
 ## How to contribute
 
-This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of [MkDocs](https://www.mkdocs.org/) static site generator. There are two main ways to contribute:
+There are three ways to contribute:
 
-1. **Suggest a change or report a problem** by [opening an issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
-2. **Edit a page directly** using the edit (pencil) icon on the top right.
+1. **[Suggest a change or report a problem](#1-suggest-a-change-or-report-a-problem)** by [opening a GitHub issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
+2. **[Edit a page directly (via pencil icon)](#2-edit-a-page-directly)** - quick fixes to a single page
+3. **[Larger changes](#3-larger-changes)** - new pages, restructuring, or multi-file edits
 
 Both are equally welcome - feel free to choose whichever works best for you.
 
+!!! info "GitHub account required" 
+    All contribution paths require a GitHub account — [sign up for free](https://github.com) if you don't have one.
+
 ### 1. Suggest a change or report a problem
 
-If you notice something that could be improved, you can [open an issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose) to let us know.
+The easiest way to contribute is to [open a GitHub issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
+
+<div class="card-container">
+    <a href="{{hive_docs_repo}}/issues/new?assignees=&labels=External&projects=&template=simple-issue-template.md&title=" class="horizontal-card" target="_blank">
+        <div class="card-image-container">
+            <img class="img-contain white-background" src="/assets/how-to-contribute-img.jpg">
+        </div>
+        <div class="card-text-container with-padding">
+            <div class="bold">
+                Raise a GitHub Issue!
+            </div>
+            <span class="with-padding">
+                Suggest an idea, propose bug fixes, or flag missing content by raising a GitHub issue. 
+            </span>
+        </div>
+    </a>
+</div>
 
 This is a great option if you:
 
@@ -30,12 +49,22 @@ This is a great option if you:
 - Have an idea for improvement.
 - Don't want to edit the page yourself.
 
-Once submitted, the ACCESS-NRI team (or other contributors) would be happy to take it from there.
+Once submitted, the ACCESS-NRI team (or other contributors) will be happy to take it from there.
 
-### 2. Edit a page
-If you’d like to make the change yourself, you can edit pages directly using the edit (pencil) icon. 
+### 2. Edit a page directly
+For quick fixes to an existing page (e.g. typos, wording update, broken links), you can edit the page directly in the browser using the pencil icon.
 
-When you click the edit (pencil) icon, GitHub will take you to the source file for that page. 
+#### If you are outside the ACCESS-NRI GitHub organisation:
+
+1. Click the **edit (pencil) icon** in the top-right corner of the page you want to edit. GitHub will prompt you to fork the repository.
+2. Click **Fork this repository** 
+to create your own copy on GitHub. GitHub will then open the file in edit mode.
+3. Make your changes in the editor.
+4. Scroll down to the **Commit changes** section.
+5. Add a short description of what you changed.
+6. Click **Propose changes**.
+7. Click **Create pull request**. 
+8. Add any additional context and then click **Submit**. 
  
 #### If you are outside ACCESS-NRI GitHub Organisation
 
@@ -52,7 +81,16 @@ Then:
 8. Click **Create pull request**   
 9. Add any additional context and submit   
 
-#### If you are in ACCESS-NRI
+#### If you are in the ACCESS-NRI GitHub organisation:
+
+1. Click the **edit (pencil) icon** in the top-right corner of the page you want to edit. GitHub will prompt you to create a new branch.
+2. Enter a branch name (default name is fine or see the tip below on how to name your branch). GitHub will then open the file in edit mode on your new branch.
+3. Make your changes in the editor.
+4. Scroll down to the **Commit changes** section.
+5. Add a short description of what you changed.
+6. Click **Propose changes**.
+7. Click **Create pull request**. 
+8. Add any additional context and then click **Submit**. 
  
 1. You will be prompted to create a **new branch**   
 2. Enter a branch name (or use the default)   
@@ -60,8 +98,10 @@ Then:
 4. Click **Propose changes**   
 5. Open a pull request and add a short description 
 
-### 3. Make larger changes (optional, advanced)
-For adding new pages or making more complex updates, it can be easier to work on a local copy of the documentation.
+### 3. Make larger changes
+For adding new pages, restructuring, or making multi-file updates, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready.
+
+When making larger changes, it may be helpful to understand the structure of the Hive Docs site. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
 
 **For contributors outside ACCESS-NRI:** 
  
