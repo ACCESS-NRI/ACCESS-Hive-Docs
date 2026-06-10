@@ -33,19 +33,19 @@ In these release notes, make sure you scroll down to the latest post for most re
 | :--- | :---------- |
 |[ACCESS-ESM1.5](https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352) | A coupled global Earth system model |
 |[ACCESS-OM2](https://forum.access-hive.org.au/t/access-om2-release-information/1602) | Global coupled Ocean-Sea Ice Model developed by COSIMA |
-|[ACCESS-rAM3](https://forum.access-hive.org.au/t/access-ram3-release-information/4308) | An implementation of the UK Met Office (UKMO) regional nesting suite that supports creating regional atmosphere/land configurations in an Australian context |
+|[ACCESS-rAM3](https://forum.access-hive.org.au/t/access-ram3-release-information/4308) | An implementation of the UKMO regional nesting suite that supports creating regional atmosphere/land configurations in an Australian context |
 |[CABLE](https://forum.access-hive.org.au/t/cable-is-now-under-git-and-github/1643) | Land surface model in ACCESS models. Code available on GitHub |
 
 ### Tools
 | |  |
 | :--- | :---------- |
 |[ESMValTool Workflow](https://forum.access-hive.org.au/t/esmvaltool-workflow-releases/1599) | NCI configuration of ESMValTool developed for evaluations of Earth System Models in CMIP |
-|[iLAMB workflow](https://forum.access-hive.org.au/t/ilamb-workflow-v1-0-launches-today-here-is-what-you-need-to-know/1600) | NCI configurations of International Land Model Benchmarking (ILAMB)|
+|[iLAMB workflow](https://forum.access-hive.org.au/t/ilamb-workflow-v1-0-launches-today-here-is-what-you-need-to-know/1600) | NCI configurations of ILAMB|
 |[Benchcab](https://forum.access-hive.org.au/t/benchcab-python-based-software-for-the-evaluation-of-cable/873/11) | Python-based software for the scientific evaluation of CABLE on NCI |
 |[Model Live Diagnostics](https://forum.access-hive.org.au/t/official-model-live-diagnotics-v1-0-released-today-read-on-to-find-out-more/1647) | Framework to check, monitor, visualise and evaluate model behaviour and progress for models currently running on _Gadi_ |
 |[ACCESS Intake Catalog](https://forum.access-hive.org.au/t/access-nri-intake-catalog-a-way-to-find-load-and-share-data-on-gadi/1659) | Find, load and share ACCESS & ACCESS-related model data on _Gadi_ |
 |[Payu](https://forum.access-hive.org.au/t/payu-a-workflow-manager-for-some-access-models/1098) | Tool used to run a number of ACCESS models on NCI hardware |
-|[um2nc](https://forum.access-hive.org.au/t/um2nc-a-utility-for-converting-unified-model-files-to-netcdf/3968) | Utility for converting Unified Model (UM) data files to netCDF |
+|[um2nc](https://forum.access-hive.org.au/t/um2nc-a-utility-for-converting-unified-model-files-to-netcdf/3968) | Utility for converting UM data files to netCDF |
 |[ACCESS-Vis and Visualisation recipes](https://forum.access-hive.org.au/t/access-visualisation-recipes-1-0-0-is-now-available/3970) | Collection of notebooks to enhance the visualisation of ACCESS climate model data using the `accessvis` python package |
 |[Model tools](https://forum.access-hive.org.au/t/model-tools/4696) | Multiple tools deployed on _Gadi_ to support model tasks, such as FRE-NCtools, mppnccombine-fast, esmf, etc. |
 |[ACCESS Model Scaling](https://forum.access-hive.org.au/t/access-nri-model-scaling-repository-a-collection-of-parallel-scalability-studies/5426) | A collection of Jupyter Notebooks that generate and display scaling data for ACCESS-NRI models |
