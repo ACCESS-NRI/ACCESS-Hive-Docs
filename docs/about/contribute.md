@@ -3,31 +3,33 @@
 
 # Contribute to ACCESS-Hive Docs
 
-ACCESS-Hive Docs is a resource for the Australian Community Climate and Earth System Simulator (ACCESS) community. We welcome all kinds of contributions! Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone.
+**ACCESS-Hive Docs** is a resource for the *Australian Community Climate and Earth System Simulator (ACCESS)* community. We welcome all kinds of contributions! Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone!
 
 !!! tip
-    You don't need to edit the documentation yourself to contribute. Simply reporting an issue or suggesting an improvement is a valuable and appreciated contribution.
+    You don't need to edit the documentation yourself to contribute. Simply reporting an [issue]({{hive_docs_repo}}/issues/new/choose) or suggesting an improvement is a valuable and appreciated contribution!
 
 
 ## How to contribute
 
 There are three ways to contribute:
 
-1. **[Suggest a change or report a problem](#1-suggest-a-change-or-report-a-problem)** by [opening a GitHub issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
-2. **[Edit a page directly (via pencil icon)](#2-edit-a-page-directly)** - quick fixes to a single page
-3. **[Larger changes](#3-larger-changes)** - new pages, restructuring, or multi-file edits
+1. **[Suggest a change or report a problem](#1-suggest-a-change-or-report-a-problem)** by opening a [GitHub issue]({{hive_docs_repo}}/issues/new/choose).
+2. **[Edit a page directly (via pencil icon)](#2-edit-a-page-directly)** - quick fixes to a single page.
+3. **[Larger changes](#3-larger-changes)** - new pages, restructuring, or multi-file edits.
 
-Both are equally welcome - feel free to choose whichever works best for you.
+All are equally welcome - feel free to choose whichever works best for you.
 
 !!! info "GitHub account required" 
     All contribution paths require a GitHub account — [sign up for free](https://github.com) if you don't have one.
 
+---
+
 ### 1. Suggest a change or report a problem
 
-The easiest way to contribute is to [open a GitHub issue](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/issues/new/choose).
+The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo}}/issues/new/choose).
 
 <div class="card-container">
-    <a href="{{hive_docs_repo}}/issues/new?assignees=&labels=External&projects=&template=simple-issue-template.md&title=" class="horizontal-card" target="_blank">
+    <a href="{{hive_docs_repo}}/issues/new/choose" class="horizontal-card" target="_blank">
         <div class="card-image-container">
             <img class="img-contain white-background" src="/assets/how-to-contribute-img.jpg">
         </div>
@@ -49,54 +51,21 @@ This is a great option if you:
 - Have an idea for improvement.
 - Don't want to edit the page yourself.
 
-Once submitted, the ACCESS-NRI team (or other contributors) will be happy to take it from there.
+Once the issue has been submitted, the ACCESS-NRI team (or other contributors) will be happy to take it from there.
+
+---
 
 ### 2. Edit a page directly
-For quick fixes to an existing page (e.g. typos, wording update, broken links), you can edit the page directly in the browser using the pencil icon.
+For quick updates to an existing page, you can edit it directly in your browser using the *pencil* icon in the top-right corner of the website.
 
-#### If you are outside the ACCESS-NRI GitHub organisation:
+1. Click the **edit (pencil) icon** in the top-right corner of the page you want to edit.
+2. If you are outside the ACCESS-NRI GitHub organisation, GitHub will ask you to **fork the repository**. If you are an ACCESS-NRI organisation member, GitHub will ask you to **create a new branch**.
+3. Make your changes in the editor. 
+4. Scroll down to the **Commit changes**, add a short description, and click **Propose changes**. 
+5. Click **Create pull request**. 
+6. Add details about the proposed changes and click **Submit**.
 
-1. Click the **edit (pencil) icon** in the top-right corner of the page you want to edit. GitHub will prompt you to fork the repository.
-2. Click **Fork this repository** 
-to create your own copy on GitHub. GitHub will then open the file in edit mode.
-3. Make your changes in the editor.
-4. Scroll down to the **Commit changes** section.
-5. Add a short description of what you changed.
-6. Click **Propose changes**.
-7. Click **Create pull request**. 
-8. Add any additional context and then click **Submit**. 
- 
-#### If you are outside ACCESS-NRI GitHub Organisation
-
-1. You will be prompted to **fork the repository**   
-2. Click **Fork this repository**   
-3. GitHub will create your copy and open the file in edit mode   
-
-Then: 
- 
-4. Make your changes in the editor   
-5. Scroll down to the **Commit changes** section   
-6. Add a short description of what you changed   
-7. Click **Propose changes**   
-8. Click **Create pull request**   
-9. Add any additional context and submit   
-
-#### If you are in the ACCESS-NRI GitHub organisation:
-
-1. Click the **edit (pencil) icon** in the top-right corner of the page you want to edit. GitHub will prompt you to create a new branch.
-2. Enter a branch name (default name is fine or see the tip below on how to name your branch). GitHub will then open the file in edit mode on your new branch.
-3. Make your changes in the editor.
-4. Scroll down to the **Commit changes** section.
-5. Add a short description of what you changed.
-6. Click **Propose changes**.
-7. Click **Create pull request**. 
-8. Add any additional context and then click **Submit**. 
- 
-1. You will be prompted to create a **new branch**   
-2. Enter a branch name (or use the default)   
-3. Make your changes   
-4. Click **Propose changes**   
-5. Open a pull request and add a short description 
+---
 
 ### 3. Make larger changes
 For adding new pages, restructuring, or making multi-file updates, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready.
