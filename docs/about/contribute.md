@@ -1,15 +1,16 @@
 {% set hive_docs_repo_name = "ACCESS-Hive-Docs" %}
 {% set hive_docs_repo = "https://github.com/ACCESS-NRI/" ~ "ACCESS-Hive-Docs" %}
 
-# Contribute to ACCESS-Hive Docs
+# Contributing
 
-**ACCESS-Hive Docs** is a resource for the *Australian Community Climate and Earth System Simulator (ACCESS)* community. We welcome all kinds of contributions! Whether you're fixing a typo, improving clarity, or adding new content - your input helps make the documentation better for everyone!
+**ACCESS-Hive Docs** is a community resource for users of the Australian Community Climate and Earth System Simulator (ACCESS). 
+
+Have an idea for improvement? We welcome contributions of all kinds! Whether you're correcting a typo, improving existing content, or adding something new, every contribution helps make the documentation more useful for the community.
 
 !!! tip
-    You don't need to edit the documentation yourself to contribute. Simply reporting an [issue]({{hive_docs_repo}}/issues/new/choose) or suggesting an improvement is a valuable and appreciated contribution!
+    Not comfortable editing documentation? Simply reporting an [issue]({{hive_docs_repo}}/issues/new/choose) or suggesting an improvement is a valuable and appreciated contribution!
 
-
-## How to contribute
+## How you can contribute
 
 There are three ways to contribute:
 
@@ -19,14 +20,12 @@ There are three ways to contribute:
 
 All are equally welcome - feel free to choose whichever works best for you.
 
-!!! info "GitHub account required" 
+!!! info
     All contribution paths require a GitHub account — [sign up for free](https://github.com) if you don't have one.
 
 ---
 
-### 1. Suggest a change or report a problem
-
-The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo}}/issues/new/choose).
+### 1. Open a GitHub Issue
 
 <div class="card-container">
     <a href="{{hive_docs_repo}}/issues/new/choose" class="horizontal-card" target="_blank">
@@ -44,33 +43,42 @@ The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo}}/iss
     </a>
 </div>
 
-This is a great option if you:
+The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo}}/issues/new/choose). This is a great option if you:
 
 - Spot a typo, error, or broken link.
 - Find something confusing or unclear.
 - Have an idea for improvement.
 - Don't want to edit the page yourself.
 
-Once the issue has been submitted, the ACCESS-NRI team (or other contributors) will be happy to take it from there.
+Once the issue has been submitted, the **ACCESS-NRI team (or other contributors)** will be happy to take it from there.
 
 ---
 
 ### 2. Edit a page directly
 For quick updates to an existing page, you can edit it directly in your browser using the *pencil* icon in the top-right corner of the website.
 
-1. Click the **edit (pencil) icon** in the top-right corner of the page you want to edit.
-2. If you are outside the ACCESS-NRI GitHub organisation, GitHub will ask you to **fork the repository**. If you are an ACCESS-NRI organisation member, GitHub will ask you to **create a new branch**.
-3. Make your changes in the editor. 
-4. Scroll down to the **Commit changes**, add a short description, and click **Propose changes**. 
-5. Click **Create pull request**. 
-6. Add details about the proposed changes and click **Submit**.
+- Click the **edit (pencil) icon** in the top-right corner of the page you want to edit.
+
+![Edit Pencil Icon](/assets/contributing_page/1_edit_icon.png)
+
+- If you are outside the ACCESS-NRI GitHub organisation, GitHub will ask you to **fork the repository**. If you are an ACCESS-NRI organisation member, GitHub will ask you to **create a new branch**.
+- Make your changes in the editor. 
+- Scroll down to the **Commit changes**, add a short description, and click **Propose changes**. 
+- Click **Create pull request**. 
+- Add details about the proposed changes and click **Submit**.
 
 ---
 
-### 3. Make larger changes
-For adding new pages, restructuring, or making multi-file updates, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready.
+### 3. Make changes locally
+For larger changes or updates across multiple pages, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready.
 
-When making larger changes, it may be helpful to understand the structure of the Hive Docs site. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
+When making changes locally, it may be helpful to understand the structure of the Hive Docs site. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
+
+!!!tip
+    If you are not a member of the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), you will need to **fork** the repository first. A **fork** is your own copy of the repository on GitHub where you can make changes before proposing them back to the main repository.
+
+#### **Fork the repository**
+If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI):
 
 **For contributors outside ACCESS-NRI:** 
  
@@ -94,7 +102,7 @@ When making larger changes, it may be helpful to understand the structure of the
 This workflow is useful for larger or multi-page updates. 
 
 
-## Best Practices for
+## Checklist
 ??? info "Creating issues"
     Creating clear and well-labelled issues helps contributors to quickly understand the type, purpose, and urgency of a task. 
 
