@@ -31,19 +31,15 @@ module load spack
 ## Test Spack (OPTIONAL)
 
 <!--
-Wed May 13 14:18:53 AEST 2026
-- setup environment
 - concretize
-Wed May 13 14:25:55 AEST 2026
+  - 34.28user 3.59system 1:00.02elapsed 63%CPU (0avgtext+0avgdata 1139152maxresident)k
 - install
-Wed May 13 14:57:32 AEST 2026
-- cleanup
-Wed May 13 14:58:55 AEST 2026
+  - 16.80user 41.52system 2:11.29elapsed 44%CPU (0avgtext+0avgdata 74824maxresident)k
+- uninstall
+  - 2.31user 1.71system 0:09.16elapsed 43%CPU (0avgtext+0avgdata 70972maxresident)k
 -->
 
-<!-- When the access-toolchain is defined and installed, we need to update the time it takes because it should be quicker. -->
-
-Estimated time to complete: 40 minutes
+Estimated time to complete: 5 minutes
 
 To test that _Spack_ works as expected, clone the `ACCESS-TEST` repository and use it as a _Spack_ `independent environment` to install the relevant packages. The _Spack_ environment rules are defined in the `ACCESS-TEST/spack.yaml` file. If the packages are already installed in an [upstream](https://spack.readthedocs.io/en/latest/chain.html) they will not be rebuilt.
 
@@ -188,7 +184,7 @@ spack find --install-tree local
 
 ### Cleanup
 ```
-spack uninstall --remove --all
+spack uninstall --all
 spack env deactivate
 rm -rf ACCESS-TEST
 ```
