@@ -195,7 +195,7 @@ git push origin your-branch-name
 ```
 
 #### Step 9: Open a pull request
-After pushing your branch to remote:
+After pushing your branch to remote, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) using the following steps:
 
 1. Go to the repository on GitHub.
 2. GitHub will usually display a prompt to create a pull request from your branch.
