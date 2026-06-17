@@ -196,6 +196,7 @@ git push origin your-branch-name
 
 #### Step 9: Open a pull request
 After pushing your branch to remote:
+
 1. Go to the repository on GitHub.
 2. GitHub will usually display a prompt to create a pull request from your branch.
 3. Click **Compare & pull request**. 
@@ -206,13 +207,16 @@ After pushing your branch to remote:
     Include a brief summary of what changed and why. If your changes relate to an existing issue, consider linking to it in the pull request description.
 
 #### Step 10: Review the pull request preview
-After you open a pull request, a preview version of the documentation is automatically generated. Once the preview has been deployed:
-1. Open the preview link from the pull request checks, comments, or status checks.
-2. Review your changes in the rendered documentation site.
-3. Check that formatting, navigation, images, code blocks, and links appear as expected.
+
+![PR Preview Image](/assets/contributing_page/pr_preview.png)
+
+After you open a pull request, a **preview version** of the documentation is automatically generated. Once the preview has been deployed:
+
+1. Open the **preview link** from the pull request checks, comments, or status checks.
+2. **Review** your changes in the rendered documentation site.
 
 !!! note
-The pull request preview shows how your changes will appear before they are merged, making it a great way to catch formatting or rendering issues.
+    The pull request preview shows how your changes will appear before they are merged, making it a great way to catch formatting or rendering issues.
 
 
 ## Checklist
