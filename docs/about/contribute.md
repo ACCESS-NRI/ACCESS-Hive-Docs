@@ -120,35 +120,99 @@ git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
 Once the repository has been **cloned**, navigate into the repository directory.
 
 #### Step 3: Create a new branch
+After cloning the repository locally, create a new branch to make your local changes and then push it to GitHub:
 
+```
+git checkout -b your-branch-name
+```
 
+```
+git push --set-upstream origin your-branch-name
+```
 
+Creating a branch keeps your work separate from the main version of the documentation
 
+#### Step 4: Make your changes
+Open the repository in your editor (ex. VSCode) and make your changes. You can check which files have been modified with:
 
+```
+git status
+```
 
+#### Step 5: Preview your changes locally
+Before submitting your changes, you can preview them locally using the command:
 
----
+```
+mkdocs serve
+```
 
-**For contributors outside ACCESS-NRI:** 
- 
-1. Fork the repository on GitHub   
-2. Clone your fork to your computer   
-3. Create a new branch   
-4. Make your changes locally   
-5. Commit your changes   
-6. Push the branch to your fork   
-7. Open a pull request
- 
-**For ACCESS-NRI team members:** 
- 
-1. Clone the repository   
-2. Create a new branch   
-3. Make your changes locally   
-4. Commit your changes   
-5. Push your branch   
-6. Open a pull request   
- 
-This workflow is useful for larger or multi-page updates. 
+This will start a local documentation server. Open the URL shown in your terminal, usually:
+
+```
+http://127.0.0.1:8000
+```
+
+??? warning "If `mkdocs serve` command is not working"
+    Execute the following command to download and install Material MkDocs and all related plugins:
+
+    ```
+    pip install -r requirements.txt
+    ``` 
+
+#### Step 6: Review your changes
+Review your changes before committing:
+
+```
+git diff
+```
+
+This helps confirm that only the intended changes will be included.
+
+#### Step 7: Commit your changes
+Stage the files you changed:
+
+```
+git add path/to/file.md
+```
+
+Or stage all modified files:
+
+```
+git add .
+```
+
+Commit your changes with a short description:
+
+```
+git commit -m "my commit description"
+```
+
+#### Step 8: Push your branch to GitHub
+Push your branch to GitHub using the command:
+
+```
+git push origin your-branch-name
+```
+
+#### Step 9: Open a pull request
+After pushing your branch to remote:
+1. Go to the repository on GitHub.
+2. GitHub will usually display a prompt to create a pull request from your branch.
+3. Click **Compare & pull request**. 
+4. Add a title and detailed description explaining your changes. 
+5. Click **Create pull request**.
+
+!!! tip
+    Include a brief summary of what changed and why. If your changes relate to an existing issue, consider linking to it in the pull request description.
+
+#### Step 10: Review the pull request preview
+After you open a pull request, a preview version of the documentation is automatically generated. Once the preview has been deployed:
+1. Open the preview link from the pull request checks, comments, or status checks.
+2. Review your changes in the rendered documentation site.
+3. Check that formatting, navigation, images, code blocks, and links appear as expected.
+
+!!! note
+The pull request preview shows how your changes will appear before they are merged, making it a great way to catch formatting or rendering issues.
 
 
 ## Checklist
