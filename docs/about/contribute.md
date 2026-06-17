@@ -5,7 +5,7 @@
 
 **ACCESS-Hive Docs** is a community resource for users of the Australian Community Climate and Earth System Simulator (ACCESS). 
 
-Have an idea for improvement? We welcome contributions of all kinds! Whether you're correcting a typo, improving existing content, or adding something new, every contribution helps make the documentation more useful for the community.
+Have an idea for improvement? We'd love to have your contributions onboard! Whether you're correcting a typo, improving existing content, or adding something new, every contribution helps make the documentation more useful for the community.
 
 !!! tip
     Not comfortable editing documentation? Simply reporting an [issue]({{hive_docs_repo}}/issues/new/choose) or suggesting an improvement is a valuable and appreciated contribution!
@@ -59,9 +59,9 @@ For quick updates to an existing page, you can edit it directly in your browser 
 
 - Click the **edit (pencil) icon** in the top-right corner of the page you want to edit.
 
-![Edit Pencil Icon](/assets/contributing_page/1_edit_icon.png)
+![Edit Pencil Icon](/assets/contributing_page/1_edit_icon2.png)
 
-- If you are outside the ACCESS-NRI GitHub organisation, GitHub will ask you to **fork the repository**. If you are an ACCESS-NRI organisation member, GitHub will ask you to **create a new branch**.
+- If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), GitHub will ask you to **fork the repository**. If you are an ACCESS-NRI GitHub organisation member, GitHub will ask you to **create a new branch**.
 - Make your changes in the editor. 
 - Scroll down to the **Commit changes**, add a short description, and click **Propose changes**. 
 - Click **Create pull request**. 
@@ -70,15 +70,64 @@ For quick updates to an existing page, you can edit it directly in your browser 
 ---
 
 ### 3. Make changes locally
-For larger changes or updates across multiple pages, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready.
-
-When making changes locally, it may be helpful to understand the structure of the Hive Docs site. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
+For larger changes or updates across multiple pages, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
 
 !!!tip
     If you are not a member of the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), you will need to **fork** the repository first. A **fork** is your own copy of the repository on GitHub where you can make changes before proposing them back to the main repository.
 
-#### **Fork the repository**
-If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI):
+#### Step 1: Fork the repository
+
+![Fork the repository](/assets/contributing_page/fork_repo.png)
+
+If you are outside the [ACCESS-NRI GitHub](https://github.com/ACCESS-NRI) organisation:
+
+1. Go to the [ACCESS-Hive Docs]({{hive_docs_repo}}) repository on GitHub. 
+2. Click **Fork** in the top-right corner.
+3. Choose your GitHub account as the destination. 
+4. Click **Create Fork**.
+
+This creates your own copy of the repository. 
+
+!!! info 
+    [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI) members can **skip this step** and clone the main repository directly.
+
+
+#### Step 2: Clone the repository
+
+**Cloning** creates a local copy of the repository on your computer. Before cloning, open a **terminal** and navigate to the directory where you'd like the repository to be downloaded. 
+
+Then, if you have **forked** the repository, you can clone your fork by clicking the green **Code button** in the top-right corner of the repository page, copying the repository URL, and then running the following command:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/ACCESS-Hive-Docs.git
+```
+
+If you are an ACCESS-NRI team member, feel free to clone the main repository:
+
+```bash
+git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
+```
+
+![Clone the repository](/assets/contributing_page/clone_repo.png)
+
+??? note "Cloning with SSH"
+    If you have already configured [SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), click the green **Code** button, select **SSH**, and copy the **SSH URL**. You can then clone the repository using:
+    
+    ```bash
+    git clone git@github.com:ACCESS-NRI/ACCESS-Hive-Docs.git
+    ```
+
+Once the repository has been **cloned**, navigate into the repository directory.
+
+#### Step 3: Create a new branch
+
+
+
+
+
+
+
+---
 
 **For contributors outside ACCESS-NRI:** 
  
@@ -88,7 +137,7 @@ If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCES
 4. Make your changes locally   
 5. Commit your changes   
 6. Push the branch to your fork   
-7. Open a pull request   
+7. Open a pull request
  
 **For ACCESS-NRI team members:** 
  
