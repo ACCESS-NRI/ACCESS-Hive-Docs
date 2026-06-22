@@ -50,7 +50,7 @@ The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo}}/iss
 - Have an idea for improvement.
 - Don't want to edit the page yourself.
 
-Once the issue has been submitted, the **ACCESS-NRI team (or other contributors)** will be happy to take it from there.
+Once the issue has been submitted, you are welcome (and encouraged!) to make a suggested edit via a pull request to address your issue (see contributing options 2 or 3 below), otherwise the ACCESS-NRI team or other contributors will be happy to take it from there.
 
 ---
 
