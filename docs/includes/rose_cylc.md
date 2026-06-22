@@ -8,11 +8,14 @@
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). Cylc is a workflow manager that automatically executes tasks according to the model's configuration. It also monitors all tasks, reporting any errors that may occur.
-* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UKMO which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
+<!--about-rose-cylc-start-->
+
+* The [_Cylc_](https://cylc.github.io/cylc-doc/7.8.8/html/index.html) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research - NIWA (now Earth Sciences NZ). Cylc is a workflow manager that automatically executes tasks according to the model's configuration. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
+* The [_Rose_](https://metomi.github.io/rose/doc/html/index.html) framework, developed by the UKMO which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
 
 A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_. Every _suite_ has a unique identifier called `suite-ID` in the form `u-LLNNN`, where `L` is a letter and `N` is a number (e.g., u-ab123).
 
+<!--about-rose-cylc-end-->
 
 ## Prerequisites
 
@@ -183,7 +186,11 @@ persistent-sessions kill <persistent-session-uuid>
 
 ## Set up Rose/Cylc
 
+
+
 ### Rose and Cylc executables
+
+<!--rose-cylc-executables-start-->
 
 Make the `rose` and `cylc` executables available by loading the _Cylc_ module:
 
@@ -192,7 +199,20 @@ module use /g/data/hr22/modulefiles
 module load cylc7
 ```
 
+<terminal-window data="input">
+    <terminal-line>module use /g/data/hr22/modulefiles</terminal-line>
+    <terminal-line>module load cylc7</terminal-line>
+    <terminal-line data="output">Using the cylc session &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
+    <terminal-line data="output"></terminal-line>
+    <terminal-line data="output">Loading cylc7/24.03</terminal-line>
+    <terminal-line data="output">&emsp;Loading requirement: mosrs-setup/2.0.1</terminal-line>
+</terminal-window>
+
+<!--rose-cylc-executables-end-->
+
 ### MOSRS Authentication
+
+<!--mosrs-auth-start-->
 
 The ACCESS models which use _Cylc_ require a connection to the MOSRS mirror on _Gadi_. To connect to this mirror, you must first authenticate your MOSRS credentials with:
 
@@ -213,6 +233,8 @@ This will request the username and password you received when you created your M
 </terminal-window>
 
 After the first authentication, you will need to run `mosrs-auth` every 24 hours and for every new connection to _Gadi_ (e.g., new terminal) to verify your password against the saved credentials.
+
+<!--mosrs-auth-end-->
 
 ## Get the model configuration
 

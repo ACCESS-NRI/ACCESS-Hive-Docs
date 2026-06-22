@@ -79,55 +79,36 @@ A full description of the model and its components is available in the [{{ model
 
 
 
-## Rose/Cylc/MOSRS setup
+## Set up Rose/Cylc
 
-To run {{ model }}, access to multiple software and MOSRS authentication is needed.
+To run {{ model }}, you will use the Rose/Cylc workflow management tool, which consists of two components:
 
-### Cylc setup {: #cylc }
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--about-rose-cylc-start-->"
+    end="<!--about-rose-cylc-end-->"
+%}
 
-[_Cylc_](https://cylc.github.io/cylc-doc/7.8.8/html/index.html) (pronounced ‘silk’) is a workflow manager that automatically executes tasks according to the model's main cycle script `suite.rc`. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
+### Rose and Cylc executables
 
-To get the _Cylc_ setup required to run {{ model }}, execute the following commands:
-```
-module use /g/data/hr22/modulefiles
-module load cylc7
-```
-<terminal-window data="input">
-    <terminal-line>module use /g/data/hr22/modulefiles</terminal-line>
-    <terminal-line>module load cylc7</terminal-line>
-    <terminal-line data="output">Using the cylc session &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-    <terminal-line data="output"></terminal-line>
-    <terminal-line data="output">Loading cylc7/24.03</terminal-line>
-    <terminal-line data="output">&emsp;Loading requirement: mosrs-setup/2.0.1</terminal-line>
-</terminal-window>
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--rose-cylc-executables-start-->"
+    end="<!--rose-cylc-executables-end-->"
+%}
+
 
 !!! warning
     _Cylc_ version >= `cylc7/24.03` required.<br>
-    
-    Also, before loading the _Cylc_ module, make sure to have started a _persistent session_ and have assigned it to the {{ model }} workflow. For more information about these steps, refer to [Set up {{ model }} persistent session]({{ '#set-up-%s-persistent-session'%model.lower() }}).
-
-### Rose setup {: #rose }
-[Rose](https://metomi.github.io/rose/doc/html/index.html) is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
-
-By completing the [_Cylc_ setup](#cylc), also _Rose_ will be automatically available. Hence, no additional step is required.
+ 
 
 ### MOSRS authentication
-To authenticate using your _MOSRS_ credentials, run:
-```
-mosrs-auth
-```
-<terminal-window>
-    <terminal-line data="input">mosrs-auth</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: You need to enter your MOSRS credentials here so that GPG can cache your password.</terminal-line>
-    <terminal-line>Please enter the MOSRS password for &lt;MOSRS-username&gt;:</terminal-line>
-    <terminal-line lineDelay=1500>Checking your credentials using Subversion. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed Subversion with your credentials.</terminal-line>
-    <terminal-line lineDelay=100><span style="color: #559cd5;">INFO</span>: Checking your credentials using rosie. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
-</terminal-window>
 
-!!! warning
-    This step needs to be done once for each new session (e.g., _Gadi_ login, _ARE_ terminal window)
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--mosrs-auth-start-->"
+    end="<!--mosrs-auth-end-->"
+%}
 
 ## Get {{ model }} suite
 {{ model }} comprises the model components [UM](/models/model_components/atmosphere#unified-model-um), [MOM](/models/model_components/ocean#modular-ocean-model-mom), [CICE](/models/model_components/sea-ice#cice) and [CABLE](/models/model_components/land#cable), coupled through [OASIS](/models/model_components/coupler#oasis3-mct). These components, which have different model parameters, input data and computer-related information, need to be packaged together as a _suite_ in order to run.<br>
