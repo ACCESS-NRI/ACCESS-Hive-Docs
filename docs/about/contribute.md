@@ -126,6 +126,10 @@ After cloning the repository locally, create a new branch to make your local cha
 git checkout -b your-branch-name
 ```
 
+Creating a branch keeps your work separate from the main version of the documentation. 
+
+Then push your branch to GitHub:
+
 ```
 git push --set-upstream origin your-branch-name
 ```
