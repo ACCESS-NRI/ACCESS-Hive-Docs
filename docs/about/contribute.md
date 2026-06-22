@@ -8,7 +8,7 @@
 Have an idea for improvement? We'd love to have your contributions onboard! Whether you're correcting a typo, improving existing content, or adding something new, every contribution helps make the documentation more useful for the community.
 
 !!! tip
-    Not comfortable editing documentation? Simply reporting an [issue]({{hive_docs_repo}}/issues/new/choose) or suggesting an improvement is a valuable and appreciated contribution!
+    Not comfortable editing documentation? Simply reporting a typo or suggesting an improvement by opening an [issue]({{hive_docs_repo}}/issues/new/choose) is a valuable and appreciated contribution!
 
 ## How you can contribute
 
