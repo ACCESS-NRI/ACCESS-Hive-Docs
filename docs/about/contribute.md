@@ -120,7 +120,7 @@ git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
 Once the repository has been **cloned**, navigate into the repository directory.
 
 #### Step 3: Create a new branch
-After cloning the repository locally, create a new branch to make your local changes and then push it to GitHub:
+After cloning the repository locally, create a new branch to make your local changes:
 
 ```
 git checkout -b your-branch-name
