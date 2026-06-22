@@ -134,10 +134,9 @@ Then push your branch to GitHub:
 git push --set-upstream origin your-branch-name
 ```
 
-Creating a branch keeps your work separate from the main version of the documentation
 
 #### Step 4: Make your changes
-Open the repository in your editor (ex. VSCode) and make your changes. You can check which files have been modified with:
+Open the directory in your editor (e.g. VS Code), ensure you are working on your new branch (VS Code lists your current branch in the bottom left of the window) and make your edits. You can check which files have been modified with:
 
 ```
 git status
@@ -218,10 +217,10 @@ After pushing your branch to remote, [create a pull request](https://docs.github
 After you open a pull request, a **preview version** of the documentation is automatically generated. Once the preview has been deployed:
 
 1. Open the **preview link** from the pull request checks, comments, or status checks.
-2. **Review** your changes in the rendered documentation site.
+2. **Review** your changes in the linked preview documentation site.
 
 !!! note
-    The pull request preview shows how your changes will appear before they are merged, making it a great way to catch formatting or rendering issues.
+    The pull request preview shows how your changes will appear before they are added to the public website, making it a great way to catch formatting or rendering issues.
 
 
 ## Checklist
