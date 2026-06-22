@@ -139,7 +139,7 @@ Open the repository in your editor (ex. VSCode) and make your changes. You can c
 git status
 ```
 
-#### Step 5: Preview your changes locally
+#### Step 5: [OPTIONAL] Preview your changes locally
 Before submitting your changes, you can preview them locally using the command:
 
 ```
