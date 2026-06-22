@@ -208,8 +208,6 @@ After pushing your branch to remote, [create a pull request](https://docs.github
 
 #### Step 10: Review the pull request preview
 
-![PR Preview Image](/assets/contributing_page/pr_preview.png)
-
 After you open a pull request, a **preview version** of the documentation is automatically generated. Once the preview has been deployed:
 
 1. Open the **preview link** from the pull request checks, comments, or status checks.
