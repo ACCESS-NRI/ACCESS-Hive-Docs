@@ -140,6 +140,9 @@ git status
 ```
 
 #### Step 5: [OPTIONAL] Preview your changes locally
+!!! info 
+    Local previews can be really handy to see your changes rendered how they would look on the website, but they require you do install software onto your computer. If you'd prefer to avoid software installation, you can skip this step and preview your branch after you push your changes to the Hive Docs repository via a pull request (by following the remaining steps).
+
 Before submitting your changes, you can preview them locally using the command:
 
 ```
