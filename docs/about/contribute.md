@@ -1,5 +1,6 @@
 {% set hive_docs_repo_name = "ACCESS-Hive-Docs" %}
 {% set hive_docs_repo = "https://github.com/ACCESS-NRI/" ~ "ACCESS-Hive-Docs" %}
+test
 
 # Contributing
 
