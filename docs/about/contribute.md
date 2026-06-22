@@ -197,8 +197,8 @@ git push origin your-branch-name
 #### Step 9: Open a pull request
 After pushing your branch to remote, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) using the following steps:
 
-1. Go to the repository on GitHub.
-2. GitHub will usually display a prompt to create a pull request from your branch.
+1. Go to the **repository** on GitHub.
+2. GitHub will usually display a **prompt** to create a pull request from your branch.
 3. Click **Compare & pull request**. 
 4. Add a title and detailed description explaining your changes. 
 5. Click **Create pull request**.
@@ -233,12 +233,14 @@ After you open a pull request, a **preview version** of the documentation is aut
     This repository currently uses two primary branches - `main` and `development`. `main` is the production-ready branch, and `development` is the staging branch where latest changes are pushed before merging into `main` branch.
 
     Contributors should generally:
+
     - Create a feature branch from `development`.
     - Open pull requests targeting to `development`. 
     
     The `development` branch is automatically merged into `main` daily. This reduces the risk to include breaking changes into the production branch. 
 
     For branch naming, using consistent branch names makes it easier to identify the purpose of a branch. Recommended naming patterns include:
+    
     - name/issue-number/short-description
     
     Example:
