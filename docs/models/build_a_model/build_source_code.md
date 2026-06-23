@@ -89,17 +89,13 @@ spack env activate -p mom5_dev
     <terminal-line data="input" directory="[mom5_dev]" class="spack" lineDelay=0></terminal-line>
 </terminal-window>
 
-### Set Spack Packages version
+### Set access-spack-packages version
 
-By default, spack installations will checkout the latest from the default branch of [access-spack-packages](https://github.com/ACCESS-NRI/access-spack-packages). Occasionally, there will be changes to access-spack-packages which are incompatible with the spack environment being installed.
+By default, spack installations will checkout the newest commit from the default branch of [access-spack-packages](https://github.com/ACCESS-NRI/access-spack-packages). Occasionally, there will be changes to access-spack-packages which are incompatible with the spack environment being installed.
 
-To exactly match the version of spack packages to the released model, checkout the version (e.g. `2025.03.006`) defined in [ACCESS-ESM1.5 Spack deployment]({{esm1_5_build_config}}/blob/-/config/versions.json):
+To exactly match the version of access-spack-packages to the released model, checkout the version (e.g. `2025.03.006`) defined in [ACCESS-ESM1.5 Spack deployment]({{esm1_5_build_config}}/blob/-/config/versions.json) while in an activated [environment](https://spack-tutorial.readthedocs.io/en/latest/tutorial_environments.html).
 
-```
-cd /g/data/$PROJECT/$USER/spack/1.1/spack-packages
-git fetch --unshallow
-git switch -c <spack_packages_version> <spack_packages_version>
-```
+Follow the instructions at [Create an editable access-spack-packages in a Spack environment](https://github.com/ACCESS-NRI/spack-config/#create-an-editable-access-spack-packages-in-a-spack-environment) folllowed by [Choose an older version of access-spack-packages repository](https://github.com/ACCESS-NRI/spack-config/#choose-an-older-version-of-access-spack-packages-repository).
 
 ## Compile Spack environment packages (optional)
 
