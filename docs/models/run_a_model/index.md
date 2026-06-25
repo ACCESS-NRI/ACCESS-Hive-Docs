@@ -1,5 +1,5 @@
 # Run a Model
-These instructions are for running the ACCESS models on NCI. If you do not yet have an NCI account, please [Set Up your NCI Account](/getting_started/set_up_nci_account).
+These instructions are for running the ACCESS models on NCI. If you do not yet have an NCI account, please [set up your NCI account](/getting_started/set_up_nci_account).
 
 If you are unsure which ACCESS model is the best fit for your application, you can read more about each model on the [ACCESS Models page](/models/access_models).
 
