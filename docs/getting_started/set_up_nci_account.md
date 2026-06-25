@@ -1,4 +1,4 @@
-# Set Up your NCI Account
+# Set Up Your NCI Account
 
 The steps in this section are aimed at new users who would like to do any of the following tasks:
 
