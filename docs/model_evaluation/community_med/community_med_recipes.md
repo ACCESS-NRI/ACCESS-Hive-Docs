@@ -65,7 +65,6 @@ Please let us know, if we are missing an important tool. Check [How To Contribut
     <div align='center' width="100%" >
         <a href="https://cosima-recipes.readthedocs.io/en/latest/" target="_blank">Documentation</a> |
         <a href="https://cosima-recipes.readthedocs.io/en/latest/cooking-lessons-101/index.html">Tutorials</a> |
-        <a href="https://github.com/COSIMA/cosima-cookbook" target="_blank">Source Code</a> |
         <a href="https://github.com/COSIMA/cosima-recipes" target="_blank">Recipes</a>
         <!-- The COSIMA (Consortium for Ocean-Sea Ice Modelling in Australia) Cookbook / Recipes is a framework for analysing output from ocean-sea ice models. The focus is on the ACCESS-OM2 suite of models being developed and run by members of COSIMA: Consortium for Ocean-Sea Ice Modelling in Australia.
         The framework is suited for analysing any MOM5/MOM6 output, as well as output from other models.
