@@ -417,15 +417,6 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 ### Change model time-step
 
-## Proposed new section for `run_access-om3.md`
-
-Insert this subsection inside the **Edit ACCESS-OM3 configuration** section, after the existing
-**Change run length and restart period** subsection and before **Start the run from a specific restart file**.
-
----
-
-### Change time-step
-
 !!! tip
     Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical
     instability. If your run is failing unexpectedly you may like to try halving the MOM6 baroclinic time-step (`DT`) and the coupling time-step.
