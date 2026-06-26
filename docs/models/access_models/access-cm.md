@@ -2,7 +2,7 @@
 
 ![ACCESS CM model](/assets/model-config-logos/configurations-without-titles/access-cm.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
 
-The ACCESS Coupled Model (ACCESS-CM) is a fully-coupled global climate model that includes [atmosphere](/models/model_components/atmosphere), [aerosols and atmospheric chemistry](/models/model_components/aerosols_atmospheric_chemistry), [land](/models/model_components/land), [ocean](/models/model_components/ocean) and [sea ice](/models/model_components/sea-ice) components, linked together by a [coupler](/models/model_components/coupler).<br>
+The **ACCESS C**oupled **M**odel (ACCESS-CM) is a fully-coupled global climate model that includes [atmosphere](/models/model_components/atmosphere), [aerosols and atmospheric chemistry](/models/model_components/aerosols_atmospheric_chemistry), [land](/models/model_components/land), [ocean](/models/model_components/ocean) and [sea ice](/models/model_components/sea-ice) components, linked together by a [coupler](/models/model_components/coupler).<br>
 It produces physical climate simulations.
 
 {% set model = "ACCESS-CM2" %}
