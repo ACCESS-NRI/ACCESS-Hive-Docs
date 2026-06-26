@@ -7,7 +7,7 @@
 
 ![ACCESS RAM model](/assets/model-config-logos/configurations-without-titles/access-ram.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
 
-The **ACCESS R**egional **A**tmosphere **M**odel (ACCESS-rAM) is an implementation of the [UKMO](https://www.metoffice.gov.uk/) Regional Nesting Suite, comprising [atmosphere](/models/model_components/atmosphere) and [land](/models/model_components/land) components.<br>
+The **ACCESS r**egional **A**tmosphere **M**odel (ACCESS-rAM) is an implementation of the [UKMO](https://www.metoffice.gov.uk/) Regional Nesting Suite, comprising [atmosphere](/models/model_components/atmosphere) and [land](/models/model_components/land) components.<br>
 Unlike the UKMO Regional Nesting Suite that relies on operational land-surface initial conditions, ACCESS-rAM derives its initial conditions from alternative sources, enhancing its capability for high-resolution regional atmosphere modelling on [Gadi](https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview).
 
 ACCESS-rAM requires both initial conditions and lateral boundary (_driving_) conditions. It also supports multiple [_nesting_](#nesting) configurations, automatically providing their necessary initial and lateral boundary conditions.
