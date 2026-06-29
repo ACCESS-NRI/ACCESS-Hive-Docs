@@ -236,14 +236,14 @@ After you open a pull request, a **preview version** of the documentation is aut
     3. Keep issues focused on a single topic where possible. Smaller, targeted issues are generally easier to discuss and resolve.
 
 ??? info "Branching Workflows"
-    This repository currently uses two primary branches - `main` and `development`. `main` is the production-ready branch, and `development` is the staging branch where latest changes are pushed before merging into `main` branch.
+    The Hive Docs repository currently uses two primary branches: `main` and `development`. `main` is the production-ready branch (what is visible on the public website), and `development` is the staging branch where latest changes are pushed and previewed.
 
     Contributors should generally:
 
-    - Create a feature branch from `development`.
-    - Open pull requests targeting to `development`. 
+    - Create a branch from `development`.
+    - Open pull requests with `development` as the target. 
     
-    The `development` branch is automatically merged into `main` daily. This reduces the risk to include breaking changes into the production branch. 
+    The `development` branch is automatically merged into `main` daily. This reduces the risk of having breaking changes affect the live website. 
 
 ??? info "Branch Naming"
     Using descriptive branch name makes it easier to understand what the branch is for. We recommended using the following branch name structure:
@@ -253,7 +253,6 @@ After you open a pull request, a **preview version** of the documentation is aut
     Example:
     - john/24/add-cosima-tutorial
 
-    Use short, descriptive, and lowercase names separated by hyphens.
 
 ??? info "Pull Requests"
     Well-documented pull requests help reviewers understand the intent of changes and reduces the turnaround time of the review. 
@@ -272,5 +271,5 @@ After you open a pull request, a **preview version** of the documentation is aut
     - Check GitHub CI is passing all checks. 
 
 ## Need help?
-1. For any questions, we'd be happy to answer questions on [ACCESS-Hive Forum](https://forum.access-hive.org.au). 
-2. For reporting a bug or suggesting a change, feel free to write an issue.
+1. For any questions, [create a help request on the ACCESS-Hive Forum](https://forum.access-hive.org.au/new-topic?&body=%3Cdiv%20data-theme-toc%3D%22true%22%3E%3C%2Fdiv%3E%0A%0A%3C!--%20These%20are%20comments%20and%20not%20visible%20once%20you%20post.%20Ignore%20or%20delete%20sections%20if%20not%20relevant%20--%3E%0A%0A%3C!--%20Choose%20an%20appropriate%20category.%20If%20not%20sure%2C%20leave%20as%20General%20--%3E%0A%0A%23%23%20Description%20of%20request%3A%0A%0A%23%23%20Environment%3A%0A%0A%3C!--%20NCI%3F%20ARE%3F%20Gadi%20login%20node%3F%20PBS%20job%3F%20--%3E%0A%0A%3C!--%20List%20software%20versions%20--%3E%0A%0A%23%23%20What%20executed%3A%0A%0A%3C!--%20Copy%20and%20paste%20any%20commands%20and%20output%20in%20a%20code%20block%20--%3E%0A%3C!--%20For%20code%20you%20are%20writing%2C%20prepare%20a%20minimal%20reproducible%20example%20(https%3A%2F%2Fforum.access-hive.org.au%2Fdocs%3Ftopic%3D843)%20--%3E%0A%0A%23%23%20Actual%20results%3A%0A%0A%3C!--%20Copy%20full%20error%20messages%20--%3E%0A%0A%23%23%20Expected%20results%3A%0A%0A%23%23%20Additional%20info%3A&category_id=4&tags=help)!
+2. For a more in-depth guide to using GitHub and git, see the [Project Pythia "Getting Started with GitHub" tutorial](https://foundations.projectpythia.org/foundations/getting-started-github/).
