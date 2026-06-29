@@ -139,6 +139,12 @@ git status
 !!! info 
     Local previews can be really handy to see your changes rendered how they would look on the website, but they require you do install software onto your computer. If you'd prefer to avoid software installation, you can skip this step and preview your branch after you push your changes to the Hive Docs repository via a pull request (by following the remaining steps).
 
+Execute the following command to download and install Material MkDocs and all related plugins:
+
+```
+pip install -r requirements.txt
+``` 
+
 Before submitting your changes, you can preview them locally using the command:
 
 ```
@@ -150,14 +156,7 @@ This will start a local documentation server. Open the URL shown in your termina
 ```
 http://127.0.0.1:8000
 ```
-
-??? warning "If `mkdocs serve` command is not working"
-    Execute the following command to download and install Material MkDocs and all related plugins:
-
-    ```
-    pip install -r requirements.txt
-    ``` 
-
+    
 #### Step 6: Review your changes
 Review your changes before committing:
 
@@ -236,7 +235,7 @@ After you open a pull request, a **preview version** of the documentation is aut
 
     3. Keep issues focused on a single topic where possible. Smaller, targeted issues are generally easier to discuss and resolve.
 
-??? info "Branching Workflows and Naming"
+??? info "Branching Workflows"
     This repository currently uses two primary branches - `main` and `development`. `main` is the production-ready branch, and `development` is the staging branch where latest changes are pushed before merging into `main` branch.
 
     Contributors should generally:
@@ -246,7 +245,8 @@ After you open a pull request, a **preview version** of the documentation is aut
     
     The `development` branch is automatically merged into `main` daily. This reduces the risk to include breaking changes into the production branch. 
 
-    For branch naming, using consistent branch names makes it easier to identify the purpose of a branch. Recommended naming patterns include:
+??? info "Branch Naming"
+    Using descriptive branch name makes it easier to understand what the branch is for. We recommended using the following branch name structure:
     
     - name/issue-number/short-description
     
