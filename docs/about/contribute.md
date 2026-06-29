@@ -77,6 +77,9 @@ For larger changes or updates across multiple pages, the easiest approach is to 
 
 #### Step 1: Fork the repository
 
+!!! info 
+    [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI) members can **skip this step** and clone the original ACCESS-Hive Docs repository directly.
+
 ![Fork the repository](/assets/contributing_page/fork_repo.png)
 
 If you are outside the [ACCESS-NRI GitHub](https://github.com/ACCESS-NRI) organisation:
@@ -87,10 +90,6 @@ If you are outside the [ACCESS-NRI GitHub](https://github.com/ACCESS-NRI) organi
 4. Click **Create Fork**.
 
 This creates your own copy of the repository. 
-
-!!! info 
-    [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI) members can **skip this step** and clone the main repository directly.
-
 
 #### Step 2: Clone the repository
 
@@ -127,12 +126,6 @@ git checkout -b your-branch-name
 ```
 
 Creating a branch keeps your work separate from the main version of the documentation. 
-
-Then push your branch to GitHub:
-
-```
-git push --set-upstream origin your-branch-name
-```
 
 
 #### Step 4: Make your changes
@@ -194,8 +187,18 @@ git commit -m "my commit description"
 ```
 
 #### Step 8: Push your branch to GitHub
-Push your branch to GitHub using the command:
+Once, you have committed your changes, push your branch to GitHub. The first time you push a new branch, run:
 
+```
+git push --set-upstream origin your-branch-name
+```
+
+The --set-upstream option links your local branch to the branch on GitHub. After this you can any future commits on the same branch with:
+
+```
+git push
+```
+or 
 ```
 git push origin your-branch-name
 ```
