@@ -61,9 +61,9 @@ For quick updates to an existing page, you can edit it directly in your browser 
 
 ![Edit Pencil Icon](/assets/contributing_page/1_edit_icon2.png)
 
-- If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), GitHub will ask you to **fork the repository**. If you are an ACCESS-NRI GitHub organisation member, GitHub will ask you to **create a new branch**.
+- If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), GitHub will ask you to **fork the repository**.
 - Make your changes in the editor. 
-- Scroll down to the **Commit changes**, add a short description, and click **Propose changes**. 
+- Scroll down to the **Commit changes**, add a short commit message, and click **Propose changes**. If you are an ACCESS-NRI GitHub organisation member, GitHub will automatically **create a new branch** for you.
 - Click **Create pull request**. 
 - Add details about the proposed changes and click **Submit**.
 
@@ -101,7 +101,7 @@ Then, if you have **forked** the repository, you can clone your fork by clicking
 git clone https://github.com/YOUR_USERNAME/ACCESS-Hive-Docs.git
 ```
 
-If you are an ACCESS-NRI team member, feel free to clone the main repository:
+If you are an ACCESS-NRI team member, you should clone the original ACCESS-Hive-Docs repository directly:
 
 ```bash
 git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
