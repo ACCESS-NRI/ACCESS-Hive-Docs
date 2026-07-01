@@ -42,8 +42,6 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
     Join the following projects by requesting membership on their respective NCI project pages:
 
     - [access](https://my.nci.org.au/mancini/project/access/join)
-    - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
-    - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [xp65](https://my.nci.org.au/mancini/project/xp65/join)
 
