@@ -45,12 +45,6 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [xp65](https://my.nci.org.au/mancini/project/xp65/join)
 
-    !!! tip
-        To request membership for the _ki32_mosrs_ subproject, you need to:
-        
-        - already be member of the _ki32_ project
-        - have a [MOSRS account](/models/run_a_model/rose_cylc/#mosrs-account)
-
     !!! warning
         You will not be granted access to some of the projects listed here before we have checked you are properly licensed to use the software. Ensure you [request access to the configurations](#request-access) first.
 
