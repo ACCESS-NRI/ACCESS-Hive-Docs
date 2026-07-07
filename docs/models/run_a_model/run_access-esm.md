@@ -378,7 +378,7 @@ Now some practical examples:
 - **Run 20 years of simulation with resubmission every 5 years**<br>
     To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration with `-n` set to `20`:
     ```
-    payu run-f -n 20
+    payu run -f -n 20
     ```
     This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
 
