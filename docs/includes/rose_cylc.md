@@ -8,13 +8,18 @@
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). Cylc is a workflow manager that automatically executes tasks according to the model's configuration. It also monitors all tasks, reporting any errors that may occur.
-* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UKMO which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
+<!--about-rose-cylc-start-->
+
+* The [_Cylc_](https://cylc.github.io/cylc-doc/7.8.8/html/index.html) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research - NIWA (now Earth Sciences NZ). Cylc is a workflow manager that automatically executes tasks according to the model's configuration. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
+* The [_Rose_](https://metomi.github.io/rose/doc/html/index.html) framework, developed by the UKMO which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
 
 A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_. Every _suite_ has a unique identifier called `suite-ID` in the form `u-LLNNN`, where `L` is a letter and `N` is a number (e.g., u-ab123).
 
+<!--about-rose-cylc-end-->
 
 ## Prerequisites
+
+<!--nci-and-mosrs-account-start-->
 
 - **NCI account**<br>
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
@@ -27,6 +32,8 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
     !!! warning
         The waiting time to obtain a MOSRS account can be up to 3 weeks.
 
+<!--nci-and-mosrs-account-end-->
+
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
@@ -35,6 +42,8 @@ A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _
 
 
 ## Connecting to Gadi
+
+<!--connecting-to-gadi-until-vdi-storage-start-->
 
 You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node) or via an [ARE VDI session](#launch-are-vdi-desktop). 
 
@@ -65,8 +74,12 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
 - **Project** &rarr; a project of which you are a member.<br>
     The project must have allocated [_SU_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...). By default, this will be set to your default project `$PROJECT`.
 
+<!--connecting-to-gadi-until-vdi-storage-end-->
+
 - **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
     The storage folders listed above are the minimum required to run _Rose/Cylc_.
+
+<!--connecting-to-gadi-after-vdi-storage-start-->
 
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
@@ -78,10 +91,16 @@ Once the new tab opens, you will see a Desktop with a few folders on the left. C
 
 ![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
 
+<!--connecting-to-gadi-after-vdi-storage-end-->
+
 
 ## Set up a persistent session
 
+<!--persistent-session-start-->
+
 NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/spaces/Help/pages/241926895/Persistent+Sessions) to enable long running processes, like _Cylc_, to stay active even when the user disconnects from _Gadi_.
+
+You will need to start a persistent session in order to run {{ model }}.
 
 It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
 
@@ -163,9 +182,15 @@ persistent-sessions kill <persistent-session-uuid>
 !!! warning
     When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
 
+<!--persistent-session-end-->
+
 ## Set up Rose/Cylc
 
+
+
 ### Rose and Cylc executables
+
+<!--rose-cylc-executables-start-->
 
 Make the `rose` and `cylc` executables available by loading the _Cylc_ module:
 
@@ -174,7 +199,20 @@ module use /g/data/hr22/modulefiles
 module load cylc7
 ```
 
+<terminal-window data="input">
+    <terminal-line>module use /g/data/hr22/modulefiles</terminal-line>
+    <terminal-line>module load cylc7</terminal-line>
+    <terminal-line data="output">Using the cylc session &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
+    <terminal-line data="output"></terminal-line>
+    <terminal-line data="output">Loading cylc7/24.03</terminal-line>
+    <terminal-line data="output">&emsp;Loading requirement: mosrs-setup/2.0.1</terminal-line>
+</terminal-window>
+
+<!--rose-cylc-executables-end-->
+
 ### MOSRS Authentication
+
+<!--mosrs-auth-start-->
 
 The ACCESS models which use _Cylc_ require a connection to the MOSRS mirror on _Gadi_. To connect to this mirror, you must first authenticate your MOSRS credentials with:
 
@@ -195,6 +233,8 @@ This will request the username and password you received when you created your M
 </terminal-window>
 
 After the first authentication, you will need to run `mosrs-auth` every 24 hours and for every new connection to _Gadi_ (e.g., new terminal) to verify your password against the saved credentials.
+
+<!--mosrs-auth-end-->
 
 ## Get the model configuration
 

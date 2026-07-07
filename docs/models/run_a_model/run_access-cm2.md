@@ -12,15 +12,24 @@
     If you were an _accessdev_ user, make sure you are a member of [hr22](https://my.nci.org.au/mancini/project/hr22/join) and [ki32](https://my.nci.org.au/mancini/project/ki32/join) projects.<br>
     Then, refer to instructions on how to [Set up persistent session workflow for {{ model }}]({{ '#set-up-%s-persistent-session'%model.lower() }}), and how to [port suites from accessdev](#port-suites-from-accessdev).
 
+## About
+
+{%
+    include-markdown "models/access_models/access-cm.md"
+    start="<!--cm2-description-start-->"
+    end="<!--cm2-description-end-->"
+%}
+A full description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
+
+{{ model }} runs using the Rose/Cylc workflow management tool on the Gadi supercomputer. Follow the steps below to set up and run the model.
+
 ## Prerequisites
 
-- **NCI Account**<br> 
-    Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
-
-- **_MOSRS_ account**<br>
-    [MOSRS](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
-    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
-    {: #mosrs-account}
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--nci-and-mosrs-account-start-->"
+    end="<!--nci-and-mosrs-account-end-->"
+%}
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
@@ -41,167 +50,65 @@
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
-- **Connection to an ARE VDI Desktop (optional)**<br>
-    To run {{ model }}, start an [ARE VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
-    If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
+## Connecting to Gadi
 
-## Set up an ARE VDI Desktop (optional)
-To skip this step and instead run {{ model }} from _Gadi_ login node, refer to instructions on how to [Set up {{ model }} persistent session]({{ '#set-up-%s-persistent-session'%model.lower() }}).
-
-### Launch ARE VDI Session
-Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
-
-- **Walltime (hours)** &rarr; `2`<br>
-    This is the amount of time the ARE VDI session will stay active for.<br>
-    {{ model }} does not run directly on ARE.<br>
-    This means that the ARE VDI session only needs to carry out setup steps as well as starting the run itself. All these tasks can be done within 2 hours.
-    
-- **Queue** &rarr; `normalbw`
-    
-- **Compute Size** &rarr; `tiny` (1 CPU)<br>
-    As mentioned above, the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
-
-- **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated _SU_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
-    For more information, refer to how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--connecting-to-gadi-until-vdi-storage-start-->"
+    end="<!--connecting-to-gadi-until-vdi-storage-end-->"
+%}
 
 - **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
     This is a list of all project data storage, joined by plus (`+`) signs, needed for the {{ model }} simulation. In ARE, storage locations need to be explicitly defined to access data from within a VDI instance.<br>
     Every {{ model }} simulation can be unique and input data can originate from various sources. Hence, if your simulation requires data stored in project folders other than `access`, `xp65`, `hr22` or `ki32`, you need to add those projects to the storage path.<br>
     For example, if your {{ model }} simulation requires data stored in `/g/data/tm70` and `/scratch/w40`, your full storage path will be: `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32+gdata/tm70+scratch/w40`
-    
-Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
-![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
-
-### Open the terminal in the VDI Desktop
-Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
-To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
-
-![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--connecting-to-gadi-after-vdi-storage-start-->"
+    end="<!--connecting-to-gadi-after-vdi-storage-end-->"
+%}
 
 ## Set up {{ model }} persistent session
-To support the use of long-running processes, such as ACCESS model runs, NCI provides a service on _Gadi_ called [persistent sessions](https://opus.nci.org.au/display/Help/Persistent+Sessions).
 
-To run {{ model }}, you need to start a persistent session and set it as the target session for the model run.
-
-### Start a new persistent session
-To start a new persistent session on _Gadi_, using either a login node or an ARE terminal instance, run the following command:
-```
-persistent-sessions start <name>
-```
-
-This will start a persistent session with the given `name` that runs under your [default project](/getting_started/set_up_nci_account#change-default-project-on-gadi).<br>
-If you want to assign a different project to the persistent session, use the option `-p`:
-```
-persistent-sessions start -p <project> <name>
-```
-
-!!! tip
-    While the project assigned to a persistent session does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _SU_.<br>
-    For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
-
-<terminal-window data="input">
-    <terminal-line>persistent-sessions start &lt;name&gt;</terminal-line>
-    <terminal-line data="output">session &lt;persistent-session-uuid&gt; running - connect using</terminal-line>
-    <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-</terminal-window>
-
-To list all active persistent sessions run:
-```
-persistent-sessions list
-```
-
-<terminal-window data="input">
-    <terminal-line>persistent-sessions list</terminal-line>
-    <terminal-line data="output">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;UUID&emsp;&emsp;PROJECT&emsp;&ensp;&ensp;ADDRESS&emsp;&emsp;&emsp;&emsp;CPUTIME&emsp;MEMORY</terminal-line>
-    <terminal-line data="output">&lt;persistent-session-uuid&gt;&emsp;&lt;project&gt;&emsp;10.9.0.62&emsp;00:00:05.213&emsp;30.5M</terminal-line>
-</terminal-window>
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--persistent-session-start-->"
+    end="<!--persistent-session-end-->"
+%}
 
 
-The label of a newly-created persistent session has the following format: <br>
-`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.
 
-### Specify {{ model }} target persistent session
+## Set up Rose/Cylc
 
-After starting the persistent session, it is essential to assign it to the {{ model }} run.<br>
-The easiest way to do this is to insert the persistent session label into the file `~/.persistent-sessions/cylc-session`.<br>
-You can do it manually, or by running the following command (by substituting `<name>` with the name given to the persistent session, and `<project>` with the project assigned to it):
-```
-cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
-```
+To run {{ model }}, you will use the Rose/Cylc workflow management tool, which consists of two components:
 
-For example, if the user `abc123` started a persistent session named `cylc` under the project `xy00`, the command will be:
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--about-rose-cylc-start-->"
+    end="<!--about-rose-cylc-end-->"
+%}
 
-<terminal-window data="input">
-    <terminal-line>cat > ~/.persistent-sessions/cylc-session <<< cylc.abc123.xy00.ps.gadi.nci.org.au</terminal-line>
-    <terminal-line data="input" linedelay="1000">cat ~/.persistent-sessions/cylc-session</terminal-line>
-    <terminal-line data="output">cylc.abc123.xy00.ps.gadi.nci.org.au</terminal-line>
-</terminal-window>
+### Rose and Cylc executables
 
-For more information on how to specify the target session, refer to [Specify Target Session with Cylc7 Suites](https://opus.nci.org.au/display/DAE/Run+Cylc7+Suites#RunCylc7Suites-SpecifyTargetSession).
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--rose-cylc-executables-start-->"
+    end="<!--rose-cylc-executables-end-->"
+%}
 
-!!! tip
-    You can simultaneously submit multiple {{ model }} runs using the same persistent session without needing to start a new one. Hence, the process of specifying the target persistent session for {{ model }} should only be done once.<br>
-    After specifying the {{ model }} target persistent session the first time, to run {{ model }} you just need to make sure to have an active persistent session named like the specified {{ model }} target persistent session.
-
-### Terminate a persistent session
-To stop a persistent session, run:
-```
-persistent-sessions kill <persistent-session-uuid>
-```
-!!! warning
-    When you terminate a persistent session, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a persistent session.
-
-## Rose/Cylc/MOSRS setup
-
-To run {{ model }}, access to multiple software and MOSRS authentication is needed.
-
-### Cylc setup {: #cylc }
-
-[_Cylc_](https://cylc.github.io/cylc-doc/7.8.8/html/index.html) (pronounced ‘silk’) is a workflow manager that automatically executes tasks according to the model's main cycle script `suite.rc`. _Cylc_ controls how the job will be run and manages the time steps of each model component. It also monitors all tasks, reporting any errors that may occur.
-
-To get the _Cylc_ setup required to run {{ model }}, execute the following commands:
-```
-module use /g/data/hr22/modulefiles
-module load cylc7
-```
-<terminal-window data="input">
-    <terminal-line>module use /g/data/hr22/modulefiles</terminal-line>
-    <terminal-line>module load cylc7</terminal-line>
-    <terminal-line data="output">Using the cylc session &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
-    <terminal-line data="output"></terminal-line>
-    <terminal-line data="output">Loading cylc7/24.03</terminal-line>
-    <terminal-line data="output">&emsp;Loading requirement: mosrs-setup/2.0.1</terminal-line>
-</terminal-window>
 
 !!! warning
     _Cylc_ version >= `cylc7/24.03` required.<br>
-    
-    Also, before loading the _Cylc_ module, make sure to have started a _persistent session_ and have assigned it to the {{ model }} workflow. For more information about these steps, refer to [Set up {{ model }} persistent session]({{ '#set-up-%s-persistent-session'%model.lower() }}).
-
-### Rose setup {: #rose }
-[Rose](https://metomi.github.io/rose/doc/html/index.html) is a toolkit that can be used to view, edit, or run an ACCESS modelling suite.
-
-By completing the [_Cylc_ setup](#cylc), also _Rose_ will be automatically available. Hence, no additional step is required.
+ 
 
 ### MOSRS authentication
-To authenticate using your _MOSRS_ credentials, run:
-```
-mosrs-auth
-```
-<terminal-window>
-    <terminal-line data="input">mosrs-auth</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: You need to enter your MOSRS credentials here so that GPG can cache your password.</terminal-line>
-    <terminal-line>Please enter the MOSRS password for &lt;MOSRS-username&gt;:</terminal-line>
-    <terminal-line lineDelay=1500>Checking your credentials using Subversion. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed Subversion with your credentials.</terminal-line>
-    <terminal-line lineDelay=100><span style="color: #559cd5;">INFO</span>: Checking your credentials using rosie. Please wait.</terminal-line>
-    <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
-</terminal-window>
 
-!!! warning
-    This step needs to be done once for each new session (e.g., _Gadi_ login, _ARE_ terminal window)
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--mosrs-auth-start-->"
+    end="<!--mosrs-auth-end-->"
+%}
 
 ## Get {{ model }} suite
 {{ model }} comprises the model components [UM](/models/model_components/atmosphere#unified-model-um), [MOM](/models/model_components/ocean#modular-ocean-model-mom), [CICE](/models/model_components/sea-ice#cice) and [CABLE](/models/model_components/land#cable), coupled through [OASIS](/models/model_components/coupler#oasis3-mct). These components, which have different model parameters, input data and computer-related information, need to be packaged together as a _suite_ in order to run.<br>
