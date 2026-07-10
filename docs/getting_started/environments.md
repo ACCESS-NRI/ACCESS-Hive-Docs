@@ -117,8 +117,9 @@ If you need a specific version, you can also check the package version inside Py
 For example, you could check the version of xarray via either of:
 ```sh
 $ python -c "import xarray; print(xarray.__version__)"
-$ conda list | grep xarray
 
+$ conda list | grep xarray
+```
 When making a request, please include:
 
 - the package name and, if needed, the version you require
