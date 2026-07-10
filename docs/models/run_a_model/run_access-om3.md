@@ -419,8 +419,8 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 The model timesteps set how frequently the model recalculates it's internal state. 
 Longer timesteps are more computational efficient, but the length is limited by numerical stability and the quality of the 
-modeled result. In release configurations, the timesteps are set as long as practical to maintain model staibility.
-If alternative new configurations are being used or developed, then a shorter timestep may be needed to ensure model stability.
+modeled result. In release configurations, the timesteps are set as long as practical to maintain model stability.
+If alternative new configurations are being used or developed, then a shorter timestep may be needed.
 
 There are several timesteps to be aware of for each active model component. The ocean (MOM6) has baratropic, baraclinic, thermodynamic, 
 tracer advection and remapping timesteps, whilst the sea ice (CICE) has thermodynamic and dynamic timesteps and there is also the interval 
@@ -436,7 +436,9 @@ The ocean timesteps can be set independently of the coupling interval.
 Reducing the baratropic timestep helps with stability issues in 2d dynamical ocean processes and is controlled through the parameter `DTBT` 
 in `MOM_input`. This is typically set as a fraction of the maximum stable value but can be set in seconds. When `DTBT` is negative, the 
 baratropic timestep is set as the fraction of the maximum stable value, which is calculated internally in MOM6. The timestep 
-is recalculated at the frequency set through `DTBT_RESET_PERIOD`. See notes in `MOM_input` on the specifics of setting each parameter.
+is recalculated at the frequency set through `DTBT_RESET_PERIOD`. Therefore reducing the magnitude of either `DTBT` or `DTBT_RESET_PERIOD`
+should improve stability.
+See notes in `MOM_input` on the specifics of setting each parameter.
 
 Reducing the baraclinc timestep can help with stability in 3d dynamical ocean processes. This is often set the same as the coupling timestep, or 
 can be set to a whole fraction of the coupling timestep. This is controled by the parameter `DT` in `MOM_input`, and the model will round the 
@@ -457,8 +459,9 @@ runSeq::
   @300        # <-- coupling time-step in seconds
 ```
 
-This can be reduced when instabilities appear related to coupled fields, or it's unclear where the instability is occuring. There's some further 
-discussion of the coupling time step in the [config docs](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#coupling-and-driver-time-step).
+This can be reduced when instabilities appear related to coupled fields, or it's unclear where the instability is occuring. 
+There's some further discussion of the coupling time step in the 
+[config docs](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#coupling-and-driver-time-step).
 
 ### Modify PBS resources
 
