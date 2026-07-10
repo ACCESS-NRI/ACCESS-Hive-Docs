@@ -114,6 +114,11 @@ python -c "import package_name"
 
 If you need a specific version, you can also check the package version inside Python or from the command line, depending on the package.
 
+For example, you could check the version of xarray via either of:
+```sh
+$ python -c "import xarray; print(xarray.__version__)"
+$ conda list | grep xarray
+
 When making a request, please include:
 
 - the package name and, if needed, the version you require
