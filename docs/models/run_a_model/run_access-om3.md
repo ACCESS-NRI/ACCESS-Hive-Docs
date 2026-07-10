@@ -415,6 +415,50 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 !!! warning
     Note that the restart flag used here will only be applied if there is no restart directory in archive, and so does not have to be removed for subsequent submissions. See [Payu docs](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) for further details.
 
+### Changing model timesteps
+
+The model timesteps set how frequently the model recalculates it's internal state. 
+Longer timesteps are more computational efficient, but the length is limited by numerical stability and the quality of the 
+modeled result. In release configurations, the timesteps are set as long as practical to maintain model staibility.
+If alternative new configurations are being used or developed, then a shorter timestep may be needed to ensure model stability.
+
+There are several timesteps to be aware of for each active model component. The ocean (MOM6) has baratropic, baraclinic, thermodynamic, 
+tracer advection and remapping timesteps, whilst the sea ice (CICE) has thermodynamic and dynamic timesteps and there is also the interval 
+which coupling occurs.
+
+This section introduces the baratropic, baraclinic, coupling and sea ice timesteps. Details on all the MOM6 time steps are in the 
+[MOM6 documentation](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html).
+
+#### Ocean
+
+The ocean timesteps can be set independently of the coupling interval.
+
+Reducing the baratropic timestep helps with stability issues in 2d dynamical ocean processes and is controlled through the parameter `DTBT` 
+in `MOM_input`. This is typically set as a fraction of the maximum stable value but can be set in seconds. When `DTBT` is negative, the 
+baratropic timestep is set as the fraction of the maximum stable value, which is calculated internally in MOM6. The timestep 
+is recalculated at the frequency set through `DTBT_RESET_PERIOD`. See notes in `MOM_input` on the specifics of setting each parameter.
+
+Reducing the baraclinc timestep can help with stability in 3d dynamical ocean processes. This is often set the same as the coupling timestep, or 
+can be set to a whole fraction of the coupling timestep. This is controled by the parameter `DT` in `MOM_input`, and the model will round the 
+value set in `MOM_input` to the coupling interval or closest whole fraction of the coupling interval.
+
+#### Sea Ice
+
+The sea ice thermodynamic timestep is equal to the coupling interval, can't be modified indepedently and should be numerically stable at all 
+values. The sea ice dynamics timestep is a whole fraction of the thermodynamic timestep, and the number of dynamic timesteps per 
+thermodynamic timesteps is set through the `ndtd` paramater in `ice_in`. 
+
+#### Coupling
+
+The coupling interval is set in the seconds at the top of `nuopc.runseq` file :
+
+```
+runSeq::
+  @300        # <-- coupling time-step in seconds
+```
+
+This can be reduced when instabilities appear related to coupled fields, or it's unclear where the instability is occuring. There's some further 
+discussion of the coupling time step in the [config docs](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#coupling-and-driver-time-step).
 
 ### Modify PBS resources
 
