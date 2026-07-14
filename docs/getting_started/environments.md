@@ -131,7 +131,7 @@ When making a request, please include:
 
 We assess requests based on community value, dependency impact, maintenance status, and compatibility with the rest of the environment. Packages with small dependency changes and clear community value are usually straightforward. Packages that require large dependency changes, downgrades, or changes to core packages such as Python, NumPy, SciPy, Dask, Xarray, Pandas, Matplotlib, Zarr, or Scikit-Learn need more care.
 
-Accepted changes are made through pull requests to the `ACCESS-Analysis-Conda` repository. The pull request builds the changed environment on _Gadi_ before it is merged. Once merged, the environment is deployed and becomes available through the monthly `analysis3-YY.MM` module series.
+Accepted changes are made through pull requests to the [ACCESS-Analysis-Conda](https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda) repository. The pull request builds the changed environment on _Gadi_ before it is merged. Once merged, the environment is deployed and becomes available through the monthly `analysis3-YY.MM` module series.
 
 ??? note "For maintainers and contributors"
     Package changes should be made in the relevant `pixi.toml` file, not by hand-editing the generated `environment.yml` file.
