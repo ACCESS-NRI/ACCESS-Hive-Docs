@@ -129,7 +129,7 @@ When making a request, please include:
 - any dependencies or compatibility constraints you already know about
 - whether the package is available from `conda-forge` or another reliable channel
 
-We assess requests based on community value, dependency impact, maintenance status, and compatibility with the rest of the environment. Packages with small dependency changes and clear community value are usually straightforward. Packages that require large dependency changes, downgrades, or changes to core packages such as Python, NumPy, SciPy, Dask, Xarray, Pandas, Matplotlib, Zarr, or Scikit-Learn need more care.
+We assess requests based on community value, dependency impact, maintenance status, and compatibility with the rest of the environment. Packages with small dependency changes and clear community value are usually straightforward. Packages that require large dependency changes, downgrades, or changes to core packages such as _Python_, _NumPy_, _SciPy_, _Dask_, _Xarray_, _Pandas_, _Matplotlib_, _Zarr_, or _Scikit-Learn_ need more care.
 
 Accepted changes are made through pull requests to the [ACCESS-Analysis-Conda](https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda) repository. The pull request builds the changed environment on _Gadi_ before it is merged. Once merged, the environment is deployed and becomes available through the monthly `analysis3-YY.MM` module series.
 
