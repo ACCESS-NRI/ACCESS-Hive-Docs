@@ -9,7 +9,7 @@ on:
 
 jobs:
   check-links:
-    uses: access-nri/documentation-infra/.github/workflows/check_links_workflow.yml@v0.2
+    uses: access-nri/documentation-infra/.github/workflows/check_links_workflow.yml@v0.3
     with:
       repository: ${{ github.event.pull_request.head.repo.full_name || github.repository }}
       commit: ${{ github.event.pull_request.head.sha || github.sha }}
