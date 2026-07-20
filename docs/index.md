@@ -1,10 +1,13 @@
 ---
-hide:
-  - navigation
-  - toc
----
+# For home page, don't use standard layout box. 
+# Use custom layout as template, leaving out the 
+# top automatic title completely.
+template: home.html
 
-#
+hide:
+    - navigation        # hide left sidebar navigation
+    - toc               # hide right sidebar table of contents
+---
 
 <div class="introduction">
     <div>
