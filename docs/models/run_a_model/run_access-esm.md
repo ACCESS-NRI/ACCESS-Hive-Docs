@@ -34,9 +34,14 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_MOSRS_ account**<br>
-    [MOSRS](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
-    To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
-    {: #mosrs-account}
+    [MOSRS](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code for some ACCESS model components and configurations, and a MOSRS account is a license requirement to run these ACCESS-NRI supported models.<br>
+
+    To apply for a MOSRS account, agree to the [ACCESS-NRI Terms of Use](https://reporting.access-nri-store.cloud.edu.au/partner_orgs/agreements/individual/ukmo/) and select the option to request a MOSRS account. For more information on this process, read the [Accessing UKMO licensed models post](https://forum.access-hive.org.au/t/accessing-ukmo-licensed-models/6168) on the ACCESS-Hive Forum. 
+    Note that ACCESS-NRI can only facilitate MOSRS account requests for users at ACCESS-NRI partner universities. If you are affiliated with another organisation, you will need to follow your institution's process for obtaining a MOSRS account.
+ {: #mosrs-account}
+
+    !!! warning
+        The waiting time to obtain a MOSRS account can be up to 2 weeks.
 
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
