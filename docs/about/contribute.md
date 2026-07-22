@@ -1,5 +1,5 @@
 {% set hive_docs_repo_name = "ACCESS-Hive-Docs" %}
-{% set hive_docs_repo = "https://github.com/ACCESS-NRI/" ~ "ACCESS-Hive-Docs" %}
+{% set hive_docs_repo_url = "https://github.com/ACCESS-NRI/" ~ hive_docs_repo_name %}
 
 # Contributing
 
@@ -8,15 +8,15 @@ ACCESS-Hive Docs is a community resource for users of the Australian Community C
 Have an idea for improvement? We'd love to have your contributions onboard! Whether you're correcting a typo, improving existing content, or adding something new, every contribution helps make the documentation more useful for the community.
 
 !!! tip
-    Not comfortable editing documentation? Simply reporting a typo or suggesting an improvement by opening an [issue]({{hive_docs_repo}}/issues/new/choose) is a valuable and appreciated contribution!
+    Not comfortable editing documentation? Simply reporting a typo or suggesting an improvement by opening an [issue]({{hive_docs_repo_url}}/issues/new/choose) is a valuable and appreciated contribution!
 
 ## How you can contribute
 
 There are three ways to contribute:
 
-1. **[Suggest a change or report a problem](#1-suggest-a-change-or-report-a-problem)** by opening a [GitHub issue]({{hive_docs_repo}}/issues/new/choose).
-2. **[Edit a page directly (via pencil icon)](#2-edit-a-page-directly)** - quick fixes to a single page.
-3. **[Larger changes](#3-larger-changes)** - new pages, restructuring, or multi-file edits.
+**[Suggest a change or report a problem](#github-issue)** by opening a [GitHub issue]({{hive_docs_repo_url}}/issues/new/choose).
+**[Edit a page directly](#direct-edit)** - quick fixes to a single page.
+**[Larger changes](#large-contribution)** - new pages, restructuring, or multi-file edits.
 
 All are equally welcome - feel free to choose whichever works best for you.
 
@@ -25,10 +25,10 @@ All are equally welcome - feel free to choose whichever works best for you.
 
 ---
 
-### 1. Open a GitHub Issue
+### Open a GitHub Issue {: #github-issue }
 
 <div class="card-container">
-    <a href="{{hive_docs_repo}}/issues/new/choose" class="horizontal-card" target="_blank">
+    <a href="{{hive_docs_repo_url}}/issues/new/choose" class="horizontal-card" target="_blank">
         <div class="card-image-container">
             <img class="img-contain white-background" src="/assets/how-to-contribute-img.jpg">
         </div>
@@ -43,7 +43,7 @@ All are equally welcome - feel free to choose whichever works best for you.
     </a>
 </div>
 
-The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo}}/issues/new/choose). This is a great option if you:
+The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo_url}}/issues/new/choose). This is a great option if you:
 
 - Spot a typo, error, or broken link.
 - Find something confusing or unclear.
@@ -54,46 +54,49 @@ Once the issue has been submitted, you are welcome (and encouraged!) to make a s
 
 ---
 
-### 2. Edit a page directly
+### Edit a page directly {: #direct-edit }
 For quick updates to an existing page, you can edit it directly in your browser using the *pencil* icon in the top-right corner of the website.
 
-- Click the **edit (pencil) icon** in the top-right corner of the page you want to edit.
+1. Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
 
 ![Edit Pencil Icon](/assets/contributing_page/1_edit_icon2.png)
 
-- If you are outside the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), GitHub will ask you to **fork the repository**.
-- Make your changes in the editor. 
-- Scroll down to the **Commit changes**, add a short commit message, and click **Propose changes**. If you are an ACCESS-NRI GitHub organisation member, GitHub will automatically **create a new branch** for you.
-- Click **Create pull request**. 
-- Add details about the proposed changes and click **Submit**.
+2. Click _Fork this repository_.
+   !!! tip
+       If you have write access to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository, this step will not be required.
+3. Make your changes in the editor. 
+4. When you are satisfied with your changes, click on the _Commit changes..._ button (at the top-right corner), add a _Commit message_ and an optional _Extended description_, and click _Propose changes_. GitHub will automatically create a new branch (usually called `patch-1` by default) and prompt you a screen where you can compare the changes.
+
+!!! danger
+    If you have write access to the {{hive_docs_repo_name}} repository, **DO NOT** select _Commit directly to the development branch_!
+5. Click _Create pull request_. 
+6. Add a title and details about the proposed changes and click _Create pull request_.
 
 ---
 
-### 3. Make changes locally
+### Make changes locally {: #large-contribution }
 For larger changes or updates across multiple pages, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
-
-!!!tip
-    If you are not a member of the [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI), you will need to **fork** the repository first. A **fork** is your own copy of the repository on GitHub where you can make changes before proposing them back to the main repository.
 
 #### Step 1: Fork the repository
 
-!!! info 
-    [ACCESS-NRI GitHub organisation](https://github.com/ACCESS-NRI) members can **skip this step** and clone the original ACCESS-Hive Docs repository directly.
+!!! info
+    If you have write access to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository, you can skip this step.
+
+A [GitHub fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is your own copy of the repository on GitHub where you can make changes without affecting the original (upstream) repository. These changes can then be merged back into the upstream repository via pull requests.
 
 ![Fork the repository](/assets/contributing_page/fork_repo.png)
 
-If you are outside the [ACCESS-NRI GitHub](https://github.com/ACCESS-NRI) organisation:
 
-1. Go to the [ACCESS-Hive Docs]({{hive_docs_repo}}) repository on GitHub. 
-2. Click **Fork** in the top-right corner.
-3. Choose your GitHub account as the destination. 
-4. Click **Create Fork**.
+1. Go to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository on GitHub. 
+2. Click _Fork_ in the top-right corner.
+3. Choose your GitHub account and repo name as the destination (we suggest to keep the original name to avoid confusions). 
+4. Click _Create fork_.
 
-This creates your own copy of the repository. 
+This creates your own copy of the repository on GitHub. 
 
 #### Step 2: Clone the repository
 
-**Cloning** creates a local copy of the repository on your computer. Before cloning, open a **terminal** and navigate to the directory where you'd like the repository to be downloaded. 
+[Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) creates a local copy of the repository on your computer.
 
 Then, if you have **forked** the repository, you can clone your fork by clicking the green **Code button** in the top-right corner of the repository page, copying the repository URL, and then running the following command:
 
