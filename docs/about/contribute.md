@@ -14,9 +14,9 @@ Have an idea for improvement? We'd love to have your contributions onboard! Whet
 
 There are three ways to contribute:
 
-**[Suggest a change or report a problem](#github-issue)** by opening a [GitHub issue]({{hive_docs_repo_url}}/issues/new/choose).
-**[Edit a page directly](#direct-edit)** - quick fixes to a single page.
-**[Larger changes](#large-contribution)** - new pages, restructuring, or multi-file edits.
+- **[Suggest a change or report a problem](#github-issue)** by opening a [GitHub issue]({{hive_docs_repo_url}}/issues/new/choose).
+- **[Edit a page directly](#direct-edit)** - quick fixes to a single page.
+- **[Larger changes](#large-contribution)** - new pages, restructuring, or multi-file edits.
 
 All are equally welcome - feel free to choose whichever works best for you.
 
@@ -57,20 +57,23 @@ Once the issue has been submitted, you are welcome (and encouraged!) to make a s
 ### Edit a page directly {: #direct-edit }
 For quick updates to an existing page, you can edit it directly in your browser using the *pencil* icon in the top-right corner of the website.
 
-1. Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
+- Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
 
-![Edit Pencil Icon](/assets/contributing_page/1_edit_icon.png)
+![Edit Pencil Icon](/assets/contributing_page/edit_icon.png)
 
-2. Click _Fork this repository_.
-   !!! tip
-       If you have write access to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository, this step will not be required.
-3. Make your changes in the editor. 
-4. When you are satisfied with your changes, click on the _Commit changes..._ button (at the top-right corner), add a _Commit message_ and an optional _Extended description_, and click _Propose changes_. GitHub will automatically create a new branch (usually called `patch-1` by default) and prompt you a screen where you can compare the changes.
+- Click _Fork this repository_.
+
+!!! tip
+    If you have write access to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository, this step will not be required.
+
+- Make your changes in the editor. 
+- When you are satisfied with your changes, click on the _Commit changes..._ button (at the top-right corner), add a _Commit message_ and an optional _Extended description_, and click _Propose changes_. GitHub will automatically create a new branch (usually called `patch-1` by default) and prompt you a screen where you can compare the changes.
 
 !!! danger
-    If you have write access to the {{hive_docs_repo_name}} repository, **DO NOT** select _Commit directly to the development branch_!
-5. Click _Create pull request_. 
-6. Add a title and details about the proposed changes and click _Create pull request_.
+    If you have write access to the {{hive_docs_repo_name}} repository, **do not** select _Commit directly to the development branch_! Instead, create a new branch and open a pull request so the changes can be reviewed, discussed before they are added to the shared `development` branch.
+
+- Click _Create pull request_. 
+- Add a title and details about the proposed changes and click _Create pull request_.
 
 ---
 
@@ -84,7 +87,7 @@ For larger changes or updates across multiple pages, the easiest approach is to 
 
 A [GitHub fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is your own copy of the repository on GitHub where you can make changes without affecting the original (upstream) repository. These changes can then be merged back into the upstream repository via pull requests.
 
-![Fork the repository](/assets/contributing_page/fork_repo.png)
+![Fork the repository](/assets/contributing_page/fork-repo.png)
 
 
 1. Go to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository on GitHub. 
@@ -247,16 +250,17 @@ After you open a pull request, a **preview version** of the documentation is aut
 ??? info "Branch Naming"
     Using descriptive branch name makes it easier to understand what the branch is for. We recommended using the following branch name structure:
     
-    - name/issue-number/short-description
+    - `name/issue-number/short-description`
     
     Example:
-    - john/24/add-cosima-tutorial
+    - `bob/24/add-cosima-tutorial`
 
 
 ??? info "Pull Requests"
     Well-documented pull requests help reviewers understand the intent of changes and reduces the turnaround time of the review. 
 
     When opening a PR:
+    
     - Provide a clear summary of the changes.
     - Explain *why* the changes were made, not just *what* changed.
     - Link related issues or discussions where relevant.
@@ -265,6 +269,7 @@ After you open a pull request, a **preview version** of the documentation is aut
     Smaller and focused PRs are generally preferred over very large changes, as they are easier to review, test and merge.
 
     Before submitting a PR, contributors are encouraged to:
+    
     - Check formatting and links.
     - Preview documentation changes on the PR previews generated just after creating a PR.
     - Check GitHub CI is passing all checks. 
