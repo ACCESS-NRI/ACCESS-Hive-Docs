@@ -59,7 +59,7 @@ For quick updates to an existing page, you can edit it directly in your browser 
 
 1. Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
 
-![Edit Pencil Icon](/assets/contributing_page/1_edit_icon2.png)
+![Edit Pencil Icon](/assets/contributing_page/1_edit_icon.png)
 
 2. Click _Fork this repository_.
    !!! tip
