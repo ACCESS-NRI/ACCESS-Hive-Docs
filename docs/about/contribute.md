@@ -1,7 +1,7 @@
 {% set hive_docs_repo_name = "ACCESS-Hive-Docs" %}
 {% set hive_docs_repo_url = "https://github.com/ACCESS-NRI/" ~ hive_docs_repo_name %}
 
-# Contributing
+# How to Contribute
 
 ACCESS-Hive Docs is a community resource for users of the Australian Community Climate and Earth System Simulator (ACCESS). 
 
