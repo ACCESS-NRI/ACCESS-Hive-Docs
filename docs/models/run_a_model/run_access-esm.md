@@ -74,7 +74,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
         end="<!--end:about-->"
     %}
 
-??? abstract "Accessing _payu_"
+??? info "Accessing _payu_"
 
     {%
         include-markdown "includes/payu.md"
