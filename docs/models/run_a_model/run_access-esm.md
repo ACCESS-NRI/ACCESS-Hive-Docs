@@ -71,20 +71,18 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 ??? info "_Configuration_ and _experiment_ definitions"
 
     {%
-        include-markdown "include/config_vs_experiment.md"
+        include-markdown "includes/terminology.md"
         start="<!--start:terminology-conf-vs-exp-->"
         end="<!--end:terminology-conf-vs-exp-->"
-        heading-offset=1
     %}
 
 ## Workflow manager, _payu_
 
-??? info "What is _payu_ and how are the simulation files organised by _payu_"
+??? info 
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-about-->"
         end="<!--end:payu-about-->"
-        heading-offset=1
     %}
     For {{model}}, the standard output is saved in the file `access.out` and the standard error in `access.err`.
 
@@ -102,7 +100,7 @@ Released configurations are tested and supported by ACCESS-NRI, and build upon t
 
 All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository: `{{github_configs}}`.<br>
 
-[Supported configurations:][model configurations]
+Supported configurations:
 
 | Configuration | Branch name |
 |---------------|-------------|
@@ -119,7 +117,7 @@ All released {{ model }} configurations are available from the [{{ model }} conf
     end="<!--end:get-config-payu-->"
 %}
 
-??? abstract "Example: Cloning a configuration"
+??? exemple "Example: Cloning a configuration"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-clone-example-->"
