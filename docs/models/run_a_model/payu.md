@@ -52,18 +52,18 @@ The first step is to choose a configuration from those available and identify th
 Once you have chosen the configuration, you need to:
 
 - identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub.
-- decide on a directory on Gadi to store your _payu_ configurations, `<configurations-directory>`
+- decide on a directory on Gadi to store your _payu_ configurations, `<configurations-directory>` (this directory must exist before running _payu_)
 - decide on a name for your experiment, `<experiment-name>`
-- decide on a directory name to store this specific configuration, `<control-directory>`
+- decide on a directory name to store this specific configuration, `<control-directory>` (created by _payu_)
 
 Then, you can get the chosen configuration using `payu clone`.
 
 For example, say you want to do a sensitivity experiment to the diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide to:
 
-- base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, https://github.com/ACCESS-NRI/access-om2-configs
-- store the configurations under `~/access-om2/`
-- name your experiment `diff_test1-1deg_jra55_ryf`
-- store the configuration under `diff_exps-1deg_jra55_ryf`
+- `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, https://github.com/ACCESS-NRI/access-om2-configs
+- `<configurations-directory>`: store the configurations under `~/access-om2/`
+- `<experiment-name>`: name your experiment `diff_test1-1deg_jra55_ryf`
+- `<control-directory>`: store the configuration under `diff_exps-1deg_jra55_ryf`
 
 To get the configuration as chosen, run:
     
@@ -102,6 +102,9 @@ This design allows multiple self-resubmitting experiments that share common exec
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data).
 
+!!! info
+    `payu` will create all the directories it needs. They do not need to be created beforehand.
+
 ## Run the configuration
 
 _payu_ manages the experiment through a [PBS job][PBS job] that it self-submits.
@@ -131,7 +134,14 @@ For example, to run an experiment for a total of 50 years with a default run len
 
 ## Monitor the experiment
 
-The `payu run` command prints out the PBS `job-ID` (formatted as `<9-digit-number>.gadi-pbs`), as the last line to the terminal.<br>
+_payu_ provides the `payu status` command for monitoring jobs (see [documentation](https://payu.readthedocs.io/en/1.2.0/usage.html#monitoring-payu-jobs)). This command can return the scheduler job ID, and the stage the payu run is currently at. When the job is complete, it displays the exit statuses from the model and overall payu run, and points to the PBS log files. 
+
+!!! note
+   `payu status` is available in _payu_ versions 1.2.0 and later. This command does not yet support monitoring post-processing jobs from the configuration, e.g. `payu collate` and `payu sync`.
+
+
+You can also use the PBS `job-ID` to monitor the job using the PBS commands available from NCI. 
+
 To print out information on the status of a specific job, you can execute the following command:
 ```
 qstat <job-ID>
@@ -261,7 +271,7 @@ To find out more about configuration settings for the `config.yaml` file, refer 
 _Gadi_ imposes a maximum wall time for submitted jobs. This means most experiments need several jobs to simulate the total time required.<br>
 As seen previously in [Run an experiment](#run-an-experiment), _payu_ handles this by splitting a simulation in sections and automatically running each section one after the other in separate jobs. As such the total run length is the product of:
 
-- the run length of each individual submission. This is set differently depending on the model, so refer to the [Run a Model][Run a Model] page for details. It is important to set this run length so that the simulation finishes within the maximum wall time for the job.
+- the run length of each individual submission. This is set differently depending on the model, so refer to the [Run a Model][Run a Model] page for details. It is important to set this run length so that the simulation finishes within the maximum wall time for the job (set with the `walltime` entry in the `config.yaml` file) and for the queue (refer to [NCI's documentation](https://opus.nci.org.au/spaces/Help/pages/236881198/Queue+Limits...)).
 - the number of automatic resubmissions by _payu_. This is set through the command line option `-n`. It defaults to 1 and there is no limit on this number.
 
 ### Start the run from a specific restart file {: id='specific-restart'}
@@ -356,6 +366,23 @@ restart_freq: '50YS'
 
 The most recent sequential restarts are retained, and only deleted after a permanently archived restart file has been produced.
 
+!!! note
+    If `restart_freq` is not a multiplier of the model's restart frequency, _payu_ will keep the first restart passed `restart_freq`. For example, a model is set to write restart files every 3 years and produces restarts on the following dates:
+
+    - restart000: 01/01/2000  
+    - restart001: 01/01/2003  
+    - restart002: 01/01/2006  
+    - restart003: 01/01/2009  
+    - restart004: 01/01/2012  
+    - restart005: 01/01/2015
+
+    If `restart_freq` is set to `5YS` (5 years), _payu_ will keep:
+
+    - restart000: 01/01/2000  
+    - restart002: 01/01/2006 (first restart >= 01/01/2005)  
+    - restart004: 01/01/2012 (first restart >= 01/01/2011)  
+    - restart005: 01/01/2015 (keeps immediate restarts < 01/01/2017)  
+
 For more information, check [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#model).
 
 ### Other configuration options
@@ -373,13 +400,13 @@ model: access-om2
 input: /g/data/ik11/inputs/access-om2/input_20201102/common_1deg_jra55
 ```
 
-The `name` field is not actually used for the configuration run, so it can be safely ignored.
+The `name` field, for the model section, is not actually used for the configuration run, so it can be safely ignored. The `name` field is used for submodels (see below).
 
 #### Submodels {: .no-toc }
 
 Coupled models deploy multiple submodels, a.k.a. the model components.
 
-This section of the _payu_ configuration file specifies the submodels and configuration options required to execute the model correctly.
+This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model correctly and the location of all inputs required for this submodel.
 
 Each submodel contains additional configuration options that are read in when the submodel is running. These options are specified in the subfolder of the _control_ directory whose name matches the submodel's `name` (e.g., configuration options for the `ocean` submodel are in the `ocean` sub-directory).
 
