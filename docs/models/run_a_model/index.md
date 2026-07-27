@@ -22,6 +22,24 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             Run ACCESS-CM2
         </div>
     </a>
+    <!-- Run ACCESS-rAM -->
+    <a href="run_access-ram3" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_ram_model_visualisation.png" alt="ACCESS-rAM">
+        </div>
+        <div class="card-text-container bold">   
+            Run ACCESS-rAM3
+        </div>
+    </a>
+    <!-- Payu -->
+    <a href="/models/run_a_model/payu" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain with-padding white-background" src="/assets/rose_cylc_logo.png" alt="Run models using Payu">
+        </div>
+        <div class="card-text-container bold">   
+            Run models using Payu
+        </div>
+    </a>
     <!-- Run ACCESS-ESM -->
     <a href="run_access-esm" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
@@ -47,15 +65,6 @@ If you are unsure which ACCESS model is the best fit for your application, you c
         </div>
         <div class="card-text-container bold">   
             Run ACCESS-OM3
-        </div>
-    </a>
-    <!-- Run ACCESS-rAM -->
-    <a href="run_access-ram3" class="vertical-card aspect-ratio1to1">
-        <div class="card-image-container">
-            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_ram_model_visualisation.png" alt="ACCESS-rAM">
-        </div>
-        <div class="card-text-container bold">   
-            Run ACCESS-rAM3
         </div>
     </a>
 </div>
