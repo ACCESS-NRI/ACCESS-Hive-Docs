@@ -115,45 +115,46 @@ Then, you can get the chosen configuration using `payu clone`.
 <!--end:get-config-payu-->
 
 <!--start:payu-clone-example-->
-For example, if you want to do a sensitivity experiment about diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide the following:
+For example, if you want to do a sensitivity experiment in {{model}} using the configuration {{config_example}}. You decide the following:
 
-- `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
-- `<configurations-directory>`: store all your ACCESS-OM2 configurations under `~/access-om2/`
-- `<local-branch>`: name your branch `diffuse_test1`
-- `<control-directory>`: store the configurations for this research project under `diffuse_exps-1deg_jra55_ryf`
+- `<repository>` and `<branch>`: base your experiment off the branch, {{config_example}}, from the repository, {{github_configs}}
+- `<configurations-directory>`: store all your {{model}} configurations under `~/{{model}}/`
+- `<local-branch>`: name your branch `expt1`. For a real case, a more explicit name is recommended.
+- `<control-directory>`: store the configurations for this research project under `my-project-expts`. For a real case, a more explicit name is recommended.
 
 To get the configuration as chosen, run:
 
 <terminal-window>
-    <terminal-line data="input">mkdir -p ~/access-om2/</terminal-line>
-    <terminal-line data="input">cd ~/access-om2/</terminal-line>
+    <terminal-line data="input">mkdir -p ~/{{model}}/</terminal-line>
+    <terminal-line data="input">cd ~/{{model}}/</terminal-line>
     <terminal-line data="input">payu clone</terminal-line>
     <terminal-line><span class="payu-yellow">Welcome to the Payu Clone Wizard!</span></terminal-line>
     <terminal-line><span class="payu-yellow">Press 'Ctrl+C' at any time to exit.</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the URL of the repository, or the local path of a configuration you want to clone:</span>  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow"> https://github.com/ACCESS-NRI/access-om2-configs</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the URL of the repository, or the local path of a configuration you want to clone:</span>  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow"> {{github_configs}}</span></terminal-line>
     <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to clone the repo based on:</span> <span class="payu-dark-yellow">An existing branch</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the name of the branch you want to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-1deg_jra55_ryf</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">How would you like to name your local experiment directory?</span> <span class="payu-dark-yellow"> diffuse_exps-1deg_jra55_ryf</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the name of the branch you want to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">{{config_example}}</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">How would you like to name your local experiment directory?</span> <span class="payu-dark-yellow"> my-project-expts</span></terminal-line>
     <terminal-line><span class="spack-cyan">?</span> <span class="payu red">Is this a new experiment?</span> (If yes, payu will create a new branch.) <span class="payu-dark-yellow">Yes</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">What would you like to name your new branch</span>  (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow">diffuse_test1-1deg_jra55_ryf</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">What would you like to name your new branch</span>  (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow">expt1</span></terminal-line>
     <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.)</span> <span class="payu-dark-yellow">No</span></terminal-line>
     <terminal-line><span class="payu-yellow">Running command:</span></terminal-line>
-    <terminal-line><span class="payu-yellow">\`payu clone -B release-1deg_jra55_ryf -b diffuse_test1-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diffuse_exps-1deg_jra55_ryf\`</span></terminal-line>
-    <terminal-line>Cloned repository from https://github.com/ACCESS-NRI/access-om2-configs to directory: /home/561/\$USER/payu-control/access-om2/    diffuse_exps-1deg_jra55_ryf</terminal-line>
-    <terminal-line>Created and checked out new branch: diffuse_test1-1deg_jra55_ryf</terminal-line>
-    <terminal-line>laboratory path:  /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
-    <terminal-line>binary path:  /scratch/\$PROJECT/\$USER/access-om2/bin</terminal-line>
-    <terminal-line>input path:  /scratch/\$PROJECT/\$USER/access-om2/input</terminal-line>
-    <terminal-line>work path:  /scratch/\$PROJECT/\$USER/access-om2/work</terminal-line>
-    <terminal-line>archive path:  /scratch/\$PROJECT/\$USER/access-om2/archive</terminal-line>
+    <terminal-line><span class="payu-yellow">\`payu clone -B {{config_example}} -b expt1 {{github_configs}} my-project-expts\`</span></terminal-line>
+    <terminal-line>Cloned repository from {{github_configs}} to directory: /home/561/\$USER/payu-control/{{model}}/my-project-expts</terminal-line>
+    <terminal-line>Created and checked out new branch: expt1</terminal-line>
+    <terminal-line>laboratory path:  /scratch/\$PROJECT/\$USER/{{model}}</terminal-line>
+    <terminal-line>binary path:  /scratch/\$PROJECT/\$USER/{{model}}/bin</terminal-line>
+    <terminal-line>input path:  /scratch/\$PROJECT/\$USER/{{model}}/input</terminal-line>
+    <terminal-line>work path:  /scratch/\$PROJECT/\$USER/{{model}}/work</terminal-line>
+    <terminal-line>archive path:  /scratch/\$PROJECT/\$USER/{{model}}/archive</terminal-line>
     <terminal-line>Updated metadata. Experiment UUID: 14058c5c-d0dd-49dd-841a-cbec42b7391e</terminal-line>
-    <terminal-line>Added archive symlink to /scratch/\$PROJECT/\$USER/access-om2/archive/diffuse_exps-1deg_jra55_ryf-diffuse_test1-1deg_jra55_ryf-14058c5c</terminal-line>
+    <terminal-line>Added archive symlink to /scratch/\$PROJECT/\$USER/{{model}}/archive/my-project-expts-expt1-14058c5c</terminal-line>
     <terminal-line>To change directory to control directory run:</terminal-line>
-    <terminal-line>  cd diffuse_exps-1deg_jra55_ryf</terminal-line>
+    <terminal-line>  cd my-project-expts</terminal-line>
 </terminal-window>
 
 !!! tip
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
+<!--end:payu-clone-example-->
 
 ### Test the configuration
 

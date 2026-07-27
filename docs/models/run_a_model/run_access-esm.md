@@ -1,6 +1,7 @@
 {% set model = "ACCESS-ESM1.5" %}
 {% set github_configs = "https://github.com/ACCESS-NRI/access-esm1.5-configs" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352" %}
+{% set config_example = "release-preindustrial+concentrations" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [payu]: https://github.com/payu-org/payu
@@ -92,6 +93,14 @@ Released configurations are tested and supported by ACCESS-NRI, as an adaptation
     start="<!--start:get-config-payu-->"
     end="<!--end:get-config-payu-->"
 %}
+
+??? abstract "Experiment example"
+    {%
+        include-markdown "includes/payu.md"
+        start="<!--start:payu-clone-example-->"
+        end="<!--end:payu-clone-example-->"
+    %}
+
 
 !!! tip
     If you want to restart your experiment from a specific restart point, please refer to [Start the run from a specific restart file](#specific-restart).
