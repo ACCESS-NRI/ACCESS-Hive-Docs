@@ -86,8 +86,8 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Get {{ model }} configuration
 
-All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository: {{github_configs}}.<br>
-Released configurations are tested and supported by ACCESS-NRI, as an adaptation of those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).
+Released configurations are tested and supported by ACCESS-NRI, as an adaptation of those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).<br>
+All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository: `{{github_configs}}`.<br>
 
 [Supported configurations:][model configurations]
 
@@ -121,34 +121,10 @@ Released configurations are tested and supported by ACCESS-NRI, as an adaptation
 
 ----------------------------------------------------------------------------------------
 
-## Run {{ model }} configuration
-If you want to modify your configuration, refer to [Edit {{ model }} configuration](#edit-{{ model.lower() }}-configuration).
-
-
-### Run configuration
-
-To run {{ model }} configuration execute the following command from within the *control* directory:
-
-    payu run
-
-This will submit a single job to the queue with a run length given by [`runtime`](#runtime) in the `config.yaml` file.<br>
-To extend the run for longer than the run length, refer to [Run an experiment](#run-an-experiment)
-
-
-<terminal-window>
-    <terminal-line data="input">cd ~/access-esm1.5/preindustrial+concentrations</terminal-line>
-    <terminal-line directory="~/access-esm1.5/preindustrial+concentrations" data="input">payu run</terminal-line>
-    <terminal-line lineDelay=50>Loading input manifest: manifests/input.yaml</terminal-line>
-    <terminal-line lineDelay=50>Loading restart manifest: manifests/restart.yaml</terminal-line>
-    <terminal-line lineDelay=50>Loading exe manifest: manifests/exe.yaml</terminal-line>
-    <terminal-line lineDelay=50>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
-    <terminal-line lineDelay=50>
-        qsub -q normal -P tm70 -l walltime=9000 -l ncpus=432 -l mem=1728GB -l jobfs=1500MB -N pre-industrial -l wd -j n -v PAYU_PATH=/g/data/vk83/apps/base_conda/envs/payu-1.1.6/bin,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_monash:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -W umask=027 -l storage=gdata/vk83 -- /g/data/vk83/./apps/conda_scripts/payu-1.1.6.d/bin/python /g/data/vk83/apps/base_conda/envs/payu-1.1.6/bin/payu-run
-    </terminal-line>
-    <terminal-line lineDelay=50>&lt;job-ID&gt;.gadi-pbs</job-ID>></terminal-line>
-</terminal-window>
-!!! tip
-    You can add the `-f` option to `payu run` to let the model run even if there is an existing non-empty `work` directory, created from a previous failed run or from running `payu setup`.
+{% include-markdown "includes/payu.md"
+   start="<!--start:payu-run-experiment-->"
+   end="<!--end:payu-run-experiment-->"
+%}
 
 ----------------------------------------------------------------------------------------
 

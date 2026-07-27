@@ -206,6 +206,7 @@ This will submit a single [PBS job][PBS job] to the queue.
     The `-f` option to `payu run` lets the model run in all cases and delete any existing data under `work`.
 <!--end:payu-test-config-->
 
+<!--start:payu-run-experiment-->
 ### Run the experiment
 
 An experiment consists of a series of sequential runs, with each run continuing from where the previous run ended.
@@ -222,7 +223,7 @@ This will run the configuration `number-of-runs` consecutive times for the confi
 For example, to run an experiment for a total of 50 years using a configuration with a 5-year _run length_, the `number-of-runs` should be set to `10`:
 
     payu run -n 10
-
+<!--end:payu-run-experiment-->
 ## Monitor the experiment
 
 _payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command can return the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
