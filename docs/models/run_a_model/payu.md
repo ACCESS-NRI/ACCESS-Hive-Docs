@@ -9,15 +9,67 @@
 
 This page summarises the _payu_ capabilities that are most commonly required to run an ACCESS model's configuration on the _Gadi_ supercomputer. This page presents generic information on: 
 
-- the setup of _payu_
-- running _payu_-based ACCESS model's configurations
-- monitoring a _payu_-based experiment on _Gadi_
-- modifying a _payu_-based configurations for the most commonly customised aspects of the configurations
-- the data organisation for a _payu_-based experiment
+- [terminology for _payu_-based experiments](#terminology)
+- [the setup of _payu_](#prerequisites)
+- [running _payu_-based ACCESS model's experiment](#run-the-experiment)
+- [monitoring a _payu_-based experiment on _Gadi_](#monitor-the-experiment)
+- [modifying a _payu_-based configuration for the most commonly customised aspects of the configurations](#edit-a-model-components-configuration)
 
-This page is to be used in conjunction with the Run a Model page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
+!!! info
+    This page is to be used in conjunction with the Run a Model page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
 
-There is also [technical documentation](https://payu.readthedocs.io/en/latest/) for how to configure _payu_. 
+For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/latest/). 
+
+## Terminology
+
+Before explaining how _payu_ works for the ACCESS models, it is worth explaining the terminology around configurations and experiments as well as around the data organisation for _payu_'s experiments.
+
+### Configuration versus experiment
+
+These terms are not interchangeable although they are closely related.
+
+A configuration defines a specific way to run the model it relates to. 
+A configuration is defined by:
+
+    - a given model version and build
+    - a given set of input files (ancillaries, forcings, restarts)
+    - a specific set of physical and modelling options for each model component used by this model
+
+Changing any one of these items creates a new configuration
+
+An experiment is a series of runs of a configuration that covers a longer time period.
+
+### Data organisation and _payu_'s directories designation
+
+A representation of the data organisation for _payu_ is given in the following diagram:
+
+![payu directory structure](/docs/assets/payu_directory_structure.png){: class="img-contain white-background round-edges with-padding" loading="lazy"}
+
+This design was chosen to separate the small files and the larger binary output and input files, makin
+The general layout of a _payu_-supported model run consists of two main directories:
+
+- The _control_ directory contains the model configuration and is where the model is run from.
+- The _laboratory_ directory contains all data from _payu_ experiments using a same model. It is typically `/scratch/$PROJECT/$USER/<model_name>` and is created by _payu_. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your default project and your username respectively.
+
+This layout separates the small text configuration files in the _control_ directory, from the larger binary outputs and inputs in the _laboratory_. In this way, the _control_ directory can be in the `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
+
+Inside the _laboratory_ directory there are two areas:
+
+- `work` &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
+- `archive` &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from `work` to `archive` upon successful completion of runs.
+
+Within each of the `work` and `archive` directories, _payu_ automatically creates a unique subdirectory for each experiment. Outputs and restarts are stored in subfolders within the `archive` directory, subdivided for each run of the model. Output and restart folders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`. Model components are separated into subdirectories within the output and restart directories.
+
+The `archive` and `work` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
+
+This design allows multiple self-resubmitting experiments that share common executables and input data to be run simultaneously.
+
+!!! warning
+    Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data).
+
+!!! info
+    `payu` will create all the directories it needs. They do not need to be created beforehand.
+
 
 ## Prerequisites
 
@@ -31,6 +83,9 @@ There is also [technical documentation](https://payu.readthedocs.io/en/latest/) 
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
+    !!! warning
+        Different model configurations will likely require you to join other projects in addition to those listed here. Please refer to the [Run a Model][Run a Model] page of your chosen configuration for details.
+
 ## Payu setup
 
 _Payu_ on _Gadi_ is available through a dedicated `conda` environment in the _vk83_ project.<br>
@@ -42,74 +97,46 @@ After joining the _vk83_ project, load the `payu` module:
 To check that _payu_ is available, run:
 
     payu --version
-    
-## Get the model configuration
 
-All model configurations are hosted on GitHub.<br>
+--- 
 
-The first step is to choose a configuration from those available and identify the branch name for that configuration, following information on the [Run a Model][Run a Model] page of your chosen model.<br>
+## Run an experiment
 
-Once you have chosen the configuration, you need to:
+### Get the model configuration
 
-- identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub.
-- decide on a directory on Gadi to store your _payu_ configurations, `<configurations-directory>` (this directory must exist before running _payu_)
-- decide on a name for your experiment, `<experiment-name>`
-- decide on a directory name to store this specific configuration, `<control-directory>` (created by _payu_)
+All model configurations are hosted in a git repository on GitHub, and each configuration is stored as a separate branch of that repository.<br>
+
+To get a local copy of a configuration, you need to:
+
+- identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub. See the information on the [Run a Model][Run a Model] page of your chosen model for this step.
+- decide where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under $HOME. This directory must exist before running _payu_.
+- decide on a name for your experiment, `<experiment-name>`. It is recommended to choose a descriptive name.
+- decide on a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<experiment-name>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 
 Then, you can get the chosen configuration using `payu clone`.
 
 For example, say you want to do a sensitivity experiment to the diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide to:
 
-- `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, https://github.com/ACCESS-NRI/access-om2-configs
+- `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
 - `<configurations-directory>`: store the configurations under `~/access-om2/`
-- `<experiment-name>`: name your experiment `diff_test1-1deg_jra55_ryf`
-- `<control-directory>`: store the configuration under `diff_exps-1deg_jra55_ryf`
+- `<experiment-name>`: name your experiment `diffuse_test1-1deg_jra55_ryf`
+- `<control-directory>`: store the experiment under `diffuse_exps-1deg_jra55_ryf`
 
 To get the configuration as chosen, run:
     
     mkdir -p ~/access-om2/
     cd ~/access-om2/
-    payu clone -b diff_test1-1deg_jra55_ryf -B release-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diff_exps-1deg_jra55_ryf
-    cd diff_exps-1deg_jra55_ryf
+    payu clone -b diffuse_test1-1deg_jra55_ryf -B release-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diffuse_exps-1deg_jra55_ryf
+    cd diffuse_exps-1deg_jra55_ryf
 
 !!! tip
-    Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
+    Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.    
 
-!!! tip
-    _payu_ uses branches to differentiate between different experiments in the same local git repository.<br>
-    For this reason, it is recommended to always set the cloned branch name, `<experiment_name>` (`diff_test1-1deg_jra55_ryf` in the example above), to something meaningful for the planned experiment.<br>
-    For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+### Test the configuration
 
-## Directory structure for _payu_-supported model runs
+To verify everything is set correctly, it is recommended to first test the configuration as-is.
 
-The general layout of a _payu_-supported model run consists of two main directories:
-
-- The _control_ directory contains the model configuration and serves as the execution directory for running the model. You created the _control_ directory when you cloned the configuration you want to use.
-- The _laboratory_ directory, where all the model components reside. It is typically `/scratch/$PROJECT/$USER/<model_name>` and is created by _payu_. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your default project and your username respectively.
-
-This separates the small text configuration files from the larger binary outputs and inputs. In this way, the _control_ directory can be in the `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
-
-The _laboratory_ directory is a shared space for a user's _payu_ experiments using the same model. Inside the _laboratory_ directory there are two areas:
-
-- `work` &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs.
-- `archive` &rarr; for storing the output following each successful run.
-
-Within each of the above directories, _payu_ automatically creates subdirectories uniquely named according to the experiment being run.<br>
-_Payu_ also creates symbolic links in the _control_ directory pointing to the `archive` and `work` directories.
-
-This design allows multiple self-resubmitting experiments that share common executables and input data to be run simultaneously.
-
-!!! warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data).
-
-!!! info
-    `payu` will create all the directories it needs. They do not need to be created beforehand.
-
-## Run the configuration
-
-_payu_ manages the experiment through a [PBS job][PBS job] that it self-submits.
-
-To run a configuration, execute the following command from within the *control* directory:
+To run the configuration, execute the following command from within the `control` directory:
 
     payu run
 
@@ -119,7 +146,7 @@ This will submit a single job to the queue. Refer to the [Run a Model][Run a Mod
     `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running `payu setup`).<br>
     You can add the `-f` option to `payu run` to let the model run in all cases and delete any existing data under `work`.
 
-## Run an experiment
+### Run the experiment
 
 An experiment consists of a series of subsequent runs with each run continuing from where the previous one ended.
 To conduct an experiment, use the `-n` option to submit a series of runs until the desired length of the experiment is reached:
@@ -128,7 +155,7 @@ To conduct an experiment, use the `-n` option to submit a series of runs until t
 
 This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. 
 
-For example, to run an experiment for a total of 50 years with a default run length of 5 years, the `number-of-runs` should be set to `10`:
+For example, to run an experiment for a total of 50 years with a run length of 5 years, the `number-of-runs` should be set to `10`:
 
     payu run -n 10
 
@@ -195,7 +222,7 @@ which kills the specified job without waiting for it to complete.
 ### Error and output log files
 
 #### PBS output files {: .no-toc }
-When the model completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
+When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
 
 These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
 To move these files to the `archive` directory, use the following commmand:
@@ -205,7 +232,7 @@ payu sweep
 
 #### Model log files {: .no-toc }
 
-While the model is running, _payu_ saves the model standard output and error streams in the _control_ directory. Refer to the [Run a Model][Run a Model] page for the model you are using for the list of logging filenames for your model.<br>
+While the model is running, the standard output and error streams are saved in the _control_ directory. Refer to the [Run a Model][Run a Model] page for the model you are using for the list of logging filenames for your model.<br>
 You can examine the contents of these files to check on the status of a run as it progresses (or after a failed run has completed).
 
 !!! warning
@@ -246,18 +273,6 @@ This command will:
 
 This can help to isolate issues such as permissions problems accessing files and directories, missing files or malformed/incorrect paths.
 
-## Outputs organisation
-
-At the end of a successful model run, output files, restart files and log files are moved from the `work` directory to the `archive` directory.<br>
-Symbolic links to these directories are also provided in the _control_ directory for convenience.
-
-If a model run is unsuccessful, the `work` directory is left untouched to facilitate the identification of the cause of the model failure.
-
-Outputs and restarts are stored in subfolders within the `archive` directory, subdivided for each run of the model.<br>
-Output and restart folders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`.
-
-Model components are separated into subdirectories within the output and restart directories.
-
 ## Edit a _payu_ configuration
 
 The modifications discussed in this section can change how the model and its components are configured, or the way the model is run by _payu_.
@@ -268,40 +283,9 @@ To find out more about configuration settings for the `config.yaml` file, refer 
 
 ### Change run length
 
-One of the most common changes is to adjust the duration of the model run.<br> With _payu_, simulations are split into smaller _run lengths_, each with the duration specified by the `runtime` settings in the `config.yaml` file:
+Adjusting the duration of the model run is one of the most common change to apply. However, models follow different ways to adapt the duration of the run. Please refer to the [Run a Model][Run a Model] page of the model of your choice for information<br> 
 
-```yml
-    runtime:
-        years: 1
-        months: 0
-        days: 0
-```
-At the end of each run length, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
 
-#### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
-
-It is possible to have more than one model run per queue submit. With the correct use of [`runtime`](#runtime), `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
-
-- `runtime` defines the _run length_.
-- `runspersub` defines the maximum number of runs for every [PBS job] submission.
-- `-n` sets the number of runs to be performed.
-- `walltime` defines the maximum time of every [PBS job] submission.
-
-Now some practical examples:
-
-- **Run 20 years of simulation with resubmission every 5 years**<br>
-    To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `5` and increase `walltime` to allow for 5 years of simulation within a PBS job. Then, run the configuration with `-n` set to `20`:
-    ```
-    payu run -f -n 20
-    ```
-    This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
-
-- **Run 7 years of simulation with resubmission every 3 years**<br>
-    To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `3` and increase `walltime` to allow for 3 years of simulation within a PBS job. Then, run the configuration with `-n` set to `7`:
-    ```
-    payu run -f -n 7
-    ```
-    This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
 
 
 ### Start the run from a specific restart file {: id='specific-restart'}
@@ -438,9 +422,6 @@ Coupled models deploy multiple submodels, a.k.a. the model components.
 
 This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model correctly and the location of all inputs required for this submodel.
 
-Each submodel contains additional configuration options that are read in when the submodel is running. These options are specified in the subfolder of the _control_ directory whose name matches the submodel's `name` (e.g., configuration options for the `ocean` submodel are in the `ocean` sub-directory).
-
-Refer to the [Run a Model][Run a Model] page of a chosen model for details of the submodels' configurations used by this model.
 
 #### Runlog {: .no-toc }
 
@@ -492,4 +473,4 @@ Each of the model components contains additional configuration options that are 
 These options are typically useful to modify the physics used in the model, the input data, or the model variables saved in the output files.
 
 These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section (e.g., configuration options for the _ocean_ component are in the `ocean` sub-directory).<br>
-To modify these options please refer to the User Guide of the respective model component.
+To modify these options please refer to the configurations documentation of the respective model component. See the [Run a Model][Run a Model] page for your chosen model for a link to the configurations documentation. The configurations documentations are provided in collaboration with the research community to provide useful scientific information about a model's configurations and components.
