@@ -372,14 +372,14 @@ This feature is controlled by the following section in the `config.yaml` file:
 # Sync options for automatically copying data from ephemeral scratch space to 
 # longer term storage
 sync:
-    enable: False # set path below and change to true
+    enable: False # set base_path below and change to true
     restart: True
-    path: none # Set to location on /g/data or a remote server and path (rsync syntax)
+    base_path: none # Final sync location will be <base_path>/<experiment_name>/
     exclude:
       - '*.nc.*'
       - 'iceh.????-??-??.nc'
 ```
-To enable syncing, change `enable` to `True`, and set `path` to a location on `/g/data`, where _payu_ will copy output and restart folders. A sensible `path` could be: `/g/data/$PROJECT/$USER/<model>/<experiment_name>/`.
+To enable syncing, change `enable` to `True`, and set `base_path` to a location on `/g/data`. _payu_ will copy output and restart folders to `<base_path>/<experiment_name>` to avoid overwriting data from other experiments by mistake. A sensible `base_path` could be: `/g/data/$PROJECT/$USER/<model>`.
 
 ### Pruning model restarts
 
