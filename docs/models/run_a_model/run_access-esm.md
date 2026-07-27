@@ -75,7 +75,6 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     %}
 
 ??? info "Accessing _payu_"
-
     {%
         include-markdown "includes/payu.md"
         start="<!--start:access-payu-->"
@@ -143,56 +142,10 @@ All released {{ model }} configurations are available from the [{{ model }} conf
 
 ## Monitor {{ model }} runs
 
-The `payu run` command prints out the PBS `job-ID` (formatted as `<9-digit-number>.gadi-pbs`), as the last line to the terminal.<br>
-To print out information on the status of a specific job, you can execute the following command:
-```
-qstat <job-ID>
-```
-<terminal-window>
-    <terminal-line data="input">qstat &lt;job-ID&gt;</terminal-line>
-    <terminal-line linedelay=500 class="keep-blanks">Job id                 Name             User              Time Use S Queue</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">---------------------  ---------------- ----------------  -------- - -----</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      pre-industrial   &lt;$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
-</terminal-window>
-
-To show the status of all your submitted [PBS jobs][PBS job], you can execute the following command:
-```
-qstat
-```
-
-<terminal-window>
-    <terminal-line data="input">qstat</terminal-line>
-    <terminal-line linedelay=500 class="keep-blanks">Job id                 Name             User              Time Use S Queue</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">---------------------  ---------------- ----------------  -------- - -----</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      pre-industrial   &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;other-job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;other-job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
-</terminal-window>
-
-The default name of your job is the name of the _payu_ _control_ directory (`preindustrial+concentrations` in the example above).<br>
-This can be overwritten by altering the `jobname` in the [PBS resources section](#modify-pbs-resources) of the `config.yaml` file.
-
-_S_ indicates the status of your run, where:
-
-- _Q_ &rarr; Job waiting in the queue to start
-- _R_ &rarr; Job running
-- _E_ &rarr; Job ending
-- _H_ &rarr; Job on hold
-
-If there are no jobs listed with your `jobname` (or if no job is listed), your run either successfully completed or was terminated due to an error.<br>
-For more information, check [NCI documentation](https://opus.nci.org.au/display/Help/FAQ+1%3A+Why+My+Jobs+are+NOT+Running).
-
-### Stop a run
-
-If you want to manually terminate a run, you can do so by executing:
-```
-qdel <job-ID>
-```
-which kills the specified job without waiting for it to complete.
-
-!!! tip
-    If you started an {{ model }} run using the `-n` option (e.g., to [run the model for several years](#multiple-runs)), but subsequently decide not to keep running after the current process completes, you can create a file called `stop_run` in the _control_ directory.<br>
-    This will prevent _payu_ from submitting another job.
+{% include-markdown "includes/payu.md"
+   start="<!--start:payu-monitor-->"
+   end="<!--end:payu-monitor-->"
+%}
 
 ### Error and output log files
 

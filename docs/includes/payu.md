@@ -224,49 +224,7 @@ For example, to run an experiment for a total of 50 years using a configuration 
 <!--end:payu-run-experiment-->
 ## Monitor the experiment
 
-_payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command can return the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
-
-!!! note
-    `payu status` is available in _payu_ versions `1.2.0` and above. This command does not yet support monitoring post-processing jobs from the configuration (e.g., `payu collate` and `payu sync`).
-
-Example output from `payu status` for a running simulation:
-
-```
-========================================  
-Run: 8  
-  Job ID:            running_example.gadi-pbs  
-  Run ID:            xxxx  
-  Stage:             model-run  
-  Current Expt Time: 1950-10-01T00:00:00  
-  Exit Status:       0 (Success)  
-  Model Exit Code:   0 (Success)  
-  Output Log:        /home/189/USER/expt.o100  
-  Error Log:         /home/189/USER/expt.3100  
-  Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/running_example.gadi-pbs.json  
-========================================  
-```
-
-Example output from `payu status` for an archived simulation:
-
-```
-========================================
-Run: 8
-  Job ID:            archive_example.gadi-pbs
-  Run ID:            xxxx
-  Stage:             archive
-  Total Queue Time:  0h 1m 7s
-  Model Finish Time: 1950-10-01T00:00:00
-  Exit Status:       0 (Success)
-  Model Exit Code:   0 (Success)
-  Output Log:        /home/189/USER/expt.o100
-  Error Log:         /home/189/USER/expt.3100
-  Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
-========================================
-```
-
-To monitor the current queue time of a queued job, use `payu status --update`.
-
-
+<!-- old instructions-->
 Alternatively, you can also use the PBS `job-ID` to monitor the job using the PBS commands available from NCI. 
 
 To print out information on the status of a specific job, you can execute the following command:
@@ -306,18 +264,67 @@ _S_ indicates the status of your run, where:
 
 If there are no jobs listed with your `jobname` (or if no job is listed), your run either successfully completed or was terminated due to an error.<br>
 For more information, check [NCI documentation](https://opus.nci.org.au/display/Help/FAQ+1%3A+Why+My+Jobs+are+NOT+Running).
+<!-- old instructtions-->
+<!--start:payu-monitor-->
+_payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command can return the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
 
-### Stop a run
+!!! note
+    `payu status` is available in _payu_ versions `1.2.0` and above. This command does not yet support monitoring post-processing jobs from the configuration (e.g., `payu collate` and `payu sync`).
 
-If you want to manually terminate a run, you can do so by executing:
-```
-qdel <job-ID>
-```
-which kills the specified job without waiting for it to complete.
+??? abstract "Example outputs from `payu status`"
 
-!!! tip
-    If you ran an experiment using `payu run -n ...` but want to stop it after the completion of the current run, you can create a file called `stop_run` in the _control_ directory.<br>  
-    This will prevent _payu_ from submitting another job after the current one completes.  
+    Example output from `payu status` for a running simulation:
+    
+    ```
+    ========================================  
+    Run: 8  
+      Job ID:            running_example.gadi-pbs  
+      Run ID:            xxxx  
+      Stage:             model-run  
+      Current Expt Time: 1950-10-01T00:00:00  
+      Exit Status:       0 (Success)  
+      Model Exit Code:   0 (Success)  
+      Output Log:        /home/189/USER/expt.o100  
+      Error Log:         /home/189/USER/expt.3100  
+      Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/running_example.gadi-pbs.json  
+    ========================================  
+    ```
+    
+    Example output from `payu status` for an archived simulation:
+    
+    ```
+    ========================================
+    Run: 8
+      Job ID:            archive_example.gadi-pbs
+      Run ID:            xxxx
+      Stage:             archive
+      Total Queue Time:  0h 1m 7s
+      Model Finish Time: 1950-10-01T00:00:00
+      Exit Status:       0 (Success)
+      Model Exit Code:   0 (Success)
+      Output Log:        /home/189/USER/expt.o100
+      Error Log:         /home/189/USER/expt.3100
+      Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+    ========================================
+    ```
+
+To monitor the current queue time of a queued job, use `payu status --update`.
+
+
+??? info "Stop a run"
+
+    ### Stop a run
+
+    If you want to manually terminate a run, you can do so by executing:
+    ```
+    qdel <job-ID>
+    ```
+    which kills the specified job without waiting for it to complete.
+
+    !!! tip
+        If you ran an experiment using `payu run -n ...` but want to stop it after the completion of the current run, you can create a file called `stop_run` in the _control_ directory.<br>  
+        This will prevent _payu_ from submitting another job after the current one completes.  
+<!--end:payu-monitor-->
 
 ### Error and output log files
 
