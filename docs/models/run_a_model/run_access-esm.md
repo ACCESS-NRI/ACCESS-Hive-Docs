@@ -15,6 +15,12 @@
 
 # Run {{ model }}
 
+{%
+    include-markdown "includes/rose_cylc.md"
+    start="<!--persistent-session-start-->"
+    end="<!--persistent-session-end-->"
+%}
+
 ## About
 
 {{ model }} is a fully-coupled global climate model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [{{ model }} overview][model configurations].
@@ -48,8 +54,11 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
---8<-- "payu.md:projects"
-
+{%
+    include-markdown "payu.md"
+    start="<!--start:projects-->"
+    end="<!--end:projects-->"
+%}
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
         
@@ -62,28 +71,12 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Workflow manager, _payu_
 
---8<-- "payu.md:about"
-
-### Terminology
-
---8<-- "payu.md:terminology"
-
-#### Configuration versus experiment
-
-??? abstract "Configuration versus Experiment"
-
-    --8<-- "payu.md:configVSexp"
-
-#### Data organisation and _payu_'s directories designation
-
-??? abstract
-
-    --8<-- "payu.md:organisation_generic"
-    --8<-- "payu.md:organisation_control"
-    --8<-- "payu.md:organisation_lab"
-    See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
-
-    --8<-- "payu.md:organisation_suite"
+!!! abstract What is _payu_ and how are the simulation files organised by _payu_
+    {%
+        include-markdown "payu.md"
+        start="<!--start:about-->"
+        end="<!--end:about-->"
+    %}
 
 
 ----------------------------------------------------------------------------------------

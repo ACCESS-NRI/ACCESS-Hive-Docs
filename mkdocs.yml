@@ -71,6 +71,8 @@ plugins:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
   - resolve-absolute-urls
   - macros
+  - include-markdown:
+      base_path: docs/includes
 
 # Extensions
 markdown_extensions:
