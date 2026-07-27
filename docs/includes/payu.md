@@ -348,18 +348,22 @@ To monitor the current queue time of a queued job, use `payu status --update`.
 
 ## Edit a _payu_ configuration
 
+<!-- start:payu-modif-intro-->
 The modifications discussed in this section can change how the model and its components are configured, or the way the model is run by _payu_.
 
 The `config.yaml` file located in the [_control_ directory](#control-directory) is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which are more likely to need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/stable/config.html).
+<!--end:payu-modif-intro-->
 
 ### Change run length
 
 Adjusting the duration of the model run is one of the most common change to apply. However, models follow different ways to adapt the duration of the run. Please refer to the [Run a Model][Run a Model] page of the model of your choice for information<br> 
 
+
 ### Start the run from a specific restart file {: id='specific-restart'}
 
+<!--start:payu-restart-choice-->
 To configure the experiment to start from specific restart files, add a [`restart:` entry](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) to the `config.yaml` file, specifying the path to a folder containing existing restart files.
 Or to do this automatically when setting up an experiment using `payu clone` interactive, give the restart path when prompted: `Do you want to specify a custom restart path?`. 
 
@@ -368,6 +372,7 @@ Or to do this automatically when setting up an experiment using `payu clone` int
 
 !!! warning
     The restart option used here will only be applied if there is no restart directory in archive, and so does not have to be removed for subsequent submissions. See [Payu docs](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) for further details.
+<!--end:payu-restart-choice-->
 
 ### Modify PBS resources
 

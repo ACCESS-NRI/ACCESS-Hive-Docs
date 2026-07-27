@@ -157,85 +157,79 @@ For a complete documentation on how to use this framework, check the [Model Diag
 
 ## Edit {{ model }} configuration {: #edit-{{ model.lower() }}-configuration }
 
-This section describes how to modify {{ model }} configuration.<br>
-The modifications discussed in this section can change the way {{ model }} is run by _payu_, or how its specific [model components] are configured and coupled together.
+{% include-markdown "includes/payu.md"
+   start="<!--start:payu-modif-intro-->
+   end="<!--end:payu-modif-intro-->"
+%}
 
-The `config.yaml` file located in the _control_ directory is the _Master Configuration_ file, which controls the general model configuration. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
-
-To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
-
-### Change run length {: #runtime .no-toc }
-
-One of the most common changes is to adjust the duration of the model run.<br> {{model}} simulations are split into smaller _run lengths_, each with the duration specified by the `runtime` settings in the `config.yaml` file:
-
-The length of an {{model}} run is controlled by the `runtime` settings in the `config.yaml` file:
-
-```yml
-    runtime:
-        years: 1
-        months: 0
-        days: 0
-```
-At the end of each run length, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
-
-!!! warning
-    The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in order to avoid errors. Shorter simulations can be useful when setting up and debugging new experiments, however they require additional configuration changes. See the section [Run for less than one year](#shorter-runs) for details.
-
-To run the model for longer than the default run length, conduct multiple runs, see 
-[Run an experiment](#run-an-experiment).
+??? info "Change run length"
+    ### Change run length {: #runtime .no-toc }
     
-#### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
-
-It is possible to have more than one model run per queue submit. With the correct use of [`runtime`](#runtime), `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
-
-- `runtime` defines the _run length_.
-- `runspersub` defines the maximum number of runs for every [PBS job] submission.
-- `-n` sets the number of runs to be performed.
-- `walltime` defines the maximum time of every [PBS job] submission.
-
-Now some practical examples:
-
-- **Run 20 years of simulation with resubmission every 5 years**<br>
-    To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration with `-n` set to `20`:
+    One of the most common changes is to adjust the duration of the model run.<br> {{model}} simulations are split into smaller _run lengths_, each with the duration specified by the `runtime` settings in the `config.yaml` file:
+    
+    The length of an {{model}} run is controlled by the `runtime` settings in the `config.yaml` file:
+    
+    ```yml
+        runtime:
+            years: 1
+            months: 0
+            days: 0
     ```
-    payu run -f -n 20
+    At the end of each run length, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
+    
+    !!! warning
+        The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in order to avoid errors. Shorter simulations can be useful when setting up and debugging new experiments, however they require     additional configuration changes. See the section [Run for less than one year](#shorter-runs) for details.
+    
+    To run the model for longer than the default run length, conduct multiple runs, see 
+    [Run an experiment](#run-an-experiment).
+        
+    #### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
+    
+    It is possible to have more than one model run per queue submit. With the correct use of [`runtime`](#runtime), `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
+    
+    - `runtime` defines the _run length_.
+    - `runspersub` defines the maximum number of runs for every [PBS job] submission.
+    - `-n` sets the number of runs to be performed.
+    - `walltime` defines the maximum time of every [PBS job] submission.
+    
+    Now some practical examples:
+    
+    - **Run 20 years of simulation with resubmission every 5 years**<br>
+        To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration     with `-n` set to `20`:
+        ```
+        payu run-f -n 20
+        ```
+        This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
+    
+    - **Run 7 years of simulation with resubmission every 3 years**<br>
+        To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `3` and `walltime` to `6:00:00`. Then, run the configuration with     `-n` set to `7`:
+        ```
+        payu run -f -n 7
+        ```
+        This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
+    !!! tip
+        The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution     to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely     that there will be multiple anomalously slow runs per submit.
+    
+    #### Run for less than one year {: id="shorter-runs"}
+    When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
+    
+    ```yml
+        runtime:
+            years: 0
+            months: 1
+            days: 0
     ```
-    This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
+    
+    With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. If valid restart files are required when running shorter simulations, the sea ice model     configuration should be modified so that restart files are produced at monthly frequencies. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` in the `cice_in.nml` configuration file located in the `ice`     subdirectory of the _control_ directory.
 
-- **Run 7 years of simulation with resubmission every 3 years**<br>
-    To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `3` and `walltime` to `6:00:00`. Then, run the configuration with `-n` set to `7`:
-    ```
-    payu run -f -n 7
-    ```
-    This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
-!!! tip
-    The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
-
-#### Run for less than one year {: id="shorter-runs"}
-When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
-
-```yml
-    runtime:
-        years: 0
-        months: 1
-        days: 0
-```
-
-With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. If valid restart files are required when running shorter simulations, the sea ice model configuration should be modified so that restart files are produced at monthly frequencies. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` in the `cice_in.nml` configuration file located in the `ice` subdirectory of the _control_ directory.
-
-### Start the run from a specific restart file {: id='specific-restart'}
-
-To start the run with the initial conditions coming from a specific restart file, you can add the `--restart` option when obtaining the model configuration through the `payu clone ...` command.
-
-For example, to get the `preindustrial+concentrations` configuration and set its initial condition to the  `/g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/restart` restart file, run:
-
-```
-payu clone -b expt -B release-preindustrial+concentrations https://github.com/ACCESS-NRI/access-esm1.5-configs preindustrial+concentrations --restart /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/restart
-```
-
-!!! warning
-    In some cases, if the supplied restart file is not fully compatible with the model configuration, experiments using a custom restart file may require additional manual adjustments to run correctly.
-
+??? info "Specify the restart file"
+    ### Start the run from a specific restart file {: id='specific-restart'}
+    
+    {% include-markdown "includes/payu.md"
+      start="<!--start:payu-restart-choice-->"
+      end="<!--end:payu-restart-choice-->"
+    %}
+    
 ### Modify PBS resources
 
 If the model has been altered and needs more time to complete, more memory, or needs to be submitted under a different NCI project, you will need to modify the following section in the `config.yaml`:
