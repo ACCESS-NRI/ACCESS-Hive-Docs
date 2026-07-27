@@ -4,6 +4,7 @@
 {% set config_example = "release-preindustrial+concentrations" %}
 {% set WG_project = "`lg87` project (ESM Working Group)" %}
 {% set WG_project_code = "lg87" %}
+{% set configs_docs = "https://github.com/ACCESS-NRI/access-esm1.5-configs" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [payu]: https://github.com/payu-org/payu

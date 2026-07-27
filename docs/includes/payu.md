@@ -395,10 +395,10 @@ jobname: 1deg_jra55_ryf
 
 These lines can be edited to change the [PBS directives](https://opus.nci.org.au/display/Help/PBS+Directives+Explained) for the [PBS job][PBS job].
 
-For example, to run under the {{WG-project}}, uncomment the line beginning with `# project` by deleting the `#` symbol and replace `PROJECT_CODE` with `{{WG-project-code}}`:
+For example, to run under the {{WG_project}}, uncomment the line beginning with `# project` by deleting the `#` symbol and replace `PROJECT_CODE` with `{{WG_project_code}}`:
 
 ```yaml
-project: {{WG-project-code}}
+project: {{WG_project_code}}
 ```
 
 For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` to the desired path. 
@@ -553,7 +553,7 @@ qsub_flags: -W umask=027
 <!--start:payu-component-configuration-->
 ## Edit a model components' configuration
 
-To modify the physics used by a model component, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels).
+To modify the physics used by a model component, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section.
 
-For more details about these options, please refer to the [configurations documentation]({{configurations documentation}}).
+For more details about these options, please refer to the [configurations documentation]({{configs_docs}}).
 <!--end:payu-component-configuration-->
