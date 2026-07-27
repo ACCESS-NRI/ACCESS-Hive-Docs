@@ -59,7 +59,7 @@ A representation of the data organisation for _payu_ is given in the following d
 As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and is the directory from which the model run is started.  
-  {: #control-directory }  
+  {: #control-directory }. This directory contains information to manage the simulation, it also contains the scientific options for each model component that define the physics used in the model component or the diagnostics saved by the model component. These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels). To modify these options please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
 - The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
 
 On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast I/O for large data and where there is adequate space available for large model output.  
@@ -74,15 +74,15 @@ Within each of the `work` and `archive` directories, _payu_ automatically create
 The `archive` and `work` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
 !!! warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more, refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
 
-## Prerequisites
+## Prerequisites for _payu_
 
 - **NCI account**<br>
-    Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+    Before running a _payu_ experiment, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **Join NCI projects**<br>
-    Join the following projects by requesting membership on their respective NCI project pages:
+    Join the following project by requesting membership on its NCI project page:
 
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
 
@@ -126,11 +126,34 @@ For example, say you want to do a sensitivity experiment to the diffusivity in A
 - `<control-directory>`: store the configurations for this research project under `diffuse_exps-1deg_jra55_ryf`
 
 To get the configuration as chosen, run:
-    
-    mkdir -p ~/access-om2/
-    cd ~/access-om2/
-    payu clone -b diffuse_test1-1deg_jra55_ryf -B release-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diffuse_exps-1deg_jra55_ryf
-    cd diffuse_exps-1deg_jra55_ryf
+
+<terminal-window>
+    <terminal-line data="input">mkdir -p ~/access-om2/</terminal-line>
+    <terminal-line data="input">cd ~/access-om2/</terminal-line>
+    <terminal-line data="input">payu clone</terminal-line>
+    <terminal-line>Welcome to the Payu Clone Wizard!</terminal-line>
+    <terminal-line>Press 'Ctrl+C' at any time to exit.</terminal-line>
+    <terminal-line>? Please enter the URL of the repository, or the local path of a configuration you want to clone:  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) https://github.com/ACCESS-NRI/access-om2-configs</terminal-line>
+    <terminal-line>? Do you want to clone the repo based on: An existing branch</terminal-line>
+    <terminal-line>? Please enter the name of the branch you want to clone ('Tab' to browse all branches): release-1deg_jra55_ryf</terminal-line>
+    <terminal-line>? How would you like to name your local experiment directory? diffuse_exps-1deg_jra55_ryf</terminal-line>
+    <terminal-line>? Is this a new experiment? (If yes, payu will create a new branch.) Yes</terminal-line>
+    <terminal-line>? What would you like to name your new branch  (Note: this won't be shared to the online repository automatically) diffuse_test1-1deg_jra55_ryf</terminal-line>
+    <terminal-line>? Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.) No</terminal-line>
+    <terminal-line>Running command:</terminal-line>
+    <terminal-line>`payu clone -B release-1deg_jra55_ryf -b diffuse_test1-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diffuse_exps-1deg_jra55_ryf`</terminal-line>
+    <terminal-line>Cloned repository from https://github.com/ACCESS-NRI/access-om2-configs to directory: /home/561/\$USER/payu-control/access-om2/    diffuse_exps-1deg_jra55_ryf</terminal-line>
+    <terminal-line>Created and checked out new branch: diffuse_test1-1deg_jra55_ryf</terminal-line>
+    <terminal-line>laboratory path:  /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
+    <terminal-line>binary path:  /scratch/\$PROJECT/\$USER/access-om2/bin</terminal-line>
+    <terminal-line>input path:  /scratch/\$PROJECT/\$USER/access-om2/input</terminal-line>
+    <terminal-line>work path:  /scratch/\$PROJECT/\$USER/access-om2/work</terminal-line>
+    <terminal-line>archive path:  /scratch/\$PROJECT/\$USER/access-om2/archive</terminal-line>
+    <terminal-line>Updated metadata. Experiment UUID: 14058c5c-d0dd-49dd-841a-cbec42b7391e</terminal-line>
+    <terminal-line>Added archive symlink to /scratch/\$PROJECT/\$USER/access-om2/archive/diffuse_exps-1deg_jra55_ryf-diffuse_test1-1deg_jra55_ryf-14058c5c</terminal-line>
+    <terminal-line>To change directory to control directory run:</terminal-line>
+    <terminal-line>  cd diffuse_exps-1deg_jra55_ryf</terminal-line>
+</terminal-window>
 
 !!! tip
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.    
@@ -477,8 +500,6 @@ qsub_flags: -W umask=027
 
 ## Edit a model components' configuration
 
-Each of the model components contains additional configuration options that are read in when the model component is running.<br>
-These options are typically useful to modify the physics used in the model, the input data, or the model variables saved in the output files.
+To modify the physics used by a model component, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels).
 
-These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels) (e.g., configuration options for the _ocean_ component are in the `ocean` sub-directory).<br>
-To modify these options, please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
+For more details about these options, please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
