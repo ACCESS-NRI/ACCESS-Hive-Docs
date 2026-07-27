@@ -7,7 +7,7 @@
 
 [_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
 
-This page summarises the _payu_ capabilities that are most commonly required to run an ACCESS model's configuration on the _Gadi_ supercomputer. This page presents generic information on: 
+This page summarises the _payu_ capabilities that are most commonly required to run ACCESS models on the _Gadi_ supercomputer. This page presents generic information on: 
 
 - [terminology for _payu_-based experiments](#terminology)
 - [the setup of _payu_](#prerequisites)
@@ -16,7 +16,7 @@ This page summarises the _payu_ capabilities that are most commonly required to 
 - [modifying a _payu_-based configuration for the most commonly customised aspects](#edit-a-payu-configuration)
 
 !!! info
-    This page is to be used in conjunction with the [Run a Model][Run a Model] page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional information on configuration names and locations) as well as information on configuration customisations that are particular to that model.
+    This page is to be used in conjunction with the [Run a Model][Run a Model] page for the chosen model. The Run a Model page provides model-specific information, including configuration names and locations. It also describes configuration customizations that apply specifically to the chosen model.
 
 For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
 
@@ -26,25 +26,27 @@ Before explaining how _payu_ works for the ACCESS models, it is worth explaining
 
 ### Configuration versus experiment
 
-These terms are not interchangeable although they are closely related.
+The terms _configuration_ and _experiment_ are not interchangeable although they are closely related.
 
-A configuration defines a specific way to run the model it relates to. 
+A _configuration_ defines a specific way to run the model it relates to. 
 A configuration is defined by:
 
-- a given model version and build
-- a given set of input files (ancillaries, forcings, restarts)
-- a given set of physical and modelling options for each model component used by this model
+- model version and build (model executable(s))
+- set of input files (ancillaries, forcings, restarts)
+- set of physical and modelling options for each [model component](/models/model_components) (namelists, configuration files and MPI layout) 
 
-Changing any one of these items creates a new configuration
+Changing any one of these elements creates a new configuration
 
-An experiment is a series of runs of a configuration to cover a longer time period.
+An _experiment_ is a realisation of a configuration: a series of sequential runs that generate model data over a span of model time.
 
 ### Data organisation and _payu_'s directories designation
 
 !!! info
-    `payu` will create all the directories it needs. They do not need to be created beforehand.
+    _payu_ creates all the directories it needs. Therefore, they do not need to be created beforehand.
 
-The data organisation for _payu_ was chosen to separate the small files that define the configuration and the larger binary output and input files needed for a realisation of a configuration. This ensures the configuration definition is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data can be run simultaneously.
+The data organisation for _payu_ was chosen to separate the smaller text files that define a _configuration_ and the larger binary input and output files needed for an _experiment_. 
+
+This means the _configuration_ definition can be tracked with git, and so is easy to back up and share.  It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several _experiments_ that share common executables and input data can be run simultaneously.  
 
 A representation of the data organisation for _payu_ is given in the following diagram:
 
@@ -54,14 +56,15 @@ A representation of the data organisation for _payu_ is given in the following d
 ![payu directory structure](/assets/payu_directory_structure.png){: class="example-img" loading="lazy"}
 
 
-As shown on the diagram, the general layout of a _payu_-supported model run consists of two main directories:
+As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
-- The _control_ directory contains the model configuration and is where the model is run from.
-- The _laboratory_ directory contains all data from _payu_ experiments using a same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your default project and your username respectively. See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
+- The _control_ directory contains the model configuration and is the directory from which the model run is started.  
+  {: #control-directory }  
+- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
 
-On _Gadi_, the _control_ directory can be in your `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The _control_ directory only contains text files and symlinks, and therefore fits easily within the 10GB limit placed on home directories. The _laboratory_ directory is on `/scratch` where there is lots more space available for large model output.
+On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast I/O for large data and where there is adequate space available for large model output.  
 
-Inside the _laboratory_ directory, there are two areas:
+Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
 
 - `work` &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
 - `archive` &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from `work` to `archive` upon successful completion of runs.
