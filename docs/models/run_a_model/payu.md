@@ -16,7 +16,7 @@ This page summarises the _payu_ capabilities that are most commonly required to 
 - [modifying a _payu_-based configuration for the most commonly customised aspects](#edit-a-payu-configuration)
 
 !!! info
-    This page is to be used in conjunction with the [Run a Model][Run a Model] page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
+    This page is to be used in conjunction with the [Run a Model][Run a Model] page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional information on configuration names and locations) as well as information on configuration customisations that are particular to that model.
 
 For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
 
@@ -44,18 +44,22 @@ An experiment is a series of runs of a configuration to cover a longer time peri
 !!! info
     `payu` will create all the directories it needs. They do not need to be created beforehand.
 
+The data organisation for _payu_ was chosen to separate the small files that define the configuration and the larger binary output and input files needed for a realisation of a configuration. This ensures the configuration definition is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data can be run simultaneously.
+
 A representation of the data organisation for _payu_ is given in the following diagram:
+
+<!-- Diagram created from Lucid chart: https://lucid.app/users/login#/login -->
+<!-- It can be edited by any Lucid's member (free account), at this link: https://lucid.app/lucidchart/ccebf957-8915-4344-a832-426427451c00/edit?viewport_loc=-159%2C129%2C2067%2C1113%2C0_0&invitationId=inv_1c8cccfd-b20e-4b2f-977a-a74b0b8355ae -->
 
 ![payu directory structure](/assets/payu_directory_structure.png){: class="example-img" loading="lazy"}
 
-This design was chosen to separate the small files that define the configuration and the larger binary output and input files needed for a realisation of a configuration. This ensures the configuration definition is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data to be run simultaneously.
 
 As shown on the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and is where the model is run from.
 - The _laboratory_ directory contains all data from _payu_ experiments using a same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your default project and your username respectively. See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
 
-On _Gadi_, the _control_ directory can be in your `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
+On _Gadi_, the _control_ directory can be in your `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The _control_ directory only contains text files and symlinks, and therefore fits easily within the 10GB limit placed on home directories. The _laboratory_ directory is on `/scratch` where there is lots more space available for large model output.
 
 Inside the _laboratory_ directory, there are two areas:
 
@@ -67,7 +71,7 @@ Within each of the `work` and `archive` directories, _payu_ automatically create
 The `archive` and `work` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
 !!! warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+    Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
 
 ## Prerequisites
 
@@ -106,8 +110,8 @@ To get a local copy of a configuration, you need to:
 
 - identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub. See the information on the [Run a Model][Run a Model] page of your chosen model for this step.
 - decide where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under $HOME. This directory must exist before running _payu_.
-- decide on a name for your experiment, `<experiment-name>`. It is recommended to choose a descriptive name.
-- decide on a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<experiment-name>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+- decide on a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment.
+- decide on a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 
 Then, you can get the chosen configuration using `payu clone`.
 
@@ -115,7 +119,7 @@ For example, say you want to do a sensitivity experiment to the diffusivity in A
 
 - `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
 - `<configurations-directory>`: store the all your ACCESS-OM2 configurations under `~/access-om2/`
-- `<experiment-name>`: name your experiment `diffuse_test1-1deg_jra55_ryf`
+- `<local-branch>`: name your experiment `diffuse_test1-1deg_jra55_ryf`
 - `<control-directory>`: store the configurations for this research project under `diffuse_exps-1deg_jra55_ryf`
 
 To get the configuration as chosen, run:
@@ -281,9 +285,6 @@ To find out more about configuration settings for the `config.yaml` file, refer 
 ### Change run length
 
 Adjusting the duration of the model run is one of the most common change to apply. However, models follow different ways to adapt the duration of the run. Please refer to the [Run a Model][Run a Model] page of the model of your choice for information<br> 
-
-
-
 
 ### Start the run from a specific restart file {: id='specific-restart'}
 
