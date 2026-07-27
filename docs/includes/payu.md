@@ -380,6 +380,7 @@ Or to do this automatically when setting up an experiment using `payu clone` int
 <!--end:payu-restart-choice-->
 
 <!--start:payu-compute-storage-project-->
+<!-- This bit needs the hosting page to define the variables {{WG_project}} and {{WG_project_code}}-->
 ### Specify the compute project and storage location {: id='compute-storage-choice'}
 
 If you want to submit an experiment or part of an experiment using a different project for the compute resources or a non-default location for the archive directory, you will need to modify the following entries in `config.yaml`:

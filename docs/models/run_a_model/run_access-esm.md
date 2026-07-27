@@ -79,7 +79,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Workflow manager, _payu_
 
-??? info "Accessing _payu_ and _payu_'s data organisation"
+??? info "_payu_'s data organisation"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-about-->"
