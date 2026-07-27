@@ -156,6 +156,7 @@ To get the configuration as chosen, run:
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
 <!--end:payu-clone-example-->
 
+<!--start:payu-test-config-->
 ### Test the configuration
 
 To verify everything is set correctly, it is recommended to first test the configuration as-is.
@@ -203,6 +204,7 @@ This will submit a single [PBS job][PBS job] to the queue.
 !!! tip
     `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running [`payu setup`].<br>
     The `-f` option to `payu run` lets the model run in all cases and delete any existing data under `work`.
+<!--end:payu-test-config-->
 
 ### Run the experiment
 

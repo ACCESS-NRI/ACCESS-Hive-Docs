@@ -109,60 +109,21 @@ Released configurations are tested and supported by ACCESS-NRI, as an adaptation
         end="<!--end:payu-clone-example-->"
     %}
 
+??? info "Testing the configuration"
+    {%
+        include-markdown "includes/payu.md"
+        start="<!--start:payu-test-config-->"
+        end="<!--end:payu-test_config-->"
+    %}
 
 !!! tip
     If you want to restart your experiment from a specific restart point, please refer to [Start the run from a specific restart file](#specific-restart).
-
-
-<terminal-window>
-    <terminal-line data="input">mkdir -p ~/access-esm1.5</terminal-line>
-    <terminal-line data="input">cd ~/access-esm1.5</terminal-line>
-    <terminal-line data="input" directory="~/access-esm1.5">payu clone -b expt -B release-preindustrial+concentrations {{ github_configs }} preindustrial+concentrations</terminal-line>
-    <terminal-line lineDelay=1000>Cloned repository from {{ github_configs }} to directory: .../access-esm1.5/preindustrial+concentrations</terminal-line>
-    <terminal-line>Created and checked out new branch: expt</terminal-line>
-    <terminal-line>laboratory path:   /scratch/.../access-esm</terminal-line>
-    <terminal-line>binary path:  /scratch/.../access-esm/bin</terminal-line>
-    <terminal-line>input path:  /scratch/.../access-esm/input</terminal-line>
-    <terminal-line>work path:  /scratch/.../access-esm/work</terminal-line>
-    <terminal-line>archive path:  /scratch/.../access-esm/archive</terminal-line>
-    <terminal-line>Updated metadata. Experiment UUID: 0635396b-678d-45f9-b81e-abd25a2d7bf0</terminal-line>
-    <terminal-line>Added archive symlink to /scratch/.../access-esm/archive/preindustrial+concentrations-expt-0635396b</terminal-line>
-    <terminal-line>To change directory to control directory run:</terminal-line>
-    <terminal-line data="input">cd preindustrial+concentrations</terminal-line>
-</terminal-window>
-
-!!! tip
-    _payu_ uses branches to differentiate between different experiments in the same local git repository.<br>
-    For this reason, it is recommended to always set the cloned branch name (`expt` in the example above) to something meaningful for the planned experiment.<br>
-    For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 
 ----------------------------------------------------------------------------------------
 
 ## Run {{ model }} configuration
 If you want to modify your configuration, refer to [Edit {{ model }} configuration](#edit-{{ model.lower() }}-configuration).
 
-{{ model }} configurations run on [_Gadi_][gadi] through a [PBS job][PBS job] submission managed by [_payu_][payu].
-
-The general layout of a _payu_-supported model run consists of two main directories:
-
-- The _control_ directory contains the model configuration and serves as the execution directory for running the model (in this example, the cloned directory `~/access-esm1.5/preindustrial+concentrations`).
-- The _laboratory_ directory, where all the model components reside. For {{ model }}, it is typically `/scratch/$PROJECT/$USER/access-esm`.
-
-This separates the small text configuration files from the larger binary outputs and inputs. In this way, the _control_ directory can be in the `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
-
-The _laboratory_ directory is a shared space for all _payu_ experiments using the same model.<br>
-Inside the _laboratory_ directory there are two subdirectories:
-
-- `work` &rarr; a directory where _payu_ automatically creates a temporary subdirectory while the model is run. The temporary subdirectory gets created as part of a run and then removed after the run succeeds.
-- `archive` &rarr; the directory where the output is stored following each successful run.
-
-Within each of the above directories _payu_ automatically creates subdirectories uniquely named according to the experiment being run.<br>
-_Payu_ also creates symbolic links in the _control_ directory pointing to the `archive` and `work` directories.
-
-This design allows multiple self-resubmitting experiments that share common executables and input data to be run simultaneously.
-
-!!! admonition warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the _sync_ step in _payu_. To know more refer to [Syncing output data](#syncing-output-data).
 
 ### Run configuration
 
