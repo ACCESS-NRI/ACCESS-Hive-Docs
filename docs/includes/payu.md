@@ -554,6 +554,4 @@ qsub_flags: -W umask=027
 ## Edit a model components' configuration
 
 To modify the physics used by a model component, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section.
-
-For more details about these options, please refer to the [configurations documentation]({{configs_docs}}).
 <!--end:payu-component-configuration-->
