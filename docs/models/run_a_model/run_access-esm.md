@@ -66,6 +66,17 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
+## Terminology
+
+??? info "_Configuration_ and _experiment_ definitions"
+
+    {%
+        include-markdown "include/config_vs_experiment.md"
+        start="<!--start:terminology-conf-vs-exp-->"
+        end="<!--end:terminology-conf-vs-exp-->"
+        heading-offset=1
+    %}
+
 ## Workflow manager, _payu_
 
 ??? info "What is _payu_ and how are the simulation files organised by _payu_"
