@@ -7,6 +7,7 @@
 [payu]: https://github.com/payu-org/payu
 [model components]: /models/access_models/access-esm/#model-components
 [model configurations]: /models/access_models/access-esm/#access-esm15
+[Run a Model]: 
 
 <div class="text-card-group" markdown>
 
@@ -87,6 +88,13 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository.<br>
 Released configurations are tested and supported by ACCESS-NRI, as an adaptation of those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).
+
+[Supported configurations:][model configurations]
+
+| Configuration | Branch name |
+|---------------|-------------|
+| CMIP6 Concentration-driven pre-industrial | release-preindustrial+concentrations |
+| CMIP6 Concentration-driven historical | release-historical+concentrations
 
 {%
     include-markdown "includes/payu.md"
