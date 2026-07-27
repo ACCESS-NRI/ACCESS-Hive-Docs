@@ -71,8 +71,7 @@ plugins:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
   - resolve-absolute-urls
   - macros
-  - include-markdown:
-      base_path: docs/includes
+  - include-markdown
 
 # Extensions
 markdown_extensions:
@@ -89,8 +88,6 @@ markdown_extensions:
   - pymdownx.snippets:
       auto_append:
         - abbreviations.md
-      base_path: docs/includes
-      check_paths: true
   - pymdownx.highlight
   - pymdownx.tasklist:
       custom_checkbox: true

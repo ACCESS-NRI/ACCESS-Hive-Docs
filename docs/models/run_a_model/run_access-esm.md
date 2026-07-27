@@ -15,12 +15,6 @@
 
 # Run {{ model }}
 
-{%
-    include-markdown "includes/rose_cylc.md"
-    start="<!--persistent-session-start-->"
-    end="<!--persistent-session-end-->"
-%}
-
 ## About
 
 {{ model }} is a fully-coupled global climate model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [{{ model }} overview][model configurations].
@@ -55,7 +49,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
 {%
-    include-markdown "payu.md"
+    include-markdown "includes/payu.md"
     start="<!--start:projects-->"
     end="<!--end:projects-->"
 %}
@@ -73,7 +67,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 !!! abstract What is _payu_ and how are the simulation files organised by _payu_
     {%
-        include-markdown "payu.md"
+        include-markdown "includes/payu.md"
         start="<!--start:about-->"
         end="<!--end:about-->"
     %}
