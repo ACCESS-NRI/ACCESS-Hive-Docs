@@ -2,6 +2,8 @@
 {% set github_configs = "https://github.com/ACCESS-NRI/access-esm1.5-configs" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352" %}
 {% set config_example = "release-preindustrial+concentrations" %}
+{% set WG_project = "`lg87` project (ESM Working Group)" %}
+{% set WG_project_code = "lg87" %}
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [payu]: https://github.com/payu-org/payu
@@ -230,195 +232,38 @@ For a complete documentation on how to use this framework, check the [Model Diag
       end="<!--end:payu-restart-choice-->"
     %}
     
-### Modify PBS resources
+??? info "Modify PBS resources"
 
-If the model has been altered and needs more time to complete, more memory, or needs to be submitted under a different NCI project, you will need to modify the following section in the `config.yaml`:
+    {% include-markdown "includes/payu.md"
+       start="<!--start:payu-PBS-resources-->"
+       end="<!--end:payu-PBS-resources-->"
+    %}
 
+??? info "Syncing output data"
 
-```yaml
-# PBS configuration
+    {% include-markdown "includes/payu.md"
+       start="<!--start:payu-sync-->"
+       end="<!--end:payu-sync-->"
+    %}    
 
-# If submitting to a different project to your default, uncomment line below
-# and replace PROJECT_CODE with appropriate code. This may require setting shortpath
-# project: PROJECT_CODE
+??? info "Pruning model restarts"
 
-# Force payu to always find, and save, files in this scratch project directory
-# shortpath: /scratch/PROJECT_CODE
+    {% include-markdown "includes/payu.md"
+       start="<!--start:payu-restart-prune-->"
+       end="<!--end:payu-restart-prune-->"
+    %}    
 
-# Note: if laboratory is relative path, it is relative to shortpath/$USER
-laboratory: access-esm
+??? info "_payu_ advance options"
 
-jobname: pre-industrial
-queue: normal
-walltime: 2:30:00
-```
-
-These lines can be edited to change the [PBS directives](https://opus.nci.org.au/display/Help/PBS+Directives+Explained) for the [PBS job][PBS job].
-
-By default the model will be submitted to the PBS queue using your default project.  To run {{ model }} using the resources of a specific project, for example the `lg87` project (ESM Working Group), uncomment the line beginning with `# project` by deleting the `#` symbol and replace `PROJECT_CODE` with `lg87`:
-
-```yaml
-project: lg87
-```
-
-!!! warning
-    If more than one project is used to run an {{ model }} configuration the `shortpath` option also needs to be uncommented and the path to the desired `/scratch/PROJECT_CODE` directory added.<br>
-    This ensures the same `/scratch` location is used for the _laboratory_, regardless of which project is used to run the experiment.
-    <br><br>
-    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
-
-### Syncing output data
-
-The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, where [files are regularly deleted once they have been unaccessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason climate model outputs need to be moved to a location with longer term storage.<br>
-On _Gadi_, this is typically in a folder under a project code on `/g/data`.  
-
-_Payu_ has built-in support to sync outputs, restarts and a copy of the _control_ directory git history to another location.<br>
-This feature is controlled by the following section in the `config.yaml` file: 
-```yaml
-# Sync options for automatically copying data from ephemeral scratch space to
-# longer term storage
-sync:
-    enable: False # set path below and change to true
-    path: null # Set to location on /g/data or a remote server and path (rsync syntax)
-```
-To enable syncing, change `enable` to `True`, and set `path` to a location on `/g/data`, where _payu_ will copy output and restart folders.
-
-!!! Warning
-    The {{model}} configurations include a [postprocessing script](#postscripts) which converts atmospheric outputs to NetCDF format. This script runs in a separate PBS job and prevents the output and restart files of the most recent run from being automatically synced.<br>
-    After a series of runs and the final post-processing is completed, manually execute `payu sync` in the _control_ directory to sync the final output and restart files.
-
-### Saving model restarts
-
-{{ model }} outputs restart files after every run to allow for subsequent runs to start from a previously saved model state.<br>
-Restart files can occupy a significant amount of disk space, and keeping a lot of them is often not necessary.
-
-The `restart_freq` field in the `config.yaml` file specifies a strategy for retaining restart files.<br>
-This can either be a number (in which case every _nth_ restart file is retained), or one of the following pandas-style datetime frequencies:
-
-- `YS` &rarr; start of the year
-- `MS` &rarr; start of the month
-- `D` &rarr; day
-- `H` &rarr; hour
-- `T` &rarr; minute
-- `S` &rarr; second
-
-For example, to preserve the ability to restart {{ model }} every 50 model-years, set:
-```yaml
-restart_freq: '50YS'
-```
-
-The most recent sequential restarts are retained, and only deleted after a permanently archived restart file has been produced.
-
-For more information, check [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#model).
+    {% include-markdown "includes/payu.md"
+       start="<!--start:payu-advance-options-->"
+       end="<!--end:payu-advance-options-->"
+    %}    
 
 ### Other configuration options
 
 !!! warning
     The following sections in the `config.yaml` file control configuration options that are rarely modified, and often require a deeper understanding of how {{ model }} is structured to be safely changed.
-
-#### Model configuration {: .no-toc }
-
-This section tells _payu_ which driver to use for the main model (`access` refers to {{ model }}).  
-
-```yaml
-model: access
-```
-
-
-#### Submodels {: .no-toc }
-
-{{ model }} is a coupled model deploying multiple submodels (i.e. [model components]).
-
-This section specifies the submodels and configuration options required to execute {{ model }} correctly.
-
-Each submodel contains additional configuration options that are read in when the submodel is running. These options are specified in the subfolder of the _control_ directory, whose name matches the submodel's `name` (e.g., configuration options for the `atmosphere` submodel are in the `~/access-esm/preindustrial+concentrations/atmosphere` directory).
-
-
-??? code "Expand to show the full `submodels` section"
-
-    ```yaml
-    submodels:
-    - name: atmosphere
-      model: um
-      ncpus: 240
-      exe: um_hg3.exe
-      input:
-        # Aerosols
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/aerosol/global.N96/2020.05.19/OCFF_1850_ESM1.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/aerosol/global.N96/2020.05.19/BC_hi_1850_ESM1.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/aerosol/global.N96/2020.05.19/scycl_1850_ESM1_v4.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/aerosol/global.N96/2020.05.19/Bio_1850_ESM1.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/atmosphere/aerosol/global.N96/2020.05.19/biogenic_351sm.N96L38
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/atmosphere/aerosol/global.N96/2020.05.19/sulpc_oxidants_N96_L38
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/atmosphere/aerosol/global.N96/2020.05.19/DMS_conc.N96
-        # Forcing
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/forcing/global.N96/2020.05.19/ozone_1850_ESM1.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/forcing/resolution_independent/2020.05.19/volcts_18502000ave.dat
-        # Land
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/pre-industrial/atmosphere/land/biogeochemistry/global.N96/2020.05.19/Ndep_1850_ESM1.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/atmosphere/land/soiltype/global.N96/2020.05.19/qrparm.soil_igbp_vg
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/atmosphere/land/vegetation/global.N96/2020.05.19/cable_vegfunc_N96.anc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/land/biogeochemistry/resolution_independent/2020.05.19/modis_phenology_csiro.txt
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/land/biogeochemistry/resolution_independent/2020.05.19/pftlookup_csiro_v16_17tiles_wtlnds.csv
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/land/biogeophysics/resolution_independent/2020.05.19/def_soil_params.txt
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/land/biogeophysics/resolution_independent/2020.05.19/def_veg_params.txt
-        # Spectral
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/spectral/resolution_independent/2020.05.19/spec3a_sw_hadgem1_6on
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/spectral/resolution_independent/2020.05.19/spec3a_lw_hadgem1_6on
-        # Grids
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/atmosphere/grids/global.N96/2020.05.19/qrparm.mask
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/grids/resolution_independent/2020.05.19/vertlevs_G3
-        # STASH
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/atmosphere/stash/2024.11.01
-
-    - name: ocean
-      model: mom
-      ncpus: 180
-      exe: fms_ACCESS-CM.x
-      input:
-        # Biogeochemistry
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/biogeochemistry/global.1deg/2020.05.19/dust.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/biogeochemistry/global.1deg/2020.05.19/ocmip2_press_monthly_om1p5_bc.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/share/ocean/biogeochemistry/global.1deg/2024.07.12/bgc_param.nc
-        # Tides
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/tides/global.1deg/2020.05.19/roughness_amp.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/tides/global.1deg/2020.05.19/tideamp.nc
-        # Shortwave
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/shortwave_penetration/global.1deg/2020.05.19/ssw_atten_depth.nc
-        # Grids
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/grids/mosaic/global.1deg/2020.05.19/grid_spec.nc
-        # Basin mask
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ocean/basins/global.1deg/2020.05.19/basin_mask.nc
-
-    - name: ice
-      model: cice
-      ncpus: 12
-      exe: cice_access_360x300_12x1_12p.exe
-      input:
-        # Grids
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ice/grids/global.1deg/2020.05.19/kmt.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ice/grids/global.1deg/2020.05.19/grid.nc
-        # Climatology
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/ice/climatology/global.1deg/2020.05.19/monthly_sstsss.nc
-
-    - name: coupler
-      model: oasis
-      ncpus: 0
-      input:
-        # Grids
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/grids/global.oi_1deg.a_N96/2020.05.19/grids.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/grids/global.oi_1deg.a_N96/2020.05.19/areas.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/grids/global.oi_1deg.a_N96/2020.05.19/masks.nc
-        # Remapping weights
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_cice_to_um1t_CONSERV_FRACNNEI.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_um1u_to_cice_CONSERV_FRACNNEI.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_um1t_to_cice_CONSERV_DESTAREA.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_cice_to_um1u_CONSERV_FRACNNEI.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_um1v_to_cice_CONSERV_FRACNNEI.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_um1t_to_cice_CONSERV_FRACNNEI.nc
-        - /g/data/vk83/configurations/inputs/access-esm1p5/modern/share/coupler/remapping_weights/global.oi_1deg.a_N96/2020.05.19/rmp_cice_to_um1v_CONSERV_FRACNNEI.nc
-
-    ```
 
 #### Collate {: .no-toc }
 
@@ -437,65 +282,10 @@ collate:
 ```
 Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to `true`.
 
-#### Runlog {: .no-toc }
-
-```yaml
-runlog: true
-```
-When running a new configuration, _payu_ automatically commits changes with `git` if `runlog` is set to `true`.
-
-!!! warning
-    This should not be changed as it is an essential part of the provenance of an experiment.<br>
-    _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the `git` history, so there is a record of all inputs, restarts, and executables used in an experiment.
-
-
-#### Userscripts {: .no-toc }
-```yaml
-userscripts:
-    # Apply land use changes after each run
-    run: ./scripts/update_landuse_driver.sh
-```
-
-Run scripts or subcommands at various stages of a _payu_ submission. The above example comes from the `release-historical+concentrations` configuration, where the ```update_landuse_driver.sh``` is used to apply historical land use changes at the end of each run.
-
-For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#postprocessing).
-
-
-#### Postscripts {: .no-toc }
-Postprocessing scripts that run after _payu_ has completed all steps of each run (for example, with `payu run -n 10`, the postscript will run 10 times). Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
-
-```yaml
-postscript: -v PAYU_CURRENT_OUTPUT_DIR,PROJECT -lstorage=${PBS_NCI_STORAGE} ./scripts/NetCDF-conversion/UM_conversion_job.sh
-```
-
-All {{ model }} configurations include the NetCDF conversion postscript mentioned above. This script converts the [UM](/models/model_components/atmosphere#unified-model-um)'s fields file format output to NetCDF in order to facilitate analysis and reduce storage requirements. By default, the conversion script will delete the fields files upon successful completion, leaving only the NetCDF output. This automatic deletion can be disabled by commenting out the `--delete-ff` command line flag from the conversion job submission script located in the _control_ directory under `scripts/NetCDF-conversion/UM_conversion_job.sh`.<br>
-That means changing
-
-```bash
-esm1p5_convert_nc $PAYU_CURRENT_OUTPUT_DIR --delete-ff
-```
-
-to
-
-```bash
-esm1p5_convert_nc $PAYU_CURRENT_OUTPUT_DIR # --delete-ff
-```
-
-#### Miscellaneous {: .no-toc }
-
-The following configuration settings should never require changing:
-
-```yaml
-stacksize: unlimited
-qsub_flags: -W umask=027
-```
-
-### Edit a single {{ model }} component configuration
-
-Each of [{{ model }} components][model components] contains additional configuration options that are read in when the model component is running.<br> These options are typically useful to modify the physics used in the model, the input data, or the model variables saved in the output files.
-
-These configuration options are specified in files located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section (e.g., configuration options for the _ocean_ component are in the `~/access-esm/preindustrial+concentrations/ocean` directory).<br>
-To modify these options please refer to the User Guide of the respective model component.
+{% include-markdown "includes/payu.md"
+   start="<!--start:payu-component-configurat-->"
+   end="<!--end:payu-component-configuration-->"
+%}
 
 ### Create a custom {{ model }} build
 All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>

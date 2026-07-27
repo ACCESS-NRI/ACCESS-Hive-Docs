@@ -374,6 +374,7 @@ Or to do this automatically when setting up an experiment using `payu clone` int
     The restart option used here will only be applied if there is no restart directory in archive, and so does not have to be removed for subsequent submissions. See [Payu docs](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) for further details.
 <!--end:payu-restart-choice-->
 
+<!--start:payu-PBS-resources-->
 ### Modify PBS resources
 
 If the model has been altered and needs more time or memory to complete, or needs to be submitted under a different NCI project, you will need to modify the following options in the `config.yaml`:
@@ -394,10 +395,10 @@ jobname: 1deg_jra55_ryf
 
 These lines can be edited to change the [PBS directives](https://opus.nci.org.au/display/Help/PBS+Directives+Explained) for the [PBS job][PBS job].
 
-For example, to run under the `ol01` project (COSIMA Working Group), uncomment the line beginning with `# project` by deleting the `#` symbol and replace `PROJECT_CODE` with `ol01`:
+For example, to run under the {{WG-project}}, uncomment the line beginning with `# project` by deleting the `#` symbol and replace `PROJECT_CODE` with `{{WG-project-code}}`:
 
 ```yaml
-project: ol01
+project: {{WG-project-code}}
 ```
 
 For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` to the desired path. 
@@ -405,7 +406,9 @@ For model configurations and output to be saved to a `/scratch` storage allocati
 !!! warning
     If changing the project providing the compute resources during an experiment, set the `shortpath` field so that it's the same for all runs of an experiment.
     Doing this will make sure the same `/scratch` location is used for the _laboratory_, regardless of which project is used to run the experiment.
+<!--end:payu-PBS-resources-->
 
+<!--start:payu-sync-->
 ### Syncing output data to long-term storage
 
 The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, where [files are regularly deleted once they have been unaccessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason climate model outputs need to be moved to a location with longer term storage.<br>
@@ -425,7 +428,9 @@ sync:
       - 'iceh.????-??-??.nc'
 ```
 To enable syncing, change `enable` to `True`, and set `base_path` to a location on `/g/data`. _payu_ will copy output and restart folders to `<base_path>/<experiment_name>` to avoid overwriting data from other experiments by mistake. A sensible `base_path` could be: `/g/data/$PROJECT/$USER/<model>`.
+<!--end:payu-sync-->
 
+<!--start:payu-restart-prune-->
 ### Pruning model restarts
 
 By default, restart files are created at the end of each run, allowing subsequent simulations to resume from a previously saved model state. However, restart files can occupy significant disk space, and keeping all of them throughout an entire experiment is often not necessary. 
@@ -473,8 +478,10 @@ The most recent sequential restarts are retained, and only deleted after a perma
     - restart005: 01/01/2015 (keeps immediate restarts before 01/01/2017)  
 
 For more information, check [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/stable/config.html#model).
+<!--end:payu-restart-prune-->
 
-### Other configuration options
+<!--start:payu-advance-options-->
+### _payu_ advance options
 
 !!! warning
     The following sections in the `config.yaml` file control configuration options that are rarely modified, and often require a deeper understanding of how the model is structured to be safely changed.
@@ -541,9 +548,12 @@ The following configuration settings should never require changing:
 stacksize: unlimited
 qsub_flags: -W umask=027
 ```
+<!--end:payu-advance-options-->
 
+<!--start:payu-component-configuration-->
 ## Edit a model components' configuration
 
 To modify the physics used by a model component, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels).
 
-For more details about these options, please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
+For more details about these options, please refer to the [configurations documentation]({{configurations documentation}}).
+<!--end:payu-component-configuration-->
