@@ -126,6 +126,19 @@ All released {{ model }} configurations are available from the [{{ model }} conf
    end="<!--end:payu-run-experiment-->"
 %}
 
+??? tip "Identifying `run_length` for your experiment"
+
+    In {{model}}, `run_length` is controlled by the `runtime` setting in the `config.yaml` file in the configuration. For example, a 1-year `run_length` is given by:
+
+    ```yml
+        runtime:
+            years: 1
+            months: 0
+            days: 0
+    ```
+    
+    See the section on [changing `run_length`](#change-run-length) for more information on customising the simulation time for ACCESS-ESM1.5.
+
 ----------------------------------------------------------------------------------------
 
 ## Monitor {{ model }} runs

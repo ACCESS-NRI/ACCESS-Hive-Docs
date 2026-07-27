@@ -102,11 +102,9 @@ To check that _payu_ is available, run:
 ### Get the model configuration
 
 <!--start:get-config-payu-->
-All model configurations are hosted in a GitHub repository where each configuration is maintained in its own branch.<br>
-
 To get a local copy of a configuration, you need to:
 
-- Identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub. 
+- Know the `<repository>` and `<branch>` name the configuration is stored under on GitHub. 
 - Create where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
 - Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 - Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
@@ -214,15 +212,15 @@ _payu_ supports automatically running a fixed number of runs using the `-n` opti
 
     payu run -n <number-of-runs>
 
-This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. The `run-length` (i.e. the duration of each individual run) is defined in the configuration settings and its specification is model-dependent. See the [Run a Model][Run a Model] page for your chosen model for instructions on how to modify it.
+This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. The `run-length` (i.e. the duration of each individual run) is defined in the configuration settings and its specification is model-dependent.
+For example, to run an experiment for a total of 50 years using a configuration with a 5-year _run length_, the `number-of-runs` should be set to `10`:
+
+    payu run -n 10
 
 !!! tip  
     _payu_ has no concept of model time, it is up to the user to determine the `number-of-runs` for the required *total experiment length*.  
     `number-of-runs` should be an integer > 0.<br>  
 
-For example, to run an experiment for a total of 50 years using a configuration with a 5-year _run length_, the `number-of-runs` should be set to `10`:
-
-    payu run -n 10
 <!--end:payu-run-experiment-->
 ## Monitor the experiment
 
