@@ -131,17 +131,17 @@ To get the configuration as chosen, run:
     <terminal-line data="input">mkdir -p ~/access-om2/</terminal-line>
     <terminal-line data="input">cd ~/access-om2/</terminal-line>
     <terminal-line data="input">payu clone</terminal-line>
-    <terminal-line>Welcome to the Payu Clone Wizard!</terminal-line>
-    <terminal-line>Press 'Ctrl+C' at any time to exit.</terminal-line>
-    <terminal-line>? Please enter the URL of the repository, or the local path of a configuration you want to clone:  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) https://github.com/ACCESS-NRI/access-om2-configs</terminal-line>
-    <terminal-line>? Do you want to clone the repo based on: An existing branch</terminal-line>
-    <terminal-line>? Please enter the name of the branch you want to clone ('Tab' to browse all branches): release-1deg_jra55_ryf</terminal-line>
-    <terminal-line>? How would you like to name your local experiment directory? diffuse_exps-1deg_jra55_ryf</terminal-line>
-    <terminal-line>? Is this a new experiment? (If yes, payu will create a new branch.) Yes</terminal-line>
-    <terminal-line>? What would you like to name your new branch  (Note: this won't be shared to the online repository automatically) diffuse_test1-1deg_jra55_ryf</terminal-line>
-    <terminal-line>? Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.) No</terminal-line>
-    <terminal-line>Running command:</terminal-line>
-    <terminal-line>`payu clone -B release-1deg_jra55_ryf -b diffuse_test1-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diffuse_exps-1deg_jra55_ryf`</terminal-line>
+    <terminal-line><span class="payu-yellow">Welcome to the Payu Clone Wizard!</span></terminal-line>
+    <terminal-line><span class="payu-yellow">Press 'Ctrl+C' at any time to exit.</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the URL of the repository, or the local path of a configuration you want to clone:</span>  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow"> https://github.com/ACCESS-NRI/access-om2-configs</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to clone the repo based on:</span> <span class="payu-dark-yellow">An existing branch</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the name of the branch you want to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-1deg_jra55_ryf</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">How would you like to name your local experiment directory?</span> <span class="payu-dark-yellow"> diffuse_exps-1deg_jra55_ryf</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu red">Is this a new experiment?</span> (If yes, payu will create a new branch.) <span class="payu-dark-yellow">Yes</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">What would you like to name your new branch</span>  (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow">diffuse_test1-1deg_jra55_ryf</span></terminal-line>
+    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.)</span> <span class="payu-dark-yellow">No</span></terminal-line>
+    <terminal-line><span class="payu-yellow">Running command:</span></terminal-line>
+    <terminal-line><span class="payu-yellow">\`payu clone -B release-1deg_jra55_ryf -b diffuse_test1-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diffuse_exps-1deg_jra55_ryf\`</span></terminal-line>
     <terminal-line>Cloned repository from https://github.com/ACCESS-NRI/access-om2-configs to directory: /home/561/\$USER/payu-control/access-om2/    diffuse_exps-1deg_jra55_ryf</terminal-line>
     <terminal-line>Created and checked out new branch: diffuse_test1-1deg_jra55_ryf</terminal-line>
     <terminal-line>laboratory path:  /scratch/\$PROJECT/\$USER/access-om2</terminal-line>
