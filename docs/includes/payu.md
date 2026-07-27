@@ -5,7 +5,9 @@
 
 ## About
 
-<!--start:about-->
+<!--start:payu-about-->
+## What is _payu_ and how are the simulation files organised by _payu_
+
 [_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
 
 For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
@@ -48,22 +50,30 @@ A representation of the data organisation for _payu_ is given in the following d
 As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and is the directory from which the model run is started.  
-  This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. The simulation is orchestrated from a main `config.yaml` file contained in this directory. The files specific to each model component are either located directly in the _control_ directory if the model has one model component, or in subdirectories if the model has several model components. The `submodels` section of the `config.yaml` file specifies the name of the submodels and of the subdirectories containing the pertinent files. To modify these options please refer to the configurations documentation of the respective model component.
-- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. This location can be changed.
+  This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. In the _control_ directory, you will find:
+
+     - `config.yaml` file: it is used to orchestrate the simulation.
+     - model components' configuration files:
+         - if the model has only one component: these files are located directly in the _control_ directory 
+         - if the model has several components: these files are in subdirectories. The `submodels` section of the `config.yaml` file specifies the name of the submodels and of the subdirectories containing the pertinent files.
+       
+       To modify the model components' options, please refer to the configurations documentation of the model.
+- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. This location can be changed. Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
+    - _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates this directory at the start of each run and removes it upon their successful completion. It is left untouched in case of error to facilitate the identification of the cause of the model failure
+    - _archive_ &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from _work_ to _archive_ upon successful completion of runs.
+    
+    The _archive_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
+
 <!--See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location. (Should the include be cut to allow adding this sentence and link?)-->
 
 !!! tip
 
-    On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast reading and writing of large data and where there is adequate space available for large model output.
-
+    On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB).
+    
     If you decide to locate your _control_ directory under `/g/data`, be aware of [some complications](https://forum.access-hive.org.au/t/changing-project-codes-for-payu-control-directories-under-g-data/6566) linked to that choice.
+<!-- for some unknown reason, I haven't been able to add a blank line. <br> does not work. &nbsp; does not work either.-->
 
-Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
-
-- _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
-- _archive_ &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from _work_ to _archive_ upon successful completion of runs.
-
-The _archive_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
+    The _laboratory_ directory is on `/scratch` which is optimised for fast reading and writing of large data and where there is adequate space available for large model output.
 
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_.
@@ -74,25 +84,26 @@ Within each of the _work_ and _archive_ directories, _payu_ automatically create
 
 ##### Error and output log files
 
-**PBS output files**
+*PBS output files*
 
-When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
+When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively. These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
+<br/>
 
-These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
 To move these files to the _archive_ directory, use the following commmand:
 
 ```
 payu sweep
 ```
 
-**Model log files**
+<br>
+*Model log files*
 
 While the model is running, the standard output and error streams are saved to file in the _control_ directory. You can examine the contents of these log files to check on the status of a run as it progresses (or after a failed run has completed).
 
 !!! warning
     At the end of a successful run, the model log files are archived to the _archive_ directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 
-<!--end:about-->
+<!--end:payu-about-->
 
 ## Prerequisites for _payu_
 
@@ -102,9 +113,9 @@ While the model is running, the standard output and error streams are saved to f
 - **Join NCI projects**<br>
     Join the following project by requesting membership on its NCI project page:
 
-<!--start:projects-->
+<!--start:payu-projects-->
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
-<!--end:projects-->
+<!--end:payu-projects-->
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
     !!! warning

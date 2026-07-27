@@ -11,7 +11,6 @@
 [model components]: /models/access_models/access-esm/#model-components
 [model configurations]: /models/access_models/access-esm/#access-esm15
 
-
 <div class="text-card-group" markdown>
 
 [:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}
@@ -31,7 +30,6 @@ If you are unsure whether {{ model }} is the right choice for your experiment, t
 All {{model}} configurations are open source, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1")![CC icon](https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1){: style="height:1em;margin-left:0.2em;vertical-align:text-top;"}![BY icon](https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1){: style="height:1em;margin-left:0.2em;vertical-align:text-top;"} and available on [ACCESS-NRI GitHub]({{github_configs}}).
 
 {{ model }} release notes are [available on the ACCESS-Hive Forum]({{release_notes}}) and are updated when new releases are made available.
-
 
 ## Prerequisites
 
@@ -55,8 +53,8 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
 {%
     include-markdown "includes/payu.md"
-    start="<!--start:projects-->"
-    end="<!--end:projects-->"
+    start="<!--start:payu-projects-->"
+    end="<!--end:payu-projects-->"
 %}
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
@@ -73,8 +71,8 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 ??? info "What is _payu_ and how are the simulation files organised by _payu_"
     {%
         include-markdown "includes/payu.md"
-        start="<!--start:about-->"
-        end="<!--end:about-->"
+        start="<!--start:payu-about-->"
+        end="<!--end:payu-about-->"
     %}
     For {{model}}, the standard output is saved in the file `access.out` and the standard error in `access.err`.
 
@@ -88,7 +86,8 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Get {{ model }} configuration
 
-Released configurations are tested and supported by ACCESS-NRI, as an adaptation of those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).<br>
+Released configurations are tested and supported by ACCESS-NRI, and build upon those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).<br> 
+
 All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository: `{{github_configs}}`.<br>
 
 [Supported configurations:][model configurations]
@@ -96,7 +95,11 @@ All released {{ model }} configurations are available from the [{{ model }} conf
 | Configuration | Branch name |
 |---------------|-------------|
 | CMIP6 Concentration-driven pre-industrial | release-preindustrial+concentrations |
-| CMIP6 Concentration-driven historical | release-historical+concentrations
+| CMIP6 Concentration-driven historical | release-historical+concentrations |
+
+!!! note
+
+    The released configurations for ESM1.5 do not reproduce the published CMIP6 model outputs for various reasons. However, the configurations are properly using the CMIP6 experiment protocol in the setup of each supported configuration.
 
 {%
     include-markdown "includes/payu.md"
@@ -104,7 +107,7 @@ All released {{ model }} configurations are available from the [{{ model }} conf
     end="<!--end:get-config-payu-->"
 %}
 
-??? abstract "Experiment example"
+??? abstract "Example: Cloning a configuration"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-clone-example-->"
@@ -150,11 +153,6 @@ All released {{ model }} configurations are available from the [{{ model }} conf
    end="<!--end:payu-monitor-->"
 %}
 
-### Model Live Diagnostics
-
-ACCESS-NRI developed the [Model Live Diagnostics](/model_evaluation/evaluation_on_gadi/model_live_diagnostics) framework to check, monitor, visualise, and evaluate model behaviour and progress of ACCESS models currently running on _Gadi_.<br>
-For a complete documentation on how to use this framework, check the [Model Diagnostics documentation](https://med-live-diagnostics.readthedocs.io/en/latest/index.html).
-
 ----------------------------------------------------------------------------------------
 
 ## Edit {{ model }} configuration {: #edit-{{ model.lower() }}-configuration }
@@ -181,20 +179,20 @@ For a complete documentation on how to use this framework, check the [Model Diag
     At the end of each run length, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
     
     !!! warning
-        The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in order to avoid errors. Shorter simulations can be useful when setting up and debugging new experiments, however they require     additional configuration changes. See the section [Run for less than one year](#shorter-runs) for details.
+        The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in production in order to avoid errors. However, when testing and debugging new experiments, shorter simulations can be useful. It is possible to set _run length_ to less than a year but additional configuration changes are required. See the section [Run for less than one year](#shorter-runs) for details.
     
-    To run the model for longer than the default run length, conduct multiple runs, see 
-    [Run an experiment](#run-an-experiment).
+    To run the model for longer than the default run length, conduct multiple runs as explained in [Run an experiment](#run-an-experiment). _payu_ has options to manage the length of a simulation for each `payu run` command: _runtime_, _runspersub_ and _-n_. They allow you to have complete control on the length of your experiments.
         
     #### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
     
-    It is possible to have more than one model run per queue submit. With the correct use of `runtime`, `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
+    The `runtime`, `runspersub`, `-n` and `walltime` parameters control various aspects of the simulation related to the length of the simulation: <br>
     
     - `runtime` defines the _run length_.
     - `runspersub` defines the maximum number of runs for every [PBS job] submission.
     - `-n` sets the total number of runs to be performed.
     - `walltime` defines the maximum time of every [PBS job] submission.
     
+    By using these parameters correctly, you can fully control the length of your simulation. <br>
     Now some practical examples:
     
     - **Run 20 years of simulation with resubmission every 5 years**<br>
@@ -223,7 +221,7 @@ For a complete documentation on how to use this framework, check the [Model Diag
             days: 0
     ```
     
-    With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. If valid restart files are required when running shorter simulations, the sea ice model     configuration should be modified so that restart files are produced at monthly frequencies. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` in the `cice_in.nml` configuration file located in the `ice`     subdirectory of the _control_ directory.
+    With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. If you may want to continue your short simulation over a longer period, you will need valid restart files created at the end of each run. For this, the sea ice model configuration should be modified so that restart files are produced at monthly frequencies, to match _runtime_. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` in the `cice_in.nml` configuration file located in the `ice` subdirectory of the _control_ directory.
 
 ??? info "Specify the restart file"
 
