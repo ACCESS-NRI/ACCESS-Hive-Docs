@@ -10,6 +10,7 @@
 [payu]: https://github.com/payu-org/payu
 [model components]: /models/access_models/access-esm/#model-components
 [model configurations]: /models/access_models/access-esm/#access-esm15
+[Eyring 2016]: https://gmd.copernicus.org/articles/9/1937/2016/gmd-9-1937-2016.pdf
 
 <div class="text-card-group" markdown>
 
@@ -78,7 +79,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Workflow manager, _payu_
 
-??? info 
+??? info "Accessing _payu_ and _payu_'s data organisation"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-about-->"
@@ -102,10 +103,10 @@ All released {{ model }} configurations are available from the [{{ model }} conf
 
 Supported configurations:
 
-| Configuration | Branch name |
-|---------------|-------------|
-| CMIP6 Concentration-driven pre-industrial | release-preindustrial+concentrations |
-| CMIP6 Concentration-driven historical | release-historical+concentrations |
+| Configuration | Reference | Branch name |
+|---------------|-----------|-------------|
+| piControl     | [Eyring et al. (2016)][Eyring 2016] | release-preindustrial+concentrations |
+| CMIP6 historical | [Eyring et al. (2016)][Eyring 2016] | release-historical+concentrations |
 
 !!! note
 
@@ -172,26 +173,26 @@ Supported configurations:
    end="<!--end:payu-modif-intro-->"
 %}
 
-??? info "Change run length"
+??? info "Change the simulation length"
 
-    ### Change run length 
+    ### Change the simulation length 
     
     One of the most common changes is to adjust the duration of the model run.<br> {{model}} simulations are split into smaller _run lengths_, each with the duration specified by the `runtime` settings in the `config.yaml` file:
-    
-    The length of an {{model}} run is controlled by the `runtime` settings in the `config.yaml` file:
-    
+        
     ```yml
         runtime:
             years: 1
             months: 0
             days: 0
     ```
-    At the end of each run length, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
+    At the end of each _run length_, each model component saves its state into a _restart file_, allowing the simulation to be continued in subsequent runs.
     
     !!! warning
-        The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in production in order to avoid errors. However, when testing and debugging new experiments, shorter simulations can be useful. It is possible to set _run length_ to less than a year but additional configuration changes are required. See the section [Run for less than one year](#shorter-runs) for details.
+        The _run length_ (controlled by `runtime`) should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _payu_ provides a range of option that allow you to control the length of the simulation as explained in the following sections.
+        
+        However, when testing and debugging new experiments, shorter simulations can be useful. It is possible to set _run length_ to less than a year but additional configuration changes are required. See the section [Run for less than one year](#shorter-runs) for details.
     
-    To run the model for longer than the default run length, conduct multiple runs as explained in [Run an experiment](#run-an-experiment). _payu_ has options to manage the length of a simulation for each `payu run` command: _runtime_, _runspersub_ and _-n_. They allow you to have complete control on the length of your experiments.
+    _payu_ provides the following options to manage the length of a simulation for each `payu run` command: _runtime_, _runspersub_ and _-n_. They allow you to have complete control on the length of your experiments.
         
     #### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
     
@@ -221,7 +222,7 @@ Supported configurations:
     !!! tip
         The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
     
-    #### Run for less than one year {: id="shorter-runs"}
+    #### Run for less than one year for testing purposes {: id="shorter-runs"}
     When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
     
     ```yml
@@ -268,7 +269,7 @@ Supported configurations:
        end="<!--end:payu-restart-prune-->"
     %}    
 
-??? info "_payu_ advance options"
+??? info "_payu_ options for advanced users"
 
     {% include-markdown "includes/payu.md"
        start="<!--start:payu-advance-options-->"

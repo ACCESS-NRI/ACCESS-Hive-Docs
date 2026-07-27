@@ -236,9 +236,9 @@ _payu_ supports automatically running a fixed number of runs using the `-n` opti
     payu run -n <number-of-runs>
 
 This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. The `run-length` (i.e. the duration of each individual run) is defined in the configuration settings and its specification is model-dependent.
-For example, to run an experiment for a total of 50 years using a configuration with a 5-year _run length_, the `number-of-runs` should be set to `10`:
+For example, to run an experiment for a total of 50 years using a configuration with a 1-year _run length_, the `number-of-runs` should be set to `50`:
 
-    payu run -n 10
+    payu run -n 50
 
 !!! tip  
     _payu_ has no concept of model time, it is up to the user to determine the `number-of-runs` for the required *total experiment length*.  
@@ -409,7 +409,7 @@ For model configurations and output to be saved to a `/scratch` storage location
 <!--start:payu-PBS-resources-->
 ### Modify PBS resources
 
-If the model has been altered and needs more time or memory to complete, or needs to be submitted under a different NCI project, you will need to modify the following options in the `config.yaml`:
+If the model has been altered and needs more time or memory to complete, you will need to modify the following options in the `config.yaml`:
 
 ```yaml
 queue: normal
@@ -495,22 +495,24 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 <!--end:payu-restart-prune-->
 
 <!--start:payu-advance-options-->
-### _payu_ advance options
+### _payu_ options for advanced users
 
 !!! warning
     The following sections in the `config.yaml` file control configuration options that are rarely modified, and often require a deeper understanding of how the model is structured to be safely changed.
 
 #### `model` section {: .no-toc }
 
-This section tells _payu_ which driver to use for the main `model` configuration and the location of all `input` files that are common to all its model components.
+The `model` field tells _payu_ which driver to use for the configuration. 
 
-The `name` field, for the model section, is not actually used for the configuration run, so it can be safely ignored. The `name` field is used for submodels (see below).
+The `input` field gives the location of all input files that are common to all its model components, if any. The `input` field is omitted if there are no common input files.
+
+The `name` field, for the model section, is not actually used for the configuration run, so it can be safely ignored or omitted. The `name` field is used for submodels (see below).
 
 #### `submodels` section {: .no-toc }
 
 Coupled models may deploy the model components as multiple submodels.
 
-This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel. The configuration files specific to each submodel can be found in a `name/` subdirectory of the _control_ directory, where `name` is the value of this field in the `submodel` section of `config.yaml`. 
+This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel. The configuration files specific to each submodel can be found in a `<name>/` subdirectory of the _control_ directory, where `<name>` is the value of the `name` field in the `submodel` section of `config.yaml`. 
 
 #### `runlog` field {: .no-toc }
 
