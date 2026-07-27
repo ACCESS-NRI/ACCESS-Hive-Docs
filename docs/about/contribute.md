@@ -76,7 +76,7 @@ For quick fixes to an existing page (e.g., typos, wording update, broken links),
 ---
 
 ### Make changes locally {: #large-contribution }
-For larger changes or updates across multiple pages, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
+For adding new pages, restructuring, or making multi-line updates, the easiest approach is to work on a local copy of the documentation and then push your changes to GitHub when ready. This documentation is written in Markdown format and is based on the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme, which is built on top of the [MkDocs](https://www.mkdocs.org/) static site generator.
 
 #### Step 1: Fork the repository
 
