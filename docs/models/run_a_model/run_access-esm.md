@@ -78,7 +78,13 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ??? abstract
 
-    --8<-- "payu.md:organisation"
+    --8<-- "payu.md:organisation_generic"
+    --8<-- "payu.md:organisation_control"
+    --8<-- "payu.md:organisation_lab"
+    See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
+
+    --8<-- "payu.md:organisation_suite"
+
 
 ----------------------------------------------------------------------------------------
 

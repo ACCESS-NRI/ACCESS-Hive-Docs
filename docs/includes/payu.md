@@ -47,7 +47,7 @@ An _experiment_ is a realisation of a configuration: a series of sequential runs
 
 ### Data organisation and _payu_'s directories designation
 
-# --8<-- [start:organisation]
+# --8<-- [start:organisation_generic]
 !!! info
     _payu_ creates all the directories it needs. Therefore, they do not need to be created beforehand.
 
@@ -63,11 +63,18 @@ A representation of the data organisation for _payu_ is given in the following d
 ![payu directory structure](/assets/payu_directory_structure.svg){: class="example-img" loading="lazy"}
 
 As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
+# --8<-- [end:organisation_generic]
+# --8<-- [start:organisation_control]
 
 - The _control_ directory contains the model configuration and is the directory from which the model run is started.  
   This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. If a model has only one model component, the files with the scientific options are located directly in the _control_ directory. If the model has several model components, the files are locate inside subfolders of the _control_ directory named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels). To modify these options please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
-- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
+# --8<-- [end:organisation_control]
+# --8<-- [start:organisation_lab]
+- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. 
+# --8<-- [end:organisation_lab]
+See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
 
+# --8<-- [start:organisation_suite]
 On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast reading and writing of large data and where there is adequate space available for large model output.  
 
 Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
@@ -81,7 +88,7 @@ The _archive_ and _work_ directories for an experiment are most easily accessed 
 
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more, refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
-# --8<-- [end:organisation]
+# --8<-- [end:organisation_suite]
 
 ## Prerequisites for _payu_
 
