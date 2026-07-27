@@ -240,7 +240,7 @@ After you open a pull request, a **preview version** of the documentation is aut
 
     Contributors should generally:
 
-    - Create a branch from `development`.
+    - Create a feature branch from `development`.
     - Open pull requests with `development` as the target. 
     
     The `development` branch is automatically merged into `main` daily. This reduces the risk of having breaking changes affect the live website. 
