@@ -218,7 +218,7 @@ After pushing your branch to remote, [create a pull request](https://docs.github
 
 After you open a pull request, a **preview version** of the documentation is automatically generated. Once the preview has been deployed:
 
-1. Open the **preview link** from the pull request checks, comments, or status checks.
+1. Open the **preview link** which is added automatically at the bottom of the first comment of the pull request.
 2. **Review** your changes in the linked preview documentation site.
 
 !!! note
