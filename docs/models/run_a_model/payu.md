@@ -321,7 +321,7 @@ Adjusting the duration of the model run is one of the most common change to appl
 ### Start the run from a specific restart file {: id='specific-restart'}
 
 To configure the experiment to start from specific restart files, add a [`restart:` entry](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) to the `config.yaml` file, specifying the path to a folder containing existing restart files.
-Or, to do this automatically when setting up an experiment, add the `-r` flag to the `payu clone` command. 
+Or, to do this automatically when setting up an experiment using `payu clone` interactive, give the restart path when prompted: `Do you want to specify a custom restart path?`. 
 
 !!! warning
     In some cases, if the supplied restart file is not fully compatible with the model configuration, experiments using a custom restart file may require additional manual adjustments to run correctly.
