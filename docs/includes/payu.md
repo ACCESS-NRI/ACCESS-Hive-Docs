@@ -83,7 +83,8 @@ The _archive_ and _work_ directories for an experiment are most easily accessed 
     !!! warning
         Different model configurations will likely require you to **join additional projects**. Please refer to the [Run a Model][Run a Model] page of your chosen model for the list of additional projects.
 
-## Accessing _payu_
+<!--start:access-payu-->
+### Accessing _payu_
 
 _Payu_ on _Gadi_ is available through a dedicated environment in the _vk83_ project.<br>
 After joining the _vk83_ project, load the _payu_ module:
@@ -94,6 +95,7 @@ After joining the _vk83_ project, load the _payu_ module:
 To check that _payu_ is available, run:
 
     payu --version
+<!--end:access-payu-->
 
 ## Run an experiment
 

@@ -65,13 +65,20 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Workflow manager, _payu_
 
-!!! abstract What is _payu_ and how are the simulation files organised by _payu_
+??? abstract What is _payu_ and how are the simulation files organised by _payu_
     {%
         include-markdown "includes/payu.md"
         start="<!--start:about-->"
         end="<!--end:about-->"
     %}
 
+??? abstract Accessing _payu_
+
+    {%
+        include-markdown "includes/payu.md"
+        start="<!--start:access-payu-->"
+        end="<!--end:access-payu-->"
+    %}
 
 ----------------------------------------------------------------------------------------
 
