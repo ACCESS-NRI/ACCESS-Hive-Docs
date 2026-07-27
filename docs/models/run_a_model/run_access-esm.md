@@ -70,7 +70,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Workflow manager, _payu_
 
-??? abstract "What is _payu_ and how are the simulation files organised by _payu_"
+??? info "What is _payu_ and how are the simulation files organised by _payu_"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:about-->"
@@ -78,12 +78,11 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     %}
     For {{model}}, the standard output is saved in the file `access.out` and the standard error in `access.err`.
 
-??? info "Accessing _payu_"
-    {%
-        include-markdown "includes/payu.md"
-        start="<!--start:access-payu-->"
-        end="<!--end:access-payu-->"
-    %}
+{%
+    include-markdown "includes/payu.md"
+    start="<!--start:access-payu-->"
+    end="<!--end:access-payu-->"
+%}
 
 ----------------------------------------------------------------------------------------
 
@@ -166,7 +165,8 @@ For a complete documentation on how to use this framework, check the [Model Diag
 %}
 
 ??? info "Change run length"
-    ### Change run length {: #runtime .no-toc }
+
+    ### Change run length 
     
     One of the most common changes is to adjust the duration of the model run.<br> {{model}} simulations are split into smaller _run lengths_, each with the duration specified by the `runtime` settings in the `config.yaml` file:
     
@@ -188,30 +188,30 @@ For a complete documentation on how to use this framework, check the [Model Diag
         
     #### Understand _runtime_, _runspersub_, and _-n_ parameters {: id="multiple-runs"}
     
-    It is possible to have more than one model run per queue submit. With the correct use of [`runtime`](#runtime), `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
+    It is possible to have more than one model run per queue submit. With the correct use of `runtime`, `runspersub`, `-n` and `walltime` parameters, you can have full control of your experiment.<br>
     
     - `runtime` defines the _run length_.
     - `runspersub` defines the maximum number of runs for every [PBS job] submission.
-    - `-n` sets the number of runs to be performed.
+    - `-n` sets the total number of runs to be performed.
     - `walltime` defines the maximum time of every [PBS job] submission.
     
     Now some practical examples:
     
     - **Run 20 years of simulation with resubmission every 5 years**<br>
-        To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration     with `-n` set to `20`:
+        To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, leave `runtime` in `config.yaml` as the default value of `1 year`, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration with `-n` set to `20`:
         ```
-        payu run-f -n 20
+        payu run -f -n 20
         ```
         This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
     
     - **Run 7 years of simulation with resubmission every 3 years**<br>
-        To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, leave [`runtime`](#runtime) as the default value of `1 year`, set `runspersub` to `3` and `walltime` to `6:00:00`. Then, run the configuration with     `-n` set to `7`:
+        To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, leave `runtime` as the default value of `1 year`, set `runspersub` to `3` and `walltime` to `6:00:00`. Then, run the configuration with `-n` set to `7`:
         ```
         payu run -f -n 7
         ```
         This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
     !!! tip
-        The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution     to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely     that there will be multiple anomalously slow runs per submit.
+        The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
     
     #### Run for less than one year {: id="shorter-runs"}
     When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
@@ -226,13 +226,19 @@ For a complete documentation on how to use this framework, check the [Model Diag
     With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. If valid restart files are required when running shorter simulations, the sea ice model     configuration should be modified so that restart files are produced at monthly frequencies. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` in the `cice_in.nml` configuration file located in the `ice`     subdirectory of the _control_ directory.
 
 ??? info "Specify the restart file"
-    ### Start the run from a specific restart file {: id='specific-restart'}
-    
+
     {% include-markdown "includes/payu.md"
       start="<!--start:payu-restart-choice-->"
       end="<!--end:payu-restart-choice-->"
     %}
-    
+
+??? info "Specify the compute project and storage location"
+
+    {% include-markdown "includes/payu.md"
+       start="<!--start:payu-compute-storage-project-->"
+       end="<!--end:payu-compute-storage-project-->"
+    %}
+
 ??? info "Modify PBS resources"
 
     {% include-markdown "includes/payu.md"
@@ -261,24 +267,12 @@ For a complete documentation on how to use this framework, check the [Model Diag
        end="<!--end:payu-advance-options-->"
     %}    
 
-??? info "Collate"
+??? info "Collate of ocean output files"
 
-    #### Collate {: .no-toc }
-    
-    Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/ model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a  portion of model grid.
-    
-    The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single output file.
-
-```yaml
-# Collation
-collate:
-    exe: mppnccombine.spack
-    restart: true
-    mem: 4GB
-    walltime: 1:00:00
-    mpi: false
-```
-Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to `true`.
+    {% include-markdown "includes/payu.md"
+       start="<!--start:payu-collate-->"
+       end="<!--end:payu-collate-->"
+    %}
 
 {% include-markdown "includes/payu.md"
    start="<!--start:payu-component-configuration-->"

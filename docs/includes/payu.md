@@ -48,27 +48,34 @@ A representation of the data organisation for _payu_ is given in the following d
 As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and is the directory from which the model run is started.  
-  This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. If a model has only one model component, the files with the scientific options are located directly in the _control_ directory. If the model has several model components, the files are locate inside subfolders of the _control_ directory named according to the submodel's `name` specified in the `config.yaml` [`submodels` section](#submodels). To modify these options please refer to the configurations documentation of the respective model component, found on the [Run a Model][Run a Model] page for your chosen model.
-- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. 
-See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location.
+  This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. The simulation is orchestrated from a main `config.yaml` file contained in this directory. The files specific to each model component are either located directly in the _control_ directory if the model has one model component, or in subdirectories if the model has several model components. The `submodels` section of the `config.yaml` file specifies the name of the submodels and of the subdirectories containing the pertinent files. To modify these options please refer to the configurations documentation of the respective model component.
+- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. This location can be changed.
+<!--See the section on [modifying the PBS resources](#modify-pbs-resources) to learn how to change the _laboratory_ location. (Should the include be cut to allow adding this sentence and link?)-->
 
-On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast reading and writing of large data and where there is adequate space available for large model output.  
+!!! tip
+
+    On _Gadi_, it is good practice to put experiment _control_ directories in your `$HOME` directory as this is the only filesystem that is actively backed-up. There is a 10GB limit for home directories, but the _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB). The _laboratory_ directory is on `/scratch` which is optimised for fast reading and writing of large data and where there is adequate space available for large model output.
+
+    If you decide to locate your _control_ directory under `/g/data`, be aware of [some complications](https://forum.access-hive.org.au/t/changing-project-codes-for-payu-control-directories-under-g-data/6566) linked to that choice.
 
 Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
 
 - _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
 - _archive_ &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from _work_ to _archive_ upon successful completion of runs.
 
-Within each of the _work_ and _archive_ directories, _payu_ automatically creates a unique subdirectory for each experiment. Within each experiment sub-directory, the output and restart subfolders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`. Model components are further separated into subdirectories within the output and restart directories.
-
 The _archive_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
 !!! warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more, refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_.
 
-### Error and output log files
+##### Output and restart files organisation
 
-#### PBS output files {: .no-toc }
+Within each of the _work_ and _archive_ directories, _payu_ automatically creates a unique subdirectory for each experiment. Within each experiment subdirectory, the output and restart subfolders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`. Model components are further separated into subdirectories within the output and restart directories.
+
+##### Error and output log files
+
+**PBS output files**
+
 When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
 
 These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
@@ -78,12 +85,13 @@ To move these files to the _archive_ directory, use the following commmand:
 payu sweep
 ```
 
-#### Model log files {: .no-toc }
+**Model log files**
 
 While the model is running, the standard output and error streams are saved to file in the _control_ directory. You can examine the contents of these log files to check on the status of a run as it progresses (or after a failed run has completed).
 
 !!! warning
     At the end of a successful run, the model log files are archived to the _archive_ directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
+
 <!--end:about-->
 
 ## Prerequisites for _payu_
@@ -112,7 +120,7 @@ After joining the _vk83_ project, load the _payu_ module:
     module load payu
 
 To check that _payu_ is available, run:
-ø
+
     payu --version
 <!--end:access-payu-->
 
@@ -295,36 +303,37 @@ _payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.
     Example output from `payu status` for a running simulation:
     
     ```
-    ========================================  
-    Run: 8  
-      Job ID:            running_example.gadi-pbs  
-      Run ID:            xxxx  
-      Stage:             model-run  
-      Current Expt Time: 1950-10-01T00:00:00  
-      Exit Status:       0 (Success)  
-      Model Exit Code:   0 (Success)  
-      Output Log:        /home/189/USER/expt.o100  
-      Error Log:         /home/189/USER/expt.3100  
-      Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/running_example.gadi-pbs.json  
-    ========================================  
+        ========================================  
+        Run: 8  
+          Job ID:            running_example.gadi-pbs  
+          Run ID:            xxxx  
+          Stage:             model-run  
+          Current Expt Time: 1950-10-01T00:00:00  
+          Exit Status:       0 (Success)  
+          Model Exit Code:   0 (Success)  
+          Output Log:        /home/189/USER/expt.o100  
+          Error Log:         /home/189/USER/expt.3100  
+          Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/running_example.gadi-pbs.json  
+        ========================================  
     ```
     
     Example output from `payu status` for an archived simulation:
+
     
     ```
-    ========================================
-    Run: 8
-      Job ID:            archive_example.gadi-pbs
-      Run ID:            xxxx
-      Stage:             archive
-      Total Queue Time:  0h 1m 7s
-      Model Finish Time: 1950-10-01T00:00:00
-      Exit Status:       0 (Success)
-      Model Exit Code:   0 (Success)
-      Output Log:        /home/189/USER/expt.o100
-      Error Log:         /home/189/USER/expt.3100
-      Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
-    ========================================
+        ========================================
+        Run: 8
+          Job ID:            archive_example.gadi-pbs
+          Run ID:            xxxx
+          Stage:             archive
+          Total Queue Time:  0h 1m 7s
+          Model Finish Time: 1950-10-01T00:00:00
+          Exit Status:       0 (Success)
+          Model Exit Code:   0 (Success)
+          Output Log:        /home/189/USER/expt.o100
+          Error Log:         /home/189/USER/expt.3100
+          Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+        ========================================
     ```
 
 To monitor the current queue time of a queued job, use `payu status --update`.
@@ -361,9 +370,9 @@ To find out more about configuration settings for the `config.yaml` file, refer 
 Adjusting the duration of the model run is one of the most common change to apply. However, models follow different ways to adapt the duration of the run. Please refer to the [Run a Model][Run a Model] page of the model of your choice for information<br> 
 
 
+<!--start:payu-restart-choice-->
 ### Start the run from a specific restart file {: id='specific-restart'}
 
-<!--start:payu-restart-choice-->
 To configure the experiment to start from specific restart files, add a [`restart:` entry](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) to the `config.yaml` file, specifying the path to a folder containing existing restart files.
 Or to do this automatically when setting up an experiment using `payu clone` interactive, give the restart path when prompted: `Do you want to specify a custom restart path?`. 
 
@@ -374,10 +383,10 @@ Or to do this automatically when setting up an experiment using `payu clone` int
     The restart option used here will only be applied if there is no restart directory in archive, and so does not have to be removed for subsequent submissions. See [Payu docs](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) for further details.
 <!--end:payu-restart-choice-->
 
-<!--start:payu-PBS-resources-->
-### Modify PBS resources
+<!--start:payu-compute-storage-project-->
+### Specify the compute project and storage location {: id='compute-storage-choice'}
 
-If the model has been altered and needs more time or memory to complete, or needs to be submitted under a different NCI project, you will need to modify the following options in the `config.yaml`:
+If you want to submit an experiment or part of an experiment using a different project for the compute resources or a non-default location for the archive directory, you will need to modify the following entries in `config.yaml`:
 
 ```yaml
 # If submitting to a different project to your default, uncomment line below
@@ -386,14 +395,7 @@ If the model has been altered and needs more time or memory to complete, or need
 
 # Force payu to always find, and save, files in this scratch project directory
 # shortpath: /scratch/PROJECT_CODE
-
-queue: normal
-walltime: 3:00:00
-mem: 1000GB
-jobname: 1deg_jra55_ryf
 ```
-
-These lines can be edited to change the [PBS directives](https://opus.nci.org.au/display/Help/PBS+Directives+Explained) for the [PBS job][PBS job].
 
 For example, to run under the {{WG_project}}, uncomment the line beginning with `# project` by deleting the `#` symbol and replace `PROJECT_CODE` with `{{WG_project_code}}`:
 
@@ -401,11 +403,26 @@ For example, to run under the {{WG_project}}, uncomment the line beginning with 
 project: {{WG_project_code}}
 ```
 
-For model configurations and output to be saved to a `/scratch` storage allocation other than `project` (or your default if `project` is not set) then also set `shortpath` to the desired path. 
+For model configurations and output to be saved to a `/scratch` storage location other than `project` (or your default if `project` is not set) then also set `shortpath` to the desired path. 
 
 !!! warning
     If changing the project providing the compute resources during an experiment, set the `shortpath` field so that it's the same for all runs of an experiment.
     Doing this will make sure the same `/scratch` location is used for the _laboratory_, regardless of which project is used to run the experiment.
+<!--end:payu-compute-storage-project-->
+
+<!--start:payu-PBS-resources-->
+### Modify PBS resources
+
+If the model has been altered and needs more time or memory to complete, or needs to be submitted under a different NCI project, you will need to modify the following options in the `config.yaml`:
+
+```yaml
+queue: normal
+walltime: 3:00:00
+mem: 1000GB
+jobname: 1deg_jra55_ryf
+```
+
+These lines can be edited to change the [PBS directives](https://opus.nci.org.au/display/Help/PBS+Directives+Explained) for the [PBS job][PBS job].
 <!--end:payu-PBS-resources-->
 
 <!--start:payu-sync-->
@@ -460,7 +477,8 @@ restart_freq: '50YS'
 
 The most recent sequential restarts are retained, and only deleted after a permanently archived restart file has been produced.
 
-!!! note
+??? note "When `restart_freq` is not a multiplier of the model's restart frequency"
+
     If `restart_freq` is not a multiplier of the model's restart frequency, _payu_ will keep the first restart passed `restart_freq`. For example, a model is set to write restart files every 3 years and produces restarts on the following dates:
 
     - restart000: 01/01/2000  
@@ -486,25 +504,19 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 !!! warning
     The following sections in the `config.yaml` file control configuration options that are rarely modified, and often require a deeper understanding of how the model is structured to be safely changed.
 
-#### Model configuration {: .no-toc }
+#### `model` section {: .no-toc }
 
 This section tells _payu_ which driver to use for the main `model` configuration and the location of all `input` files that are common to all its model components.
 
-```yaml
-name: common
-model: access-om2
-input: /g/data/ik11/inputs/access-om2/input_20201102/common_1deg_jra55
-```
-
 The `name` field, for the model section, is not actually used for the configuration run, so it can be safely ignored. The `name` field is used for submodels (see below).
 
-#### Submodels {: .no-toc }
+#### `submodels` section {: .no-toc }
 
 Coupled models may deploy the model components as multiple submodels.
 
-This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel.
+This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel. The configuration files specific to each submodel can be found in a `name/` subdirectory of the _control_ directory, where `name` is the value of this field in the `submodel` section of `config.yaml`. 
 
-#### Runlog {: .no-toc }
+#### `runlog` field {: .no-toc }
 
 ```yaml
 runlog: true
@@ -516,29 +528,18 @@ When running an experiment,  if `runlog` is set to `true`, _payu_ saves a histor
     This should not be changed as it is an essential part of the provenance of an experiment.<br>
     _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
 
-#### Userscripts {: .no-toc }
-
-```yaml
-userscripts:
-    error: tools/resub.sh
-    run: rm -f resubmit.count
-    sync: /g/data/vk83/apps/om2-scripts/concatenate_ice/concat_ice_daily.sh 
-```
+#### `userscripts` section {: .no-toc }
 
 They are used to run scripts or subcommands at various stages of a _payu_ submission:
 
-- `error` gets called if the model does not run correctly and exits with an error.
-- `run` gets called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
-- `sync` gets called at the start of the sync PBS job. For more information refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+- `error` field: script is called if the model does not run correctly and exits with an error.
+- `run` field: script is called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
+- `sync` field: script is called at the start of the sync PBS job.
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/stable/config.html#postprocessing).
 
-#### Postscripts {: .no-toc }
+#### `postscript` option {: .no-toc }
 Postprocessing scripts that run after _payu_ has completed all steps of each run (for example, with `payu run -n 10`, the postscript will run 10 times). Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
-
-```yaml
-postscript: -v PAYU_CURRENT_OUTPUT_DIR,PROJECT -lstorage=${PBS_NCI_STORAGE} ./scripts/NetCDF-conversion/UM_conversion_job.sh
-```
 
 #### Miscellaneous {: .no-toc }
 
@@ -549,6 +550,25 @@ stacksize: unlimited
 qsub_flags: -W umask=027
 ```
 <!--end:payu-advance-options-->
+
+<!--start:payu-collate-->
+#### Collate {: .no-toc }
+
+Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a portion of model grid.
+
+The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single outputfile.
+
+```yaml
+# Collation
+collate:
+    exe: mppnccombine.spack
+    restart: true
+    mem: 4GB
+    walltime: 1:00:00
+    mpi: false
+```
+Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to`true`.
+<!--end:payu-collate-->
 
 <!--start:payu-component-configuration-->
 ## Edit a model components' configuration
