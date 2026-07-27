@@ -206,7 +206,7 @@ git push
 After pushing your branch to remote, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) using the following steps:
 
 1. Go to the **repository** on GitHub (either the [main Hive Docs repository](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs) for ACCESS-NRI GitHub org members or your fork of that repository for others).
-2. GitHub will usually display a **prompt** to create a pull request from your branch.
+2. GitHub will usually display a message near the top of the window to create a pull request from your branch or fork.
 3. Click **Compare & pull request**. 
 4. Add a title and detailed description explaining your changes. 
 5. Click **Create pull request**.
