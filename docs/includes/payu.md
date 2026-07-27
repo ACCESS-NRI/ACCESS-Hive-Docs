@@ -9,7 +9,9 @@
 [_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
 
 For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
+<!--end:payu-about-->
 
+<!--start:payu-organisation-->
 ### Data organisation and _payu_'s directories designation
 
 !!! tip
@@ -36,7 +38,7 @@ As shown in the diagram, the general layout of a _payu_-supported model run cons
          - if the model has several components: these files are in subdirectories. The `submodels` section of the `config.yaml` file specifies the name of the submodels and of the subdirectories containing the pertinent files.
        
             To modify the model components' options, please refer to the configurations documentation of the model.
-- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/$PROJECT/$USER/<model_name>`. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. This location can be changed using options in the `config.yaml` file. Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
+- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/${PROJECT}/${USER}/<model_type>`. `${PROJECT}` and `${USER}` are environment variables on _Gadi_ that point to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. `<model_type>` defaults to {{model_type}} for the {{model}} model. This location can be changed using options in the `config.yaml` file. Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
     - _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates this directory at the start of each run and removes it upon their successful completion. It is left untouched in case of error to facilitate the identification of the cause of the model failure
     - _archive_ &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from _work_ to _archive_ upon successful completion of runs.
     
@@ -61,7 +63,7 @@ As shown in the diagram, the general layout of a _payu_-supported model run cons
         - adequate space available for large model output.
 
 !!! warning
-    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_.
+    Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for [some time](https://opus.nci.org.au/spaces/Help/pages/156434436/Gadi+scratch+File+Management). All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_.
 
 #### Output and restart files organisation {: .no-toc}
 
@@ -74,7 +76,7 @@ Within each of the _work_ and _archive_ directories, _payu_ automatically create
 When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively. These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
 <br/>
 
-To move these files to the _archive_ directory, use the following commmand:
+To move these files to the _archive_ directory, use the following command:
 
 ```
 payu sweep
@@ -88,7 +90,7 @@ While the model is running, the standard output and error streams are saved to f
 !!! warning
     At the end of a successful run, the model log files are archived to the _archive_ directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 
-<!--end:payu-about-->
+<!--end:payu-organisation-->
 
 ## Prerequisites for _payu_
 
@@ -120,15 +122,13 @@ To check that _payu_ is available, run:
     payu --version
 <!--end:access-payu-->
 
-## Run an experiment
-
 ### Get the model configuration
 
 <!--start:get-config-payu-->
 Before downloading (cloning) a local copy of a configuration, you need to:  
 
 - Know the `<repository>` and `<branch>` name the configuration is stored under on GitHub. 
-- Create where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
+- Create a location on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
 - Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 - Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
 
@@ -162,13 +162,13 @@ To get the configuration as chosen, run:
     <terminal-line><span class="payu-yellow">\`payu clone -B {{config_example}} -b expt1 {{github_configs}} my-project-expts\`</span></terminal-line>
     <terminal-line>Cloned repository from {{github_configs}} to directory: /home/561/\$USER/payu-control/{{model}}/my-project-expts</terminal-line>
     <terminal-line>Created and checked out new branch: expt1</terminal-line>
-    <terminal-line>laboratory path:  /scratch/\$PROJECT/\$USER/{{model}}</terminal-line>
-    <terminal-line>binary path:  /scratch/\$PROJECT/\$USER/{{model}}/bin</terminal-line>
-    <terminal-line>input path:  /scratch/\$PROJECT/\$USER/{{model}}/input</terminal-line>
-    <terminal-line>work path:  /scratch/\$PROJECT/\$USER/{{model}}/work</terminal-line>
-    <terminal-line>archive path:  /scratch/\$PROJECT/\$USER/{{model}}/archive</terminal-line>
+    <terminal-line>laboratory path:  /scratch/\${PROJECT}/\${USER}/{{model_type}}</terminal-line>
+    <terminal-line>binary path:  /scratch/\${PROJECT}/\${USER}/{{model_type}}/bin</terminal-line>
+    <terminal-line>input path:  /scratch/\${PROJECT}/\${USER}/{{model_type}}/input</terminal-line>
+    <terminal-line>work path:  /scratch/\${PROJECT}/\${USER}/{{model_type}}/work</terminal-line>
+    <terminal-line>archive path:  /scratch/\${PROJECT}/\${USER}/{{model_type}}/archive</terminal-line>
     <terminal-line>Updated metadata. Experiment UUID: 14058c5c-d0dd-49dd-841a-cbec42b7391e</terminal-line>
-    <terminal-line>Added archive symlink to /scratch/\$PROJECT/\$USER/{{model}}/archive/my-project-expts-expt1-14058c5c</terminal-line>
+    <terminal-line>Added archive symlink to /scratch/\${PROJECT}/\${USER}/{{model_type}}/archive/my-project-expts-expt1-14058c5c</terminal-line>
     <terminal-line>To change directory to control directory run:</terminal-line>
     <terminal-line>  cd my-project-expts</terminal-line>
 </terminal-window>
@@ -188,18 +188,18 @@ You can test the setup and paths are correct by running `payu setup` from the _c
 
 <terminal-window>
     <terminal-line data="input">payu setup</terminal-line>
-    <terminal-line>laboratory path: /scratch/\$PROJECT/\$USER/{{model}}</terminal-line>
-    <terminal-line>binary path: /scratch/\$PROJECT/\$USER/{{model}}/bin</terminal-line>
-    <terminal-line>input path: /scratch/\$PROJECT/\$USER/{{model}}/input</terminal-line>
-    <terminal-line>work path: /scratch/\$PROJECT/\$USER/{{model}}/work</terminal-line>
-    <terminal-line>archive path: /scratch/\$PROJECT/\$USER/{{model}}/archive</terminal-line>
+    <terminal-line>laboratory path: /scratch/\${PROJECT}/\${USER}/{{model_type}}</terminal-line>
+    <terminal-line>binary path: /scratch/\${PROJECT}/\${USER}/{{model_type}}/bin</terminal-line>
+    <terminal-line>input path: /scratch/\${PROJECT}/\${USER}/{{model_type}}/input</terminal-line>
+    <terminal-line>work path: /scratch/\${PROJECT}/\${USER}/{{model_type}}/work</terminal-line>
+    <terminal-line>archive path: /scratch/\${PROJECT}/\${USER}/{{model_type}}/archive</terminal-line>
     <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
     <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
     <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
     <terminal-line>Setting up atmosphere</terminal-line>
     <terminal-line>Setting up ocean</terminal-line>
     <terminal-line>Setting up ice</terminal-line>
-    <terminal-line>Setting up {{model}}</terminal-line>
+    <terminal-line>Setting up {{model.lower()}}</terminal-line>
     <terminal-line>Checking exe and input manifests</terminal-line>
     <terminal-line>Updating full hashes for 3 files in manifests/exe.yaml</terminal-line>
     <terminal-line>Creating restart manifest</terminal-line>
@@ -224,27 +224,47 @@ This will submit a single [PBS job][PBS job] to the queue.
 
 !!! failure
     `payu run` will error out if a non-empty _work_ directory for your experiment already exists (from a failed attempt or from running `payu setup`).<br>
-    The `-f` option to `payu run` lets the model run in all cases and delete any existing data under _work_.
+    The `-f` option to `payu run` lets the model run in all cases and deletes any existing data under _work_.
 <!--end:payu-test-config-->
 
-<!--start:payu-run-experiment-->
 ### Run the experiment
 
+<!--start:payu-run-experiment-->
 An experiment consists of a series of sequential runs, with each run continuing from where the previous run ended.
-_payu_ supports automatically running a fixed number of runs using the `-n` option:  
+_payu_ supports automatically running multiple consecutive runs using the `-n` option:  
 
     payu run -n <number-of-runs>
 
 This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. The `run-length` (i.e. the duration of each individual run) is defined in the configuration settings and its specification is model-dependent.
-For example, to run an experiment for a total of 50 years using a configuration with a 1-year _run length_, the `number-of-runs` should be set to `50`:
+For example, to run an experiment for 50 years using a configuration with a 1-year _run length_, the `number-of-runs` should be set to `50`:
 
     payu run -n 50
 
 !!! tip  
     _payu_ has no concept of model time, it is up to the user to determine the `number-of-runs` for the required *total experiment length*.  
     `number-of-runs` should be an integer > 0.<br>  
-
 <!--end:payu-run-experiment-->
+
+<!--start:payu-continue-experiment-->
+### Continue an experiment
+
+If you already ran several years of an experiment and you want to simulate some extra years, you can do that easily by using the same _control_ directory as before and simply launching _payu_ again for the extra years. For example, if you had 100 years simulated and want to add 50 years of simulation, you can simply run:
+
+```
+payu run -n 50
+```
+
+!!! warning
+
+    This only works if you have kept the _archive_ directory as set up by _payu_. If you have modified the _archive_ directory, you will need to manually specify the correct restart file in the `config.yaml` file.
+<!--end:payu-continue-experiment-->
+
+<!--start:payu-re-run-experiment-->
+### Re-run an experiment from scratch
+
+If you run an experiment for some years and then realise you have made an error, for example, and want to re-run the same years again, you will need to first remove the _archive_ directory created by _payu_ (move it, rename it, tar it or delete it according to what is appropriate). Then, you can re-launch the experiment using `payu run -n` as previously done.
+<!--end:payu-re-run-experiment-->
+
 ## Monitor the experiment
 
 <!-- old instructions-->
@@ -289,7 +309,7 @@ If there are no jobs listed with your `jobname` (or if no job is listed), your r
 For more information, check [NCI documentation](https://opus.nci.org.au/display/Help/FAQ+1%3A+Why+My+Jobs+are+NOT+Running).
 <!-- old instructtions-->
 <!--start:payu-monitor-->
-_payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command can return the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
+_payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command returns the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
 
 !!! note
     `payu status` is available in _payu_ versions `1.2.0` and above. This command does not yet support monitoring post-processing jobs from the configuration (e.g., `payu collate` and `payu sync`).
@@ -299,18 +319,15 @@ _payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.
     Example output from `payu status` for a running simulation:
     
     ```
-        ========================================  
-        Run: 8  
-          Job ID:            running_example.gadi-pbs  
-          Run ID:            xxxx  
-          Stage:             model-run  
-          Current Expt Time: 1950-10-01T00:00:00  
-          Exit Status:       0 (Success)  
-          Model Exit Code:   0 (Success)  
-          Output Log:        /home/189/USER/expt.o100  
-          Error Log:         /home/189/USER/expt.3100  
-          Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/running_example.gadi-pbs.json  
-        ========================================  
+        ========================================
+        Run: 0
+        ------------- Run Info -------------
+        Job ID:            174067874.gadi-pbs
+        Run ID:            fe6a9f5a508caf26d56b1eda6ef9409ca45626c0
+        Stage:             model-run
+        Current Expt Time: 2676-01-01T21:00:00
+        Job File:          /scratch/\${PROJECT}/\${USER}/access-esm/archive/test-dir-struct-test-dir-struct-f8f5d0f4/payu_jobs/0/run/174067874.gadi-pbs.json
+        ======================================== 
     ```
     
     Example output from `payu status` for an archived simulation:
@@ -326,9 +343,9 @@ _payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.
           Model Finish Time: 1950-10-01T00:00:00
           Exit Status:       0 (Success)
           Model Exit Code:   0 (Success)
-          Output Log:        /home/189/USER/expt.o100
-          Error Log:         /home/189/USER/expt.3100
-          Job File:          /scratch/\$PROJECT/USER/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+          Output Log:        \${HOME}/expt.o100
+          Error Log:         \${HOME}/expt.3100
+          Job File:          /scratch/\${PROJECT}/\${USER]/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
         ========================================
     ```
 
@@ -441,7 +458,7 @@ sync:
       - '*.nc.*'
       - 'iceh.????-??-??.nc'
 ```
-To enable syncing, change `enable` to `True`, and set `base_path` to a location on `/g/data`. _payu_ will copy output and restart folders to `<base_path>/<experiment_name>` to avoid overwriting data from other experiments by mistake. A sensible `base_path` could be: `/g/data/$PROJECT/$USER/<model>`.
+To enable syncing, change `enable` to `True`, and set `base_path` to a location on `/g/data`. _payu_ will copy output and restart folders to `<base_path>/<experiment_name>` to avoid overwriting data from other experiments by mistake. A sensible `base_path` could be: `/g/data/${PROJECT}/${USER}/<model>`.
 <!--end:payu-sync-->
 
 <!--start:payu-restart-prune-->
@@ -474,7 +491,7 @@ restart_freq: '50YS'
 
 The most recent sequential restarts are retained, and only deleted after a permanently archived restart file has been produced.
 
-??? note "When `restart_freq` is not a multiplier of the model's restart frequency"
+??? note "When `restart_freq` is not a multiple of the model's restart frequency"
 
     If `restart_freq` is not a multiplier of the model's restart frequency, _payu_ will keep the first restart passed `restart_freq`. For example, a model is set to write restart files every 3 years and produces restarts on the following dates:
 
@@ -501,53 +518,63 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 !!! warning
     The following sections in the `config.yaml` file control configuration options that are rarely modified, and often require a deeper understanding of how the model is structured to be safely changed.
 
-#### `model` section {: .no-toc }
+??? info "`model` and `submodel` sections"
 
-The `model` field tells _payu_ which driver to use for the configuration. 
+    #### `model` section {: .no-toc }
 
-The `input` field gives the location of all input files that are common to all its model components, if any. The `input` field is omitted if there are no common input files.
+    The `model` field tells _payu_ which driver to use for the configuration. 
 
-The `name` field, for the model section, is not actually used for the configuration run, so it can be safely ignored or omitted. The `name` field is used for submodels (see below).
+    The `input` field gives the location of all input files that are common to all its model components, if any. The `input` field is omitted if there are no common input files.
 
-#### `submodels` section {: .no-toc }
+    The `name` field, for the model section, is not actually used for the configuration run, so it can be safely ignored or omitted. The `name` field is used for submodels (see below).
 
-Coupled models may deploy the model components as multiple submodels.
+    #### `submodels` section {: .no-toc }
 
-This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel. The configuration files specific to each submodel can be found in a `<name>/` subdirectory of the _control_ directory, where `<name>` is the value of the `name` field in the `submodel` section of `config.yaml`. 
+    Coupled models may deploy the model components as multiple submodels.
 
-#### `runlog` field {: .no-toc }
+    This section of the _payu_ configuration file specifies the submodels, the configuration options required to execute the model component correctly and the location of all inputs required for this submodel. The configuration files specific to each submodel can be found in a `<name>/` subdirectory of the _control_ directory, where `<name>` is the value of the `name` field in the `submodel` section of `config.yaml`. 
 
-```yaml
-runlog: true
-```
+??? info "`runlog` field"
 
-When running an experiment,  if `runlog` is set to `true`, _payu_ saves a history of the experiment. It does this using _git_, by automatically committing changes to the control directory repository.
+    #### `runlog` field {: .no-toc }
 
-!!! warning
-    This should not be changed as it is an essential part of the provenance of an experiment.<br>
-    _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
+    ```yaml
+    runlog: true
+    ```
 
-#### `userscripts` section {: .no-toc }
+    When running an experiment,  if `runlog` is set to `true`, _payu_ saves a history of the experiment. It does this using _git_, by automatically committing changes to the control directory repository.
 
-They are used to run scripts or subcommands at various stages of a _payu_ submission:
+    !!! warning
+        This should not be changed as it is an essential part of the provenance of an experiment.<br>
+        _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
 
-- `error` field: script is called if the model does not run correctly and exits with an error.
-- `run` field: script is called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
-- `sync` field: script is called at the start of the sync PBS job.
-  
-For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/stable/config.html#postprocessing).
+??? info "`userscripts` section"
 
-#### `postscript` option {: .no-toc }
-Postprocessing scripts that run after _payu_ has completed all steps of each run (for example, with `payu run -n 10`, the postscript will run 10 times). Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
+    #### `userscripts` section {: .no-toc }
 
-#### Miscellaneous {: .no-toc }
+    They are used to run scripts or subcommands at various stages of a _payu_ submission, for example:
 
-The following configuration settings should never require changing:
+    - `error` field: script is called if the model does not run correctly and exits with an error.
+    - `run` field: script is called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
+    - `sync` field: script is called at the start of the sync PBS job.
+    
+    For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/stable/config.html#postprocessing).
 
-```yaml
-stacksize: unlimited
-qsub_flags: -W umask=027
-```
+??? info "`postscript` field"
+
+    #### `postscript` field {: .no-toc }
+    Postprocessing scripts that run after _payu_ has completed all steps of each run (for example, with `payu run -n 10`, the postscript will run 10 times). Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
+
+??? info "Fields that should never require changing"
+
+    #### Miscellaneous {: .no-toc }
+
+    The following configuration settings should never require changing:
+
+    ```yaml
+    stacksize: unlimited
+    qsub_flags: -W umask=027
+    ```
 <!--end:payu-advance-options-->
 
 <!--start:payu-collate-->
@@ -569,8 +596,3 @@ collate:
 Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to`true`.
 <!--end:payu-collate-->
 
-<!--start:payu-component-configuration-->
-## Edit a model components' configuration
-
-To modify the physics used by a model component, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section.
-<!--end:payu-component-configuration-->
