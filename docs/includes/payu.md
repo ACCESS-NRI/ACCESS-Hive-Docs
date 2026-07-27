@@ -12,11 +12,9 @@
 
 For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
 
-### Terminology
-
 Before explaining how _payu_ works for the ACCESS models, it is worth explaining the difference between configurations and experiments as well as the terminology for the data organisation for _payu_'s experiments.
 
-#### Configuration versus experiment
+### Configuration versus experiment
 
 The terms _configuration_ and _experiment_ are not interchangeable although they are closely related.
 
@@ -31,7 +29,7 @@ Changing any one of these elements creates a new configuration
 
 An _experiment_ is a realisation of a configuration: a series of sequential runs that generate model data over a span of model time.
 
-#### Data organisation and _payu_'s directories designation
+### Data organisation and _payu_'s directories designation
 
 !!! info
     _payu_ creates all the directories it needs. Therefore, they do not need to be created beforehand.
@@ -78,11 +76,11 @@ As shown in the diagram, the general layout of a _payu_-supported model run cons
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_.
 
-##### Output and restart files organisation
+#### Output and restart files organisation {: .no-toc}
 
 Within each of the _work_ and _archive_ directories, _payu_ automatically creates a unique subdirectory for each experiment. Within each experiment subdirectory, the output and restart subfolders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`. Model components are further separated into subdirectories within the output and restart directories.
 
-##### Error and output log files
+#### Error and output log files {: .no-toc}
 
 *PBS output files*
 

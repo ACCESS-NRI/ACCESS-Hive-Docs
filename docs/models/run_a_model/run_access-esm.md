@@ -73,6 +73,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
         include-markdown "includes/payu.md"
         start="<!--start:payu-about-->"
         end="<!--end:payu-about-->"
+        heading-offset=1
     %}
     For {{model}}, the standard output is saved in the file `access.out` and the standard error in `access.err`.
 
