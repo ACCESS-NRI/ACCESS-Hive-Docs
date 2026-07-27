@@ -1,5 +1,4 @@
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
-[Run a Model]: /models/run_a_model
 
 # Run Models Using Payu
 
@@ -12,6 +11,7 @@ For in-depth information about _payu_, check its [technical documentation](https
 <!--end:payu-about-->
 
 <!--start:payu-organisation-->
+<!--This bit expects the host page to define the variables model and model_type-->
 ### Data organisation and _payu_'s directories designation
 
 !!! tip
@@ -94,19 +94,9 @@ While the model is running, the standard output and error streams are saved to f
 
 ## Prerequisites for _payu_
 
-- **NCI account**<br>
-    Before running a _payu_ experiment, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
-
-- **Join NCI projects**<br>
-    Join the following project by requesting membership on its NCI project page:
-
 <!--start:payu-projects-->
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
 <!--end:payu-projects-->
-    For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
-
-    !!! warning
-        Different model configurations will likely require you to **join additional projects**. Please refer to the [Run a Model][Run a Model] page of your chosen model for the list of additional projects.
 
 <!--start:access-payu-->
 ### Accessing _payu_
@@ -136,6 +126,7 @@ Then, you can get the chosen configuration using `payu clone`.
 <!--end:get-config-payu-->
 
 <!--start:payu-clone-example-->
+<!--This bit expect the host page to define the variables: model, config_example, github_configs, model_type-->
 For example, if you want to run an experiment for {{model}} using the configuration {{config_example}}. You decide the following:
 
 - `<repository>` and `<branch>`: base your experiment off the branch, **{{config_example}}**, from the repository, **{{github_configs}}**
@@ -178,6 +169,7 @@ To get the configuration as chosen, run:
 <!--end:payu-clone-example-->
 
 <!--start:payu-test-config-->
+<!--This bit expects the host page to define the variables: model_type, model-->
 ### Test the configuration
 
 To verify everything is set correctly, it is recommended to first test the configuration as-is.
@@ -308,6 +300,7 @@ _S_ indicates the status of your run, where:
 If there are no jobs listed with your `jobname` (or if no job is listed), your run either successfully completed or was terminated due to an error.<br>
 For more information, check [NCI documentation](https://opus.nci.org.au/display/Help/FAQ+1%3A+Why+My+Jobs+are+NOT+Running).
 <!-- old instructtions-->
+
 <!--start:payu-monitor-->
 _payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command returns the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
 
@@ -377,11 +370,6 @@ The `config.yaml` file located in the [_control_ directory](#control-directory) 
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/stable/config.html).
 <!--end:payu-modif-intro-->
-
-### Change run length
-
-Adjusting the duration of the model run is one of the most common change to apply. However, models follow different ways to adapt the duration of the run. Please refer to the [Run a Model][Run a Model] page of the model of your choice for information<br> 
-
 
 <!--start:payu-restart-choice-->
 ### Start the run from a specific restart file {: id='specific-restart'}
