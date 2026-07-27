@@ -11,18 +11,18 @@ This page summarises the _payu_ capabilities that are most commonly required to 
 
 - [terminology for _payu_-based experiments](#terminology)
 - [the setup of _payu_](#prerequisites)
-- [running _payu_-based ACCESS model's experiment](#run-the-experiment)
+- [running a _payu_-based experiment](#run-the-experiment)
 - [monitoring a _payu_-based experiment on _Gadi_](#monitor-the-experiment)
-- [modifying a _payu_-based configuration for the most commonly customised aspects of the configurations](#edit-a-model-components-configuration)
+- [modifying a _payu_-based configuration for the most commonly customised aspects](#edit-a-model-components-configuration)
 
 !!! info
-    This page is to be used in conjunction with the Run a Model page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
+    This page is to be used in conjunction with the [Run a Model][Run a Model] page for the chosen configuration. The Run a Model page will give information specific to that model (for example, additional requirements or configuration names and locations) as well as any information on any configurations customisation that is particular to that model.
 
-For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/latest/). 
+For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
 
 ## Terminology
 
-Before explaining how _payu_ works for the ACCESS models, it is worth explaining the terminology around configurations and experiments as well as around the data organisation for _payu_'s experiments.
+Before explaining how _payu_ works for the ACCESS models, it is worth explaining the difference between configurations and experiments as well as the terminology for the data organisation for _payu_'s experiments.
 
 ### Configuration versus experiment
 
@@ -31,9 +31,9 @@ These terms are not interchangeable although they are closely related.
 A configuration defines a specific way to run the model it relates to. 
 A configuration is defined by:
 
-    - a given model version and build
-    - a given set of input files (ancillaries, forcings, restarts)
-    - a specific set of physical and modelling options for each model component used by this model
+- a given model version and build
+- a given set of input files (ancillaries, forcings, restarts)
+- a specific set of physical and modelling options for each model component used by this model
 
 Changing any one of these items creates a new configuration
 
@@ -41,19 +41,23 @@ An experiment is a series of runs of a configuration that covers a longer time p
 
 ### Data organisation and _payu_'s directories designation
 
+!!! info
+    `payu` will create all the directories it needs. They do not need to be created beforehand.
+
 A representation of the data organisation for _payu_ is given in the following diagram:
 
 ![payu directory structure](/docs/assets/payu_directory_structure.png){: class="img-contain white-background round-edges with-padding" loading="lazy"}
 
-This design was chosen to separate the small files and the larger binary output and input files, makin
-The general layout of a _payu_-supported model run consists of two main directories:
+This design was chosen to separate the small files that define the configuration and the larger binary output and input files needed for a realisation of a configuration. This ensures the configuration definition is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. It also ensures several experiments that share common executables and input data to be run simultaneously.
+
+As shown on the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and is where the model is run from.
 - The _laboratory_ directory contains all data from _payu_ experiments using a same model. It is typically `/scratch/$PROJECT/$USER/<model_name>` and is created by _payu_. `$PROJECT` and `$USER` are environment variables on _Gadi_ that points to your default project and your username respectively.
 
-This layout separates the small text configuration files in the _control_ directory, from the larger binary outputs and inputs in the _laboratory_. In this way, the _control_ directory can be in the `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
+On _Gadi_, the _control_ directory can be in your `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
 
-Inside the _laboratory_ directory there are two areas:
+Inside the _laboratory_ directory, there are two areas:
 
 - `work` &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
 - `archive` &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from `work` to `archive` upon successful completion of runs.
@@ -62,14 +66,8 @@ Within each of the `work` and `archive` directories, _payu_ automatically create
 
 The `archive` and `work` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
-This design allows multiple self-resubmitting experiments that share common executables and input data to be run simultaneously.
-
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more refer to [Syncing output data](#syncing-output-data).
-
-!!! info
-    `payu` will create all the directories it needs. They do not need to be created beforehand.
-
 
 ## Prerequisites
 
@@ -84,7 +82,7 @@ This design allows multiple self-resubmitting experiments that share common exec
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
     !!! warning
-        Different model configurations will likely require you to join other projects in addition to those listed here. Please refer to the [Run a Model][Run a Model] page of your chosen configuration for details.
+        Different model configurations will likely require you to join additional projects. Please refer to the [Run a Model][Run a Model] page of your chosen configuration for the list of additional projects.
 
 ## Payu setup
 
@@ -97,8 +95,6 @@ After joining the _vk83_ project, load the `payu` module:
 To check that _payu_ is available, run:
 
     payu --version
-
---- 
 
 ## Run an experiment
 
@@ -143,7 +139,7 @@ To run the configuration, execute the following command from within the `control
 This will submit a single job to the queue. Refer to the [Run a Model][Run a Model] page for your chosen model to learn how to set the length of the simulation.
 
 !!! tip
-    `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running `payu setup`).<br>
+    `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running [`payu setup`](#trouble-shooting)).<br>
     You can add the `-f` option to `payu run` to let the model run in all cases and delete any existing data under `work`.
 
 ### Run the experiment
@@ -161,7 +157,7 @@ For example, to run an experiment for a total of 50 years with a run length of 5
 
 ## Monitor the experiment
 
-_payu_ provides the `payu status` command for monitoring jobs (see [documentation](https://payu.readthedocs.io/en/1.2.0/usage.html#monitoring-payu-jobs)). This command can return the scheduler job ID, and the stage the payu run is currently at. When the job is complete, it displays the exit statuses from the model and overall payu run, and points to the PBS log files. 
+_payu_ provides the `payu status` command for monitoring jobs (see [documentation](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs)). This command can return the scheduler job ID, and the stage the payu run is currently at. When the job is complete, it displays the exit statuses from the model and overall payu run, and points to the PBS log files. 
 
 !!! note
     `payu status` is available in _payu_ versions 1.2.0 and later. This command does not yet support monitoring post-processing jobs from the configuration, e.g. `payu collate` and `payu sync`.
@@ -226,6 +222,7 @@ When the model fails or completes a run, PBS writes the standard output and erro
 
 These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
 To move these files to the `archive` directory, use the following commmand:
+
 ```
 payu sweep
 ```
@@ -236,7 +233,7 @@ While the model is running, the standard output and error streams are saved in t
 You can examine the contents of these files to check on the status of a run as it progresses (or after a failed run has completed).
 
 !!! warning
-    At the end of a successful run these log files are archived to the `archive` directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
+    At the end of a successful run, the model log files are archived to the `archive` directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 
 ### Trouble-shooting
 
@@ -277,7 +274,7 @@ This can help to isolate issues such as permissions problems accessing files and
 
 The modifications discussed in this section can change how the model and its components are configured, or the way the model is run by _payu_.
 
-The `config.yaml` file located in the _control_ directory is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which it is more likely will need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
+The `config.yaml` file located in the _control_ directory is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which are more likely to need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
