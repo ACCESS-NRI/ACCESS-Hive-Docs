@@ -53,7 +53,7 @@ Once the issue has been submitted, you are welcome (and encouraged!) to make a s
 ---
 
 ### Edit a page directly {: #direct-edit }
-For quick updates to an existing page, you can edit it directly in your browser using the *pencil* icon in the top-right corner of the website.
+For quick fixes to an existing page (e.g., typos, wording update, broken links), you can edit a page directly in your browser using the *pencil* icon in the top-right corner of the website.
 
 - Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
 
