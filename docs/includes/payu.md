@@ -366,7 +366,7 @@ To monitor the current queue time of a queued job, use `payu status --update`.
 <!-- start:payu-modif-intro-->
 The modifications discussed in this section can change how the model and its components are configured, or the way the model is run by _payu_.
 
-The `config.yaml` file located in the [_control_ directory](#control-directory) is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which are more likely to need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
+The `config.yaml` file located in the _control_ directory is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which are more likely to need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/stable/config.html).
 <!--end:payu-modif-intro-->
