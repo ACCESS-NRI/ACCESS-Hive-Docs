@@ -76,7 +76,7 @@ Within each of the _work_ and _archive_ directories, _payu_ automatically create
 When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively. These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
 <br/>
 
-To move these files to the _archive_ directory, use the following command:
+To move these files to the _archive_ directory once the model has completed running, use the following command:
 
 ```
 payu sweep
@@ -345,7 +345,7 @@ _payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.
           Model Exit Code:   0 (Success)
           Output Log:        \${HOME}/expt.o100
           Error Log:         \${HOME}/expt.3100
-          Job File:          /scratch/\${PROJECT}/\${USER]/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+          Job File:          /scratch/\${PROJECT}/\${USER}/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
         ========================================
     ```
 
@@ -469,8 +469,8 @@ By default, restart files are created at the end of each run, allowing subsequen
 If disk space is limited, consider using _payu_'s restart files pruning feature, controlled by the `restart_freq` field of the `config.yaml`.
 By default, every `restart_freq`, _payu_ removes intermediate restart files, keeping only:
 
-- the two most recent restarts
-- restarts corresponding to the `restart_freq` interval
+- restarts corresponding to the `restart_freq` interval  
+- all restarts created since the most recently retained restart  
 
 For example, a `restart_freq` set to `1YS` would keep the restart files at the end of each model year, whereas `restart_freq` set to `5YS` would keep those at the end of every fifth model year.
 This approach helps reduce disk space while maintaining useful restart points across long experiments, especially useful in case of unexpected crashes.
@@ -493,7 +493,7 @@ The most recent sequential restarts are retained, and only deleted after a perma
 
 ??? note "When `restart_freq` is not a multiple of the model's restart frequency"
 
-    If `restart_freq` is not a multiplier of the model's restart frequency, _payu_ will keep the first restart passed `restart_freq`. For example, a model is set to write restart files every 3 years and produces restarts on the following dates:
+    If `restart_freq` is not a multiplier of the model's restart frequency, _payu_ will keep the first restart past `restart_freq`. For example, a model is set to write restart files every 3 years and produces restarts on the following dates:
 
     - restart000: 01/01/2000  
     - restart001: 01/01/2003  
