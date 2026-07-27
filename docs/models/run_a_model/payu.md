@@ -40,30 +40,39 @@ To check that _payu_ is available, run:
 
 ## Get the model configuration
 
-All models configurations are hosted on GitHub.<br>
+All model configurations are hosted on GitHub.<br>
 
 The first step is to choose a configuration from those available and identify the branch name for that configuration, following information on the [Run a Model][Run a Model] page of your chosen model.<br>
 
-To clone a configuration to a location on _Gadi_ and navigate to that directory, run:
+Once you have chosen the configuration, you need to:
+
+- identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub.
+- decide on a directory on Gadi to store your _payu_ configurations, `<configurations-directory>`
+- decide on a name for your experiment, `<experiment-name>`
+- decide on a directory name to store this specific configuration, `<control-directory>`
+
+Then, you can get the chosen configuration using `payu clone`.
+
+For example, say you want to do a sensitivity experiment to the diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide to:
+
+- base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, https://github.com/ACCESS-NRI/access-om2-configs
+- store the configurations under `~/access-om2/`
+- name your experiment `diff_test1-1deg_jra55_ryf`
+- store the configuration under `diff_exps-1deg_jra55_ryf`
+
+To get the configuration as chosen, run:
     
-    mkdir -p ~/<directory_to_store_experiments>
-    cd ~/<directory_to_store_experiments>
-    payu clone -b <experiment_name> -B <branch> <repository> <local_directory_name>
-    cd <local_directory_name>
-
-where:
-
-- `<directory_to_store_experiments>` is any directory you want to use to organise your experiments for your chosen model.
-- `<experiment_name>` is the name you want to use to identify your experiment.
-- `<local_directory_name>` is chosen by the user.
-- `<branch>` and `<repository>` are specific to the chosen model configuration and can be found in the [Run a Model][Run a Model] documentation for your chosen model.
+    mkdir -p ~/access-om2/
+    cd ~/access-om2/
+    payu clone -b diff_test1-1deg_jra55_ryf -B release-1deg_jra55_ryf https://github.com/ACCESS-NRI/access-om2-configs diff_exps-1deg_jra55_ryf
+    cd diff_exps-1deg_jra55_ryf
 
 !!! tip
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
 
 !!! tip
     _payu_ uses branches to differentiate between different experiments in the same local git repository.<br>
-    For this reason, it is recommended to always set the cloned branch name (`<experiment_name>` in the example above) to something meaningful for the planned experiment.<br>
+    For this reason, it is recommended to always set the cloned branch name, `<experiment_name>` (`diff_test1-1deg_jra55_ryf` in the example above), to something meaningful for the planned experiment.<br>
     For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 
 ## Directory structure for _payu_-supported model runs
@@ -71,7 +80,7 @@ where:
 The general layout of a _payu_-supported model run consists of two main directories:
 
 - The _control_ directory contains the model configuration and serves as the execution directory for running the model. You created the _control_ directory when you cloned the configuration you want to use.
-- The _laboratory_ directory, where all the model components reside. It is typically `/scratch/$PROJECT/$USER/<model_name>`.
+- The _laboratory_ directory, where all the model components reside. It is typically `/scratch/$PROJECT/$USER/<model_name>` and is created by _payu_.
 
 This separates the small text configuration files from the larger binary outputs and inputs. In this way, the _control_ directory can be in the `$HOME` directory (as it is the only filesystem actively backed-up on _Gadi_). The quotas for `$HOME` are low and strict, which limits what can be stored there, so it is not suitable for larger files.
 
@@ -318,9 +327,11 @@ To enable syncing, change `enable` to `True`, and set `path` to a location on `/
 By default, restart files are created at the end of each run, allowing subsequent simulations to resume from a previously saved model state. However, restart files can occupy significant disk space, and keeping all of them throughout an entire experiment is often not necessary. 
 
 If disk space is limited, consider using _payu_'s restart files pruning feature, controlled by the `restart_freq` field of the `config.yaml`.
-By default, every `restart_freq`, _payu_ removes intermediate restart files, keeping only: 
+By default, every `restart_freq`, _payu_ removes intermediate restart files, keeping only:
+
 - the two most recent restarts
 - restarts corresponding to the `restart_freq` interval
+
 For example, a `restart_freq` set to `1YS` would keep the restart files at the end of each model year, whereas `restart_freq` set to `5YS` would keep those at the end of every fifth model year.
 This approach helps reduce disk space while maintaining useful restart points across long experiments, especially useful in case of unexpected crashes.
 
@@ -361,7 +372,7 @@ The `name` field is not actually used for the configuration run, so it can be sa
 
 #### Submodels {: .no-toc }
 
-Coupled models deploy multiple submodels. a.k.a. the model components.
+Coupled models deploy multiple submodels, a.k.a. the model components.
 
 This section of the _payu_ configuration file specifies the submodels and configuration options required to execute the model correctly.
 
@@ -374,11 +385,11 @@ Refer to the [Run a Model][Run a Model] page of a chosen model for details of th
 ```yaml
 runlog: true
 ```
-When running a new configuration, _payu_ automatically commits changes with `git` if `runlog` is set to `true`.
+When running a new configuration, _payu_ automatically commits changes with _git_ if `runlog` is set to `true`.
 
 !!! warning
     This should not be changed as it is an essential part of the provenance of an experiment.<br>
-    _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the `git` history, so there is a record of all inputs, restarts, and executables used in an experiment.
+    _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
 
 #### Userscripts {: .no-toc }
 
@@ -397,7 +408,7 @@ A dictionary to run scripts or subcommands at various stages of a _payu_ submiss
   
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#postprocessing).
 
-### Edit a model components' configuration
+## Edit a model components' configuration
 
 Each of the model components contains additional configuration options that are read in when the model component is running.<br>
 These options are typically useful to modify the physics used in the model, the input data, or the model variables saved in the output files.
