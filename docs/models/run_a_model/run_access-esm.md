@@ -65,14 +65,14 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
 ## Workflow manager, _payu_
 
-??? abstract What is _payu_ and how are the simulation files organised by _payu_
+??? abstract "What is _payu_ and how are the simulation files organised by _payu_"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:about-->"
         end="<!--end:about-->"
     %}
 
-??? abstract Accessing _payu_
+??? abstract "Accessing _payu_"
 
     {%
         include-markdown "includes/payu.md"
@@ -87,28 +87,15 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository.<br>
 Released configurations are tested and supported by ACCESS-NRI, as an adaptation of those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).
 
-For more information on {{ model }} configurations, check [{{model}}][model configurations] page.
-
-More information about the available experiments and the naming scheme of the branches can also be found in the [{{ model }} configs]({{github_configs}}) GitHub repository.
-
-The first step is to choose a configuration from those available.<br>
-
-For example, if the required configuration is the co2 concentration driven pre-industrial configuration, then the branch to select is [`release-preindustrial+concentrations`](https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352).
-
-To clone this branch to a location on _Gadi_, run:
-    
-    mkdir -p ~/access-esm1.5
-    cd ~/access-esm1.5
-    payu clone -b expt -B release-preindustrial+concentrations {{ github_configs }} preindustrial+concentrations
+{%
+    include-markdown "includes/payu.md"
+    start="<!--start:get-config-payu-->"
+    end="<!--end:get-config-payu-->"
+%}
 
 !!! tip
     If you want to restart your experiment from a specific restart point, please refer to [Start the run from a specific restart file](#specific-restart).
 
-In the example above the `payu clone` command clones the concentration driven pre-industrial configuration (`-B release-preindustrial+concentrations`) 
-to a new experiment branch (`-b expt`) to a directory named `preindustrial+concentrations`.
-
-!!! admonition tip
-    Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
 
 <terminal-window>
     <terminal-line data="input">mkdir -p ~/access-esm1.5</terminal-line>

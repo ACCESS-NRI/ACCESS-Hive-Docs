@@ -93,7 +93,7 @@ After joining the _vk83_ project, load the _payu_ module:
     module load payu
 
 To check that _payu_ is available, run:
-
+ø
     payu --version
 <!--end:access-payu-->
 
@@ -101,6 +101,7 @@ To check that _payu_ is available, run:
 
 ### Get the model configuration
 
+<!--start:get-config-payu-->
 All model configurations are hosted in a GitHub repository where each configuration is maintained in its own branch.<br>
 
 To get a local copy of a configuration, you need to:
@@ -111,7 +112,9 @@ To get a local copy of a configuration, you need to:
 - Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
 
 Then, you can get the chosen configuration using `payu clone`.
+<!--end:get-config-payu-->
 
+<!--start:payu-clone-example-->
 For example, if you want to do a sensitivity experiment about diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide the following:
 
 - `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
