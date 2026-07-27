@@ -5,7 +5,11 @@
 
 ## About
 
-[_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software package, distributed under an Apache 2.0 Licence.
+# --8<-- [start:about]
+[_payu_](https://github.com/payu-org/payu) is a workflow manager tool for running numerical models in supercomputing environments. It is an open-source software, distributed under an Apache 2.0 Licence.
+
+For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
+# --8<-- [end:about]
 
 This page summarises the _payu_ capabilities that are most commonly required to run ACCESS models on the _Gadi_ supercomputer. This page presents generic information on: 
 
@@ -18,14 +22,15 @@ This page summarises the _payu_ capabilities that are most commonly required to 
 !!! info
     This page is to be used in conjunction with the [Run a Model][Run a Model] page for the chosen model. The Run a Model page provides model-specific information, including configuration names and locations. It also describes configuration customizations that apply specifically to the chosen model.
 
-For in-depth information about _payu_, check its [technical documentation](https://payu.readthedocs.io/en/stable/). 
-
 ## Terminology
 
+# --8<-- [start:terminology]
 Before explaining how _payu_ works for the ACCESS models, it is worth explaining the difference between configurations and experiments as well as the terminology for the data organisation for _payu_'s experiments.
+# --8<-- [end:terminology]
 
 ### Configuration versus experiment
 
+# --8<-- [start:configVSexp]
 The terms _configuration_ and _experiment_ are not interchangeable although they are closely related.
 
 A _configuration_ defines a specific way to run the model it relates to. 
@@ -33,14 +38,16 @@ A configuration is defined by:
 
 - model version and build (model executable(s))
 - set of input files (ancillaries, forcings, restarts)
-- set of physical and modelling options for each [model component](/models/model_components) (namelists, configuration files and MPI layout) 
+- set of physical and modelling options for each model component, such as namelists, configuration files and MPI layout
 
 Changing any one of these elements creates a new configuration
 
 An _experiment_ is a realisation of a configuration: a series of sequential runs that generate model data over a span of model time.
+# --8<-- [end:configVSexp]
 
 ### Data organisation and _payu_'s directories designation
 
+# --8<-- [start:organisation]
 !!! info
     _payu_ creates all the directories it needs. Therefore, they do not need to be created beforehand.
 
@@ -65,15 +72,16 @@ On _Gadi_, it is good practice to put experiment _control_ directories in your `
 
 Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
 
-- `work` &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
-- `archive` &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from `work` to `archive` upon successful completion of runs.
+- _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates and removes directories and files in this directory upon successful completion of runs. It is left untouched in case of error to facilitate the identification of the cause of the model failure
+- _archive_ &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from _work_ to _archive_ upon successful completion of runs.
 
-Within each of the `work` and `archive` directories, _payu_ automatically creates a unique subdirectory for each experiment. Output and restart subfolders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`. Model components are separated into subdirectories within the output and restart directories.
+Within each of the _work_ and _archive_ directories, _payu_ automatically creates a unique subdirectory for each experiment. Within each experiment sub-directory, the output and restart subfolders are called `outputXXX` and `restartXXX`, respectively, where _XXX_ is the run number starting from `000`. Model components are further separated into subdirectories within the output and restart directories.
 
-The `archive` and `work` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
+The _archive_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more, refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+# --8<-- [end:organisation]
 
 ## Prerequisites for _payu_
 
@@ -83,17 +91,18 @@ The `archive` and `work` directories for an experiment are most easily accessed 
 - **Join NCI projects**<br>
     Join the following project by requesting membership on its NCI project page:
 
+# --8<-- [start:projects]
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
-
+# --8<-- [end:projects]
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
     !!! warning
-        Different model configurations will likely require you to **join additional projects**. Please refer to the [Run a Model][Run a Model] page of your chosen configuration for the list of additional projects.
+        Different model configurations will likely require you to **join additional projects**. Please refer to the [Run a Model][Run a Model] page of your chosen model for the list of additional projects.
 
-## Payu setup
+## Accessing _payu_
 
-_Payu_ on _Gadi_ is available through a dedicated `conda` environment in the _vk83_ project.<br>
-After joining the _vk83_ project, load the `payu` module:
+_Payu_ on _Gadi_ is available through a dedicated environment in the _vk83_ project.<br>
+After joining the _vk83_ project, load the _payu_ module:
 
     module use /g/data/vk83/modules
     module load payu
@@ -106,18 +115,18 @@ To check that _payu_ is available, run:
 
 ### Get the model configuration
 
-All model configurations are hosted in a git repository on GitHub, and each configuration is stored as a separate branch of that repository.<br>
+All model configurations are hosted in a GitHub repository where each configuration is maintained in its own branch.<br>
 
 To get a local copy of a configuration, you need to:
 
-- identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub. See the information on the [Run a Model][Run a Model] page of your chosen model for this step.
-- decide where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
-- decide on a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
-- decide on a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
+- Identify the `<repository>` and `<branch>` name the configuration is stored under on GitHub. See the information on the [Run a Model][Run a Model] page of your chosen model for this step.
+- Create where on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
+- Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+- Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
 
 Then, you can get the chosen configuration using `payu clone`.
 
-For example, say you want to do a sensitivity experiment to the diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide to:
+For example, if you want to do a sensitivity experiment about diffusivity in ACCESS-OM2 using the configuration `release-1deg_jra55_ryf`. You decide the following:
 
 - `<repository>` and `<branch>`: base your experiment off the branch, `release-1deg_jra55_ryf`, from the repository, `https://github.com/ACCESS-NRI/access-om2-configs`
 - `<configurations-directory>`: store all your ACCESS-OM2 configurations under `~/access-om2/`
@@ -199,7 +208,7 @@ To test the configuration, execute the following command from within the `contro
 
     payu run -f
 
-This will submit a single job to the queue. 
+This will submit a single [PBS job][PBS job] to the queue. 
 
 !!! tip
     `payu run` will error out if a non-empty `work` directory for your experiment already exists (from a failed attempt or from running [`payu setup`].<br>
@@ -207,23 +216,27 @@ This will submit a single job to the queue.
 
 ### Run the experiment
 
-An experiment consists of a series of subsequent runs with each run continuing from where the previous one ended.
-To conduct an experiment, use the `-n` option to submit a series of runs until the desired length of the experiment is reached:
+An experiment consists of a series of sequential runs, with each run continuing from where the previous run ended.
+_payu_ supports automatically running a fixed number of runs using the `-n` option:  
 
     payu run -n <number-of-runs>
 
-This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. The `run-length`, or length of each individual run, is set in the configuration. The way to set the length of each run is specific to each model, refer to the [Run a Model][Run a Model] page for your chosen model to learn how to modify the length of each run.
+This will run the configuration `number-of-runs` consecutive times for the configured run length. This way, the *total experiment length* will be `run-length * number-of-runs`. The `run-length` (i.e. the duration of each individual run) is defined in the configuration settings and its specification is model-dependent. See the [Run a Model][Run a Model] page for your chosen model for instructions on how to modify it.
 
-For example, to run an experiment for a total of 50 years with a run length of 5 years, the `number-of-runs` should be set to `10`:
+!!! tip  
+    _payu_ has no concept of model time, it is up to the user to determine the `number-of-runs` for the required *total experiment length*.  
+    `number-of-runs` should be an integer > 0.<br>  
+
+For example, to run an experiment for a total of 50 years using a configuration with a 5-year _run length_, the `number-of-runs` should be set to `10`:
 
     payu run -n 10
 
 ## Monitor the experiment
 
-_payu_ provides the `payu status` command for monitoring jobs (see [documentation](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs)). This command can return the scheduler job ID, and the stage the payu run is currently at. When the job is complete, it displays the exit statuses from the model and overall payu run, and points to the PBS log files. 
+_payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command can return the scheduler job ID and the stage the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
 
 !!! note
-    `payu status` is available in _payu_ versions 1.2.0 and later. This command does not yet support monitoring post-processing jobs from the configuration, e.g. `payu collate` and `payu sync`.
+    `payu status` is available in _payu_ versions `1.2.0` and above. This command does not yet support monitoring post-processing jobs from the configuration (e.g., `payu collate` and `payu sync`).
 
 Example output from `payu status` for a running simulation:
 
@@ -286,11 +299,11 @@ qstat
     <terminal-line linedelay=500 class="keep-blanks">Job id                 Name             User              Time Use S Queue</terminal-line>
     <terminal-line linedelay=0 class="keep-blanks">---------------------  ---------------- ----------------  -------- - -----</terminal-line>
     <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;job-name&gt;   &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
-    <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
+    <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>  
     <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
 </terminal-window>
 
-The default name of your job is the name of the _payu_ _control_ directory.<br>
+The default name of your job is the name of the _payu_ [_control_ directory](#control-directory).<br>
 This can be changed by altering the `jobname` in the [PBS resources section](#modify-pbs-resources) of the `config.yaml` file.
 
 _S_ indicates the status of your run, where:
@@ -312,8 +325,8 @@ qdel <job-ID>
 which kills the specified job without waiting for it to complete.
 
 !!! tip
-    If you specified you want the job to resubmit itself several times but want to stop after the completion of the current process, you can create a file called `stop_run` in the _control_ directory.<br>
-    This will prevent _payu_ from submitting another job.
+    If you ran an experiment using `payu run -n ...` but want to stop it after the completion of the current run, you can create a file called `stop_run` in the _control_ directory.<br>  
+    This will prevent _payu_ from submitting another job after the current one completes.  
 
 ### Error and output log files
 
@@ -321,7 +334,7 @@ which kills the specified job without waiting for it to complete.
 When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
 
 These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
-To move these files to the `archive` directory, use the following commmand:
+To move these files to the _archive_ directory, use the following commmand:
 
 ```
 payu sweep
@@ -329,24 +342,17 @@ payu sweep
 
 #### Model log files {: .no-toc }
 
-While the model is running, the standard output and error streams are saved in the _control_ directory. Refer to the [Run a Model][Run a Model] page for the model you are using for the list of logging filenames for your model.<br>
-You can examine the contents of these files to check on the status of a run as it progresses (or after a failed run has completed).
+While the model is running, the standard output and error streams are saved in the _control_ directory. Refer to the [Run a Model][Run a Model] page for your chosen model for the list of logging filenames.<br>
+You can examine the contents of these log files to check on the status of a run as it progresses (or after a failed run has completed).
 
 !!! warning
-    At the end of a successful run, the model log files are archived to the `archive` directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
-
-
-
-
-
-
-
+    At the end of a successful run, the model log files are archived to the _archive_ directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 
 ## Edit a _payu_ configuration
 
 The modifications discussed in this section can change how the model and its components are configured, or the way the model is run by _payu_.
 
-The `config.yaml` file located in the _control_ directory is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which are more likely to need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
+The `config.yaml` file located in the [_control_ directory](#control-directory) is the _payu_ configuration file, which controls the general model configuration. It contains several parts, some of which are more likely to need modification, and others which are rarely changed without having a deep understanding of how the model is configured.
 
 To find out more about configuration settings for the `config.yaml` file, refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/stable/config.html).
 

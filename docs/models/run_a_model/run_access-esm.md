@@ -46,9 +46,9 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 - **Join NCI projects**<br>
     Join the following projects by requesting membership on their respective NCI project pages:
 
-    - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [ki32](https://my.nci.org.au/mancini/project/ki32/join)
     - [ki32_mosrs](https://my.nci.org.au/mancini/project/ki32_mosrs/join)
+--8<-- "payu.md:projects"
 
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
@@ -60,25 +60,25 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
-- **Payu**<br>
-    [_Payu_][payu] is a workflow management tool for running numerical models in supercomputing environments, for which there is extensive [documentation](https://payu.readthedocs.io/en/latest/).<br>
-    _Payu_ on _Gadi_ is available through a dedicated `conda` environment in the _vk83_ project.<br>
-    After joining the _vk83_ project, load the `payu` module:
-    
-        module use /g/data/vk83/modules
-        module load payu
+## Workflow manager, _payu_
 
-    To check that _payu_ is available, run:
+--8<-- "payu.md:about"
 
-        payu --version
-    
-    <terminal-window>
-        <terminal-line data="input">payu --version</terminal-line>
-        <terminal-line lineDelay="1000">payu 1.1.6</terminal-line>
-    </terminal-window>
+### Terminology
 
-    !!! warning
-        _payu_ version >=1.1.6 is required
+--8<-- "payu.md:terminology"
+
+#### Configuration versus experiment
+
+??? abstract "Configuration versus Experiment"
+
+    --8<-- "payu.md:configVSexp"
+
+#### Data organisation and _payu_'s directories designation
+
+??? abstract
+
+    --8<-- "payu.md:organisation"
 
 ----------------------------------------------------------------------------------------
 
