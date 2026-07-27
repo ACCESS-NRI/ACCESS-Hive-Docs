@@ -65,6 +65,25 @@ The _archive_ and _work_ directories for an experiment are most easily accessed 
 
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for several days. All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_. To know more, refer to [Syncing output data](#syncing-output-data-to-long-term-storage).
+
+### Error and output log files
+
+#### PBS output files {: .no-toc }
+When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
+
+These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
+To move these files to the _archive_ directory, use the following commmand:
+
+```
+payu sweep
+```
+
+#### Model log files {: .no-toc }
+
+While the model is running, the standard output and error streams are saved to file in the _control_ directory. You can examine the contents of these log files to check on the status of a run as it progresses (or after a failed run has completed).
+
+!!! warning
+    At the end of a successful run, the model log files are archived to the _archive_ directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 <!--end:about-->
 
 ## Prerequisites for _payu_
@@ -326,25 +345,6 @@ To monitor the current queue time of a queued job, use `payu status --update`.
         This will prevent _payu_ from submitting another job after the current one completes.  
 <!--end:payu-monitor-->
 
-### Error and output log files
-
-#### PBS output files {: .no-toc }
-When the model fails or completes a run, PBS writes the standard output and error streams to two files inside the _control_ directory: `<jobname>.o<job-ID>` and `<jobname>.e<job-ID>`, respectively.
-
-These files usually contain logs about _payu_ tasks, and give an overview of the resources used by the job.<br>
-To move these files to the _archive_ directory, use the following commmand:
-
-```
-payu sweep
-```
-
-#### Model log files {: .no-toc }
-
-While the model is running, the standard output and error streams are saved in the _control_ directory. Refer to the [Run a Model][Run a Model] page for your chosen model for the list of logging filenames.<br>
-You can examine the contents of these log files to check on the status of a run as it progresses (or after a failed run has completed).
-
-!!! warning
-    At the end of a successful run, the model log files are archived to the _archive_ directory and will no longer be found in the _control_ directory. If they remain in the _control_ directory after the PBS job for a run has completed, it means the run has failed.
 
 ## Edit a _payu_ configuration
 

@@ -73,6 +73,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
         start="<!--start:about-->"
         end="<!--end:about-->"
     %}
+    For {{model}}, the standard output is saved in the file `access.out` and the standard error in `access.err`.
 
 ??? info "Accessing _payu_"
     {%
