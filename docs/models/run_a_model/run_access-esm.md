@@ -116,7 +116,7 @@ All released {{ model }} configurations are available from the [{{ model }} conf
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-test-config-->"
-        end="<!--end:payu-test_config-->"
+        end="<!--end:payu-test-config-->"
     %}
 
 !!! tip
@@ -261,16 +261,13 @@ For a complete documentation on how to use this framework, check the [Model Diag
        end="<!--end:payu-advance-options-->"
     %}    
 
-### Other configuration options
+??? info "Collate"
 
-!!! warning
-    The following sections in the `config.yaml` file control configuration options that are rarely modified, and often require a deeper understanding of how {{ model }} is structured to be safely changed.
-
-#### Collate {: .no-toc }
-
-Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a portion of model grid.
-
-The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single output file.
+    #### Collate {: .no-toc }
+    
+    Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/ model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a  portion of model grid.
+    
+    The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single output file.
 
 ```yaml
 # Collation
@@ -284,11 +281,11 @@ collate:
 Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to `true`.
 
 {% include-markdown "includes/payu.md"
-   start="<!--start:payu-component-configurat-->"
+   start="<!--start:payu-component-configuration-->"
    end="<!--end:payu-component-configuration-->"
 %}
 
-??? info "Create a custom {{ model }} build
+??? info "Create a custom {{ model }} build"
 
     ### Create a custom {{ model }} build
     All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
