@@ -19,7 +19,7 @@ For in-depth information about _payu_, check its [technical documentation](https
 
 The data organisation for _payu_ was chosen to separate the smaller text files that define a _configuration_ and the larger binary input and output files needed for an _experiment_. 
 
-This means the _configuration_ definition can be tracked with git, and so is easy to back up and share.  It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several _experiments_ that share common executables and input data can be run simultaneously.  
+This means the _configuration_ definition can be tracked with _Git_, and so is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several _experiments_ that share common executables and input data can be run simultaneously.  
 
 A representation of the data organisation for _payu_ is given in the following diagram:
 
@@ -32,14 +32,14 @@ As shown in the diagram, the general layout of a _payu_-supported model run cons
 
 - The _control_ directory contains the model configuration and is the directory from which the model run is started. This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. In the _control_ directory, you will find:
 
-     - `config.yaml` file: it is used to orchestrate the simulation.
-     - model components' configuration files:
-         - if the model has only one component: these files are located directly in the _control_ directory 
-         - if the model has several components: these files are in subdirectories. The `submodels` section of the `config.yaml` file specifies the name of the submodels and of the subdirectories containing the pertinent files.
+     - The `config.yaml` file, which is used to orchestrate the simulation.
+     - Model components' configuration files, which are used to define the physics and the components' internal state used in the simulation:
+         - if the model has only one component, these files are located directly in the _control_ directory. 
+         - if the model has several components, these files are in subdirectories. The `submodels` section of the `config.yaml` file specifies the name of the submodels and of the subdirectories containing the pertinent files.
        
             To modify the model components' options, please refer to the configurations documentation of the model.
-- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/${PROJECT}/${USER}/<model_type>`. `${PROJECT}` and `${USER}` are environment variables on _Gadi_ that point to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username respectively. `<model_type>` defaults to {{model_type}} for the {{model}} model. This location can be changed using options in the `config.yaml` file. Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
-    - _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates this directory at the start of each run and removes it upon their successful completion. It is left untouched in case of error to facilitate the identification of the cause of the model failure
+- The _laboratory_ directory contains all data from _payu_ experiments of the same model. By default, it is `/scratch/${PROJECT}/${USER}/<model_type>`. `${PROJECT}` and `${USER}` are environment variables on _Gadi_ that point to your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) and your username, respectively. `<model_type>` defaults to _{{model_type}}_ for the {{model}} model. This location can be changed using options in the `config.yaml` file. Inside the _laboratory_ directory, there are two subdirectories of particular interest: 
+    - _work_ &rarr; for temporary storage of files needed by the model while it runs. _payu_ creates this directory at the start of each run and removes it upon successful completion. It is left untouched in case of error to facilitate the identification of the cause of the model failure.
     - _archive_ &rarr; for storing the output following each successful run. The output, log and restart files are automatically transferred from _work_ to _archive_ upon successful completion of runs.
     
     The _archive_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
@@ -50,17 +50,11 @@ As shown in the diagram, the general layout of a _payu_-supported model run cons
 
     Recommended location of _control_ and _laboratory_ on _Gadi_.
 
-    - _control_ directories: it is recommended to put them in your `$HOME` directory:
-
-        - this is the only filesystem that is actively backed-up. 
-        - the quota is small (10GB) but sufficient. The _control_ directory only contains text files and symlinks, and so uses relatively little space (<1MB).
+    - _control_ directories. It is recommended to put these in your `$HOME` directory as this is the only filesystem that is actively backed-up. The 10GB quota should be sufficient as _control_ directories only contain text files and symbolic links and, hence, occupy less than 1MB.
 
         If you decide to locate your _control_ directory under `/g/data`, be aware of [some complications](https://forum.access-hive.org.au/t/changing-project-codes-for-payu-control-directories-under-g-data/6566) linked to that choice.
 
-    - _laboratory_ directories: `/scratch` is recommended:
-
-        - optimised for fast reading and writing of large data
-        - adequate space available for large model output.
+    - _laboratory_ directories. For these, `/scratch` is recommended as it is optimised for fast reading and writing of large data, and adequate space is available for large model output.
 
 !!! warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might be deleted if not accessed for [some time](https://opus.nci.org.au/spaces/Help/pages/156434436/Gadi+scratch+File+Management). All experiments which are to be kept should be moved to `/g/data/` by enabling the `sync` step in _payu_.
@@ -119,7 +113,7 @@ Before downloading (cloning) a local copy of a configuration, you need to:
 
 - Know the `<repository>` and `<branch>` name the configuration is stored under on GitHub. 
 - Create a location on Gadi to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
-- Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a git repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+- Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The `control` directory is a _Git_ repository. Experiments are saved as branches in this repository, making it possible to use the same `control` directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 - Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
 
 Then, you can get the chosen configuration using `payu clone`.
@@ -134,7 +128,7 @@ For example, if you want to run an experiment for {{model}} using the configurat
 - `<local-branch>`: name your branch **expt1**. For a real case, a more explicit name is recommended.
 - `<control-directory>`: store the configurations for this research project under **my-project-expts**. For a real case, a more explicit name is recommended.
 
-To get the configuration as chosen, run:
+To get this configuration, run:
 
 <terminal-window>
     <terminal-line data="input">mkdir -p ~/{{model}}/</terminal-line>
@@ -172,7 +166,7 @@ To get the configuration as chosen, run:
 <!--This bit expects the host page to define the variables: model_type, model-->
 ### Test the configuration
 
-To verify everything is set correctly, it is recommended to first test the configuration as-is.
+To verify everything is set correctly, it is recommended to first test the configuration as is.
 
 You can test the setup and paths are correct by running `payu setup` from the _control_ directory:
 
@@ -201,9 +195,9 @@ You can test the setup and paths are correct by running `payu setup` from the _c
 
 This command: 
   
-  - creates the _laboratory_ and _work_ directories based on the experiment configuration
-  - generates manifests
-  - reports useful information to the user, such as the location of the _laboratory_ where the _work_ and _archive_ directories are located
+  - Creates the _laboratory_ and _work_ directories based on the experiment configuration,
+  - Generates manifests, and
+  - Reports useful information to the user, such as the location of the _laboratory_ where the _work_ and _archive_ directories are located.
 
 This can help to isolate issues such as permission problems accessing files and directories, missing files or malformed/incorrect paths.
 
@@ -215,8 +209,8 @@ To test the configuration, execute the following command from within the `contro
 This will submit a single [PBS job][PBS job] to the queue. 
 
 !!! failure
-    `payu run` will error out if a non-empty _work_ directory for your experiment already exists (from a failed attempt or from running `payu setup`).<br>
-    The `-f` option to `payu run` lets the model run in all cases and deletes any existing data under _work_.
+    `payu run` will issue an error if a non-empty _work_ directory for your experiment already exists (from a failed attempt or from running `payu setup`).<br>
+    The `-f` option to `payu run` lets the model run in all cases and deletes any existing data in the _work_ directory.
 <!--end:payu-test-config-->
 
 ### Run the experiment
@@ -430,10 +424,10 @@ These lines can be edited to change the [PBS directives](https://opus.nci.org.au
 <!--start:payu-sync-->
 ### Syncing output data to long-term storage
 
-The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, where [files are regularly deleted once they have been unaccessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason climate model outputs need to be moved to a location with longer term storage.<br>
+The _laboratory_ directory is typically under the `/scratch` storage on _Gadi_, where [files are regularly deleted once they have not been accessed for a period of time](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436). For this reason, climate model outputs need to be moved to a location with longer-term storage.<br>
 On _Gadi_, this is typically in a folder under a project code on `/g/data`.  
 
-_Payu_ has built-in support to sync outputs, restarts and a copy of the _control_ directory git history to another location.<br>
+_Payu_ has built-in support to sync outputs, restarts and a copy of the _control_ directory _Git_ history to another location.<br>
 This feature is controlled by the following section in the `config.yaml` file: 
 ```yaml
 # Sync options for automatically copying data from ephemeral scratch space to 
@@ -457,8 +451,8 @@ By default, restart files are created at the end of each run, allowing subsequen
 If disk space is limited, consider using _payu_'s restart files pruning feature, controlled by the `restart_freq` field of the `config.yaml`.
 By default, every `restart_freq`, _payu_ removes intermediate restart files, keeping only:
 
-- restarts corresponding to the `restart_freq` interval  
-- all restarts created since the most recently retained restart  
+- Restarts corresponding to the `restart_freq` interval, and  
+- All restarts created since the most recently retained restart.  
 
 For example, a `restart_freq` set to `1YS` would keep the restart files at the end of each model year, whereas `restart_freq` set to `5YS` would keep those at the end of every fifth model year.
 This approach helps reduce disk space while maintaining useful restart points across long experiments, especially useful in case of unexpected crashes.
@@ -530,11 +524,11 @@ For more information, check [_payu_ Configuration Settings documentation](https:
     runlog: true
     ```
 
-    When running an experiment,  if `runlog` is set to `true`, _payu_ saves a history of the experiment. It does this using _git_, by automatically committing changes to the control directory repository.
+    When running an experiment,  if `runlog` is set to `true`, _payu_ saves a history of the experiment. It does this using _Git_, by automatically committing changes to the control directory repository.
 
     !!! warning
         This should not be changed as it is an essential part of the provenance of an experiment.<br>
-        _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
+        _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _Git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
 
 ??? info "`userscripts` section"
 
@@ -551,7 +545,7 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 ??? info "`postscript` field"
 
     #### `postscript` field {: .no-toc }
-    Postprocessing scripts that run after _payu_ has completed all steps of each run (for example, with `payu run -n 10`, the postscript will run 10 times). Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
+    Postprocessing scripts that run after _payu_ has completed all steps of each run. For example, with `payu run -n 10`, the postscript will run 10 times. Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
 
 ??? info "Fields that should never require changing"
 
