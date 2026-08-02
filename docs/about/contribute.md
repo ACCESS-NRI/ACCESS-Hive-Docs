@@ -55,23 +55,23 @@ Once the issue has been submitted, you are welcome (and encouraged!) to make a s
 ### Edit a page directly {: #direct-edit }
 For quick fixes to an existing page (e.g., typos, wording update, broken links), you can edit a page directly in your browser using the *pencil* icon in the top-right corner of the website.
 
-- Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
-
 ![Edit Pencil Icon](/assets/contributing_page/edit_icon.png)
 
-- Click _Fork this repository_.
+1. Click the **pencil icon ( :material-pencil: )** in the top-right corner of the page you want to edit.
 
-!!! tip
-    If you have write access to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository, this step will not be required.
+2. Click _Fork this repository_.
 
-- Make your changes in the editor. 
-- When you are satisfied with your changes, click on the _Commit changes..._ button (at the top-right corner), add a _Commit message_ and an optional _Extended description_, and click _Propose changes_. GitHub will automatically create a new branch (usually called `patch-1` by default) and prompt you a screen where you can compare the changes.
+    !!! tip
+        If you have write access to the [{{hive_docs_repo_name}}]({{hive_docs_repo_url}}) repository, this step will not be required.
 
-!!! danger
-    If you have write access to the {{hive_docs_repo_name}} repository, **do not** select _Commit directly to the development branch_! Instead, create a new branch and open a pull request so the changes can be reviewed, discussed before they are added to the shared `development` branch.
+3. Make your changes in the editor. 
+4. When you are satisfied with your changes, click on the _Commit changes..._ button (at the top-right corner), add a _Commit message_ and an optional _Extended description_, and click _Propose changes_. GitHub will automatically create a new branch (usually called `patch-1` by default) and prompt you a screen where you can compare the changes.
 
-- Click _Create pull request_. 
-- Add a title and details about the proposed changes and click _Create pull request_.
+    !!! danger
+        If you have write access to the {{hive_docs_repo_name}} repository, **do not** select _Commit directly to the development branch_! Instead, create a new branch and open a pull request so the changes can be reviewed, discussed before they are added to the shared `development` branch.
+
+5. Click _Create pull request_. 
+6. Add a title and details about the proposed changes and click _Create pull request_.
 
 ---
 
