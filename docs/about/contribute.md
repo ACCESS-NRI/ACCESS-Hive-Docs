@@ -48,7 +48,7 @@ The easiest way to contribute is to open a [GitHub issue]({{hive_docs_repo_url}}
 - Have an idea for improvement.
 - Don't want to edit the page yourself.
 
-Once you've submitted the issue, you are welcome (and encouraged! ) to address your issue (see [edit a page](#direct-edit) or [make changes locally](#large-contribution) options below), otherwise the ACCESS-NRI team or other contributors would be happy to take it from there. 
+Once you have submitted the issue, you are welcome (and encouraged!) to address it (see [edit a page](#direct-edit) or [make changes locally](#large-contribution) options below), otherwise the ACCESS-NRI team will be happy to handle it. 
 
 ---
 
