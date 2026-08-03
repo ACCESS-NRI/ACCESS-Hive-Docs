@@ -3,7 +3,7 @@
 
 # How to Contribute
 
-ACCESS-Hive Docs is a resource for the Australian Community Climate and Earth System Simulator (ACCESS) community. We welcome all kinds of contributions! Whether you're fixing a typo, improving existing content, or adding new content - your input helps make the documentation more useful for the community.
+ACCESS-Hive Docs is a resource for the <abbr title="Australian Community Climate and Earth System Simulator">ACCESS</abbr> community. We welcome all kinds of contributions! Whether you're fixing a typo, improving existing content, or adding new content - your input helps make the documentation more useful for the community.
 
 !!! tip
     Not comfortable editing documentation? Simply reporting a typo or suggesting an improvement by opening an [issue]({{hive_docs_repo_url}}/issues/new/choose) is a valuable and appreciated contribution!
