@@ -120,7 +120,7 @@ git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
     git clone git@github.com:ACCESS-NRI/ACCESS-Hive-Docs.git
     ```
 
-Once the repository has been **cloned**, navigate into the repository directory.
+Once the repository has been _cloned_, navigate into the repository directory.
 
 #### Step 3: Create a new branch
 After cloning the repository locally, create a new branch to make your local changes:
@@ -205,21 +205,21 @@ git push
 #### Step 9: Open a pull request
 After pushing your branch to remote, [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) using the following steps:
 
-1. Go to the **repository** on GitHub (either the [main Hive Docs repository](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs) for ACCESS-NRI GitHub org members or your fork of that repository for others).
+1. Go to the repository on GitHub (either the [main Hive Docs repository](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs) for ACCESS-NRI GitHub org members or your fork of that repository for others).
 2. GitHub will usually display a message near the top of the window to create a pull request from your branch or fork.
-3. Click **Compare & pull request**. 
+3. Click _Compare & pull request_. 
 4. Add a title and detailed description explaining your changes. 
-5. Click **Create pull request**.
+5. Click _Create pull request_.
 
 !!! tip
     Include a brief summary of what changed and why. If your changes relate to an existing issue, consider linking to it in the pull request description.
 
 #### Step 10: Review the pull request preview
 
-After you open a pull request, a **preview version** of the documentation is automatically generated. Once the preview has been deployed:
+After you open a pull request, a preview version of the documentation is automatically generated. Once the preview has been built:
 
-1. Open the **preview link** which is added automatically at the bottom of the first comment of the pull request.
-2. **Review** your changes in the linked preview documentation site.
+1. Open the preview link which is added automatically at the bottom of the first comment of the pull request.
+2. Check your changes in the linked preview documentation site.
 
 !!! note
     The pull request preview shows how your changes will appear before they are added to the public website, making it a great way to catch formatting or rendering issues.
