@@ -99,7 +99,7 @@ This creates your own copy of the repository on GitHub.
 
 [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) creates a local copy of the repository on your computer.
 
-Then, if you have **forked** the repository, you can clone your fork by clicking the green **Code button** in the top-right corner of the repository page, copying the repository URL, and then running the following command:
+Then, if you have _forked_ the repository, you can clone your fork by clicking the green **Code** button in the top-right corner of the repository page, copying the repository URL, and then running the following command:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ACCESS-Hive-Docs.git
