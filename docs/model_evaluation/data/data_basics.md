@@ -42,8 +42,25 @@ These conventions make datasets easier for humans to understand and machines to 
 
 The term _CMORised_ data may also be used to describe climate data standards. This refers to the use of Climate Model Output Rewriter (CMOR) which is a program writen by PCMDI (Program for Climate Model Diagnosis and Intercomparison) to apply CMIP (Coupled Model Intercomparison Project) standards to model outputs which can be submitted to [CMIP](https://wcrp-cmip.org/). CMOR standards are stricter than CF conventions, allowing consistent multi-model analysis both within and across CMIP generations.
 
-ACCESS-NRI supports CMORisation of ACCESS models with [ACCESS-MOPPy](https://github.com/ACCESS-NRI/ACCESS-MOPPy/tree/main#access-moppy-model-output-post-processor).
-<!-- card for moppy -->
+ACCESS-NRI supports CMORisation of ACCESS models with **[ACCESS-MOPPy](https://github.com/ACCESS-NRI/ACCESS-MOPPy)**
+(Model Output Post-Processor in Python). It produces CMIP-compliant datasets from ACCESS model
+output for CMIP6 and CMIP7 FastTrack, and can be run interactively via a Python API or as batch
+PBS jobs on _Gadi_ with a real-time monitoring dashboard.
+
+<div class="card-container">
+    <a href="https://github.com/ACCESS-NRI/ACCESS-MOPPy" class="horizontal-card" target="_blank">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/moppy_logo.png" alt="ACCESS-MOPPy" class="img-contain white-background with-padding">
+        </div>
+        <div class="card-text-container">
+            <span class="bold">ACCESS-MOPPy</span>
+            <span>
+                CMORise ACCESS model output into CMIP-compliant datasets, with HPC batch
+                processing and CMIP6/CMIP7 FastTrack support.
+            </span>
+        </div>
+    </a>
+</div>
 
 These standards can be applied alongside the [ACCESS output data specifications](/model_evaluation/data/sharing#access-output-data-specifications).
 
