@@ -53,22 +53,6 @@ If we are missing an important tool please let us know.<br> Check [How To Contri
 <tr>
 <td width="25%">
     <div align='center' width="100%">
-    <a href="https://github.com/ACCESS-NRI/ACCESS-MOPPy" target="_blank">ACCESS-MOPPy<br>(Model Output Post-Processor in Python)</a> 
-    </div>
-</td>
-<td width="75%">
-    <div align='center' width="100%" >
-        ACCESS-MOPPy is a CMORisation tool that post-processes ACCESS model output into CMIP-compliant datasets. It offers a Python API, Dask-enabled parallel processing, PBS batch processing on HPC with a web dashboard for monitoring, and support for CMIP6 and CMIP7 FastTrack. Currently an alpha release.
-        <br>
-        <a href="https://access-moppy.readthedocs.io/en/latest/" target="_blank">Documentation</a> |
-        <a href="https://github.com/ACCESS-NRI/ACCESS-MOPPy" target="_blank">Source Code</a> 
-    </div>
-</td>
-</tr>
-
-<tr>
-<td width="25%">
-    <div align='center' width="100%">
     <a href="https://github.com/ACCESS-Community-hub/ACCESS-Archiver" target="_blank">ACCESS-Archiver</a> 
     </div>
 </td>

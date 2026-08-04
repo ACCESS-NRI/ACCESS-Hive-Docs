@@ -49,6 +49,7 @@ In these release notes, make sure you scroll down to the latest post for most re
 |[ACCESS-Vis and Visualisation recipes](https://forum.access-hive.org.au/t/access-visualisation-recipes-1-0-0-is-now-available/3970) | Collection of notebooks to enhance the visualisation of ACCESS climate model data using the `accessvis` python package |
 |[Model tools](https://forum.access-hive.org.au/t/model-tools/4696) | Multiple tools deployed on _Gadi_ to support model tasks, such as FRE-NCtools, mppnccombine-fast, esmf, etc. |
 |[ACCESS Model Scaling](https://forum.access-hive.org.au/t/access-nri-model-scaling-repository-a-collection-of-parallel-scalability-studies/5426) | A collection of Jupyter Notebooks that generate and display scaling data for ACCESS-NRI models |
+|[ACCESS-MOPPy](https://forum.access-hive.org.au/t/access-moppy-1-0-beta-release-announcement/5979) | CMORisation tool to post-process ACCESS model output into CMIP-compliant datasets |
 
 ### Data
 |  |  |
