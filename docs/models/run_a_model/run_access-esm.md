@@ -86,7 +86,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     end="<!--end:payu-about-->"
 %}
 
-??? info "_payu_'s data organisation"
+??? info "_Payu_'s data organisation"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-organisation-->"
@@ -125,7 +125,7 @@ Supported configurations:
     end="<!--end:get-config-payu-->"
 %}
 
-??? exemple "Example: Cloning a configuration"
+??? example "Example: Cloning a configuration"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-clone-example-->"
@@ -147,13 +147,13 @@ Supported configurations:
 ## Run an experiment
 
 !!! warning
-    The individual run length (`run_length`) defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
+    The individual run length defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _Payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
 
-    The only exception is for testing purposes, in that case, it is possible to set `run_length` to be shorter than 1 year but other modifications are required as explained in [Run for less than one year](#shorter-runs)
+    The only exception is for testing purposes, in that case, it is possible to set the run length to be shorter than 1 year but other modifications are required as explained in [Run for less than one year](#shorter-runs)
 
-??? tip "Identifying `run_length` for your experiment to ensure it is set to 1 year"
+??? tip "Identifying the run length for your experiment to ensure it is set to 1 year"
 
-    In {{model}}, `run_length` is controlled by the `runtime` setting in the `config.yaml` file in the configuration. A 1-year `run_length` is given by:
+    In {{model}}, the run length is controlled by the `runtime` setting in the `config.yaml` file in the configuration. A 1-year run length is given by:
 
     ```yml
         runtime:
@@ -161,7 +161,7 @@ Supported configurations:
             months: 0
             days: 0
     ```
-_payu_ provides two options to give you complete control over the length of the simulation:
+_Payu_ provides two options to give you complete control over the length of the simulation:
 
 - `runspersub` (in the `config.yaml` file) &rarr; the maximum number of runs for _payu_ for each PBS job submission
 - `-n` (command line option) &rarr; sets the total number of runs to be performed, including runs per submission and through automated resubmissions of _payu_
@@ -171,7 +171,7 @@ _payu_ provides two options to give you complete control over the length of the 
 !!! tip "Setting `walltime` in `config.yaml`"
     The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
 
-In conclusion, considering the `run_length` should be left to 1 year, for simulating N years with {{model}}, you need to:
+In conclusion, considering the run length should be left to 1 year, for simulating N years with {{model}}, you need to:
 
 - Set `runspersub` and `walltime` to your preference. For example, set `walltime` and `runspersub` to maximise the utilisation of the PBS jobs if you want to limit the time spent in queued jobs
 - Set `-n N` so that _payu_ will automatically run the experiment for the number of years required.
@@ -268,7 +268,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
        end="<!--end:payu-collate-->"
     %}
 
-??? info "_payu_ options for advanced users"
+??? info "_Payu_ options for advanced users"
 
     {% include-markdown "includes/payu.md"
        start="<!--start:payu-advance-options-->"
@@ -279,7 +279,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
     
         #### Run for less than one year for testing purposes {: #shorter-runs .no-toc }
 
-        When debugging changes to a model, it is common to reduce the `run_length` to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
+        When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
         
         ```yml
             runtime:
@@ -287,7 +287,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
                 months: 1
                 days: 0
         ```
-        With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. For _payu_ to complete a run, you will need valid restart files created at the end of each run. This means the sea ice model configuration should be modified so that restart files are produced at the same frequency as the _runtime_ setting. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` for monthly or `dumpfreq = 'd'` for daily  in the `cice_in.nml` configuration file, located in the `ice` subdirectory of the _control_ directory.
+        With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. For _payu_ to complete a run, you will need valid restart files created at the end of each run. This means the sea ice model configuration should be modified so that restart files are produced at the same frequency as the `runtime` setting. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` for monthly or `dumpfreq = 'd'` for daily  in the `cice_in.nml` configuration file, located in the `ice` subdirectory of the _control_ directory.
 
 ## Edit the model components' configuration
 
