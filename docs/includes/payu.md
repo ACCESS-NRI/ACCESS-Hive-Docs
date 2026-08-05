@@ -23,10 +23,8 @@ This means the _configuration_ definition can be tracked with _Git_, and so is e
 
 A representation of the data organisation for _payu_ is given in the following diagram:
 
-<!-- Diagram created from Lucid chart: https://lucid.app/users/login#/login -->
-<!-- It can be edited by any Lucid's member (free account), at this link: https://lucid.app/lucidchart/ccebf957-8915-4344-a832-426427451c00/edit?viewport_loc=-159%2C129%2C2067%2C1113%2C0_0&invitationId=inv_1c8cccfd-b20e-4b2f-977a-a74b0b8355ae -->
-
-![payu directory structure](/assets/payu_directory_structure.svg){: class="example-img" loading="lazy"}
+<!-- Diagram created by draw.io: https://app.diagrams.net/#. The SVG file contains the XML diagram. The file can be opened in draw.io for editing. No account required -->
+![payu directory structure](/assets/payu_file_org.drawio.svg){: class="example-img" loading="lazy"}
 
 As shown in the diagram, the general layout of a _payu_-supported model run consists of two main directories:
 
