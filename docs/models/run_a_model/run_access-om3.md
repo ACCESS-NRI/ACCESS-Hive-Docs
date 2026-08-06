@@ -423,7 +423,7 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 A common workflow when a model run crashes due to numerical instability is:
 
-1. Open `nuopc.runseq` and halve the coupling time-step (e.g. `@300` → `@150`).
+1. Open `nuopc.runseq` and halve the coupling time-step.
 2. Open `MOM_input` and halve `DT`.
 3. Restart the run from the last successful restart file (see
    [Start the run from a specific restart file](#specific-restart)).
@@ -445,12 +445,12 @@ For more technical detail, see the
 
 #### Change the coupling time-step
 
-The coupling time-step is set as the loop interval (in seconds) at the top of the `nuopc.runseq`
+The coupling time-step is set (in seconds) at the top of the `nuopc.runseq`
 file:
 
 ```
 runSeq::
-  @300        # <-- coupling time-step in seconds (here, 300 s = 5 minutes)
+  @900        # <-- coupling time-step in seconds (here, 900 s = 15 minutes)
 ```
 
 Here is an [example](https://github.com/ACCESS-NRI/access-om3-configs/blob/1670dc42c479e5a960cd674fc014c4477b719805/nuopc.runseq#L2). To change the coupling time-step, edit this value. 
@@ -466,10 +466,24 @@ Here is an [example](https://github.com/ACCESS-NRI/access-om3-configs/blob/1670d
 
 #### Change the MOM6 time-steps
 
-MOM6 time-steps are set in the `MOM_input` file. For example, to set a new baroclinic time-step one would:
+MOM6 time-steps are set in the `MOM_input` file. For example, to set a new baroclinic, thermodynamic and barotropic time-step one would modify the following:
 
 ```
-DT = 900                ! [s] baroclinic time-step
+DT = 900.0                      !   [s]
+                                ! The (baroclinic) dynamics time step.  The time-step that is actually used will
+                                ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
+                                ! or the coupling timestep in coupled mode.)
+DT_THERM = 7200.0               !   [s] default = 900.0
+                                ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
+                                ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
+                                ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
+                                ! of the coupling timestep. By default DT_THERM is set to DT.
+DTBT = -0.9                     !   [s or nondim] default = -0.98
+                                ! The barotropic time step, in s. DTBT is only used with the split explicit time
+                                ! stepping. To set the time step automatically based the maximum stable value
+                                ! use 0, or a negative value gives the fraction of the stable value. Setting
+                                ! DTBT to 0 is the same as setting it to -0.98. The value of DTBT that will
+                                ! actually be used is an integer fraction of DT, rounding down.
 ```
 
 ### Modify PBS resources
