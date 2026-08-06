@@ -74,7 +74,7 @@ Within each of the _work_ and _archive_ directories, _payu_ automatically create
      ```
 
 
--*Model log files*
+- *Model log files*
 
     While the model is running, the standard output and error streams are saved to file in the _control_ directory. You can examine the contents of these log files to check on the status of a run as it progresses (or after a failed run     has completed).
     
