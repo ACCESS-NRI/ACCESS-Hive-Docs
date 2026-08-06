@@ -31,7 +31,7 @@ If you are unsure whether {{ model }} is the right choice for your experiment, t
 
 All {{model}} configurations are open source, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1")![CC icon](https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1){: style="height:1em;margin-left:0.2em;vertical-align:text-top;"}![BY icon](https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1){: style="height:1em;margin-left:0.2em;vertical-align:text-top;"} and available on [ACCESS-NRI GitHub]({{github_configs}}).
 
-{{ model }} release notes are [available on the ACCESS-Hive Forum]({{release_notes}}) and are updated when new releases are made available.
+[{{ model }} release notes]({{release_notes}}) are available on the ACCESS-Hive Forum and are updated when new releases are made available.
 
 ## Prerequisites
 
@@ -149,7 +149,7 @@ Supported configurations:
 !!! warning
     The individual run length defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _Payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
 
-    The only exception is for testing purposes, in that case, it is possible to set the run length to be shorter than 1 year but other modifications are required as explained in [Run for less than one year](#shorter-runs)
+    The only exception is for testing purposes, in that case, it is possible to set the run length to be shorter than 1 year but other modifications are required as explained in [Run for less than one year for testing purposes](#shorter-runs)
 
 ??? tip "Identifying the run length for your experiment to ensure it is set to 1 year"
 
@@ -169,9 +169,9 @@ _Payu_ provides two options to give you complete control over the length of the 
 `runspersub` allows you to maximise the number of years simulated within a single PBS job. For this, you also need to set `walltime`, the maximum time of every PBS job, accordingly. `-n` allows _payu_ to resubmit itself to continue the simulation in a subsequent PBS job.
 
 !!! tip "Setting `walltime` in `config.yaml`"
-    The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
+    The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` to ensure the model has time to run when there are unforeseen slower runs. When setting `runspersub > 1` the `walltime` doesn't need to be a multiple of `2:30:00` as it is highly unlikely that there will be multiple anomalously slow runs per submit.
 
-In conclusion, considering the run length should be left to 1 year, for simulating N years with {{model}}, you need to:
+In conclusion, since the run length should be left to 1 year, for simulating N years with {{model}}, you need to:
 
 - Set `runspersub` and `walltime` to your preference. For example, set `walltime` and `runspersub` to maximise the utilisation of the PBS jobs if you want to limit the time spent in queued jobs
 - Set `-n N` so that _payu_ will automatically run the experiment for the number of years required.
@@ -279,7 +279,7 @@ In conclusion, considering the run length should be left to 1 year, for simulati
     
         #### Run for less than one year for testing purposes {: #shorter-runs .no-toc }
 
-        When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
+        When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to:
         
         ```yml
             runtime:
@@ -301,14 +301,14 @@ In conclusion, considering the run length should be left to 1 year, for simulati
 
     ### Create a custom {{ model }} build
     All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
-    To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
+    To customise {{ model }}'s build (e.g., to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
 
 ??? info "Controlling the diagnostics output by the model"
 
     ### Controlling the diagnostics output by the model
     Selecting the variables to save from a simulation can be a balance between enabling future analysis and minimising storage requirements. The choice and frequency of variables saved by each model can be configured from within each submodel's _control_ directory. 
     
-    Each submodel's _control_ directory contains _detailed_ and _standard_ presets for controlling the output, located in the `diagnostic_profiles` subdirectories (e.g. `~/access-esm/preindustrial+concentrations/ice/diagnostic_profiles` for the sea ice submodel). The _detailed_ profiles request a large number of variables at higher frequencies, while the _standard_ profiles restrict the output to variables more regularly used across the community. Details on the variables saved by each preset are available in [this Hive Forum topic](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629).
+    Each submodel's _control_ directory contains _detailed_ and _standard_ presets for controlling the output, located in the `diagnostic_profiles` subdirectories (e.g. `~/access-esm/preindustrial+concentrations/ice/diagnostic_profiles` for the sea ice submodel). The _detailed_ profiles request a large number of variables at higher frequencies, while the _standard_ profiles restrict the output to variables more regularly used across the community. Details on the variables saved by each preset are available in the [Preset output profiles for ESM1.5](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629) ACCESS-Hive Forum post.
     
     Selecting a preset output profile to use in a simulation can be done by pointing the following symbolic links to the desired profile:
     

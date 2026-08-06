@@ -110,7 +110,7 @@ Before downloading (cloning) a local copy of a configuration, you need to:
 
 - Know the `<repository>` and `<branch>` name of the configuration is stored under on GitHub. 
 - Create a location on _Gadi_ to store all your _payu_ experiments, `<configurations-directory>`, typically a folder under `$HOME`. This directory must exist before running _payu_.
-- Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The _control_ directory is a _Git_ repository. Experiments are saved as branches in this repository, making it possible to use the same _control_ directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+- Choose a directory name to store the experiment, `<control-directory>` (created by _payu_). The _control_ directory is a _Git_ repository. Experiments are saved as branches in this repository, making it possible to use the same _control_ directory for several experiments. For this reason, we recommend to always set the `<local-branch>`. For more information refer to this [_payu_ tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
 - Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. Note that the experiment name will be formed using the _control_ directory's name and this `<local-branch>` name.
 
 Then, you can get the chosen configuration using `payu clone`.
@@ -245,7 +245,7 @@ payu run -n 50
 <!--start:payu-re-run-experiment-->
 ### Re-run an experiment from scratch
 
-If you run an experiment for some years and then realise you have made an error, for example, and want to re-run the same years again, you will need to first remove the _archive_ directory created by _payu_ (move it, rename it, tar it or delete it according to what is appropriate). Then, you can re-launch the experiment using `payu run -n` as previously done.
+If you run an experiment for some years and then realise you have made an error and would like to re-run the same years again, you will need to first remove the _archive_ directory created by _payu_ (i.e., move it, rename it, tar it or delete it according to what is appropriate). You can then re-launch the experiment using `payu run -n` as done previously.
 <!--end:payu-re-run-experiment-->
 
 ## Monitor the experiment
@@ -483,13 +483,13 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 
     !!! warning
         This should not be changed as it is an essential part of the provenance of an experiment.<br>
-        _payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _Git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
+        _Payu_ updates the manifest files for every run, and relies on `runlog` to save this information in the _Git_ history, so there is a record of all inputs, restarts, and executables used in an experiment.
 
 ??? info "`userscripts` section"
 
     #### `userscripts` section {: .no-toc }
 
-    They are used to run scripts or subcommands at various stages of a _payu_ submission, for example:
+    Use the `userscripts` section to specify scripts or subcommands to run at various stages of a _payu_ submission. For example:
 
     - `error` field: script is called if the model does not run correctly and exits with an error.
     - `run` field: script is called after each model run successful execution, but prior to archiving the model output. If using `payu -n` for automatic resubmission, it is run for each submission.
@@ -500,7 +500,8 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 ??? info "`postscript` field"
 
     #### `postscript` field {: .no-toc }
-    Postprocessing scripts that run after _payu_ has completed all steps of each run. For example, with `payu run -n 10`, the postscript will run 10 times. Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
+
+    Postprocessing scripts run after _payu_ has completed all steps of each run. For example, with `payu run -n 10`, the postscript will run 10 times. Scripts that might alter the output directory, for example, can be run as postscripts. These run in PBS jobs separate from the main model simulation.
 
 ??? info "Fields that should never require changing"
 
@@ -519,7 +520,7 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 
 Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a portion of model grid.
 
-The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single outputfile.
+The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single output file.
 
 ```yaml
 # Collation
