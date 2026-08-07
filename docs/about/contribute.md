@@ -146,8 +146,11 @@ git status
 Execute the following command to download and install Material MkDocs and all related plugins:
 
 ```
-pip install -r requirements.txt
-``` 
+python3 -m pip install -r requirements.txt
+```
+
+!!! warning
+    To run this command you need to have Python installed.  If you don't have it installed, please [download](https://www.python.org/downloads/) it.
 
 Before submitting your changes, you can preview them locally using the command:
 
