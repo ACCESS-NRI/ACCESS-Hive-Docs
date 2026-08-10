@@ -419,7 +419,7 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 !!! tip
     Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical
-    instability. If your run is failing unexpectedly you may like to try halving the MOM6 baroclinic time-step (`DT`) and the coupling time-step.
+    instability. If your run is failing unexpectedly you may like to try halving the MOM6 baroclinic time-step (`DT`) or the coupling time-step.
 
 A common workflow when a model run crashes due to numerical instability is:
 
@@ -435,12 +435,12 @@ ACCESS-OM3 uses several time-steps for its different model components and couple
 | Time-step | Controls | Configured in |
 |-----------|----------|---------------|
 | Coupling / driver time-step | How often the model components (ocean, sea ice, atmosphere forcing) exchange information | `nuopc.runseq` |
-| CICE6 thermodynamics (`dt`) | Sea-ice thermodynamics; automatically set to match the coupling time-step | *(set automatically — do not set in `ice_in`)* |
+| CICE6 thermodynamic (`dt`) | Sea-ice thermodynamics; automatically set to match the coupling time-step | *(set automatically — do not set in `ice_in`)* |
 | MOM6 barotropic (`DTBT`) | Sea-surface height and depth-averaged velocity | `MOM_input` |
 | MOM6 baroclinic (`DT`) | 3-D ocean dynamics; often called "the" model time-step | `MOM_input` |
-| MOM6 tracer/thermodynamics (`DT_THERM`) | Tracer transport and thermodynamics | `MOM_input` |
+| MOM6 tracer/thermodynamic (`DT_THERM`) | Tracer transport and thermodynamics | `MOM_input` |
 
-For more technical detail, see the
+For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic timesteps and WAVEWATCHIII timesteps, see the
 [NUOPC driver time-steps documentation](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#time-steps).
 
 #### Change the coupling time-step
