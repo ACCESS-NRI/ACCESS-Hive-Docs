@@ -417,7 +417,7 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 ### Change model time-step
 
-Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
+Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. In ACCESS-OM3, a model time step is the incremental slice of time in which the model moves forward in calendar time to update prognostic variables such as temperature, salinity and velocity. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
 
 | Time-step | Controls | Configured in |
 |-----------|----------|---------------|
@@ -431,7 +431,7 @@ For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic ti
 
 It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps.
 
-If your run is failing unexpectedly you may like to try halving the coupling time-step. A common workflow when a model run crashes due to numerical instability is:
+For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. A common workflow when a model run crashes due to numerical instability is to halve the model time-step:
 
 1. Halve the coupling time-step in `nuopc.runseq`.
 1. Restart the run from the last successfully written restart file via `payu sweep` and `payu run`.
