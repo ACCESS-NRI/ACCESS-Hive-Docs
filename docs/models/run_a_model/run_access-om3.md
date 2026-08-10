@@ -417,7 +417,7 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 ### Change model time-step
 
-Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. In ACCESS-OM3, a model time step is the incremental slice of time in which the model moves forward in calendar time to update prognostic variables such as temperature, salinity and velocity. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
+Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. A model time step is a incremental slice of time in which the model moves forward in calendar time to update prognostic variables such as temperature, salinity and velocity. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
 
 | Time-step | Controls | Configured in |
 |-----------|----------|---------------|
@@ -451,7 +451,7 @@ Here is an [example](https://github.com/ACCESS-NRI/access-om3-configs/blob/1670d
 
 #### Change the MOM6 time-steps
 
-MOM6 time-steps are set in the `MOM_input` file. For example, to set a new baroclinic, thermodynamic and barotropic time-step one would modify the following:
+MOM6 time-steps are set in the `MOM_input` file. To set a new baroclinic or barotropic time-step, modify the following:
 
 ```
 DT = 900.0                      !   [s]
