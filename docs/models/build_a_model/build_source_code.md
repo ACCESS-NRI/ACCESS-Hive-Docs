@@ -91,7 +91,7 @@ spack env activate -p mom5_dev
 
 ### Create an editable access-spack-packages repository
 
-In order to edit the Spack Package Recipes (SPRs) in `access-spack-packages`, an editable repository must be created by following the instructions at [Create an editable access-spack-packages in a Spack environment](https://github.com/ACCESS-NRI/spack-config/#create-an-editable-access-spack-packages-in-a-spack-environment).
+In order to edit the Spack Package Recipes (SPRs) in `access-spack-packages`, an editable repository is required. First check if the `package-repos/access-spack-packages` directories already exist. If not, it can be created by following the instructions at [Create an editable access-spack-packages in a Spack environment](https://github.com/ACCESS-NRI/spack-config/#create-an-editable-access-spack-packages-in-a-spack-environment).
 
 ### Set access-spack-packages version
 
