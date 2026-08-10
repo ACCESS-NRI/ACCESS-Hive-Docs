@@ -433,7 +433,7 @@ It may be hard to identify which time-step is related to the model crash, reduci
 
 If your run is failing unexpectedly you may like to try halving the coupling time-step. A common workflow when a model run crashes due to numerical instability is:
 
-1. Open `nuopc.runseq` and halve the coupling time-step.
+1. Halve the coupling time-step in `nuopc.runseq`.
 1. Restart the run from the last successfully written restart file via `payu sweep` and `payu run`.
 1. Once the model runs stably for a few start-run-stop-restart cycles, return the time-steps to their original values if desired.
 
