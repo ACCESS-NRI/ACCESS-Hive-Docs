@@ -518,9 +518,8 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 <!--start:payu-collate-->
 #### Collate {: .no-toc }
 
-Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a portion of model grid.
-
-The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single output file.
+The ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) can generate diagnostic and restart outputs in a single diagnostic file over the whole model grid or generate tiled outputs, each tile spanning a portion of the model horizontal grid.
+The `collate` section in the `config.yaml` file controls the process that combines the tiled output into a single output file.
 
 ```yaml
 # Collation
@@ -531,6 +530,13 @@ collate:
     walltime: 1:00:00
     mpi: false
 ```
-Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to `true`.
+
+For models set to generate single restart and output files over the whole grid, the collation is disabled like so:
+
+```yaml
+# Collation
+collate:
+    enabled: false
+```
 <!--end:payu-collate-->
 

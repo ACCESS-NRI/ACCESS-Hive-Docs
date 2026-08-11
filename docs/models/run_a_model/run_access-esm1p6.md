@@ -2,7 +2,7 @@
 {% set model_type = "access-esm" %}
 {% set github_configs = "https://github.com/ACCESS-NRI/access-esm1.6-configs" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-esm1-6-release-information/6755" %}
-{% set config_example = "release-preindustrial+concentrations" %}
+{% set config_example = "release-piControl" %}
 {% set WG_project = "`lg87` project (ESM Working Group)" %}
 {% set WG_project_code = "lg87" %}
 {% set configs_docs = "https://access-esm1p6-configs.access-hive.org.au/" %}
@@ -14,7 +14,7 @@
 
 <div class="text-card-group" markdown>
 
-[:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}
+[:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configs docs]({{configs_docs}}){: class="text-card"}
 [:notepad_spiral:{: class="twemoji icon-before-text"} Release notes]({{release_notes}}){: class="text-card"}
 </div>
 
@@ -86,12 +86,13 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 %}
 
 ??? info "_payu_'s data organisation"
+
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-organisation-->"
         end="<!--end:payu-organisation-->"
     %}
-    For {{model}}, the standard output is saved in the file `access.out` and the standard error in `access.err`.
+    For {{model}}, the standard output is saved in the file `access-esm1.6.out` and the standard error in `access-esm1.6.err`.
 
 {%
     include-markdown "includes/payu.md"
@@ -167,7 +168,7 @@ _payu_ provides two options to give you complete control over the length of the 
 `runspersub` allows you to maximise the number of years simulated within a single PBS job. For this, you also need to set `walltime`, the maximum time of every PBS job, accordingly. `-n` allows _payu_ to resubmit itself to continue the simulation in a subsequent PBS job.
 
 !!! tip "Setting `walltime` in `config.yaml`"
-    The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 90 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
+    The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 60 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
 
 In conclusion, considering the `run_length` should be left to 1 year, for simulating N years with {{model}}, you need to:
 
@@ -261,6 +262,10 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
 
 ??? info "Collation of ocean output files"
 
+    !!! tip 
+    
+        Diagnostic and restart files produced by the ocean component, MOM, in {{model}} are not tiled. The collation is not needed and disabled by default in the {{model}} configurations.
+
     {% include-markdown "includes/payu.md"
        start="<!--start:payu-collate-->"
        end="<!--end:payu-collate-->"
@@ -285,7 +290,6 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
                 months: 1
                 days: 0
         ```
-        With the default configuration settings, the sea ice component of {{ model }} will produce restart files only at the end of each year. For _payu_ to complete a run, you will need valid restart files created at the end of each run. This means the sea ice model configuration should be modified so that restart files are produced at the same frequency as the _runtime_ setting. To do this, change the `dumpfreq = 'y'` setting to `dumpfreq = 'm'` for monthly or `dumpfreq = 'd'` for daily  in the `cice_in.nml` configuration file, located in the `ice` subdirectory of the _control_ directory.
 
 ## Edit the model components' configuration
 
@@ -326,8 +330,7 @@ If you have questions or need help regarding {{ model }}, consider creating a to
 For assistance on how to request help from ACCESS-NRI, follow the [guidelines on how to get help](/about/user_support/#still-need-help).
 
 <custom-references>
-- [https://github.com/access-nri/access-esm1.5](https://github.com/access-nri/access-esm1.5)
-- [https://opus.nci.org.au/](https://opus.nci.org.au/)
-- [https://github.com/coecms/esm-pre-industrial](https://github.com/coecms/esm-pre-industrial)
-- [https://payu.readthedocs.io/en/latest/usage.html](https://payu.readthedocs.io/en/latest/usage.html)
+- Build infrastructure: [https://github.com/access-nri/access-esm1.6](https://github.com/access-nri/access-esm1.6)
+- NCI documentation: [https://opus.nci.org.au/](https://opus.nci.org.au/)
+- Payu documentation: [https://payu.readthedocs.io/en/latest/usage.html](https://payu.readthedocs.io/en/latest/usage.html)
 </custom-references>

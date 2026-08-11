@@ -7,7 +7,7 @@ If you are unsure which ACCESS model is the best fit for your application, you c
     <!-- Run ACCESS-ESM1.6 -->
     <a href="run_access-esm1p6" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm_model_visualisation.png" alt="ACCESS-ESM">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm1p6_model_visualisation.png" alt="ACCESS-ESM">
         </div>
         <div class="card-text-container bold">   
             Run ACCESS-ESM1.6
@@ -16,7 +16,7 @@ If you are unsure which ACCESS model is the best fit for your application, you c
     <!-- Run ACCESS-ESM1.5 -->
     <a href="run_access-esm1p5" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm_model_visualisation.png" alt="ACCESS-ESM">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm1p5_model_visualisation.png" alt="ACCESS-ESM">
         </div>
         <div class="card-text-container bold">   
             Run ACCESS-ESM1.5
