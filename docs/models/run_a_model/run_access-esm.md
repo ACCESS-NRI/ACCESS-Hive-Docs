@@ -106,6 +106,7 @@ To clone this branch to a location on _Gadi_, run:
 
 In the example above the `payu clone` command clones the concentration driven pre-industrial configuration (`-B release-preindustrial+concentrations`) 
 to a new experiment branch (`-b expt`) to a directory named `preindustrial+concentrations`.
+Alternatively, the same outcome can be achieved by running `payu clone` without any arguments, which opens an interactive setup wizard. 
 
 !!! admonition tip
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
@@ -159,6 +160,46 @@ This design allows multiple self-resubmitting experiments that share common exec
 
 !!! admonition warning
     Files on the `/scratch` drive, such as the _laboratory_ directory, might get deleted if not accessed for several days and the `/scratch` drive is limited in space. For these reasons, all model runs which are to be kept should be moved to `/g/data/` by enabling the _sync_ step in _payu_. To know more refer to [Syncing output data](#syncing-output-data).
+
+### Setup configuration
+Before running a newly cloned configuration for the first time, run the following command in the control directory:
+
+    payu setup
+
+This command will: 
+  
+  - create the _laboratory_ and `work` directories based on the experiment configuration
+  - generate manifests
+  - report useful information to the user, such as the location of the _laboratory_ where the `work` and `archive` directories are located
+
+
+<terminal-window>
+    <terminal-line data="input">payu setup</terminal-line>
+    <terminal-line>laboratory path: /scratch/\$PROJECT/\$USER/access-esm</terminal-line>
+    <terminal-line>binary path: /scratch/\$PROJECT/\$USER/access-esm/bin</terminal-line>
+    <terminal-line>input path: /scratch/\$PROJECT/\$USER/access-esm/input</terminal-line>
+    <terminal-line>work path: /scratch/\$PROJECT/\$USER/access-esm/work</terminal-line>
+    <terminal-line>archive path: /scratch/\$PROJECT/\$USER/access-esm/archive</terminal-line>
+    <terminal-line>Found experiment archive: /scratch/\$PROJECT/\$USER/access-esm/archive/preindustrial+concentrations-expt-0635396b</terminal-line>
+    <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
+    <terminal-line>Loading access-esm1p5/2024.12.0</terminal-line>
+    <terminal-line>    Loading requirement: cice4/2024.05.21-izhg4i3 mom5/access-esm1.5_2024.08.23-m5h4mmw um7/2024.10.17-l3w5m5u</terminal-line>
+    <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
+    <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
+    <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
+    <terminal-line>Making exe links</terminal-line>
+    <terminal-line>Setting up atmosphere</terminal-line>
+    <terminal-line>Setting up ocean</terminal-line>
+    <terminal-line>Setting up ice</terminal-line>
+    <terminal-line>Setting up coupler</terminal-line>
+    <terminal-line>Checking exe and input manifests</terminal-line>
+</terminal-window>
+
+This can help to isolate issues such as permissions problems accessing files and directories, missing files or malformed/incorrect paths.
+
+Once complete, run the following command:
+
+    payu sweep
 
 ### Run configuration
 
@@ -214,6 +255,12 @@ qstat
     <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;other-job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
     <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;other-job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
 </terminal-window>
+
+To monitor your job's status continuously without repeatedly executing `qstat`, use the following command:
+```
+watch -n 30 payu status
+```
+This executes the `payu status` command every 30 seconds.
 
 The default name of your job is the name of the _payu_ _control_ directory (`preindustrial+concentrations` in the example above).<br>
 This can be overwritten by altering the `jobname` in the [PBS resources section](#modify-pbs-resources) of the `config.yaml` file.

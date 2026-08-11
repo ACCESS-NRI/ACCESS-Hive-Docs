@@ -120,6 +120,7 @@ To clone this branch to a location on _Gadi_ and navigate to that directory, run
 
 Each released configuration has a [git tag](https://github.com/ACCESS-NRI/access-om3-configs/tags) and a corresponding branch. The branch always reflects the latest configuration release.<br>
 In the example above, the `payu clone` command clones the latest release of the 25km repeat-year JRA55 MOM6 (`M`) CICE6 (`C`) configuration (` -B {{ example_branch }}`) to a directory named `{{example_folder}}` and creates a new experiment branch (`-b expt`).<br>
+Alternatively, the same outcome can be achieved by running `payu clone` without any arguments, which opens an interactive setup wizard. 
 If you want work with an older release (for example to compare against older model output), you can clone directly from the corresponding tag using the `-s TAG_NAME` payu option instead. For further details, refer to [_payu_ documentation on cloning an experiment](https://payu.readthedocs.io/en/stable/usage.html#clone-experiment).
 !!! admonition tip
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
@@ -145,6 +146,39 @@ If you want work with an older release (for example to compare against older mod
     _payu_ uses branches to differentiate between different experiments in the same local `git` repository.<br>
     For this reason, it is recommended to always set the cloned branch name (`expt` in the example above) to something meaningful for the planned experiment.<br>
     For more information refer to this [payu tutorial](https://forum.access-hive.org.au/t/access-om2-payu-tutorial/1750#select-experiment-12).
+
+### Setup configuration
+Before running a newly cloned configuration for the first time, run the following command in the control directory:
+    
+    payu setup
+
+This command will: 
+  
+  - create the _laboratory_ and `work` directories based on the experiment configuration
+  - generate manifests
+  - report useful information to the user, such as the location of the _laboratory_ where the `work` and `archive` directories are located
+
+<terminal-window>
+    <terminal-line data="input">payu setup</terminal-line>
+    <terminal-line>laboratory path: /scratch/.../access-om3</terminal-line>
+    <terminal-line>binary path: /scratch/.../access-om3/bin</terminal-line>
+    <terminal-line>input path: /scratch/.../access-om3/input</terminal-line>
+    <terminal-line>work path: /scratch/.../access-om3/work</terminal-line>
+    <terminal-line>archive path: /scratch/.../access-om3/archive</terminal-line>
+    <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
+    <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
+    <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
+    <terminal-line>Setting up access-om3</terminal-line>
+    <terminal-line>Checking exe and input manifests</terminal-line>
+    <terminal-line>Writing manifests/restart.yaml</terminal-line>
+    <terminal-line>/usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh</terminal-line>
+</terminal-window>
+
+This can help to isolate issues such as permissions problems accessing files and directories, missing files or malformed/incorrect paths.
+
+Once complete, run the following command:
+
+    payu sweep
 
 ### Run configuration
 
@@ -204,6 +238,12 @@ qstat
     <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;other-job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
     <terminal-line linedelay=0 class="keep-blanks">&lt;job-ID&gt;.gadi-pbs      &lt;other-job-name&gt; &lt;\$USER&gt;           &lt;time&gt;   R normal-exec</terminal-line>
 </terminal-window>
+
+To monitor your job's status continuously without repeatedly executing `qstat`, use the following command:
+```
+watch -n 30 payu status
+```
+This executes the `payu status` command every 30 seconds.
 
 The default name of your job is determined by the `jobname` in the [PBS resources section](#modify-pbs-resources) of the `config.yaml` file (for [this](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/config.yaml) configuration it is `025km_jra55do_ryf`).
 
