@@ -417,7 +417,7 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 
 ### Change model time-step
 
-Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. A model time step is a incremental slice of time in which the model moves forward in calendar time to update prognostic variables such as temperature, salinity and velocity. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
+Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. A model time step is an incremental slice of time in which the model moves forward in calendar time to update prognostic variables such as temperature, salinity and velocity. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
 
 | Time-step | Controls | Configured in |
 |-----------|----------|---------------|
