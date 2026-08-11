@@ -1,7 +1,7 @@
 {% set model = "ACCESS-ESM1.6" %}
 {% set model_type = "access-esm" %}
 {% set github_configs = "https://github.com/ACCESS-NRI/access-esm1.6-configs" %}
-{% set release_notes = "https://forum.access-hive.org.au/t/access-esm1-6-release-information" %}
+{% set release_notes = "https://forum.access-hive.org.au/t/access-esm1-6-release-information/6755" %}
 {% set config_example = "release-preindustrial+concentrations" %}
 {% set WG_project = "`lg87` project (ESM Working Group)" %}
 {% set WG_project_code = "lg87" %}
