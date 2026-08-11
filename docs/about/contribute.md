@@ -105,7 +105,7 @@ Then, if you have _forked_ the repository, you can clone your fork by clicking t
 git clone https://github.com/YOUR_USERNAME/ACCESS-Hive-Docs.git
 ```
 
-If you are an ACCESS-NRI team member, you should clone the original ACCESS-Hive-Docs repository directly:
+If you are an [ACCESS-NRI team member](https://github.com/orgs/ACCESS-NRI/teams/staff), you should clone the original ACCESS-Hive-Docs repository directly:
 
 ```bash
 git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
