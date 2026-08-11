@@ -431,9 +431,9 @@ For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic ti
 
 For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it also reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps. 
 
-!!! note How come we only need to change the coupling time-step?
+!!! note "How come we only need to change the coupling time-step?"
 
-    Reducing the coupling time-step has a knock-on effect on `DT`, `DTBT` and `dt`. `DT` and `dt` shorten directly because they are set to match the coupling time-step. Although `DTBT` is calculated internally by MOM6 rather than set directly, its value is dependant on model stability and recalculated every baroclinic (`DT`) time-step in our configurations (not default behaviour), so a shorter `DT` means `DTBT` is recalculated more often — likely resulting in a shorter `DTBT` when conditions are close to a stability margin.
+    Reducing the coupling time-step has a knock-on effect on `DT`, `DTBT` and `dt`. `DT` and `dt` shorten directly because they are set to match the coupling time-step. Although `DTBT` is calculated internally by MOM6 rather than set directly, its value is dependent on model stability and is recalculated every baroclinic (`DT`) time-step in our configurations (not default behaviour), so a shorter `DT` means `DTBT` is recalculated more often — likely resulting in a shorter `DTBT` when conditions are close to a stability margin.
 
 Practically, a common workflow is to halve the coupling time-step:
 
