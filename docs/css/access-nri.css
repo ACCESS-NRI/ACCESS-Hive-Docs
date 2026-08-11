@@ -941,7 +941,7 @@ details.code {
 }
 
 /* Adjust anchors to links */
-[id] {
+.md-content [id] {
   scroll-margin-top: 7rem !important;
 }
 

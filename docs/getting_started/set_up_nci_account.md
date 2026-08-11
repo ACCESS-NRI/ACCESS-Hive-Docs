@@ -206,7 +206,7 @@ For example, if you want to change your default project to `tm70` on _Gadi_:
 <terminal-window>
     <terminal-line data="input">echo \$PROJECT</terminal-line>
     <terminal-line>&lt;old-default-project&gt;</terminal-line>
-    <terminal-line data="input">sed "s/\(PROJECT \)\w*/\1tm70/" ~/.config/gadi-login.conf</terminal-line>
+    <terminal-line data="input">sed -i "s/\(PROJECT \)\w*/\1tm70/" ~/.config/gadi-login.conf</terminal-line>
     <terminal-line data="input">exit</terminal-line>
     <terminal-line>logout</terminal-line>
     <terminal-line>Connection to gadi.nci.org.au closed.</terminal-line>
