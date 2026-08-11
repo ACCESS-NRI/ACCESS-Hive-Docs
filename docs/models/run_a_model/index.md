@@ -4,8 +4,17 @@ These instructions are for running the ACCESS models on NCI. If you do not yet h
 If you are unsure which ACCESS model is the best fit for your application, you can read more about each model on the [ACCESS Models page](/models/access_models).
 
 <div class="card-container">
-    <!-- Run ACCESS-ESM -->
-    <a href="run_access-esm" class="vertical-card aspect-ratio1to1">
+    <!-- Run ACCESS-ESM1.6 -->
+    <a href="run_access-esm1p6" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm_model_visualisation.png" alt="ACCESS-ESM">
+        </div>
+        <div class="card-text-container bold">   
+            Run ACCESS-ESM1.6
+        </div>
+    </a>
+    <!-- Run ACCESS-ESM1.5 -->
+    <a href="run_access-esm1p5" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
             <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_esm_model_visualisation.png" alt="ACCESS-ESM">
         </div>
