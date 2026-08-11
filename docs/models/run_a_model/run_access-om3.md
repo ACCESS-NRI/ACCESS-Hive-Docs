@@ -332,7 +332,7 @@ parts, some of which it is more likely will need modification, and others which 
 rarely changed.
 
 More details on model and _payu_ configuration specific to {{ model }} are found in the 
-[Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) 
+[Configurations Overview](https://access-om3-configs.access-hive.org.au/latest/configurations/Overview/) 
 section of {{ model }} configs documentation. For more general information on _payu_ configuration, 
 refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
