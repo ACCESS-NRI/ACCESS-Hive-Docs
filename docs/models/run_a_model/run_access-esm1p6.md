@@ -85,7 +85,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
     end="<!--end:payu-about-->"
 %}
 
-??? info "_payu_'s data organisation"
+??? info "_Payu_'s data organisation"
 
     {%
         include-markdown "includes/payu.md"
@@ -112,10 +112,10 @@ Supported configurations:
 
 | Configuration | Reference | Branch name |
 |---------------|-----------|-------------|
-| piControl     | [configuration doc](https://access-esm1p6-configs.access-hive.org.au/configs_experiments/configurations/piControl) | release-piControl |
-| esm-piControl | [configuration doc](https://access-esm1p6-configs.access-hive.org.au/configs_experiments/configurations/esm-piControl) | release-esm-piControl |
-| historical    | [configuration doc](https://access-esm1p6-configs.access-hive.org.au/configs_experiments/configurations/historical) | release-historical |
-| esm-historical | [configuration doc](https://access-esm1p6-configs.access-hive.org.au/configs_experiments/configurations/esm-historical) | release-esm-historical |
+| piControl     | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/picontrol/) | release-piControl |
+| esm-piControl | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/esm-picontrol/) | release-esm-piControl |
+| historical    | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/historical/) | release-historical |
+| esm-historical | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/esm-hist/) | release-esm-historical |
 
 
 {%
@@ -124,7 +124,7 @@ Supported configurations:
     end="<!--end:get-config-payu-->"
 %}
 
-??? exemple "Example: Cloning a configuration"
+??? example "Example: Cloning a configuration"
     {%
         include-markdown "includes/payu.md"
         start="<!--start:payu-clone-example-->"
@@ -146,13 +146,13 @@ Supported configurations:
 ## Run an experiment
 
 !!! warning
-    The individual run length (`run_length`) defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
+    The individual run length defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _Payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
 
-    The only exception is for testing purposes, in that case, it is possible to set `run_length` to be shorter than 1 year but other modifications are required as explained in [Run for less than one year](#shorter-runs)
+    The only exception is for testing purposes, in that case, it is possible to set the run length to be shorter than 1 year but other modifications are required as explained in [Run for less than one year](#shorter-runs)
 
-??? tip "Identifying `run_length` for your experiment to ensure it is set to 1 year"
+??? tip "Identifying the run length for your experiment to ensure it is set to 1 year"
 
-    In {{model}}, `run_length` is controlled by the `runtime` setting in the `config.yaml` file in the configuration. A 1-year `run_length` is given by:
+    In {{model}}, the run length is controlled by the `runtime` setting in the `config.yaml` file in the configuration. A 1-year run length is given by:
 
     ```yml
         runtime:
@@ -160,7 +160,7 @@ Supported configurations:
             months: 0
             days: 0
     ```
-_payu_ provides two options to give you complete control over the length of the simulation:
+_Payu_ provides two options to give you complete control over the length of the simulation:
 
 - `runspersub` (in the `config.yaml` file) &rarr; the maximum number of runs for _payu_ for each PBS job submission
 - `-n` (command line option) &rarr; sets the total number of runs to be performed, including runs per submission and through automated resubmissions of _payu_
@@ -170,7 +170,7 @@ _payu_ provides two options to give you complete control over the length of the 
 !!! tip "Setting `walltime` in `config.yaml`"
     The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 60 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
 
-In conclusion, considering the `run_length` should be left to 1 year, for simulating N years with {{model}}, you need to:
+In conclusion, considering the run length should be left to 1 year, for simulating N years with {{model}}, you need to:
 
 - Set `runspersub` and `walltime` to your preference. For example, set `walltime` and `runspersub` to maximise the utilisation of the PBS jobs if you want to limit the time spent in queued jobs
 - Set `-n N` so that _payu_ will automatically run the experiment for the number of years required.
@@ -271,7 +271,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
        end="<!--end:payu-collate-->"
     %}
 
-??? info "_payu_ options for advanced users"
+??? info "_Payu_ options for advanced users"
 
     {% include-markdown "includes/payu.md"
        start="<!--start:payu-advance-options-->"
@@ -282,7 +282,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
     
         #### Run for less than one year for testing purposes {: #shorter-runs .no-toc }
 
-        When debugging changes to a model, it is common to reduce the `run_length` to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
+        When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
         
         ```yml
             runtime:
@@ -310,7 +310,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
     ### Controlling the diagnostics output by the model
     Selecting the variables to save from a simulation can be a balance between enabling future analysis and minimising storage requirements. The choice and frequency of variables saved by each model can be configured from within each submodel's _control_ directory. 
     
-    Each submodel's _control_ directory contains _detailed_ and _standard_ presets for controlling the output, located in the `diagnostic_profiles` subdirectories (e.g. `~/access-esm/preindustrial+concentrations/ice/diagnostic_profiles` for the sea ice submodel). The _detailed_ profiles request a large number of variables at higher frequencies, while the _standard_ profiles restrict the output to variables more regularly used across the community. Details on the variables saved by each preset are available in [this Hive Forum topic](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629).
+    Each submodel's _control_ directory contains _detailed_ and _standard_ presets for controlling the output, located in the `diagnostic_profiles` subdirectories (e.g. `~/{{model|lower}}/{{config_example}}/ice/diagnostic_profiles` for the sea ice submodel). The _detailed_ profiles request a large number of variables at higher frequencies, while the _standard_ profiles restrict the output to variables more regularly used across the community. Details on the variables saved by each preset are available in [this Hive Forum topic](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629).
     
     Selecting a preset output profile to use in a simulation can be done by pointing the following symbolic links to the desired profile:
     
@@ -320,7 +320,7 @@ In conclusion, considering the `run_length` should be left to 1 year, for simula
     
     For example, to select the _detailed_ output profile for the atmosphere:
     <terminal-window>
-        <terminal-line data="input">cd ~/access-esm/preindustrial+concentrations/atmosphere</terminal-line>
+        <terminal-line data="input">cd ~/{{model|lower}}/{{config_example}}/atmosphere</terminal-line>
         <terminal-line data="input">ln -sf diagnostic_profiles/STASHC_detailed STASHC</terminal-line>
     </terminal-window>
 
