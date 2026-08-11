@@ -429,9 +429,7 @@ Reducing the time-step is a common troubleshooting step when a model run crashes
 
 For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic timesteps and WAVEWATCHIII timesteps, see the: [NUOPC driver time-steps documentation](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#time-steps).
 
-It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps.
-
-For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. A common workflow when a model run crashes due to numerical instability is to halve the model time-step:
+For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it also reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps. A common workflow is to halve the model time-step:
 
 1. Halve the coupling time-step in `nuopc.runseq`.
 1. Restart the run from the last successfully written restart file via `payu sweep` and `payu run`.
