@@ -104,7 +104,7 @@ To clone this branch to a location on _Gadi_, run:
 !!! tip
     If you want to restart your experiment from a specific restart point, please refer to [Start the run from a specific restart file](#specific-restart).
 
-In the example above the `payu clone` command clones the concentration driven pre-industrial configuration (`-B release-preindustrial+concentrations`) 
+In the example above, the `payu clone` command clones the concentration driven pre-industrial configuration (`-B release-preindustrial+concentrations`) 
 to a new experiment branch (`-b expt`) to a directory named `preindustrial+concentrations`.
 Alternatively, the same outcome can be achieved by running `payu clone` without any arguments, which opens an interactive setup wizard. 
 
