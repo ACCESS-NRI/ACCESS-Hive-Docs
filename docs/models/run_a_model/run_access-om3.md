@@ -332,7 +332,7 @@ parts, some of which it is more likely will need modification, and others which 
 rarely changed.
 
 More details on model and _payu_ configuration specific to {{ model }} are found in the 
-[Configurations Overview](https://access-om3-configs.access-hive.org.au/configurations/Overview/) 
+[Configurations Overview](https://access-om3-configs.access-hive.org.au/latest/configurations/Overview/) 
 section of {{ model }} configs documentation. For more general information on _payu_ configuration, 
 refer to [how to configure your experiment with payu](https://payu.readthedocs.io/en/latest/config.html).
 
@@ -415,6 +415,60 @@ payu clone -b expt -B {{ example_branch }} -r ~/access-om3/prev_expt/archive/res
 !!! warning
     Note that the restart flag used here will only be applied if there is no restart directory in archive, and so does not have to be removed for subsequent submissions. See [Payu docs](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) for further details.
 
+### Change model time-step
+
+Reducing the time-step is a common troubleshooting step when a model run crashes due to numerical instability. A model time step is an incremental slice of time in which the model moves forward in calendar time to update prognostic variables such as temperature, salinity and velocity. ACCESS-OM3 uses several time-steps for its different model components and coupler. The key ones are:
+
+| Time-step | Controls | Configured in |
+|-----------|----------|---------------|
+| Coupling / driver time-step | How often the model components (ocean, sea ice, atmosphere forcing) exchange information | `nuopc.runseq` |
+| MOM6 baroclinic (`DT`) | 3-D ocean dynamics; often called "the" model time-step | `MOM_input` |
+| MOM6 barotropic (`DTBT`) | Sea-surface height and depth-averaged velocity | `MOM_input` |
+| MOM6 tracer/thermodynamic (`DT_THERM`) | Tracer transport and thermodynamics | `MOM_input` |
+| CICE6 thermodynamic (`dt`) | Sea-ice thermodynamics; automatically set to match the coupling time-step | *(set automatically — do not set in `ice_in`)* |
+
+For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic timesteps and WAVEWATCHIII timesteps, see the: [NUOPC driver time-steps documentation](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#time-steps).
+
+For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it also reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps. 
+
+!!! note "How come we only need to change the coupling time-step?"
+
+    Reducing the coupling time-step has a knock-on effect on `DT`, `DTBT` and `dt`. `DT` and `dt` shorten directly because they are set to match the coupling time-step. Although `DTBT` is calculated internally by MOM6 rather than set directly, its value is dependent on model stability and is recalculated every baroclinic (`DT`) time-step in our configurations (not default behaviour), so a shorter `DT` means `DTBT` is recalculated more often — likely resulting in a shorter `DTBT` when conditions are close to a stability margin.
+
+Practically, a common workflow is to halve the coupling time-step:
+
+1. Halve the coupling time-step in `nuopc.runseq`.
+1. Restart the run from the last successfully written restart file via `payu sweep` and `payu run`.
+1. Once the model runs stably for a few start-run-stop-restart cycles, return the time-steps to their original values if desired.
+
+#### Change the coupling time-step
+
+The coupling time-step is set (in seconds) at the top of the `nuopc.runseq`
+file:
+
+```
+runSeq::
+  @900        # <-- coupling time-step in seconds (here, 900 s = 15 minutes)
+```
+
+Here is an [example](https://github.com/ACCESS-NRI/access-om3-configs/blob/1670dc42c479e5a960cd674fc014c4477b719805/nuopc.runseq#L2). To change the coupling time-step, edit this value. 
+
+#### Change the MOM6 time-steps
+
+MOM6 time-steps are set in the `MOM_input` file. To set a new baroclinic or barotropic time-step, modify the following:
+
+```
+DT = 900.0                      !   [s]
+                                ! The (baroclinic) dynamics time step.  The time-step that is actually used will
+                                ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
+                                ! or the coupling timestep in coupled mode.)
+DTBT = -0.9                     !   [s or nondim] default = -0.98
+                                ! The barotropic time step, in s. DTBT is only used with the split explicit time
+                                ! stepping. To set the time step automatically based the maximum stable value
+                                ! use 0, or a negative value gives the fraction of the stable value. Setting
+                                ! DTBT to 0 is the same as setting it to -0.98. The value of DTBT that will
+                                ! actually be used is an integer fraction of DT, rounding down.
+```
 
 ### Modify PBS resources
 
