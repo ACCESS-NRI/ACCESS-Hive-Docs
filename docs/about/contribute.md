@@ -78,7 +78,7 @@ For quick fixes to an existing page (e.g., typos, wording update, broken links),
 ### Make changes locally {: #large-contribution }
 For adding new pages, restructuring content, or making larger multi-line updates, it's usually easiest to work on a local copy of the documentation and then push changes to GitHub when they're ready.
 
-The steps below walk through a common GitHub workflow using [Git](https://www.atlassian.com/git/tutorials/what-is-git) and [Git commands](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet). Since the documentation is written in Markdown and built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), which is built on top of [MkDocs](https://www.mkdocs.org/), working locally also lets you preview your changes before pushing them to GitHub.
+The steps below walk through a common GitHub workflow using [Git](https://www.atlassian.com/git/tutorials/what-is-git) and [Git commands](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet). For reference, the documentation is written in Markdown and built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), which is built on top of [MkDocs](https://www.mkdocs.org/).
 
 #### Step 1: Fork the repository
 
