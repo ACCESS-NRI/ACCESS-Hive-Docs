@@ -76,7 +76,9 @@ For quick fixes to an existing page (e.g., typos, wording update, broken links),
 ---
 
 ### Make changes locally {: #large-contribution }
-For adding new pages, restructuring content, or making larger multi-line updates, it's usually easiest to work on a local copy of the documentation and then push changes to GitHub when they're ready. The steps below walk through a common GitHub workflow using [Git](https://www.atlassian.com/git/tutorials/what-is-git) and [Git commands](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet). Since the documentation is written in Markdown and built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), which is built on top of [MkDocs](https://www.mkdocs.org/), working locally also lets you preview your changes before pushing them to GitHub.
+For adding new pages, restructuring content, or making larger multi-line updates, it's usually easiest to work on a local copy of the documentation and then push changes to GitHub when they're ready.
+
+The steps below walk through a common GitHub workflow using [Git](https://www.atlassian.com/git/tutorials/what-is-git) and [Git commands](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet). Since the documentation is written in Markdown and built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), which is built on top of [MkDocs](https://www.mkdocs.org/), working locally also lets you preview your changes before pushing them to GitHub.
 
 #### Step 1: Fork the repository
 
@@ -129,7 +131,7 @@ When you clone the repository, it should default to the `development` branch. Th
 git checkout -b your-branch-name
 ```
 
-Creating a separate branch keeps your work isolated from the development branch while you make and review your changes. For more information, see Branching Workflows in [Best Practices](#best-practices).
+Creating a separate branch keeps your work isolated from the development branch while you make and review your changes. For more information, see _Branching Workflows_ in [Best Practices](#best-practices).
 
 #### Step 4: Make your changes
 Open the directory in your editor (e.g. VS Code), ensure you are working on your new branch (VS Code lists your current branch in the bottom left of the window) and make your edits. You can check which files have been modified with:
