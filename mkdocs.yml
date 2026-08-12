@@ -184,6 +184,7 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - ACCESS-ESM1.6 2026 workshop: tutorials/ESM1.6-tutorial.md
 
   - Community Resources:
     - community_resources/index.md
