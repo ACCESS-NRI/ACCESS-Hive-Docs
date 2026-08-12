@@ -106,7 +106,8 @@ To clone this branch to a location on _Gadi_, run:
 
 In the example above, the `payu clone` command clones the concentration driven pre-industrial configuration (`-B release-preindustrial+concentrations`) 
 to a new experiment branch (`-b expt`) to a directory named `preindustrial+concentrations`.
-Alternatively, the same outcome can be achieved by running `payu clone` without any arguments, which opens an interactive setup wizard. 
+!!! tip
+    Alternatively, you can run `payu clone` with no arguments to launch an interactive wizard that prompts for the same information in a more user friendly and easy to follow approach. 
 
 !!! admonition tip
     Anyone using a configuration is advised to clone only a single branch (as shown in the example above) and not the entire repository.
