@@ -31,7 +31,7 @@ In these release notes, make sure you scroll down to the latest post for most re
 
 
 ### Models
-|<div style="width:120px"></div> |  |
+| &nbsp; { style="width: 180px;" } |  |
 | :--- | :---------- |
 |[ACCESS-ESM1.5](https://forum.access-hive.org.au/t/access-esm1-5-release-information/2352) | A coupled global Earth system model |
 |[ACCESS-OM2](https://forum.access-hive.org.au/t/access-om2-release-information/1602) | Global coupled Ocean-Sea Ice Model developed by COSIMA |
