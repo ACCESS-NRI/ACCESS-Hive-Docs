@@ -2,7 +2,7 @@
 [Hive Forum]: https://forum.access-hive.org.au
 # ACCESS-NRI Release List
 
-Included below are only ACCESS-NRI releases that are *Full Release* stage. There are some that seem missing as they are in *Alpha* or *Beta* stage. Keep an eye on the [releases category](https://forum.access-hive.org.au/c/access-nri-releases/75) on the Hive Forum for more updates.
+Listed below are *Full Releases* of ACCESS-NRI models, tools and data. Any ACCESS-NRI releases that are in an *Alpha* or *Beta* stage are not featured in this list. For more release updates, keep an eye on the [releases category](https://forum.access-hive.org.au/c/access-nri-releases/75) on the ACCESS-Hive Forum.
 
 <div class="card-container">
     <a href="/about/releases" class="horizontal-card">
