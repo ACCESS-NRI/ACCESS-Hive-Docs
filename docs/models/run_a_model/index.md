@@ -22,15 +22,6 @@ If you are unsure which ACCESS model is the best fit for your application, you c
             Run ACCESS-ESM1.5
         </div>
     </a>
-    <!-- Run ACCESS-OM2 -->
-    <a href="run_access-om2" class="vertical-card aspect-ratio1to1">
-        <div class="card-image-container">
-            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_om2_model_visualisation.png" alt="ACCESS-OM2">
-        </div>
-        <div class="card-text-container bold">   
-            Run ACCESS-OM2
-        </div>
-    </a>
     <!-- Run ACCESS-OM3 -->
     <a href="run_access-om3" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
@@ -38,6 +29,15 @@ If you are unsure which ACCESS model is the best fit for your application, you c
         </div>
         <div class="card-text-container bold">   
             Run ACCESS-OM3
+        </div>
+    </a>
+    <!-- Run ACCESS-OM2 -->
+    <a href="run_access-om2" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain with-padding white-background" src="/assets/model-config-logos/model_visualisation/access_om2_model_visualisation.png" alt="ACCESS-OM2">
+        </div>
+        <div class="card-text-container bold">   
+            Run ACCESS-OM2
         </div>
     </a>
 </div>
