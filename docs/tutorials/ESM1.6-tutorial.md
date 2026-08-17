@@ -322,10 +322,9 @@ Key changes in ACCESS-ESM1.6's output data compared to ESM1.5 include:
 
 - Single variable files are produced for all three model components.
 - Outputs for all model components follow a consistent naming scheme, with core metadata embedded in the names. For example:
-
-   - **ocean**: `access-esm1p6.mom5.2d.psiu.1mon.mean.1850.nc`
-   - **atmosphere**: `access-esm1p6.um7p3.2d.fld_s03i237.1mon.mean.1850.nc`
-   - **ice**:  `access-esm1p6.cice5.3d.siitdconc.1mon.mean.1850.nc`
+    - **ocean**: `access-esm1p6.mom5.2d.psiu.1mon.mean.1850.nc`
+    - **atmosphere**: `access-esm1p6.um7p3.2d.fld_s03i237.1mon.mean.1850.nc`
+    - **ice**:  `access-esm1p6.cice5.3d.siitdconc.1mon.mean.1850.nc`
 - Consistent provenance data is added to the netCDF global attributes:
     ```
     :base_configuration = "dev-preindustrial+concentrations" ;
