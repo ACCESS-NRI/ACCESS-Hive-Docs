@@ -15,10 +15,12 @@ Welcome to the *How to run ACCESS-ESM1.6* training session. In this session, you
 ## Prerequisites
 To complete the hands on sections of this tutorial, you will need to have:
 
-<!--TODO: fill in details-->
-- A current nci account
-- Be a member of PROJECT (may be able to help at the time), and project `vk83`
-- Have completed the UKMO agreement and be a member of RELEVANT PROJECT
+- A current NCI account
+- A GitHub account
+- A MOSRS account and to have completed the [UKMO EULA signing instructions](https://forum.access-hive.org.au/t/accessing-ukmo-licensed-models/6168)
+- Be a member of the NCI projects:
+    - `vk83`
+    - `nf33`
 
 If you haven't completed these prerequisites you're welcome to work with someone else for the hands on sections of the tutorial.
 
@@ -59,8 +61,7 @@ payu --version
 ```
 
 ## Exercise 2: Cloning an ACCESS-ESM1.6 configuration
-<!--Todo rewrite-->
-Running a climate simulation requires you to organise a large collection of files. You'll need model executables, a collection of model input files such as grids and forcings, configuration files which control the model's scientific options, and an initial state for the model to start from. A payu *configuration* bundles all these requirements together, making it easy to get a simulation running. Different scientific configurations of the model are stored in different payu configurations.
+Running a climate model requires you to collect a large number of files, including model executables, a collection of model input files such as grids and forcings, configuration files to control the model's scientific options, and an initial state for the model to start from. A payu *configuration* can be thought of a prebuilt bundle of all these requirements, making it easy to get a simulation running. Different scientific configurations of the model can be stored in different payu configurations.
 
 Released ACCESS-ESM1.6 configurations are published on the ESM1.6 configurations [GitHub repository](https://github.com/ACCESS-NRI/access-esm1.6-configs), where different configurations are stored under different git branches. The branches for the released ACCESS-ESM1.6 configurations are:
 
@@ -115,7 +116,7 @@ By default, payu will use your currently active project on Gadi for computation 
 echo $PROJECT
 ```
 
-For this training session, we'll be using resources from project <!--TODO PROJECT-->. Payu allows you to select a non-default project in the `config.yaml` file, which is the main configuration file used to control a payu simulation. We'll go through more details of what you can control in the `config.yaml` file after we've set off the simulations.
+For this training session, we'll be using resources from project `nf33`. Payu allows you to select a non-default project in the `config.yaml` file, which is the main configuration file used to control a payu simulation. We'll go through more details of what you can control in the `config.yaml` file after we've set off the simulations.
 
 
 To change the computation and storage project, make the following change:
@@ -125,7 +126,7 @@ To change the computation and storage project, make the following change:
 # If submitting to a different project to your default, uncomment line below
 # and replace PROJECT_CODE with appropriate code. This may require setting shortpath
 -# project: PROJECT_CODE
-+project: PROJECT_CODE
++project: nf33
 ```
 
 ## Exercise 4: Checking the configuration is working
@@ -225,7 +226,7 @@ In the following exercises we'll look into how payu sets up and organises the `w
     Take a look in `work/atmosphere`
    </details>
 
-4. What do the files in the `manifests` directory contain? When would this information have been filled in?
+4. What do the files in the `manifests` directory under the control directory contain? When would this information have been filled in?
    <details>
    <summary>Hint</summary>
     How do the filepaths in the `input.yaml` relate to the filepaths in the `config.yaml` file. The `md5` fields contain [md5 hashes](https://en.wikipedia.org/wiki/MD5) calculated for each of the hashes, and can be used to verify that input files have not been changed.
@@ -318,6 +319,7 @@ A selection of restart files from the ESM1.6 CMIP7 piControl experiment are avai
 ACCESS-ESM1.6 is the first model whose outputs adhere to the new ACCESS-NRI data specifications. The goal of these specifications is to ensure that  model output from different ACCESS models have both consistent structure and metadata, and to improve ease of use for working with the data.
 
 Key changes in ACCESS-ESM1.6's output data compared to ESM1.5 include:
+
 - Single variable files are produced for all three model components.
 - Outputs for all model components follow a consistent naming scheme, with core metadata embedded in the names. For example:
 
@@ -348,8 +350,8 @@ This information can be used in many different ways, an example of which we'll s
 
 *I've been running a historical simulation using a custom volcanic forcing input file `volcts_cmip7.dat`. I inadvertently modified the file part way through the experiment, and will need to rerun the the years after it changed. Unfortunately, I don't know when during the simulation the input file changed.*
 
-<!--TODO: Move these somewhere accessible-->
-*Using either the output directories in `/scratch/tm70/sw6175/access-esm/archive/custom_volcanic-dev-historical-f878693a`, or the published experiment repository in https://github.com/blimlim/runlog_example, can you work out at which point the volcanic forcing file changed?*,
+**TODO: move outputs to somewhere accessible**
+*Using either the output directories in `/scratch/tm70/sw6175/access-esm/archive/custom_volcanic-custom-volcanic-5a0df8c5`, or the published experiment repository in https://github.com/blimlim/runlog_example, can you work out at which point the volcanic forcing file changed?*,
 
 *Hint: Take a look at the files found in the manifest directories.*
 
