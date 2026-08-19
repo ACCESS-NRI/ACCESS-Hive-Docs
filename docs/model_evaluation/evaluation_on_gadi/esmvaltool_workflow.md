@@ -26,6 +26,7 @@ Depending on your needs, you may want to also join the following supported data 
 - Observation data collection: [ct11](https://my.nci.org.au/mancini/project/ct11/join)
 - ERA5 and ERA5-Land: [rt52](https://my.nci.org.au/mancini/project/rt52/join), [zz93](https://my.nci.org.au/mancini/project/zz93/join)
 - obs4MIPs: [qv56](https://my.nci.org.au/mancini/project/qv56/join)
+- Tier 3 observation data: [av17](https://my.nci.org.au/mancini/project/av17/join)
 
 ###  Using ESMValTool in a PBS job
 
@@ -104,22 +105,33 @@ See the [API reference](https://docs.esmvaltool.org/projects/ESMValCore/en/lates
 
 ### Custom ESMValTool configuration
 
-From version 2.12, ESMValTool looks for its configuration files in the `~/.config/esmvaltool` directory.
+In _conda/analysis3_ the environment is pre-configured to access CMIP and observation datasets available on _Gadi_.
+You can add your own configurations by copying example configuration files and editing them.
+ESMValTool will copy them into your home location, in the `~/.config/esmvaltool` directory by default.
 
 To copy an example _ESMValTool_ configuration file to this default directory you can use the `esmvaltool config copy` command.
 You can list available example configuration files with `esmvaltool config list`. <br>
-For example, to copy the custom configuration `defaults/config-user.yml` to _ESMValTool_'s default directory you can run:
+For example, to copy an example user configuration `defaults/config-user.yml` to _ESMValTool_'s default directory you can run:
 
 ```
 esmvaltool config copy defaults/config-user.yml
 ```
 
-You can edit configuration files in _ESMValTool's_ default folder to suit your needs, 
-this would be added to the configuration in _conda/analysis3_.
-This environment is pre-configured to access CMIP and observation datasets available on _Gadi_.
+[Data sources](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#data-sources) can be configured for a user's own set up and local sources.
+To copy the example _Gadi_ configuration you can run:
 
+```
+esmvaltool config copy data-hpc-nci.yml
+```
+
+Find and open these files in your `~/.config/esmvaltool` directory to edit them.
 For more information on configuration see the [ESMValTool configure documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#).
 
+In a PBS job with _conda/analysis3_, use the command line argument `--config_dir` when you run your recipe to use your custom configuration:
+
+```
+esmvaltool run examples/recipe_python.yml --config_dir /home/111/userid/.config/esmvaltool
+```
 
 To load your own custom configuration from your _ESMValTool_ configuration folder in an _ARE_ Jupyter notebook you can use (You will need to include the full path for your HOME directory in an _ARE_ notebook):
 ``` python
@@ -130,12 +142,20 @@ CFG.load_from_dirs(['~/.config/esmvaltool'])
 ```
 
 !!! tip
-    This will overwrite the _conda/analysis3_ configuration so you will need to have [data sources](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#data-sources) configured to find data. This function takes a list so you can combine multiple configuration directories.<br>
+    In a notebook this will overwrite the _conda/analysis3_ configuration so you will need to have [data sources](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#data-sources) configured to find data. This function takes a list so you can combine multiple configuration directories.<br>
 
 ### Tutorials
 
 For tutorial series and material from previous workshops see [ESMValTool Tutorials](/tutorials/esmvaltool).
 There is also a [tutorial](https://tutorial.esmvaltool.org/) with the ESMValTool organisation which you might find useful though is not taylored for use on _Gadi_.
+
+### Data and CMORisation
+
+ESMValTool generally requires data to be [CMORised](/model_evaluation/data/data_basics/#cf-conventions-and-cmor-standards) to read in and run in recipes.
+This standardisation of climate data allows for large scale multi-model analysis and the ease of repeating the same diagnostic on multiple different datasets. 
+Oservational data used in ESMValTool recipes are in [tiers](https://docs.esmvaltool.org/en/latest/input.html#tiers) and have been CMORised. Joining projects mentioned in the [prerequisites](#prerequisites) provide access to these data collections.
+
+ACCESS-NRI supports the CMORisation of ACCESS models with [ACCESS-MOPPy](https://forum.access-hive.org.au/t/access-moppy-1-0-beta-release-announcement/5979) with a view to [intergrate the workflow with ESMValTool](https://access-moppy.readthedocs.io/en/latest/howto/esmvaltool_integration.html).
 
 ## ESMValTool example recipes
 

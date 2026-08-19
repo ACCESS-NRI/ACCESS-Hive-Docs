@@ -59,6 +59,9 @@ Visit [ILAMB-workflow documentation](https://ilamb-workflow.readthedocs.io/en/la
 
 To learn more about how to adjust the _ILAMB_ setup, refer to the official [ILAMB documentation](https://www.ilamb.org/doc/) and relevant [tutorials](https://www.ilamb.org/doc/tutorial.html).
 
+!!! release
+    [*ACCESS-MOPPy*](https://forum.access-hive.org.au/t/access-moppy-1-0-beta-release-announcement/5979) can be used with _ILAMB_ to CMORise and evaluate ACCESS-ESM1.6 output. See the [workflow guide](https://access-moppy.readthedocs.io/en/latest/howto/cmorise_ilamb_workflow.html).
+
 #### Example: CMIP6 comparisons and ACCESS ESM1.5 benchmarking
 
 ACCESS-NRI maintains a collection of benchmark comparisons for the ACCESS community, including comparisons with data from CMIP. See the [workflow documentation](https://ilamb-workflow.readthedocs.io/en/latest/source/ILAMB.html#ilamb-cmip-confrontations-maintained-by-access-nri) for details.
