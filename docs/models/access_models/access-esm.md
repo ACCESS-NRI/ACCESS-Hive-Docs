@@ -13,7 +13,7 @@ ACCESS-ESM1.6 was developed by ACCESS-NRI and CSIRO.
 
 There are currently four supported configurations:
 
-- ***Concentration-drivern pre-industrial control, piControl***:<br>
+- ***Concentration-driven pre-industrial control, piControl***:<br>
       The _piControl_ configuration simulates the climate prior to the industrial revolution using prescribed CO~2~ concentrations and atmospheric forcings estimated for the year 1850.
 - ***Emission-driven pre-industrial control, esm-piControl***:<br>
       The _esm-piControl_ configuration of ESM1.6 simulates the climate prior to the industrial revolution using a fully interactive carbon cycle where 3D CO~2~ tracers evolve freely in the atmosphere and are exchanged with the land and ocean biogeochemistry submodels.
