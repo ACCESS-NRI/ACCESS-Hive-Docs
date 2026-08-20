@@ -9,7 +9,16 @@
 !!! warning
     Some NCI project membership approvals can take more than a day.
 
-## Session Description
+??? note "How to get MOSRS accounts"
+    **How to get a MOSRS account for ANU, UNSW, Monash, UniMelb, and UTAS**: ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please complete the licensing process by following the steps on the UKMO EULA signing page. 
+    <br><br>
+    For verification purposes, you will need to have an ACCESS-Hive Forum account as you will be added to a forum group of verified MOSRS users. This group will be used as a dedicated channel for communication and MOSRS membership visibility. If you don’t already have a MOSRS account, please tick the box to request that ACCESS-NRI apply for one on your behalf. You must have AAF Authentication on your ACCESS-Hive Forum account for verification purposes (refer to this guide to add or update AAF authentication). By completing this UKMO Licensing process, you will also be invited to the NCI project df42, which you will need to accept. This project will be used to control access to UKMO licensed materials that ACCESS-NRI administer. More details on this process can be found in this Hive Forum post. 
+    <br><br>
+    **How to get a MOSRS account for CSIRO and Bureau of Meteorology**: ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please work with your institution to obtain a MOSRS account. Note that this can take several days, so please request a MOSRS account promptly if you wish to take part in the hands-on training for either ACCESS-AM3 or ACCESS-ESM1.6. 
+    <br><br>
+    If you do not obtain a MOSRS account by the time of the workshop, you are welcome to attend the training and follow along with a neighbor during the hands-on portions. 
+
+### Session Description
 The below table lists the required setup for each session. Please read through the instructions below for the session(s) you plan to attend **before attending the session**.
 
 There are four training sessions across the first two days of the workshop. At each time slot, two sessions run in parallel, so you can attend up to two training sessions in total. You are not bound by the selection you made on the registration form. 
@@ -17,40 +26,23 @@ There are four training sessions across the first two days of the workshop. At e
 ??? info "Prerequisites"
     - Some experience working on NCI will be helpful.
 
-    - Some familiarity with git and GitHub workflows will be helpful. 
+    - Some familiarity with Git and GitHub workflows will be helpful. 
     
     - Some familiarity with the Unix command line will be helpful. 
     
     - Understanding of basic climate model concepts.
 
 | 📝 **Session Name** | ⚙️ **Setup Requirements** |
-| --- | --- |
-| 🌍 **How to run AM3** | 💻 NCI account <br> 🔑 MOSRS account <br> 💻 GitHub account <br> 🔗 Request access to [AM3 configurations repo](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580) <br> 📂 Join projects: [access](https://my.nci.org.au/mancini/project/access/join), [vk83](https://my.nci.org.au/mancini/project/vk83/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [hr22](https://my.nci.org.au/mancini/project/hr22/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
-| 🌿 **How to run ESM1.6** | 💻 NCI account <br> 🔑 MOSRS account <br> 💻 GitHub account <br> 📂 Join projects: [vk83](https://my.nci.org.au/mancini/project/vk83/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [jq44](https://my.nci.org.au/mancini/project/jq44/join) |
-|||
-| 🌱 **Using Benchcab** | 1 Sept. 15:30-17:00 |
-| 🌊 **Evaluating ACCESS Models** | 1 Sept. 15:30-17:00 |
+| ------------------- | -------------------------- |
+| **How to run AM3** <br> 📆 31 Aug. 15:30-17:00 | 💻 NCI account <br> 🔑 MOSRS account <br> 💻 GitHub account <br> 🔗 Request access to [AM3 configurations repo](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580) <br> 📂 Join projects: [access](https://my.nci.org.au/mancini/project/access/join), [vk83](https://my.nci.org.au/mancini/project/vk83/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [hr22](https://my.nci.org.au/mancini/project/hr22/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
+| **How to run ESM1.6** <br> 📆 31 Aug. 15:30-17:00 | 💻 NCI account <br> 🔑 MOSRS account <br> 💻 GitHub account <br> 📂 Join projects: [vk83](https://my.nci.org.au/mancini/project/vk83/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [jq44](https://my.nci.org.au/mancini/project/jq44/join) |
+| **Using Benchcab** <br> 📆 1 Sept. 15:30-17:00 | 💻 NCI account <br> 🔗 [modelevaluation.org](https://modelevaluation.org) account <br> 📂 Join projects: [wd9](https://my.nci.org.au/mancini/project/wd9/join), [ks32](https://my.nci.org.au/mancini/project/ks32/join), [xp65](https://my.nci.org.au/mancini/project/jq44/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join)|
+| **Evaluating ACCESS Models** <br> 📆 1 Sept. 15:30-17:00 | ⚠️ tbc |
+| **Intake Catalog**| ⚠️ tbc |
 
-**Monday 31 August, 15:30–17:00**
+### Useful Links for Account Setup
 
-- How to run ESM1.6 
-- How to run AM3 
+📂 Create an **NCI account**: [https://my.nci.org.au/mancini/signup](https://my.nci.org.au/mancini/signup)  
 
-These two sessions run in parallel, so you can only attend one. 
+🔑 Create a **GitHub account**: [https://github.com/join](https://github.com/join)  
 
-**Tuesday 1 September, 15:30–17:00**
-
-- Using Benchcab 
-- Evaluating ACCESS Models 
-
-These two sessions also run in parallel, so you can only attend one. 
-
-Many of the setup steps below can take multiple days to come through, so please follow these steps as soon as you are able. If you do not complete these steps, then you're welcome to buddy up with someone for the session. 
- 
-| 📝 **Session Name** | 🗓️ **Day / Time** | ⚙️ **Setup Requirements** |
-| --- | --- | --- |
-| 🌫️ How to run ACCESS-AM3 | Mon 31 Aug, 15:30–17:00 | 💻 NCI account &nbsp;🔑 MOSRS account* &nbsp;🐙 GitHub account &nbsp;📦 Access to the AM3 configurations repo &nbsp;📂 Join NCI projects: [access](https://my.nci.org.au/mancini/project/access/join), [vk83](https://my.nci.org.au/mancini/project/vk83/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [hr22](https://my.nci.org.au/mancini/project/hr22/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
-| 🌱 How to run ACCESS-ESM1.6 | Mon 31 Aug, 15:30–17:00 | 💻 NCI account &nbsp;🔑 MOSRS account* &nbsp;🐙 GitHub account &nbsp;📂 Join NCI projects: [vk83](https://my.nci.org.au/mancini/project/vk83/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [jq44](https://my.nci.org.au/mancini/project/jq44/join) |
-| 🌿 Using Benchcab | Tue 1 Sep, 15:30–17:00 | 💻 NCI account &nbsp;📊 [Modelevaluation.org](https://modelevaluation.org) account &nbsp;🐙 GitHub account *(still being confirmed)* &nbsp;📂 Join NCI projects: [wd9](https://my.nci.org.au/mancini/project/wd9/join), [ks32](https://my.nci.org.au/mancini/project/ks32/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
-| 📈 Evaluating ACCESS Models | Tue 1 Sep, 15:30–17:00 | ⚠️ Setup requirements to be confirmed |
- 
