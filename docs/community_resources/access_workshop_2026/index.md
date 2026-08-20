@@ -6,12 +6,6 @@
 
 📝 [**Full workshop program**](https://www.access-nri.org.au/access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/)
 
-### Useful Links for Account Setup
-
-📂 Create an **NCI account**: [https://my.nci.org.au/mancini/signup](https://my.nci.org.au/mancini/signup)  
-
-:fontawesome-brands-github: Create a **GitHub account**: [https://github.com/join](https://github.com/join)  
-
 !!! warning
     Some of the setup steps below can take multiple days. Please complete the setup as soon as possible.
 
@@ -32,6 +26,14 @@
 The below table lists the required setup for each session. Please read through the instructions below for the session(s) you plan to attend **before attending the session**.
 
 There are four training sessions across the first two days of the workshop. At each time slot, two sessions run in parallel, so you can attend up to two training sessions in total. You are not bound by the selection you made on the registration form. 
+
+---
+
+📂 Create an **NCI account**: [https://my.nci.org.au/mancini/signup](https://my.nci.org.au/mancini/signup)  
+
+:fontawesome-brands-github: Create a **GitHub account**: [https://github.com/join](https://github.com/join) 
+
+---
 
 ??? tip "Prerequisites for all training sessions"
     - 💻 Some experience working on NCI will be helpful.
