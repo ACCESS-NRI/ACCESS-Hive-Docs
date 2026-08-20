@@ -27,7 +27,7 @@ The below table lists the required setup for each session. Please read through t
 
 There are four training sessions across the first two days of the workshop. At each time slot, two sessions run in parallel, so you can attend up to two training sessions in total. You are not bound by the selection you made on the registration form. 
 
-??? tip "Prerequisites"
+??? tip "Prerequisites for all training sessions"
     - 💻 Some experience working on NCI will be helpful.
 
     - :fontawesome-brands-github: Some familiarity with Git and GitHub workflows will be helpful. 
