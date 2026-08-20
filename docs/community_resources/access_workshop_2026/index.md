@@ -7,7 +7,7 @@
 📝 [**Full workshop program**](https://www.access-nri.org.au/access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/)
 
 !!! warning
-    Some NCI project membership approvals can take more than a day.
+    Some of the setup steps below can take multiple days. Please complete the setup as soon as possible.
 
 ??? note "How to get MOSRS accounts"
 
