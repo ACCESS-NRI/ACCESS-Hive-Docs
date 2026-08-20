@@ -12,7 +12,7 @@
 ??? note "How to get MOSRS accounts"
 
     ??? info "For ANU, UNSW, Monash, UniMelb, and UTAS"
-        ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please complete the licensing process by following the steps on the UKMO EULA signing page. 
+        ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please complete the licensing process by following the steps on the [UKMO EULA signing page](https://reporting.access-nri-store.cloud.edu.au/partner_orgs/agreements/individual/ukmo/). 
         <br><br>
         For verification purposes, you will need to have an ACCESS-Hive Forum account as you will be added to a forum group of verified MOSRS users. This group will be used as a dedicated channel for communication and MOSRS membership visibility. If you don’t already have a MOSRS account, please tick the box to request that ACCESS-NRI apply for one on your behalf. You must have AAF Authentication on your ACCESS-Hive Forum account for verification purposes (refer to this guide to add or update AAF authentication). By completing this UKMO Licensing process, you will also be invited to the NCI project df42, which you will need to accept. This project will be used to control access to UKMO licensed materials that ACCESS-NRI administer. More details on this process can be found in this Hive Forum post. 
         <br><br>
