@@ -48,6 +48,7 @@ theme:
     - search.highlight
     - search.share
     - toc.follow                # the sidebar is automatically scrolled to the active anchor
+    - announce.dismiss
 
   logo: assets/ACCESS_icon_HIVE.png
   favicon: assets/ACCESS_icon_HIVE.png
