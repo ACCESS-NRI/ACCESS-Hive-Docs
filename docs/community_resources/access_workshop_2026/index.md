@@ -18,7 +18,7 @@
         <br><br>
 
     ??? info "For CSIRO and Bureau of Meteorology"
-        ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please work with your institution to obtain a MOSRS account. Note that this can take several days, so please request a MOSRS account promptly if you wish to take part in the hands-on training for either ACCESS-AM3 or ACCESS-ESM1.6. 
+        ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please work with your institution to obtain a MOSRS account (see relevant points of contact on [this webpage](https://opus.nci.org.au/spaces/DAE/pages/249495608/Prerequisites)). Note that this can take several days, so please request a MOSRS account promptly if you wish to take part in the hands-on training for either ACCESS-AM3 or ACCESS-ESM1.6. 
     
     If you do not obtain a MOSRS account by the time of the workshop, you are welcome to attend the training and follow along with a neighbor during the hands-on portions. 
 
