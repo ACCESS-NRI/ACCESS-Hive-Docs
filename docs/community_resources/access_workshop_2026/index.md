@@ -27,14 +27,6 @@ The below table lists the required setup for each session. Please read through t
 
 There are four training sessions across the first two days of the workshop. At each time slot, two sessions run in parallel, so you can attend up to two training sessions in total. You are not bound by the selection you made on the registration form. 
 
----
-
-📂 Create an **NCI account**: [https://my.nci.org.au/mancini/signup](https://my.nci.org.au/mancini/signup)  
-
-:fontawesome-brands-github: Create a **GitHub account**: [https://github.com/join](https://github.com/join) 
-
----
-
 ??? tip "Prerequisites for all training sessions"
     - 💻 Some experience working on NCI will be helpful.
 
@@ -46,8 +38,8 @@ There are four training sessions across the first two days of the workshop. At e
 
 | 📝 **Session Name** | ⚙️ **Setup Requirements** |
 | ------------------- | -------------------------- |
-| **How to run AM3** <br> 📆 31 Aug. 15:30-17:00 | 💻 NCI account <br> 🔑 MOSRS account <br> :fontawesome-brands-github: GitHub account <br> 🔗 Request access to [AM3 configurations repo](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580) <br> 📂 Join projects: [access](https://my.nci.org.au/mancini/project/access/join), [vk83](https://my.nci.org.au/mancini/project/vk83/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [hr22](https://my.nci.org.au/mancini/project/hr22/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
-| **How to run ESM1.6** <br> 📆 31 Aug. 15:30-17:00 | 💻 NCI account <br> 🔑 MOSRS account <br> :fontawesome-brands-github: GitHub account <br> 📂 Join projects: [vk83](https://my.nci.org.au/mancini/project/vk83/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [jq44](https://my.nci.org.au/mancini/project/jq44/join) |
-| **Using Benchcab** <br> 📆 1 Sept. 15:30-17:00 | 💻 NCI account <br> 🔗 [modelevaluation.org](https://modelevaluation.org) account <br> 📂 Join projects: [wd9](https://my.nci.org.au/mancini/project/wd9/join), [ks32](https://my.nci.org.au/mancini/project/ks32/join), [xp65](https://my.nci.org.au/mancini/project/jq44/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join)|
+| **How to run AM3** <br> 📆 31 Aug. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 🔑 MOSRS account <br> :fontawesome-brands-github: [GitHub](https://github.com/join) account <br> 🔗 Request access to [AM3 configurations repo](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580) <br> 📂 Join projects: [access](https://my.nci.org.au/mancini/project/access/join), [vk83](https://my.nci.org.au/mancini/project/vk83/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [hr22](https://my.nci.org.au/mancini/project/hr22/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
+| **How to run ESM1.6** <br> 📆 31 Aug. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 🔑 MOSRS account <br> :fontawesome-brands-github: [GitHub](https://github.com/join) account <br> 📂 Join projects: [vk83](https://my.nci.org.au/mancini/project/vk83/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [jq44](https://my.nci.org.au/mancini/project/jq44/join) |
+| **Using Benchcab** <br> 📆 1 Sept. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 🔗 [modelevaluation.org](https://modelevaluation.org) account <br> 📂 Join projects: [wd9](https://my.nci.org.au/mancini/project/wd9/join), [ks32](https://my.nci.org.au/mancini/project/ks32/join), [xp65](https://my.nci.org.au/mancini/project/jq44/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join)|
 | **Evaluating ACCESS Models** <br> 📆 1 Sept. 15:30-17:00 | ⚠️ tbc |
 | **Intake Catalog**| ⚠️ tbc |
