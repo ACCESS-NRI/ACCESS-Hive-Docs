@@ -2,7 +2,7 @@
 
 <div class="card-container">
     <!-- Keeping this commented for future workshops -->
-    <a href="/community_resources/access_workshop_2025" class="vertical-card aspect-ratio1to1">
+    <a href="/community_resources/access_workshop_2026" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
             <img class="white-background img-cover align-left" style="object-position: left;" src="/assets/acknowledgement_unsplash_david_clode_Bark_Cairns.png" alt="Land and Coupled Modelling Workshop 2026">
         </div>
