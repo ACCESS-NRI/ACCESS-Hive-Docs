@@ -151,9 +151,9 @@ There is also a [tutorial](https://tutorial.esmvaltool.org/) with the ESMValTool
 
 ### Data and CMORisation
 
-ESMValTool generally requires data to be [CMORised](/model_evaluation/data/data_basics/#cf-conventions-and-cmor-standards) to read in and run in recipes.
+ESMValTool generally requires data to be [CMOR-ised](/model_evaluation/data/data_basics/#cf-conventions-and-cmor-standards) to read in and run in recipes.
 This standardisation of climate data allows for large scale multi-model analysis and the ease of repeating the same diagnostic on multiple different datasets. 
-Oservational data used in ESMValTool recipes are in [tiers](https://docs.esmvaltool.org/en/latest/input.html#tiers) and have been CMORised. Joining projects mentioned in the [prerequisites](#prerequisites) provide access to these data collections.
+Oservational data used in ESMValTool recipes are in [tiers](https://docs.esmvaltool.org/en/latest/input.html#tiers) and have been CMOR-ised. Joining projects mentioned in the [prerequisites](#prerequisites) provide access to these data collections.
 
 ACCESS-NRI supports the CMORisation of ACCESS models with [ACCESS-MOPPy](https://forum.access-hive.org.au/t/access-moppy-1-0-beta-release-announcement/5979) with a view to [intergrate the workflow with ESMValTool](https://access-moppy.readthedocs.io/en/latest/howto/esmvaltool_integration.html).
 
