@@ -6,6 +6,12 @@
 
 📝 [**Full workshop program**](https://www.access-nri.org.au/access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/)
 
+### Useful Links for Account Setup
+
+📂 Create an **NCI account**: [https://my.nci.org.au/mancini/signup](https://my.nci.org.au/mancini/signup)  
+
+:fontawesome-brands-github: Create a **GitHub account**: [https://github.com/join](https://github.com/join)  
+
 !!! warning
     Some of the setup steps below can take multiple days. Please complete the setup as soon as possible.
 
@@ -43,10 +49,3 @@ There are four training sessions across the first two days of the workshop. At e
 | **Using Benchcab** <br> 📆 1 Sept. 15:30-17:00 | 💻 NCI account <br> 🔗 [modelevaluation.org](https://modelevaluation.org) account <br> 📂 Join projects: [wd9](https://my.nci.org.au/mancini/project/wd9/join), [ks32](https://my.nci.org.au/mancini/project/ks32/join), [xp65](https://my.nci.org.au/mancini/project/jq44/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join)|
 | **Evaluating ACCESS Models** <br> 📆 1 Sept. 15:30-17:00 | ⚠️ tbc |
 | **Intake Catalog**| ⚠️ tbc |
-
-### Useful Links for Account Setup
-
-📂 Create an **NCI account**: [https://my.nci.org.au/mancini/signup](https://my.nci.org.au/mancini/signup)  
-
-:fontawesome-brands-github: Create a **GitHub account**: [https://github.com/join](https://github.com/join)  
-
