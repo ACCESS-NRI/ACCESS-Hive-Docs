@@ -7,7 +7,7 @@
 📝 [**Full workshop program**](https://www.access-nri.org.au/access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/)
 
 !!! warning
-    Some NCI project membership approvals can take more than a day.
+    Some of the setup steps below can take multiple days. Please complete the setup as soon as possible.
 
 ??? note "How to get MOSRS accounts"
     **How to get a MOSRS account for ANU, UNSW, Monash, UniMelb, and UTAS**: ACCESS-ESM1.6, ACCESS-AM3, and ACCESS-CM3 all utilise the UK Met Office (UKMO) atmosphere model (UM), so you are required to have a MOSRS account to run any of these models due to their licensing restrictions. Please complete the licensing process by following the steps on the UKMO EULA signing page. 
