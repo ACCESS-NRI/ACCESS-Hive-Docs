@@ -4,7 +4,7 @@
 
 📍 **Location:** Angliss Institute, 555 La Trobe St, Melbourne VIC 3000
 
-📝 [**Full workshop program**](https://www.access-nri.org.au/access-community-workshop-on-land-and-coupled-modelling/)
+📝 [**Full workshop program**](https://www.access-nri.org.au/access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/)
 
 !!! warning
     Some NCI project membership approvals can take more than a day.
