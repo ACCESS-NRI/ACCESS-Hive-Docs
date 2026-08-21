@@ -45,7 +45,7 @@ There are four training sessions across the first two days of the workshop. At e
     
     In this training, you will learn about how benchcab works, how to run and compare multiple CABLE versions, and various tips and tricks along the way to help you get started. 
 
-??? info "Finding and accessing ACCESS data for model evaluation"
+??? info "ACCESS data catalogues for model evaluation"
 
     This training introduces the ACCESS-NRI Interactive Data Catalogue, a tool for finding and accessing climate data available to the ACCESS community on NCI. 
     
