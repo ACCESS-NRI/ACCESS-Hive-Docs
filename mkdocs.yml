@@ -48,6 +48,7 @@ theme:
     - search.highlight
     - search.share
     - toc.follow                # the sidebar is automatically scrolled to the active anchor
+    - announce.dismiss
 
   logo: assets/ACCESS_icon_HIVE.png
   favicon: assets/ACCESS_icon_HIVE.png
@@ -188,9 +189,8 @@ nav:
   - Community Resources:
     - community_resources/index.md
     # Keep this commented for future workshops
-    # - ACCESS Community Workshop 2025:
-    #   - Overview: community_resources/access_workshop_2025/index.md
-    #   - Training Day materials: community_resources/access_workshop_2025/training_materials.md
+    - Land and Coupled Modelling Workshop 2026:
+      - Overview: community_resources/access_workshop_2026/index.md
     - Workshops and Events Archive:
       - community_resources/workshops_events_archive/index.md
       - ACCESS Community Workshop 2023:
