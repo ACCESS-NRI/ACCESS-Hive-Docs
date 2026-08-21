@@ -22,12 +22,41 @@
     
     If you do not obtain a MOSRS account by the time of the workshop, you are welcome to attend the training and follow along with a neighbor during the hands-on portions. 
 
-### Session Description
-The below table lists the required setup for each session. Please read through the instructions below for the session(s) you plan to attend **before attending the session**.
+### Session Descriptions
 
 There are four training sessions across the first two days of the workshop. At each time slot, two sessions run in parallel, so you can attend up to two training sessions in total. You are not bound by the selection you made on the registration form. 
 
+??? info "How to run ACCESS-AM3"
+    In this hands-on session, you’ll learn the basics of running and configuring ACCESS-AM3 on Gadi. We’ll cover how to run the model, make basic changes to existing configurations, and find and work with model output, with a brief overview of how ACCESS-AM3 fits within the broader ACCESS-NRI infrastructure.  
+
+??? info "How to run ESM1.6"
+
+    In this session, you'll get hands on experience of running and configuring ACCESS-ESM1.6, the recently released earth system model developed for Australia's contribution to the CMIP7 Assessment Fast Track. During this session, we'll cover: 
+    
+    - What ACCESS-ESM1.6 is, and how it differs to the older model ACCESS-ESM1.5 
+    - How to clone and run ACCESS-ESM1.6 configurations using payu on Gadi 
+    - Key payu commands and concepts for managing climate model simulations 
+    - How to customise ESM1.6 configurations 
+    - Where to find more information and get help 
+
+??? info "Using Benchcab"
+
+    Interested in contributing to CABLE? The benchcab tool is used to test all contributions to the CABLE source code, and is a requirement for accepting a CABLE pull request. In this training, you will learn about how benchcab works, how to run and compare multiple CABLE versions, and various tips and tricks along the way to help you get started. 
+
+??? info "Finding and accessing ACCESS data for model evaluation"
+
+    This training will introduce two different data catalogue interfaces for the ACCESS community to help find, access, and explore climate data on NCI. We’ll go over the Python interface of the ACCESS-NRI Intake Catalogue using a Jupyter notebook. We will also introduce the ACCESS-NRI Interactive Data Catalogue – a web-based version of the Intake catalogue – as an easier, more user-friendly way to discover and access data for evaluating climate models. 
+
+---
+
+### Technical Setup
+
+The below table lists the required setup for each session. Please read through the instructions below for the session(s) you plan to attend **before attending the session**.
+
 ??? tip "Prerequisites for all training sessions"
+
+    These prerequisites will help you get the most out of the hands-on sessions, but don't worry if you're not familiar with all of them, you're still very welcome to attend and learn along the way! 
+
     - 💻 Some experience working on NCI will be helpful.
 
     - :fontawesome-brands-github: Some familiarity with Git and GitHub workflows will be helpful. 
@@ -36,10 +65,13 @@ There are four training sessions across the first two days of the workshop. At e
     
     - 🌎 Understanding of basic climate model concepts.
 
+    - 📚 Some familiarity working with Jupyter notebooks may be helpful. 
+
+    - :fontawesome-brands-python: Some familiarity with Python may be helpful. 
+
 | 📝 **Session Name** | ⚙️ **Setup Requirements** |
 | ------------------- | -------------------------- |
 | **How to run AM3** <br> 📆 31 Aug. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 🔑 MOSRS account <br> :fontawesome-brands-github: [GitHub](https://github.com/join) account <br> 🔗 Request access to [AM3 configurations repo](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580) <br> 📂 Join projects: [access](https://my.nci.org.au/mancini/project/access/join), [vk83](https://my.nci.org.au/mancini/project/vk83/join), [xp65](https://my.nci.org.au/mancini/project/xp65/join), [hr22](https://my.nci.org.au/mancini/project/hr22/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join) |
 | **How to run ESM1.6** <br> 📆 31 Aug. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 🔑 MOSRS account <br> :fontawesome-brands-github: [GitHub](https://github.com/join) account <br> 📂 Join projects: [vk83](https://my.nci.org.au/mancini/project/vk83/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [jq44](https://my.nci.org.au/mancini/project/jq44/join) |
 | **Using Benchcab** <br> 📆 1 Sept. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 🔗 [modelevaluation.org](https://modelevaluation.org) account <br> 📂 Join projects: [wd9](https://my.nci.org.au/mancini/project/wd9/join), [ks32](https://my.nci.org.au/mancini/project/ks32/join), [xp65](https://my.nci.org.au/mancini/project/jq44/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join)|
-| **Evaluating ACCESS Models** <br> 📆 1 Sept. 15:30-17:00 | ⚠️ tbc |
-| **Intake Catalog**| ⚠️ tbc |
+| **Finding and accessing ACCESS data for model evaluation** <br> 📆 1 Sept. 15:30-17:00 | 💻 [NCI](https://my.nci.org.au/mancini/signup) account <br> 📂 Join projects: [xp65](https://my.nci.org.au/mancini/project/xp65/join), [nf33](https://my.nci.org.au/mancini/project/nf33/join), [oi10](https://my.nci.org.au/mancini/project/oi10/join), [fs38](https://my.nci.org.au/mancini/project/fs38/join) <br> ➕ Optional projects: [av17](https://my.nci.org.au/mancini/project/av17/join "ACCESS-AM3 datasets"), [jq44](https://my.nci.org.au/mancini/project/jq44/join "ACCESS-ESM1.6 datasets"), [zv30](https://my.nci.org.au/mancini/project/zv30/join "ACCESS-CM3 datasets"), [p73](https://my.nci.org.au/mancini/project/p73/join "ACCESS-ESM1.5 and ACCESS-CM2 datasets") |
