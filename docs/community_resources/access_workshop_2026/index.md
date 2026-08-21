@@ -59,21 +59,29 @@ There are four training sessions across the first two days of the workshop. At e
 
 The below table lists the required setup for each session. Please read through the instructions below for the session(s) you plan to attend **before attending the session**.
 
-??? tip "Prerequisites for all training sessions"
+??? tip "Prerequisites"
 
     These prerequisites will help you get the most out of the hands-on sessions, but don't worry if you're not familiar with all of them, you're still very welcome to attend and learn along the way! 
 
-    - 💻 Some experience working on NCI will be helpful.
+    ??? tip "Prerequisites for AM3, ESM1.6, and Benchcab sessions"
 
-    - :fontawesome-brands-github: Some familiarity with Git and GitHub workflows will be helpful. 
-    
-    - :fontawesome-solid-terminal: Some familiarity with the Unix command line will be helpful. 
-    
-    - 🌎 Understanding of basic climate model concepts.
+        - 💻 Some experience working on NCI will be helpful.
 
-    - 📚 Some familiarity working with Jupyter notebooks may be helpful. 
+        - :fontawesome-brands-github: Some familiarity with Git and GitHub workflows will be helpful. 
+        
+        - :fontawesome-solid-terminal: Some familiarity with the Unix command line will be helpful. 
+        
+        - 🌎 Understanding of basic climate model concepts.
 
-    - :fontawesome-brands-python: Some familiarity with Python may be helpful. 
+    ??? tip "Prerequisites for ACCESS data catalogues session"
+
+        - 💻 Some experience working on NCI will be helpful.
+
+        - 📚 Some familiarity working with Jupyter notebooks may be helpful. 
+
+        - :fontawesome-brands-python: Some familiarity with Python may be helpful. 
+
+        - 🌎 Understanding of basic climate model concepts.
 
 | 📝 **Session Name** | ⚙️ **Setup Requirements** |
 | ------------------- | -------------------------- |
