@@ -29,7 +29,7 @@ There are four training sessions across the first two days of the workshop. At e
 ??? info "How to run ACCESS-AM3"
     In this hands-on session, you’ll learn the basics of running and configuring ACCESS-AM3 on Gadi. We’ll cover how to run the model, make basic changes to existing configurations, and find and work with model output, with a brief overview of how ACCESS-AM3 fits within the broader ACCESS-NRI infrastructure.  
 
-??? info "How to run ESM1.6"
+??? info "How to run ACCESS-ESM1.6"
 
     In this session, you'll get hands on experience of running and configuring ACCESS-ESM1.6, the recently released earth system model developed for Australia's contribution to the CMIP7 Assessment Fast Track. During this session, we'll cover: 
     
