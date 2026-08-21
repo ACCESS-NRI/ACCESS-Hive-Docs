@@ -41,11 +41,17 @@ There are four training sessions across the first two days of the workshop. At e
 
 ??? info "Using Benchcab"
 
-    Interested in contributing to CABLE? The benchcab tool is used to test all contributions to the CABLE source code, and is a requirement for accepting a CABLE pull request. In this training, you will learn about how benchcab works, how to run and compare multiple CABLE versions, and various tips and tricks along the way to help you get started. 
+    Interested in contributing to CABLE? The benchcab tool is used to test all contributions to the CABLE source code, and is a requirement for accepting a CABLE pull request. 
+    
+    In this training, you will learn about how benchcab works, how to run and compare multiple CABLE versions, and various tips and tricks along the way to help you get started. 
 
 ??? info "Finding and accessing ACCESS data for model evaluation"
 
-    This training introduces the ACCESS-NRI Interactive Data Catalogue, a tool for finding and accessing climate data available to the ACCESS community on NCI. We’ll first introduce the ACCESS-NRI Intake Catalogue, which underpins the Interactive Catalogue, and briefly explain how it works using a Python-based Jupyter notebook. Then we'll dive into finding and discovering data with the Interactive Catalogue - a web-based interface to the Intake Catalogue that provides an easier, more user-friendly way to discover data for evaluating climate models.
+    This training introduces the ACCESS-NRI Interactive Data Catalogue, a tool for finding and accessing climate data available to the ACCESS community on NCI. 
+    
+    We’ll first introduce the ACCESS-NRI Intake Catalogue, which underpins the Interactive Catalogue, and briefly explain how it works using a Python-based Jupyter notebook. 
+    
+    Then we'll dive into finding and discovering data with the Interactive Catalogue - a web-based interface to the Intake Catalogue that provides an easier, more user-friendly way to discover data for evaluating climate models.
 
 ---
 
