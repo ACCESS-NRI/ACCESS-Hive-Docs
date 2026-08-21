@@ -45,7 +45,7 @@ There are four training sessions across the first two days of the workshop. At e
 
 ??? info "Finding and accessing ACCESS data for model evaluation"
 
-    This training will introduce two different data catalogue interfaces for the ACCESS community to help find, access, and explore climate data on NCI. We’ll go over the Python interface of the ACCESS-NRI Intake Catalogue using a Jupyter notebook. We will also introduce the ACCESS-NRI Interactive Data Catalogue – a web-based version of the Intake catalogue – as an easier, more user-friendly way to discover and access data for evaluating climate models. 
+    This training introduces the ACCESS-NRI Interactive Data Catalogue, a tool for finding and accessing climate data available to the ACCESS community on NCI. We’ll first introduce the ACCESS-NRI Intake Catalogue, which underpins the Interactive Catalogue, and briefly explain how it works using a Python-based Jupyter notebook. Then we'll dive into finding and discovering data with the Interactive Catalogue - a web-based interface to the Intake Catalogue that provides an easier, more user-friendly way to discover data for evaluating climate models.
 
 ---
 
