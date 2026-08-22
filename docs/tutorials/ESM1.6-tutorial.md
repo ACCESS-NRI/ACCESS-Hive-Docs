@@ -12,9 +12,6 @@ Welcome to the *How to run ACCESS-ESM1.6* training session. In this session, you
 * Where to find more information and get help
 
 
-<!--TODO Mental map, mention mix of hands on and explaining-->
-
-
 ## Prerequisites
 To complete the hands on sections of this tutorial, you will need to have:
 
@@ -47,7 +44,15 @@ ACCESS-ESM1.6 development used ACCESS-ESM1.5 as a base and brought in many signi
 - An iceberg spreading scheme has been added, where meltwater from the icesheets is distributed both around the coast, and according to a wider iceberg melt pattern.
 - Released scientific configurations have been developed to match the CMIP7 experiment protocols, including updated atmospheric forcings.
 - Optimised for Gadi. While ESM1.6 is more computationally complex than ESM1.5, it runs roughly 25% faster.
-- Model outputs conform to the new ACCESS-NRI data standards, with the aim of making model output simpler to work with and to improve provenance information. We'll see more of what this looks like towards the end of the session.
+- Model outputs conform to the new ACCESS-NRI data standards, with the aim of making model output simpler to work with and to improve provenance information. Key changes include using single variable files with consistent file names for all model components, and adding provenance information into the output metadata.
+
+
+In the following sections of the tutorial, we'll run our own simulations of ESM1.6 by:
+1. Connecting to the NCI computer gadi and loading the simulation management software *payu*
+2. Using payu to clone a released ACCESS-ESM1.6 *configuration* from GitHub
+3. Using payu to run a simulation based on the configuration
+
+While the simulations are running, we'll learn more about key payu commands, how configuratoins are structured, and how to run a customised simulation.
 
 
 
@@ -204,11 +209,11 @@ payu setup --new-uuid
 
 <terminal-window>
     <terminal-line data="input">payu setup --new-uuid</terminal-line>
-    <terminal-line>laboratory path: /scratch/\${PROJECT}/\${USER}/access-esm</terminal-line>
-    <terminal-line>binary path: /scratch/\${PROJECT}/\${USER}/access-esm/bin</terminal-line>
-    <terminal-line>input path: /scratch/\${PROJECT}/\${USER}/access-esm/input</terminal-line>
-    <terminal-line>work path: /scratch/\${PROJECT}/\${USER}/access-esm/work</terminal-line>
-    <terminal-line>archive path: /scratch/\${PROJECT}/\${USER}/access-esm/archive</terminal-line>
+    <terminal-line>laboratory path: /scratch/nf33/\${USER}/access-esm</terminal-line>
+    <terminal-line>binary path: /scratch/nf33/\${USER}/access-esm/bin</terminal-line>
+    <terminal-line>input path: /scratch/nf33/\${USER}/access-esm/input</terminal-line>
+    <terminal-line>work path: /scratch/nf33/\${USER}/access-esm/work</terminal-line>
+    <terminal-line>archive path: /scratch/nf33/\${USER}/access-esm/archive</terminal-line>
     <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
     <terminal-line>Loading restart manifest: manifests/restart.yaml</terminal-line>
     <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
@@ -271,7 +276,7 @@ In this exercise, we'll learn about the directory structure that payu uses to ru
 * The *control directory* contains a symbolic link to the *archive directory*. This is a location on scratch where payu stores the model outputs and restart files at the end of a simulation.
 * The *work directory* is a temporary workspace used to run the model. Payu collects all the model executables, input files, configuration files, and restart files into the work directory and organises them into the structure required by the model code.
 
-For further details on the directory structure used by payu, take a look at  <!--TODO: add link--> HOW TO RUN DOCS SECTION.
+For further details on the directory structure used by payu, take a look at the [how to run ESM1.6 documentation](https://docs.access-hive.org.au/models/run_a_model/run_access-esm1p6/).
 
 In the following exerises, we'll take a look at the *work directory* being used by our currently running simulations, and we'll see how payu uses information from the *control directory* to create this temporary work space.
 
@@ -338,10 +343,10 @@ agin from your control directory.
 ## Configuring an ESM1.6 simulation
 
 ### The `config.yaml` file
-The `config.yaml` controls how payu sets up, runs, and archives a simulation. We'll only touch on a small selection of of the settings in this tutorial, but we recommend reading the HOW TO RUN DOCS and [payu documentation](https://payu.readthedocs.io/en/stable/config.html) for details on everything you can control from the `config.yaml` file.
+The `config.yaml` controls how payu sets up, runs, and archives a simulation. We'll only touch on a small selection of of the settings in this tutorial, but we recommend reading the [how to run ACCESS-ESM1.6 documentation](https://docs.access-hive.org.au/models/run_a_model/run_access-esm1p6/) and [payu documentation](https://payu.readthedocs.io/en/stable/config.html) for details on everything you can control from the `config.yaml` file.
 
 #### Compute project and storage location
-We've already modified our `config.yaml` file to use project PROJECT for the both the computation and storage resources. However it's common to need to use one project for computation and another for storage. To set this up, you can specify
+We've already modified our `config.yaml` file to use project `nf33` for the both the computation and storage resources. However it's common to need to use one project for computation and another for storage. To set this up, you can specify
 
 ```yaml
 project: <COMPUTE PROJECT>
@@ -369,7 +374,7 @@ The `archive` directory is typically under the `/scratch` storage on Gadi, where
 
 Rather than copying the outputs manually, you can use the `sync` settings to get payu to automatically sync the outputs and restart files to a specified location at the end of each run segment.
 
-For example, the following changes will sync the archived data to a location on `/g/data/PROJECT/`
+For example, the following changes will sync the archived data to a location on `/g/data/nf33/`
 
 ```diff
 # Sync options for automatically copying data from ephemeral scratch space to
@@ -379,7 +384,7 @@ sync:
 +   enable: True
     restarts: True
 -   base_path: null # Set to location on /g/data (e.g., /g/data/$PROJECT/$USER/)
-+   base_path: /g/data/PROJECT/<user>/tutorial_experiments/
++   base_path: /g/data/nf33/<user>/tutorial_experiments/
 
 ```
 
@@ -396,7 +401,7 @@ In this exercise, we'll get some practice using the settings described above. We
 
 A selection of restart files from the ESM1.6 CMIP7 piControl experiment are available in <!--TODO: fill in location--> LOCATION ON JQ44.
 
-1. Clone the `release-piControl` configuration into a new location under `~/ACCESS-ESM1.6`. Remember to set the compute project to `nf33`
+1. Clone the `release-piControl` configuration into a new control directory named `tutorial-custom` located under `~/ACCESS-ESM1.6`. Remember to set the compute project to `nf33`
 2. Set your experiment to use a selected restart from the above location. You can set this either during the `payu clone` command, or by editing the `config.yaml` file after the cloning step.
 3. Modify the `config.yaml` to enable the output syncing. Configure payu to sync the model outputs and restarts to `/g/data/nf33/<user>/tutorial_experiments`, where `<user>` is your gadi username.
 4. The `release-piControl` configuration prescribes an atmospheric CO2 mass mixing ratio (MMR) of 4.3189e-04. This value is controlled by the `CO2_MMR` setitng in the `namelists` file under the atmosphere directory. Find where this is set, and change it to a value of your choice (For example 8.6378e-04 for doubled CO2). 
@@ -418,7 +423,7 @@ This session has been a brief introduction to running ACCESS-ESM1.6 with payu. W
 
 For details these topics, you can refer to:
 
-- The *How to run ACCESS-ESM1.6* documentation page <!--Add link when ready-->
+- The [*How to run ACCESS-ESM1.6* documentation page](https://docs.access-hive.org.au/models/run_a_model/run_access-esm1p6/)
 - The [ACCESS-ESM1.6 configuration docs](https://access-esm1p6-configs.access-hive.org.au/)
 - The [payu documentation](https://payu.readthedocs.io/en/stable/)
 - For information on the model's scientific configuration, there will be a model description paper published in the future.
