@@ -265,13 +265,16 @@ While the simulations are running, we'll discuss some more features of payu and 
 
 ## Exercise 7: Understanding payu's directory structure
 
-Let's take a brief look at the directories payu creates when it runs a model simulation.
+In this exercise, we'll learn about the directory structure that payu uses to run a simulation. We'll learn about the purposes of the *control directory*, the *archive* directory, the *work directory* and how these three relate to each other.
 
-The top-level directory containing the `config.yaml` file is called the *control directory*. In our control directory, we should see two symlinks to locations on `scratch`: the `archive` directory, which will store the model output and restart files atn the end of the run, and the `work` directory, the temporary workspace used by the in progress simulation.
+* The top-level directory containing the `config.yaml` file is called the *control directory*. The files in this directory and its subdirectories: `atmosphere`, `ocean`, `ice`, `coupler` are used to configure the model simulation, and we run all our payu commands (except for `payu clone`) from this directory.
+* The *control directory* contains a symbolic link to the *archive directory*. This is a location on scratch where payu stores the model outputs and restart files at the end of a simulation.
+* The *work directory* is a temporary workspace used to run the model. Payu collects all the model executables, input files, configuration files, and restart files into the work directory and organises them into the structure required by the model code.
 
-For a detailed explanation of the directory structure used by payu, take a look at  <!--TODO: add link--> HOW TO RUN DOCS SECTION.
+For further details on the directory structure used by payu, take a look at  <!--TODO: add link--> HOW TO RUN DOCS SECTION.
 
-In the following exercises we'll look into how payu sets up and organises the `work` directory.
+In the following exerises, we'll take a look at the *work directory* being used by our currently running simulations, and we'll see how payu uses information from the *control directory* to create this temporary work space.
+
 
 1. In the `config.yaml` file, you'll see lists of filepaths associated with each model component, for example:
     ```yaml
@@ -293,31 +296,33 @@ In the following exercises we'll look into how payu sets up and organises the `w
          ...
     ```
 
-    Take a look through the `work` directory. How has payu used the above two filepaths when creating the `work` directory?
+    Take a look through the files in the `work` directory. Can you see how payu has used these paths from the `config.yaml` when constructing the work directory?
     <details>
     <summary>Hint</summary>
-     Take a look in the `work/atmosphere/INPUT` and `work/ocean/INPUT` directories.
+     Take a look in the `work/atmosphere/INPUT` and `work/ocean/INPUT` directories. 
     </details>
 
 
-2. How has payu used the `config.yaml` settings `exe: um_hg3.exe` and `exe: mom5_access_cm` when creating the `work` directory?
+2. The above section of the config.yaml specifies names for the model executable: `exe: um_hg3.exe` and `exe: mom5_access_cm`. Can you see what payu has done with these executables when constructing the `work` directory?
    <details>
    <summary>Hint</summary>
-    These specify the names of executables for the atmosphere and ocean components. Take a look in `work/atmosphere` and `work/ocean`. 
+    Take a look in the `work/atmosphere` and `work/ocean` directories. 
    </details>
 
-3. The `atmosphere` subdirectory of the control directory contains a configuration file `namelists`. What has payu done with this file when setting up the `work` directory?
+3. Along with model executables and input files, a simulation needs configuration files which control each submodel's scientific options. For example, the `namelists` file under the `atmosphere` section of the control directory controls the atmosphere model's scientific settings. Can you see how payu has used this file when constructing the `work` directory.
    <details>
    <summary>Hint</summary>
-    Take a look in `work/atmosphere`
+    Take a look in the `work/atmosphere` directory.
    </details>
 
-4. What do the files in the `manifests` directory under the control directory contain? When would this information have been filled in?
+<details>
+<summary>Extension</summary>
+ 4. In the `manifests` directory, the files `input.yaml`, `exe.yaml`, and `restart.yaml` all contain lists of filepaths. How do these filepaths relate to the settings in the `config.yaml`? What do the `md5` fields contain?
    <details>
    <summary>Hint</summary>
-    How do the filepaths in the `input.yaml` relate to the filepaths in the `config.yaml` file. The `md5` fields contain [md5 hashes](https://en.wikipedia.org/wiki/MD5) calculated for each of the hashes, and can be used to verify that input files have not been changed.
+    The `md5` fields contain [md5 hashes](https://en.wikipedia.org/wiki/MD5) calculated for each of the hashes, and can be used to verify that input files have not been changed. Payu updates these files during the *setup* stage.
    </details>
-
+</details>
 
 
 ## Excercise 8: Check the status the running simulations
@@ -331,7 +336,6 @@ payu status
 agin from your control directory.
 
 ## Configuring an ESM1.6 simulation
-
 
 ### The `config.yaml` file
 The `config.yaml` controls how payu sets up, runs, and archives a simulation. We'll only touch on a small selection of of the settings in this tutorial, but we recommend reading the HOW TO RUN DOCS and [payu documentation](https://payu.readthedocs.io/en/stable/config.html) for details on everything you can control from the `config.yaml` file.
@@ -388,14 +392,15 @@ Customising the configuring components usually requires in-depth knowledge of th
 
 
 ## Exercise 9: Running a custom configuration
+In this exercise, we'll get some practice using the settings described above. We'll clone and run another configuration and customise it to use a different restart file, to activate syncing, and to modify the scientific configuration for the atmosphere submodel.
 
 A selection of restart files from the ESM1.6 CMIP7 piControl experiment are available in <!--TODO: fill in location--> LOCATION ON JQ44.
 
-1. Clone the `release-piControl` configuration, and set the compute project to PROJECT
-2. Set your experiment to use a selected restart from the above location
-3. Set payu to sync the model outputs and restarts to `/g/data/PROJECT/<user>/tutorial_experiments`
-4. The pre-industrial atmospheric CO2 MMR of 4.3189e-04 is specified in a setting called `CO2_MMR`. Find where this is set, and change it to a value of your choice (For example for doubled CO2, you can use 8.6378e-04 ). 
-5. Run your simulation – check back tomorrow and if everything has worked you should find a copy of your outputs in `/g/data/PROJECT/<user>/tutorial_experiments`.
+1. Clone the `release-piControl` configuration into a new location under `~/ACCESS-ESM1.6`. Remember to set the compute project to `nf33`
+2. Set your experiment to use a selected restart from the above location. You can set this either during the `payu clone` command, or by editing the `config.yaml` file after the cloning step.
+3. Modify the `config.yaml` to enable the output syncing. Configure payu to sync the model outputs and restarts to `/g/data/nf33/<user>/tutorial_experiments`, where `<user>` is your gadi username.
+4. The `release-piControl` configuration prescribes an atmospheric CO2 mass mixing ratio (MMR) of 4.3189e-04. This value is controlled by the `CO2_MMR` setitng in the `namelists` file under the atmosphere directory. Find where this is set, and change it to a value of your choice (For example 8.6378e-04 for doubled CO2). 
+5. Setup and run your simulation – check back tomorrow and if everything has worked you should find a copy of your outputs in `/g/data/nf33/<user>/tutorial_experiments`.
 
 
 
