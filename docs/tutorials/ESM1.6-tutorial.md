@@ -12,6 +12,9 @@ Welcome to the *How to run ACCESS-ESM1.6* training session. In this session, you
 * Where to find more information and get help
 
 
+<!--TODO Mental map, mention mix of hands on and explaining-->
+
+
 ## Prerequisites
 To complete the hands on sections of this tutorial, you will need to have:
 
@@ -21,8 +24,16 @@ To complete the hands on sections of this tutorial, you will need to have:
 - Be a member of the NCI projects:
     - `vk83`
     - `nf33`
+    - `jq44`
 
 If you haven't completed these prerequisites you're welcome to work with someone else for the hands on sections of the tutorial.
+
+In addition, the following background is recommended for the hands on portions of this session:
+
+- Some experience working on NCI will be helpful. 
+- Some familiarity with git and GitHub workflows will be helpful. 
+- Some familiarity with the Unix command line will be helpful. 
+- Understanding of basic climate model concepts 
 
 
 ## Introduction to ACCESS-ESM1.6
@@ -31,7 +42,7 @@ ACCESS-ESM1.6 is a global coupled earth system model containing active atmospher
 ACCESS-ESM1.6 development used ACCESS-ESM1.5 as a base and brought in many significant changes. Some of the main changes include:
 
 - A new ocean BGC model, WOMBATlite
-- The CABLE2.4 land model has been updated to CABLE3, with new features including as Australian plant types <!--Todo: find out about other changes-->
+- The CABLE2.4 land model has been updated to CABLE3, with new features including as Australian plant types and improvements to energy and water conservation.
 - CICE4 has been replaced with CICE5, which brings bug fixes to key diagnostics. CICE5 has been configured to use the same zero layer thermodynamics scheme.
 - An iceberg spreading scheme has been added, where meltwater from the icesheets is distributed both around the coast, and according to a wider iceberg melt pattern.
 - Released scientific configurations have been developed to match the CMIP7 experiment protocols, including updated atmospheric forcings.
@@ -54,59 +65,109 @@ module use /g/data/vk83/modules
 module load payu
 ```
 
-To check that payu is working, you can run:
+To check that the payu module has loaded properly, we can test out running a simple command:
 
 ```
 payu --version
 ```
 
+This should print out the version of payu that's been loaded: `payu 1.3.4`.
+
 ## Exercise 2: Cloning an ACCESS-ESM1.6 configuration
 Running a climate model requires you to collect a large number of files, including model executables, a collection of model input files such as grids and forcings, configuration files to control the model's scientific options, and an initial state for the model to start from. A payu *configuration* can be thought of a prebuilt bundle of all these requirements, making it easy to get a simulation running. Different scientific configurations of the model can be stored in different payu configurations.
 
-Released ACCESS-ESM1.6 configurations are published on the ESM1.6 configurations [GitHub repository](https://github.com/ACCESS-NRI/access-esm1.6-configs), where different configurations are stored under different git branches. The branches for the released ACCESS-ESM1.6 configurations are:
+Released ACCESS-ESM1.6 configurations are published on the ESM1.6 configurations [GitHub repository](https://github.com/ACCESS-NRI/access-esm1.6-configs), where different configurations are stored under different git branches. The branches for the ACCESS-ESM1.6 configurations which have been released by ACCESS-NRI are:
 
-- [release-piControl](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-piControl)
-- [release-esm-piControl](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-esm-piControl)
-- [release-historical](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-historical)
-- [release-esm-historical](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-esm-historical)
+- [release-piControl](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-piControl): *The CO2 concentrations driven pre-industrial control*
+- [release-esm-piControl](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-esm-piControl): *The emissions driven pre-industrial control*
+- [release-historical](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-historical): *The CO2 concentrations driven historical configuration*
+- [release-esm-historical](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-esm-historical): *The emissions driven historical configuration*
 
-The first step in running an ESM1.6 simulation is to make a local copy (i.e. clone) a configuration. To do this, you'll need to:
+!!! Note
+    Additional configurations are in preparation for release including amip and future scenarios.
+
+
+
+The first step in running an ESM1.6 simulation is to select a configuration from the repository, and make a local copy of it (i.e. clone). To do this, you'll need to:
 
 - Know the `<repository>` and `<branch>` name the configuration is stored under on GitHub. For this tutorial, use https://github.com/ACCESS-NRI/access-esm1.6-configs for the `<repository>`, and select a `<branch>` name from any of the above released configurations.
 - Create a location on Gadi to store all your payu experiments, `<configurations-directory>`, typically a folder under $HOME. This directory must exist before running payu.
 - Choose a directory name to store the experiment, `<control-directory>` (created by payu). The control directory is a Git repository.
 - Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. For this tutorial, `<username>-tutorial` is an example of the local branch name you can use.
 
+First create a directory under our `$HOME` directory to store out configurations:
+```
+cd ~
+mkdir ACCESS-ESM1.6
+cd ACCESS-ESM1.6
+```
+
+Next run the `payu clone` command. This will activate an interactive prompt where we can specify which configuration we want to clone, where we want to copy it to, and what name we want to use for the experiment:
+
+```
+payu clone
+```
+
+1. The first prompt asks us for a url to the GitHub repository where we want to clone a configuration from. Here, we'll specify `https://github.com/ACCESS-NRI/access-esm1.6-configs`
+```
+>> Please enter URL of the repository, or local path of the configuration to clone:  (e.g., https://github.com/payu-org/bowl1.git, or /path/to/local/experiment; 'Tab' t
+o browse, '/' to enter folder)  https://github.com/ACCESS-NRI/access-esm1.6-configs
+```
+
+2. The prompt asks if we want to clone from a branch, or a specific tag or commit in the repository. Since the released ESM1.6 configurations are stored using git branches, we'll select `An existing branch`:
+```
+>> Payu will clone the repo based on: An existing branch
+```
+
+3. Next, we need to specify the particular branch to clone. You are welcome to use any of the four release configurations listed previously. For this example, I'll use the emissions driven pre-industrial control: `release-esm-piControl`
+```
+>> Name of the branch to clone ('Tab' to browse all branches): release-esm-piControl
+```
+
+4. The next prompt asks for us to select a name for the directory that the configuration will be copied into. This directory is referred to as the *control directory*, and we'll use this directory to run the simulations. Any descriptive name is suitable, and here I'll use `tutorial-experiment`:
+```
+>> Please name your local control directory:  (See 'Control directory and branch naming guidance' in the documentation.) tutorial-experiment
+```
+
+5. Next, payu asks whether whether to create a new git branch. Select `Yes`:
+```
+>> Is this a new experiment? (If yes, payu will create a new branch.) Yes
+```
+
+6. Next, we need to choose a name for the new branch. Here, I'll use `simulation-1`:
+```
+>> Please name your new branch:  (Note: this won't be shared to the online repository automatically) simulation-1
+```
+
+7. The final prompt asks if we want to specify a custom initial condition for the model to start from, or if we want to just use the default restart files from the configuration. Select `No` to choose the default restart from the configuration.
+```
+>> Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.) No
+```
+
+
+With this information provided, payu will clone the selected configuration from the repository to the chosen location on gadi:
 
 <terminal-window>
-    <terminal-line data="input">mkdir -p ~/ACCESS-ESM1.6/</terminal-line>
-    <terminal-line data="input">cd ~/ACCESS-ESM1.6/</terminal-line>
-    <terminal-line data="input">payu clone</terminal-line>
-    <terminal-line><span class="payu-yellow">Welcome to the Payu Clone Wizard!</span></terminal-line>
-    <terminal-line><span class="payu-yellow">Press 'Ctrl+C' at any time to exit.</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the URL of the repository, or the local path of a configuration you want to clone:</span>  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow"> https://github.com/ACCESS-NRI/access-esm1.6-configs</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to clone the repo based on:</span> <span class="payu-dark-yellow">An existing branch</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the name of the branch you want to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-piControl</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">How would you like to name your local experiment directory?</span> <span class="payu-dark-yellow">tutorial-experiment</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu red">Is this a new experiment?</span> (If yes, payu will create a new branch.) <span class="payu-dark-yellow">Yes</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">What would you like to name your new branch</span>  (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow"><username\>-tutorial</span></terminal-line>
-    <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.)</span> <span class="payu-dark-yellow">No</span></terminal-line>
     <terminal-line><span class="payu-yellow">Running command:</span></terminal-line>
-    <terminal-line><span class="payu-yellow">\`payu clone -B {{config_example}} -b expt1 {{github_configs}} my-project-expts\`</span></terminal-line>
-    <terminal-line>Cloned repository from {{github_configs}} to directory: /home/561/\$USER/payu-control/{{model}}/my-project-expts</terminal-line>
-    <terminal-line>Created and checked out new branch: expt1</terminal-line>
+    <terminal-line><span class="payu-yellow">\`ppayu clone -B release-esm-piControl -b simulation-1 https://github.com/ACCESS-NRI/access-esm1.6-configs tutorial-experiment`</span></terminal-line>
+    <terminal-line>Cloned repository from {{github_configs}} to directory: /home/561/\$USER/ACCESS-ESM1.6/tutorial-experiment</terminal-line>
+    <terminal-line>Created and checked out new branch: simulation-1</terminal-line>
     <terminal-line>laboratory path:  /scratch/\${PROJECT}/\${USER}/access-esm</terminal-line>
     <terminal-line>binary path:  /scratch/\${PROJECT}/\${USER}/access-esm/bin</terminal-line>
     <terminal-line>input path:  /scratch/\${PROJECT}/\${USER}/access-esm/input</terminal-line>
     <terminal-line>work path:  /scratch/\${PROJECT}/\${USER}/access-esm/work</terminal-line>
     <terminal-line>archive path:  /scratch/\${PROJECT}/\${USER}/access-esm/archive</terminal-line>
     <terminal-line>Updated metadata. Experiment UUID: 14058c5c-d0dd-49dd-841a-cbec42b7391e</terminal-line>
-    <terminal-line>Added archive symlink to /scratch/\${PROJECT}/\${USER}/access-esm/archive/my-project-expts-expt1-14058c5c</terminal-line>
+    <terminal-line>Added archive symlink to /scratch/\${PROJECT}/\${USER}/access-esm/archive/tutorial-experiment-simulation-1-14058c5c</terminal-line>
     <terminal-line>To change directory to control directory run:</terminal-line>
-    <terminal-line>  cd my-project-expts</terminal-line>
+    <terminal-line>  cd tutorial-experiment</terminal-line>
 </terminal-window>
 
-Lastly `cd` into the newly created *control directory*.
+
+7. Finally, enter the  `cd` into the newly created *control directory*:
+```
+cd tutorial-experiment
+```
 
 ## Exercise 3: Setting project for computation and storage
 
@@ -315,6 +376,36 @@ A selection of restart files from the ESM1.6 CMIP7 piControl experiment are avai
 
 
 
+## Further resources and getting help
+
+This session has been a brief introduction to running ACCESS-ESM1.6 with payu. We've only had time to introduce the basics, and you may be interested to learn more about creating custom ESM1.6 configurations and more advanced payu features, including:
+
+- Customising submodel configurations
+- Modifying model source code and building your own executables
+- Controlling model output variables
+- Sharing payu experiments with git and GitHub
+- Advanced experiment workflows with payu
+
+
+
+For details these topics, you can refer to:
+
+- The *How to run ACCESS-ESM1.6* documentation page <!--Add link when ready-->
+- The [ACCESS-ESM1.6 configuration docs](https://access-esm1p6-configs.access-hive.org.au/)
+- The [payu documentation](https://payu.readthedocs.io/en/stable/)
+- For information on the model's scientific configuration, there will be a model description paper published in the future.
+
+
+ACCESS-NRI staff are also available to answer your questions on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). If you have any questions related to ACCESS-ESM1.6, you are welcome to add a help request on the Forum.
+
+
+
+
+
+# Extension sections:
+The following sections are included as extensions for those who are familiar with running climate simulations with payu, and have already completed the main portion of the tutorial. These sections provide more information on the new ACCESS-NRI data specifications and the structure of ESM1.6's outputs, and introduce some of payu's advanced provenance features.
+
+
 ## ACCESS-ESM1.6 outputs and the ACCESS-NRI data spec
 ACCESS-ESM1.6 is the first model whose outputs adhere to the new ACCESS-NRI data specifications. The goal of these specifications is to ensure that  model output from different ACCESS models have both consistent structure and metadata, and to improve ease of use for working with the data.
 
@@ -359,24 +450,7 @@ This information can be used in many different ways, an example of which we'll s
     While this example is a little contrived (payu will guard against changes to the input files when the `manifest: reproduce: input: true` option is included in the `config.yaml`), there have been several times during the development of ESM1.6 where the experiment runlogs have been helpful for investigating similar issues. 
 
 
-## Further resources and getting help
 
-This session has been a brief introduction to running ACCESS-ESM1.6 with payu. We've only had time to introduce the basics, and you may be interested to learn more about creating custom ESM1.6 configurations and more advanced payu features, including:
-
-- Customising submodel configurations
-- Modifying model source code and building your own executables
-- Controlling model output variables
-- Sharing payu experiments with git and GitHub
-- Advanced experiment workflows with payu
-
-For details on some of these topics, please take a look at:
-- The *How to run ACCESS-ESM1.6* documentation page <!--Add link when ready-->
-- The [ACCESS-ESM1.6 configuration docs](https://access-esm1p6-configs.access-hive.org.au/)
-- The [payu documentation](https://payu.readthedocs.io/en/stable/)
-- For information on the model's scientific configuration, there will be a model description paper published in the future.
-
-
-ACCESS-NRI staff are also available to answer your questions on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). If you have any questions related to ACCESS-ESM1.6, you are welcome to add a help request on the Forum.
 
 
 
