@@ -22,9 +22,9 @@ To complete the hands on sections of this tutorial, you will need to have:
 - A GitHub account
 - A MOSRS account and to have completed the [UKMO EULA signing instructions](https://forum.access-hive.org.au/t/accessing-ukmo-licensed-models/6168)
 - Be a member of the NCI projects:
-    - `vk83`
-    - `nf33`
-    - `jq44`
+    - `vk83`: *Project for accessing ACCESS-NRI models*
+    - `nf33`: *Project for ACCESS-NRI training events*
+    - `jq44`: *Project containing released output data from ACCESS-ESM1.6 experiments*
 
 If you haven't completed these prerequisites you're welcome to work with someone else for the hands on sections of the tutorial.
 
@@ -190,15 +190,20 @@ To change the computation and storage project, make the following change:
 +project: nf33
 ```
 
-## Exercise 4: Checking the configuration is working
-To verify everything is set up correctly, it is recommended to first test the configuration as is. You can test the setup and paths are correct by running payu setup from the control directory:
+## Exercise 4: Check the configuration is properly set up
+When cloning or modifying a configuration, it's recommended to first check for common errors such as inaccessible files or incorrectly configured options before running a simulation. We can do this by running the `payu setup` command, which carries out the preparation tasks involved in running a simulation, but stops just before actually starting the model. If payu notices any problems in the configuration, it will produce an error and inform the user.
+
+Check that your configuration is properly set up and you have access to all the required files:
 
 ```
-payu setup
+payu setup --new-uuid
 ```
+
+!!! Tip
+    The --new-uuid flag is only required since we changed the project settings in the `config.yaml`. If we were using our default project, we could omit the `--new-uuid` flag. Reach out to one of the ACCESS-NRI staff helping run the session for some of the details behind this.
 
 <terminal-window>
-    <terminal-line data="input">payu setup</terminal-line>
+    <terminal-line data="input">payu setup --new-uuid</terminal-line>
     <terminal-line>laboratory path: /scratch/\${PROJECT}/\${USER}/access-esm</terminal-line>
     <terminal-line>binary path: /scratch/\${PROJECT}/\${USER}/access-esm/bin</terminal-line>
     <terminal-line>input path: /scratch/\${PROJECT}/\${USER}/access-esm/input</terminal-line>
@@ -218,27 +223,47 @@ payu setup
     <terminal-line>Writing manifests/exe.yaml</terminal-line>
 </terminal-window>
 
+Once the command completes, well see a new symbolic link in the control directory pointing to a `work` directory, a temporary workspace that payu uses to run its simulations.
+
 
 ## Exercise 5: Running the simulation
 To set off a one year simulation of your configuration, run:
 ```
+payu run
+```
+<details>
+<summary>Hint</summary>
+Unfortunately, the above command will have led to the following error:
+```
+[ERROR] Work path already exists. Please use `payu sweep` or use `payu run -f`.
+```
+Payu will issue this error if a non-empty `work` directory for your experiment already exists, in this case because we manually ran the `payu setup` command. To get around this error, add the `-f` flag to the command:
+
+```
 payu run -f
 ```
+This tells payu to delete the existing work directory and recreate it for the new simulation.
+
+</details>
 
 
-**Note**: `payu run` will issue an error if a non-empty work directory for your experiment already exists (from a failed attempt or from running `payu setup`).
-The `-f` option to payu run lets the model run in all cases and deletes any existing data in the work directory. We're using `-f` in this case as we had already run `payu setup`.
-
-**Note:** To run several years in succession, you can use `payu run -f -n <nyears>`. Each separate 1 year run segment will start from where the previous one finished. In this tutorial, we'll just do a single one year simulation.
+The one year simulation will take around 55 minutes to complete. The data post processing which runs in a separate job can take up to another hour, and so final outputs won't be available by the end of the session.
 
 
-The one year simulation will take around 55 minutes to complete. The data post processing which runs in a separate job can take up to another hour, and so we may not get final outputs from our simulations by the end of the session.
+## Excercise 6: Check the status of your simulation
+To confirm that our simulation has been sent to the PBS queue, we can use the `payu status` command. This command reports the current status of a simulation: whether it's queued, running, or in the finishing stages. It will also tell us if an experiment has crashed, which can occur for different reasons including temporary problems on Gadi,  numerical instabilities in the model, or problems with the way a configuration's been set up.
 
+Confirm that your simulation has been sent to the PBS queue by running:
+
+```
+payu status
+```
+from your control directory.
 
 While the simulations are running, we'll discuss some more features of payu and ACCESS-ESM1.6.
 
 
-## Exercise 6: Understanding payu's directory structure
+## Exercise 7: Understanding payu's directory structure
 
 Let's take a brief look at the directories payu creates when it runs a model simulation.
 
@@ -295,17 +320,15 @@ In the following exercises we'll look into how payu sets up and organises the `w
 
 
 
-## Excercise 7: Check the status of your simulation
-Simulations can crash for many different reasons including transient problems on Gadi, numerical instabilities in the model, or problems with the way we've set up the configuration. To check where a simulation is up to, or if it has crashed, payu provides the `payu status` command. 
-
-`payu status`  will tell us whether a simulation is queued, running, successfully completed, or crashed, and if it's still running it will report the current model date.
+## Excercise 8: Check the status the running simulations
+Our simulations should now have left the queue and started running. To check how far they've progressed, we can rerun the `payu status` command which will report the current model date.
 
 Check where your simulation is up to by running:
 
 ```
 payu status
 ```
-from your control directory.
+agin from your control directory.
 
 ## Configuring an ESM1.6 simulation
 
@@ -342,7 +365,7 @@ The `archive` directory is typically under the `/scratch` storage on Gadi, where
 
 Rather than copying the outputs manually, you can use the `sync` settings to get payu to automatically sync the outputs and restart files to a specified location at the end of each run segment.
 
-For example, the following changes will sync the archived data to a location on `/g/data/PROJECT/
+For example, the following changes will sync the archived data to a location on `/g/data/PROJECT/`
 
 ```diff
 # Sync options for automatically copying data from ephemeral scratch space to
@@ -364,14 +387,14 @@ Configuration files for each of ESM1.6's submodels can be found in the `ocean`, 
 Customising the configuring components usually requires in-depth knowledge of the components, and the [Hive Forum](https://forum.access-hive.org.au/) can be a good place to seek advice fromt the wider community and ACCESS-NRI staff.
 
 
-## Exercise 8: Running a custom configuration
+## Exercise 9: Running a custom configuration
 
 A selection of restart files from the ESM1.6 CMIP7 piControl experiment are available in <!--TODO: fill in location--> LOCATION ON JQ44.
 
 1. Clone the `release-piControl` configuration, and set the compute project to PROJECT
 2. Set your experiment to use a selected restart from the above location
 3. Set payu to sync the model outputs and restarts to `/g/data/PROJECT/<user>/tutorial_experiments`
-4. The pre-industrial atmospheric CO2 MMR of 4.3189e-04 is specified in a setting called `CO2_MMR`. Find where this is set, and change it to a value of your choice
+4. The pre-industrial atmospheric CO2 MMR of 4.3189e-04 is specified in a setting called `CO2_MMR`. Find where this is set, and change it to a value of your choice (For example for doubled CO2, you can use 8.6378e-04 ). 
 5. Run your simulation – check back tomorrow and if everything has worked you should find a copy of your outputs in `/g/data/PROJECT/<user>/tutorial_experiments`.
 
 
