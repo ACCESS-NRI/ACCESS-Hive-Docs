@@ -280,7 +280,7 @@ If you run an experiment for some years and then realise you have made an error 
 _Payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command returns the scheduler job ID and the current stage of the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
 
 !!! note
-    `payu status` is available in _payu_ versions `1.2.0` and above. This command does not yet support monitoring post-processing jobs from the configuration (e.g., `payu collate` and `payu sync`).
+    `payu status` is available in _payu_ versions `1.2.0` and above.
 
 ??? example "Example: outputs from `payu status`"
 
@@ -304,16 +304,16 @@ _Payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.
     ```
         ========================================
         Run: 8
-          Job ID:            archive_example.gadi-pbs
+          Job ID:            174067874.gadi-pbs
           Run ID:            xxxx
           Stage:             archive
           Total Queue Time:  0h 1m 7s
           Model Finish Time: 1950-10-01T00:00:00
           Exit Status:       0 (Success)
           Model Exit Code:   0 (Success)
-          Output Log:        ${HOME}/expt.o100
-          Error Log:         ${HOME}/expt.3100
-          Job File:          /scratch/${PROJECT}/${USER}/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+          Output Log:        ${HOME}/expt.o174067874
+          Error Log:         ${HOME}/expt.e174067874
+          Job File:          /scratch/${PROJECT}/${USER}/archive/expt-branch—6dhash/payu_jobs/8/run/174067874.gadi-pbs.json
         ========================================
     ```
 
