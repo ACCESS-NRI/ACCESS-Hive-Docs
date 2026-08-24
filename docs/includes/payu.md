@@ -240,14 +240,14 @@ _Payu_ provides `runspersub` to control the maximum number of runs per PBS job s
 Here are some practical examples of setting these options for different cases. All cases assume `runtime` is set for a 1 year simulation and a model that needs between one and two hours of walltime for a single model year:
 
 - **Run 20 years of simulation with resubmission every 5 years**<br>
-    To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration with `-n` set to `20`:
+    To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, set `runspersub` to `5` and `walltime` to `06:00:00`. Then, run the configuration with `-n` set to `20`:
     ```
     payu run -f -n 20
     ```
     This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
 
 - **Run 7 years of simulation with resubmission every 3 years**<br>
-    To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, set `runspersub` to `3` and `walltime` to `6:00:00`. Then, run the configuration with `-n` set to `7`:
+    To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, set `runspersub` to `3` and `walltime` to `04:00:00`. Then, run the configuration with `-n` set to `7`:
     ```
     payu run -f -n 7
     ```
@@ -557,7 +557,7 @@ collate:
     mpi: false
 ```
 
-For models set to generate single restart and output files over the whole grid, the collation is disabled like so:
+For configurations set to generate single restart and output files over the whole grid, the collation is disabled like so:
 
 ```yaml
 # Collation

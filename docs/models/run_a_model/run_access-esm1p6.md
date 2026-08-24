@@ -22,9 +22,9 @@
 
 ## About
 
-{{ model }} is a fully-coupled global climate model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [{{ model }} overview][model configurations].
+{{ model }} is a fully-coupled global Earth system model, combining  atmosphere, land, ocean, sea ice, ocean biogeochemistry and land biogeochemistry components. A description of the model and its components is available in the [{{ model }} overview][model configurations].
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
+The instructions below outline how to run {{ model }} using ACCESS-NRI's deployed software, specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -288,17 +288,22 @@ Supported configurations:
 
     ### Edit the physics options
 
-    To modify the physics used by a component of {{model}}, the input data or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory, named according to the submodel's `name` specified in the `config.yaml` `submodels` section.
+    To modify the physics used by a component of {{model}} or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory.
+
+
+    To change the input files used by a model (for example topography and atmospheric forcings), you will need to change the filepaths specified in the `config.yaml`. Changing input files may require additional modifications to the submodel configuration files.
 
 ??? info "Create a custom {{ model }} build"
 
     ### Create a custom {{ model }} build
+
     All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
     To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
 
 ??? info "Controlling the diagnostics output by the model"
 
     ### Controlling the diagnostics output by the model
+
     Selecting the variables to save from a simulation can be a balance between enabling future analysis and minimising storage requirements. The choice and frequency of variables saved by each model can be configured from within each submodel's _control_ directory. 
     
     Each submodel's _control_ directory contains _detailed_ and _standard_ presets for controlling the output, located in the `diagnostic_profiles` subdirectories (e.g. `~/{{model|lower}}/{{config_example}}/ice/diagnostic_profiles` for the sea ice submodel). The _CMIP7_ profiles request the variables used in the CMIP7 experiments and include a large number of variables at higher frequencies, while the _standard_ profiles restrict the output to variables more regularly used across the community. Details on the variables saved by each preset are available in [this Hive Forum topic](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629).
