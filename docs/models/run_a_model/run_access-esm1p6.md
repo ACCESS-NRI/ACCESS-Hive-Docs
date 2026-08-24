@@ -145,6 +145,11 @@ Supported configurations:
 
 ## Run an experiment
 
+{% include-markdown "includes/payu.md"
+    start="<!--start:payu-run-experiment-->"
+    end="<!--end:payu-run-experiment-->"
+%}
+
 !!! warning
     The individual run length defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _Payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
 
@@ -160,37 +165,23 @@ Supported configurations:
             months: 0
             days: 0
     ```
-_Payu_ provides two options to give you complete control over the length of the simulation:
 
-- `runspersub` (in the `config.yaml` file) &rarr; the maximum number of runs for _payu_ for each PBS job submission
-- `-n` (command line option) &rarr; sets the total number of runs to be performed, including runs per submission and through automated resubmissions of _payu_
+??? info "Minimise the number of PBS jobs used"
 
-`runspersub` allows you to maximise the number of years simulated within a single PBS job. For this, you also need to set `walltime`, the maximum time of every PBS job, accordingly. `-n` allows _payu_ to resubmit itself to continue the simulation in a subsequent PBS job.
+    {% include-markdown "includes/payu.md"
+        start="<!--start:payu-optimise-PBS-->"
+        end="<!--end:payu-optimise-PBS-->"
+    %}
 
-!!! tip "Setting `walltime` in `config.yaml`"
-    The `walltime` must be set to be long enough that the PBS job can complete. The model usually runs a single year in 60 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
+    !!! tip "Setting `walltime` in `config.yaml`"
+        The `walltime` must be set to be long enough that the PBS job can complete. {{model}} usually runs a single year in 60 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
 
-In conclusion, considering the run length should be left to 1 year, for simulating N years with {{model}}, you need to:
+    ??? example "Examples: Time management for experiments"
 
-- Set `runspersub` and `walltime` to your preference. For example, set `walltime` and `runspersub` to maximise the utilisation of the PBS jobs if you want to limit the time spent in queued jobs
-- Set `-n N` so that _payu_ will automatically run the experiment for the number of years required.
-
-??? example "Examples: Time management for {{model}} experiments"
-    Here are some practical examples of setting these options for different cases. All cases assume `runtime` is set for a 1 year simulation as recommended for {{model}}:
-
-      - **Run 20 years of simulation with resubmission every 5 years**<br>
-          To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, set `runspersub` to `5` and `walltime` to `10:00:00`. Then, run the configuration with `-n` set to `20`:
-          ```
-          payu run -f -n 20
-          ```
-          This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
-      
-      - **Run 7 years of simulation with resubmission every 3 years**<br>
-          To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, set `runspersub` to `3` and `walltime` to `6:00:00`. Then, run the configuration with `-n` set to `7`:
-          ```
-          payu run -f -n 7
-          ```
-          This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
+        {% include-markdown "includes/payu.md"
+            start="<!--start:payu-runspersub-examples-->"
+            end="<!--end:payu-runspersub-examples-->"
+        %}
 
 ??? info "Simulate more years for an existing experiment"
 
