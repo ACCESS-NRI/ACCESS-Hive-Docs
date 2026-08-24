@@ -279,9 +279,6 @@ If you run an experiment for some years and then realise you have made an error 
 <!--start:payu-monitor-->
 _Payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command returns the scheduler job ID and the current stage of the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
 
-!!! note
-    `payu status` is available in _payu_ versions `1.2.0` and above.
-
 ??? example "Example: outputs from `payu status`"
 
     Example output from `payu status` for a running simulation:
