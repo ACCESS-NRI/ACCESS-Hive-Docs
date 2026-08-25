@@ -15,15 +15,16 @@ Welcome to the *How to run ACCESS-ESM1.6* training session. In this session, you
 ## Prerequisites
 To complete the hands on sections of this tutorial, you will need to have:
 
-- A current NCI account
-- A GitHub account
+- A current [NCI account](https://my.nci.org.au/mancini/signup)
+- A [GitHub](https://github.com/join) account
 - A MOSRS account and to have completed the [UKMO EULA signing instructions](https://forum.access-hive.org.au/t/accessing-ukmo-licensed-models/6168)
 - Be a member of the NCI projects:
     - `vk83`: *Project for accessing ACCESS-NRI models*
     - `nf33`: *Project for ACCESS-NRI training events*
     - `jq44`: *Project containing released output data from ACCESS-ESM1.6 experiments*
 
-If you haven't completed these prerequisites you're welcome to work with someone else for the hands on sections of the tutorial.
+!!! note
+    If you haven't completed these prerequisites you're welcome to work with someone else for the hands on sections of the tutorial.
 
 In addition, the following background is recommended for the hands on portions of this session:
 
@@ -34,9 +35,9 @@ In addition, the following background is recommended for the hands on portions o
 
 
 ## Introduction to ACCESS-ESM1.6
-ACCESS-ESM1.6 is a global coupled earth system model containing active atmosphere, ocean, sea ice, land, and biogeochemistry components. The model supports both a prescribed CO2 concentrations mode, and a fully interactive carbon mode where carbon is coupled between the model components.
+ACCESS-ESM1.6 is a global coupled earth system model containing active [atmosphere](https://docs.access-hive.org.au/models/model_components/atmosphere), [ocean](https://docs.access-hive.org.au/models/model_components/ocean), [sea ice](https://docs.access-hive.org.au/models/model_components/sea-ice), [land](https://docs.access-hive.org.au/models/model_components/land), and biogeochemistry components. The model supports both a prescribed CO2 concentrations mode, and a fully interactive carbon mode where carbon is coupled between the model components.
 
-ACCESS-ESM1.6 development used ACCESS-ESM1.5 as a base and brought in many significant changes. Some of the main changes include:
+ACCESS-ESM1.6 development used [ACCESS-ESM1.5](https://www.access-nri.org.au/models/earth-system-model-esm/) as a base and brought in many significant changes. Some of the main changes include:
 
 - A new ocean BGC model, WOMBATlite
 - The CABLE2.4 land model has been updated to CABLE3, with new features including as Australian plant types and improvements to energy and water conservation.
@@ -49,22 +50,25 @@ ACCESS-ESM1.6 development used ACCESS-ESM1.5 as a base and brought in many signi
 
 In the following sections of the tutorial, we'll run our own simulations of ESM1.6 by:
 1. Connecting to the NCI computer gadi and loading the simulation management software *payu*
+
 2. Using payu to clone a released ACCESS-ESM1.6 *configuration* from GitHub
+
 3. Using payu to run a simulation based on the configuration
 
-While the simulations are running, we'll learn more about key payu commands, how configuratoins are structured, and how to run a customised simulation.
+While the simulations are running, we'll learn more about key _payu_ commands, how configurations are structured, and how to run a customised simulation.
 
 
 
 ## Introduction to payu
 
-payu is a workflow manager for running numerical models in supercomputing environments. Payu is designed to help users set up, run, and manage climate simulations, and provides a consistent set of commands and concepts which can be used accross several models including ACCESS-OM3 and ACCESS ESM1.6.
+_Payu_ is a workflow manager for running numerical models in supercomputing environments. _Payu_ is designed to help users set up, run, and manage climate simulations, and provides a consistent set of commands and concepts which can be used accross several models including [ACCESS-OM3](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/) and ACCESS ESM1.6.
 
-For in-depth information about payu, visit the [payu documentation](https://payu.readthedocs.io/en/stable/).
+!!! info
+    For in-depth information about payu, visit the [payu documentation (https://payu.readthedocs.io/en/stable/).
 
 
 ## Exercise 1: Activating payu on gadi
-Payu is made available as a module on gadi. To enable payu commands, log onto gadi and run:
+_Payu_ is made available as a module on Gadi. To enable payu commands, log onto Gadi and run:
 ```
 module use /g/data/vk83/modules
 module load payu
@@ -79,9 +83,17 @@ payu --version
 This should print out the version of payu that's been loaded: `payu 1.3.4`.
 
 ## Exercise 2: Cloning an ACCESS-ESM1.6 configuration
-Running a climate model requires you to collect a large number of files, including model executables, a collection of model input files such as grids and forcings, configuration files to control the model's scientific options, and an initial state for the model to start from. A payu *configuration* can be thought of a prebuilt bundle of all these requirements, making it easy to get a simulation running. Different scientific configurations of the model can be stored in different payu configurations.
+Running a climate model requires you to collect a large number of files including:
 
-Released ACCESS-ESM1.6 configurations are published on the ESM1.6 configurations [GitHub repository](https://github.com/ACCESS-NRI/access-esm1.6-configs), where different configurations are stored under different git branches. The branches for the ACCESS-ESM1.6 configurations which have been released by ACCESS-NRI are:
+ - model executables, 
+ 
+ - collection of model input files such as _grids_ and _forcings_,
+ 
+ - _configuration files_ to control the model's scientific options, and an initial state for the model to start from. 
+ 
+ A payu *configuration* can be thought of a prebuilt bundle of all these requirements, making it easy to get a simulation running. Different scientific configurations of the model can be stored in different payu configurations.
+
+Released ACCESS-ESM1.6 configurations are published on the [ESM1.6 configurations GitHub repository](https://github.com/ACCESS-NRI/access-esm1.6-configs), where different configurations are stored under different git branches. The branches for the ACCESS-ESM1.6 configurations which have been released by ACCESS-NRI are:
 
 - [release-piControl](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-piControl): *The CO2 concentrations driven pre-industrial control*
 - [release-esm-piControl](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-esm-piControl): *The emissions driven pre-industrial control*
@@ -89,7 +101,7 @@ Released ACCESS-ESM1.6 configurations are published on the ESM1.6 configurations
 - [release-esm-historical](https://github.com/ACCESS-NRI/access-esm1.6-configs/tree/release-esm-historical): *The emissions driven historical configuration*
 
 !!! Note
-    Additional configurations are in preparation for release including amip and future scenarios.
+    Additional configurations, including AMIP and future scenarios, are currently being prepared for release.
 
 
 
@@ -169,7 +181,7 @@ With this information provided, payu will clone the selected configuration from 
 </terminal-window>
 
 
-7. Finally, enter the  `cd` into the newly created *control directory*:
+    7. Finally, enter the  `cd` into the newly created *control directory*:
 ```
 cd tutorial-experiment
 ```
@@ -435,11 +447,11 @@ ACCESS-NRI staff are also available to answer your questions on the [ACCESS-Hive
 
 
 
-# Extension sections:
+## Extension sections
 The following sections are included as extensions for those who are familiar with running climate simulations with payu, and have already completed the main portion of the tutorial. These sections provide more information on the new ACCESS-NRI data specifications and the structure of ESM1.6's outputs, and introduce some of payu's advanced provenance features.
 
 
-## ACCESS-ESM1.6 outputs and the ACCESS-NRI data spec
+### ACCESS-ESM1.6 outputs and the ACCESS-NRI data spec
 ACCESS-ESM1.6 is the first model whose outputs adhere to the new ACCESS-NRI data specifications. The goal of these specifications is to ensure that  model output from different ACCESS models have both consistent structure and metadata, and to improve ease of use for working with the data.
 
 Key changes in ACCESS-ESM1.6's output data compared to ESM1.5 include:
@@ -465,7 +477,7 @@ Key changes in ACCESS-ESM1.6's output data compared to ESM1.5 include:
 Take a look at the output in <!--TODO put some output somewhere accessible--> DIRECTORY to see how the model output data is structured, and feel free to raise any questions with NRI staff. See [the data specifications documentation](https://access-output-data-specifications.readthedocs.io/en/latest/specification/) for further details on the ACCES-NRI data specifications.
 
 
-## Exercise 9: Runlogs, manifests, and experiment provinence
+### Exercise 9: Runlogs, manifests, and experiment provinence
 A core principle of payu's design is to make experiment provenance easy. Payu automatically tracks configuration settings, input, restart, and executable paths throughout an experiment, recording this information with git.
 
 This information can be used in many different ways, an example of which we'll see in the (made up) example of below:
