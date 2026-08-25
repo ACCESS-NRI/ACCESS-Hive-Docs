@@ -298,7 +298,7 @@ For production {{model}} experiments, the run length defined in the configuratio
     ### Create a custom {{ model }} build
 
     All executables required to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
-    To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
+    To customise {{ model }}'s build (e.g., to incorporate source-code changes to a component), see [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}0).
 
 ??? info "Controlling the diagnostics output by the model"
 
@@ -322,7 +322,8 @@ For production {{model}} experiments, the run length defined in the configuratio
 
 ## Get Help
 
-If you have questions or need help regarding {{ model }}, consider creating a topic in the [Earth System Model category of the ACCESS-Hive Forum](https://forum.access-hive.org.au/c/esm/earth-system-model/72).<br>
+For questions or help with {{ model }}, post a topic in the Earth System Model category of the
+[Earth System Model category of the ACCESS-Hive Forum](https://forum.access-hive.org.au/c/esm/earth-system-model/72).<br>
 For assistance from ACCESS-NRI, follow the [guidelines on how to get help](/about/user_support/#still-need-help).
 
 <custom-references>
