@@ -151,7 +151,7 @@ Supported configurations:
 %}
 
 !!! warning
-For production {{model}} experiments, the run length defined in the configuration should remain at 1 year to avoid errors. To run the model for longer, use multiple runs. _Payu_ provides several options for controlling the experiment length, as described in this section.
+    For production {{model}} experiments, the run length defined in the configuration should remain at 1 year to avoid errors. To run the model for longer, use multiple runs. _Payu_ provides several options for controlling the experiment length, as described in this section.
 
     The only exception is for testing: runs shorter than one year are possible, but require additional modifications described in [Run for less than one year](#shorter-runs).
 
