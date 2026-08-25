@@ -112,10 +112,10 @@ Supported configurations:
 
 | Configuration | Reference | Branch name |
 |---------------|-----------|-------------|
-| piControl     | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/picontrol/) | release-piControl |
-| esm-piControl | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/esm-picontrol/) | release-esm-piControl |
-| historical    | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/historical/) | release-historical |
-| esm-historical | [CMIP7 experiment setup](https://guidance.mipcvs.dev/CMIP7/Experiment_set_up_and_Forcings/esm-hist/) | release-esm-historical |
+| piControl     | [CMIP7 experiment setup](https://wcrp-cmip.github.io/cmip7-guidance/docs/CMIP7/Experiment_set_up_and_Forcings/picontrol/) | release-piControl |
+| esm-piControl | [CMIP7 experiment setup](https://wcrp-cmip.github.io/cmip7-guidance/docs/CMIP7/Experiment_set_up_and_Forcings/esm-picontrol/) | release-esm-piControl |
+| historical    | [CMIP7 experiment setup](https://wcrp-cmip.github.io/cmip7-guidance/docs/CMIP7/Experiment_set_up_and_Forcings/historical/) | release-historical |
+| esm-historical | [CMIP7 experiment setup](https://wcrp-cmip.github.io/cmip7-guidance/docs/CMIP7/Experiment_set_up_and_Forcings/esm-hist/) | release-esm-historical |
 
 
 {%
@@ -151,9 +151,9 @@ Supported configurations:
 %}
 
 !!! warning
-    The individual run length defined in the configuration should be left at 1 year for {{model}} experiments in production in order to avoid errors. To run the model for longer than the default run length, conduct multiple runs. _Payu_ provides a range of options that allow you to control the length of the experiment as explained in this section.
+For production {{model}} experiments, the run length defined in the configuration should remain at 1 year to avoid errors. To run the model for longer, use multiple runs. _Payu_ provides several options for controlling the experiment length, as described in this section.
 
-    The only exception is for testing purposes, in that case, it is possible to set the run length to be shorter than 1 year but other modifications are required as explained in [Run for less than one year](#shorter-runs)
+    The only exception is for testing: runs shorter than one year are possible, but require additional modifications described in [Run for less than one year](#shorter-runs).
 
 ??? tip "Identifying the run length for your experiment to ensure it is set to 1 year"
 
@@ -174,7 +174,7 @@ Supported configurations:
     %}
 
     !!! tip "Setting `walltime` in `config.yaml`"
-        The `walltime` must be set to be long enough that the PBS job can complete. {{model}} usually runs a single year in 60 minutes or less, but the `walltime` for a single model run is set to `2:30:00` out of an abundance of caution to make sure the model has time to run when there are occasional slower runs for unpredictable reasons. When setting `runspersub > 1` the `walltime` doesn't need to be a simple multiple of `2:30:00` because it is highly unlikely that there will be multiple anomalously slow runs per submit.
+        The `walltime` must be long enough for the PBS job to complete. {{model}} typically runs a single year in 60 minutes or less, but `walltime` is set to `2:30:00` to allow for occasional unexpectedly slow runs. When `runspersub > 1`, the `walltime` need not be a multiple of `2:30:00`, as multiple unexpectedly slow runs within a single submission are highly unlikely.
 
     ??? example "Examples: Time management for experiments"
 
@@ -273,7 +273,7 @@ Supported configurations:
     
         #### Run for less than one year for testing purposes {: #shorter-runs .no-toc }
 
-        When debugging changes to a model, it is common to reduce the run length to minimise resource consumption and return faster feedback on changes. In order to run the model for a single month, the `runtime` can be changed to
+        When debugging model changes, it is common to reduce the run length to minimise resource consumption and obtain faster feedback. To run the model for a single month, set runtime to
         
         ```yml
             runtime:
@@ -288,33 +288,33 @@ Supported configurations:
 
     ### Edit the physics options
 
-    To modify the physics used by a component of {{model}} or the model variables saved in the output, you will need to modify the model component's configuration files. These are located inside a subfolder of the _control_ directory.
+    To modify the physics of an {{model}} component or the variables saved to its output, edit the component's configuration files, located in a subfolder of the _control_ directory.
 
 
-    To change the input files used by a model (for example topography and atmospheric forcings), you will need to change the filepaths specified in the `config.yaml`. Changing input files may require additional modifications to the submodel configuration files.
+    To change the input files used by a model (e.g., topography and atmospheric forcings), update the corresponding file paths in the `config.yaml`. This may also require changes to the submodel configuration files.
 
 ??? info "Create a custom {{ model }} build"
 
     ### Create a custom {{ model }} build
 
-    All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
+    All executables required to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
     To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
 
 ??? info "Controlling the diagnostics output by the model"
 
     ### Controlling the diagnostics output by the model
 
-    Selecting the variables to save from a simulation can be a balance between enabling future analysis and minimising storage requirements. The choice and frequency of variables saved by each model can be configured from within each submodel's _control_ directory. 
+    Choosing which variables to save involves balancing future analysis needs against storage requirements. The variables saved, and their output frequency, can be configured in each submodel’s _control_ directory. 
     
-    Each submodel's _control_ directory contains _detailed_ and _standard_ presets for controlling the output, located in the `diagnostic_profiles` subdirectories (e.g. `~/{{model|lower}}/{{config_example}}/ice/diagnostic_profiles` for the sea ice submodel). The _CMIP7_ profiles request the variables used in the CMIP7 experiments and include a large number of variables at higher frequencies, while the _standard_ profiles restrict the output to variables more regularly used across the community. Details on the variables saved by each preset are available in [this Hive Forum topic](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629).
+    Each submodel's _control_ directory contains _detailed_ and _standard_ output presets in its `diagnostic_profiles` subdirectory (e.g., `~/{{model|lower}}/{{config_example}}/ice/diagnostic_profiles` for the sea ice submodel). The _CMIP7_ profiles request variables used in CMIP7 experiments, with a larger number of variables at higher frequencies, while the standard profiles limit output to variables more commonly used across the community. Details of the variables saved by each preset are available in [this Hive Forum topic](https://forum.access-hive.org.au/t/preset-output-profiles-for-esm1-5/3629).
     
-    Selecting a preset output profile to use in a simulation can be done by pointing the following symbolic links to the desired profile:
+    Select a preset output profile by pointing the following symbolic links to the desired profile:
     
      * `STASHC` in the atmosphere _control_ directory.
      * `diag_table` in the ocean _control_ directory.
      * `ice_history.nml` in the ice _control_ directory.
     
-    For example, to select the _detailed_ output profile for the atmosphere:
+    For example, to select the _detailed_ output profile for the atmosphere submodel:
     <terminal-window>
         <terminal-line data="input">cd ~/{{model|lower}}/{{config_example}}/atmosphere</terminal-line>
         <terminal-line data="input">ln -sf diagnostic_profiles/STASHC_detailed STASHC</terminal-line>
@@ -323,7 +323,7 @@ Supported configurations:
 ## Get Help
 
 If you have questions or need help regarding {{ model }}, consider creating a topic in the [Earth System Model category of the ACCESS-Hive Forum](https://forum.access-hive.org.au/c/esm/earth-system-model/72).<br>
-For assistance on how to request help from ACCESS-NRI, follow the [guidelines on how to get help](/about/user_support/#still-need-help).
+For assistance from ACCESS-NRI, follow the [guidelines on how to get help](/about/user_support/#still-need-help).
 
 <custom-references>
 - Build infrastructure: [https://github.com/access-nri/access-esm1.6](https://github.com/access-nri/access-esm1.6)

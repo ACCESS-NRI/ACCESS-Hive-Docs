@@ -233,25 +233,25 @@ For example, to run an experiment for 50 years using a configuration with a 1-ye
 
 _Payu_ provides `runspersub` to control the maximum number of runs per PBS job submission.
 
-`runspersub` allows you to maximise the number of years simulated within a _single_ PBS job, hence reducing the overall queueing time of PBS jobs for an experiment. For this, you also need to set `walltime`, the maximum time of every PBS job, accordingly. In contrast, the command-line option `-n` allows _payu_ to resubmit itself to continue the simulation in a _subsequent_ PBS job.
+`runspersub` controls how many years are simulated within a _single_ PBS job, reducing queueing time between jobs. You must also set `walltime` to allow sufficient time for all runs to complete. In contrast, the `-n` command-line option allows _payu_ to resubmit the simulation to a _subsequent_ PBS job.
 <!--end:payu-optimise-PBS-->
 
 <!--start:payu-runspersub-examples-->
-Here are some practical examples of setting these options for different cases. All cases assume `runtime` is set for a 1 year simulation and a model that needs between one and two hours of walltime for a single model year:
+Here are some practical examples of setting these options for different cases. All assume `runtime` is set to 1 year and that the model requires 1 to 2 hours of `walltime` per simulated model year:
 
-- **Run 20 years of simulation with resubmission every 5 years**<br>
-    To have a _total experiment length_ of 20 years with a 5-year resubmission cycle, set `runspersub` to `5` and `walltime` to `06:00:00`. Then, run the configuration with `-n` set to `20`:
+- **Run 20 years with resubmission every 5 years**<br>
+    Set `runspersub` to `5` and `walltime` to `06:00:00`, then run:
     ```
     payu run -f -n 20
     ```
     This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
 
-- **Run 7 years of simulation with resubmission every 3 years**<br>
-    To have a _total experiment length_ of 7 years with a 3-year resubmission cycle, set `runspersub` to `3` and `walltime` to `04:00:00`. Then, run the configuration with `-n` set to `7`:
+- **Run 7 years with resubmission every 3 years**<br>
+   Set `runspersub` to `3` and `walltime` to `04:00:00`, then run:
     ```
     payu run -f -n 7
     ```
-    This will submit subsequent jobs for the following years: 1 to 3, 4 to 6, and 7, which is a total of 3 PBS jobs.
+    This submits three PBS jobs covering years 1-3, 4 -6, and 7.
 <!--end:payu-runspersub-examples-->
 
 <!--start:payu-continue-experiment-->
@@ -271,7 +271,7 @@ payu run -n 50
 <!--start:payu-re-run-experiment-->
 ### Re-run an experiment from scratch
 
-If you run an experiment for some years and then realise you have made an error and would like to re-run the same years again, you will need to first remove the _archive_ directory created by _payu_ (i.e., move it, rename it, tar it or delete it according to what is appropriate). You can use `payu sweep --hard` to delete your previous experiment data. You can then re-launch the experiment using `payu run -n N` as done previously.
+If you need to rerun years after correcting an error, first remove the archive directory created by payu (e.g., move, rename, archive, or delete it as appropriate). You can use `payu sweep --hard` to remove the previous experiment data, then relaunch the experiment with `payu run -n N` as before.
 <!--end:payu-re-run-experiment-->
 
 ## Monitor the experiment
@@ -541,7 +541,7 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 <!--start:payu-collate-->
 #### Collate {: .no-toc }
 
-The ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) can generate diagnostic and restart outputs in single files covering the whole model grid or tiled files with each tile spanning a portion of the model horizontal grid.
+The ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) can generate diagnostic and restart outputs in single files covering the whole model grid or as tiled files, with each tile covering part of the horizontal grid.
 The `collate` section in the `config.yaml` file controls the process that combines the tiled output into a single output file.
 
 ```yaml
@@ -554,7 +554,7 @@ collate:
     mpi: false
 ```
 
-For configurations set to generate single restart and output files over the whole grid, the collation is disabled like so:
+For configurations that generate single restart and output files over the whole grid, collation is disabled as follows:
 
 ```yaml
 # Collation

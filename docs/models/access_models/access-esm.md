@@ -5,24 +5,24 @@
 The **ACCESS E**arth **S**ystem **M**odel (ACCESS-ESM) is a fully-coupled global climate model that includes [atmosphere](/models/model_components/atmosphere), [land](/models/model_components/land), [ocean](/models/model_components/ocean), [sea ice](/models/model_components/sea-ice), [ocean biogeochemistry](/models/model_components/bgc_ocean) and [land biogeochemistry](/models/model_components/bgc_land) components, linked together by a [coupler](/models/model_components/coupler).<br>
 This means it can simulate both the physical climate and global biogeochemical cycles, in particular the carbon cycle.
 
-## ACESS-ESM1.6
+## ACCESS-ESM1.6
 
-ACCESS-ESM1.6 is a fully-coupled climate model with land and ocean carbon cycle components. ACCESS-ESM1.6 was developed primarily to enable Australia to participate in the [CMIP7 Assessment FastTrack](https://wcrp-cmip.org/cmip-phases/cmip7/#cmip7_assessment_fast_track_cmip7_aft) with an ESM version.
+ACCESS-ESM1.6 is a fully-coupled climate model with land and ocean carbon cycle components. It was developed primarily to enable Australia to participate in the [CMIP7 Assessment Fast Track](https://wcrp-cmip.org/cmip-phases/cmip7/#cmip7_assessment_fast_track_cmip7_aft) with an ESM version.
 
 ACCESS-ESM1.6 was developed by ACCESS-NRI and CSIRO.
 
-There are currently four supported configurations:
+Supported ESM1.6 configurations:
 
 - ***Concentration-driven pre-industrial control, piControl***:<br>
       The _piControl_ configuration simulates the climate prior to the industrial revolution using prescribed CO~2~ concentrations and atmospheric forcings estimated for the year 1850.
 - ***Emission-driven pre-industrial control, esm-piControl***:<br>
-      The _esm-piControl_ configuration of ESM1.6 simulates the climate prior to the industrial revolution using a fully interactive carbon cycle where 3D CO~2~ tracers evolve freely in the atmosphere and are exchanged with the land and ocean biogeochemistry submodels.
+      The _esm-piControl_ configuration simulates the climate prior to the industrial revolution using a fully interactive carbon cycle, where three-dimensional CO~2~ tracers evolve freely in the atmosphere and are exchanged with the land and ocean biogeochemistry submodels.
 - ***Concentration-driven historical***:<br>
       The historical configuration simulates the climate from 1850-2022 using prescribed atmospheric CO~2~ concentrations and forcings.
 - ***Emission-driven historical***:<br>
       The esm-historical configuration simulates the climate from 1850-2022 using a fully interactive carbon cycle and historical CO~2~ anthropogenic emissions data.
 
-Details on the forcings and parameters used in the supported configurations can be found in the [configuration documentation](https://access-esm1p6-configs.access-hive.org.au/configs_experiments/configurations/).
+Details on the forcings and parameters used in the supported configurations are available in the [configuration documentation](https://access-esm1p6-configs.access-hive.org.au/configs_experiments/).
 
 ### Model components
 - **Atmosphere**: [UM7.3](/models/model_components/atmosphere#unified-model-um), GA7.1 science configuration.<br>
