@@ -244,7 +244,7 @@ Here are some practical examples of setting these options for different cases. A
     ```
     payu run -f -n 20
     ```
-    This will submit subsequent jobs for the following years: 1 to 5, 6 to 10, 11 to 15, and 16 to 20, which is a total of 4 PBS jobs.
+    This submits four PBS jobs covering years 1-5, 6-10, 11-15, and 16-20.
 
 - **Run 7 years with resubmission every 3 years**<br>
    Set `runspersub` to `3` and `walltime` to `04:00:00`, then run:
