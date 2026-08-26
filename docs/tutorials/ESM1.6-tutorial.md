@@ -512,7 +512,7 @@ Customising the configuring components usually requires in-depth knowledge of th
 ## Exercise 9: Running a custom configuration
 In this exercise, we'll get some practice using the settings described above. We'll clone and run another configuration and customise it to use a different restart file, to activate syncing, and to modify the scientific configuration for the atmosphere submodel.
 
-A selection of restart files from the ESM1.6 CMIP7 piControl experiment are available in <!--TODO: fill in location--> LOCATION ON JQ44.
+A selection of restart files from the ESM1.6 CMIP7 piControl experiment are available in the `restart000`, `restart001` ... directories in `/g/data/jq44/access-nri/access-esm1p6/global/piControl/r1i1p1f1/2026.04.2`. Each restart directory corresponds to the end of a different year of the experiment. Follow the steps below to run a customised experiment:
 
 1. Clone the `release-piControl` configuration into a new control directory named `tutorial-custom` located under `~/ACCESS-ESM1.6`. Remember to set the compute project to `nf33`
 2. Set your experiment to use a selected restart from the above location. You can set this either during the `payu clone` command, or by editing the `config.yaml` file after the cloning step.
@@ -575,7 +575,7 @@ Key changes in ACCESS-ESM1.6's output data compared to ESM1.5 include:
     :experiment_uuid = "0dab21b3-892f-41dd-afb4-21198a7ef648" ;
     ```
 
-Take a look at the output in <!--TODO put some output somewhere accessible--> DIRECTORY to see how the model output data is structured, and feel free to raise any questions with NRI staff. See [the data specifications documentation](https://access-output-data-specifications.readthedocs.io/en/latest/specification/) for further details on the ACCES-NRI data specifications.
+Take a look at the output in `/g/data/jq44/access-nri/access-esm1p6/global/piControl/r1i1p1f1/2026.04.22/output000` to see how the model output data is structured, and feel free to raise any questions with NRI staff. See [the data specifications documentation](https://access-output-data-specifications.readthedocs.io/en/latest/specification/) for further details on the ACCES-NRI data specifications.
 
 
 ### Exercise 9: Runlogs, manifests, and experiment provinence
