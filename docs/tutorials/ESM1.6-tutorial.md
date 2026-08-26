@@ -61,14 +61,69 @@ ACCESS-ESM1.6 development used [ACCESS-ESM1.5](https://www.access-nri.org.au/mod
 
 
 In the following sections of the tutorial, we'll run our own simulations of ESM1.6 by:
+
 1. Connecting to the NCI computer gadi and loading the simulation management software *payu*
 
 2. Using payu to clone a released ACCESS-ESM1.6 *configuration* from GitHub
 
 3. Using payu to run a simulation based on the configuration
 
-While the simulations are running, we'll learn more about key _payu_ commands, how configurations are structured, and how to run a customised simulation.
+```mermaid
+flowchart TB
+    subgraph FIRST["<b>Stage 1: Get your first model running!</b>"]
+        direction LR
 
+        A["🌏 <b>Introduction to ACCESS-ESM1.6</b><br/><br/>What's new?<br/><br/><b>~10 min</b>"]
+
+        B["🛠️ <b>Payu Introduction</b><br/><br/>Load payu on Gadi<br/><br/><b>~10 min</b>"]
+
+        C["▶️ <b>Run your simulation</b><br/><i>Exercises 1-6</i> <br/><br/> Clone → setup → run → status <br/><br/><b>~15 min</b>"]
+
+        A --> B --> C
+    end
+        FIRST -->|"Next: Explore your run"| SECOND
+
+    subgraph SECOND["<b>Stage 2: Explore, customise & configure</b>"]
+        direction LR
+
+        D["🔎 <b>Explore Payu</b><br/><i>Exercise 7</i><br/><br/>Learn more about payu's directory structure!<br/><br/><b>~10 min</b>"]
+
+        E["⚙️ <b>Configure your experiment</b><br/><br/>config.yaml, restarts & outputs<br/><br/><b>~15 min</b>"]
+
+        F["🧪 <b>Try it yourself</b><br/><i>Exercise 9</i><br/><br/>Customise & run an experiment<br/><br/><b>~20 min</b>"]
+
+        G["💬 <b>Wrap up</b><br/><br/>Questions, resources & next steps<br/><br/><b>~10 min</b>"]
+
+        D --> E --> F --> G
+    end
+
+
+    %% Theme-friendly colour coding:
+    %% keep Mermaid/MkDocs background + text colours,
+    %% and colour only the outlines.
+
+    classDef intro stroke:#3B82F6,stroke-width:3px;
+    classDef setup stroke:#8B5CF6,stroke-width:3px;
+    classDef run stroke:#16A34A,stroke-width:3px;
+    classDef explore stroke:#0EA5E9,stroke-width:3px;
+    classDef configure stroke:#F59E0B,stroke-width:3px;
+    classDef handsOn stroke:#10B981,stroke-width:4px;
+    classDef wrap stroke:#64748B,stroke-width:3px;
+
+    class A intro;
+    class B setup;
+    class C run;
+    class D explore;
+    class E configure;
+    class F handsOn;
+    class G wrap;
+
+    %% Keep the section containers subtle and theme-compatible
+    style FIRST fill:transparent,stroke:#64748B,stroke-width:1px
+    style SECOND fill:transparent,stroke:#64748B,stroke-width:1px
+```
+
+While the simulations are running, we'll learn more about key _payu_ commands, how configurations are structured, and how to run a customised simulation.
 
 
 ## Introduction to payu
@@ -117,61 +172,82 @@ Released ACCESS-ESM1.6 configurations are published on the [ESM1.6 configuration
 
 
 
-The first step in running an ESM1.6 simulation is to select a configuration from the repository, and make a local copy of it (i.e. clone). To do this, you'll need to:
+The first step in running an ESM1.6 simulation is to select a configuration from the repository, and make a local copy of it on Gadi (i.e. clone). The following steps outline how to do this:
 
-- Know the `<repository>` and `<branch>` name the configuration is stored under on GitHub. For this tutorial, use https://github.com/ACCESS-NRI/access-esm1.6-configs for the `<repository>`, and select a `<branch>` name from any of the above released configurations.
-- Create a location on Gadi to store all your payu experiments, `<configurations-directory>`, typically a folder under $HOME. This directory must exist before running payu.
-- Choose a directory name to store the experiment, `<control-directory>` (created by payu). The control directory is a Git repository.
-- Choose a name for your experiment, `<local-branch>`. It is recommended to choose a descriptive name, specific to your experiment. For this tutorial, `<username>-tutorial` is an example of the local branch name you can use.
 
-First create a directory under our `$HOME` directory to store out configurations:
-```
-cd ~
-mkdir ACCESS-ESM1.6
-cd ACCESS-ESM1.6
-```
+1. **Create a directory to keep your payu experiments**
 
-Next run the `payu clone` command. This will activate an interactive prompt where we can specify which configuration we want to clone, where we want to copy it to, and what name we want to use for the experiment:
+    Choose a location on Gadi for storing your payu control directories. It's recommended to use a directory under $HOME, for example:
 
-```
-payu clone
-```
+    ```
+    cd ~
+    mkdir ACCESS-ESM1.6
+    cd ACCESS-ESM1.6
+    ```
 
-1. The first prompt asks us for a url to the GitHub repository where we want to clone a configuration from. Here, we'll specify `https://github.com/ACCESS-NRI/access-esm1.6-configs`
-```
->> Please enter URL of the repository, or local path of the configuration to clone:  (e.g., https://github.com/payu-org/bowl1.git, or /path/to/local/experiment; 'Tab' t
-o browse, '/' to enter folder)  https://github.com/ACCESS-NRI/access-esm1.6-configs
-```
+2. **Start the payu clone interactive prompt**
 
-2. The prompt asks if we want to clone from a branch, or a specific tag or commit in the repository. Since the released ESM1.6 configurations are stored using git branches, we'll select `An existing branch`:
-```
->> Payu will clone the repo based on: An existing branch
-```
+    Next run the `payu clone` command. This will activate an interactive prompt where we specify the configuration we want to clone, where we want to copy it to, and the name we want to use for the experiment:
 
-3. Next, we need to specify the particular branch to clone. You are welcome to use any of the four release configurations listed previously. For this example, I'll use the emissions driven pre-industrial control: `release-esm-piControl`
-```
->> Name of the branch to clone ('Tab' to browse all branches): release-esm-piControl
-```
+    ```
+    payu clone
+    ```
 
-4. The next prompt asks for us to select a name for the directory that the configuration will be copied into. This directory is referred to as the *control directory*, and we'll use this directory to run the simulations. Any descriptive name is suitable, and here I'll use `tutorial-experiment`:
-```
->> Please name your local control directory:  (See 'Control directory and branch naming guidance' in the documentation.) tutorial-experiment
-```
+3. **Select the GitHub repository to clone a configuration from**
 
-5. Next, payu asks whether whether to create a new git branch. Select `Yes`:
-```
->> Is this a new experiment? (If yes, payu will create a new branch.) Yes
-```
+    The first prompt asks for a url to the GitHub repository where we want to clone a configuration from. Here, we'll specify the ACCESS-ESM1.6 configurations repository `https://github.com/ACCESS-NRI/access-esm1.6-configs`
+    ```
+    >> Please enter URL of the repository, or local path of the configuration to clone:  (e.g., https://github.com/payu-org/bowl1.git, or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder)  https://github.com/ACCESS-NRI/access-esm1.6-configs
+    ```
 
-6. Next, we need to choose a name for the new branch. Here, I'll use `simulation-1`:
-```
->> Please name your new branch:  (Note: this won't be shared to the online repository automatically) simulation-1
-```
+4. **Select the branch from the repository you would like to clone**
 
-7. The final prompt asks if we want to specify a custom initial condition for the model to start from, or if we want to just use the default restart files from the configuration. Select `No` to choose the default restart from the configuration.
-```
->> Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.) No
-```
+    The prompt then asks if we want to clone from a branch, or a specific tag or commit in the repository. Since the released ESM1.6 configurations are stored using git branches, we'll select `An existing branch`:
+    ```
+    >> Payu will clone the repo based on: An existing branch
+    ```
+
+5. **Select the branch to clone**
+
+    The next prompt asks which branch we would like to clone. You are welcome to use any of the four release configurations listed previously. For this example, I'll use the emissions driven pre-industrial control: `release-esm-piControl`
+    ```
+    >> Name of the branch to clone ('Tab' to browse all branches): release-esm-piControl
+    ```
+
+6. **Select a directory name for the cloned configuration**
+
+    Next, we need to select a name for the directory that the configuration will be copied into. This directory is referred to as the *control directory*, and payu will create it for us as part of the cloning step. Any descriptive name is suitable, and here I'll use `tutorial-experiment`:
+    ```
+    >> Please name your local control directory:  (See 'Control directory and branch naming guidance' in the documentation.) tutorial-experiment
+    ```
+
+7. **Select whether to create a new experiment**
+
+    The prompt asks wehether we'll be creating a new *experiment*. Select `Yes, create a new UUID as a new experiment`:
+    ```
+    >> Is this a new experiment? (If yes, payu will create a new branch.) Yes, create a new UUID as a new experiment
+    ```
+
+8. **Choose a name for the local branch**
+
+    With the above choice, payu will create a new branch in the local clone of the repository to hold our experiment. Select a descriptive name, here I'll use `simulation-1`:
+    ```
+    >> Please name your new branch:  (Note: this won't be shared to the online repository automatically) simulation-1
+    ```
+
+9. **Select a restart**
+
+    The next prompt asks if we want to specify a custom initial condition for the model to start from, or if we want to use the default restart files from the configuration. Select `No` to choose the default restart from the configuration.
+    ```
+    >> Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.) No
+    ```
+
+10. **Select an experiment shortpath**
+
+    The final prompt relates to the directories payu uses to organise simulation data. We'll learn more about this later in the session, but for now select `No`
+    ```
+    Do you want to override the shortpath? (Default is '/scratch/$PROJECT$') No
+    ```
 
 
     <terminal-window>
@@ -205,11 +281,19 @@ o browse, '/' to enter folder)  https://github.com/ACCESS-NRI/access-esm1.6-conf
     </terminal-window>
 
 
-8. Finally, enter the  `cd` into the newly created *control directory*:
+11. **Navigate into the control directory**
 
-   ```
-   cd tutorial-experiment
-   ```
+    We should now see a newly created directory which contains our cloned configuration. This is reffered to as the *control directory*:
+    ```
+    ls
+    tutorial-experiment
+    ```
+
+    Navigate into the newly created *control directory*:
+
+    ```
+    cd tutorial-experiment
+    ```
 
 ## Exercise 3: Setting project for computation and storage
 
