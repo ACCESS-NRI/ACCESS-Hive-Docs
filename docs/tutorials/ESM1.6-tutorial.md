@@ -44,7 +44,7 @@ ACCESS-ESM1.6 development used [ACCESS-ESM1.5](https://www.access-nri.org.au/mod
 
 ??? tip "Main changes"
 
-    - A new ocean BGC model, [WOMBATlite](https://wombat-docs.readthedocs.io/stable/Model_description/WOMBATlite_model_description/).
+    - A new ocean BGC model, [WOMBATlite](https://wombat-docs.readthedocs.io/stable/Model_description/WOMBATlite_model_description/), with an updated Fe cycle, photo-acclimation of phytoplankton, spatially variable sinking rates of particulate organic matter, and improved CO2 fluxes.
 
     - The CABLE2.4 land model has been updated to CABLE3, with new features including as Australian plant types and improvements to energy and water conservation.
 
