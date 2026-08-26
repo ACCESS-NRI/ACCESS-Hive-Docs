@@ -263,6 +263,10 @@ In conclusion, since the run length should be left to 1 year, for simulating N y
 
 ??? info "Collation of ocean output files"
 
+    !!! tip 
+    
+        Diagnostic and restart files produced by the ocean component, MOM, in {{model}} are tiled. The collation is set by default in the {{model}} configurations.
+
     {% include-markdown "includes/payu.md"
        start="<!--start:payu-collate-->"
        end="<!--end:payu-collate-->"
