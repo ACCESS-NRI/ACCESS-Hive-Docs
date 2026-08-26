@@ -586,8 +586,7 @@ This information can be used in many different ways, an example of which we'll s
 
 *I've been running a historical simulation using a custom volcanic forcing input file `volcts_cmip7.dat`. I inadvertently modified the file part way through the experiment, and will need to rerun the the years after it changed. Unfortunately, I don't know when during the simulation the input file changed.*
 
-**TODO: move outputs to somewhere accessible**
-*Using either the output directories in `/scratch/tm70/sw6175/access-esm/archive/custom_volcanic-custom-volcanic-5a0df8c5`, or the published experiment repository in https://github.com/blimlim/runlog_example, can you work out at which point the volcanic forcing file changed?*,
+*Using either the output directories in `/g/data/nf33/sw6175/runlogs-exercise/custom_volcanic-custom-volcanic-5a0df8c5`, or the published experiment repository in https://github.com/blimlim/runlog_example, can you work out at which point the volcanic forcing file changed?*,
 
 *Hint: Take a look at the files found in the manifest directories.*
 
