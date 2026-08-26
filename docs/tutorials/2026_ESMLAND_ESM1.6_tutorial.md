@@ -147,7 +147,7 @@ To check that the payu module has loaded properly, we can test out running a sim
 payu --version
 ```
 
-This should print out the version of payu that's been loaded: `payu 1.3.4`.
+This should print out the version of payu that's been loaded: `payu 1.3.5`.
 
 ## Exercise 2: Cloning an ACCESS-ESM1.6 configuration
 Running a climate model requires you to collect a large number of files including:
