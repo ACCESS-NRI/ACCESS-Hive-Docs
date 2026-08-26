@@ -35,17 +35,29 @@ In addition, the following background is recommended for the hands on portions o
 
 
 ## Introduction to ACCESS-ESM1.6
+
+![ACCESS ESM model](/assets/model-config-logos/configurations-without-titles/access-esm.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
+
 ACCESS-ESM1.6 is a global coupled earth system model containing active [atmosphere](https://docs.access-hive.org.au/models/model_components/atmosphere), [ocean](https://docs.access-hive.org.au/models/model_components/ocean), [sea ice](https://docs.access-hive.org.au/models/model_components/sea-ice), [land](https://docs.access-hive.org.au/models/model_components/land), and biogeochemistry components. The model supports both a prescribed CO2 concentrations mode, and a fully interactive carbon mode where carbon is coupled between the model components.
 
-ACCESS-ESM1.6 development used [ACCESS-ESM1.5](https://www.access-nri.org.au/models/earth-system-model-esm/) as a base and brought in many significant changes. Some of the main changes include:
+ACCESS-ESM1.6 development used [ACCESS-ESM1.5](https://www.access-nri.org.au/models/earth-system-model-esm/) as a base and brought in many significant changes. Some of the main changes are listed in the drop down below:
 
-- A new ocean BGC model, WOMBATlite
-- The CABLE2.4 land model has been updated to CABLE3, with new features including as Australian plant types and improvements to energy and water conservation.
-- CICE4 has been replaced with CICE5, which brings bug fixes to key diagnostics. CICE5 has been configured to use the same zero layer thermodynamics scheme.
-- An iceberg spreading scheme has been added, where meltwater from the icesheets is distributed both around the coast, and according to a wider iceberg melt pattern.
-- Released scientific configurations have been developed to match the CMIP7 experiment protocols, including updated atmospheric forcings.
-- Optimised for Gadi. While ESM1.6 is more computationally complex than ESM1.5, it runs roughly 25% faster.
-- Model outputs conform to the new ACCESS-NRI data standards, with the aim of making model output simpler to work with and to improve provenance information. Key changes include using single variable files with consistent file names for all model components, and adding provenance information into the output metadata.
+??? tip "Main changes"
+
+    - A new ocean BGC model, [WOMBATlite](https://wombat-docs.readthedocs.io/stable/Model_description/WOMBATlite_model_description/).
+
+    - The CABLE2.4 land model has been updated to CABLE3, with new features including as Australian plant types and improvements to energy and water conservation.
+
+    - CICE4 has been replaced with [CICE5](https://github.com/ACCESS-NRI/cice5), which brings bug fixes to key diagnostics. CICE5 has been configured to use the same zero layer thermodynamics scheme.
+
+    - An iceberg spreading scheme has been added, where meltwater from the icesheets is distributed both around the coast, and according to a wider iceberg melt pattern.
+
+    - Released scientific configurations have been developed to match the [CMIP7 experiment protocols](https://wcrp-cmip.github.io/cmip7-guidance/docs/CMIP7/Experiment_set_up_and_Forcings), including updated atmospheric forcings.
+
+    - Optimised for Gadi. While ESM1.6 is more computationally complex than ESM1.5, it runs roughly 25% faster.
+
+    - Model outputs conform to the new [ACCESS-NRI data specification](https://access-output-data-specifications.readthedocs.io/en/latest/specification/), with the aim of making model output simpler to work with and to improve provenance information. Key changes include using single variable files with consistent file names for all model components, and adding provenance information into the output metadata.
+
 
 
 In the following sections of the tutorial, we'll run our own simulations of ESM1.6 by:
@@ -64,7 +76,7 @@ While the simulations are running, we'll learn more about key _payu_ commands, h
 _Payu_ is a workflow manager for running numerical models in supercomputing environments. _Payu_ is designed to help users set up, run, and manage climate simulations, and provides a consistent set of commands and concepts which can be used accross several models including [ACCESS-OM3](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/) and ACCESS ESM1.6.
 
 !!! info
-    For in-depth information about payu, visit the [payu documentation (https://payu.readthedocs.io/en/stable/).
+    For in-depth information about payu, visit the [payu documentation](https://payu.readthedocs.io/en/stable/).
 
 
 ## Exercise 1: Activating payu on gadi
