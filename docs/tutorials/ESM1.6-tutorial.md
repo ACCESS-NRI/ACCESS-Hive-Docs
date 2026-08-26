@@ -248,20 +248,19 @@ To set off a one year simulation of your configuration, run:
 ```
 payu run
 ```
-<details>
-<summary>Hint</summary>
-Unfortunately, the above command will have led to the following error:
-```
-[ERROR] Work path already exists. Please use `payu sweep` or use `payu run -f`.
-```
-Payu will issue this error if a non-empty `work` directory for your experiment already exists, in this case because we manually ran the `payu setup` command. To get around this error, add the `-f` flag to the command:
 
-```
-payu run -f
-```
-This tells payu to delete the existing work directory and recreate it for the new simulation.
+??? info "Hint"
+    Unfortunately, the above command will have led to the following error:
+    ```
+    [ERROR] Work path already exists. Please use `payu sweep` or use `payu run -f`.
+    ```
+    Payu will issue this error if a non-empty `work` directory for your experiment already exists, in this case because we manually ran the `payu setup` command. To get around this error, add the `-f` flag to the command:
 
-</details>
+    ```
+    payu run -f
+    ```
+    This tells payu to delete the existing work directory and recreate it for the new simulation.
+
 
 
 The one year simulation will take around 55 minutes to complete. The data post processing which runs in a separate job can take up to another hour, and so final outputs won't be available by the end of the session.
@@ -314,32 +313,25 @@ In the following exerises, we'll take a look at the *work directory* being used 
     ```
 
     Take a look through the files in the `work` directory. Can you see how payu has used these paths from the `config.yaml` when constructing the work directory?
-    <details>
-    <summary>Hint</summary>
-     Take a look in the `work/atmosphere/INPUT` and `work/ocean/INPUT` directories. 
-    </details>
+    ??? info "Hint"
+         Take a look in the `work/atmosphere/INPUT` and `work/ocean/INPUT` directories. 
+    
 
 
 2. The above section of the config.yaml specifies names for the model executable: `exe: um_hg3.exe` and `exe: mom5_access_cm`. Can you see what payu has done with these executables when constructing the `work` directory?
-   <details>
-   <summary>Hint</summary>
-    Take a look in the `work/atmosphere` and `work/ocean` directories. 
-   </details>
+    
+    ??? info "Hint"
+        Take a look in the `work/atmosphere` and `work/ocean` directories. 
 
 3. Along with model executables and input files, a simulation needs configuration files which control each submodel's scientific options. For example, the `namelists` file under the `atmosphere` section of the control directory controls the atmosphere model's scientific settings. Can you see how payu has used this file when constructing the `work` directory.
-   <details>
-   <summary>Hint</summary>
-    Take a look in the `work/atmosphere` directory.
-   </details>
+   ??? info "Hint"
+        Take a look in the `work/atmosphere` directory.
+   
 
-<details>
-<summary>Extension</summary>
- 4. In the `manifests` directory, the files `input.yaml`, `exe.yaml`, and `restart.yaml` all contain lists of filepaths. How do these filepaths relate to the settings in the `config.yaml`? What do the `md5` fields contain?
-   <details>
-   <summary>Hint</summary>
-    The `md5` fields contain [md5 hashes](https://en.wikipedia.org/wiki/MD5) calculated for each of the hashes, and can be used to verify that input files have not been changed. Payu updates these files during the *setup* stage.
-   </details>
-</details>
+??? info "Stretch exercise"
+    In the `manifests` directory, the files `input.yaml`, `exe.yaml`, and `restart.yaml` all contain lists of filepaths. How do these filepaths relate to the settings in the `config.yaml`? What do the `md5` fields contain?
+    ??? info "Hint"
+        The `md5` fields contain [md5 hashes](https://en.wikipedia.org/wiki/MD5) calculated for each of the hashes, and can be used to verify that input files have not been changed. Payu updates these files during the *setup* stage.
 
 
 ## Excercise 8: Check the status the running simulations
