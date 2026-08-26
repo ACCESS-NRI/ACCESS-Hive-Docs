@@ -174,29 +174,42 @@ o browse, '/' to enter folder)  https://github.com/ACCESS-NRI/access-esm1.6-conf
 ```
 
 
-With this information provided, payu will clone the selected configuration from the repository to the chosen location on gadi:
+    <terminal-window>
+        <terminal-line data="input">mkdir -p ~/ACCESS-ESM1.6/</terminal-line>
+        <terminal-line data="input">cd ~/ACCESS-ESM1.6/</terminal-line>
+        <terminal-line data="input">payu clone</terminal-line>
+        <terminal-line><span class="payu-yellow">Welcome to the Payu Clone Wizard!</span></terminal-line>
+        <terminal-line><span class="payu-yellow">Press 'Ctrl+C' at any time to exit.</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please enter the URL of the repository, or the local path of a configuration you want to clone:</span>  (e.g., https://github.com/payu-org/bowl1.git or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow"> https://github.com/ACCESS-NRI/access-esm1.6-configs</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to clone the repo based on:</span> <span class="payu-dark-yellow">An existing branch</span></terminal-line>
+        >> Name of the branch to clone ('Tab' to browse all branches): release-esm-piControl
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Name of the branch to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-esm-piControl</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please name your local control directory:  (See 'Control directory and branch naming guidance' in the documentation.)</span> <span class="payu-dark-yellow">tutorial-experiment</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu red">Is this a new experiment?</span> (If yes, payu will create a new branch.) <span class="payu-dark-yellow">Yes, create a new UUID as a new experiment</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Please name your new branch</span>  (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow">simulation-1</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to specify a custom restart path? (If no, the default restart/initial conditions will be used.)</span> <span class="payu-dark-yellow">No</span></terminal-line>
+        <terminal-line><span class="spack-cyan">?</span> <span class="payu-red">Do you want to override the shortpath? (Default is '/scratch/${PROJECT}$')</span> <span class="payu-dark-yellow">No</span></terminal-line>
+        <terminal-line><span class="payu-yellow">Running command:</span></terminal-line>
+        <terminal-line><span class="payu-yellow">\`payu clone -B release-esm-piControl -b simulation-1 https://github.com/ACCESS-NRI/access-esm1.6-configs tutorial-experiment`</span></terminal-line>
+        <terminal-line>Cloned repository from {{github_configs}} to directory: /home/561/\$USER/ACCESS-ESM1.6/tutorial-experiment</terminal-line>
+        <terminal-line>Created and checked out new branch: simulation-1</terminal-line>
+        <terminal-line>laboratory path:  /scratch/\${PROJECT}/\${USER}/access-esm</terminal-line>
+        <terminal-line>binary path:  /scratch/\${PROJECT}/\${USER}/access-esm/bin</terminal-line>
+        <terminal-line>input path:  /scratch/\${PROJECT}/\${USER}/access-esm/input</terminal-line>
+        <terminal-line>work path:  /scratch/\${PROJECT}/\${USER}/access-esm/work</terminal-line>
+        <terminal-line>archive path:  /scratch/\${PROJECT}/\${USER}/access-esm/archive</terminal-line>
+        <terminal-line>Updated metadata. Experiment UUID: 14058c5c-d0dd-49dd-841a-cbec42b7391e</terminal-line>
+        <terminal-line>Added archive symlink to /scratch/\${PROJECT}/\${USER}/access-esm/archive/tutorial-experiment-simulation-1-14058c5c</terminal-line>
+        <terminal-line>To change directory to control directory run:</terminal-line>
+        <terminal-line>  cd tutorial-experiment</terminal-line>
+    </terminal-window>
 
-<terminal-window>
-    <terminal-line><span class="payu-yellow">Running command:</span></terminal-line>
-    <terminal-line><span class="payu-yellow">\`ppayu clone -B release-esm-piControl -b simulation-1 https://github.com/ACCESS-NRI/access-esm1.6-configs tutorial-experiment`</span></terminal-line>
-    <terminal-line>Cloned repository from {{github_configs}} to directory: /home/561/\$USER/ACCESS-ESM1.6/tutorial-experiment</terminal-line>
-    <terminal-line>Created and checked out new branch: simulation-1</terminal-line>
-    <terminal-line>laboratory path:  /scratch/\${PROJECT}/\${USER}/access-esm</terminal-line>
-    <terminal-line>binary path:  /scratch/\${PROJECT}/\${USER}/access-esm/bin</terminal-line>
-    <terminal-line>input path:  /scratch/\${PROJECT}/\${USER}/access-esm/input</terminal-line>
-    <terminal-line>work path:  /scratch/\${PROJECT}/\${USER}/access-esm/work</terminal-line>
-    <terminal-line>archive path:  /scratch/\${PROJECT}/\${USER}/access-esm/archive</terminal-line>
-    <terminal-line>Updated metadata. Experiment UUID: 14058c5c-d0dd-49dd-841a-cbec42b7391e</terminal-line>
-    <terminal-line>Added archive symlink to /scratch/\${PROJECT}/\${USER}/access-esm/archive/tutorial-experiment-simulation-1-14058c5c</terminal-line>
-    <terminal-line>To change directory to control directory run:</terminal-line>
-    <terminal-line>  cd tutorial-experiment</terminal-line>
-</terminal-window>
 
+8. Finally, enter the  `cd` into the newly created *control directory*:
 
-    7. Finally, enter the  `cd` into the newly created *control directory*:
-```
-cd tutorial-experiment
-```
+   ```
+   cd tutorial-experiment
+   ```
 
 ## Exercise 3: Setting project for computation and storage
 
