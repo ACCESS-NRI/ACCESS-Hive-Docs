@@ -17,12 +17,18 @@ The _Rose/Cylc_ workflow management tool consists of two components:
 * The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UKMO which configures tasks for the _Cylc_ engine. _Rose_ is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
 
 A set of tasks configured by _Rose_ to run with the _Cylc8_ engine is called a _workflow_ in _Cylc8_. For coherence with other workflow managers used to run some ACCESS models, we refer to these _workflows_ as _configurations_.
+
+??? info "_Cylc_ and _Rose_ concepts"
+
+    A _Cylc_ configuration defines individual tasks as well as the relationship between these tasks, creating a tasks graph. Each task is given a name in the configuration. Using that graph, _Cylc_ can execute the tasks at the right time and in the right order. It is also possible to define a repetition sequence for a whole (or part) of a graph. This is used for {{model}} to manage simulations that are too long to be run in a single PBS script.
+
+    _Cylc_ supports several installations of the same configuration. By default, these will be installed in numbered directories (`run1`, `run2`, etc.), a custom name can be provided as an option. _Cylc_ provides a symbolic link to the latest installation named `runN`. This can be useful when developing an experiment and testing incremental changes or for running sensitivity studies.
+
+    _Cylc_ tasks can be written in any language and use any command. Tasks configured by _Rose_ are called _app_ following the _Rose_ vocabulary.
 <!--end:cylc8-about-->
 
 <!--start:cylc8-structure-->
 ### _Rose/Cylc_ directory and files organisation
-
-A _Cylc_ experiment defines individual tasks as well as the relationship between these tasks, creating a tasks graph. Each task is given a name in the experiment. Using that graph, _Cylc_ can execute the tasks at the right time and in the right order. It is also possible to define a repetition sequence for a whole (or part) of a graph. This is used for {{model}} to manage simulations that are too long to be run in a single PBS script. _Cylc_ supports several installations of the same experiment. By default, these will be installed in numbered directories by default (`run1`, `run2`, etc.). _Cylc_ provides a symbolic link to the latest installation named `runN`. This can be useful when developing an experiment and testing incremental changes or for running sensitivity studies.
 
 The data organisation for _Cylc_ was chosen to separate the smaller text files that define a configuration and the larger binary input and output files needed for an experiment.
 
