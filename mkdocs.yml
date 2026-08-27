@@ -127,6 +127,7 @@ nav:
     - models/index.md
     - ACCESS Models:
       - models/access_models/index.md
+      - ACCESS-AM: models/access_models/access-am.md
       - ACCESS-CM: models/access_models/access-cm.md
       - ACCESS-ESM: models/access_models/access-esm.md
       - ACCESS-OM: models/access_models/access-om.md
