@@ -1,7 +1,7 @@
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 
 <!--start:cylc8-prerequisites-->
-- [hr22](https://my.nci.org.au/mancini/project/hr22/join): Cylc Rose Workflow
+- [hr22](https://my.nci.org.au/mancini/project/hr22/join): Cylc Rose Workflow Engine
 <!--end:cylc8-prerequisites-->
 
 <!--start:cylc8-compatibility-mode-->
@@ -50,7 +50,7 @@ As shown in the diagram, the general layout of a _Cylc_-supported model run cons
      - Model components' configuration files, which are used to define the physics and the components' internal state used in the simulation.
 
 - The _experiment_ directory contains all data from the experiment. This directory is created and managed by _Cylc_. Inside the _experiment_ directory, there are three subdirectories of particular interest: 
-    - `log/job/` &rarr; contains the jobs' script and output and error log files for all the tasks of the _experiment_.
+    - `log/job/` &rarr; contains the job scripts and output and error log files for all the tasks of the _experiment_.
     - `share/` &rarr; contains data shared between tasks such as ancillary files. Importantly, it contains the output of the model.
 
         - `share/data/History_Data/` &rarr; where the simulation output files are located
@@ -229,16 +229,24 @@ ACCESS model configurations run on _Gadi_ through [PBS jobs][PBS job] submission
 In _Cylc8_, running a workflow is a two-step process, first you need to install the experiment directory and then run the workflow:
 
 ```bash
-cylc install <experiment_name>
+PROJECT=<storage_project> cylc install <experiment_name>
 cylc play <experiment_name>
 ```
 
+!!! warning
+
+    Cylc 8 will always install the _experiment_ directory under `/scratch/$PROJECT/$USER/cylc-run`, where $PROJECT is your default project at NCI. To overwrite this, you need to specify `PROJECT=<storage_project>` when running `cylc install`. <br>
+    You need to specify the same project as you have specified for storage in the configuration. If the configuration does not allow you to specify a storage project, you have to use your default project.
+
 ??? example "Example: Running the experiment {{experiment_name}}"
 
+    The below example will install the _experiment_ directory under `/scratch/rp23/$USER/cylc-run/` and run the experiment.
+
     <terminal-window>
-        <terminal-line data="input">cylc install {{experiment_name}}</terminal-line> 
+        <terminal-line data="input">PROJECT=rp23 cylc install {{experiment_name}}</terminal-line> 
         <terminal-line>WARNING - Backward compatibility mode ON - support for suite.rc files will be removed at 8.7.0</terminal-line>
         <terminal-line>INSTALLED {{experiment_name}}/run1 from \$HOME/roses/{{experiment_name}}</terminal-line>
+        <terminal-line></terminal-line>
         <terminal-line data="input">cylc play {{experiment_name}}</terminal-line>
         <terminal-line> ▪ ■  Cylc Workflow Engine 8.6.3</terminal-line> 
         <terminal-line> ██   Copyright (C) 2008-2026 NIWA</terminal-line> 
@@ -256,8 +264,12 @@ cylc play <experiment_name>
     _Cylc_ provides compound commands to make routine operations easier. The `cylc vip` command stands for Validate, Install, Play. It allows to run the workflow in one command:
 
     ```
-    cylc vip <experiment_name>
+    PROJECT=<storage_project> cylc vip <experiment_name>
     ```
+
+    !!! warning
+
+        Since this compound command installs the experiment, you need to specify the storage project you want to use if you are not using your default project.
 <!--end:cylc8-run-->
 
 ## Monitor the experiment

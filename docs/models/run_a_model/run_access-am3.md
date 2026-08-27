@@ -32,7 +32,7 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 ## Prerequisites
 
 - **NCI account**<br>
-    Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+    Before running an ACCESS model, you need to [set up your NCI account](/getting_started/set_up_nci_account).
 
 - **GitHub account**<br>
     Open an account on [GitHub](https://github.com/signup) if you do not have one.
@@ -106,7 +106,7 @@ We recommend using the `gh` command-line interface for the authentication betwee
 
         ```
         module use /g/data/vk83/modules
-        module load gh/2.49.2-1
+        module load gh
         ```
     
     2. Run `gh auth login` and follow the prompts to use the HTTPS protocol. Note that there is no browser installed on _Gadi_, you will need to copy/paste the given URL to your own browser window.
@@ -187,7 +187,7 @@ Supported configurations:
 | Configuration                             | Branch name            |
 |-------------------------------------------|------------------------|
 | Low resolution based on GC9 configuration | release-n96e           |
-| High resolution with climatology aerosols | release-n512e-aeroclim |
+| High resolution with climatological aerosols | release-n512e-aeroclim |
 
 {% include-markdown "includes/rose_cylc.md" 
     start="<!--start:get-github-config-->" 
@@ -198,7 +198,7 @@ Supported configurations:
 
 The configuration is setup to use your default project for data storage and compute resources. To choose a different project, in the _configuration directory_, open the `rose-suite.conf` file and change:
 
-- `STORAGE_PROJECT` &rarr; Specify the project to use for storage. Experiment files will be stored under `/scratch/<STORAGE_PROJECT>/$USER/cylc-run`.
+- `STORAGE_PROJECT` &rarr; Specify the project to use for storage. Experiment files will be stored under `/scratch/<STORAGE_PROJECT>/$USER/cylc-run`. If changing the STORAGE_PROJECT to a different project than your default, please be aware of the [additional step at installation](#run-the-experiment) explained below.
 - `COMPUTE_PROJECT` &rarr; Specify the project you want to be charged for the compute resources.
 
 For example, if you want to use the `rp23` project for storage and compute:

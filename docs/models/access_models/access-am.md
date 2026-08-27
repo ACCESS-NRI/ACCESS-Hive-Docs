@@ -11,10 +11,10 @@ The ACCESS Atmosphere Model (ACCESS-AM) is a global land-atmosphere model that i
 
 {{ model }} is a suite of coupled atmosphere-land configurations developed by ACCESS-NRI, CSIRO and the ARC Centre of Excellence for Weather in the 21st Century.
 
-ACCESS-NRI has released [{{ model }} configurations][run-access-am].
+ACCESS-NRI has released the following [{{ model }} configurations][run-access-am].
 
 - n96e: a low-resolution configuration based off the GC9 configuration from the UK MetOffice.
-- n512e-aeroclim: a higher resolution configuration based off the n96e configuration with a different spatial resolution and climatological aerosols.
+- n512e-aeroclim: a higher resolution configuration based off the n96e configuration that uses climatological aerosols in place of prognostic aerosols..
 
 ### Model Components {: #model-components-{{model}} }
 
