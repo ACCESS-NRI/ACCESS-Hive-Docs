@@ -84,9 +84,9 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 
 ## Connect to _Gadi_
 
-{% include-markdown "includes/rose_cylc.md"
-    start="<!--start:cylc-gadi-->"
-    end="<!--end:cylc-gadi-->"
+{% include-markdown "includes/rose_cylc8.md"
+    start="<!--start:cylc8-gadi-->"
+    end="<!--end:cylc8-gadi-->"
 %}
 
 ## Setup a persistent session
@@ -147,7 +147,7 @@ Supported configurations:
 | Configuration   | Branch name   |
 |-----------------|---------------|
 | Low resolution  | release-n96e  |
-| High resolution | release-n512e |
+| High resolution | release-n512e-aeroclim |
 
 {% include-markdown "includes/rose_cylc.md" 
     start="<!--start:get-github-config-->" 
@@ -156,11 +156,17 @@ Supported configurations:
 
 ## Initial Configuration Setup
 
-Before you can run {{ model }} configuration, you need to specify which projects you want to use for data storage and compute resources. For this, in the _configuration directory_, open the `rose-suite.conf_nci_gadi` file and change:
+The configuration is setup to use your default project for data storage and compute resources. To choose a different project, in the _configuration directory_, open the `rose-suite.conf` file and change:
 
-- `root_dir` &rarr; the path you want to use as a work directory for running the simulation. A space under `/scratch/<project>/$USER` is ideal, where `<project>` is the project associated with the current work. The directory will be created by _Cylc_ if it does not exist.
-- `STORAGE_PROJECT` &rarr; must be the same project as used in the `root_dir` path.
-- `COMPUTE_PROJECT` &rarr; the project you want to be charged for the compute resources.
+- `STORAGE_PROJECT` &rarr; Specify the project to use for storage. Experiment files will be stored under `/scratch/<STORAGE_PROJECT>/$USER/cylc-run`.
+- `COMPUTE_PROJECT` &rarr; Specify the project you want to be charged for the compute resources.
+
+For example, if you want to use the `rp23` project for storage and compute:
+
+```
+STORAGE_PROJECT='rp23'
+COMPUTE_PROJECT='rp23'
+```
 
 ## Validate the configuration
 

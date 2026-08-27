@@ -117,17 +117,69 @@ The log files are located under the `log/` and `work/` directories that can be a
 
 - *Model log files for the UM and the reconfiguration*
 
-    The model log files can be found under `work/\<timestamp>/\<task_name>/pe_output/` where:
+    The model log files can be found under `work/<timestamp>/<task_name>/pe_output/` where:
 
-    - \<timestamp> is the cycle point
-    - \<task_name> is the name of the task
+    - `<timestamp>` is the cycle point
+    - `<task_name>` is the name of the task
 
     These logs contain timestep-by-timestep output and is where most model-level errors appear (e.g., instabilities, failed reads of ancillary files) and may help to diagnose your issue.
 
 - *PBS Logs*
 
-   For a given task, the PBS log (sometimes referred to as "PBS out") is located in the `job.out` file as described above and can be used to retrieve PBS-level information about walltime, memory, and exit codes.
+    For a given task, the PBS log (sometimes referred to as "PBS out") is located in the `job.out` file as described above and can be used to retrieve PBS-level information about walltime, memory, and exit codes.
 <!--end:cylc8-structure-->
+
+## Connecting to Gadi
+
+<!--start:cylc8-gadi-->
+You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-login-node) or via an [ARE VDI session](#launch-are-vdi-desktop). 
+
+??? info "Connect via _Gadi_ login node"
+
+    !!! note
+
+        You cannot open the _Cylc_ GUI from the login node to manage your experiment. You need to connect via ARE to open the GUI. You will, however, have access to the _Cylc_ TUI from the login node.
+
+    Follow the steps to [login to _Gadi_](/getting_started/set_up_nci_account/#login-to-gadi), making sure to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ GUI to be launched on your local machine.
+
+    Once you are connected, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
+
+??? info "Connect via ARE VDI Desktop"
+
+    If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) page.
+
+    !!! tip
+        The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_. The model tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
+
+    Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
+
+    - **Walltime (hours)** &rarr; `2`<br>
+            Amount of hours the ARE VDI session will remain active for. This is only setup time, and does not reflect how long the actual configuration will take to run.
+            
+        !!! tip 
+            Some model configurations might require a longer setup time. The _Walltime_ included here should be sufficient for most model configurations, but if your ARE session terminates before the model setup is complete, you can start a new ARE VDI session.
+
+    - **Queue** &rarr; `normalbw`
+        
+    - **Compute Size** &rarr; `tiny` (1 CPU)<br>
+
+    - **Project** &rarr; a project of which you are a member.<br>
+        The project must have allocated [_SU_](https://opus.nci.org.au/spaces/Help/pages/236881132/Allocations...). By default, this will be set to your default project `$PROJECT`.
+
+    - **Storage** &rarr; `gdata/hr22+scratch/$PROJECT` (minimum)<br>
+        The storage folders listed above are the minimum required to run _Rose/Cylc_.
+
+    Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
+
+    ![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
+
+    !!! warning
+        This example is provided for reference only. Please use the resource specifications listed above when starting the ARE VDI session.
+    
+    Once the new tab opens, you will see a Desktop with a few folders on the left. Click the terminal icon at the top of the window to open a terminal. You should now be connected to a _Gadi_ computing node. Use this terminal for all subsequent steps in this guide.
+
+    ![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
+<!--end:cylc8-gadi-->
 
 ## Access _Rose/Cylc_
 <!--start:cylc8-module-->
