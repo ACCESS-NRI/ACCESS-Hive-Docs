@@ -37,6 +37,7 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
     {: #request-access }
 
 - **Join NCI projects**<br>
+
     !!! warning
         You will not be granted access to some of the projects listed here before we have checked you are properly licensed to use the software. Ensure you [request access to the configurations](#request-access) first.
 
@@ -74,18 +75,18 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 
 ### _Rose/Cylc_ directory and files organisation
 
-??? info "Configuration directory and files organisation"
+??? info "Configuration directory"
 
     {% include-markdown "includes/rose_cylc.md"
         start="<!--start:rose-directory-->"
         end="<!--end:rose-directory-->"
     %}
 
-??? info "Run directory and files organisation"
+??? info "Run directory"
 
     {% include-markdown "includes/rose_cylc8.md"
-        start="<!--start:cylc8-workdir-files-->"
-        end="<!--end:cylc8-workdir-files-->"
+        start="<!--start:cylc8-expdir-files-->"
+        end="<!--end:cylc8-expdir-files-->"
     %}
 
 ## Connect to _Gadi_
@@ -114,6 +115,13 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
     {% include-markdown "includes/persistent-sessions.md"
         start="<!--start:pers-session-assign-->"
         end="<!--end:pers-session-assign-->"
+    %}
+
+??? info "Setup the connection between _Cylc_ and _Gadi_ (once only)"
+
+    {% include-markdown "includes/persistent-sessions.md"
+        start="<!--start:pers-session-setup-->"
+        end="<!--end:pers-session-setup-->"
     %}
 
 ??? info "List active persistent sessions"
@@ -157,9 +165,9 @@ Supported configurations:
 
 Before you can run {{ model }} configuration, you need to specify which projects you want to use for data storage and compute resources. For this, in the _configuration directory_, open the `rose-suite.conf_nci_gadi` file and change:
 
-- `root_dir` to the path you want to use as a work directory for running the simulation. A space under `/scratch/<project>` is ideal, where `<project>` is the project associated with the current work. The directory will be created by _Cylc_ if it does not exist.
-- `STORAGE_PROJECT` must be the same project as used in the `root_dir` path.
-- `COMPUTE_PROJECT` to any project you want to be charged for the compute resources.
+- `root_dir` &rarr; the path you want to use as a work directory for running the simulation. A space under `/scratch/<project>/$USER` is ideal, where `<project>` is the project associated with the current work. The directory will be created by _Cylc_ if it does not exist.
+- `STORAGE_PROJECT` &rarr; must be the same project as used in the `root_dir` path.
+- `COMPUTE_PROJECT` &rarr; the project you want to be charged for the compute resources.
 
 ## Validate the configuration
 

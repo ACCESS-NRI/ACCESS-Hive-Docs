@@ -146,7 +146,7 @@ git -C ~/roses clone {{github_configs}} -b <branch> <experiment_name>
 where:
 
 - `<branch>` is the name of the branch of the configuration you want to base your work on.
-- `<experiment_name>` is the name of your local copy of the configuration, i.e. your _configuration directory_.
+- `<experiment_name>` is the name of your local copy of the configuration, i.e. your _configuration directory_. It will also be used by _Cylc_ as your experiment name.
 
 ??? example "Example: Copying the {{config_branch}} configuration"
   
