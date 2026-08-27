@@ -21,7 +21,7 @@
 
 ## About
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_](https://nci.org.au/our-systems/hpc-systems).
+The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [NCI](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_](https://nci.org.au/our-systems/hpc-systems).
 
 If you are unsure whether {{ model }} is the right choice for your experiment, see the overview of [ACCESS Models](/models).
 
@@ -38,7 +38,7 @@ If you are unsure whether {{ model }} is the right choice for your experiment, s
     Open an account on [GitHub](https://github.com/signup) if you do not have one.
 
 - **Request access to the configurations**<br>
-    To request access to the configurations repository and associated model component repositories, contact us [through this post on the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580). We can also allow guide you through the licensing process required use the model as required. 
+    To request access to the configurations repository and associated model component repositories, contact us [through this post on the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580). We can also guide you through the licensing process required to use the model. 
     {: #request-access }
 
     !!! warning

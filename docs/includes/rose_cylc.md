@@ -156,7 +156,7 @@ where:
     git -C ~/roses clone {{github_configs}} -b {{config_branch}} {{experiment_name}}
     ```
 
-    This will create the directory `~/roses/{{experiment_name}}` that will contain a copy of the _{{config_branch}}_ configuration. It is recommended to choose a descriptive name for the `<experiment_name>` unlike in this example.
+    This will create the directory `~/roses/{{experiment_name}}` that will contain a copy of the latest _{{config_branch}}_ configuration. It is recommended to choose a descriptive name for the `<experiment_name>` unlike in this example.
 <!--end:get-github-config-->
 
 If you want to make exploratory changes within the configuration, and have those changes tracked, please [fork the configuration repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and commit your changes there.<br>

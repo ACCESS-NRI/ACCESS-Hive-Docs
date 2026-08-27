@@ -24,7 +24,7 @@ A set of tasks configured by _Rose_ to run with the _Cylc8_ engine is called a _
 
     A task is the abstract representation of a component of the configuration, while a job is the concrete execution of a task. A task can submit multiple jobs, for example, if a job fails and the task is rerun.
 
-    _Cylc_ supports several installations of the same configuration. By default, these will be installed in numbered directories (`run1`, `run2`, etc.), a custom name can be provided as an option. _Cylc_ provides a symbolic link to the latest installation named `runN`. This can be useful when developing an experiment and testing incremental changes or for running sensitivity studies.
+    _Cylc_ supports several installations of the same configuration. By default, these will be installed in numbered directories (`run1`, `run2`, etc.), a custom name can be provided as an option. _Cylc_ provides a symbolic link to the latest installation named `runN`. This can be useful when developing an experiment and testing incremental changes.
     
     _Cylc_ tasks can use any language or command. Tasks configured by _Rose_ are called _app_ following the _Rose_ terminology.
 <!--end:cylc8-about-->
@@ -75,7 +75,7 @@ As shown in the diagram, a _Cylc_-supported model run consists of three main dir
 
 #### Configuration files in the _control_ directory
 
-All _Rose/Cylc_ configurations use a similar file and directory structure to define the tasks that make up the configuration. The most important files and directories are:
+All {{model}} configurations use a similar file and directory structure to define the tasks that make up the configuration. The most important files and directories are:
 
 - `rose-suite.conf` &rarr; contains user-defined configuration options at runtime.
 - `suite.rc` &rarr; defines the tasks and task graph.
@@ -105,7 +105,7 @@ The log files are located under the `log/` and `work/` directories that can be a
     - `<task_name>` is the name of the task.
     - `<run_attempt>` is the job's run attempt, with `NN` symlinked to the latest attempt.
 
-    For example, the error log of the housekeeping task for the latest experiment installation and simulation period starting at 1999-03-00 is located under: 
+    For example, the error log of the housekeeping task for the latest experiment attempt and simulation period starting at 1999-03-00 is located under: 
     `log/job/19990300T0000Z/housekeeping/NN`.
 
     After completion of a job, the following files are produced:
@@ -129,7 +129,7 @@ The log files are located under the `log/` and `work/` directories that can be a
 
 - *PBS logs*
 
-   For a given task, the PBS log (sometimes called “PBS out”) is stored in the job.out file described above. It provides PBS-level information such as walltime, memory usage, and exit codes.
+    For a given task, the PBS log (sometimes called “PBS out”) is stored in the job.out file described above. It provides PBS-level information such as walltime, memory usage, and exit codes.
 <!--end:cylc8-structure-->
 
 ## Connecting to Gadi
@@ -143,7 +143,7 @@ You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-logi
 
         You cannot open the _Cylc_ GUI from the login node to manage your experiment. You need to connect via ARE to open the GUI. You will, however, have access to the _Cylc_ TUI from the login node.
 
-    Follow the steps to [login to _Gadi_](/getting_started/set_up_nci_account/#login-to-gadi), making sure to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -X option to the `ssh` command. This allows the _Rose_ GUI to be launched on your local machine.
+    Follow the steps to [login to _Gadi_](/getting_started/set_up_nci_account/#login-to-gadi), making sure to enable [X11 forwarding](https://some-natalie.dev/blog/ssh-x11-forwarding/), for example by adding the -Y option to the `ssh` command. This allows the _Rose_ GUI to be launched on your local machine.
 
     Once you are connected, skip directly to [Set up a persistent session](#set-up-a-persistent-session).
 
@@ -152,7 +152,7 @@ You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-logi
     If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) page.
 
     !!! tip
-        The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_. The model tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
+        The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_, thus, requiring minimal CPI and memory resources. The model tasks are dispatched by _Cylc_ to the compute nodes.
 
     Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) page and launch a session with the following entries:
 
@@ -237,7 +237,7 @@ cylc play <experiment_name>
 
 !!! warning
 
-    Cylc 8 will always install the _experiment_ directory under `/scratch/$PROJECT/$USER/cylc-run`, where $PROJECT is your default project at NCI. To overwrite this, you need to specify `PROJECT=<storage_project>` when running `cylc install`. <br>
+    _Cylc8_ will always install the _experiment_ directory under `/scratch/$PROJECT/$USER/cylc-run`, where $PROJECT is your default project at NCI. To overwrite this, you need to specify `PROJECT=<storage_project>` when running `cylc install`. <br>
     You need to specify the same project as you have specified for storage in the configuration. If the configuration does not allow you to specify a storage project, you have to use your default project.
 
 ??? example "Example: Running the experiment {{experiment_name}}"

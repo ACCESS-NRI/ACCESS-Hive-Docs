@@ -25,9 +25,9 @@ where `<project>` is the project you want to start the session under, and `<name
     <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
-A newly created persistent session uses the following format: <br>
+Persistent session names use the following format: <br>
 `<name>.<$USER>.<project>.ps.gadi.nci.org.au`.<br>
-The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
+Persistent session are also assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
 !!! tip
     If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
@@ -63,7 +63,7 @@ For example, if user `abc123` starts a persistent session named `ForCylc` under 
     <terminal-line data="output">ForCylc.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
-For more information on how to specify the target session, refer to [Specify Target Session for Cylc8](https://opus.nci.org.au/spaces/DAE/pages/252674295/Run+Cylc8+Suites#RunCylc8Suites-SpecifyTargetSession).
+For more information on how to assign the persistent session, refer to [Specify Target Session for Cylc8](https://opus.nci.org.au/spaces/DAE/pages/252674295/Run+Cylc8+Suites#RunCylc8Suites-SpecifyTargetSession).
 <!--end:pers-session-assign-->
 
 <!--start:pers-session-setup-->
