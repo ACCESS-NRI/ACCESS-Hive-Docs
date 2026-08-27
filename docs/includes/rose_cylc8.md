@@ -51,10 +51,11 @@ As shown in the diagram, the general layout of a _Cylc_-supported model run cons
 
 - The _experiment_ directory contains all data from the experiment. This directory is created and managed by _Cylc_. Inside the _experiment_ directory, there are three subdirectories of particular interest: 
     - `log/job/` &rarr; contains the jobs' script and output and error log files for all the tasks of the _experiment_.
-    - `share/` &rarr; contains data shared between tasks. Importantly, it contains the output of the model and the logs from the compilation.
+    - `share/` &rarr; contains data shared between tasks such as ancillary files. Importantly, it contains the output of the model.
 
         - `share/data/History_Data/` &rarr; where the simulation output files are located
         - `share/data/History_Data/netCDF/` &rarr; where the simulation output files post-processed in netCDF format are located
+        - `share/data/etc` &rarr; sub-folders contain symbolic links to the ancillary files
 
     - `work/` &rarr; contains the current working directories of running tasks. These are removed automatically if empty when a task finishes.
     
@@ -66,7 +67,7 @@ As shown in the diagram, the general layout of a _Cylc_-supported model run cons
 
     - _configuration_ directories. It is recommended to store these directories under `$HOME/roses`. This will ensure _Cylc_ can find them easily. The commands on this page assume the configuration is under `$HOME/roses`.
     - _control_ directories. These directories will be created under `$HOME/cylc-run`. The 10GB quota on `$HOME` should be sufficient as _control_ directories only contain text files and symbolic links and, hence, occupy less than 10MB.
-    - _experiment_ directories. For these, `/scratch` is recommended as it is optimised for fast reading and writing of large data, and adequate space is available for large model output.
+    - _experiment_ directories. These directories will be created under `/scratch` as it is optimised for fast reading and writing of large data, and adequate space is available for large model output.
 
 !!! warning
     Files on the `/scratch` drive, such as the _experiment_ directory, might be deleted if not accessed for [some time](https://opus.nci.org.au/spaces/Help/pages/156434436/Gadi+scratch+File+Management). All experiments which are to be kept should be moved to `/g/data/`.
@@ -124,7 +125,7 @@ The log files are located under the `log/` and `work/` directories that can be a
 
     These logs contain timestep-by-timestep output and is where most model-level errors appear (e.g., instabilities, failed reads of ancillary files) and may help to diagnose your issue.
 
-- *PBS Logs*
+- *PBS logs*
 
     For a given task, the PBS log (sometimes referred to as "PBS out") is located in the `job.out` file as described above and can be used to retrieve PBS-level information about walltime, memory, and exit codes.
 <!--end:cylc8-structure-->
@@ -194,7 +195,7 @@ module load cylc/8.6.3
 ## Validate the configuration
 
 <!--start:cylc8-validate-->
-Before running an experiment, it is recommended to validate the configuration to ensure its compatibility with _Cylc8_. For this, you can run:
+Before running an experiment, it is recommended to validate the configuration to ensure its compatibility with _Cylc8_. This is particularly useful if you modify the configuration as the validation step will pick up badly formatted inputs. For this, you can run:
 
 ```
 cylc validate <experiment-name>
