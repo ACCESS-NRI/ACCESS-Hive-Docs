@@ -3,29 +3,8 @@ NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/sp
 
 It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
 
-Note that persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously, thus limiting the need for further setup steps.
+Persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously, thus limiting the need for further setup steps.
 <!--end:pers-session-about-->
-
-<!--start:pers-session-setup-->
-### Setup connection between _Gadi_ and _Cylc_
-!!! tip
-
-    Although this step is only necessary before the first time you use _Cylc_, you can follow these instructions at any time without adverse effect if you are unsure whether your setup is correct.
-
-The communication between _Gadi_ and the _persistent session_ is restricted for security reasons. You need to create a specific ssh key before any work with _Cylc_. For this, please run the following command:
-
-```
-/g/data/hr22/bin/gadi-cylc-setup-ps -y
-```
-
-A successful completion should print out:
-
-```
-+------------------------------------------------------------------------------+
-| RESULT: PASSED                                                               |
-+------------------------------------------------------------------------------+
-```
-<!--end:pers-session-setup-->
 
 <!--start:pers-session-start-->
 ### Start a new persistent session
@@ -85,9 +64,29 @@ For example, if user `abc123` started a persistent session named `ForCylc` under
     <terminal-line data="output">ForCylc.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
-For more information on how to specify the target session, refer to [Specify Target Session with Cylc7 Suites](https://opus.nci.org.au/display/DAE/Run+Cylc7+Suites#RunCylc7Suites-SpecifyTargetSession).
-
+For more information on how to specify the target session, refer to [Specify Target Session for Cylc8](https://opus.nci.org.au/spaces/DAE/pages/252674295/Run+Cylc8+Suites#RunCylc8Suites-SpecifyTargetSession).
 <!--end:pers-session-assign-->
+
+<!--start:pers-session-setup-->
+### Setup connection between _Gadi_ and _Cylc_
+!!! tip
+
+    Although this step is only necessary before the first time you use _Cylc_, you can follow these instructions at any time without adverse effect if you are unsure whether your setup is correct.
+
+The communication between _Gadi_ and the _persistent session_ is restricted for security reasons. You need to create a specific ssh key before any work with _Cylc_. For this, please run the following command:
+
+```
+/g/data/hr22/bin/gadi-cylc-setup-ps -y
+```
+
+A successful completion should print out:
+
+```
++------------------------------------------------------------------------------+
+| RESULT: PASSED                                                               |
++------------------------------------------------------------------------------+
+```
+<!--end:pers-session-setup-->
 
 <!--start:pers-session-active-->
 ### List active persistent sessions {: .no-toc }
