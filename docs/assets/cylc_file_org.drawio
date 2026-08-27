@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="YZoJWE0S9nZijOkay0GA">
+    <mxGraphModel dx="1169" dy="728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontColor=#4D4D4D;strokeColor=#666666;dashed=1;dashPattern=12 12;" value="Created by the user" vertex="1">
+          <mxGeometry height="460" width="210" x="70" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;strokeColor=#666666;dashed=1;dashPattern=12 12;fontColor=#666666;" value="Created by Cylc" vertex="1">
+          <mxGeometry height="460" width="490" x="340" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;fillColor=none;strokeColor=#9673a6;fontColor=light-dark(#9674a6, #ededed);strokeWidth=2;fontStyle=1" value="Configuration directory" vertex="1">
+          <mxGeometry height="420" width="190" x="80" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;verticalAlign=top;" value="Contains a local clone of a configuration from GitHub&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Located under $HOME/roses/&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="170" x="90" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;fillColor=none;strokeColor=#6c8ebf;strokeWidth=2;fontStyle=1;fontColor=light-dark(#6c8ebe, #ededed);" value="Control directory" vertex="1">
+          <mxGeometry height="420" width="190" x="350" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;verticalAlign=top;spacing=0;" value="Located under $HOME/cylc-run/&lt;div&gt;&lt;div&gt;Used to control the experiment.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Contains:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;copy of the configuration&lt;/li&gt;&lt;li&gt;symbolic links to directory containing large data from the experiment&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="165" width="170" x="360" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;fillColor=none;strokeColor=#b85450;strokeWidth=2;fontStyle=1;fontColor=light-dark(#b85450, #ededed);" value="Experiment directory" vertex="1">
+          <mxGeometry height="420" width="190" x="626" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;align=left;verticalAlign=top;spacing=0;" value="&lt;div&gt;&lt;div&gt;Storage for a user&#39;s experiment data, including large binary inputs and outputs&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="636" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontColor=light-dark(#3700ff, #ededed);strokeColor=light-dark(#3700ff, #ededed);" value="work&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;where tasks are run&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="636" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-42" edge="1" parent="1" source="QL7m3oy6H1rpDiZDCg_k-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;strokeColor=#6E6E6E;fontColor=#6E6E6E;" target="QL7m3oy6H1rpDiZDCg_k-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-44" connectable="0" parent="QL7m3oy6H1rpDiZDCg_k-42" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Symbolic link" vertex="1">
+          <mxGeometry relative="1" x="-0.4" y="-1" as="geometry">
+            <mxPoint x="18" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-39" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fontColor=light-dark(#3700ff, #ededed);strokeColor=light-dark(#3700ff, #ededed);dashed=1;dashPattern=12 12;" value="work" vertex="1">
+          <mxGeometry height="60" width="170" x="360" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;strokeColor=#FF8000;fillColor=none;fontColor=#FF8000;" value="share&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;tasks&#39; output including the model&#39;s output files&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="636" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-46" edge="1" parent="1" source="QL7m3oy6H1rpDiZDCg_k-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;strokeColor=#6E6E6E;fontColor=#6E6E6E;" target="QL7m3oy6H1rpDiZDCg_k-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-47" connectable="0" parent="QL7m3oy6H1rpDiZDCg_k-46" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Symbolic link" vertex="1">
+          <mxGeometry relative="1" x="-0.4" y="-1" as="geometry">
+            <mxPoint x="18" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fontColor=#FF8000;strokeColor=#FF8000;dashed=1;dashPattern=12 12;fillColor=none;" value="share" vertex="1">
+          <mxGeometry height="60" width="170" x="360" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;strokeColor=#009900;fillColor=none;fontColor=#009900;" value="log&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;jobs&#39; scripts and log files&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="636" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-51" edge="1" parent="1" source="QL7m3oy6H1rpDiZDCg_k-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;strokeColor=#6E6E6E;fontColor=#6E6E6E;" target="QL7m3oy6H1rpDiZDCg_k-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-52" connectable="0" parent="QL7m3oy6H1rpDiZDCg_k-51" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Symbolic link" vertex="1">
+          <mxGeometry relative="1" x="-0.4" y="-1" as="geometry">
+            <mxPoint x="18" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;fontColor=#009900;strokeColor=#009900;dashed=1;dashPattern=12 12;fillColor=none;" value="log" vertex="1">
+          <mxGeometry height="60" width="170" x="360" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-57" parent="1" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;whiteSpace=wrap;strokeColor=#4B7D74;flipH=0;legacyAnchorPoints=0;flipV=1;fontColor=#4B7D74;" value="Ideal for $HOME or GitHub" vertex="1">
+          <mxGeometry height="20" width="460" x="80" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="QL7m3oy6H1rpDiZDCg_k-58" parent="1" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;whiteSpace=wrap;strokeColor=#4B7D74;flipH=0;legacyAnchorPoints=0;flipV=1;fontColor=#4B7D74;" value="Ideal for scratch" vertex="1">
+          <mxGeometry height="20" width="190" x="626" y="620" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

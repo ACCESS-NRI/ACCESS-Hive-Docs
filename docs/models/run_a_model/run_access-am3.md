@@ -82,8 +82,8 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 ??? info "Run directory"
 
     {% include-markdown "includes/rose_cylc8.md"
-        start="<!--start:cylc8-expdir-files-->"
-        end="<!--end:cylc8-expdir-files-->"
+        start="<!--start:cylc8-structure-->"
+        end="<!--end:cylc8-structure-->"
     %}
 
 ## Connect to _Gadi_

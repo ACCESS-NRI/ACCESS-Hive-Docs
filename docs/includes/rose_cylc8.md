@@ -8,7 +8,7 @@
 <!--start:cylc8-compatibility-mode-->
 !!! warning
    
-    {{model}} is transitioning to a _Cylc8_ workflow from a _Cylc7_ workflow. At this point, the configuration is using _Cylc8_ in compatibility-mode with _Cylc7_. This means the configuration can be run with _Cylc7_ or _Cylc8_ to allow experienced users the time to understand how to use _Cylc8_. However, we are only giving the instructions with _Cylc8_ as all users should get familiar with _Cylc8_ as we phase out _Cylc7_.
+    {{model}} is transitioning to a _Cylc8_ workflow from a _Cylc7_ workflow. At this point, the configuration is using _Cylc8_ in compatibility-mode with _Cylc7_. This means the configuration can be run with _Cylc7_ or _Cylc8_ to allow experienced users the time to understand how to use _Cylc8_. However, we are only giving the instructions with _Cylc8_ as all users should get familiar with _Cylc8_ while we phase out _Cylc7_.
 <!--end:cylc8-compatibility-mode-->
 
 <!--start:cylc8-about-->
@@ -22,10 +22,15 @@ A set of tasks configured by _Rose_ to run with the _Cylc8_ engine is called a _
 
 ### Run directory and files organisation
 
-<!--start:cylc8-expdir-files-->
+<!--start:cylc8-structure-->
 The data organisation for _Cylc_ was chosen to separate the smaller text files that define a configuration and the larger binary input and output files needed for an experiment.
 
-This means the configuration definition can be tracked with Git, and so is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data can be run simultaneously.
+This means the configuration definition can be tracked with _Git_, and so is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data can be run simultaneously.
+
+A representation of the data organisation for _Cylc_ is given in the following diagram:
+
+<!-- Diagram created draw.io: editable file is assets/cylc_file_org.drawio  -->
+![cylc directory structure](/assets/cylc_file_org.drawio.svg){: class="example-img" loading="lazy"}
 
 #### Experiment directory
 _Cylc_ creates an _experiment_ directory under `$HOME/cycl-run/`, named from your experiment. This directory is organised as follows:
@@ -72,7 +77,7 @@ The run directory (`run1` in the previous example) contains a copy of the config
     - `share/data/History_Data/` &rarr; where the simulation output files are located
     - `share/data/History_Data/netCDF` &rarr; where the simulation output files post-processed in netCDF format are located
 - `work/` &rarr; contains task work directories, i.e. the current working directories of running tasks. These are removed automatically if empty when a task finishes.
-<!--end:cylc8-expdir-files-->
+<!--end:cylc8-structure-->
 
 ## Access _Rose/Cylc_
 <!--start:cylc8-module-->
