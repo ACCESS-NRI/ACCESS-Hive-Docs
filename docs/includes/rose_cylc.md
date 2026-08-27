@@ -8,10 +8,25 @@
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). Cylc is a workflow manager that automatically executes tasks according to the model's configuration. It also monitors all tasks, reporting any errors that may occur.
-* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UKMO which configures tasks for the _Cylc_ engine. Rose is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
+* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). _Cylc_ is a workflow manager that automatically executes tasks according to the model's configuration. It also monitors all tasks, reporting any errors that may occur.
+* The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UKMO configures tasks for the _Cylc_ engine. _Rose_ is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
 
 A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_. Every _suite_ has a unique identifier called `suite-ID` in the form `u-LLNNN`, where `L` is a letter and `N` is a number (e.g., u-ab123).
+
+<!--start:rose-directory-->
+#### Configuration directory
+
+It is recommended to store your local copy of the configuration in your `~/roses/` directory (create the directory if it does not exist). This directory will be referred to as the *configuration directory*.
+{: #configdir }
+
+This configuration directory contains multiple subdirectories and files, including:
+
+- `app` &rarr; directory containing specific configuration files for various model tasks.
+- `meta` &rarr; directory containing the _Rose_ GUI metadata.
+- `rose-suite.conf_nci_gadi` &rarr; main model configuration file.
+- `rose-suite.info` &rarr; configuration information file.
+- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
+<!--end:rose-directory-->
 
 
 ## Prerequisites
@@ -46,7 +61,7 @@ You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-logi
 
 ??? info "Connect via ARE VDI Desktop"
 
-    If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
+    If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) page.
 
     !!! tip
         The ARE VDI session does not run model tasks directly; it only runs _Rose/Cylc_. The model tasks are dispatched by _Cylc_ to the compute nodes. This means the ARE VDI session requires minimal CPU and memory resources.
@@ -118,26 +133,31 @@ After the first authentication, you will need to run `mosrs-auth` every 24 hours
 
 Depending on the specific model, its configuration will be hosted either on _GitHub_ or MOSRS. The [Run a Model](/models/run_a_model/) documentation for the respective model will specify where the configuration is stored.<br>
 
-Regardless of where the configuration comes from, it is recommended to store the local copy in the `~/roses/` directory (this happens automatically for configurations pulled from MOSRS). This directory will be referred to as the *configuration directory*.
-{: #configdir }
-
-This configuration directory contains multiple subdirectories and files, including:
-
-- `app` &rarr; directory containing specific configuration files for various model tasks.
-- `meta` &rarr; directory containing the _Rose_ GUI metadata.
-- `rose-suite.conf` &rarr; main model configuration file.
-- `rose-suite.info` &rarr; configuration information file.
-- `suite.rc` &rarr; _Cylc_ control script file (Jinja2 language).
 
 ### Model configurations stored on _GitHub_
 
-For _GitHub_ hosted configurations, get a local copy by cloning the _GitHub_ repository with:
+<!--start:get-github-config-->
+You get a local copy of the configuration of your choice by cloning the _GitHub_ branch with:
 
 ```
-git -C ~/roses clone <repository> -b <branch>
+git -C ~/roses clone {{github_configs}} -b <branch> <experiment_name>
 ```
 
-where `<repository>` and `<branch>` are specific to the chosen model configuration and can be found in the respective [Run a Model](/models/run_a_model/) documentation.
+where:
+
+- `<branch>` is the name of the branch of the configuration you want to base your work on.
+- `<experiment_name>` is the name of your local copy of the configuration, i.e. your _configuration directory_.
+
+??? example "Example: Copying the {{config_branch}} configuration"
+  
+    If you want a copy of the {{config_branch}} configuration for {{model}} in your `~/roses/` directory, in a _Gadi_ terminal, you would run the command:
+
+    ```
+    git -C ~/roses clone {{github_configs}} -b {{config_branch}} {{experiment_name}}
+    ```
+
+    This will create the directory `~/roses/{{experiment_name}}` that will contain a copy of the _{{config_branch}}_ configuration. It is recommended to choose a descriptive name for the `<experiment_name>` unlike in this example.
+<!--end:get-github-config-->
 
 If you want to make exploratory changes within the configuration, and have those changes tracked, please [fork the configuration repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and commit your changes there.<br>
 

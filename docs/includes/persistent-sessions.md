@@ -3,7 +3,7 @@ NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/sp
 
 It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
 
-Note that persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously.
+Note that persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously, thus limiting the need for further setup steps.
 <!--end:pers-session-about-->
 
 <!--start:pers-session-start-->
@@ -27,18 +27,22 @@ where `<project>` is the project you want to start the session under, and `<name
 </terminal-window>
 
 The label of a newly-created _persistent session_ has the following format: <br>
-`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.
+`<name>.<$USER>.<project>.ps.gadi.nci.org.au`.<br>
+The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
 !!! tip
     If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
 !!! tip 
     The project assigned to a _persistent session_ does not have to be the same one used to run the ACCESS model configuration. In addition, the same persistent session can be used to run multiple simulations simultaneously.<br>
-    The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
+
+!!! tip
+  
+    When restarting a persistent session after a _Gadi_ outage, for example the quarterly maintenance, if you use the same name as before, this is the only setup step you need to do. You do not need to assign the persistent session to _Cylc_ again. You can check the name of your persistent session in `~/.persistent-sessions/cylc-session` to make sure to reuse the same name.
 <!--end:pers-session-start-->
 
 <!--start:pers-session-assign-->
-### Assign the persistent session to Cylc (once only) {: #assign-the-persistent-session-to-cylc }
+### Assign the persistent session to _Cylc_ (once only) {: #assign-the-persistent-session-to-cylc }
 
 Once the session is running, it needs to be assigned to _Cylc_. This is done by inserting the persistent session label into `~/.persistent-sessions/cylc-session`, which can be done with the following command (substituting `<name>` and `<project>` with the name and project used to create the persistent session).
 
@@ -62,9 +66,6 @@ For example, if user `abc123` started a persistent session named `ForCylc` under
 
 For more information on how to specify the target session, refer to [Specify Target Session with Cylc7 Suites](https://opus.nci.org.au/display/DAE/Run+Cylc7+Suites#RunCylc7Suites-SpecifyTargetSession).
 
-!!! tip
-  
-    When restarting a persistent session after a _Gadi_ outage, for example the quarterly maintenance, if you use the same name as before, you do not need to reassign the session. You can check the name of your persistent session in `~/.persistent-sessions/cylc-session` to make sure to reuse the same name.
 <!--end:pers-session-assign-->
 
 <!--start:pers-session-active-->
