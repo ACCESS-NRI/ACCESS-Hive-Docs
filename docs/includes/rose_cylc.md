@@ -72,7 +72,7 @@ You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-logi
             Amount of hours the ARE VDI session will remain active for. This is only setup time, and does not reflect how long the actual configuration will take to run.
             
         !!! tip 
-            Some model configurations might require a longer setup time. The _Walltime_ included here should be sufficient for most model configurations, but if your ARE session terminates before the model setup is complete, you can start a new ARE VDI session.
+            Some model configurations may require additional setup time. The _walltime_ specified here should be sufficient for most configurations, but if your ARE session terminates before setup is complete, you can start a new ARE VDI session and continue.
 
     - **Queue** &rarr; `normalbw`
         
@@ -127,7 +127,7 @@ This will request the username and password you received when you created your M
     <terminal-line lineDelay=500><span style="color: #559cd5;">INFO</span>: Successfully accessed rosie with your credentials.</terminal-line>
 </terminal-window>
 
-After the first authentication, you will need to run `mosrs-auth` every 24 hours and for every new connection to _Gadi_ (e.g., new terminal) to verify your password against the saved credentials.
+After the initial authentication, run `mosrs-auth` every 24 hours and after each new connection to _Gadi_ (e.g., a new terminal) to verify your password against the saved credentials
 
 ## Get the model configuration
 
@@ -146,7 +146,7 @@ git -C ~/roses clone {{github_configs}} -b <branch> <experiment_name>
 where:
 
 - `<branch>` is the name of the branch of the configuration you want to base your work on.
-- `<experiment_name>` is the name of your local copy of the configuration, i.e. your _configuration directory_. It will also be used by _Cylc_ for your _control_ directory path.
+- `<experiment_name>` is the name of your local copy of the configuration, i.e., your _configuration directory_. _Cylc_ also uses it for the _control_ directory path.
 
 ??? example "Example: Copying the {{config_branch}} configuration"
   
@@ -178,8 +178,7 @@ Both options use [Rosie](https://metomi.github.io/rose/doc/html/tutorial/rose/fu
 
 If you're not sure which option to use, we recommend using the "local-only copy". The "remote and local copy" is best used if you plan to commit the suite back to the remote.
 
-Configurations copied from MOSRS are created by default in the user's _Gadi_ home directory under `~/roses/<suite-ID>` (this is the configuration directory).
-
+Configurations copied from MOSRS are created by default in the user's _Gadi_ home directory under `~/roses/<suite-ID>`, which is the _configuration_ directory.
 
 #### Local-only copy {: #rosie-checkout }
 
@@ -192,7 +191,7 @@ where `<suite-id>` and `<branch>` are specific to the chosen model configuration
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
 
-Configurations obtained in this way cannot be pushed back to the remote. Therefore, the use of this command is recommended for testing and examining configurations.
+Configurations obtained this way cannot be pushed back to the remote repository. This command is therefore recommended for testing and inspecting configurations.
 
 #### Local and remote copy (new remote configuration) {: #rosie-copy }
 
@@ -207,14 +206,17 @@ where `<suite-id>` and `<branch>` are specific to the chosen model configuration
 !!! tip
     To copy from the default branch (`trunk`), omit the `/<branch>` portion of the command.
 
-After running this command, a text editor will open in your terminal, where you can define metadata for the new configuration (the default text editor is _Vim_, and [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor) is a good reference if you're unfamiliar with it). The metadata fields are expressed as `key=value` pairs, pre-filled with values copied from the original configuration. You can modify these values or add new metadata as needed. Note that `owner`, `project` and `title` are required keys. 
+After running this command, a text editor opens in your terminal, where you can define metadata for the new configuration. The default text editor is _Vim_; see [this quick guide](https://eastmanreference.com/a-quick-start-guide-for-beginners-to-the-vim-text-editor) if you are unfamiliar with it.
+
+Metadata fields are specified as `key=value` pairs and are pre-filled with values copied from the original configuration. You can modify these values or add new ones as needed. The `owner`, `project` and `title` keys are required. 
+
 ```
 owner=<MOSRS-username>
 project=<project-name>
 title=<suite-title>
 ```
 
-When you exit the editor, you will have to confirm that you want to copy the suite:
+After exiting the editor, confirm that you want to copy the suite:
 
 <terminal-window>
     <terminal-line data="input">rosie copy &lt;suite-id&gt;/&lt;branch&gt;</terminal-line>
@@ -224,7 +226,7 @@ When you exit the editor, you will have to confirm that you want to copy the sui
     <terminal-line>[INFO] &lt;new-suite-id&gt;: local copy created at &lt;$HOME&gt;/roses/&lt;new-suite-id&gt;</terminal-line>
 </terminal-window>
 
-This creates a new remote configuration with a new `suite_id` (based off the copied configuration) and clones a copy of it locally in the `~/roses/<new-suite-id>` folder. Configurations created in this way are separate from the original copied configuration and can be modified and pushed back to the remote.
+This creates a new remote configuration with a new `suite_id` based on the copied configuration and clones a local copy to `~/roses/<new-suite-id>`. The new configuration is independent of the original and can be modified and pushed back to the remote.
 
 To push a configuration back to the remote, from within the configuration directory run:
 
@@ -242,15 +244,14 @@ rosie help
 !!! warning
     Before running a configuration, make sure to follow the initial setup for it (e.g., setting the correct compute project and storage resources). For details, follow the instructions relative to your specific model in the [Run a model](/models/run_a_model) page.
 
-ACCESS model configurations run on [_Gadi_][gadi] through [PBS jobs][PBS job] submissions. They often comprise several tasks, such as checking out code repositories, compiling and building different model components, running the model, etc. The workflow of these tasks is controlled by _Cylc_.
+ACCESS model configurations run on [_Gadi_][gadi] through [PBS jobs][PBS job] submissions. They often comprise several tasks, such as checking out code repositories, compiling and building different model components, and running the model. _Cylc_ controls the workflow and sequencing of these tasks.
 
 To run the configuration, execute the following commands:
 
 ```
 rose suite-run -C ~/roses/<suite-id>
 ```
-
-This launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI (if you are running on the login node and the GUI doesn't open, make sure you connected with [X11 forwarding](#x11-forwarding) enabled). The _Cylc_ GUI allows you to view and control the different tasks in the configuration as they run. The _Cylc_ GUI can be safely closed without impacting the model run. If you closed the GUI and want to re-open it, run:
+This launches the _Rose/Cylc_ configuration and opens the _Cylc_ GUI. If the GUI does not open when running on the login node, ensure you connected with [X11 forwarding](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/pull/1238/changes#x11-forwarding) enabled. The _Cylc_ GUI allows you to monitor and control tasks as they run and can be safely closed without affecting the model run. To reopen the GUI, run:
 
 ```
 rose suite-gcontrol --name=<suite-id> &
@@ -273,14 +274,15 @@ To edit the model configuration, run the following:
 rose edit -C ~/roses/<suite-id> &
 ```
 
-This opens the _Rose_ GUI, where the configuration settings can be modified. Once you are happy with the changes, save the modified configuration by clicking on the _Save_ button. ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}
+This opens the _Rose_ GUI, where you can modify the configuration settings. Once you are satisfied with your changes, click the _Save_ button to save the modified configuration. 
+![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}
 
 !!! tip
     The `&` is optional. It detaches the invoked process, allowing the terminal prompt to remain active while the GUI is open.
 
 
 !!! warning
-    Directly modifying configuration files with an editor is usually discouraged for non-expert users.
+    Directly editing configuration files is generally discouraged for non-expert users.
 
 For a description of some common configuration settings, see the respective [Run a model](/models/run_a_model/) documentation.
 
