@@ -67,7 +67,6 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - bibtex:
       bib_file: "references.bib"
-  - include-markdown
   - redirects:
       redirect_maps:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
