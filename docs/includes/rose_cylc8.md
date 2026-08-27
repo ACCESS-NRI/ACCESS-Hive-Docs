@@ -48,38 +48,48 @@ As shown in the diagram, the general layout of a _Cylc_-supported model run cons
      - Model components' configuration files, which are used to define the physics and the components' internal state used in the simulation.
 
 - The _experiment_ directory contains all data from the experiment. This directory is created and managed by _Cylc_. Inside the _experiment_ directory, there are three subdirectories of particular interest: 
-    - _log/job_ &rarr; contains the jobs' script and output and error log files for all the tasks of the _experiment_.
-    - _share_ &rarr; contains data shared between tasks. Importantly, it contains the output of the model and the logs from the compilation.
+    - `log/job/` &rarr; contains the jobs' script and output and error log files for all the tasks of the _experiment_.
+    - `share/` &rarr; contains data shared between tasks. Importantly, it contains the output of the model and the logs from the compilation.
 
         - `share/data/History_Data/` &rarr; where the simulation output files are located
-        - `share/data/History_Data/netCDF` &rarr; where the simulation output files post-processed in netCDF format are located
+        - `share/data/History_Data/netCDF/` &rarr; where the simulation output files post-processed in netCDF format are located
 
-    - _work_ &rarr; contains the current working directories of running tasks. These are removed automatically if empty when a task finishes.
+    - `work/` &rarr; contains the current working directories of running tasks. These are removed automatically if empty when a task finishes.
     
-    The _log_, _share_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
+    The `log/`, `share/` and `work/` directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
 !!! tip 
 
     Recommended location of the _control_ and _experiment_ directories on _Gadi_.
 
-    - _configuration_ directories. These directories should be created under $HOME/roses. This will ensure _Cylc_ can find them easily.
-    - _control_ directories. These directories will be created under $HOME/cylc-run. The 10GB quota on $HOME should be sufficient as _control_ directories only contain text files and symbolic links and, hence, occupy less than 10MB.
+    - _configuration_ directories. It is recommended to store these directories under `$HOME/roses`. This will ensure _Cylc_ can find them easily. The commands on this page assume the configuration is under `$HOME/roses`.
+    - _control_ directories. These directories will be created under `$HOME/cylc-run`. The 10GB quota on `$HOME` should be sufficient as _control_ directories only contain text files and symbolic links and, hence, occupy less than 10MB.
     - _experiment_ directories. For these, `/scratch` is recommended as it is optimised for fast reading and writing of large data, and adequate space is available for large model output.
 
 !!! warning
     Files on the `/scratch` drive, such as the _experiment_ directory, might be deleted if not accessed for [some time](https://opus.nci.org.au/spaces/Help/pages/156434436/Gadi+scratch+File+Management). All experiments which are to be kept should be moved to `/g/data/`.
 
+#### Configuration files in the _control_ directory
+
+All _Rose/Cylc_ configurations use some similar files and directory organisation to define the tasks that put together form the configuration. The most important files and directories are:
+
+- `rose-suite.conf`: Contains the user-defined configuration option at runtime
+- `suite.rc`: Contains the definition of the tasks and the task graph
+- `site/nci_gadi.rc`: Contains NCI-specific configuration, including the initial restart file that defines the initial conditions.
+- `bin`: Contains some scripts that are used by some of the tasks
+- `app`: Contains the definition of the _Rose_ apps that are used for some tasks in the configuration.
+
 #### Output and restart files organisation {: .no-toc}
 
-The diagnostics data from the UM model is output in binary format. The output in the raw format can be found under `share/data/History_Data/`. The data is post-processed by the _experiment_ into netCDF format. This data can be found under `share/data/History_Data/netCDF`. 
+The diagnostics data from the UM model is output in binary format. The output in the raw format can be found under `share/data/History_Data/` from the _control_ directory. The data is post-processed by the _experiment_ into netCDF format. This data can be found under `share/data/History_Data/netCDF`. 
 
 The restart file from the UM model is named, `<short-name>a.astart` where \<short-name\> is a short version of the experiment name. It can be found under `share/data`.
 
 #### Error and output log files {: .no-toc}
 
-The log files are located under the _log_ and _work_ directories that can be accessed from the _control_ directory.
+The log files are located under the `log/` and `work/` directories that can be accessed from the _control_ directory.
 
-- *Task logs under `log/jobs`*
+- *Task logs under `log/job`*
 
     All the tasks are run via job scripts whether they run locally or in a PBS job. You can find the job's script and output and error logs in directories following the pattern:
     
@@ -89,28 +99,28 @@ The log files are located under the _log_ and _work_ directories that can be acc
 
     - \<timestamp> is the cycle point
     - \<task_name> is the name of the task
-    - \<run_attempt> is the run attempt of the task, with NN symlinked to the latest attempt
+    - \<run_attempt> is the run attempt of the task, with `NN` symlinked to the latest attempt
 
-    For example, if you are looking for the error log file of the _housekeeping_ task for the latest installation of the experiment and the simulation period starting on 1999-03-00, the file will be under: _log/job/19990300T0000Z/housekeeping/NN_.
+    For example, if you are looking for the error log file of the _housekeeping_ task for the latest installation of the experiment and the simulation period starting on 1999-03-00, the file will be under: `log/job/19990300T0000Z/housekeeping/NN`.
 
     After completion of a job, the following files are produced:
     
-    - _job_: The script used to run the task.
-    - _job.out_: The standard output of the job.
-    - _job.error_: Error messages from the job.
-    - _job-activity.log_: Event history of the job on the scheduler.
-    - _job.status_: The current status of the job.
+    - `job`: The script used to run the task.
+    - `job.out`: The standard output of the job.
+    - `job.error`: Error messages from the job.
+    - `job-activity.log`: Event history of the job on the scheduler.
+    - `job.status`: The current status of the job.
 
     These files are the first place to look when diagnosing model issues.
 
 - *Model log files for the UM and the reconfiguration*
 
-    The model log files can be found under _work/\<timestamp>/\<task_name>/pe_output_ where:
+    The model log files can be found under `work/\<timestamp>/\<task_name>/pe_output/` where:
 
     - \<timestamp> is the cycle point
     - \<task_name> is the name of the task
 
-    These logs contain timestep-by-timestep output and is where most model-level errors appear (e.g. instabilities, failed reads of ancillary files) and may help to diagnose your issue.
+    These logs contain timestep-by-timestep output and is where most model-level errors appear (e.g., instabilities, failed reads of ancillary files) and may help to diagnose your issue.
 
 - *PBS Logs*
 
