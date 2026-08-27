@@ -29,7 +29,7 @@ This means the configuration definition can be tracked with _Git_, and so is eas
 
 A representation of the data organisation for _Cylc_ is given in the following diagram:
 
-<!-- Diagram created draw.io: editable file is assets/cylc_file_org.drawio  -->
+<!-- Diagram created by draw.io. The SVG contains the graphic in XML format and can be opened in https://app.diagrams.net/ for editing (no account required) -->
 ![cylc directory structure](/assets/cylc_file_org.drawio.svg){: class="example-img" loading="lazy"}
 
 #### Experiment directory
