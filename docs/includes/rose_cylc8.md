@@ -21,9 +21,11 @@ A set of tasks configured by _Rose_ to run with the _Cylc8_ engine is called a _
 ??? info "_Cylc_ and _Rose_ concepts"
 
     A _Cylc_ configuration defines individual tasks as well as the relationship between these tasks, creating a tasks graph. Each task is given a name in the configuration. Using that graph, _Cylc_ can execute the tasks at the right time and in the right order. It is also possible to define a repetition sequence for a whole (or part) of a graph. This is used for {{model}} to manage simulations that are too long to be run in a single PBS script.
-
+    
+    A task is the abstract representation of a component of the configuration. Jobs are the concrete representation of a task. A task could submit many jobs (for example if the job fails and the task is re-run).
+    
     _Cylc_ supports several installations of the same configuration. By default, these will be installed in numbered directories (`run1`, `run2`, etc.), a custom name can be provided as an option. _Cylc_ provides a symbolic link to the latest installation named `runN`. This can be useful when developing an experiment and testing incremental changes or for running sensitivity studies.
-
+    
     _Cylc_ tasks can be written in any language and use any command. Tasks configured by _Rose_ are called _app_ following the _Rose_ vocabulary.
 <!--end:cylc8-about-->
 
@@ -81,9 +83,9 @@ All _Rose/Cylc_ configurations use some similar files and directory organisation
 
 #### Output and restart files organisation {: .no-toc}
 
-The diagnostics data from the UM model is output in binary format. The output in the raw format can be found under `share/data/History_Data/` from the _control_ directory. The data is post-processed by the _experiment_ into netCDF format. This data can be found under `share/data/History_Data/netCDF`. 
+The diagnostics data from the UM model is output in binary format. The output in the raw format can be found under `share/data/History_Data/` from the _control_ directory. The data is post-processed by the _experiment_ into netCDF format. This data can be found under `share/data/History_Data/netCDF/`. 
 
-The restart file from the UM model is named, `<short-name>a.astart` where \<short-name\> is a short version of the experiment name. It can be found under `share/data`.
+The restart file from the UM model is `share/data/<short-name>a.astart` where <short-name\> is a short version of the experiment name.
 
 #### Error and output log files {: .no-toc}
 
@@ -93,13 +95,13 @@ The log files are located under the `log/` and `work/` directories that can be a
 
     All the tasks are run via job scripts whether they run locally or in a PBS job. You can find the job's script and output and error logs in directories following the pattern:
     
-    `job/<timestamp>/<task_name>/<run_attempt>`
+    `log/job/<timestamp>/<task_name>/<run_attempt>`
 
     Where:
 
-    - \<timestamp> is the cycle point
-    - \<task_name> is the name of the task
-    - \<run_attempt> is the run attempt of the task, with `NN` symlinked to the latest attempt
+    - `<timestamp>` is the cycle point
+    - `<task_name>` is the name of the task
+    - `<run_attempt>` is the run attempt of the job, with `NN` symlinked to the latest attempt
 
     For example, if you are looking for the error log file of the _housekeeping_ task for the latest installation of the experiment and the simulation period starting on 1999-03-00, the file will be under: `log/job/19990300T0000Z/housekeeping/NN`.
 

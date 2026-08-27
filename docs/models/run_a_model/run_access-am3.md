@@ -35,8 +35,11 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
     Before running an ACCESS model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **Request access to the configurations**<br>
-    To request access to the configurations repository (and associated model component repositories), please contact us [through the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580/13). This step will also allow us to ensure you are properly licensed to use the software.
-    {: #request-access }
+    To request access to the configurations repository (and associated model component repositories), please contact us [through the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580). This step will also allow guide you towards getting licensed to use the model as required. {: #request-access }
+
+    !!! warning
+
+        This process can take up to 2 weeks.
 
 - **Join NCI projects**<br>
 
