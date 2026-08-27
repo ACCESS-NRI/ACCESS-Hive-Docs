@@ -1,7 +1,7 @@
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 
 <!--start:cylc8-prerequisites-->
-- [hr22](https://my.nci.org.au/mancini/project/hr22/join)
+- [hr22](https://my.nci.org.au/mancini/project/hr22/join): Cylc Rose Workflow
 <!--end:cylc8-prerequisites-->
 
 <!--start:cylc8-compatibility-mode-->
@@ -71,20 +71,44 @@ The restart file from the UM model is named, `<short-name>a.astart` where \<shor
 
 #### Error and output log files {: .no-toc}
 
-- *Task jobs files*
+The log files are located under the _log_ and _work_ directories that can be accessed from the _control_ directory.
 
-    All the tasks are run via job scripts whether they run locally or in a PBS job. Each task has:
+- *Task logs under `log/jobs`*
+
+    All the tasks are run via job scripts whether they run locally or in a PBS job. You can find the job's script and output and error logs in directories following the pattern:
     
-    - A job script file named _job_
-    - A standard output job log file named _job.out_
-    - A standard error job log file named _job.error_
-    - _job-activity.log_ and _job.status_ files are less useful to users and contain information linked to the scheduling from _Cylc_.
+    `job/<timestamp>/<task_name>/<run_attempt>`
 
-    These files are stored in sub-folders of the _log/job_ directory following the pattern: _log/job/\<simulation_time\>/\<task_name\>/\<instance\>_. \<instance\> indicates which installation of the experiment the job was for. For example, if you are looking for the error log file of the _housekeeping_ task for the latest installation of the experiment and the simulation period starting on 1999-03-00, the file will be under: _log/job/19990300T0000Z/housekeeping/NN_. _NN_ is a symbolic link to the latest installation and run of the experiment.
+    Where:
 
-- *Model log files*
+    - \<timestamp> is the cycle point
+    - \<task_name> is the name of the task
+    - \<run_attempt> is the run attempt of the task, with NN symlinked to the latest attempt
 
-    The model log files can be found under _work_ in sub-folders for the simulation time and the task.
+    For example, if you are looking for the error log file of the _housekeeping_ task for the latest installation of the experiment and the simulation period starting on 1999-03-00, the file will be under: _log/job/19990300T0000Z/housekeeping/NN_.
+
+    After completion of a job, the following files are produced:
+    
+    - _job_: The script used to run the task.
+    - _job.out_: The standard output of the job.
+    - _job.error_: Error messages from the job.
+    - _job-activity.log_: Event history of the job on the scheduler.
+    - _job.status_: The current status of the job.
+
+    These files are the first place to look when diagnosing model issues.
+
+- *Model log files for the UM and the reconfiguration*
+
+    The model log files can be found under _work/\<timestamp>/\<task_name>/pe_output_ where:
+
+    - \<timestamp> is the cycle point
+    - \<task_name> is the name of the task
+
+    These logs contain timestep-by-timestep output and is where most model-level errors appear (e.g. instabilities, failed reads of ancillary files) and may help to diagnose your issue.
+
+- *PBS Logs*
+
+   For a given task, the PBS log (sometimes referred to as "PBS out") is located in the `job.out` file as described above and can be used to retrieve PBS-level information about walltime, memory, and exit codes.
 <!--end:cylc8-structure-->
 
 ## Access _Rose/Cylc_

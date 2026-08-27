@@ -42,9 +42,9 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 
     Join the following projects by requesting membership on their respective NCI project pages:
 
-    - [access](https://my.nci.org.au/mancini/project/access/join)
-    - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
-    - [xp65](https://my.nci.org.au/mancini/project/xp65/join)
+    - [access](https://my.nci.org.au/mancini/project/access/join): : ACCESS software sharing
+    - [vk83](https://my.nci.org.au/mancini/project/vk83/join): ACCESS Models 
+    - [xp65](https://my.nci.org.au/mancini/project/xp65/join): ACCESS Analysis Environments
     {% include-markdown "includes/rose_cylc8.md"
        start="<!--start:cylc8-prerequisites-->"
        end="<!--end:cylc8-prerequisites-->"
