@@ -1,4 +1,3 @@
-[gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 
 <!--start:cylc8-prerequisites-->
@@ -20,9 +19,11 @@ The _Rose/Cylc_ workflow management tool consists of two components:
 A set of tasks configured by _Rose_ to run with the _Cylc8_ engine is called a _workflow_ in _Cylc8_. For coherence with other workflow managers used to run some ACCESS models, we refer to these _workflows_ as _configurations_.
 <!--end:cylc8-about-->
 
-### Run directory and files organisation
-
 <!--start:cylc8-structure-->
+### _Rose/Cylc_ directory and files organisation
+
+A _Cylc_ experiment defines individual tasks as well as the relationship between these tasks, creating a tasks graph. Each task is given a name in the experiment. Using that graph, _Cylc_ can execute the tasks at the right time and in the right order. It is also possible to define a repetition sequence for a whole (or part) of a graph. This is used for {{model}} to manage simulations that are too long to be run in a single PBS script. _Cylc_ supports several installations of the same experiment. By default, these will be installed in numbered directories by default (`run1`, `run2`, etc.). _Cylc_ provides a symbolic link to the latest installation named `runN`. This can be useful when developing an experiment and testing incremental changes or for running sensitivity studies.
+
 The data organisation for _Cylc_ was chosen to separate the smaller text files that define a configuration and the larger binary input and output files needed for an experiment.
 
 This means the configuration definition can be tracked with _Git_, and so is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data can be run simultaneously.
@@ -32,51 +33,58 @@ A representation of the data organisation for _Cylc_ is given in the following d
 <!-- Diagram created by draw.io. The SVG contains the graphic in XML format and can be opened in https://app.diagrams.net/ for editing (no account required) -->
 ![cylc directory structure](/assets/cylc_file_org.drawio.svg){: class="example-img" loading="lazy"}
 
-#### Experiment directory
-_Cylc_ creates an _experiment_ directory under `$HOME/cycl-run/`, named from your experiment. This directory is organised as follows:
+As shown in the diagram, the general layout of a _Cylc_-supported model run consists of three main directories:
 
-```
-.
-├── _cylc-install
-├── run1
-└── runN -> run1
-```
+- The _configuration_ directory contains a copy of the configuration. This should be a _git_ repository and can be used to implement your own configuration modifications and record them via _git_. This directory is created by the user.
+- The _control_ directory contains the model configuration and is the directory from which the model run is started. This directory contains information to manage the simulation and the scientific options that define the algorithms used in the model component or the diagnostics saved by the model component. This directory is created by _Cylc_. In the _control_ directory, you will find:
 
-- `_cylc-install` contains a symbolic link to the source of the experiment. This is needed by _Cylc_.
-- `run1` is the actual installation of the experiment for _Cylc_. New installations of the experiment will create a new numbered run directory.
-- `runN` is a symbolic link that points to the latest installation of the experiment.
+     - A copy of all the configuration files
+     - Model components' configuration files, which are used to define the physics and the components' internal state used in the simulation.
 
-#### _Run directory_, `runN`
-On _Gadi_, all files created at run time are stored in a location,  determined by the configuration (`root_dir`). This location is usually chosen to be on the `/scratch` filesystem to have a large enough storage space, temporary storage and quick, reliable read and write operations from the PBS scheduler.
+- The _experiment_ directory contains all data from the experiment. This directory is created and managed by _Cylc_. Inside the _experiment_ directory, there are three subdirectories of particular interest: 
+    - _log/job_ &rarr; contains the jobs' script and output and error log files for all the tasks of the _experiment_.
+    - _share_ &rarr; contains data shared between tasks. Importantly, it contains the output of the model and the logs from the compilation.
 
-The run directory (`run1` in the previous example) contains a copy of the configuration as well as symbolic links to directories under the _tasks work_ directory for easy access. The _tasks work_ directory is the location of the _work_ directories for all experiment's tasks. In this example, the user has chosen to locate their experiment's _work_ directory under `/scratch/$PROJECT/$USER`
+        - `share/data/History_Data/` &rarr; where the simulation output files are located
+        - `share/data/History_Data/netCDF` &rarr; where the simulation output files post-processed in netCDF format are located
 
-```
-.
-├── run1
-│   ├── app
-│   ├── bin
-│   ├── log -> /scratch/$PROJECT/$USER/cylc-run/{{experiment_name}}/run1/log
-│   ├── meta
-│   ├── opt
-│   ├── README.md
-│   ├── rose-suite.conf
-│   ├── rose-suite.conf_nci_gadi
-│   ├── rose-suite.info
-│   ├── share -> /scratch/$PROJECT/$USER/cylc-run/{{experiment_name}}/run1/share
-│   ├── site
-│   ├── suite.rc
-│   ├── suite-tests-graph.rc
-│   ├── suite-tests-runtime.rc
-│   └── work -> /scratch/$PROJECT/$USER/cylc-run/{{experiment_name}}/run1/work
-```
+    - _work_ &rarr; contains the current working directories of running tasks. These are removed automatically if empty when a task finishes.
+    
+    The _log_, _share_ and _work_ directories for an experiment are most easily accessed through the symbolic links created in the _control_ directory.
 
-- `log/job/` &rarr; the directory where all the job log files are stored: the job file itself, the job output file and the job error file
-- `share/` &rarr; where the tasks can read or write files shared by other tasks
+!!! tip 
 
-    - `share/data/History_Data/` &rarr; where the simulation output files are located
-    - `share/data/History_Data/netCDF` &rarr; where the simulation output files post-processed in netCDF format are located
-- `work/` &rarr; contains task work directories, i.e. the current working directories of running tasks. These are removed automatically if empty when a task finishes.
+    Recommended location of the _control_ and _experiment_ directories on _Gadi_.
+
+    - _configuration_ directories. These directories should be created under $HOME/roses. This will ensure _Cylc_ can find them easily.
+    - _control_ directories. These directories will be created under $HOME/cylc-run. The 10GB quota on $HOME should be sufficient as _control_ directories only contain text files and symbolic links and, hence, occupy less than 10MB.
+    - _experiment_ directories. For these, `/scratch` is recommended as it is optimised for fast reading and writing of large data, and adequate space is available for large model output.
+
+!!! warning
+    Files on the `/scratch` drive, such as the _experiment_ directory, might be deleted if not accessed for [some time](https://opus.nci.org.au/spaces/Help/pages/156434436/Gadi+scratch+File+Management). All experiments which are to be kept should be moved to `/g/data/`.
+
+#### Output and restart files organisation {: .no-toc}
+
+The diagnostics data from the UM model is output in binary format. The output in the raw format can be found under `share/data/History_Data/`. The data is post-processed by the _experiment_ into netCDF format. This data can be found under `share/data/History_Data/netCDF`. 
+
+The restart file from the UM model is named, `<short-name>a.astart` where \<short-name\> is a short version of the experiment name. It can be found under `share/data`.
+
+#### Error and output log files {: .no-toc}
+
+- *Task jobs files*
+
+    All the tasks are run via job scripts whether they run locally or in a PBS job. Each task has:
+    
+    - A job script file named _job_
+    - A standard output job log file named _job.out_
+    - A standard error job log file named _job.error_
+    - _job-activity.log_ and _job.status_ files are less useful to users and contain information linked to the scheduling from _Cylc_.
+
+    These files are stored in sub-folders of the _log/job_ directory following the pattern: _log/job/\<simulation_time\>/\<task_name\>/\<instance\>_. \<instance\> indicates which installation of the experiment the job was for. For example, if you are looking for the error log file of the _housekeeping_ task for the latest installation of the experiment and the simulation period starting on 1999-03-00, the file will be under: _log/job/19990300T0000Z/housekeeping/NN_. _NN_ is a symbolic link to the latest installation and run of the experiment.
+
+- *Model log files*
+
+    The model log files can be found under _work_ in sub-folders for the simulation time and the task.
 <!--end:cylc8-structure-->
 
 ## Access _Rose/Cylc_
@@ -92,7 +100,7 @@ module load cylc/8.6.3
 ## Validate the configuration
 
 <!--start:cylc8-validate-->
-Before running an experiment, it is recommended to validate the configuration to ensure its compatibility with _Cylc_ 8. For this, you can run:
+Before running an experiment, it is recommended to validate the configuration to ensure its compatibility with _Cylc8_. For this, you can run:
 
 ```
 cylc validate <experiment-name>
@@ -160,7 +168,7 @@ cylc play <experiment_name>
 ## Monitor the experiment
 
 <!--start:cylc8-monitor-about-->
-_Cylc_ 8 provides three ways to monitor the experiment:
+_Cylc8_ provides three ways to monitor the experiment:
 
 - the command line interface (CLI): You can start, stop, query, and control workflow, in every possible way, from the command line. Use the built-in help of the _Cylc_ commands to learn more on how to use it. 
 - the terminal user interface (TUI): it is a graphical interface running in a terminal that is auto-updated by _Cylc_ and allows you to view your experiment, monitor the status of the tasks, access the job log files and interact with the flow of the experiment.
@@ -184,7 +192,7 @@ _Cylc_ 8 provides three ways to monitor the experiment:
 
     You can then navigate between workflows using the list on the left.
 
-??? info "Task and Job states"
+??? info "Task and Job status"
 
     For more information on the symbols and colours used in the TUI and GUI to inform on the tasks and jobs status, please see the [_Cylc_ documentation](https://cylc.github.io/cylc-doc/latest/html/user-guide/running-workflows/tasks-jobs-ui.html#task-job-states)
     

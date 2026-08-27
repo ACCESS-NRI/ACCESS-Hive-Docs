@@ -6,6 +6,8 @@
 {% set experiment_name = "my-am3-expt" %}
 {% set release_notes = "https://forum.access-hive.org.au/t/access-am3-release-information/5446" %}
 
+[PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
+
 !!! release
     This is a [**Beta Release**](/about/releases), intended for use by experienced users and collaborators. Any model configuration and related source code information on this page may change during the release process.
 
@@ -70,17 +72,8 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
    end="<!--end:cylc8-about-->"
 %}
 
-### _Rose/Cylc_ directory and files organisation
-
-??? info "Configuration directory"
-
-    {% include-markdown "includes/rose_cylc.md"
-        start="<!--start:rose-directory-->"
-        end="<!--end:rose-directory-->"
-    %}
-
-??? info "Run directory"
-
+??? info "_Rose/Cylc_ directory and files organisation" 
+ 
     {% include-markdown "includes/rose_cylc8.md"
         start="<!--start:cylc8-structure-->"
         end="<!--end:cylc8-structure-->"
