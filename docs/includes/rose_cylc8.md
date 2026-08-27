@@ -1,3 +1,6 @@
+[gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
+[PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
+
 <!--start:cylc8-prerequisites-->
 - [hr22](https://my.nci.org.au/mancini/project/hr22/join)
 <!--end:cylc8-prerequisites-->
@@ -20,8 +23,12 @@ A set of tasks configured by _Rose_ to run with the _Cylc8_ engine is called a _
 ### Run directory and files organisation
 
 <!--start:cylc8-expdir-files-->
+The data organisation for _Cylc_ was chosen to separate the smaller text files that define a configuration and the larger binary input and output files needed for an experiment.
+
+This means the configuration definition can be tracked with Git, and so is easy to back up and share. It also optimises the use of different filesystems on high-performance computers. Finally, this layout ensures several experiments that share common executables and input data can be run simultaneously.
+
 #### Experiment directory
-_Cylc_ creates an experiment directory under `$HOME/cycl-run/`, named from your experiment. This directory is organised as follows:
+_Cylc_ creates an _experiment_ directory under `$HOME/cycl-run/`, named from your experiment. This directory is organised as follows:
 
 ```
 .
@@ -34,8 +41,8 @@ _Cylc_ creates an experiment directory under `$HOME/cycl-run/`, named from your 
 - `run1` is the actual installation of the experiment for _Cylc_. New installations of the experiment will create a new numbered run directory.
 - `runN` is a symbolic link that points to the latest installation of the experiment.
 
-#### Run directory, `runN`
-On _Gadi_, all files created at run time are stored in a location determined by the configuration (`root_dir`). This location is usually chosen to be on the `/scratch` filesystem to have a large enough storage space, temporary storage and quick, reliable read and write operations from the PBS scheduler.
+#### _Run directory_, `runN`
+On _Gadi_, all files created at run time are stored in a location,  determined by the configuration (`root_dir`). This location is usually chosen to be on the `/scratch` filesystem to have a large enough storage space, temporary storage and quick, reliable read and write operations from the PBS scheduler.
 
 The run directory (`run1` in the previous example) contains a copy of the configuration as well as symbolic links to directories under the _tasks work_ directory for easy access. The _tasks work_ directory is the location of the _work_ directories for all experiment's tasks. In this example, the user has chosen to locate their experiment's _work_ directory under `/scratch/$PROJECT/$USER`
 
@@ -109,7 +116,7 @@ cylc validate <experiment-name>
 ## Run the experiment
 
 <!--start:cylc8-run-->
-ACCESS model configurations run on [_Gadi_][gadi] through [PBS jobs][PBS job] submissions. They often comprise several tasks, such as running the model, post-processing the output, etc. For long experiments, the simulation is also split in smaller periods that are run one after the other. _Cylc_ controls the sequence of the tasks and the repetitions.
+ACCESS model configurations run on _Gadi_ through [PBS jobs][PBS job] submissions. They often comprise several tasks, such as running the model, post-processing the output, etc. For long experiments, the simulation is also split in smaller periods that are run one after the other. _Cylc_ controls the sequence of the tasks and the repetitions.
 
 In _Cylc8_, running a workflow is a two-step process, first you need to install the experiment directory and then run the workflow:
 
