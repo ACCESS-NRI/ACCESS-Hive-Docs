@@ -9,7 +9,7 @@
 [PBS job]: https://opus.nci.org.au/display/Help/4.+PBS+Jobs
 
 !!! release
-    This is a [**Beta Release**](/about/releases), intended for use by experienced users and collaborators. Any model configuration and related source code information on this page may change during the release process.
+    This is a [**Beta Release**](/about/releases) intended for experienced users and collaborators. Model configurations and related source code described on this page may change during the release process.
 
 <div class="text-card-group" markdown>
 [:fontawesome-brands-github:{: class="twemoji icon-before-text"} {{ model }} configurations]({{github_configs}}){: class="text-card"}
@@ -23,11 +23,11 @@
 
 The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_](https://nci.org.au/our-systems/hpc-systems).
 
-If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
+If you are unsure whether {{ model }} is the right choice for your experiment, see the overview of [ACCESS Models](/models).
 
-All {{model}} configurations are licensed under the UKMO's Momentum licence. {{model}} is delivered to the community through private GitHub repositories. See the [Request access section](#request-access) for details.
+{{model}} configurations are licensed under the UKMO's Momentum licence and are distributed to the community through private _GitHub_ repositories. See the [Request access section](#request-access) for details.
 
-{{ model }} release notes are [available on the ACCESS-Hive Forum]({{release_notes}}) and are updated when new releases are made available.
+{{ model }} release notes are [available on the ACCESS-Hive Forum]({{release_notes}}) and are updated with each new release.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
     Open an account on [GitHub](https://github.com/signup) if you do not have one.
 
 - **Request access to the configurations**<br>
-    To request access to the configurations repository (and associated model component repositories), please contact us [through the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580). This step will also allow guide you towards getting licensed to use the model as required. 
+    To request access to the configurations repository and associated model component repositories, contact us [through this post on the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/request-access-to-am3-configurations/5580). We can also allow guide you through the licensing process required use the model as required. 
     {: #request-access }
 
     !!! warning
@@ -47,7 +47,7 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 
 - **Join NCI projects**<br>
 
-    Join the following projects by requesting membership on their respective NCI project pages:
+    Request membership to the following NCI projects through their respective project pages:
 
     - [access](https://my.nci.org.au/mancini/project/access/join): : ACCESS software sharing
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join): ACCESS Models 
@@ -95,21 +95,21 @@ All {{model}} configurations are licensed under the UKMO's Momentum licence. {{m
 
 ## Setup your _GitHub_ account
 
-To work with {{model}}, you need to ensure you can identify your _GitHub_ account from _Gadi_. If you do nothing, you can simply enter your _GitHub_ credentials for all the interactions with _GitHub_ from _Gadi_. It is however possible to setup the exchange of credentials between _Gadi_ and _GitHub_ to avoid entering them every time. <br>
-Several methods are available and they will all work with {{model}}. This documentation is written assuming authentication through the HTTPS protocol. If you are setup for an SSH-based authentication, you can adapt the commands in the documentation. Alternatively, you can add an HTTPS-based authentication to your account without impacting your SSH-based authentication.
+To work with {{model}}, you need to authenticate your _GitHub_ account from _Gadi_. You can enter your _GitHub_ credentials each time you interact with _GitHub_, or configure credential exchange between _Gadi_ and _GitHub_ to avoid repeated authentication. <br>
+Several authentication methods are supported and work with {{model}}. This documentation assumes HTTPS authentication; if you use SSH authentication, adapt the commands accordingly. You can also configure HTTPS authentication alongside existing SSH authentication.
 
-We recommend using the `gh` command-line interface for the authentication between _GitHub_ and _Gadi_.
+We recommend using the `gh` command-line interface to authenticate _GitHub_ from _Gadi_.
 
 ??? info "Setup _GitHub_ authentication on _Gadi_ with `gh`"
 
-    1. Load the `gh` module on _Gadi_ (in a _Gadi_ terminal or a VDI terminal):
+    1. Load the `gh` module on _Gadi_ from in a _Gadi_ or a VDI terminal:
 
         ```
         module use /g/data/vk83/modules
         module load gh
         ```
     
-    2. Run `gh auth login` and follow the prompts to use the HTTPS protocol. Note that there is no browser installed on _Gadi_, you will need to copy/paste the given URL to your own browser window.
+    2. Run `gh auth login` and follow the prompts to authenticate using HTTPS. As _Gadi_ does not have a browser, copy and paste the provided URL into your local browser.
 
         <terminal-window>
             <terminal-line data="input">gh auth login</terminal-line>
@@ -126,7 +126,7 @@ We recommend using the `gh` command-line interface for the authentication betwee
 
 ??? info "Email verification in _GitHub_ for source code modifications"
 
-    If you are planning to modify the source code of {{model}}, you will need to have your institutional email attached to your GitHub account and have the email verified. Please follow [GitHub's instructions](https://docs.github.com/en/account-and-profile/concepts/email-addresses) for that process.
+    If you plan to modify the {{model}} source code, you must have your institutional email address linked to and verified on your _GitHub_ account. Follow [_GitHub_’s instructions](https://docs.github.com/en/account-and-profile/concepts/email-addresses) to set this up. 
 
 
 ## Setup a persistent session
@@ -180,7 +180,7 @@ We recommend using the `gh` command-line interface for the authentication betwee
 
 ## Get {{model}} configuration
 
-All released {{ model }} configurations are available from the [{{ model }} configs]({{github_configs}}) GitHub repository: `{{github_configs}}`.<br>
+All released {{ model }} configurations are available in the [{{ model }} configs]({{github_configs}}) _GitHub_ repository: `{{github_configs}}` <br>
 
 Supported configurations:
 
@@ -196,10 +196,10 @@ Supported configurations:
 
 ## Initial Configuration Setup
 
-The configuration is setup to use your default project for data storage and compute resources. To choose a different project, in the _configuration directory_, open the `rose-suite.conf` file and change:
+The configuration is set up to use your default project for data storage and compute resources. To use a different project, open `rose-suite.conf` in the _configuration directory_ and change:
 
-- `STORAGE_PROJECT` &rarr; Specify the project to use for storage. Experiment files will be stored under `/scratch/<STORAGE_PROJECT>/$USER/cylc-run`. If changing the STORAGE_PROJECT to a different project than your default, please be aware of the [additional step at installation](#run-the-experiment) explained below.
-- `COMPUTE_PROJECT` &rarr; Specify the project you want to be charged for the compute resources.
+- `STORAGE_PROJECT` &rarr; specifies the project to use for storage. Experiment files will be stored under `/scratch/<STORAGE_PROJECT>/$USER/cylc-run`. If changing the STORAGE_PROJECT to a different project than your default, please be aware of the [additional step at installation](#run-the-experiment) explained below.
+- `COMPUTE_PROJECT` &rarr; specifies the project charged for the compute resources.
 
 For example, if you want to use the `rp23` project for storage and compute:
 
