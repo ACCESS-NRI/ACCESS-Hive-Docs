@@ -3,12 +3,12 @@
 # Run models using Rose/Cylc
 
 !!! warning
-    ACCESS models configurations that run with _Rose/Cylc_ currently use _Cylc7_, with intentions to upgrade to _Cylc8_. The upgrade is expected to change some aspects of the workflow described on this page. Updated information about the _Cylc8_ workflow will be provided once a model configuration using this version becomes available.
+    ACCESS model configurations that run with _Rose/Cylc_ currently use _Cylc7_, with plans to upgrade to _Cylc8_. This upgrade is expected to change some aspects of the workflow described on this page. Information on the _Cylc8_ workflow will be provided once a model configuration using this version is available.
 
 ## About
 The _Rose/Cylc_ workflow management tool consists of two components:
 
-* The [_Cylc_](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by the New Zealand National Institute of Water and Atmospheric Research (NIWA). _Cylc_ is a workflow manager that automatically executes tasks according to the model's configuration. It also monitors all tasks, reporting any errors that may occur.
+* The [Cylc](https://niwa.co.nz/environmental-information/cylc-suite-engine) (pronounced ‘silk’) task engine, developed by NIWA, is a workflow manager that automatically executes tasks according to a model configuration and monitors them for errors.
 * The [_Rose_](https://www.metoffice.gov.uk/research/approach/modelling-systems/rose) framework developed by the UKMO configures tasks for the _Cylc_ engine. _Rose_ is a toolkit that can be used to view, edit and run some of the [ACCESS models](/models/access_models).
 
 A set of tasks configured by _Rose_ to run with the _Cylc7_ engine is called a _suite_. Every _suite_ has a unique identifier called `suite-ID` in the form `u-LLNNN`, where `L` is a letter and `N` is a number (e.g., u-ab123).
