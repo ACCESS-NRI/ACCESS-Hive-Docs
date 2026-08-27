@@ -3,8 +3,7 @@ NCI provides a service called [_persistent sessions_](https://opus.nci.org.au/sp
 
 It is recommended to have only one active persistent session at any given time, as multiple _Cylc_ sessions can use the same persistent session.
 
-Persistent sessions are terminated during the quarterly maintenance at NCI and will need to be restarted afterwards. The new persistent session can be given the same name as used previously, thus limiting the need for further setup steps.
-<!--end:pers-session-about-->
+Persistent sessions are terminated during NCI's quarterly maintenance and must be restarted afterwards. You can give the new session the same name as the previous one to minimise additional setup.<!--end:pers-session-about-->
 
 <!--start:pers-session-start-->
 ### Start a new persistent session
@@ -18,7 +17,7 @@ persistent-sessions start -p <project> <name>
 where `<project>` is the project you want to start the session under, and `<name>` is the name you want to give your persistent session. 
 
 !!! warning
-    Persistent session names accept only a limited set of characters. We recommend using only alpha-numeric characters without spaces or underscores.
+    Persistent session names support only a limited character set. Use alphanumeric characters only - no spaces or underscores.
 
 <terminal-window data="input">
     <terminal-line>persistent-sessions start -p &lt;project&gt; &lt;name&gt;</terminal-line>
@@ -26,7 +25,7 @@ where `<project>` is the project you want to start the session under, and `<name
     <terminal-line data="output">&emsp;ssh &lt;name&gt;.&lt;$USER&gt;.&lt;project&gt;.ps.gadi.nci.org.au</terminal-line>
 </terminal-window>
 
-The label of a newly-created _persistent session_ has the following format: <br>
+A newly created persistent session uses the following format: <br>
 `<name>.<$USER>.<project>.ps.gadi.nci.org.au`.<br>
 The newly created persistent session is assigned a unique identifier, referred to here as `<persistent-session-uuid>`.
 
@@ -34,17 +33,17 @@ The newly created persistent session is assigned a unique identifier, referred t
     If `-p <project>` is omitted, your [default project](/getting_started/set_up_nci_account/#change-default-project-on-gadi) `$PROJECT` will be used.
 
 !!! tip 
-    The project assigned to a _persistent session_ does not have to be the same one used to run the ACCESS model configuration. In addition, the same persistent session can be used to run multiple simulations simultaneously.<br>
+    The project assigned to a persistent session does not need to match the project used to run the ACCESS model configuration. A single persistent session can also run multiple simulations simultaneously.<br>
 
 !!! tip
   
-    When restarting a persistent session after a _Gadi_ outage, for example the quarterly maintenance, if you use the same name as before, this is the only setup step you need to do. You do not need to assign the persistent session to _Cylc_ again. You can check the name of your persistent session in `~/.persistent-sessions/cylc-session` to make sure to reuse the same name.
+    When restarting a persistent session after a _Gadi_ outage, such as a quarterly maintenance, reuse the same name as before to avoid additional setup. You do not need to assign the persistent session to _Cylc_ again. Check `~/.persistent-sessions/cylc-session` to confirm the name and reuse it.
 <!--end:pers-session-start-->
 
 <!--start:pers-session-assign-->
 ### Assign the persistent session to _Cylc_ (once only) {: #assign-the-persistent-session-to-cylc }
 
-Once the session is running, it needs to be assigned to _Cylc_. This is done by inserting the persistent session label into `~/.persistent-sessions/cylc-session`, which can be done with the following command (substituting `<name>` and `<project>` with the name and project used to create the persistent session).
+Once the persistent session is running, assign it to _Cylc_ by inserting its label into `~/.persistent-sessions/cylc-session`. Run the following command, replacing `<name>` and `<project>` with the values used to create the persistent session.
 
 ```
 cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
@@ -56,7 +55,7 @@ You can check that this worked with:
 cat ~/.persistent-sessions/cylc-session
 ```
 
-For example, if user `abc123` started a persistent session named `ForCylc` under the project `tm70`, then the command would be:
+For example, if user `abc123` starts a persistent session named `ForCylc` under the project `tm70`, the command is:
 
 <terminal-window data="input">
     <terminal-line>cat > ~/.persistent-sessions/cylc-session <<< ForCylc.abc123.tm70.ps.gadi.nci.org.au</terminal-line>
@@ -71,9 +70,9 @@ For more information on how to specify the target session, refer to [Specify Tar
 ### Setup connection between _Gadi_ and _Cylc_
 !!! tip
 
-    Although this step is only necessary before the first time you use _Cylc_, you can follow these instructions at any time without adverse effect if you are unsure whether your setup is correct.
+    Although this step is only required the first time you use _Cylc_, you can repeat it at any time without adverse effects if you are unsure whether your setup is correct.
 
-The communication between _Gadi_ and the _persistent session_ is restricted for security reasons. You need to create a specific ssh key before any work with _Cylc_. For this, please run the following command:
+For security reasons, communication between _Gadi_ and the persistent session is restricted. Before using _Cylc_, you need to create a dedicated SSH key by running the following command:
 
 ```
 /g/data/hr22/bin/gadi-cylc-setup-ps -y
@@ -91,9 +90,7 @@ A successful completion should print out:
 <!--start:pers-session-active-->
 ### List active persistent sessions {: .no-toc }
 
-After a period of inactivity with _Cylc_, you might need to check if your persistent session is still active.
-
-To list your currently active sessions, use:
+After a period of inactivity, you may need to check whether your _Cylc_ persistent session is still active. To list your active persistent sessions, use:
 
 ```
 persistent-sessions list
@@ -113,5 +110,5 @@ persistent-sessions kill <persistent-session-uuid>
     Logging out of a *Gadi* login node or an ARE VDI terminal instance will not affect your _persistent session_.
 
 !!! warning
-    When you terminate a _persistent session_, any model running on that session will stop. Therefore, you should check whether you have any active model runs before terminating a _persistent session_.
+    When you terminate a persistent session, any model running in that session will stop. Before terminating a session, check whether you have any active model runs.
 <!--end:pers-session-terminate-->
