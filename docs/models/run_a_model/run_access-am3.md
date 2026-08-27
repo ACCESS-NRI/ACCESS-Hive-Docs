@@ -186,7 +186,7 @@ Supported configurations:
 
 | Configuration                             | Branch name            |
 |-------------------------------------------|------------------------|
-| Low resolution with GAL9 configuration    | release-n96e           |
+| Low resolution based on GC9 configuration | release-n96e           |
 | High resolution with climatology aerosols | release-n512e-aeroclim |
 
 {% include-markdown "includes/rose_cylc.md" 
