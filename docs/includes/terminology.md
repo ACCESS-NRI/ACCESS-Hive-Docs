@@ -1,7 +1,7 @@
 <!--start:terminology-conf-vs-exp-->
 ### _Configuration_ and _experiment_ definitions
 
-The terms _configuration_ and _experiment_ are not interchangeable although they are closely related.
+The terms _configuration_ and _experiment_, used in this documentation, are not interchangeable although they are closely related.
 
 - A _configuration_ defines a specific way to run the model it relates to.<br> 
   It is therefore defined by:
