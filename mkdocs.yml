@@ -82,7 +82,11 @@ markdown_extensions:
   - md_in_html
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.caret
   - pymdownx.mark
@@ -187,6 +191,7 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - ACCESS-ESM1.6 2026 workshop: tutorials/2026_ESMLAND_ESM1.6_tutorial.md
 
   - Community Resources:
     - community_resources/index.md
