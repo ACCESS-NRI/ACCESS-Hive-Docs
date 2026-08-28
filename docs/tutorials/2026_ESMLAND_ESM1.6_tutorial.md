@@ -246,7 +246,7 @@ The first step in running an ESM1.6 simulation is to select a configuration from
 
     The final prompt specifies the top-level directory which payu will use for storing model output and temporary workspaces. This should generally take the form `/scratch/<project>` and we'll learn a bit more about this later in the session. If `No` is selected, the user's current project will be used.
 
-    In this session we'll be the storage resources from the NRI training project `nf33`. Select `Yes` and then enter `/scratch/nf33` into the next prompt:
+    In this session we'll be using the storage resources from the NRI training project `nf33`. Select `Yes` and then enter `/scratch/nf33` into the next prompt:
     ```
     >> Do you want to override the shortpath? (Default is '/scratch/$PROJECT') Yes
     >> Please enter the new shortpath you want to use:  /scratch/nf33
