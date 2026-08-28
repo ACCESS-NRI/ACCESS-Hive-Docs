@@ -244,9 +244,12 @@ The first step in running an ESM1.6 simulation is to select a configuration from
 
 10. **Select an experiment shortpath**
 
-    The final prompt relates to the directories payu uses to organise simulation data. We'll learn more about this later in the session, but for now select `No`
+    The final prompt specifies the top-level directory which payu will use for storing model output and temporary workspaces. This should generally take the form `/scratch/<project>` and we'll learn a bit more about this later in the session. If `No` is selected, the user's current project will be used.
+
+    In this session we'll be the storage resources from the NRI training project `nf33`. Select `Yes` and then enter `/scratch/nf33` into the next prompt:
     ```
-    Do you want to override the shortpath? (Default is '/scratch/$PROJECT$') No
+    >> Do you want to override the shortpath? (Default is '/scratch/$PROJECT') Yes
+    >> Please enter the new shortpath you want to use:  /scratch/nf33
     ```
 
 
@@ -295,9 +298,9 @@ The first step in running an ESM1.6 simulation is to select a configuration from
     cd tutorial-experiment
     ```
 
-## Exercise 3: Setting project for computation and storage
+## Exercise 3: Setting project for computation
 
-By default, payu will use your currently active project on Gadi for computation and storage. To check what project you are using, you can run
+By default, payu will use your currently active project on Gadi for both computation and storage. To check what project is currently active, you can run
 
 ```
 echo $PROJECT
@@ -306,7 +309,7 @@ echo $PROJECT
 For this training session, we'll be using resources from project `nf33`. Payu allows you to select a non-default project in the `config.yaml` file, which is the main configuration file used to control a payu simulation. We'll go through more details of what you can control in the `config.yaml` file after we've set off the simulations.
 
 
-To change the computation and storage project, make the following change:
+We've already set the storage project to `nf33` during the `payu clone` step, and now just need to set the project used for computation resources. To do this, make the following change to the `config.yaml` file:
 
 
 ```diff
@@ -322,14 +325,11 @@ When cloning or modifying a configuration, it's recommended to first check for c
 Check that your configuration is properly set up and you have access to all the required files:
 
 ```
-payu setup --new-uuid
+payu setup
 ```
 
-!!! Tip
-    The --new-uuid flag is only required since we changed the project settings in the `config.yaml`. If we were using our default project, we could omit the `--new-uuid` flag. Reach out to one of the ACCESS-NRI staff helping run the session for some of the details behind this.
-
 <terminal-window>
-    <terminal-line data="input">payu setup --new-uuid</terminal-line>
+    <terminal-line data="input">payu setup</terminal-line>
     <terminal-line>laboratory path: /scratch/nf33/\${USER}/access-esm</terminal-line>
     <terminal-line>binary path: /scratch/nf33/\${USER}/access-esm/bin</terminal-line>
     <terminal-line>input path: /scratch/nf33/\${USER}/access-esm/input</terminal-line>
@@ -514,7 +514,7 @@ In this exercise, we'll get some practice using the settings described above. We
 
 A selection of restart files from the ESM1.6 CMIP7 piControl experiment are available in the `restart000`, `restart001` ... directories in `/g/data/jq44/access-nri/access-esm1p6/global/piControl/r1i1p1f1/2026.04.2`. Each restart directory corresponds to the end of a different year of the experiment. Follow the steps below to run a customised experiment:
 
-1. Clone the `release-piControl` configuration into a new control directory named `tutorial-custom` located under `~/ACCESS-ESM1.6`. Remember to set the compute project to `nf33`
+1. Clone the `release-piControl` configuration into a new control directory named `tutorial-custom` located under `~/ACCESS-ESM1.6`. Remember to set the storage and compute project options to `nf33`
 2. Set your experiment to use a selected restart from the above location. You can set this either during the `payu clone` command, or by editing the `config.yaml` file after the cloning step.
 3. Modify the `config.yaml` to enable the output syncing. Configure payu to sync the model outputs and restarts to `/g/data/nf33/<user>/tutorial_experiments`, where `<user>` is your gadi username.
 4. The `release-piControl` configuration prescribes an atmospheric CO2 mass mixing ratio (MMR) of 4.3189e-04. This value is controlled by the `CO2_MMR` setitng in the `namelists` file under the atmosphere directory. Find where this is set, and change it to a value of your choice (For example 8.6378e-04 for doubled CO2). 
