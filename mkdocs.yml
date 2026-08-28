@@ -126,6 +126,7 @@ nav:
     - models/index.md
     - ACCESS Models:
       - models/access_models/index.md
+      - ACCESS-AM: models/access_models/access-am.md
       - ACCESS-CM: models/access_models/access-cm.md
       - ACCESS-ESM: models/access_models/access-esm.md
       - ACCESS-OM: models/access_models/access-om.md
@@ -147,6 +148,7 @@ nav:
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
       - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
       - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
+      - Run ACCESS-AM3: models/run_a_model/run_access-am3.md
       - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
       - Run ACCESS-rAM3: models/run_a_model/run_access-ram3.md
     - Build a Model:

@@ -6,6 +6,17 @@ Developed in collaboration with international climate modeling institutions, the
 Below is a list of ACCESS models supported by ACCESS-NRI.
 
 <div class="card-container">
+    <a href="access-am/" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model-config-logos/configurations-without-titles/access-am.png" class="white-background img-contain"></img> 
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >ACCESS-AM</span>
+            <span>
+                A global land-atmosphere model that includes the atmosphere and land, and produces physical climate simulations
+            </span>
+        </div>
+    </a>
     <a href="access-cm/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model-config-logos/configurations-without-titles/access-cm.png" class="white-background img-contain"></img> 
