@@ -433,6 +433,7 @@ In the following exerises, we'll take a look at the *work directory* being used 
         Take a look in the `work/atmosphere` and `work/ocean` directories. 
 
 3. Along with model executables and input files, a simulation needs configuration files which control each submodel's scientific options. For example, the `namelists` file under the `atmosphere` section of the control directory controls the atmosphere model's scientific settings. Can you see how payu has used this file when constructing the `work` directory.
+
    ??? info "Hint"
         Take a look in the `work/atmosphere` directory.
    
