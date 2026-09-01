@@ -20,4 +20,4 @@ You can either open the ARE website directly from the [Interactive Data Catalogu
 
 Then you will have a JupyterLab session loaded with the correct setup to load in your dataset!
 
-![ARE screenshot](/assets/ARE_screenshot_data_catalogue_training.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
+![ARE screenshot](/assets/ARE_screenshot_data_catalogue_training.png)
