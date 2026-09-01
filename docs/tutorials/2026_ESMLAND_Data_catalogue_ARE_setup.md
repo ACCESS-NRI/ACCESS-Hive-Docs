@@ -13,12 +13,25 @@ You can either open the ARE website directly from the [Interactive Data Catalogu
 3. **Queue**: `normalbw`
 4. **Project**: `nf33`
 5. **Storage**: `gdata/nf33+gdata/xp65+gdata/oi10+gdata/fs38`
-   - Optional projects can be added in the same way, e.g. `gdata/nf33+gdata/xp65+gdata/oi10+gdata/fs38+gdata/<optional_project>`
+   - Optional projects (listed below) can be added in the same way, e.g. `gdata/nf33+gdata/xp65+gdata/oi10+gdata/fs38+gdata/<optional_project>`
 6. **Module directories**: `/g/data/xp65/public/modules/` (to load the Python conda environment)
 7. **Modules**: `conda/analysis3`
 8. Click **Launch**
 
 Then you will have a JupyterLab session loaded with the correct setup to load in your dataset!
+
+### Optional projects
+#### CM3
+- zv30
+- p73
+
+#### ESM1.6
+- jq44
+
+#### AM3
+- av17
+
+
 
 ### Screenshot of the above steps
 
