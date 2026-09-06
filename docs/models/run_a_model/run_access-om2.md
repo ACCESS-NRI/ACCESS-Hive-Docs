@@ -21,7 +21,7 @@
 
 {{ model }} is an ocean-sea ice model. More information is available in the [{{ model }} overview][model configurations].
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
+The instructions below outline how to run {{ model }} using ACCESS-NRI's software deployment pipeline, specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
 
 If you are unsure whether {{ model }} is the right choice for your experiment, take a look at the overview of [ACCESS Models](/models).
 
@@ -33,7 +33,7 @@ All {{model}} configurations are open source, licensed under [CC BY 4.0](https:/
 ## Prerequisites
 
 !!! warning
-    To run {{ model }}, you need to be a member of a project with allocated _Service Units (SU)_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 
 - **NCI Account**<br> 

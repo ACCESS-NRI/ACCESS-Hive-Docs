@@ -51,7 +51,7 @@ Click on the questions to unfold the answers. If your question is not answered, 
 
 ??? question "Where can I find _observational data_ and _model data_?"
     
-    Both observational and model data is hosted by the National Computational Infrastructure (NCI) under different projects. 
+    Both observational and model data is hosted by NCI under different projects. 
 
     Please go to our [**Data**](/model_evaluation/data) section on the ACCESS-Hive Docs to learn how to find and retrieve ACCESS model and observational data.
 

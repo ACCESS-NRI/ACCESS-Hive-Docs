@@ -26,26 +26,26 @@
         </div>
     </a>
     <!-- Sharing ACCESS Data -->
-    <a href="sharing/sharing" class="horizontal-card">
+    <a href="sharing" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/external-links.jpg" alt="MED Conda Environment" class="img-cover">
         </div>
         <div class="card-text-container">
-            <span class="bold" >Sharing ACCESS Data</span>
+            <span class="bold" >Sharing ACCESS Community Data</span>
             <span>
                 Options for sharing ACCESS data and the support available from ACCESS-NRI
             </span>
         </div>
     </a>
-    <!-- ACCESS Output Data Specification -->
-    <a href="sharing/specification" class="horizontal-card">
+    <!-- ACCESS Output Data Specifications -->
+    <a href="https://access-output-data-specifications.readthedocs.io/" class="horizontal-card">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/model_earth.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
-            <span class="bold" >ACCESS Output Data Specification</span>
+            <span class="bold" >ACCESS Output Data Specifications</span>
             <span>
-                Details on the specification for ACCESS model output data
+                Documentation on the data specifications for data produced by ACCESS models
             </span>
         </div>
     </a>
@@ -58,6 +58,17 @@
             <span class="bold" >Cryosphere Community Datapool</span>
             <span>
                 How to find and access the Cryosphere Datapool
+            </span>
+        </div>
+    </a>
+    <a href="/model_evaluation/data/observations" class="horizontal-card">
+        <div class="card-image-container">
+            <img src="/assets/model_evaluation/model_evaluation_obs_catalog.jpg" alt="A picture of a seismograph recording seismic waves during an earthquake visualises the link to our Observational Data Catalogue. Image credit: Wf Sihardian—EyeEm/Getty Images" title="Image credit: Wf Sihardian—EyeEm/Getty Images" class="img-cover">
+        </div>
+        <div class="card-text-container">
+            <span class="bold" >Observational Data for Evaluation</span>
+            <span>
+                How to find observational data collections for climate model evaluation
             </span>
         </div>
     </a>

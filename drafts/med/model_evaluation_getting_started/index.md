@@ -4,7 +4,7 @@
 
 ## What is MED?
 
-Model Evaluation and Diagnostics (MED) of ACCESS models includes:
+MED of ACCESS models includes:
 
 <ul>
   <li><b>Evaluation</b>

@@ -20,7 +20,7 @@ The following instructions outline how to build an ACCESS model and its dependen
 These instructions may suit more advanced users who are making iterative changes and need to repeatedly modify the source code, recompile it and run tests. This option also requires setting up a Spack build environment.<br>
 If you want to modify and build a model, while maintaining a clear record of your changes and being able to share the modified builds with others, refer to [Create Prereleases and Releases for an ACCESS Model](/models/build_a_model/create_a_prerelease) instead.
 
-The build workflow described in this page is specifically designed to run on the [National Computating Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi].
+The build workflow described in this page is specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi].
 
 As an example, in the following instructions we will show how to modify [MOM5 component] for [ACCESS-ESM1.5][esm1.5 config] and re-compile the relevant ACCESS-ESM1.5 dependencies. All other components and packages (i.e., dependencies) of the official [ACCESS-ESM1.5 release]({{esm1_5_build_config}}) will remain unchanged.
 

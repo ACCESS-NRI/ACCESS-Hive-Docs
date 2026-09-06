@@ -98,16 +98,53 @@ If you have workflows that use the `hh5` `conda/analysis3` environment, follow t
 
 ## Advanced usage
 
-### Two Series of Environments: _conda/analysis3_ and _conda/analysis3-edge_
+### Request packages or changes
 
-There are two parallel series of environments:
+The `conda/analysis3` environments are managed in the [ACCESS-Analysis-Conda](https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda) repository.
 
-- **_conda/analysis3_**<br>
-    A stable environment designed for long-term usability with well-tested, reliable package versions.
-- **_conda/analysis3-edge_**<br>
-    A cutting-edge environment with the latest available packages, ideal for those needing the most up-to-date software and features.
+If you would like a package added, updated, or kept in `analysis3`, please open a [package request issue](https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda/issues/new?template=package-request.yml). This gives us enough information to check whether the request is practical and useful for the wider ACCESS community.
 
-These series offer flexibility: use `conda/analysis3` for stability, or `conda/analysis3-edge` for the latest updates.
+Before opening a request, it is worth checking whether the package is already available:
+
+```sh
+module use /g/data/xp65/public/modules
+module load conda/analysis3
+python -c "import package_name"
+```
+
+If you need a specific version, you can also check the package version inside Python or from the command line, depending on the package.
+
+For example, you could check the version of xarray via either of:
+```sh
+$ python -c "import xarray; print(xarray.__version__)"
+
+$ conda list | grep xarray
+```
+When making a request, please include:
+
+- the package name and, if needed, the version you require
+- whether you need it in the latest environment or a specific `analysis3-YY.MM` version
+- the workflow or analysis it supports
+- whether other ACCESS users are likely to need it
+- any dependencies or compatibility constraints you already know about
+- whether the package is available from `conda-forge` or another reliable channel
+
+We assess requests based on community value, dependency impact, maintenance status, and compatibility with the rest of the environment. Packages with small dependency changes and clear community value are usually straightforward. Packages that require large dependency changes, downgrades, or changes to core packages such as _Python_, _NumPy_, _SciPy_, _Dask_, _Xarray_, _Pandas_, _Matplotlib_, _Zarr_, or _Scikit-Learn_ need more care.
+
+Accepted changes are made through pull requests to the [ACCESS-Analysis-Conda](https://github.com/ACCESS-NRI/ACCESS-Analysis-Conda) repository. The pull request builds the changed environment on _Gadi_ before it is merged. Once merged, the environment is deployed and becomes available through the monthly `analysis3-YY.MM` module series.
+
+??? note "For maintainers and contributors"
+    Package changes should be made in the relevant `pixi.toml` file, not by hand-editing the generated `environment.yml` file.
+
+    For example, for `analysis3`:
+
+    ```sh
+    cd environments/analysis3
+    pixi add package_name
+    pixi run rebuild-env
+    ```
+
+    Then open a pull request with the updated environment files. The repository automation will build the changed environment. Deployment happens after the pull request is merged to `main`.
 
 ### Load a specific environment version
 
@@ -132,8 +169,11 @@ If you do not specify a version (e.g. using `conda/analysis3` rather than `conda
 
 When launching an [ARE Jupyterlab session](#are-jupyterlab), you only need to include `conda/analysis3`. If you would like to specify a particular environment version, you can do so for each notebook by switching kernels inside the ARE instance.
 
-!!! tip
-    The same version naming structure can be applied to the `conda/analysis3-edge` environment.
+#### Older environment versions
+
+Older `analysis3` versions are deprecated and removed over time so that we can focus effort on a smaller number of well-supported environments with recent, maintained packages. Users should normally move to a recent `analysis3` version unless they have a specific reason not to.
+
+We know some workflows depend on older environments. If you have a workflow that cannot move to a newer version, please open a topic on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/) or a package request issue and explain what you need. Legacy environments can remain available where required to support existing workflows, while ongoing maintenance focuses on delivering a stable and up-to-date analysis platform for the ACCESS community.
 
 ## Acknowledgements 
 

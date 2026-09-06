@@ -1,7 +1,7 @@
 # Community Observational Data Catalogues
 
 ???+ danger "Support Level: NOT supported by ACCESS-NRI"
-    Here, we collate lists of useful resources for Model Evaluation and Diagnostics (MED). Contrary to the supported content of our [ACCESS-NRI Model Evaluation pages](/model_evaluation), the information below is not supported by ACCESS-NRI unless stated otherwise.
+    Here, we collate lists of useful resources for model evaluation and diagnostics. Contrary to the supported content of our [ACCESS-NRI Model Evaluation pages](/model_evaluation), the information below is not supported by ACCESS-NRI unless stated otherwise.
 
 Please let us know if we are missing an important catalogue. Check [How To Contribute](/about/contribute) to get in touch.
 

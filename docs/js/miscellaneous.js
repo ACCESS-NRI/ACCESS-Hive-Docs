@@ -12,22 +12,16 @@ function showNotification(text) {
     }, 2000);
 }
 
-// Set up permalinks (clickable symbol shown when headers are hovered over):
-// - Remove their default behaviour of linking to themselves (treat them as buttons instead of links)
-// - Copy the URL to clipboard when clicking on it
-// - Change symbol to custom one 
 function setUpPermalinks() {
     document.querySelectorAll(".headerlink").forEach(function (link) {
         let permalink = link.href;
-        // Replace the link behaviour by replacing it with a <span> element
-        const span = document.createElement("span");
-        Array.from(link.attributes).forEach(attr => {
-            if (attr.name !== "href") span.setAttribute(attr.name, attr.value);
-        });
-        span.innerHTML = '<i class="fa-solid fa-link fa-xs"></i>'; // Link icon from fontawesome
-        link.replaceWith(span);
-        span.style.cursor = "pointer";
-        span.addEventListener("click", function () {
+        // Change icon to the "Link" icon from fontawesome
+        link.innerHTML = '<i class="fa-solid fa-link fa-xs"></i>';
+        link.style.cursor = "pointer";
+        // Override click behaviour
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
             // Copy permalink to clipboard
             navigator.clipboard.writeText(permalink);
             // Show "Copied to clipboard" notification

@@ -1,15 +1,19 @@
 ---
+# For home page, don't use standard layout box. 
+# Use custom layout as template, leaving out the 
+# top automatic title completely.
+template: home.html
+
 hide:
-  - navigation
-  - toc
+    - navigation        # hide left sidebar navigation
+    - toc               # hide right sidebar table of contents
 ---
 
-<h1 class="homepage"></h1>
 <div class="introduction">
     <div>
         <div>Welcome to ACCESS-Hive Docs!</div>
         <div>
-            Documentation for ACCESS users: getting set up, running models and model evaluation
+            Documentation for <abbr title="Australian Community Climate and Earth System Simulator">ACCESS</abbr> users: getting set up, running models and model evaluation
         </div>
     </div>
     <div>

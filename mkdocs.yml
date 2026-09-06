@@ -1,7 +1,7 @@
 site_name: ACCESS-Hive Docs
 
 # Site URL
-site_url: !ENV READTHEDOCS_CANONICAL_URL
+site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://docs.access-hive.org.au/"]
 # READTHEDOCS_CANONICAL_URL is set within the website build (GitHub worflow or ReadTheDocs)
 
 # Git repository (Adds a link to the GitHub repository at the top)
@@ -43,10 +43,12 @@ theme:
     - content.code.annotate
     - content.action.edit
     - content.tabs.link
+    - content.tooltips
     - search.suggest
     - search.highlight
     - search.share
     - toc.follow                # the sidebar is automatically scrolled to the active anchor
+    - announce.dismiss
 
   logo: assets/ACCESS_icon_HIVE.png
   favicon: assets/ACCESS_icon_HIVE.png
@@ -68,8 +70,10 @@ plugins:
   - redirects:
       redirect_maps:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
+        'models/run_a_model/run_access-esm.md': 'models/run_a_model/run_access-esm1p5.md'
   - resolve-absolute-urls
   - macros
+  - include-markdown
 
 # Extensions
 markdown_extensions:
@@ -78,13 +82,21 @@ markdown_extensions:
   - md_in_html
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.snippets
+  - pymdownx.snippets:
+      auto_append:
+        - abbreviations.md
   - pymdownx.highlight
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -108,12 +120,13 @@ nav:
     - Set Up your NCI Account: getting_started/set_up_nci_account.md
     - Australian Research Environment (ARE): getting_started/are.md
     - conda/analysis3 Python Environment: getting_started/environments.md
-    - Set up Spack for building ACCESS models: getting_started/spack.md
+    - How to use Spack on Gadi for building ACCESS models: getting_started/spack.md
 
   - Models:
     - models/index.md
     - ACCESS Models:
       - models/access_models/index.md
+      - ACCESS-AM: models/access_models/access-am.md
       - ACCESS-CM: models/access_models/access-cm.md
       - ACCESS-ESM: models/access_models/access-esm.md
       - ACCESS-OM: models/access_models/access-om.md
@@ -130,11 +143,13 @@ nav:
       - Coupler: models/model_components/coupler.md
     - Run a Model:
       - models/run_a_model/index.md
-      - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
-      - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
-      - Run ACCESS-ESM1.5: models/run_a_model/run_access-esm.md
-      - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
+      - Run ACCESS-ESM1.6: models/run_a_model/run_access-esm1p6.md
+      - Run ACCESS-ESM1.5: models/run_a_model/run_access-esm1p5.md
       - Run ACCESS-OM3: models/run_a_model/run_access-om3.md
+      - Run ACCESS-OM2: models/run_a_model/run_access-om2.md
+      - Run models using Rose/Cylc: models/run_a_model/rose_cylc.md
+      - Run ACCESS-AM3: models/run_a_model/run_access-am3.md
+      - Run ACCESS-CM2: models/run_a_model/run_access-cm2.md
       - Run ACCESS-rAM3: models/run_a_model/run_access-ram3.md
       - Run ACCESS-ISSM: models/run_a_model/run_access-issm.md
     - Build a Model:
@@ -151,18 +166,20 @@ nav:
         - model_evaluation/data/finding/index.md
         - ACCESS-NRI Intake Catalogue: model_evaluation/data/finding/access_nri_intake.md
         - ACCESS-NRI Interactive Catalogue: model_evaluation/data/finding/interactive_catalogue.md
-      - Sharing ACCESS Data: model_evaluation/data/sharing/sharing.md
-      - ACCESS Output Data Specifications: model_evaluation/data/sharing/specification.md
-      - Cryosphere Community Datapool (CCD): model_evaluation/data/cryosphere_datapool.md
+      - Sharing ACCESS Community Data: model_evaluation/data/sharing.md
+      - ACCESS Output Data Specifications: https://access-output-data-specifications.readthedocs.io/
+      - Cryosphere Community Datapool: model_evaluation/data/cryosphere_datapool.md
+      - Observational Data for Evaluation: model_evaluation/data/observations.md
     - Model Evaluation: 
       - model_evaluation/evaluation_on_gadi/index.md
-      # - Frameworks on Gadi:
+      - conda/analysis3 Python Environment: getting_started/environments.md
       - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
       - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
+      - Evaluation Recipes: 
+        - model_evaluation/evaluation_on_gadi/recipes/index.md
+        - COSIMA Cookbook: model_evaluation/evaluation_on_gadi/recipes/cosima.md
       - ACCESS-Vis: model_evaluation/evaluation_on_gadi/access_vis.md
-      - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
       - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
-      - METplus: model_evaluation/evaluation_on_gadi/metplus.md
     - Additional Resources:
       - Additional Resources: model_evaluation/community_med/index.md
       - Observational Catalogues: model_evaluation/community_med/community_observational_catalogs.md
@@ -177,13 +194,14 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - ACCESS-ESM1.6 2026 workshop: tutorials/2026_ESMLAND_ESM1.6_tutorial.md
+    - ARE setup - data catalogue training (2026 workshop): tutorials/2026_ESMLAND_Data_catalogue_ARE_setup.md
 
   - Community Resources:
     - community_resources/index.md
     # Keep this commented for future workshops
-    # - ACCESS Community Workshop 2025:
-    #   - Overview: community_resources/access_workshop_2025/index.md
-    #   - Training Day materials: community_resources/access_workshop_2025/training_materials.md
+    - Land and Coupled Modelling Workshop 2026:
+      - Overview: community_resources/access_workshop_2026/index.md
     - Workshops and Events Archive:
       - community_resources/workshops_events_archive/index.md
       - ACCESS Community Workshop 2023:
@@ -254,3 +272,4 @@ extra_javascript:
 watch:
   - mkdocs.yml
   - overrides/
+  - abbreviations.md

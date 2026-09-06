@@ -13,5 +13,8 @@ It is not a separate catalogue from the ACCESS-NRI Intake Catalogue, but rather 
 
 # Explore the Interactive Data Catalog
 
+![Data-discovery](/assets/model_evaluation/Mar-Business_2.jpg){: class="intro-img img-cover round-edges" loading="lazy"}
+
 The Interactive Data Catalogue can be accessed at the following URL:<br>
 [https://access-nri.github.io/interactive-data-catalogue/](https://access-nri.github.io/interactive-data-catalogue/)
+
