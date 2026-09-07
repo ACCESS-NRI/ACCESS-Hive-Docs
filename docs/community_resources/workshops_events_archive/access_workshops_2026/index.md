@@ -27,7 +27,7 @@ In 2026, the three workshops are:
 **Where**: Naarm/Melbourne, Australia
 
 <div class="card-container">
-    <a href="/docs/community_resources/access_workshops_2026/land_and_coupled_modelling_workshop/technical_setup.md" class="horizontal-card" target="_blank">
+    <a href="land_and_coupled_modelling_workshop/technical_setup" class="horizontal-card" target="_blank">
         <div class="card-image-container">
             <img src="/assets/ACCESS_icon_publications.png" class="img-contain"></img> 
         </div>
