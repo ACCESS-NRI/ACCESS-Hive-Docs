@@ -1,6 +1,5 @@
 # ACCESS Community Workshops 2026
 
-In 2026, the three workshops are: 
 
 ## Connecting Machine Learning to Earth System Science
 
