@@ -35,14 +35,6 @@ In 2026, the three workshops are:
             <span class="bold" >Setup Instructions</span>
         </div>
     </a>
-    <a href="/docs/community_resources/access_workshops_2026/land_and_coupled_modelling_workshop/are_setup_data_catalogue.md" class="horizontal-card">
-        <div class="card-image-container">
-            <img src="/assets/model-config-logos/model_visualisation/build_source_code.png" class="img-contain"></img> 
-        </div>
-        <div class="card-text-container">
-            <span class="bold" >ARE Data Catalogue Training Session</span>
-        </div>
-    </a>
 </div>
 
 !!! note
