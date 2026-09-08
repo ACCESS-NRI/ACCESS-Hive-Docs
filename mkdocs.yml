@@ -193,14 +193,12 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
-    - ACCESS-ESM1.6 2026 workshop: tutorials/2026_ESMLAND_ESM1.6_tutorial.md
-    - ARE setup - data catalogue training (2026 workshop): tutorials/2026_ESMLAND_Data_catalogue_ARE_setup.md
 
   - Community Resources:
     - community_resources/index.md
-    # Keep this commented for future workshops
-    - Land and Coupled Modelling Workshop 2026:
-      - Overview: community_resources/access_workshop_2026/index.md
+    # Uncomment this for future workshops
+    # - Land and Coupled Modelling Workshop 2026:
+    #   - Overview: community_resources/access_workshop_2026/index.md
     - Workshops and Events Archive:
       - community_resources/workshops_events_archive/index.md
       - ACCESS Community Workshop 2023:
@@ -212,6 +210,13 @@ nav:
       - ACCESS Community Workshop 2025:
         - Overview: community_resources/workshops_events_archive/access_workshop_2025/index.md
         - Training materials 2025: community_resources/workshops_events_archive/access_workshop_2025/training_materials.md
+      - ACCESS Workshops 2026:
+        - Overview: community_resources/workshops_events_archive/access_workshops_2026/index.md
+        - Machine Learning Workshop: https://forum.access-hive.org.au/t/tennessee-leeuwenburg-auto-encoder-training-sessions/6788
+        - Land and Coupled Modelling Workshop: 
+          - Technical Setup: community_resources/workshops_events_archive/access_workshops_2026/land_and_coupled_modelling_workshop/technical_setup.md
+          - ARE setup data catalogue training: community_resources/workshops_events_archive/access_workshops_2026/land_and_coupled_modelling_workshop/are_setup_data_catalogue.md
+          - ACCESS-ESM1.6 tutorial: community_resources/workshops_events_archive/access_workshops_2026/land_and_coupled_modelling_workshop/esm1p6_tutorial.md
     - Working Groups: community_resources/community_working_groups.md
     - External Resources: community_resources/external_resources.md
     - Glossaries: community_resources/glossaries.md

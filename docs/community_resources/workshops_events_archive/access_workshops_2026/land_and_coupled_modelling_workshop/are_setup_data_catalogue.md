@@ -22,14 +22,14 @@ Then you will have a JupyterLab session loaded with the correct setup to load in
 
 ### Optional projects
 #### CM3
-- zv30
-- p73
+- `zv30`
+- `p73`
 
 #### ESM1.6
-- jq44
+- `jq44`
 
 #### AM3
-- av17
+- `av17`
 
 
 
