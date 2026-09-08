@@ -193,8 +193,6 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
-    - ACCESS-ESM1.6 2026 workshop: tutorials/2026_ESMLAND_ESM1.6_tutorial.md
-    - ARE setup - data catalogue training (2026 workshop): tutorials/2026_ESMLAND_Data_catalogue_ARE_setup.md
 
   - Community Resources:
     - community_resources/index.md
@@ -217,6 +215,8 @@ nav:
         - Land and Coupled Modelling Workshop: 
           - Technical Setup: community_resources/workshops_events_archive/access_workshops_2026/land_and_coupled_modelling_workshop/technical_setup.md
           - ARE setup data catalogue training: community_resources/workshops_events_archive/access_workshops_2026/land_and_coupled_modelling_workshop/are_setup_data_catalogue.md
+          - ACCESS-ESM1.6 tutorial: community_resources/workshops_events_archive/access_workshops_2026/esm1p6_tutorial.md
+        - Machine Learning Workshop: https://forum.access-hive.org.au/t/tennessee-leeuwenburg-auto-encoder-training-sessions/6788
     - Working Groups: community_resources/community_working_groups.md
     - External Resources: community_resources/external_resources.md
     - Glossaries: community_resources/glossaries.md
