@@ -11,9 +11,9 @@
 
 ## About
 
-ACCESS-ISSM is the Ice-sheet and Sea-level System Model (ISSM) maintained by ACCESS-NRI. Hosted on the [NCI _Gadi_ supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview), ACCESS-ISSM makes centrally-managed ISSM executables available to the Australian ice sheet modelling community. ACCESS-ISSM is being used to integrate ISSM into the ACCESS climate modelling framework, with development of [ACCESS-AIS3](https://github.com/ACCESS-NRI/ACCESS-AIS3), a whole-Antarctic ISSM configuration.
+ACCESS-ISSM is an Ice-sheet and Sea-level System Model (ISSM) implementation maintained by ACCESS-NRI. Hosted on the [NCI _Gadi_ supercomputer](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview), ACCESS-ISSM maintains centrally-managed ISSM executables available to the Australian ice sheet modelling community. ACCESS-ISSM is being used to integrate ISSM into the ACCESS climate modelling framework, with development of [ACCESS-AIS3](https://github.com/ACCESS-NRI/ACCESS-AIS3), a whole-Antarctic ISSM configuration.
 
-While ACCESS-ISSM provides centrally-managed model executables, [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is used to develop model configurations and for model execution on [NCI _Gadi_](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview). [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is the Python API for ISSM, developed and managed by ACCESS-NRI. [pyISSM](https://github.com/ACCESS-NRI/pyISSM) contains various [Tutorials](https://pyissm.readthedocs.io/latest/tutorials.html) for using pyISSM.
+While ACCESS-ISSM provides maintained community model executables, [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is used to develop model configurations, model execution on [NCI _Gadi_](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0, and output visualisation. WelcometoGadi-Overview). [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is the Python API for ISSM, developed and managed by ACCESS-NRI. [pyISSM](https://github.com/ACCESS-NRI/pyISSM) contains various [Tutorials](https://pyissm.readthedocs.io/latest/tutorials.html) fdesigned to guide new users through initial model setup, configuration, job submission and output visualisation.
 
 Here, we provide guidance on getting started with pyISSM and ACCESS-ISSM on [NCI _Gadi_](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview). We provide step-by-step instructions on how to initialise an appropriate [Australian Research Environment (ARE)](https://docs.access-hive.org.au/getting_started/are/#jupyterlab) session on [NCI _Gadi_](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview), install pyISSM, and execute the simple ["Square Ice Shelf" pyISSM tutorial](https://pyissm.readthedocs.io/latest/tutorials/ex1_SquareIceShelf.html)
 
@@ -44,7 +44,7 @@ All pyISSM tutorials are presented as Jupyter Notebooks and can be executed easi
     ![New ARE JupyterLab Session](../../assets/run_access-issm/are_dashboard.png)
 
 - Step 2:
-    - Configure the ARE JupyterLab session with the required fields. The following entries are recommended for this simple tutorial and can be cusomtised as necessary for larger model simulations.
+    - Configure the ARE JupyterLab session with the required fields. The following entries are recommended for this simple tutorial and can be customised as necessary for larger model simulations.
 
         - Walltime (hours): `1`
         - Queue: `normalbw`
@@ -65,7 +65,7 @@ All pyISSM tutorials are presented as Jupyter Notebooks and can be executed easi
 
 ### Setup environment requirements
 
-Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be set to use an appropriate executable. This is handled automatically when loading the {{ model }} module on _Gadi_. To set these variables in preparation for running an ISSM model, run the following code block in your Terminal tab:
+Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be set to use an appropriate ACCESS-ISSM executable. This is handled automatically when loading the {{ model }} module on _Gadi_. To set these variables in preparation for running an ISSM model, run the following code block in your Terminal tab:
 
 ```bash
 module use /g/data/vk83/modules
@@ -78,6 +78,8 @@ In addition, to prevent the need for all users to maintain individual Python env
 module use /g/data/xp65/public/modules
 module load conda/analysis3
 ```
+
+Please note that a dedicated pyISSM conda environment for Gadi is currently in development and will be released in late 2026.
 
 ### Installing pyISSM
 Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed, we recommend installing the latest development version directly from Github.
@@ -99,9 +101,9 @@ The installation may take a few minutes. Once the installation completes success
 You're now ready to get started with pyISSM and execute your first ISSM model using ACCESS-ISSM! 
 
 !!! info
-    We recommend working through this tutorial directly in the `~/pyISSM/tutorials/ex1_SquuareIceShelf.ipynb` file, where more detailed explainations of the different modelling steps are provided. Use the file explorer of your ARE JupyterLab Session to navigate to and open the file.
+    We recommend working through this tutorial directly in the `~/pyISSM/tutorials/ex1_SquareIceShelf.ipynb` file, where more detailed explainations of the different modelling steps are provided. Use the file explorer of your ARE JupyterLab Session to navigate to the location you install pyISSM and open the file.
 
-Below, we provide only the code blocks taken directly from the tutorial notebook for brevity.
+Below, we provide only the code blocks taken directly from the tutorial notebook as a guide to the notebook itself.
 
 !!! info
     Code blocks below are formatted such that the output generated by the code block is indented, as follows:
@@ -120,8 +122,9 @@ Import pyISSM and other required Python modules as follows:
 import os
 import pyissm
 import numpy as np
-from pathlib import Path
 import matplotlib.pyplot as plt
+
+from pathlib import Path
 ```
 
 #### Configure your modelling environment
@@ -301,7 +304,7 @@ md.mask
 We can visualise the mask as follows:
 
 ```python
-# Visuale the mask
+# Visualise the mask
 fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(12, 4))
 
 ## Visualise the `ice_levelset` field
