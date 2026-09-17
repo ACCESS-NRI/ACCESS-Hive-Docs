@@ -69,17 +69,17 @@ Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be se
 
 ```bash
 module use /g/data/vk83/modules
-module load access-issm/2025.11.0
+module load access-issm_ad/2026.05.0
 ```
 
 In addition, to prevent the need for all users to maintain individual Python environments, we can leverage the `conda/analysis3` environment maintained by ACCESS-NRI. To load the Python environment, run the following code block in your Terminal tab:
 
 ```bash
 module use /g/data/xp65/public/modules
-module load conda/analysis3
+module load conda/analysis3-25.10
 ```
 
-Please note that a dedicated pyISSM conda environment for Gadi is currently in development and will be released in late 2026.
+Please note that a dedicated pyISSM conda environment for Gadi is currently in development and will be released in late 2026. Until then, we recommend specifically using the `conda/analysis3-25.10` kernel. Please ensure this environment is the one selected when you run the notebook.
 
 ### Installing pyISSM
 Since [pyISSM](https://github.com/ACCESS-NRI/pyISSM) is actively being developed, we recommend installing the latest development version directly from Github.
