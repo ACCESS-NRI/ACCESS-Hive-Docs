@@ -65,7 +65,7 @@ All pyISSM tutorials are presented as Jupyter Notebooks and can be executed easi
 
 ### Setup environment requirements
 
-Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be set to use an appropriate ACCESS-ISSM executable. This is handled automatically when loading the {{ model }} module on _Gadi_. To set these variables in preparation for running an ISSM model, run the following code block in your Terminal tab:
+Interacting with {{ model }} requires the `$ISSM_DIR` environment variable be set to use an appropriate ACCESS-ISSM executable. This is handled automatically when loading the {{ model }} module on _Gadi_. To set these variables in preparation for running an ACCESS-ISSM model configuration, run the following code block in your Terminal tab:
 
 ```bash
 module use /g/data/vk83/modules
