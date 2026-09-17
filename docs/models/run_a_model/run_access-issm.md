@@ -101,7 +101,7 @@ The installation may take a few minutes. Once the installation completes success
 You're now ready to get started with pyISSM and execute your first ISSM model using ACCESS-ISSM! 
 
 !!! info
-    We recommend working through this tutorial directly in the `~/pyISSM/tutorials/ex1_SquareIceShelf.ipynb` file, where more detailed explainations of the different modelling steps are provided. Use the file explorer of your ARE JupyterLab Session to navigate to the location you install pyISSM and open the file.
+    We recommend working through this tutorial directly in the `~/pyISSM/tutorials/ex1_SquareIceShelf.ipynb` file, where more detailed explainations of the different modelling steps are provided. Use the file explorer of your ARE JupyterLab Session to navigate to the location you installed pyISSM and open the file.
 
 Below, we provide only the code blocks taken directly from the tutorial notebook as a guide to the notebook itself.
 
