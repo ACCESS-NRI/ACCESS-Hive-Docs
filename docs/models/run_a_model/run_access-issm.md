@@ -604,7 +604,7 @@ md.miscellaneous.name = 'SquareIceShelf'
 md = pyissm.model.execute.solve(md, 'Stressbalance')
 ```
 
-Once the model is executed, you'll see san output similar to this (the gadi login node name and the date/time stamp on the file name will vary):
+Once the model is executed, you'll see output similar to this (the gadi login node name and the date/time stamp on the file name will vary):
 
 > ```
 > Checking model consistency...
