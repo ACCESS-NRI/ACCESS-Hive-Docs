@@ -501,7 +501,7 @@ md.materials
 > ```
 
 #### Boundary conditions
-In this example, we run a "Stress balance" solution to compute ice velocity in steady-state. The stress balance conditions are defined by combination of fields in `md.stressbalance.spcvx`, `md.stressbalance.spcvy`, `md.stressbalance.spcvz`.
+In this example, we run a "Stress balance" solution to compute ice velocity in steady-state. The stress balance conditions are defined by a combination of fields in `md.stressbalance.spcvx`, `md.stressbalance.spcvy`, `md.stressbalance.spcvz`.
 
 ```python
 # Set ice shelf boundary conditions.
