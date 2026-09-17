@@ -157,7 +157,7 @@ If pyISSM was installed in your `$HOME` directory (as described above), you shou
 where `<CODE>` is your NCI _Gadi_ group code and `<USER>` is your NCI username.
 
 #### Initialise an empty model
-To begin building an ISSM model, we first initialise an empty model. For more information about the `md` object, refer to the [Introduction to pyISSM tutorial](https://github.com/ACCESS-NRI/pyISSM/blob/main/tutorials/1_pyISSM_intro.ipynb).
+To begin building an ISSM model, we first initialise an empty model. For more information about the `md` object, refer to the [Introduction to pyISSM tutorial](https://github.com/ACCESS-NRI/pyISSM/blob/main/tutorials/1_pyISSM_intro.ipynb), which you can also navigate to in the ARE file explorer (`1_pyISSM_intro.ipynb`).
 
 ```python
 # Create an empty model
