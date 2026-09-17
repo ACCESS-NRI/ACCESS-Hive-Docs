@@ -57,7 +57,7 @@ All pyISSM tutorials are presented as Jupyter Notebooks and can be executed easi
 
     - Click on "Show advanced settings" and enter the following field entries:
         - Module directories: `/g/data/vk83/modules /g/data/xp65/public/modules`
-        - Modules: `conda/analysis3 access-issm/2025.11.0`
+        - Modules: `conda/analysis3 access-issm/2026.05.0`
 
 - Step 3:
     - Click on the _Launch_ button to launch the session. You will be prompted to your Interactive Sessions page and you will see your last requested session at the top.
