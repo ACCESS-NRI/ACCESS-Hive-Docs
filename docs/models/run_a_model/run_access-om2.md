@@ -604,6 +604,51 @@ A dictionary to run scripts or subcommands at various stages of a _payu_ submiss
 For more information about specific `userscripts` fields, check the relevant section of [_payu_ Configuration Settings documentation](https://payu.readthedocs.io/en/latest/config.html#postprocessing).
 
 
+#### Using COSIMA restarts with an ACCESS-NRI configuration 
+!!! warning
+    This workflow is only for advanced users and provided to help users use COSIMA restart files with ACCESS-NRI executables for two key configurations. This workflow will use a mix of restart files: a spun ocean and a sea-ice model that has started almost from rest. This is physically inconsistent and so the model requires an extended spin up and re-evaluation to produce scientifically credible results. 
+
+As highlighted above in [start the run from a specific restart file](/models/run-a-model/run-access-om/#specific-restart), there are situations where it is preferable to use an existing restart file rather than start the model from rest, e.g. when the configuration is very expensive to run. New ACCESS-NRI executables may be preferable to use because they contain bug fixes and a newer code base. However, in some cases, if the supplied restart file is not fully compatible with the model configuration, experiments using a custom restart file may require additional manual adjustments to run correctly. 
+
+Here we provide a workflow for doing these manual adjustments for a popular configuration, namely `release-01deg_jra55_ryf`. 
+
+We first need to identify the restart file we wish to use. For this example we will use `/g/data/cj50/access-om2/raw-output/access-om2-01/01deg_jra55v13_ryf9091/restart795`. It may be useful to consult [this forum thread](https://forum.access-hive.org.au/t/access-om2-control-experiments/258) for making this choice.
+
+We then need to make a template restart file that works, so we run the ACCESS-NRI configuration from rest. To start, one clones the relevant configuration and runs it:
+```bash
+cd ~
+mkdir access-om2
+cd access-om2
+payu clone -b expt -B release-01deg_jra55_ryf  https://github.com/ACCESS-NRI/access-om2-configs release-01deg_jra55_ryf
+cd release-01deg_jra55_ryf
+payu run
+```
+Note: these instructions were tested using commit `83885a45017b3a34ea4fad15d155449c7217ad70`.
+
+Once the above run is complete. We use a mix of restart files. We use the restart file from a sea-ice model that goes almost from rest (the run you just did) and from the COSIMA restart file we take the ocean variables. This does the bulk of the spin up for us. We do this as follows:
+```bash
+mkdir -p /scratch/tm70/$USER/access-om2/restart_hackom201ryf
+cd ~/access-om2/release-01deg_jra55_ryf/archive/restart000
+cp -r ice /scratch/tm70/$USER/access-om2/restart_hackom201ryf
+
+cd /g/data/cj50/access-om2/raw-output/access-om2-01/01deg_jra55v13_ryf9091/restart795
+cp -r accessom2_restart.nml ocean /scratch/tm70/$USER/access-om2/restart_hackom201ryf
+```
+
+We then need to modify the payu configuration to restart from this mix of restart files, there are two steps:
+
+1. We tell CICE that it should not check the date of the restart file, this is because the `accessom2_restart.nml` file in the example above (folder `restart795`) is looking to start at `EXP_CUR_DATE    = 2100-01-01T00:00:00` which is not the start date the sea-ice model will have from the one we have just made above in `restart000`, it will have `1900-04-01T00:00:00`. For the first run you'll need to `set use_restart_time = .false.` in `ice/cice_in.nml`. For additional information, see `More complicated cases` in the [COSIMA/access-om2/wiki](https://github.com/COSIMA/access-om2/wiki/Tutorials#updating-an-experiment).
+
+2. Add the following two lines to `~/$USER/access-om2/release-01deg_jra55_ryf/config.yaml`:
+
+```bash
+restart: 
+  /scratch/tm70/$USER/access-om2/restart_hackom201ryf
+```
+Finally, submit this new run with `payu run`. 
+
+!!! tip
+    This has the same effect as adding `--restart FILE_NAME` to the `payu clone` command, as discussed above in [start the run from a specific restart file](/models/run-a-model/run-access-om/#specific-restart)
 ### Edit a single {{ model }} component configuration
 
 Each of [{{ model }} components][model components] contains additional configuration options that are read in when the model component is running.<br>
