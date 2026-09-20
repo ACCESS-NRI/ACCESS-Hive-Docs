@@ -433,7 +433,7 @@ For an experiment failing unexpectedly with numerical errors, reducing the model
 
 !!! note "How come we only need to change the coupling time-step?"
 
-    Reducing the coupling time-step has a knock-on effect on `DT`, `DTBT` and `dt`. `DT` and `dt` shorten directly because they are set to match the coupling time-step. Although `DTBT` is calculated internally by MOM6 rather than set directly, its value is dependent on model stability and is recalculated every baroclinic (`DT`) time-step in our configurations (not default behaviour), so a shorter `DT` means `DTBT` is recalculated more often — likely resulting in a shorter `DTBT` when conditions are close to a stability margin.
+    Reducing the coupling time-step has a knock-on effect on the CICE6 thermodynamic timestep (`dt`) and the MOM6 baroclinic (`DT`) and barotropic (`DTBT`) timesteps, but in different ways. In CICE6, `dt` is set directly to the coupling time-step. In MOM6, the configured `DT` instead acts as an upper bound: the actual baroclinic timestep is chosen as the largest integer fraction of the coupling time-step that does not exceed `DT`. Hence reducing the coupling time-step may reduce the actual MOM6 baroclinic timestep, but it does not simply force `DT` to equal the coupling time-step. `DTBT` is calculated internally by MOM6 rather than set directly. In our configurations it is recalculated every baroclinic timestep, so a shorter actual `DT` causes the barotropic stability limit, and therefore `DTBT`, to be reassessed more frequently.
 
 Practically, a common workflow is to halve the coupling time-step:
 
