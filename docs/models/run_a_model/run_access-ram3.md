@@ -89,9 +89,9 @@ This quick guide outlines the basic steps to run {{ model }} and is tailored to 
     cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
     ```
 
-3. **Create `id_rsa-rose-cylc-gadi` SSH key (once only)**
+3. **Setup connection between Gadi and Cylc (once only)**
     ```
-    if [[ ! -f ~/.ssh/id_rsa-rose-cylc-gadi ]]; then ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa-rose-cylc-gadi && cat ~/.ssh/id_rsa-rose-cylc-gadi.pub >> ~/.ssh/authorized_keys; fi
+    /g/data/hr22/bin/gadi-cylc-setup-ps -y
     ```
 
 4. **Get _Rose/Cylc_ executables**
@@ -150,15 +150,10 @@ Set up a persistent session by following the [related instructions on the _Rose/
 
 Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
 
-### Create the id_rsa-rose-cylc-gadi SSH key
-
-!!! tip
-    This step should only be carried out once.
-
-Create the passphrase-less `id_rsa-rose-cylc-gadi` SSH key and add it to the authorised keys by running:
-```
-if [[ ! -f ~/.ssh/id_rsa-rose-cylc-gadi ]]; then ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa-rose-cylc-gadi && cat ~/.ssh/id_rsa-rose-cylc-gadi.pub >> ~/.ssh/authorized_keys; fi
-```
+{% include-markdown "includes/persistent-sessions.md"
+    start="<!--start:pers-session-setup-->"
+    end="<!--end:pers-session-setup-->"
+%}
 
 ### {{ model }} configuration
 {{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
