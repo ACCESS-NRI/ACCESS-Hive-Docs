@@ -1,3 +1,6 @@
+!!! info
+    You only need _Spack_ if you intend to _modify and build_ an ACCESS model's source code. To run an existing released model configuration, refer to [Run a Model](/models/run_a_model) instead.
+
 !!! warning
     **20/05/2026:** If you previously set up a personal _Spack_ instance by following the instructions on this page, note that the recommended method for enabling _Spack_ on _Gadi_ has changed. Please review the updated instructions below.
 
@@ -10,8 +13,15 @@ ACCESS-NRI has installed and configured a shared _Spack_ instance on _Gadi_ so t
 To use _Spack_, please familiarise yourself with the [essential Spack commands](https://spack.readthedocs.io/en/latest/package_fundamentals.html) used for [Listing Available Packages](https://spack.readthedocs.io/en/latest/package_fundamentals.html#listing-available-packages) and [Seeing Installed Packages](https://spack.readthedocs.io/en/latest/package_fundamentals.html#seeing-installed-packages). Alternatively, follow the instructions in the [Test Spack](#test-spack-optional) section below.
 
 ## Prerequisites
-- **NCI Account**<br> 
+
+- **NCI Account**<br>
     These instructions are tailored specifically for _Gadi_. To use _Spack_ on _Gadi_, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+
+- **Membership of the `vk83` project**<br>
+    The shared _Spack_ instance is distributed through `/g/data/vk83`. Request membership through [my.nci.org.au](https://my.nci.org.au/mancini/project/vk83).
+
+- **A project with writable `/g/data` and `/scratch` space**<br>
+    _Spack_ installs your builds under `/g/data/$PROJECT/$USER/spack/` and stages source code under `/scratch/$PROJECT/$USER/`. Building a full model can consume a lot of storage, so check your quota with `lquota` before starting.
 
 ## Enable Spack
 
@@ -25,9 +35,6 @@ module use /g/data/vk83/modules
 module load spack
 ```
 
-!!! tip
-    Please refer to the [ACCESS-NRI Spack Cheat Sheet](https://forum.access-hive.org.au/t/access-nri-spack-cheat-sheet/5942) for further help on _Spack_.
-
 ## Test Spack (OPTIONAL)
 
 <!--
@@ -40,6 +47,9 @@ module load spack
 -->
 
 Estimated time to complete: 5 minutes
+
+!!! info
+    When you install a package, _Spack_ first checks whether an identical build already exists in the `upstream`. If it does, that build is reused instead of being recompiled.
 
 To test that _Spack_ works as expected, clone the `ACCESS-TEST` repository and use it as a _Spack_ `independent environment` to install the relevant packages. The _Spack_ environment rules are defined in the `ACCESS-TEST/spack.yaml` file. If the packages are already installed in an [upstream](https://spack.readthedocs.io/en/latest/chain.html) they will not be rebuilt.
 
@@ -182,6 +192,13 @@ spack find --install-tree local
 !!! info
     The animation above is a generalised example of the expected output, shortened and modified for clarity. Your actual output might vary.
 
+### Find executables
+
+Packages installed into an environment are linked into that environment's view.
+
+```
+ls ./ACCESS-TEST/.spack-env/view/bin
+```
 ### Cleanup
 ```
 spack uninstall --all
@@ -192,6 +209,10 @@ rm -rf ACCESS-TEST
 ## Develop a Model
 
 For instructions on how to build an ACCESS model using _Spack_, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
+
+## Troubleshooting
+
+Please refer to the [ACCESS-NRI Spack Cheat Sheet](https://forum.access-hive.org.au/t/access-nri-spack-cheat-sheet/5942) for further help on _Spack_. If your question remains unanswered, please ask on the [Hive-Forum](https://forum.access-hive.org.au/) or refer to [User support](/about/user_support).
 
 ## Advanced users
 

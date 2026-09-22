@@ -1234,6 +1234,17 @@ img.terminal-switch:hover ~ .terminal-switch-tooltip {
 .git-cyan {
     color: #00C6C7;
 }
+.payu-yellow {
+  color:#ecff1e;
+}
+.payu-red {
+  color: #b78683;
+}
+.payu-dark-yellow {
+  color: #f9bd26;
+}
+
+
 
 /* =============================================================== 
   General styling for html tabs
