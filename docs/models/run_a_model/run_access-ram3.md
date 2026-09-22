@@ -88,37 +88,44 @@ This quick guide outlines the basic steps to run {{ model }} and is tailored to 
     ```
     cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
     ```
-3. **Get _Rose/Cylc_ executables**
+
+3. **Setup connection between Gadi and Cylc (once only)**
+    ```
+    /g/data/hr22/bin/gadi-cylc-setup-ps -y
+    ```
+
+4. **Get _Rose/Cylc_ executables**
     ```
     module use /g/data/hr22/modulefiles
     module load cylc7
     ```
-4. **Authenticate to MOSRS**
+5. **Authenticate to MOSRS**
     ```
     mosrs-auth
-    ```
-5. **Get the OSTIA Ancillary Suite (OAS) (optional)**
+    ```   
+
+6. **Get the OSTIA Ancillary Suite (OAS) (optional)**
     ```
     rosie checkout {{ oas_id }}
     ```
-6. **Get the Regional Ancillary Suite (RAS)**
+7. **Get the Regional Ancillary Suite (RAS)**
     ```
     rosie checkout {{ ras_id }}/{{ branch_ras }}
     ```
-7. **Get the Regional Nesting Suite (RNS)**
+8. **Get the Regional Nesting Suite (RNS)**
     ```
     rosie checkout {{ rns_id }}/{{ branch_rns }}
     ```
-8. **Run the OAS (optional)**
+9.  **Run the OAS (optional)**
     ```
     rose suite-run -C ~/roses/{{ oas_id }}
     ```
-9. **Run the RAS**
+10. **Run the RAS**
     ```
     rose suite-run -C ~/roses/{{ ras_id }}
     ```
     This step can be carried out simultaneously with step 8.
-10. **Run the RNS**
+11. **Run the RNS**
     
     This step must be carried out only after step 8 (optional) and 9 have successfully completed.
     ```
@@ -143,6 +150,10 @@ Set up a persistent session by following the [related instructions on the _Rose/
 
 Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
 
+{% include-markdown "includes/persistent-sessions.md"
+    start="<!--start:pers-session-setup-->"
+    end="<!--end:pers-session-setup-->"
+%}
 
 ### {{ model }} configuration
 {{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
