@@ -153,8 +153,8 @@ nav:
       - Run ACCESS-rAM3: models/run_a_model/run_access-ram3.md
     - Build a Model:
       - models/build_a_model/index.md
-      - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
       - Create Prereleases and Releases for an ACCESS Model: models/build_a_model/create_a_prerelease.md
+      - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
 
   - Data and Model Evaluation:
     - model_evaluation/index.md
