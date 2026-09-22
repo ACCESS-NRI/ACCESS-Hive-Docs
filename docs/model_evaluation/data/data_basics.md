@@ -48,12 +48,12 @@ output for CMIP6 and CMIP7 FastTrack, and can be run interactively via a Python 
 PBS jobs on _Gadi_ with a real-time monitoring dashboard.
 
 <div class="card-container">
-    <a href="https://github.com/ACCESS-NRI/ACCESS-MOPPy" class="horizontal-card" target="_blank">
+    <a href="https://access-moppy.readthedocs.io/" class="horizontal-card" target="_blank">
         <div class="card-image-container">
             <img src="/assets/model_evaluation/moppy_logo.png" alt="ACCESS-MOPPy" class="img-contain white-background with-padding">
         </div>
         <div class="card-text-container">
-            <span class="bold">ACCESS-MOPPy</span>
+            <span class="bold">ACCESS-MOPPy Documentation</span>
             <span>
                 CMORise ACCESS model output into CMIP-compliant datasets, with HPC batch
                 processing and CMIP6/CMIP7 FastTrack support.
