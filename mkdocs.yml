@@ -193,6 +193,7 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - Working with Git: tutorials/git_ref.md
 
   - Community Resources:
     - community_resources/index.md
