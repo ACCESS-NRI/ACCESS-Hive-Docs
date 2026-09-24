@@ -14,10 +14,10 @@
 
 # Modify and build an ACCESS model's source code on Gadi
 
-This page is for users needing to change the source code and recompile ACCESS models. ACCESS-NRI supports building ACCESS models in two ways:
+ACCESS-NRI supports two workflows for building models, targeting different use cases:
 
- - Create prereleases for an ACCESS Model. Very low learning curve for GitHub familiar users. If you want to modify and build a model, while maintaining a clear record of your changes and being able to share the modified builds with others, refer to [Create Prereleases and Releases for an ACCESS Model](/models/build_a_model/create_a_prerelease) instead (X minutes). Suited to modifying dependency versions (e.g. openmpi version) or build variants. This process requires less Spack understanding and will be more intuitive to GitHub users.
- - Using Spack "develop" on Gadi. This approach suits users who are making source code changes and need to repeatedly modify the source code, git bisect complicated bugs, recompile it and run tests. This option also requires setting up a Spack develop environment (Y minutes). This process has fewer pre-requisites and does not require ACCESS-NRI `write` access.
+- [Spack develop workflow](link-to-relevant-section), for when you want to iteratively build the model i.e. repeatedly make changes to the source code and recompile during testing.
+- [Prerelease workflow](link-to-relevant-section), for when you want to share a particular build with others or have your model version recorded permanently. This will often come after using the Spack develop workflow.
 
 The below instructions show how to modify the [MOM6 component] for [ACCESS-OM3][OM3 config] and re-compile the relevant {{ACCESS_MODEL}} dependencies on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi] using the [Spack](https://spack.readthedocs.io) software manager.
 
