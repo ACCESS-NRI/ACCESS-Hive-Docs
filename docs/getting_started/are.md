@@ -118,13 +118,19 @@ Hence, there are multiple [PBS directives](https://opus.nci.org.au/display/Help/
 2. <span tabcontentfor="vdi" markdown> 
     Wait until your session starts and then click on the <i>Launch VDI Desktop</i> button to open a new tab with the VDI interface.<br>
     Inside the VDI interface, you can open the terminal by clicking on the black terminal icon at the top of the window.
-    <img src="/assets/launch_are_vdi_desktop.gif" alt="Launch ARE VDI Desktop" class="example-img" loading="lazy"/>
+    <video class="example-img" controls muted loop playsinline preload="metadata">
+      <source src="/assets/launch_are_vdi_desktop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     </span>
     
     <span tabcontentfor="jupyterlab">
     Wait until your session starts and then click on the <i>Open JupyterLab</i> button to open a new tab with the JupyterLab interface.<br>
     Inside the JupyterLab interface, you can open a new notebook by clicking on the Python3 Notebook button in the Launcher panel (to open a new Laucher panel, click on the plus button <img src="/assets/jupyterlab_plus_button.png" alt="Plus button" style="height:1em"/> next to your current tab).
-    <img src="/assets/launch_are_jupyterlab.gif" alt="Launch ARE JupyterLab" class="example-img" loading="lazy"/>
+    <video class="example-img" controls muted loop playsinline preload="metadata">
+     <source src="/assets/launch_are_jupyterlab.mp4" type="video/mp4">
+     Your browser does not support the video tag.
+    </video>
     </span>
 
 ## Delete an ARE session
