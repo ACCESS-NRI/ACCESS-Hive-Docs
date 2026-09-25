@@ -8,17 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
-#   check-links:
-#     uses: ./.github/workflows/check_links.yml
-
   auto-merge:
     runs-on: ubuntu-latest
-    # needs: check-links
     steps:
     - name: Checkout repo
-      uses: actions/checkout@master
+      uses: actions/checkout@v7
       with:
-        ref: main
+        ref: production
         fetch-depth: 0
         token: ${{ secrets.REPO_CONTENT_WRITE_TOKEN }}
     
@@ -34,9 +30,9 @@ jobs:
         git_commit_gpgsign: true
         git_tag_gpgsign: true
     
-    - name: Merge development to main
+    - name: Merge main to production
       run: |
         git config --list
-        git merge --no-ff -X theirs origin/development -m "Automatically merge 'development' to 'main'.
+        git merge --no-ff -X theirs origin/main -m "Automatically merge 'main' to 'production'.
         Merge commit issued by the automatic_merge workflow."
-        git push origin main
+        git push origin production
