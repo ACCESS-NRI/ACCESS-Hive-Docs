@@ -1102,7 +1102,7 @@ pre>code {
   word-break: break-all !important;
 }
 
-/* Copy icon turning orange when hovering over it*/
+/* Copy icon color when hovering over it*/
 pre > button:is(:hover,:focus).md-clipboard {
   color: var(--md-primary-fg-color--dark) !important;
 }
