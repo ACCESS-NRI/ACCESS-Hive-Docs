@@ -1102,6 +1102,10 @@ pre>code {
   word-break: break-all !important;
 }
 
+pre>nav {
+  background-color: unset !important;
+}
+
 /* Copy icon color when hovering over it*/
 pre > button:is(:hover,:focus).md-clipboard {
   color: var(--md-primary-fg-color--dark) !important;
