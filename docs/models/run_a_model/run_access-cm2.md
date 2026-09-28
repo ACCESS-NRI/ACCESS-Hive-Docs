@@ -77,7 +77,7 @@ Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
     Your browser does not support the video tag.
 </video>
 
-### Open the terminal in the VDI Desktop
+### Open the terminal in  the VDI Desktop
 Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
 To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
 
