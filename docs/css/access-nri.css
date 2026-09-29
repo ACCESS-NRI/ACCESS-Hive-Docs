@@ -1112,6 +1112,42 @@ pre > button:is(:hover,:focus).md-clipboard {
 }
 
 /* =============================================================== 
+  Jupyter Notebooks code blocks
+*/
+.jupyter-code.highlight-ipynb {
+    --jp-mirror-editor-keyword-color: var(--md-code-hl-keyword-color);
+    --jp-mirror-editor-comment-color: var(--md-code-hl-comment-color);
+    --jp-mirror-editor-variable-color: var(--md-code-hl-variable-color);
+    --jp-mirror-editor-punctuation-color: var(--md-code-hl-punctuation-color);
+    --jp-mirror-editor-number-color: var(--md-code-hl-number-color);
+    --jp-mirror-editor-generic-color: var(--md-code-hl-generic-color);
+    --jp-mirror-editor-operator-color: var(--md-code-hl-operator-color);
+    --jp-mirror-editor-string-color: var(--md-code-hl-string-color);
+    --jp-cell-editor-background: var(--md-code-bg-color);
+    & .nn {
+        color: var(--md-code-hl-function-color);
+    }
+    & .n {
+        color: var(--md-code-hl-name-color);
+    }
+    & > pre {
+        padding: 0.5em 0.8em !important;
+    }
+}
+.jupyter-wrapper .zeroclipboard-container clipboard-copy .clipboard-copy-icon {
+    color: var(--md-default-fg-color--lightest);
+}
+.jupyter-wrapper:has(.highlight-ipynb.jupyter-code:hover) .zeroclipboard-container clipboard-copy .clipboard-copy-icon {
+    color: var(--md-default-fg-color--light);
+}
+.jupyter-wrapper .zeroclipboard-container clipboard-copy:hover .clipboard-copy-icon {
+    color: var(--md-accent-fg-color);
+}
+.jupyter-wrapper .jp-CodeMirrorEditor.jp-Editor.jp-InputArea-editor {
+    border: unset;
+}
+
+/* =============================================================== 
   Terminal animations
 */
 ::part(terminal-window) {

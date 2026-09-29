@@ -10,9 +10,31 @@ repo_name: ACCESS-Hive-Docs
 
 edit_uri: edit/main/docs/
 
+# Theme configuration
 theme:
   name: material
   custom_dir: overrides
+  features:
+    - navigation.instant # Enable instant navigation on internal links (https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=navigation#instant-loading)
+    - navigation.instant.prefetch # Prefetch pages for instant navigation
+    - navigation.instant.progress # Show a progress bar for instant navigation on slow pages
+    - navigation.tracking # The URL in the address bar is automatically updated with active anchor
+    - navigation.tabs # Top-level sections are rendered below the top header
+    - navigation.tabs.sticky # Top-level sections remain visible when scrolling
+    - navigation.indexes # Files can be attached to main sections, which can function as overview pages (https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/?h=navigation#section-index-pages)
+    - navigation.top # Add a back-to-top button
+    - navigation.footer # Enables the footer for the site
+    - toc.follow # Automatically scroll the sidebar to the active anchor
+    - content.code.copy # Display a copy icon at top right of code blocks
+    - content.code.annotate # Enable annotations within code blocks (https://squidfunk.github.io/mkdocs-material/reference/code-blocks/?h=content+code+copy#code-annotations)
+    - content.action.edit # Add an edit icon to the page
+    - content.tabs.link # Content tabs are linked and switch to the same label simultaneously
+    - content.tooltips # Replace the default browser tooltips with better ones
+    - content.footnote.tooltips # Enable tooltips for footnotes
+    - search.suggest # Enable search suggestions as the user types
+    - search.highlight # Highlight all occurrences of search keywords when clicking on a search result
+    - search.share # Add a share button for search results that copies the exact search URL
+    - announce.dismiss # Allow users to dismiss site-wide announcements
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -24,91 +46,90 @@ theme:
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
+      scheme: custom-dark
       primary: none
       accent: none
-      scheme: custom-dark
       toggle:
         icon: material/theme-light-dark
         name: Switch to light mode
-
-  features:
-    - navigation.top
-    - navigation.instant
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.indexes
-    - navigation.footer
-    - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
-    - content.code.copy         # for displaying copy icon at top right in code snippets
-    - content.code.annotate
-    - content.action.edit
-    - content.tabs.link
-    - content.tooltips
-    - search.suggest
-    - search.highlight
-    - search.share
-    - toc.follow                # the sidebar is automatically scrolled to the active anchor
-    - announce.dismiss
-
-  logo: assets/ACCESS_icon_HIVE.png
-  favicon: assets/ACCESS_icon_HIVE.png
+  favicon: assets/ACCESS_icon_HIVE.png # Favicon for the site
+  logo: assets/ACCESS_icon_HIVE.png # Main logo for the site
   icon:
-    edit: material/pencil
-    view: material/eye
+    edit: material/pencil # Icon for editing the page
+    view: material/eye # Icon for viewing the page
+
 hooks:
   - docs/hooks/copyright_year.py
 copyright: Copyright &copy; {year} ACCESS-NRI
 
 plugins:
-  - git-revision-date-localized:
+  - search # Adds the search bar to the header
+  # - optimize: # Optimizes all media files (https://squidfunk.github.io/mkdocs-material/plugins/optimize/#built-in-optimize-plugin)
+  #     optimize_png_speed: 10
+  #     enabled: !env [READTHEDOCS, false]
+  # - privacy # Download any external asset locally to improve privacy (https://squidfunk.github.io/mkdocs-material/plugins/privacy/)
+  #     enabled: !env [READTHEDOCS, false]
+  - mkdocs-jupyter: # Use Jupyter Notebooks in mkdocs (https://github.com/danielfrg/mkdocs-jupyter#mkdocs-jupyter-use-jupyter-notebooks-in-mkdocs)
+      include_source: true
+      no_prompt: True
+      highlight_extra_classes: "jupyter-code"
+  - mkdocstrings: # Automatic documentation from docstrings (https://mkdocstrings.github.io/)
+      default_handler: python
+      handlers:
+        python:
+          paths: [../src]
+          options:
+            show_source: false
+            show_root_heading: true
+  - git-revision-date-localized: # Adds creation and last update dates at the end of each page
       type: date
-      enable_creation_date: false
-  - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  - bibtex:
-      bib_file: "references.bib"
-  - redirects:
+      enable_creation_date: true
+  - bibtex: # Add citation syntax support (https://github.com/shyamd/mkdocs-bibtex#usage)
+      bib_file: references.bib
+  - redirects: # Adds support for URL redirects using mkdocs-redirects (https://github.com/mkdocs/mkdocs-redirects#mkdocs-redirects)
       redirect_maps:
         'models/run_a_model/run_access-ram.md': 'models/run_a_model/run_access-ram3.md'
         'models/run_a_model/run_access-esm.md': 'models/run_a_model/run_access-esm1p5.md'
-  - resolve-absolute-urls
-  - macros
-  - include-markdown
+  - resolve-absolute-urls: # Resolves absolute URLs (https://github.com/ACCESS-NRI/mkdocs_resolve_absolute_urls_plugin#mkdocs-resolve-absolute-urls-plugin)
+      url_versioning_scheme: single_version_without_translations # MODIFY: Set the URL versioning scheme as shown in the ReadTheDocs project settings
+  - macros # Enables jinja2 templating (https://mkdocs-macros-plugin.readthedocs.io/en/latest/)
+  - include-markdown # Enables including external markdown files in a document (https://github.com/mondeja/mkdocs-include-markdown-plugin#mkdocs-include-markdown-plugin)
 
 # Extensions
 markdown_extensions:
-  - attr_list
-  - abbr
-  - md_in_html
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences:
+  - attr_list # Enables attribute lists syntax (https://python-markdown.github.io/extensions/attr_list/)
+  - abbr # Enables abbreviations (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/?h=abbr#abbreviations)
+  - md_in_html # Enables Markdown inside HTML blocks (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/?h=markdown+html+in#markdown-in-html)
+  - admonition # Enables admonitions (https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=adm#usage)
+  - pymdownx.details # Enables collapsible admonitions
+  - pymdownx.superfences: # Allows arbitrary nesting of code
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.inlinehilite
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.snippets:
-      auto_append:
-        - abbreviations.md
-  - pymdownx.highlight
-  - pymdownx.tasklist:
+  - pymdownx.critic # Enables critic markup syntax (https://squidfunk.github.io/mkdocs-material/reference/formatting/#highlighting-changes)
+  - pymdownx.caret # Enables superscript and underline syntax (https://facelessuser.github.io/pymdown-extensions/extensions/caret/)
+  - pymdownx.mark # Enables highlighted text syntax (https://facelessuser.github.io/pymdown-extensions/extensions/mark/)
+  - pymdownx.tilde # Enables subscript and striked through syntax (https://facelessuser.github.io/pymdown-extensions/extensions/tilde/)
+  - pymdownx.keys # Enables keyboard key styling (https://squidfunk.github.io/mkdocs-material/reference/formatting/#adding-keyboard-keys)
+  - pymdownx.snippets: # Adds support for including external files (snippets) to a document (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/?h=snippets#snippets)
+      auto_append: # Automatically appends the listed files to the end of each document
+        - abbreviations.md # Used to create a website glossary (https://squidfunk.github.io/mkdocs-material/reference/tooltips/#adding-a-glossary-mkdocsyml)
+  - pymdownx.highlight # Enables syntax highlighting for code blocks (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/?h=highlight#highlight)
+  - pymdownx.inlinehilite # Enables syntax highlighting for inline code blocks
+  - pymdownx.tasklist: # Enables Github-like task list syntax
       custom_checkbox: true
-  - pymdownx.emoji:
+  - pymdownx.emoji: # Enables using icons and emojis with simple shortcodes (https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/?h=emoji#usage)
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tabbed:
+  - pymdownx.tabbed: # Enables content tabs (https://squidfunk.github.io/mkdocs-material/reference/content-tabs/#content-tabs)
       alternate_style: true
-  - pymdownx.keys
-  - pymdownx.arithmatex:
+  - pymdownx.arithmatex: # Enables LaTeX-like equations rendering (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/?h=arithmatex#arithmatex)
       generic: true
-  - def_list
-  - footnotes
-  - tables
-  - toc:
+  - def_list # Enables definition lists (https://squidfunk.github.io/mkdocs-material/reference/lists/#using-definition-lists)
+  - footnotes # Enables footnotes (https://squidfunk.github.io/mkdocs-material/reference/footnotes/?h=footno#usage)
+  - tables # Enables markdown tables (https://squidfunk.github.io/mkdocs-material/reference/data-tables/?h=tables#usage)
+  - toc: # Generate and render the Table of Contents (https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/?h=toc#table-of-contents)
       title: On this page
       permalink: true
       permalink_title: Copy permalink to clipboard
@@ -244,20 +265,6 @@ extra:
   analytics:
     provider: google
     property: G-JVWLTHSQWM
-  #   feedback:
-  #     title: Was this page helpful?
-  #     ratings:
-  #       - icon: material/emoticon-happy-outline
-  #         name: This page was helpful
-  #         data: 1
-  #         note: >-
-  #           Thanks for your feedback!
-  #       - icon: material/emoticon-sad-outline
-  #         name: This page could be improved
-  #         data: 0
-  #         note: >-
-  #           Thanks for your feedback!<br>
-  #           Help us improve this page by <a href=/about/contribute target="_blank" rel="noopener">contributing</a>!
 
 extra_css:
   - https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap
