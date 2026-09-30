@@ -873,6 +873,7 @@ details.code {
 
 :is(.funding,.partners) > *:last-child a > img {
   margin: auto;
+  max-height: 3.5rem;
   height: 3.5rem;
   width: auto;
   object-fit: contain;
