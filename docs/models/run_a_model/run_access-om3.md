@@ -422,22 +422,22 @@ Reducing the time-step is a common troubleshooting step when a model run crashes
 | Time-step | Controls | Configured in |
 |-----------|----------|---------------|
 | Coupling / driver time-step | How often the model components (ocean, sea ice, atmosphere forcing) exchange information | `nuopc.runseq` |
-| MOM6 baroclinic (`DT`) | 3-D ocean dynamics; often called "the" model time-step | `MOM_input` |
-| MOM6 barotropic (`DTBT`) | Sea-surface height and depth-averaged velocity | `MOM_input` |
-| MOM6 tracer/thermodynamic (`DT_THERM`) | Tracer transport and thermodynamics | `MOM_input` |
+| MOM6 baroclinic | 3-D ocean dynamics; often called "the" model time-step | `DT` in `MOM_input` |
+| MOM6 barotropic | Sea-surface height and depth-averaged velocity | `DTBT` in `MOM_input` |
+| MOM6 tracer/thermodynamic | Tracer transport and thermodynamics | `DT_THERM` in `MOM_input` |
 | CICE6 thermodynamic (`dt`) | Sea-ice thermodynamics; automatically set to match the coupling time-step | *(set automatically — do not set in `ice_in`)* |
 
 For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic timesteps and WAVEWATCHIII timesteps, see the: [NUOPC driver time-steps documentation](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#time-steps).
 
-For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it also reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps. 
+For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling time-step and MOM6 baroclinic time-step (`DT`) can be a sensible first approach.
 
-!!! note "How come we only need to change the coupling time-step?"
+!!! note
 
-    Reducing the coupling time-step has a knock-on effect on the CICE6 thermodynamic timestep (`dt`) and the MOM6 baroclinic (`DT`) and barotropic (`DTBT`) timesteps, but in different ways. In CICE6, `dt` is set directly to the coupling time-step. In MOM6, the configured `DT` instead acts as an upper bound: the actual baroclinic timestep is chosen as the largest integer fraction of the coupling time-step that does not exceed `DT`. Hence reducing the coupling time-step may reduce the actual MOM6 baroclinic timestep, but it does not simply force `DT` to equal the coupling time-step. `DTBT` is calculated internally by MOM6 rather than set directly. In our configurations it is recalculated every baroclinic timestep, so a shorter actual `DT` causes the barotropic stability limit, and therefore `DTBT`, to be reassessed more frequently.
+    Reducing these timesteps has a knock-on effect on the CICE6 thermodynamic (`dt`) and the actual barotropic time-steps. In CICE6, `dt` is set directly to the coupling time-step. In our configurations, the barotropic time-step is calculated internally by MOM6 rather than set directly and it is recalculated every baroclinic time-step. A shorter baroclinic time-step means the barotropic time-step is recalculated more often — likely resulting in a shorter barotropic time-step when conditions are close to a stability margin.
 
-Practically, a common workflow is to halve the coupling time-step:
+Practically, a common workflow is to halve the coupling and baroclinic time-steps:
 
-1. Halve the coupling time-step in `nuopc.runseq`.
+1. Halve the coupling time-step in `nuopc.runseq` and `DT` in `MOM_input`.
 1. Restart the run from the last successfully written restart file via `payu sweep` and `payu run`.
 1. Once the model runs stably for a few start-run-stop-restart cycles, return the time-steps to their original values if desired.
 
