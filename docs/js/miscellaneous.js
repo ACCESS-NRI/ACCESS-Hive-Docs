@@ -340,6 +340,22 @@ function makeCitationLinks() {
   })
 }
 
+// Play MP4 video as soon as they are visible on screen
+function playVideoWhenVisible() {
+  document.querySelectorAll("video").forEach(video => {
+    let observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          video.play()
+        } else {
+          video.pause()
+        }
+      })
+    }, { threshold: 0.5 })
+    observer.observe(video)
+  })
+}
+
 // Join all functions
 function main() {
   hideTocItems();
@@ -349,6 +365,7 @@ function main() {
   toggleTerminalAnimations();
   makeCitationLinks();
   setUpPermalinks();
+  playVideoWhenVisible();
 }
 
 // Run all functions after every navigation event
