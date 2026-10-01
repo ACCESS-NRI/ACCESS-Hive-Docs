@@ -44,5 +44,22 @@ class References extends HTMLElement {
     }
 }
 
+class CustomVideo extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    connectedCallback() {
+        let src = this.getAttribute("src")
+        let classes = this.className
+        this.outerHTML = `<video class="${classes}" controls muted loop playsinline preload="metadata">
+            <source src="${src} type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        `
+    }
+}
+
 customElements.define("custom-not-supported", NotSupported)
 customElements.define("custom-references", References)
+customElements.define("custom-video", CustomVideo)
