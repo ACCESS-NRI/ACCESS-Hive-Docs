@@ -298,7 +298,7 @@ Supported configurations:
     ### Create a custom {{ model }} build
 
     All executables required to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
-    To customise {{ model }}'s build (e.g., to incorporate source-code changes to a component), see [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}0).
+    To customise {{ model }}'s build (e.g., to incorporate source-code changes to a component), see [Gadi-Terminal Build Workflow](/models/develop_a_model/gadi_terminal_build_workflow#{{model|lower}}0).
 
 ??? info "Controlling the diagnostics output by the model"
 

@@ -7,7 +7,7 @@
     This page is tailored to experienced users and collaborators developing ACCESS models.<br>
     This step is *not* required if you *only* want to run a model. If you are looking for information on how to run a model, refer to the [Run a Model](/models/run_a_model) section.
 
-# Create Prereleases and Releases for an ACCESS Model
+# GitHub Build Workflow
 
 ## About
 
