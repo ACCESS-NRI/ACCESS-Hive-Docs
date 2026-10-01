@@ -846,7 +846,7 @@ details.code {
 
 /* Text */
 :is(.funding,.partners) > *:first-child {
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-weight: 500;
   display: flex;
   justify-content: center;
@@ -873,8 +873,8 @@ details.code {
 
 :is(.funding,.partners) > *:last-child a > img {
   margin: auto;
-  max-height: 3.5rem;
-  height: 3.5rem;
+  /* max-height: 3.5rem; */
+  height: 3rem;
   width: auto;
   object-fit: contain;
 }
