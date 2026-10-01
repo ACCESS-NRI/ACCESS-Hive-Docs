@@ -228,6 +228,32 @@ For example, to run an experiment for 50 years using a configuration with a 1-ye
     `number-of-runs` should be an integer > 0.<br>  
 <!--end:payu-run-experiment-->
 
+<!--start:payu-optimise-PBS-->
+### Minimise the number of PBS jobs
+
+_Payu_ provides `runspersub` to control the maximum number of runs per PBS job submission.
+
+`runspersub` controls how many years are simulated within a _single_ PBS job, reducing queueing time between jobs. You must also set `walltime` to allow sufficient time for all runs to complete. In contrast, the `-n` command-line option allows _payu_ to resubmit the simulation to a _subsequent_ PBS job.
+<!--end:payu-optimise-PBS-->
+
+<!--start:payu-runspersub-examples-->
+Here are some practical examples of setting these options for different cases. All assume `runtime` is set to 1 year and that the model requires 1 to 2 hours of `walltime` per simulated model year:
+
+- **Run 20 years with resubmission every 5 years**<br>
+    Set `runspersub` to `5` and `walltime` to `06:00:00`, then run:
+    ```
+    payu run -f -n 20
+    ```
+    This submits four PBS jobs covering years 1-5, 6-10, 11-15, and 16-20.
+
+- **Run 7 years with resubmission every 3 years**<br>
+   Set `runspersub` to `3` and `walltime` to `04:00:00`, then run:
+    ```
+    payu run -f -n 7
+    ```
+    This submits three PBS jobs covering years 1-3, 4 -6, and 7.
+<!--end:payu-runspersub-examples-->
+
 <!--start:payu-continue-experiment-->
 ### Continue an experiment
 
@@ -245,16 +271,13 @@ payu run -n 50
 <!--start:payu-re-run-experiment-->
 ### Re-run an experiment from scratch
 
-If you run an experiment for some years and then realise you have made an error and would like to re-run the same years again, you will need to first remove the _archive_ directory created by _payu_ (i.e., move it, rename it, tar it or delete it according to what is appropriate). You can then re-launch the experiment using `payu run -n` as done previously.
+If you need to rerun years after correcting an error, first remove the archive directory created by payu (e.g., move, rename, archive, or delete it as appropriate). You can use `payu sweep --hard` to remove the previous experiment data, then relaunch the experiment with `payu run -n N` as before.
 <!--end:payu-re-run-experiment-->
 
 ## Monitor the experiment
 
 <!--start:payu-monitor-->
 _Payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.html#monitoring-payu-jobs) command for monitoring jobs. This command returns the scheduler job ID and the current stage of the _payu_ run is currently at. When the job is complete, it displays the exit statuses from the model and overall _payu_ run, and points to the PBS log files. 
-
-!!! note
-    `payu status` is available in _payu_ versions `1.2.0` and above. This command does not yet support monitoring post-processing jobs from the configuration (e.g., `payu collate` and `payu sync`).
 
 ??? example "Example: outputs from `payu status`"
 
@@ -278,16 +301,16 @@ _Payu_ provides the [`payu status`](https://payu.readthedocs.io/en/stable/usage.
     ```
         ========================================
         Run: 8
-          Job ID:            archive_example.gadi-pbs
+          Job ID:            174067874.gadi-pbs
           Run ID:            xxxx
           Stage:             archive
           Total Queue Time:  0h 1m 7s
           Model Finish Time: 1950-10-01T00:00:00
           Exit Status:       0 (Success)
           Model Exit Code:   0 (Success)
-          Output Log:        ${HOME}/expt.o100
-          Error Log:         ${HOME}/expt.3100
-          Job File:          /scratch/${PROJECT}/${USER}/archive/expt-branch—6dhash/payu_jobs/8/run/archive_example.gadi-pbs.json
+          Output Log:        ${HOME}/expt.o174067874
+          Error Log:         ${HOME}/expt.e174067874
+          Job File:          /scratch/${PROJECT}/${USER}/archive/expt-branch—6dhash/payu_jobs/8/run/174067874.gadi-pbs.json
         ========================================
     ```
 
@@ -518,9 +541,8 @@ For more information, check [_payu_ Configuration Settings documentation](https:
 <!--start:payu-collate-->
 #### Collate {: .no-toc }
 
-Rather than outputting a single diagnostic file over the whole model horizontal grid, the ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) typically generates diagnostic outputs as tiles, each of which spans a portion of model grid.
-
-The `collate` section in the `config.yaml` file controls the process that combines these smaller files into a single output file.
+The ocean component [MOM](/models/model_components/ocean/#modular-ocean-model-mom) can generate diagnostic and restart outputs in single files covering the whole model grid or as tiled files, with each tile covering part of the horizontal grid.
+The `collate` section in the `config.yaml` file controls the process that combines the tiled output into a single output file.
 
 ```yaml
 # Collation
@@ -531,6 +553,13 @@ collate:
     walltime: 1:00:00
     mpi: false
 ```
-Restart files are typically tiled in the same way and will also be combined together if the `restart` field is set to `true`.
+
+For configurations that generate single restart and output files over the whole grid, collation is disabled as follows:
+
+```yaml
+# Collation
+collate:
+    enabled: false
+```
 <!--end:payu-collate-->
 
