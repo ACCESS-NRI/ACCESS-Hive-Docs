@@ -45,4 +45,15 @@
             </span>
         </div>
     </a>
+    <a href="/getting_started/git_ref" class="horizontal-card">
+        <div class="card-image-container">
+            <img class="img-contain white-background with-padding" src="https://cdn.jsdelivr.net/gh/spack/spack@develop/share/spack/logo/spack-logo-text.svg" alt="spack">
+        </div>
+        <div class="card-text-container">
+            <span class="bold">Git Reference Commands</span>
+            <span>
+                Add description here
+            </span>
+        </div>
+    </a>
 </div>
