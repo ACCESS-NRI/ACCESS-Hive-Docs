@@ -174,20 +174,14 @@ You can run _Rose/Cylc_ either from a [_Gadi_ login node](#connect-via-gadi-logi
 
     Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
-    <custom-video class="example-img">
-     <source src="/assets/run_access_cm/launch_are_vdi.mp4" type="video/mp4">
-     Your browser does not support the video tag.
-    </custom-video>
+    <custom-video src="/assets/run_access_cm/launch_are_vdi.mp4" class="example-img"></custom-video>
 
     !!! warning
         This example is provided for reference only. Please use the resource specifications listed above when starting the ARE VDI session.
     
     Once the new tab opens, you will see a Desktop with a few folders on the left. Click the terminal icon at the top of the window to open a terminal. You should now be connected to a _Gadi_ computing node. Use this terminal for all subsequent steps in this guide.
 
-    <custom-video class="example-img"">
-     <source src="/assets/run_access_cm/open_are_vdi_terminal.mp4" type="video/mp4">
-     Your browser does not support the video tag.
-    </custom-video>
+    <custom-video src="/assets/run_access_cm/open_are_vdi_terminal.mp4" class="example-img"></custom-video>
 <!--end:cylc8-gadi-->
 
 ## Access _Rose/Cylc_

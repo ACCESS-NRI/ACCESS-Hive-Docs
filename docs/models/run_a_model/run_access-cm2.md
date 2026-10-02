@@ -72,19 +72,13 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
     
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
-<custom-video class="example-img"">
-    <source src="/assets/run_access_cm/launch_are_vdi.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</custom-video>
+<custom-video src="/assets/run_access_cm/launch_are_vdi.mp4" class="example-img"></custom-video>
 
 ### Open the terminal in  the VDI Desktop
 Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
 To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
 
-<custom-video class="example-img"">
-    <source src="/assets/run_access_cm/open_are_vdi_terminal.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</custom-video>
+<custom-video src="/assets/run_access_cm/open_are_vdi_terminal.mp4" class="example-img"></custom-video>
 
 ## Set up {{ model }} persistent session
 To support the use of long-running processes, such as ACCESS model runs, NCI provides a service on _Gadi_ called [persistent sessions](https://opus.nci.org.au/display/Help/Persistent+Sessions).
@@ -298,10 +292,7 @@ To ensure that your suite is run under the correct NCI project for which you are
 
 For example, to run an {{ model }} suite under the `tm70` project (ACCESS-NRI), enter `tm70` in the _Compute project_ field:
 
-<custom-video class="example-img"">
-  <source src="/assets/run_access_cm/rose_change_project_are.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</custom-video>
+<custom-video src="/assets/run_access_cm/rose_change_project_are.mp4" class="example-img"></custom-video>
 
 
 !!! warning
@@ -318,10 +309,7 @@ To modify these parameters, navigate to _suite conf &rarr; Run Initialisation an
 
 For example, to run a suite for a total of 50 years with a 1-year job resubmission, change _Total Run length_ to `P50Y` and _Cycling frequency_ to `P1Y` (the maximum _Cycling frequency_ is currently two years):
 
-<custom-video class="example-img"">
-    <source src="/assets/run_access_cm/rose_change_run_length_are.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</custom-video>
+<custom-video src="/assets/run_access_cm/rose_change_run_length_are.mp4" class="example-img"></custom-video>
 
 ### Change wallclock time
 The _Wallclock time_ is the time requested by the [PBS job] to run a single cycle. If this time is insufficient for the suite to complete a cycle, your job will be terminated before completing the run. Hence, if you change the _Cycling frequency_, you may also need to change the _Wallclock time_ accordingly. While the time required for a suite to complete a cycle depends on several factors, a good estimation is 4 hours per simulated year.
@@ -434,10 +422,7 @@ To investigate the cause of a failure, we need to look at the logs `job.err` and
 Right-click on the task that failed and click on _View Job Logs (Viewer) &rarr; job.err_ (or _job.out_).<br>
 To access a specific task, click on the arrow next to the task to extend the drop-down menu with all the subtasks.
 
-<custom-video class="example-img">
-    <source src="/assets/run_access_cm/investigate_error_gui_are.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</custom-video>
+<custom-video src="/assets/run_access_cm/investigate_error_gui_are.mp4" class="example-img"></custom-video>
     
 #### Through the suite directory {: .no-toc }
 The suite's log directories are stored in `~/cylc-run/<suite-ID>` as `log.<TIMESTAMP>`, and the latest set of logs are also symlinked in the `~/cylc-run/<suite-ID>/log` directory.<br>

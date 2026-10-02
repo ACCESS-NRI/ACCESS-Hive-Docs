@@ -53,7 +53,7 @@ class CustomVideo extends HTMLElement {
         let src = this.getAttribute("src")
         let classes = this.className
         this.outerHTML = `<video class="${classes}" controls muted loop playsinline preload="metadata">
-            <source src="${src} type="video/mp4">
+            <source src="${src}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         `
