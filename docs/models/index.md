@@ -37,15 +37,15 @@
             </span>
         </div>
     </a>
-    <!-- Build a Model -->
-    <a href="build_a_model/" class="horizontal-card">
+    <!-- Develop a Model -->
+    <a href="develop_a_model/" class="horizontal-card">
         <div class="card-image-container">
             <img class="img-contain white-background" 
             style="padding: 0.2rem"
-            src="/assets/model-config-logos/model_visualisation/build_a_model.png" alt="Build a Model">
+            src="/assets/model-config-logos/model_visualisation/build_a_model.png" alt="Develop a Model">
         </div>
         <div class="card-text-container">
-            <span class="bold" >Build a Model</span>
+            <span class="bold" >Develop a Model</span>
             <span>
                 Instructions for modifying or developing an ACCESS model.
             </span>
