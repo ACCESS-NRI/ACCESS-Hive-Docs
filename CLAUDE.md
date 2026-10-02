@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-This is the **ACCESS-Hive Docs** website: a MkDocs (Material theme) static site hosted on Read the Docs, published at https://docs.access-hive.org.au/. It hosts documentation for ACCESS climate/earth-system model users (getting set up on NCI/Gadi, running models, model evaluation, tutorials, community resources).
+This repository hosts the source code for the **ACCESS-Hive Docs** website: a MkDocs (Material theme) static site hosted on Read the Docs, published at https://docs.access-hive.org.au/. The site hosts ACCESS-NRI documentation for ACCESS climate/earth-system model users (e.g., getting started, running models, model evaluation, tutorials, community resources, etc.).
 
 There is no application code to compile — this is a documentation site. "Development" means writing/editing Markdown content, adjusting MkDocs config/navigation, or working on the small amount of supporting CSS/JS/Python hooks.
 
 ## Common commands
 
 ```bash
-# Install dependencies (prefer a venv; one already exists at ./venv)
+# Install dependencies (prefer a venv or a conda/micromamba env)
 pip install -r requirements.txt
 
 # Serve the site locally with live-reload at http://127.0.0.1:8000
@@ -35,7 +35,7 @@ There is no test suite, linter, or build step beyond `mkdocs build`/`serve`. Lin
 - **`overrides/`** contains Material theme template overrides (`main.html`, `home.html`, and partials for header/footer/toc/social/copyright) — edit these only for structural/theme-level changes, not content.
 - **`abbreviations.md`** + `pymdownx.snippets` auto-appends glossary/abbreviation definitions to every page.
 - **`references.bib`** is the BibTeX source used by `mkdocs-bibtex` for citations/references across pages.
-- **`.readthedocs.yaml`** configures the Read the Docs build (Python 3.13, `requirements.txt`, runs `mkdocs.yml`); it also triggers a post-build link-check job defined in `.github/workflows/check_links.yml` (which calls a reusable workflow in `access-nri/documentation-infra`).
+- **`.readthedocs.yaml`** configures the Read the Docs build (Python 3.13, `requirements.txt`, runs `mkdocs.yml`).
 
 ## Branching / release model
 
@@ -47,8 +47,9 @@ There is no test suite, linter, or build step beyond `mkdocs build`/`serve`. Lin
 ## Content/style conventions (see README.md for full detail)
 
 - Prefer Markdown over raw HTML where possible.
-- All internal links and asset paths must be **absolute** (starting with `/`, e.g. `/models/configurations/access-cm`, `/assets/...`) — the link checker does not resolve relative links correctly.
+- Prefer **absolute** links (starting with `/`, e.g. `/models/configurations/access-cm`, `/assets/...`) for all internal links and asset paths.
 - Titles/subtitles must not contain code spans, bold, italic, or links.
 - Use code spans/blocks for commands, file paths, and file names; italics for proper nouns (e.g. _Gadi_, _payu_); bold sparingly for emphasis.
-- Admonitions (`note`, `info`, `warning`, `tip`, etc.), tabs, and terminal animations follow the Material-for-MkDocs conventions documented in the README's HTML/Markdown cheatsheet — use the HTML forms shown there, not ad hoc markup, since they render differently on this site.
-- New admonition types are requested via a GitHub issue, not added ad hoc.
+- Admonitions (`note`, `info`, `warning`, `tip`, etc.) and tabs follow the Material-for-MkDocs conventions  but use their own rendering
+- Content tabs behaviour is recreated in miscellaneous.js and documented in the README's HTML/Markdown cheatsheet — use the HTML forms shown there, not markup, since they render and work differently on this site.
+- Terminal animations are provided by [animated-terminal.js](https://github.com/atteggiani/animated-terminal.js)
