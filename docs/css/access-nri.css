@@ -440,13 +440,6 @@ h1.homepage {
   flex-wrap: nowrap;
 }
 
-.acknowledgement-img {
-  height: 10em !important;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-
 /* =============================================================== 
   Back to top button
 */
