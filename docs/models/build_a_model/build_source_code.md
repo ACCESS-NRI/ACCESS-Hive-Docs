@@ -40,178 +40,82 @@ module use /g/data/vk83/modules
 module load spack
 ```
 
-## Choose ACCESS model and model component to develop
+## Choose the ACCESS model and model component to develop
 
-We begin by choosing which ACCESS model we'd like to develop and which component part we will be modifying; in this example, we develop ACCESS-OM3 (`#MDR`) and MOM6 (`#<GitHub_name>`).
-
-When you develop a package within a _Spack_ environment, _Spack_ needs to know _how_ that software is built. Normally, the Spack package recipe that builds MOM6 is called `access-mom6`, the Spack develop process below _replaces_ this process with a customised recipe.
-
-Putting this together we have:
+We begin by choosing the ACCESS model we'd like to develop, for example, `ACCESS-OM3`:
 
 ```bash
-git clone https://github.com/ACCESS-NRI/ACCESS-OM3.git #MDR
+git clone https://github.com/ACCESS-NRI/ACCESS-OM3.git
 cd ACCESS-OM3
-MOM6_BRANCH=$(spack info access-mom6 | awk '$1=="stable" && /branch/{print $NF; exit}')
-git clone -b "$MOM6_BRANCH" https://github.com/ACCESS-NRI/MOM6.git   #<GitHub_name>
 spack env activate -p ./
-spack develop --path ./MOM6 access-mom6@stable                       #<package_name>
 ```
 
-??? question "How do I know how to specify the spack package and model component?"
-    The [ACCESS-OM3/spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/da06e5a6caabe45f7e85ea475ec61c26a8b344c8/spack.yaml#L19-L100) has a list of available packages under `packages`. This table shows some popular choices:
+The `spack.yaml` file inside the `ACCESS-OM3` directory specifies the component packages and their versions that constitute the coupled model. By inspecting the `spack.yaml` you can identify the correct Spack package name of a component package, e.g., `access-mom6` is the Spack package name of MOM6.
 
-    | `config.yaml` spack `<package_name>` | `<GitHub_name>`                                            |
-    |---------------------------------------|-----------------------------------------------------------|
-    | `access-mom6`                         | `https://github.com/ACCESS-NRI/MOM6.git`                   |
-    | `access-cice`                         | `https://github.com/ACCESS-NRI/CICE.git`                   |
-    | `access-generic-tracers`              | `https://github.com/ACCESS-NRI/GFDL-generic-tracers.git`   |
-    | `access-ww3`                          | `https://github.com/ACCESS-NRI/WW3.git`                    |
+Next, in the `spack.yaml`, identify the version of the component Spack package that you want to develop. The version is prefixed by `@`. The snippet below is from the `ACCESS-OM3` component `access-mom6` where the version is `2026.05.003`:
+```
+spack:
+...
+  packages:
+...
+    access-mom6:
+      require:
+      - '@2026.05.003'
+      - +mom6_solo
+      - fflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
+      - cflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
+```
 
-When we run this last command (`spack develop --path ./MOM6 access-mom6@stable`), Spack inserts the following customised recipe for building MOM6 in the `spack.yaml`
-```yaml
+When you develop a package within a Spack environment, Spack needs to know that the desired package is "in development", and be able to access its source code. This is done through the `spack develop` command with the previously identified Spack package name and version:
+```bash
+spack develop access-mom6@2026.05.003
+```
+This clones the MOM6 git repository ref that maps to the Spack version `2026.05.003` into the directory `access-mom6`.
+
+Then it inserts the following new section in the `spack.yaml`:
+```
+spack:
+...
   develop:
     access-mom6:
-      spec: access-mom6@=stable
-      path: ./MOM6
+      spec: access-mom6@=2026.05.003
 ```
+This section tells Spack that it should build from the local clone of MOM6, rather than fetching from GitHub.
 
-This is effectively telling Spack that we should build off this local version of MOM6 (i.e. using `--path`), not the version on GitHub. We thus need to edit the `spack.yaml` to use our local version, to do this comment out the `access-mom6` lines in the `spack.yaml` ([example](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/da06e5a6caabe45f7e85ea475ec61c26a8b344c8/spack.yaml#L21-L26)). 
-
-??? question "Optional: how to include the same "variants" in the local build."
-    To include the variants included in `ACCESS-OM3/2026.05.004`, we would:
-    ```yaml
-      develop:
-        access-mom6:
-          spec: >-
-            access-mom6@=stable
-            +mom6_solo
-            fflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
-            cflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
-          path: ./MOM6
-    ```
-
-At this point, you can make any code modifications you wish to the MOM6 source code directory (`./MOM6`). To build, proceed with:
-
-```
+The next step of the process is called concretization. It determines the precise details of all the dependencies that are needed to build the model:
+```bash
 spack concretize -f
+```
+This must be repeated every time the `spack.yaml` is modified.
+
+Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` directory:
+```bash
 spack install
 ```
-
-### What if I want to use a different version of MOM6? (optional)
-
-When you ask Spack to develop a specific version of a package — say `access-mom6@stable` — Spack
-already knows exactly which point in MOM6's source code that version corresponds to. But if you clone
-the MOM6 GitHub repository yourself so you have a working copy to edit, there's nothing that
-automatically tells *you* which branch, tag, or commit to use. If you just clone the repository as-is,
-you could easily end up with different code than the version you told Spack you're building — which
-can cause confusing build errors, or worse, a model that quietly behaves differently than expected.
-
-The commands below ask Spack directly which git reference matches the version you want, so the code
-you clone always lines up with what Spack is building.
-
-Example: "Worked example: cloning the exact MOM6 code that matches your `access-mom6` version"
-```bash
-    PACKAGE=access-mom6
-    VERSION=stable
-    REPO_URL=https://github.com/ACCESS-NRI/MOM6.git
-
-    # Ask Spack which branch, tag, or commit this version points to
-    REF=$(spack info "$PACKAGE" | awk -v v="$VERSION" '$1==v && /branch|tag|commit/{print $NF; exit}')
-
-    # A normal clone fetches every branch, tag, and commit — so checkout works
-    # no matter which kind of reference $REF turns out to be
-    git clone "$REPO_URL"
-    cd MOM6
-    git checkout "$REF"
-```
-
-Change `VERSION` to any version listed by `spack info access-mom6` — e.g. `2026.05.003` — and the same four commands still work, whether that version tracks a branch, a tag, or a fixed commit.
-
-TODO: Claude wrote the above, so NEED to test!!
+The modification of source code followed by `spack install` can be done iteratively.
 
 ## Output directory for compiled packages
 
-All compiled packages will be placed in directories having the following format: `<install_tree.root>/<architecture>/<compiler.name>-<compiler.version>/<name>-<version>-<hash>`.
-
-`<install_tree.root>` depends on the [`install_tree.root`](https://spack.readthedocs.io/en/latest/config_yaml.html#install-tree-root) configuration field. _Spack_ reads this configuration field from files in several directories, following [Spack's configuration scopes][spack-configuration-scopes-documentation].
-
-!!! warning
-    For instances of _Spack_ on _Gadi_ you should ignore the **system** scope.
-
-For the example above, `mom5_dev` _Spack_ environment's configuration file (`spack.yaml`) contains the following lines that fall in the **environment** scope:
-```yaml
-config:
-    install_tree:
-      root: $spack/../restricted/ukmo/release
+Run the `spack config blame` command to view the Spack configuration:
+```bash
+$ spack config blame config
+---                                                                                 config:
+/g/data/vk83/apps/spack-shared/1.1/spack-config/v1.1/gadi/downstream/config.yaml:2    install_tree:
+/g/data/vk83/apps/spack-shared/1.1/spack-config/v1.1/gadi/downstream/config.yaml:4      root: /g/data/$PROJECT/$USER/spack/1.1/release
+/g/data/vk83/apps/spack-shared/1.1/spack/etc/spack/defaults/base/config.yaml:21         projections:
+/g/data/vk83/apps/spack-shared/1.1/spack/etc/spack/defaults/base/config.yaml:22           all: '{architecture.platform}-{architecture.target}/{name}-{version}-{hash}'
+...
 ```
 
-This means the packages built in this example can be found in `/g/data/$PROJECT/$USER/spack/1.1/spack/../restricted/ukmo/release/<architecture>/<compiler.name>-<compiler.version>/<name>-<version>-<hash>`.
+This means the packages built in this example can be found in `/g/data/$PROJECT/$USER/spack/1.1/release/<architecture.platform>-<architecture.target>/<name>-<version>-<hash>`.
 
 ## Troubleshooting build errors
 
-Sometimes you might encounter errors while compiling the packages.<br>
-_Spack_ prints out the error message and generates a full build log that can be viewed by the user. The location of the build log is shown at the end of the error message.
+Sometimes you might encounter errors while compiling the packages. _Spack_ prints out the error message and generates a full build log that can be viewed by the user. The location of the build log is shown at the end of the error message. For example,
 
-For example, if we try to install the `mom5_dev` environment with an error in the new `mom5` source code (in this example a `use` statement in the `<new-mom5-source-code-folder>/src/accessom_coupler/ocean_solo.F90` file has been purposely commented out to force an error in compilation), we might get an output error similar to the following:
-
-<pre><code><spack class="spack-grey bold">...</spack>
-<span class="spack-red"> >> 415    /g/data/$PROJECT/$USER/spack/1.1/environments/mom5_dev/mom5/src/access_coupler/ocean_solo.F90:224: undefined reference to `constant s_init_'</span>
-<span class="spack-red"> >> 416    make: *** [Makefile:931: fms_ACCESS-CM.x] Error 1</span>
-<spack class="spack-grey bold">...</spack>
-See build log for details:
-  /scratch/$PROJECT/$USER/tmp/path/to/the/spack-stage-mom5-git.access-esm1.5_2024.08.23_access-esm1.5-l34w7is54xzer7s4ztvb5ymgjbtduknh/spack-build-out.txt
-<spack class="spack-grey bold">...</spack>
-<span class="spack-red">==></span> Error: access-esm1p5-git.2024.05.1=2024.05.1-aysea5r7rbwy22lluvl64baperlokktv: Package was not installed
-<span class="spack-red">==></span> Error: Installation request failed.  Refer to reported errors for failing package(s).</code></pre>
-
-CHRIS ADDED TODAY
 ```bash
-[cyb561.gadi-login-04: ACCESS-OM3]$ spack install
-[+] /usr (external glibc-2.28-vuczjrbyzfif5nzgt5gqbrdrzaioihy6)
-==> openmpi@4.1.7 : has external module in ['openmpi/4.1.7']
-[+] /apps/openmpi/4.1.7 (external openmpi-4.1.7-ujbo7lsuwmz4klodpgsrdhopbuuhowb3)
-==> python@3.11.7 : has external module in ['python3/3.11.7']
-[+] /apps/python3/3.11.7 (external python-3.11.7-do6khcayp276ys73jr4twn4oqlstsco3)
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/compiler-wrapper-1.1.0-4vm57ydwr3x5uq2jhwsv7ltk6az3hxxs
-==> intel-oneapi-compilers@2025.2.0 : has external module in ['intel-compiler-llvm/2025.2.0']
-[+] /apps/intel-tools/.packages/2025.2.0.575 (external intel-oneapi-compilers-2025.2.0-vqjkrsh2v3dc2ki5pigniqxnpzrwcpu3)
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/gcc-runtime-15.1.0-r3jhjvxq3s4lt5fidxafye5utgjkvs6g
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/python-venv-1.0-42a4xj45vkukhrv56dhnexltu5jvjebo
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/intel-oneapi-runtime-2025.2.0-hyun3ledkfevkt6ezyotlc45wzufscep
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/libyaml-0.2.5-ohkj2ryp2cismkgofqovjopnb3lod5wi
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/access-mocsy-2025.07.002-5awgzcl5rbvkk4ei62uyk66hsp3avkr7
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/libaec-1.1.4-patvd3yohb3sqh2m63t2e56o3q6p6hz3
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/zlib-ng-2.3.3-p2ctudzwaiqp6acuskgmu2h6kgvjfh6w
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/ncurses-6.6-duqycjw3ztjzg6njfzrdvnn2fzxhiwlu
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/lz4-1.10.0-pzf2vwga4yxnkxpp76uqzbzxxcpuslx4
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/pkgconf-2.5.1-zizxaust2zwsjc3p6amfvle4j7vqqekl
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/mbedtls-3.6.2-ycfkp5oxo44cr3e4obexyj4uo6mcapwc
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/snappy-1.2.1-qwtkwcddpmcko7vxptrwj7pavpijc6yo
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/bzip2-1.0.8-5umnxzum3fjmzr56pxz7rhpwx4hv6khk
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/zstd-1.5.7-fd6ey726t34uco4rkzrgcwoluryimrp7
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/gmake-4.4.1-3sr5xy6gpvmfkr4ecptiqtbmcrqnczuk
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/py-pyyaml-6.0.3-uzo74q5nduuyjey2ko444bi2qhwi54se
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/nghttp2-1.67.1-duordziageq6oev2cwnh3hc7nmlngt3b
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/c-blosc-1.21.6-ntor6vmuxx4jp7dejzypvuctslne5pw6
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/fortranxml-4.1.2-l2i2droyqjjgnrsb6ort3no7hz5cpvnk
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/hdf5-1.14.6-ustivdivi5brfjuhd7wt525vxrd6rddw
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/curl-8.18.0-q6b43w2pg4vgmyu7oivv5xjm2rgmfshg
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/netcdf-c-4.9.3-i2yg6wiht4vl5slywg25qpd3avh6mh2y
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/cmake-3.31.11-4xpsc6gicgmaz3onofzohjaau76odzd3
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/netcdf-fortran-4.6.2-yze65gmryo5aren72ydkw742yerv2ag6
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/fms-2025.03-zw6tzbdvqmqkrkizhqisi3kvstrc2vjm
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv
-==> No binary for access-generic-tracers-2026.09.000-2y3j5xtacj46gevx23vm6pmdd2uavhhz found: installing from source
-==> Installing access-generic-tracers-2026.09.000-2y3j5xtacj46gevx23vm6pmdd2uavhhz [32/39]
-==> No patches needed for access-generic-tracers
-==> access-generic-tracers: Executing phase: 'cmake'
-==> access-generic-tracers: Executing phase: 'build'
-==> access-generic-tracers: Executing phase: 'install'
-==> access-generic-tracers: Successfully installed access-generic-tracers-2026.09.000-2y3j5xtacj46gevx23vm6pmdd2uavhhz
-  Stage: 5.42s.  Cmake: 22.75s.  Build: 55.95s.  Install: 0.76s.  Post-install: 0.35s.  Total: 1m 25.89s
-[+] /g/data/tm70/cyb561/spack/1.1/release/linux-x86_64_v4/access-generic-tracers-2026.09.000-2y3j5xtacj46gevx23vm6pmdd2uavhhz
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/esmf-8.9.1-u56mitgtfbi2qlj3x7lw7ofxj7lw4b2l
-[+] /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/access3-share-2026.03.002-m65pkhfhdcfromtvp3z5pwkejlcq6pp4
+$ spack install
+...
 ==> No binary for access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda found: installing from source
 ==> Installing access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda [35/39]
 ==> No patches needed for access-mom6
@@ -249,31 +153,8 @@ CHRIS ADDED TODAY
 See build log for details:
   /scratch/tm70/cyb561/tmp/spack-stage/spack-stage-access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/spack-build-out.txt
 
-==> Warning: Skipping build of access3-2026.03.002-vpqv7csug64ndlnkghekloq4gzqzmoin since access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda failed
-==> Warning: Skipping build of access-om3-latest-agdyrfr2gomyrossvzqkk4op6p7rad2i since access3-2026.03.002-vpqv7csug64ndlnkghekloq4gzqzmoin failed
-==> No binary for access-ww3-2026.03.001-mg7vudvw5pfpseurnsuncp657wsgbeho found: installing from source
-==> Installing access-ww3-2026.03.001-mg7vudvw5pfpseurnsuncp657wsgbeho [36/39]
-==> No patches needed for access-ww3
-==> access-ww3: Executing phase: 'cmake'
-==> access-ww3: Executing phase: 'build'
-==> access-ww3: Executing phase: 'install'
-==> access-ww3: Successfully installed access-ww3-2026.03.001-mg7vudvw5pfpseurnsuncp657wsgbeho
-  Stage: 44.86s.  Cmake: 21.65s.  Build: 1m 17.91s.  Install: 0.60s.  Post-install: 0.21s.  Total: 2m 25.62s
-[+] /g/data/tm70/cyb561/spack/1.1/release/linux-x86_64_v4/access-ww3-2026.03.001-mg7vudvw5pfpseurnsuncp657wsgbeho
-==> No binary for access-cice-CICE6.6.3-2-vmceohdrnn5ulhe4ueb5b3qbzr4yef67 found: installing from source
-==> Installing access-cice-CICE6.6.3-2-vmceohdrnn5ulhe4ueb5b3qbzr4yef67 [37/39]
-==> No patches needed for access-cice
-==> access-cice: Executing phase: 'cmake'
-==> access-cice: Executing phase: 'build'
-==> access-cice: Executing phase: 'install'
-==> access-cice: Successfully installed access-cice-CICE6.6.3-2-vmceohdrnn5ulhe4ueb5b3qbzr4yef67
-  Stage: 15.16s.  Cmake: 21.86s.  Build: 1m 27.16s.  Install: 0.54s.  Post-install: 0.19s.  Total: 2m 5.18s
-[+] /g/data/tm70/cyb561/spack/1.1/release/linux-x86_64_v4/access-cice-CICE6.6.3-2-vmceohdrnn5ulhe4ueb5b3qbzr4yef67
-==> Error: access-om3-latest-agdyrfr2gomyrossvzqkk4op6p7rad2i: Package was not installed
-==> Updating view at /g/data/tm70/cyb561/harshula/ACCESS-OM3/.spack-env/view
-==> Error: Installation request failed.  Refer to reported errors for failing package(s).
+...
 ```
-
 
 If the error is not obvious from the error message, see the build log for more information.
 
