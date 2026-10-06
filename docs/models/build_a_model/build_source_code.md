@@ -40,94 +40,59 @@ module use /g/data/vk83/modules
 module load spack
 ```
 
-## Choose ACCESS model and model component to develop
+## Choose the ACCESS model and model component to develop
 
-We begin by choosing which ACCESS model we'd like to develop and which component part we will be modifying; in this example, we develop ACCESS-OM3 (`#MDR`) and MOM6 (`#<GitHub_name>`).
-
-When you develop a package within a _Spack_ environment, _Spack_ needs to know _how_ that software is built. Normally, the Spack package recipe that builds MOM6 is called `access-mom6`, the Spack develop process below _replaces_ this process with a customised recipe.
-
-Putting this together we have:
+We begin by choosing the ACCESS model we'd like to develop, for example, `ACCESS-OM3`:
 
 ```bash
-git clone https://github.com/ACCESS-NRI/ACCESS-OM3.git #MDR
+git clone https://github.com/ACCESS-NRI/ACCESS-OM3.git
 cd ACCESS-OM3
-MOM6_BRANCH=$(spack info access-mom6 | awk '$1=="stable" && /branch/{print $NF; exit}')
-git clone -b "$MOM6_BRANCH" https://github.com/ACCESS-NRI/MOM6.git   #<GitHub_name>
 spack env activate -p ./
-spack develop --path ./MOM6 access-mom6@stable                       #<package_name>
 ```
 
-??? question "How do I know how to specify the spack package and model component?"
-    The [ACCESS-OM3/spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/da06e5a6caabe45f7e85ea475ec61c26a8b344c8/spack.yaml#L19-L100) has a list of available packages under `packages`. This table shows some popular choices:
+The `spack.yaml` file inside the `ACCESS-OM3` directory specifies the component packages and their versions that constitute the coupled model. By inspecting the `spack.yaml` you can identify the correct Spack package name of a component package, e.g., `access-mom6` is the Spack package name of MOM6.
 
-    | `config.yaml` spack `<package_name>` | `<GitHub_name>`                                            |
-    |---------------------------------------|-----------------------------------------------------------|
-    | `access-mom6`                         | `https://github.com/ACCESS-NRI/MOM6.git`                   |
-    | `access-cice`                         | `https://github.com/ACCESS-NRI/CICE.git`                   |
-    | `access-generic-tracers`              | `https://github.com/ACCESS-NRI/GFDL-generic-tracers.git`   |
-    | `access-ww3`                          | `https://github.com/ACCESS-NRI/WW3.git`                    |
+Next, in the `spack.yaml`, identify the version of the component Spack package that you want to develop. The version is prefixed by `@`. The snippet below is from the `ACCESS-OM3` component `access-mom6` where the version is `2026.05.003`:
+```
+spack:
+...
+  packages:
+...
+    access-mom6:
+      require:
+      - '@2026.05.003'
+      - +mom6_solo
+      - fflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
+      - cflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
+```
 
-When we run this last command (`spack develop --path ./MOM6 access-mom6@stable`), Spack inserts the following customised recipe for building MOM6 in the `spack.yaml`
-```yaml
+When you develop a package within a Spack environment, Spack needs to know that the desired package is "in development", and be able to access its source code. This is done through the `spack develop` command with the previously identified Spack package name and version:
+```bash
+spack develop access-mom6@2026.05.003
+```
+This clones the MOM6 git repository ref that maps to the Spack version `2026.05.003` into the directory `access-mom6`.
+
+Then it inserts the following new section in the `spack.yaml`:
+```
+spack:
+...
   develop:
     access-mom6:
-      spec: access-mom6@=stable
-      path: ./MOM6
+      spec: access-mom6@=2026.05.003
 ```
+This section tells Spack that it should build from the local clone of MOM6, rather than fetching from GitHub.
 
-This is effectively telling Spack that we should build off this local version of MOM6 (i.e. using `--path`), not the version on GitHub. We thus need to edit the `spack.yaml` to use our local version, to do this comment out the `access-mom6` lines in the `spack.yaml` ([example](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/da06e5a6caabe45f7e85ea475ec61c26a8b344c8/spack.yaml#L21-L26)). 
-
-??? question "Optional: how to include the same "variants" in the local build."
-    To include the variants included in `ACCESS-OM3/2026.05.004`, we would:
-    ```yaml
-      develop:
-        access-mom6:
-          spec: >-
-            access-mom6@=stable
-            +mom6_solo
-            fflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
-            cflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
-          path: ./MOM6
-    ```
-
-At this point, you can make any code modifications you wish to the MOM6 source code directory (`./MOM6`). To build, proceed with:
-
-```
+The next step of the process is called concretization. It determines the precise details of all the dependencies that are needed to build the model:
+```bash
 spack concretize -f
+```
+This must be repeated every time the `spack.yaml` is modified.
+
+Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` directory:
+```bash
 spack install
 ```
-
-### What if I want to use a different version of MOM6? (optional)
-
-When you ask Spack to develop a specific version of a package — say `access-mom6@stable` — Spack
-already knows exactly which point in MOM6's source code that version corresponds to. But if you clone
-the MOM6 GitHub repository yourself so you have a working copy to edit, there's nothing that
-automatically tells *you* which branch, tag, or commit to use. If you just clone the repository as-is,
-you could easily end up with different code than the version you told Spack you're building — which
-can cause confusing build errors, or worse, a model that quietly behaves differently than expected.
-
-The commands below ask Spack directly which git reference matches the version you want, so the code
-you clone always lines up with what Spack is building.
-
-Example: "Worked example: cloning the exact MOM6 code that matches your `access-mom6` version"
-```bash
-    PACKAGE=access-mom6
-    VERSION=stable
-    REPO_URL=https://github.com/ACCESS-NRI/MOM6.git
-
-    # Ask Spack which branch, tag, or commit this version points to
-    REF=$(spack info "$PACKAGE" | awk -v v="$VERSION" '$1==v && /branch|tag|commit/{print $NF; exit}')
-
-    # A normal clone fetches every branch, tag, and commit — so checkout works
-    # no matter which kind of reference $REF turns out to be
-    git clone "$REPO_URL"
-    cd MOM6
-    git checkout "$REF"
-```
-
-Change `VERSION` to any version listed by `spack info access-mom6` — e.g. `2026.05.003` — and the same four commands still work, whether that version tracks a branch, a tag, or a fixed commit.
-
-TODO: Claude wrote the above, so NEED to test!!
+The modification of source code followed by `spack install` can be done iteratively.
 
 ## Output directory for compiled packages
 
