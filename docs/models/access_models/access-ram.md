@@ -54,12 +54,12 @@ The default nesting configuration for the `ERA5-Land` land-surface initial condi
 ### Model components 
 
 - **Atmosphere:** [UM13.5](/models/model_components/atmosphere/#unified-model-um)<br>
-   Nests > 4km: GAL9 science configuration, 70 vertical levels.<br>
+   Nests > 4km: [GAL9 science configuration](https://egusphere.copernicus.org/preprints/2026/egusphere-2026-2425/), 70 vertical levels.<br>
    Nests <= 4km: [RAL3.3 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
    Spatial resolution depending on the [nesting configuration](#nesting-configuration).
 - **Land:** [Jules7.5](/models/model_components/land/#jules)<br>
-   Nests > 4km: GAL9 science configuration, 70 vertical levels.<br>
-   Nests <= 4km: [RAL3.3 science configuration](https://doi.org/10.5194/gmd-2024-201), 90 vertical levels.<br>
+   Nests > 4km: [GAL9 science configuration](https://egusphere.copernicus.org/preprints/2026/egusphere-2026-2425/), 4 soil levels.<br>
+   Nests <= 4km: [RAL3.3 science configuration](https://doi.org/10.5194/gmd-2024-201), 4 soil levels.<br>
    Spatial resolution depending on the [nesting configuration](#nesting-configuration).
 
 [Run ACCESS-rAM3][run_access-ram]{: class="text-card"}
