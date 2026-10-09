@@ -124,10 +124,10 @@ This quick guide outlines the basic steps to run {{ model }} and is tailored to 
     ```
     rose suite-run -C ~/roses/{{ ras_id }}
     ```
-    This step can be carried out simultaneously with step 8.
+    This step can be carried out simultaneously with step 9.
 11. **Run the RNS**
     
-    This step must be carried out only after step 8 (optional) and 9 have successfully completed.
+    This step must be carried out only after step 9 (optional) and 10 have successfully completed.
     ```
     rose suite-run -C ~/roses/{{ rns_id }}
     ```
