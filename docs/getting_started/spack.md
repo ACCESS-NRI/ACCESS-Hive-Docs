@@ -208,7 +208,7 @@ rm -rf ACCESS-TEST
 
 ## Develop a Model
 
-For instructions on how to build an ACCESS model using _Spack_, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
+For instructions on how to build an ACCESS model using _Spack_, refer to [Gadi-Terminal Build Workflow](/models/develop_a_model/gadi_terminal_build_workflow).
 
 ## Troubleshooting
 
