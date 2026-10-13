@@ -386,13 +386,13 @@ To scan for active suites, run:
 ```
 cylc scan
 ```
-To reopen the _Cylc_ GUI, run the following command from within the [suite directory](#suitedir):
+To reopen the _Cylc_ GUI, run the following command from within the suite directory:
 ```
 rose suite-gcontrol
 ```
 
 ##### STOP a suite {: .no-toc }
-To shutdown a suite in a safe manner, run the following command from within the [suite directory](#suitedir):
+To shutdown a suite in a safe manner, run the following command from within the ectory:
 ```
 rose suite-stop -y
 ```
@@ -412,7 +412,7 @@ qdel <job-ID>
 There are two main ways to restart a suite:
 
 - **_SOFT_ restart**<br>
-    To reinstall the suite and reopen _Cylc_ in the same state it was prior to being stopped, run the following command from within the [suite directory](#suitedir):
+    To reinstall the suite and reopen _Cylc_ in the same state it was prior to being stopped, run the following command from within the suite directory:
     ```
     rose suite-run --restart
     ```
@@ -421,7 +421,7 @@ There are two main ways to restart a suite:
         You may need to manually trigger failed tasks from the _Cylc_ GUI.
 
 - **HARD restart**<br>
-    To overwrite any previous runs of the suite and start afresh, run the following command from within the [suite directory](#suitedir):
+    To overwrite any previous runs of the suite and start afresh, run the following command from within the suite directory:
     ```
     rose suite-run --new
     ```
@@ -432,13 +432,13 @@ There are two main ways to restart a suite:
 ##### RELOAD a suite {: .no-toc }
 In some cases, the suite needs to be updated without necessarily having to stop it (e.g., after fixing a typo in a file). Updating an active suite is called a _reload_, where the suite is _re-installed_ and _Cylc_ is updated with the changes. This is similar to a _SOFT_ restart, except new changes are installed, so you may need to manually trigger failed tasks from the _Cylc_ GUI.
 
-To reload a suite, run the following command from within the [suite directory](#suitedir):
+To reload a suite, run the following command from within the suite directory:
 ```
 rose suite-run --reload
 ```
 
 ##### CLEAN a suite {: .no-toc }
-To remove all files and folders created by the suite within the `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>` directory, run the following command from within the [suite directory](#suitedir):
+To remove all files and folders created by the suite within the `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>` directory, run the following command from within the suite directory:
 ```
 rose suite-clean
 ```
