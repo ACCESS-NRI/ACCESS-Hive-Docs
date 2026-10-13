@@ -92,7 +92,7 @@ This must be repeated every time the `spack.yaml` is modified.
 
 Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` sub-directory:
 !!! tip
-    Estimated time to complete: 30-40 minutes
+    Estimated time to complete: 30+ minutes to compile all the packages for the first time. Subsequent installations, however, will compile quicker as the built dependencies are reused.
 ```bash
 spack install
 ```
