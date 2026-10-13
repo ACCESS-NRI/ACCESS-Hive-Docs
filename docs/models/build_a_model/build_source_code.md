@@ -70,7 +70,7 @@ When you develop a package within a Spack environment, Spack needs to know that 
 ```bash
 spack develop access-mom6@2026.05.003
 ```
-This clones the MOM6 git repository ref that maps to the Spack version `2026.05.003` into the directory `access-mom6`.
+This clones the MOM6 repository at the Git commit reference (Git ref) that maps to the Spack version `2026.05.003` into the directory `access-mom6`.
 
 Then it inserts the following new section in the `spack.yaml`:
 ```
@@ -83,12 +83,16 @@ spack:
 This section tells Spack that it should build from the local clone of MOM6, rather than fetching from GitHub.
 
 The next step of the process is called concretization. It determines the precise details of all the dependencies that are needed to build the model:
+!!! tip
+    Estimated time to complete: 1-10 minutes
 ```bash
 spack concretize -f
 ```
 This must be repeated every time the `spack.yaml` is modified.
 
-Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` directory:
+Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` sub-directory:
+!!! tip
+    Estimated time to complete: 30-40 minutes
 ```bash
 spack install
 ```
