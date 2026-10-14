@@ -26,11 +26,14 @@ The below instructions show how to modify the [MOM6 component] for [ACCESS-OM3][
 
 ## Prerequisites
 
-- **NCI account**<br>
-  Before building a model, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
+- **NCI Account**<br>
+    These instructions are tailored specifically for _Gadi_. To use _Spack_ on _Gadi_, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
-- **_Spack_**<br>
-  To use _Spack_ on _Gadi_, refer to [How to use Spack on Gadi for building ACCESS models]({{use_spack}}).
+- **Membership of the `vk83` project**<br>
+    The shared _Spack_ instance is distributed through `/g/data/vk83`. Request membership through [my.nci.org.au](https://my.nci.org.au/mancini/project/vk83).
+
+- **A project with writable `/g/data` and `/scratch` space**<br>
+    _Spack_ installs your builds under `/g/data/$PROJECT/$USER/spack/` and stages source code under `/scratch/$PROJECT/$USER/`. Building a full model can consume a lot of storage, so check your quota with `lquota` before starting.
 
 ## Enable spack
 
@@ -92,7 +95,7 @@ This must be repeated every time the `spack.yaml` is modified.
 
 Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` sub-directory:
 !!! tip
-    Estimated time to complete: 30+ minutes to compile all the packages for the first time. Subsequent installations, however, will compile quicker as the built dependencies are reused.
+    Estimated time to complete: Can take 30+ minutes.
 ```bash
 spack install
 ```
