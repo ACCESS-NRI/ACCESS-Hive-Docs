@@ -50,7 +50,7 @@
             <img class="img-contain white-background with-padding" src="https://cdn.jsdelivr.net/gh/spack/spack@develop/share/spack/logo/spack-logo-text.svg" alt="spack">
         </div>
         <div class="card-text-container">
-            <span class="bold">Git Reference Commands</span>
+            <span class="bold">Essential Git Commands</span>
             <span>
                 Add description here
             </span>
