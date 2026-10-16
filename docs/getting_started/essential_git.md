@@ -146,6 +146,7 @@ git switch --track origin/<existing_branch>
 - When working on a shared branch where rewriting existing commits should be avoided.
 
 **How to use**
+
 First, switch to the branch that should receive the changes:
 
 ```
@@ -225,7 +226,8 @@ Git stash works as a temporary save button. It lets us save changes that we are 
 
 **How to use**
 
-1. Save changes
+#### 1. Save changes
+
 To save our current changes in the stash, with a message to help us remember what they are:
 ```
 git stash push -m "Message for myself"
@@ -234,7 +236,8 @@ Think of this as putting our changes into a virtual drawer and leaving a sticky 
 By default, `git stash` saves changes to tracked files that are modified or deleted. 
 Untracked files are not included unless we explicitly ask Git to include them.
 
-2. List stashes
+#### 2. List stashes
+
 To see all the stashes you have created:
 ```
 git stash list
@@ -250,7 +253,7 @@ To check the content of one specific stash, for example, `{0}`:
 git stash show -p stash@{0}
 ```
 
-3. Apply a stash
+#### 3. Apply a stash
 
 To bring the changes from the most recent stash onto our current branch:
 ```
@@ -263,7 +266,8 @@ git stash apply
 The later command leave a copy in the stash.
 
 
-4. Clean up stash 
+#### 4. Clean up stash
+
 To delete a specific stash:
 ```
 git stash drop stash@{0}
