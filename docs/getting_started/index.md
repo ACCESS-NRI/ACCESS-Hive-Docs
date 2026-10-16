@@ -45,9 +45,7 @@
             </span>
         </div>
     </a>
-    <a href="/getting_started/git_ref" class="horizontal-card">
-        <div class="card-image-container">
-            <img class="img-contain white-background with-padding" src="https://cdn.jsdelivr.net/gh/spack/spack@develop/share/spack/logo/spack-logo-text.svg" alt="spack">
+    <a href="/getting_started/essential_git" class="horizontal-card">
         </div>
         <div class="card-text-container">
             <span class="bold">Essential Git Commands</span>
