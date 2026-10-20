@@ -45,4 +45,12 @@
             </span>
         </div>
     </a>
+    <a href="/getting_started/essential_git" class="horizontal-card">
+        <div class="card-text-container">
+            <span class="bold">Essential Git Commands</span>
+            <span>
+                Add description here
+            </span>
+        </div>
+    </a>
 </div>
