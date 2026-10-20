@@ -614,7 +614,7 @@ To modify these options please refer to the User Guide of the respective model c
 
 ### Create a custom {{ model }} build
 All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
-To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
+To customise {{ model }}'s build (for example to run {{ model }} with changes in the source code of one of its component), refer to [Gadi-Terminal Build Workflow](/models/develop_a_model/gadi_terminal_build_workflow).
 
 ## Get Help
 
