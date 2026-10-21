@@ -101,6 +101,22 @@ spack install
 ```
 The modification of source code followed by `spack install` can be done iteratively.
 
+## Using the generated executable
+
+Spack automatically generates module files that can be used with `module load`, so can be injected into *payu* `config.yaml` or Rose/Cylc `rose-suite.conf` files. First, identify the name of the package to install- this is in the `specs` section of the `spack.yaml`:
+```
+spack:
+...
+  specs:
+  - access-om3
+```
+For ACCESS-OM3, this would be `access-om3`. To locate the desired module file for this package, use this package with:
+```bash
+spack module tcl find --full-path access-om3
+```
+
+This should print a path to a module file. Calling `module load <path>` will make the generated executable available in the path.
+
 ## Output directory for compiled packages
 
 Run the `spack config blame` command to view the Spack configuration:
