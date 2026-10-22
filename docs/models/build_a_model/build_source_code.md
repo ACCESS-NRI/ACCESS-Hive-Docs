@@ -103,19 +103,26 @@ The modification of source code followed by `spack install` can be done iterativ
 
 ## Using the generated executable
 
-Spack automatically generates module files that can be used with `module load`, so can be injected into *payu* `config.yaml` or Rose/Cylc `rose-suite.conf` files. First, identify the name of the package to install- this is in the `specs` section of the `spack.yaml`:
+Spack automatically generates module files that can be used with `module load`, so can be injected into *payu* `config.yaml` or Rose/Cylc `rose-suite.conf` files. First, identify the locationof the generated module files for the package. Use the following command to generate this path:
+
+```
+module load yq
+echo "$(spack config get modules | yq '.modules.default.roots.tcl')/$(spack arch -p)-$(spack arch -o)-$(spack arch -g)"
+```
+
+This prints the generated module path to be passed to `module use`, or to the relevant sections in the `config.yaml` or `rose-suite.conf`. Now identify the module to load. To do this, check the name name of the package to install- this is in the `specs` section of the `spack.yaml`:
 ```
 spack:
 ...
   specs:
   - access-om3
 ```
-For ACCESS-OM3, this would be `access-om3`. To locate the desired module file for this package, use this package with:
+For ACCESS-OM3, this would be `access-om3`. Pass this to
 ```bash
-spack module tcl find --full-path access-om3
+spack module tcl find access-om3
 ```
 
-This should print a path to a module file. Calling `module load <path>` will make the generated executable available in the path.
+This should print a path to a module file. Calling `module load <path>` will make the generated executable available in the path. Insert this into the relevant sections in the `config.yaml` or `rose-suite.conf`, and the executable will be used by your model.
 
 ## Output directory for compiled packages
 
