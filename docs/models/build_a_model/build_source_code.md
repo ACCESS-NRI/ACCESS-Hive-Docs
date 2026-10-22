@@ -141,50 +141,51 @@ This means the packages built in this example can be found in `/g/data/$PROJECT/
 
 ## Troubleshooting build errors
 
-Sometimes you might encounter errors while compiling the packages. _Spack_ prints out the error message and generates a full build log that can be viewed by the user. The location of the build log is shown at the end of the error message. For example,
+Sometimes you might encounter errors while compiling the packages. _Spack_ prints out the error message and generates a full build log that can be viewed by the user. The location of the build log is shown at the end of the error message.
 
-```bash
-$ spack install
-...
-==> No binary for access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda found: installing from source
-==> Installing access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda [35/39]
-==> No patches needed for access-mom6
-==> access-mom6: Executing phase: 'cmake'
-==> Error: ProcessError: Command exited with status 1:
-    '/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/cmake-3.31.11-4xpsc6gicgmaz3onofzohjaau76odzd3/bin/cmake' '-G' 'Unix Makefiles' '-DCMAKE_INSTALL_PREFIX:STRING=/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda' '-DCMAKE_INSTALL_RPATH_USE_LINK_PATH:BOOL=ON' '-DCMAKE_INSTALL_RPATH:STRING=/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/lib;/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/lib64' '-DCMAKE_PREFIX_PATH:STRING=/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-generic-tracers-2026.09.000-2y3j5xtacj46gevx23vm6pmdd2uavhhz;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/access3-share-2026.03.002-m65pkhfhdcfromtvp3z5pwkejlcq6pp4;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/cmake-3.31.11-4xpsc6gicgmaz3onofzohjaau76odzd3;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/compiler-wrapper-1.1.0-4vm57ydwr3x5uq2jhwsv7ltk6az3hxxs;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/gmake-4.4.1-3sr5xy6gpvmfkr4ecptiqtbmcrqnczuk;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/access-mocsy-2025.07.002-5awgzcl5rbvkk4ei62uyk66hsp3avkr7;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/fms-2025.03-zw6tzbdvqmqkrkizhqisi3kvstrc2vjm;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/esmf-8.9.1-u56mitgtfbi2qlj3x7lw7ofxj7lw4b2l;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/fortranxml-4.1.2-l2i2droyqjjgnrsb6ort3no7hz5cpvnk;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/netcdf-fortran-4.6.2-yze65gmryo5aren72ydkw742yerv2ag6;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/netcdf-c-4.9.3-i2yg6wiht4vl5slywg25qpd3avh6mh2y;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/bzip2-1.0.8-5umnxzum3fjmzr56pxz7rhpwx4hv6khk;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/c-blosc-1.21.6-ntor6vmuxx4jp7dejzypvuctslne5pw6;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/hdf5-1.14.6-ustivdivi5brfjuhd7wt525vxrd6rddw;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/libaec-1.1.4-patvd3yohb3sqh2m63t2e56o3q6p6hz3;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/lz4-1.10.0-pzf2vwga4yxnkxpp76uqzbzxxcpuslx4;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/snappy-1.2.1-qwtkwcddpmcko7vxptrwj7pavpijc6yo;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/zstd-1.5.7-fd6ey726t34uco4rkzrgcwoluryimrp7;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/zlib-ng-2.3.3-p2ctudzwaiqp6acuskgmu2h6kgvjfh6w;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/intel-oneapi-runtime-2025.2.0-hyun3ledkfevkt6ezyotlc45wzufscep;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/gcc-runtime-15.1.0-r3jhjvxq3s4lt5fidxafye5utgjkvs6g;/apps/intel-tools/.packages/2025.2.0.575;/apps/openmpi/4.1.7' '-DCMAKE_BUILD_TYPE:STRING=Release' '-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON' '-DCMAKE_INTERPROCEDURAL_OPTIMIZATION:BOOL=OFF' '-DCMAKE_POLICY_DEFAULT_CMP0090:STRING=NEW' '-DCMAKE_FIND_USE_PACKAGE_REGISTRY:BOOL=OFF' '-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON' '-DMOM6_OPENMP:BOOL=OFF' '-DMOM6_ASYMMETRIC:BOOL=OFF' '-DMOM6_ACCESS3:BOOL=ON' '-DMOM6_SOLO:BOOL=ON' '' '' '/g/data/tm70/$USER/harshula/ACCESS-OM3/MOM6'
+??? code "Click to see the error log example"
+    ```
+    $ spack install
+    ...
+    ==> No binary for access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda found: installing from source
+    ==> Installing access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda [35/39]
+    ==> No patches needed for access-mom6
+    ==> access-mom6: Executing phase: 'cmake'
+    ==> Error: ProcessError: Command exited with status 1:
+        '/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/cmake-3.31.11-4xpsc6gicgmaz3onofzohjaau76odzd3/bin/cmake' '-G' 'Unix Makefiles' '-DCMAKE_INSTALL_PREFIX:STRING=/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda' '-DCMAKE_INSTALL_RPATH_USE_LINK_PATH:BOOL=ON' '-DCMAKE_INSTALL_RPATH:STRING=/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/lib;/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/lib64' '-DCMAKE_PREFIX_PATH:STRING=/g/data/tm70/$USER/spack/1.1/release/linux-x86_64_v4/access-generic-tracers-2026.09.000-2y3j5xtacj46gevx23vm6pmdd2uavhhz;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/access3-share-2026.03.002-m65pkhfhdcfromtvp3z5pwkejlcq6pp4;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/cmake-3.31.11-4xpsc6gicgmaz3onofzohjaau76odzd3;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/compiler-wrapper-1.1.0-4vm57ydwr3x5uq2jhwsv7ltk6az3hxxs;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/gmake-4.4.1-3sr5xy6gpvmfkr4ecptiqtbmcrqnczuk;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/access-mocsy-2025.07.002-5awgzcl5rbvkk4ei62uyk66hsp3avkr7;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/fms-2025.03-zw6tzbdvqmqkrkizhqisi3kvstrc2vjm;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/esmf-8.9.1-u56mitgtfbi2qlj3x7lw7ofxj7lw4b2l;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/fortranxml-4.1.2-l2i2droyqjjgnrsb6ort3no7hz5cpvnk;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/netcdf-fortran-4.6.2-yze65gmryo5aren72ydkw742yerv2ag6;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/netcdf-c-4.9.3-i2yg6wiht4vl5slywg25qpd3avh6mh2y;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/bzip2-1.0.8-5umnxzum3fjmzr56pxz7rhpwx4hv6khk;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/c-blosc-1.21.6-ntor6vmuxx4jp7dejzypvuctslne5pw6;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/hdf5-1.14.6-ustivdivi5brfjuhd7wt525vxrd6rddw;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/libaec-1.1.4-patvd3yohb3sqh2m63t2e56o3q6p6hz3;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/lz4-1.10.0-pzf2vwga4yxnkxpp76uqzbzxxcpuslx4;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/snappy-1.2.1-qwtkwcddpmcko7vxptrwj7pavpijc6yo;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/zstd-1.5.7-fd6ey726t34uco4rkzrgcwoluryimrp7;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/zlib-ng-2.3.3-p2ctudzwaiqp6acuskgmu2h6kgvjfh6w;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/intel-oneapi-runtime-2025.2.0-hyun3ledkfevkt6ezyotlc45wzufscep;/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/gcc-runtime-15.1.0-r3jhjvxq3s4lt5fidxafye5utgjkvs6g;/apps/intel-tools/.packages/2025.2.0.575;/apps/openmpi/4.1.7' '-DCMAKE_BUILD_TYPE:STRING=Release' '-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON' '-DCMAKE_INTERPROCEDURAL_OPTIMIZATION:BOOL=OFF' '-DCMAKE_POLICY_DEFAULT_CMP0090:STRING=NEW' '-DCMAKE_FIND_USE_PACKAGE_REGISTRY:BOOL=OFF' '-DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=ON' '-DMOM6_OPENMP:BOOL=OFF' '-DMOM6_ASYMMETRIC:BOOL=OFF' '-DMOM6_ACCESS3:BOOL=ON' '-DMOM6_SOLO:BOOL=ON' '' '' '/g/data/tm70/$USER/harshula/ACCESS-OM3/MOM6'
 
-2 errors found in build log:
-     52    -- Found PIO: /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv (Required is at least version "2.5.3") found components: C For
-           tran
-     53    -- FindPIO:
-     54    --   - PIO_PREFIX [/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv]
-     55    --   - PIO Components Found: C;Fortran
-     56    -- Found ESMF: /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/esmf-8.9.1-u56mitgtfbi2qlj3x7lw7ofxj7lw4b2l/lib/libesmf.so (found suitable version "8.9.1", minimum required is
-            "8.3.0")
-     57    -- Configuring done (22.8s)
-  >> 58    CMake Error at src/CMakeLists.txt:21 (target_sources):
-     59      Cannot find source file:
-     60
-     61        equation_of_state/TEOS10/gsw_chem_potential_water_t_exact.f90
-     62
-     63      Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
-     64      .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
-     65      .f95 .f03 .hip .ispc
-     66
-     67
-  >> 68    CMake Error at cmake/FortranLib.cmake:5 (add_library):
-     69      No SOURCES given to target: mom6shared
-     70    Call Stack (most recent call first):
-     71      src/CMakeLists.txt:3 (add_fortran_target)
-     72
-     73
-     74    CMake Generate step failed.  Build files cannot be regenerated correctly.
+    2 errors found in build log:
+        52    -- Found PIO: /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv (Required is at least version "2.5.3") found components: C For
+            tran
+        53    -- FindPIO:
+        54    --   - PIO_PREFIX [/g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/parallelio-2.6.8-a5un5qjas4eju5dpyhobdph5lwqgx4mv]
+        55    --   - PIO Components Found: C;Fortran
+        56    -- Found ESMF: /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/esmf-8.9.1-u56mitgtfbi2qlj3x7lw7ofxj7lw4b2l/lib/libesmf.so (found suitable version "8.9.1", minimum required is
+                "8.3.0")
+        57    -- Configuring done (22.8s)
+    >> 58    CMake Error at src/CMakeLists.txt:21 (target_sources):
+        59      Cannot find source file:
+        60
+        61        equation_of_state/TEOS10/gsw_chem_potential_water_t_exact.f90
+        62
+        63      Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm
+        64      .ccm .cxxm .c++m .h .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90
+        65      .f95 .f03 .hip .ispc
+        66
+        67
+    >> 68    CMake Error at cmake/FortranLib.cmake:5 (add_library):
+        69      No SOURCES given to target: mom6shared
+        70    Call Stack (most recent call first):
+        71      src/CMakeLists.txt:3 (add_fortran_target)
+        72
+        73
+        74    CMake Generate step failed.  Build files cannot be regenerated correctly.
 
-See build log for details:
-  /scratch/tm70/$USER/tmp/spack-stage/spack-stage-access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/spack-build-out.txt
+    See build log for details:
+    /scratch/tm70/$USER/tmp/spack-stage/spack-stage-access-mom6-stable-7p2x5g7p72kjliot4rnvqaxk7eh2mpda/spack-build-out.txt
 
-...
-```
+    ...
+    ```
 
 If the error is not obvious from the error message, see the build log for more information.
 
