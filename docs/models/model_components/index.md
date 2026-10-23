@@ -27,6 +27,12 @@ ACCESS model components represent different chemical, physical or biological par
         </div>
         <div class="card-text-container bold">Sea Ice</div>
     </a>
+    <a href="/models/model_components/wave" class="vertical-card aspect-ratio1to1">
+        <div class="card-image-container">
+            <img class="img-contain" src="/assets/component-logos/components-without-titles/ACCESS icon WAVES.png" alt="Waves"></img>
+        </div>
+        <div class="card-text-container bold">Waves</div>
+    </a>
     <a href="/models/model_components/aerosols_atmospheric_chemistry" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
             <img class="img-contain" src="/assets/component-logos/components-without-titles/ACCESS icon AEROSOLS.png" alt="Aerosols"></img>
@@ -63,6 +69,7 @@ Most of these model components have originated from collaborations with internat
 
 - [UK Met Office](https://www.metoffice.gov.uk): [UM atmospheric model](/models/model_components/atmosphere#unified-model-um).
 - [NOAA / GFDL](https://www.gfdl.noaa.gov): [MOM ocean model](/models/model_components/ocean#modular-ocean-model-mom).
+- [NOAA / NCEP](https://github.com/NOAA-EMC/WW3): [WW3 wave model](/models/model_components/wave#wavewatch-iii-ww3).
 - [LANL](https://www.lanl.gov/): [CICE sea ice model](/models/model_components/sea-ice#cice).
 - [CERFACS](https://cerfacs.fr/en/): [OASIS3-MCT coupling software package](/models/model_components/coupler#oasis3-mct).
 - [UKCA](https://www.ukca.ac.uk): [UKCA atmospheric chemistry-aerosol model](/models/model_components/aerosols_atmospheric_chemistry#ukca).
