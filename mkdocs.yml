@@ -137,6 +137,7 @@ nav:
       - Land: models/model_components/land.md
       - Ocean: models/model_components/ocean.md
       - Sea Ice: models/model_components/sea-ice.md
+      - Waves: models/model_components/wave.md
       - Aerosols and Atmospheric Chemistry: models/model_components/aerosols_atmospheric_chemistry.md
       - Biogeochemistry Land: models/model_components/bgc_land.md
       - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
