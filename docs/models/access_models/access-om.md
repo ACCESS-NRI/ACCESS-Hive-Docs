@@ -40,7 +40,7 @@ The wave-coupled [MOM6–CICE6–WW3 100 km ERA5 configuration](https://github.c
 - **Sea ice**: [CICE6](/models/model_components/sea-ice#cice6).<br>
     Same grid as ocean.
 
-- **Waves**: [WAVEWATCH III (WW3)](/models/model_components/wave#wavewatch-iii-ww3).<br>
+- **Wave**: [WAVEWATCH III (WW3)](/models/model_components/wave#wavewatch-iii-ww3).<br>
   Same grid as ocean. Included in the MOM6–CICE6–WW3 configuration.
 
 - **Ocean Biogeochemistry**: [WOMBAT](/models/model_components/bgc_ocean#wombat)  (optional).

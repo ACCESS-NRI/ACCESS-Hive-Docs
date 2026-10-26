@@ -10,6 +10,6 @@ Originally developed at NOAA/NCEP, WW3 is maintained by an [international commun
 
 ### Models that use WW3
 
-ACCESS uses the [ACCESS-NRI version of WW3](https://github.com/ACCESS-NRI/WW3).
+Models that use the [ACCESS-NRI version of WW3](https://github.com/ACCESS-NRI/WW3):
 
 - [ACCESS-OM3](/models/access_models/access-om#access-om3): the MOM6–CICE6–WW3 100 km ERA5 configuration.
