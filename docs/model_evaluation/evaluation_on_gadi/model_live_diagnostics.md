@@ -4,7 +4,7 @@
 
 _Model Live Diagnostics_ (MLD) is a tool for the ACCESS modelling community to monitor, visualise and evaluate ACCESS model runs on _Gadi_ while they run. 
 
-It supports ACCESS-CM2, ACCESS-CM3, ACCESS-OM2, ACCESS-OM3, ACCESS-ESM1.5, ACCESS-ESM1.6 and ACCESS-AM3 output.
+It supports ACCESS-CM2, ACCESS-CM3, ACCESS-OM2, ACCESS-OM3, ACCESS-ESM1.5, ACCESS-ESM1.6, ACCESS-AM3 and MOM6 output.
 
 ## What can MLD do?
 
