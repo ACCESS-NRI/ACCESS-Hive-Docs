@@ -29,9 +29,9 @@ ACCESS model components represent different chemical, physical or biological par
     </a>
     <a href="/models/model_components/wave" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">
-            <img class="img-contain" src="/assets/component-logos/components-without-titles/ACCESS icon WAVES.png" alt="Waves"></img>
+            <img class="img-contain" src="/assets/component-logos/components-without-titles/ACCESS icon WAVES.png" alt="Wave"></img>
         </div>
-        <div class="card-text-container bold">Waves</div>
+        <div class="card-text-container bold">Wave</div>
     </a>
     <a href="/models/model_components/aerosols_atmospheric_chemistry" class="vertical-card aspect-ratio1to1">
         <div class="card-image-container">

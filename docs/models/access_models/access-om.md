@@ -30,7 +30,7 @@ Each configuration also has an optional biogeochemical (BGC) configuration that 
 !!! warning
     BGC experiments are slower and generally consume more resources (compute time and disk space).
 
-The wave-coupled [MOM6–CICE6–WW3 100 km ERA5 configuration](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf) uses a nominal 100 km horizontal grid, 75 ocean vertical levels and ERA5 interannual atmospheric forcing. WW3 supplies wave information for ocean mixing in MOM6 and wave-driven ice breakup in CICE6; ocean currents and sea-ice conditions in turn affect the waves. Detailed settings are described in the [MCW configuration guide](https://github.com/ACCESS-NRI/access-om3-configs/blob/mcw_100km_docs/documentation/docs/pages/configurations/MCW_100km.md).
+The wave-coupled [MOM6–CICE6–WW3 100 km ERA5 configuration](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf) uses a nominal 100 km horizontal grid, 75 ocean vertical levels and ERA5 interannual atmospheric forcing. Through the [NUOPC-based CMEPS mediator](/models/model_components/coupler#nuopc), WW3 supplies wave information for ocean mixing in MOM6 and wave-driven ice breakup in CICE6; ocean currents and sea-ice conditions in turn affect the waves. Detailed settings are described in the [MCW configuration guide](https://github.com/ACCESS-NRI/access-om3-configs/blob/mcw_100km_docs/documentation/docs/pages/configurations/MCW_100km.md).
 
 ### Model Components {: #model-components-{{model}} }
 
