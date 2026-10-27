@@ -4,7 +4,7 @@
 
 _Model Live Diagnostics_ (MLD) is a tool for the ACCESS modelling community to monitor, visualise and evaluate ACCESS model runs on _Gadi_ while they run. 
 
-It supports ACCESS-CM2, ACCESS-CM3, ACCESS-OM2, ACCESS-OM3, ACCESS-ESM1.5, ACCESS-ESM1.6, ACCESS-AM3 and MOM6 output.
+It supports [ACCESS-CM2](/models/run_a_model/run_access-cm2), ACCESS-CM3, [ACCESS-OM2](/models/run_a_model/run_access-om2), [ACCESS-OM3](/models/run_a_model/run_access-om3), [ACCESS-ESM1.5](/models/run_a_model/run_access-esm1p5), [ACCESS-ESM1.6](/models/run_a_model/run_access-esm1p6), [ACCESS-AM3](/models/run_a_model/run_access-am3) and MOM6 output.
 
 ## What can MLD do?
 
@@ -15,7 +15,10 @@ A session opens an interactive interface in your notebook with four sections:
 - **Overlay user and reference models**: compare your run with as many reference runs as you like, and plot the difference between them.
 - **Run analysis recipes**: run ready-made analyses on your run, or add your own.
 
-![Heatmaps of a user run and several reference runs, compared in Model Live Diagnostics.](/assets/model_evaluation/live_diagnostics/mld_hivedocs_aligned.png){: style="width: 75%;" }
+As your run writes new output, click **Refresh model data catalog** to add it to your plots without restarting the session:
+
+
+![A sea surface temperature line plot before and after clicking Refresh model data catalog, with the newest output added.](/assets/model_evaluation/live_diagnostics/mld_hivedocs_aligned.png){: style="width: 75%;" }
 
 ## Getting started
 
