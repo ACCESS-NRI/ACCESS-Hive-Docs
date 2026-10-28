@@ -1480,3 +1480,81 @@ div.release-table td:nth-child(3) {
 div.release-table td:nth-child(4) {
   background-color: var(--success-bg) 
 }
+/* Community evaluation page: contribution ladder and workflow steps */
+.contribution-ladder, .workflow-steps {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0 0.4rem;
+}
+
+.contribution-ladder {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.workflow-steps {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+}
+
+@media screen and (width <= 650px) {
+  .contribution-ladder, .workflow-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contribution-ladder > div, .workflow-steps > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem;
+  border-radius: 0.6rem;
+  border-top: 0.3rem solid var(--ladder-color, var(--nri-blue));
+  background-color: var(--md-default-fg-color--lightest);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.contribution-ladder > div:nth-child(1) { --ladder-color: var(--nri-green); }
+.contribution-ladder > div:nth-child(2) { --ladder-color: var(--nri-light-blue); }
+.contribution-ladder > div:nth-child(3) { --ladder-color: var(--nri-blue); }
+.contribution-ladder > div:nth-child(4) { --ladder-color: var(--nri-dark-blue); }
+
+.ladder-number, .workflow-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background-color: var(--ladder-color, var(--nri-blue));
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.ladder-needs {
+  margin-top: auto;
+  padding-top: 0.3rem;
+  border-top: 1px dashed var(--md-default-fg-color--lighter);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+.contribution-ladder-axis {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(to right, var(--nri-green), var(--nri-light-blue), var(--nri-blue), var(--nri-dark-blue));
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.contribution-ladder-axis > span:first-child {
+  color: rgb(29, 29, 29);
+}
+
+.workflow-steps > div:last-child {
+  --ladder-color: var(--nri-orange);
+}

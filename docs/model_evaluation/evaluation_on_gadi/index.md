@@ -75,6 +75,23 @@ This is a principle for the development of the [Rapid Evaluation Framework(REF)]
     </a>
 </div>
 
+### Community evaluation of new ACCESS models
+ACCESS-CM3, ACCESS-AM3 and ACCESS-OM3 are being evaluated in the open, in shared repositories where anyone can contribute a diagnostic and become a co-author on the model description paper.
+
+<div class="card-container">
+    <a href="/model_evaluation/evaluation_on_gadi/community_evaluation" class="horizontal-card">
+        <div class="card-image-container">
+            <img class="img-cover white-background" src="/assets/model_evaluation/community_evaluation/old_vs_new_models.jpg" alt="Community evaluation figure comparing old and new ACCESS models around Antarctica">
+        </div>
+        <div class="card-text-container">
+            <span class="bold">Community Evaluation of CM3, AM3 and OM3</span>
+            <span>
+                How to get involved in evaluating the next generation of ACCESS models.
+            </span>
+        </div>
+    </a>
+</div>
+
 ### Contributing to recipes and diagnostics
 All evaluation recipes on community papers are open for contribution. To contribute to a specific evaluation framework or recipe, follow the contribution guidelines in its GitHub repository.<br>
 General steps include:

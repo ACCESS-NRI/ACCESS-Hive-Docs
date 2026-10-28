@@ -40,6 +40,5 @@ For more information on the <i>COSIMA Cookbook</i>, refer to the <a href="https:
 
 
 ### Help evaluate and improve applications of OM3
-There is a community based group (ACCESS-OM3 model evaluation team) that are helping with OM3 evaluation and development. Contributions from people of all career stages and backgrounds are highly encouraged.
-
-All community members can get write access to the [OM3 evaluation repository](https://github.com/ACCESS-Community-Hub/access-om3-paper-1). To get write access, you need to create an issue and request access, please use [this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md). Evaluation figures are being coordinated in [issue #23](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23) of the repository. Instructions to get started are in the README of the repository.
+The community-based _ACCESS-OM3 model evaluation team_ is helping with ACCESS-OM3 evaluation and development, and new contributors are very welcome.
+See [Community Evaluation of ACCESS-CM3, AM3 and OM3](/model_evaluation/evaluation_on_gadi/community_evaluation) to get involved.

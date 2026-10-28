@@ -31,26 +31,10 @@ Because the framework is built on ESMValCore, converting a notebook to an ESMVal
 
 ## Community Evaluation Recipes
 
-### ACCESS-OM3
+### ACCESS-CM3, ACCESS-AM3 and ACCESS-OM3
 
-The _ACCESS-OM3 model evaluation team_ is a community-based group helping with ACCESS-OM3 evaluation and development. Contributions from people of all career stages and backgrounds are highly encouraged.
-
-All community members can get write access to the [ACCESS-OM3 evaluation repository](https://github.com/ACCESS-Community-Hub/access-om3-paper-1) by creating an issue (using [this issue template](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md)) and requesting access.
-
-Evaluation figures are being coordinated within the repository [issue #23](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23). Instructions to get started can be found in the repository [README](https://github.com/ACCESS-Community-Hub/access-om3-paper-1#access-om3-paper-1).
-
-### ACCESS-CM3
-
-A collaborative project for evaluation of ACCESS-CM3 can be found in the [access-cm3-paper-1](https://github.com/acCESS-Community-Hub/access-cm3-paper-1/) repository. 
-
-All community members can get write access to the ACCESS-CM3 evaluation repository by creating an issue (using [this issue template](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md)) and requesting access.
-
-Instructions to get started can be found in the repository [README](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1#access-cm3-paper-1).
-
-???+ tip "Join the conversation!"
-    For both ACCESS-OM3 and ACCESS-CM3, you can also join the conversation on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/), 
-    in the respective [COSIMA](https://forum.access-hive.org.au/c/cosima/working-group/42) or 
-    [ESM](https://forum.access-hive.org.au/c/esm/esm-working-group/43) working groups.
+The community and ACCESS-NRI are evaluating the next generation of ACCESS models together, in shared repositories that anyone can contribute to.
+See [Community Evaluation of ACCESS-CM3, AM3 and OM3](/model_evaluation/evaluation_on_gadi/community_evaluation) to get involved.
 
 ### COSIMA cookbook
 
