@@ -31,4 +31,4 @@ session = med_diagnostics.session.CreateModelDiagnosticsSession()
 
 Then enter the path to your model output, select its model type and click **Start Session**.
 
-For a step-by-step walkthrough, and more information, see the [Model Live Diagnostics documentation](https://med-live-diagnostics.readthedocs.io/en/latest/).
+For a step-by-step walkthrough, and more information, see the [Model Live Diagnostics documentation](https://model-live-diagnostics.access-hive.org.au/latest/)
