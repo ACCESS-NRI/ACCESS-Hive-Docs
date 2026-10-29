@@ -14,7 +14,7 @@ The diagnostics you prioritise and the parameter changes you propose feed into t
     Contributions from people of all career stages and backgrounds are highly encouraged: students, early-career researchers, engineers, domain scientists and first-time _GitHub_ users.
     You don't need to be a coder. A comment, a discussion point or a suggested experiment is a contribution too.
 
-## Ways to get involved
+## Overview: Ways to get involved
 
 Pick the level that suits the time you have. Every level is valuable. Select a step to jump to its section below.
 
@@ -63,7 +63,7 @@ At the meetings you can:
 2. **Share figures:** walk the group through a plot or result and get feedback live.
 3. **Suggest parameter changes:** flag a parameter or configuration change worth testing in the next model run.
 
-!!! tip "Have an idea for the next model run?"
+???+ tip "Have an idea for the next model run?"
     Bring your parameter or configuration ideas to a meeting, or get in touch with a team lead:
 
     - ACCESS-OM3: [Christopher Bull](https://www.access-nri.org.au/person/christopher-bull/), Ocean Model Team Lead
@@ -94,7 +94,7 @@ For automated, multi-model comparisons on CMORised data, see [Intercomparison an
 
 These strengths and limitations can help you decide whether this workflow suits your question.
 
-!!! success "Strengths"
+???+ success "Strengths"
     - Community-prioritised assessment of ACCESS models (ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3) for model development.
     - Opportunities for model description paper co-authorship.
     - Code review is optional, so you can do and share your analysis quickly. Open a pull request only if you'd like feedback on your code.
@@ -102,7 +102,7 @@ These strengths and limitations can help you decide whether this workflow suits 
     - Comparisons to previous model generations and observations.
     - The same workflow for all three models.
 
-!!! warning "Limitations"
+???+ warning "Limitations"
     - Notebooks can be tricky to maintain and review: _git_ diffs are hard to read without tools such as [ReviewNB](https://www.reviewnb.com/).
     - Focused on the ACCESS family of models, not CMIP.
     - Large multi-model comparisons and international evaluation efforts are better suited to [intercomparison and benchmarking](/model_evaluation/evaluation_on_gadi#two-kinds-of-model-evaluation) tools such as ESMValTool.
