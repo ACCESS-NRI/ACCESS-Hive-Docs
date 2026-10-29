@@ -2,66 +2,33 @@
 
 ## What is Model Live Diagnostics?
 
-_Model Live Diagnostics_ is an easily-accessible Jupyter-notebook-based framework for the ACCESS modelling community to monitor, visualise and evaluate the behaviour of models in real time (_live_) while they run on _Gadi_.
+_Model Live Diagnostics_ (MLD) is a tool for the ACCESS modelling community to monitor, visualise and evaluate ACCESS model runs on _Gadi_ while they run. 
 
-In addition to monitoring a live model, the package also provides the functionality to load, visualise and compare legacy ACCESS model data with the live model.
+It supports [ACCESS-CM2](/models/run_a_model/run_access-cm2), ACCESS-CM3, [ACCESS-OM2](/models/run_a_model/run_access-om2), [ACCESS-OM3](/models/run_a_model/run_access-om3), [ACCESS-ESM1.5](/models/run_a_model/run_access-esm1p5), [ACCESS-ESM1.6](/models/run_a_model/run_access-esm1p6), [ACCESS-AM3](/models/run_a_model/run_access-am3) and MOM6 output.
 
-???+ warning "Support Level: Supported on _Gadi_, not in active development"
-    Model Live Diagnostics Tool is not in active development so support may be slow but can be used on _Gadi_.
+## What can MLD do?
 
-Below, we show an example of the Model Live Diagnostics Tool. For more information and tutorials, please visit <a href="https://med-live-diagnostics.readthedocs.io/en/latest/index.html" target="_blank">Model Diagnostics Documentation</a>.
+A session opens an interactive interface in your notebook with four sections:
+
+- **Load and plot user data**: plot any dataset from your own run as a line plot, heatmap or interactive heatmap, and refresh it as the run writes new output.
+- **Load and plot reference models**: plot existing runs of the same model from the [ACCESS-NRI Intake Catalogue](/model_evaluation/data/finding/access_nri_intake).
+- **Overlay user and reference models**: compare your run with as many reference runs as you like, and plot the difference between them.
+- **Run analysis recipes**: run ready-made analyses on your run, or add your own.
+
+As your run writes new output, click **Refresh model data catalog** to add it to your plots without restarting the session:
 
 
-## Example: Monitoring total seawater mass of an ACCESS-CM2 run
+![A sea surface temperature line plot before and after clicking Refresh model data catalog, with the newest output added.](/assets/model_evaluation/live_diagnostics/mld_hivedocs_aligned.png){: style="width: 75%;" }
 
-This example provides a brief demonstration of how the Model Live Diagnostics tool can be use to monitor the progress of an [ACCESS Coupled Model 2 (ACCESS-CM2)](/models/run_a_model/run_access-cm2) run.
+## Getting started
 
-To start a session that automatically checks for new model output within a given period of 20 minutes: 
+MLD is pre-installed in the [_conda/analysis3_](/getting_started/environments) environment, which requires membership of the [xp65](https://my.nci.org.au/mancini/project/xp65/join) project. In an [ARE JupyterLab session](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/jupyter/ncigadi/session_contexts/new) using _conda/analysis3_, run:
 
-```
+```python
 import med_diagnostics
-session = med_diagnostics.session.CreateModelDiagnosticsSession(model_type='CM2', model_path='path/to/your/live/model/data/output', period=20)
+session = med_diagnostics.session.CreateModelDiagnosticsSession()
 ```
 
-<div class="note">
-         For more details on paths and packages refer to the <a href="https://med-live-diagnostics.readthedocs.io/en/latest/index.html" target="_blank">ACCESS-NRI Model Diagnostics documentation</a>.
-</div>
+Then enter the path to your model output, select its model type and click **Start Session**.
 
-When the session starts, you will see the following session summary:
-
-<div style="text-align: center;">
-    <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_1.png" alt="Output of the Model Live Diagnostics after a session has been started and a new catalogue is being built." width="75%"/>
-</div>
-
-<div class="note">
-         The blue status message box appears while the new intake catalogue is being built from the live model data. Depending on the size of the model data, this can take several minutes.
-</div>
-
-Once the live model data catalogue has been successfully built, the blue status message will update.
-<br>
-The orange status message will report the time and date of the last live model catalogue build, as shown below:
-<div style="text-align: center;">
-    <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_2.png" alt="Output of the Model Live Diagnostics after the catalogue has been built." width="75%"/>
-</div>
-
-All available datasets for the selected model will be listed in the dropdown menu. 
-<br>
-Select the dataset that you want to monitor (e.g., `ocean_scalar.1mon`) and click `Load dataset`.
-
-<div style="text-align: center;">
-    <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_3.png" alt="Output of the Model Live Diagnostics with a dropdown menu of available datasets." width="75%"/>
-</div>
-
-Once loaded, a plot will display the first data variable selected from the list. 
-<br>
-Use the dropdown menu to select and plot any available model variables listed.
-
-<div style="text-align: center;">
-    <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Plot of total liquid seawater mass over time of the ‘live’ ACCES CM2 run." width="75%"/>
-</div>
-
-The plot above shows the user's own _live_ data, which has no name assigned. It is also possible to load and compare _legacy data_, such as outputs from previous ACCESS-CM2 model runs (e.g., _by578_ and _by578a_).
-
-<div style="text-align: center;">
-    <img src="../../../assets/model_evaluation/live_diagnostics/tutorial_image_7.png" alt="Plot of total liquid seawater mass over time of the ‘live’ ACCES CM2 run when compared to legacy model data." width="75%"/>
-</div>
+For a step-by-step walkthrough, and more information, see the [Model Live Diagnostics documentation](https://model-live-diagnostics.access-hive.org.au/latest/)
