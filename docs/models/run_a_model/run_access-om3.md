@@ -612,7 +612,7 @@ For more information about specific `userscripts` fields, check the relevant sec
 
 ### Create a custom {{ model }} build
 All the executables needed to run {{ model }} are pre-built using _Spack_.<br>
-To customise {{ model }}'s build, including changes in the source code of one of its components, refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code).
+To customise {{ model }}'s build, including changes in the source code of one of its components, refer to [Gadi-Terminal Build Workflow](/models/develop_a_model/gadi_terminal_build_workflow).
 
 
 ----------------------------------------------------------------------------------------

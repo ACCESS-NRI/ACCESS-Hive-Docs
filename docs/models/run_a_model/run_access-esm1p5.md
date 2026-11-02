@@ -305,7 +305,7 @@ In conclusion, since the run length should be left to 1 year, for simulating N y
 
     ### Create a custom {{ model }} build
     All the executables needed to run {{ model }} are pre-built into independent configurations using _Spack_.<br>
-    To customise {{ model }}'s build (e.g., to run {{ model }} with changes in the source code of one of its component), refer to [Modify and build an ACCESS model's source code](/models/build_a_model/build_source_code#{{model|lower}}).
+    To customise {{ model }}'s build (e.g., to run {{ model }} with changes in the source code of one of its component), refer to [Gadi-Terminal Build Workflow](/models/develop_a_model/gadi_terminal_build_workflow#{{model|lower}}).
 
 ??? info "Controlling the diagnostics output by the model"
 
