@@ -6,3 +6,8 @@ site/*
 .mypycache__/
 __pycache__/
 lychee_report
+# website prototype build output and verification cache
+website/site/
+website/site-preview/
+report/
+.verify-cache/

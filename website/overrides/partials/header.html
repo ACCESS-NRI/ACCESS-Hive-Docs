@@ -1,0 +1,37 @@
+{#- Header laid out like the live site: logo left; social icons + search over the menu on the right. -#}
+{% macro circle(href, icon, label, cls="") %}
+  <a class="anri-circle {{ cls }}" href="{{ href }}" title="{{ label }}" aria-label="{{ label }}">{% include ".icons/" ~ icon ~ ".svg" %}</a>
+{% endmacro %}
+<header class="md-header anri-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+      {% include "partials/logo.html" %}
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      {% include ".icons/material/menu.svg" %}
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic"><span class="md-ellipsis">{{ config.site_name }}</span></div>
+        <div class="md-header__topic" data-md-component="header-topic"><span class="md-ellipsis">{{ page.title }}</span></div>
+      </div>
+    </div>
+    <div class="anri-header__right">
+      <div class="anri-header__top">
+        <a class="anri-icon" href="https://forum.access-hive.org.au/" title="ACCESS-Hive Forum"><img src="{{ 'wp-content/themes/accessnri/images/icons/hive-forum.svg' | url }}" alt="ACCESS-Hive Forum"></a>
+        <a class="anri-icon" href="https://docs.access-hive.org.au" title="ACCESS-Hive Docs"><img src="{{ 'wp-content/themes/accessnri/images/icons/access-hive.svg' | url }}" alt="ACCESS-Hive Docs"></a>
+        {{ circle("https://www.linkedin.com/company/access-nri", "fontawesome/brands/linkedin-in", "LinkedIn") }}
+        {{ circle("https://bsky.app/profile/access-nri.bsky.social", "fontawesome/brands/bluesky", "Bluesky") }}
+        {{ circle("https://github.com/access-nri", "fontawesome/brands/github", "GitHub") }}
+        {% if "material/search" in config.plugins %}
+          {% set search = config.plugins["material/search"] | attr("config") %}
+          {% if search.enabled %}
+            <label class="md-header__button md-icon" for="__search">{% include ".icons/material/magnify.svg" %}</label>
+            {% include "partials/search.html" %}
+          {% endif %}
+        {% endif %}
+      </div>
+      {% include "partials/tabs.html" %}
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block tabs %}{% endblock %}
+{% block announce %}{% if config.extra.preview_banner %}<div class="anri-preview">Preview of a proposed MkDocs migration of access-nri.org.au &mdash; not the official website. Content copied from the live site on 2 Nov 2026; images are loaded from the live site.</div>{% endif %}{% endblock %}
+{% block hero %}{% if page and not page.is_homepage and not (page.meta and page.meta.hide_banner) %}<div class="anri-banner"{% if page.meta and page.meta.banner %} style="background-image:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),url('{{ page.meta.banner if page.meta.banner.startswith('http') else (page.meta.banner | url) }}')"{% endif %}><div class="anri-banner__in"><h1>{{ page.title }}</h1></div></div>{% endif %}{% endblock %}
+{% block extrahead %}{{ super() }}{% if page and page.meta and (page.meta.type or page.meta.date or page.meta.categories) %}<meta name="anri-cards" content="off">{% endif %}{% endblock %}

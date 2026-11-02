@@ -1,0 +1,22 @@
+- name: Dr. Heidi Nettelbeck
+  role: Team Leader, Atmosphere Model Team
+  photo: wp-content/uploads/2022/11/d6c0f005-e784-4783-a105-39163af9840e-300x300.png
+  profile: https://www.access-nri.org.au/person/heidi-nettelbeck/
+  slug: heidi-nettelbeck
+  email: heidi.nettelbeck@anu.edu.au
+- name: Dr. Paul Leopardi
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2023/08/Penguian-300x300.png
+  profile: https://www.access-nri.org.au/person/paul-leopardi-he-him/
+  slug: paul-leopardi-he-him
+  linkedin: https://www.linkedin.com/in/paul-leopardi-964b862/
+- name: Kieran Ricardo
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2022/10/image_Kieran-300x300.jpg
+  profile: https://www.access-nri.org.au/person/kieran-ricardo/
+  slug: kieran-ricardo
+- name: Spencer Wong
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2025/02/Spencer-Wong-e1753746989512-300x300.jpg
+  profile: https://www.access-nri.org.au/person/spencer-wong/
+  slug: spencer-wong

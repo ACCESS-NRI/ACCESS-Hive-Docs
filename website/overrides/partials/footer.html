@@ -1,0 +1,55 @@
+<div class="anri-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<footer class="md-footer anri-footer">
+  <div class="anri-footer__cols">
+    <section class="anri-col anri-col--cyan">
+      <h2>Contact us</h2>
+      <p><strong>Email</strong>: <a href="mailto:{{ config.extra.contact_email }}">{{ config.extra.contact_email }}</a></p>
+      <p><strong>Physical &amp; Mail Address</strong><br>
+        The Australian National University<br>Building 69, 5 Liversidge St.<br>ACTON ACT 2601 Australia</p>
+      <p><strong>Privacy</strong><br>ACCESS-NRI is hosted by the Australian National University (ANU) and as such abides by the
+        <a href="https://policies.anu.edu.au/ppl/document/ANUP_010007">ANU Privacy Policy</a>.</p>
+    </section>
+    <section class="anri-col anri-col--sky">
+      <h2>Funding</h2>
+      <p>ACCESS-NRI is enabled by the Australian Government through the National Collaborative Research Infrastructure Strategy, NCRIS.</p>
+      <a href="http://www.education.gov.au/ncris"><img class="anri-footer__ncris" alt="NCRIS" src="{{ 'wp-content/uploads/2026/07/NCRIS-20-Horizontal-300x157.png' | url }}"></a>
+    </section>
+    <section class="anri-col anri-col--blue">
+      <h2>Connect with us</h2>
+      <div class="anri-footer__icons">
+        <a class="anri-icon" href="https://forum.access-hive.org.au/" title="ACCESS-Hive Forum"><img src="{{ 'wp-content/themes/accessnri/images/icons/hive-forum.svg' | url }}" alt="ACCESS-Hive Forum"></a>
+        <a class="anri-icon" href="https://docs.access-hive.org.au" title="ACCESS-Hive Docs"><img src="{{ 'wp-content/themes/accessnri/images/icons/access-hive.svg' | url }}" alt="ACCESS-Hive Docs"></a>
+        <a class="anri-circle" href="https://www.linkedin.com/company/access-nri" title="LinkedIn">{% include ".icons/fontawesome/brands/linkedin-in.svg" %}</a>
+        <a class="anri-circle" href="https://bsky.app/profile/access-nri.bsky.social" title="Bluesky">{% include ".icons/fontawesome/brands/bluesky.svg" %}</a>
+        <a class="anri-circle" href="https://github.com/access-nri" title="GitHub">{% include ".icons/fontawesome/brands/github.svg" %}</a>
+      </div>
+    </section>
+    <section class="anri-col anri-col--green">
+      <h2>News and updates</h2>
+      <p>Subscribe to our contact list and receive our latest news and updates directly to your inbox.</p>
+      {#- Real Mailchimp list (same endpoint as the WordPress site). A plain HTML POST works on any static host; no JS needed. -#}
+      <form class="anri-form" action="{{ "#" if config.extra.preview_banner else config.extra.mailchimp_action }}" method="post" target="_blank" novalidate{% if config.extra.preview_banner %} onsubmit="return false" title="Disabled in the preview"{% endif %}>
+        <label>First Name<input type="text" name="FNAME"></label>
+        <label>Last Name<input type="text" name="LNAME"></label>
+        <label>Email *<input type="email" name="EMAIL" required></label>
+        <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2e82a242a5023d286ad0d4555_aed3bbbb13" tabindex="-1" value=""></div>
+        <button class="buttononblue" type="submit" name="subscribe">Subscribe</button>
+      </form>
+    </section>
+  </div>
+  <div class="anri-footer__ack">
+    <p>We at ACCESS-NRI acknowledge the Traditional Owners of the land on which our research infrastructure and community operate across Australia and pay our respects to Elders past and present. We recognise the thousands of years of accumulated knowledge and deep connection they have with all the Earth systems we simulate.</p>
+  </div>
+  <div class="anri-footer__partners">
+    <h2>Partner Organisations</h2>
+    <div class="partner-logos">
+      {% for p in config.extra.partners %}
+      <a href="{{ p.url }}" title="{{ p.name }}"><img src="{{ p.logo | url }}" alt="{{ p.name }}" loading="lazy"></a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="anri-footer__bottom">
+    <span>© 2026 ACCESS-NRI</span>
+    <span>Built with MkDocs Material · <a href="https://github.com/ACCESS-NRI/access-nri-website">Edit on GitHub</a></span>
+  </div>
+</footer>

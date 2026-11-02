@@ -1,0 +1,32 @@
+- name: Dr. Christopher Bull
+  role: Ocean Model Team Lead
+  photo: wp-content/uploads/2024/09/chris-head2-300x300.jpg
+  profile: https://www.access-nri.org.au/person/christopher-bull/
+  slug: christopher-bull
+  twitter: https://x.com/chrisbulloceano
+  email: chris.bull@anu.edu.au
+- name: Anton Steketee
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2023/10/b9f132e6-0b8d-4d2e-a0a9-e270a7ddc8e8-300x300.jpg
+  profile: https://www.access-nri.org.au/person/anton-steketee/
+  slug: anton-steketee
+  email: anton.steketee@anu.edu.au
+- name: Dr Dougie Squire
+  role: Principal Research Software Engineer
+  photo: wp-content/uploads/2022/10/Dougie_profile-300x300.jpg
+  profile: https://www.access-nri.org.au/person/dougie-squire/
+  slug: dougie-squire
+  twitter: https://twitter.com/DougieSquire
+- name: Dr. Ezhilsabareesh Kannadasan
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2023/10/linkedin-photo-003-Ezhil-300x300.png
+  profile: https://www.access-nri.org.au/person/dr-ezhilsabareesh-kannadasan/
+  slug: dr-ezhilsabareesh-kannadasan
+  linkedin: https://www.linkedin.com/in/ezhilsabareesh-kannadasan-94a535a1/
+  email: ezhilsabareesh.kannadasan@anu.edu.au
+- name: Minghang Li
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2023/12/minghang-e1703049125199-300x300.jpg
+  profile: https://www.access-nri.org.au/person/minghang-li/
+  slug: minghang-li
+  linkedin: https://www.linkedin.com/in/li-minghang

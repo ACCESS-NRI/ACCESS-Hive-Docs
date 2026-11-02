@@ -1,0 +1,21 @@
+name: verify-website-migration
+# Manual / weekly comparison of the live WordPress site (www.access-nri.org.au) against website/.
+# Uploads report/ as an artifact and prints the summary on the run page.
+on:
+  workflow_dispatch:
+  schedule: [{cron: "0 20 * * 0"}]
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements.txt -r website/requirements-verify.txt markdownify
+      - run: mkdocs build -f website/mkdocs.yml -d website/site
+        env: {DISABLE_MKDOCS_2_WARNING: "true"}
+      - run: python website/tools/verify_migration.py --live https://www.access-nri.org.au --built website/site --config website/mkdocs.yml --expected-missing website/tools/verify_expected_missing.txt --out report
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        with: {name: verify-report, path: report/}
+      - run: cat report/summary.md >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,61 @@
+0|/about/|About
+1|/about/aims/|Aims and Guiding Principles
+1|/about/partners-and-collaborators/|Partners and collaborators
+1|/about/access-nri-board/|ACCESS-NRI Board
+1|/about/scientific-advisory-committee-sac/|Scientific Advisory Committee (SAC)
+1|/community/access-nri-code-of-conduct/|Code of conduct
+1|/about/access-nri-strategic-plan-2022-2027/|ACCESS-NRI Strategic Plan (2022-2027)
+1|/contact/|Contact
+0|/teams/|Teams
+1|/teams/all-access-nri-teams/|All ACCESS-NRI teams
+1|/teams/executive-team/|Executive team
+1|/teams/atmosphere-model-team/|Atmosphere Model team
+1|/teams/business-team/|Business team
+1|/teams/data-management-team/|Data team
+1|/teams/ice-sheet-modelling-team/|Ice Sheet Modelling team
+1|/teams/land-surface-model-team/|Land Surface Model team
+1|/teams/model-evaluation-and-diagnostics-med-team/|Model Evaluation and Diagnostics (MED) team
+1|/teams/model-release-team/|Model Release team
+1|/teams/ocean-model-team/|Ocean Model team
+1|/teams/regional-coastal-ocean-modelling-team/|Regional and Coastal Ocean Modelling team
+1|/teams/software-transformation-team/|Software Transformation team
+1|/teams/user-training-team/|User Training team
+0|/models/|Models
+1|/models/access-cm/|Coupled Model (ACCESS-CM)
+1|/models/earth-system-model-esm/|Earth System Model (ACCESS-ESM)
+1|/models/access-om/|Ocean-sea ice Model (ACCESS-OM)
+1|/models/access-ram/|Regional Atmosphere Model (ACCESS-rAM)
+0|/impact/|Impact
+1|/impact/case-studies/|Case studies
+1|/impact/multimedia-gallery/|Multimedia gallery
+0||For users
+1|/join-the-access-community-v1/|Join the ACCESS Community
+1|/eoi-model-evaluation-and-dev/|Call for Expressions of Interest in Model Evaluation & Development
+1|/working-groups/|Community Working Groups (CWG)
+2|/working-groups/atmosphere/|Atmosphere
+2|/working-groups/cosima/|COSIMA (Ocean-Sea Ice Modelling)
+2|/working-groups/cryosphere/|Cryospheric Sciences
+2|/earth-system-modelling-working-group/|Earth System Modelling
+2|/land-surface-modelling-community-working-group/|Land Surface Modelling
+2|/working-groups/machine-learning/|Machine Learning for Climate and Weather
+1|/access-support-scheme/|User Support
+1|/access-nri-merit-allocation-guidelines/|ACCESS-NRI Merit Allocation Guidelines
+2|/access-nri-merit-allocations-for-reference-datasets/|ACCESS-NRI Merit Allocations for Reference Datasets
+1|/resources/user-reporting/|User Reporting
+1|/resources/acknowledging-us/|Acknowledging Us
+0||News & events
+1|/news-and-events/latest-news/|Latest news
+1|/category/in-conversation-with/|In conversation with
+1|/news-and-events/accesstory-newsletter/|ACCESStory newsletter
+1|/upcoming-events/|Upcoming events
+1|/access-community-workshops-2026/|ACCESS Community Workshops 2026
+2|/access-workshop-2026-connecting-machine-learning-to-earth-system-science/|ACCESS Workshop: Connecting Machine Learning to Earth System Science
+2|/access-community-workshop-on-land-and-coupled-modelling/|ACCESS Community Workshop on Land and Coupled Modelling
+2|/access-community-workshops-2026/cosima-cryosphere/|ACCESS COSIMA & Cryosphere Community Workshop
+0|/community/jobs/|Jobs
+1|/community/jobs/|Current Jobs
+1|/phd-internship-program/|ACCESS-NRI PhD Internship Program
+0|/resources/|Resources
+1|/resources/reports-and-brochures/|Reports and factsheets
+1|/community/access-glossary/|ACCESS glossary
+1|https://access-nri.github.io/cmip7-dashboard/|CMIP7 dashboard

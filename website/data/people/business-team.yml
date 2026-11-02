@@ -1,0 +1,26 @@
+- name: Victoria Allen
+  role: Business Manager
+  photo: wp-content/uploads/2023/08/Victoria-300x300.png
+  profile: https://www.access-nri.org.au/person/victoria-allen/
+  slug: victoria-allen
+  email: victoria.allen@anu.edu.au
+- name: Natalia Bateman
+  role: Outreach and Engagement Manager
+  photo: wp-content/uploads/2022/03/Natalia-Bateman-BW-square-300x300.jpg
+  profile: https://www.access-nri.org.au/person/natalia-bateman/
+  phone: 02 6125 5063
+  slug: natalia-bateman
+  linkedin: https://www.linkedin.com/in/natalia-bateman-a8968994/
+  email: natalia.bateman@anu.edu.au
+- name: Mohak Garg
+  role: Events officer
+  photo: wp-content/themes/accessnri/images/no-person-photo.png
+  profile: https://www.access-nri.org.au/person/mohak-garg/
+  slug: mohak-garg
+- name: Corey Hanrahan
+  role: Communications Officer
+  photo: wp-content/uploads/2025/05/Profile-Picture-Corey-Hanrahan-BW-scaled-e1750046005746-300x300.png
+  profile: https://www.access-nri.org.au/person/corey-hanrahan/
+  slug: corey-hanrahan
+  linkedin: https://www.linkedin.com/in/coreyhanrahan/
+  email: corey.hanrahan@anu.edu.au

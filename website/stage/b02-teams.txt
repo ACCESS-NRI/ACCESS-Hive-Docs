@@ -1,0 +1,536 @@
+=====PATH /teams/ | TITLE Teams | DESC ACCESS-NRI enables research and connects research software engineers and researchers through model development, support, and engagement. | DATE
+## What we do at ACCESS-NRI
+
+Computer models are the climate scientist’s equivalent of laboratory experiments, allowing researchers to explore the intricate dynamics of our planet’s climate system. These models, just like instruments in a laboratory, need continuous maintenance and support to ensure their outputs are reliable, reproducible, and replicable.
+
+Model development requires close collaboration between technical experts—who focus on computational methods and software engineering, and scientific experts—who provide the necessary domain knowledge in climate science and related fields.
+
+At ACCESS-NRI, we enable research and connect research software engineers and researchers through:
+
+- **Model development:** We work across all the different areas of ACCESS-NRI and engage with the different ACCESS Community Working Groups and international collaborators to co-design the models in response to the ACCESS community needs.
+- **Support for researchers:** Our team assists researchers in using these tools confidently and efficiently. We provide tools, documentation, training and direct expert technical support to researchers. The ACCESS Model is hosted at the [National Computational Infrastructure (NCI)](https://nci.org.au/) and we facilitate the use of NCI computational and storage resources for community members.
+- **Community engagement:** We provide an open platform for researchers to ask questions, share challenges and solve problems.
+
+Our team works on developing the next version of the ACCESS Model, which will then contribute to the models we will use for the current phase of the [Coupled Model Intercomparison Project (CMIP7)](https://wcrp-cmip.org/cmip-phases/cmip7/), an international climate modelling project that feeds major international reports on climate change.
+
+#### Engage with us
+
+We foster collaboration to build a better collective understanding of the Earth’s complex systems and improve the accuracy of our models and simulations.
+
+Our six ACCESS Community Working Groups hold meetings that are open to all, especially early-career researchers and students. Our main channel of engagement with the community is the [ACCESS-Hive Forum](https://forum.access-hive.org.au/), which is open to everyone. [Learn how to join the ACCESS Community Working groups and the discussion in the ACCESS-Hive Forum]({B}working-groups/).
+
+## ACCESS-NRI teams
+
+Staff members at ACCESS-NRI are grouped into teams, each with a particular focus. Find out more about each team by visiting the pages below:
+
+<div class="team-tiles" markdown="1">
+
+[![]({U}2025/09/ACCESS-Logo-Just-Planet-High-Resolution-300x300.png) All ACCESS-NRI teams]({B}teams/all-access-nri-teams/)
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Executive team]({B}teams/executive-team/)
+[![]({U}2022/03/ACCESS-icon-ATMOSPHERE-300x300.png) Atmosphere Model team]({B}teams/atmosphere-model-team/)
+[![]({U}2025/09/ACCESS-icon-ENGAGEMENT-e1756797322263-300x300.png) Business team]({B}teams/business-team/)
+[![]({U}2025/09/ACCESS-Logo-Just-Planet-High-Resolution-300x300.png) Data Management team]({B}teams/data-management-team/)
+[![]({U}2024/07/ACCESS-icon-LAND-ICE-300x300.png) Ice Sheet Modelling team]({B}teams/ice-sheet-modelling-team/)
+[![]({U}2022/03/ACCESS-icon-LAND-SURFACE-300x300.png) Land Surface Model team]({B}teams/land-surface-model-team/)
+[![]({U}2023/11/ACCESS-icon-EVALUATION-300x300.png) Model Evaluation and Diagnostics (MED) team]({B}teams/model-evaluation-and-diagnostics-med-team/)
+[![]({U}2025/09/ACCESS-icon-RELEASE-RGB-e1756786149391-300x300.png) Model Release team]({B}teams/model-release-team/)
+[![]({U}2022/03/ACCESS-icon-OCEAN-300x300.png) Ocean Model team]({B}teams/ocean-model-team/)
+[![]({U}2025/09/ACCESS-icon-REGION-COAST-RGB-300x300.png) Regional and Coastal Ocean Modelling team]({B}teams/regional-coastal-ocean-modelling-team/)
+[![]({U}2024/08/ACCESS-icon-SOFTWARE-e1756786553757-300x300.png) Software Transformation team]({B}teams/software-transformation-team/)
+[![]({U}2023/06/ACCESS-icon-TRAINING-300x300.png) User Training team]({B}teams/user-training-team/)
+
+</div>
+
+=====PATH /teams/all-access-nri-teams/ | TITLE All ACCESS-NRI teams | DESC This page provides an overview of all ACCESS-NRI team members on a single webpage and is intended to help match faces to names. | DATE
+This page provides an overview of all ACCESS-NRI team members on a single webpage. It is intended to help match faces to names and see the organisation at a glance. For more information about what ACCESS-NRI staff do, please visit the main [Teams webpage]({B}teams/).
+
+After the Executive team, each team is listed in alphabetical order by team name.
+
+## Executive team
+
+![Victoria Allen]({U}2023/08/Victoria-300x300.png)
+
+### Victoria Allen
+
+Business Manager
+
+[View Profile]({B}person/victoria-allen/)
+
+- [mailto:victoria.allen@anu.edu.au](mailto:victoria.allen@anu.edu.au)
+
+![Andy Hogg]({U}2022/03/andy-hogg-square-300x300.jpg)
+
+### Andy Hogg
+
+Director, ACCESS-NRI
+
+[View Profile]({B}person/andy-hogg/)
+
+- [https://www.linkedin.com/in/andy-hogg-251677337/](https://www.linkedin.com/in/andy-hogg-251677337/)
+- [mailto:Andy.Hogg@anu.edu.au](mailto:Andy.Hogg@anu.edu.au)
+
+![Kelsey Druken]({U}2022/07/Kelsey-Druken-300x300.png)
+
+### Kelsey Druken
+
+Associate Director, Release Management
+
+[View Profile]({B}person/kelsey-druken/)
+
+(02) 6125 2479
+
+- [https://www.linkedin.com/in/kelsey-druken-9081126a/](https://www.linkedin.com/in/kelsey-druken-9081126a/)
+- [mailto:kelsey.druken@anu.edu.au](mailto:kelsey.druken@anu.edu.au)
+
+![Martin Dix]({U}2022/08/Martin-Dix-BW-300x300.jpg)
+
+### Martin Dix
+
+Associate Director, Model Development
+
+[View Profile]({B}person/martin-dix/)
+
+- [mailto:Martin.Dix@anu.edu.au](mailto:Martin.Dix@anu.edu.au)
+
+## Atmosphere Model team
+
+![Dr. Heidi Nettelbeck]({U}2022/11/d6c0f005-e784-4783-a105-39163af9840e-300x300.png)
+
+### Dr. Heidi Nettelbeck
+
+Team Leader, Atmosphere Model Team
+
+[View Profile]({B}person/heidi-nettelbeck/)
+
+- [mailto:heidi.nettelbeck@anu.edu.au](mailto:heidi.nettelbeck@anu.edu.au)
+
+![Dr. Paul Leopardi]({U}2023/08/Penguian-300x300.png)
+
+### Dr. Paul Leopardi
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/paul-leopardi-he-him/)
+
+- [https://www.linkedin.com/in/paul-leopardi-964b862/](https://www.linkedin.com/in/paul-leopardi-964b862/)
+
+![Kieran Ricardo]({U}2022/10/image_Kieran-300x300.jpg)
+
+### Kieran Ricardo
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/kieran-ricardo/)
+
+![Spencer Wong]({U}2025/02/Spencer-Wong-e1753746989512-300x300.jpg)
+
+### Spencer Wong
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/spencer-wong/)
+
+## Business team
+
+![Victoria Allen]({U}2023/08/Victoria-300x300.png)
+
+### Victoria Allen
+
+Business Manager
+
+[View Profile]({B}person/victoria-allen/)
+
+- [mailto:victoria.allen@anu.edu.au](mailto:victoria.allen@anu.edu.au)
+
+![Natalia Bateman]({U}2022/03/Natalia-Bateman-BW-square-300x300.jpg)
+
+### Natalia Bateman
+
+Outreach and Engagement Manager
+
+[View Profile]({B}person/natalia-bateman/)
+
+02 6125 5063
+
+- [https://www.linkedin.com/in/natalia-bateman-a8968994/](https://www.linkedin.com/in/natalia-bateman-a8968994/)
+- [mailto:natalia.bateman@anu.edu.au](mailto:natalia.bateman@anu.edu.au)
+
+![Mohak Garg]({B}wp-content/themes/accessnri/images/no-person-photo.png)
+
+### Mohak Garg
+
+Events officer
+
+[View Profile]({B}person/mohak-garg/)
+
+![Corey Hanrahan]({U}2025/05/Profile-Picture-Corey-Hanrahan-BW-scaled-e1750046005746-300x300.png)
+
+### Corey Hanrahan
+
+Communications Officer
+
+[View Profile]({B}person/corey-hanrahan/)
+
+- [https://www.linkedin.com/in/coreyhanrahan/](https://www.linkedin.com/in/coreyhanrahan/)
+- [mailto:corey.hanrahan@anu.edu.au](mailto:corey.hanrahan@anu.edu.au)
+
+## Data team
+
+![Dr. Joshua Torrance]({U}2025/08/Joshua-Torrance-Square-BW-300x300.png)
+
+### Dr. Joshua Torrance
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/dr-joshua-torrance/)
+
+- [mailto:Joshua.Torrance@anu.edu.au](mailto:Joshua.Torrance@anu.edu.au)
+
+![Dr Peter Dobrohotoff]({U}2026/09/DSC_1916-BW-300x300.jpg)
+
+### Dr Peter Dobrohotoff
+
+Research scientist
+
+[View Profile]({B}person/dr-peter-dobrohotoff/)
+
+## Ice Sheet Modelling team
+
+![Dr. Mike Tetley]({U}2023/03/Mike_sm-BW-300x300.jpg)
+
+### Dr. Mike Tetley
+
+Team Lead, Ice Sheet Modelling
+
+[View Profile]({B}person/mike-tetley-he-him/)
+
+- [mailto:michael.tetley@anu.edu.au](mailto:michael.tetley@anu.edu.au)
+
+![Justin Kin Jun Hew]({U}2025/01/Justin-Hew-300x300.png)
+
+### Justin Kin Jun Hew
+
+Research Software Engineer
+
+[View Profile]({B}person/justin-kin-jun-hew/)
+
+![Dr Jordan Hill]({U}2026/06/Jordan-Hill-BW-300px.png)
+
+### Dr Jordan Hill
+
+Research Fellow in Earth System Modelling, Monash University
+
+[View Profile]({B}person/jordan-hill/)
+
+- [mailto:Jordan.Hill@monash.edu](mailto:Jordan.Hill@monash.edu)
+
+![Lawrence Bird]({U}2025/05/Lawrence-Bird-BW-300x300.png)
+
+### Lawrence Bird
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/lawrence-bird/)
+
+## Land Surface Model team
+
+![Dr. Claire Carouge]({U}2022/05/Claire-Carouge-BW-300x300.png)
+
+### Dr. Claire Carouge
+
+Team Leader, Land Surface Model Infrastructure
+
+[View Profile]({B}person/claire-carouge/)
+
+- [mailto:claire.carouge@anu.edu.au](mailto:claire.carouge@anu.edu.au)
+
+![Dr. Benjamin J. E. Schroeter]({U}2023/08/60bb2ebe-2799-448e-bf45-bf0e9cf63caa-300x300.jpg)
+
+### Dr. Benjamin J. E. Schroeter
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/ben-schroeter/)
+
+- [https://www.linkedin.com/in/bschroeter/](https://www.linkedin.com/in/bschroeter/)
+
+![Mr. Abhaas Goyal]({U}2024/01/Abhaas-scaled-e1705294323814-300x300.jpg)
+
+### Mr. Abhaas Goyal
+
+Research Software Engineer
+
+[View Profile]({B}person/mr-abhaas-goyal/)
+
+- [https://twitter.com/AbhaasGoyal](https://twitter.com/AbhaasGoyal)
+- [https://www.linkedin.com/in/abhaasgoyal/](https://www.linkedin.com/in/abhaasgoyal/)
+
+![Dr. Lachlan Whyborn]({U}2024/09/Untitled-design-300x300.png)
+
+### Dr. Lachlan Whyborn
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/dr-lachlan-whyborn/)
+
+- [mailto:lachlan.whyborn@anu.edu.au](mailto:lachlan.whyborn@anu.edu.au)
+
+## Model Evaluation and Diagnostics (MED) team
+
+![Dr. Romain Beucher]({U}2022/08/RomainPhoto-bw-300x300.jpg)
+
+### Dr. Romain Beucher
+
+Team Leader, Model Evaluation and Diagnostics
+
+[View Profile]({B}person/romain-beucher/)
+
+- [https://twitter.com/romain_beucher](https://twitter.com/romain_beucher)
+- [https://www.linkedin.com/in/rbeucher/](https://www.linkedin.com/in/rbeucher/)
+- [mailto:romain.beucher@anu.edu.au](mailto:romain.beucher@anu.edu.au)
+
+![Owen Kaluza]({U}2023/08/Owen_photo-300x300.jpg)
+
+### Owen Kaluza
+
+Senior Research Software Engineer, Visualisation Specialist
+
+[View Profile]({B}person/owen-kaluza/)
+
+![Rhaegar Zeng]({U}2023/02/Rhaegar-Zeng-BW-300x300.jpg)
+
+### Rhaegar Zeng
+
+Research Software Engineer
+
+[View Profile]({B}person/rhaegar-zeng/)
+
+- [https://www.linkedin.com/in/rhaegarzeng227{Q}original_referer{EQ}](https://www.linkedin.com/in/rhaegarzeng227{Q}original_referer{EQ})
+
+![Dr. Charles Turner]({U}2024/09/charles-e1726116201721-300x300.png)
+
+### Dr. Charles Turner
+
+Senior Research Software Engineer, Python Specialist
+
+[View Profile]({B}person/charles-turner/)
+
+- [mailto:charles.turner@anu.edu.au](mailto:charles.turner@anu.edu.au)
+
+![Felicity Chun]({U}2023/08/felicity-300x300.png)
+
+### Felicity Chun
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/felicity-chun/)
+
+## Model Release team
+
+![Aidan Heerdegen]({U}2022/07/Aidan-Heerdegen-bw.jpg)
+
+### Aidan Heerdegen
+
+Team Leader, Model Release
+
+[View Profile]({B}person/aidan-heerdegen/)
+
+- [https://www.linkedin.com/in/aidan-heerdegen](https://www.linkedin.com/in/aidan-heerdegen)
+- [mailto:aidan.heerdegen@anu.edu.au](mailto:aidan.heerdegen@anu.edu.au)
+
+![Harshula Jayasuriya]({U}2022/10/harshula-BW-300x300.jpg)
+
+### Harshula Jayasuriya
+
+Principal Research Software Engineer
+
+[View Profile]({B}person/harshula-jayasuriya/)
+
+![Tommy Gatti]({U}2023/08/7b946f15-7e3b-4207-af9f-8dc4285edf1a-300x300.jpg)
+
+### Tommy Gatti
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/tommy-gatti/)
+
+- [https://www.linkedin.com/in/tommy-gatti-398307135](https://www.linkedin.com/in/tommy-gatti-398307135)
+
+![Dr. Davide Marchegiani]({U}2022/10/Davide-BW-300x300.jpg)
+
+### Dr. Davide Marchegiani
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/davide-marchegiani/)
+
+- [https://www.linkedin.com/in/davide-marchegiani/](https://www.linkedin.com/in/davide-marchegiani/)
+- [mailto:davide.marchegiani@anu.edu](mailto:davide.marchegiani@anu.edu)
+
+![Jo Basevi]({U}2023/10/jo-scaled-e1697082469474-300x300.jpg)
+
+### Jo Basevi
+
+Research Software Engineer
+
+[View Profile]({B}person/johanna-basevi/)
+
+![Dr Qianhui Chen]({U}2026/01/Qianhui-Chen_BW-1200px-300x300.png)
+
+### Dr Qianhui Chen
+
+Research Software Engineer
+
+[View Profile]({B}person/qianhui-chen/)
+
+- [https://www.linkedin.com/in/qianhui-claire-chen-galaxy](https://www.linkedin.com/in/qianhui-claire-chen-galaxy)
+
+## Ocean Model team
+
+![Dr. Christopher Bull]({U}2024/09/chris-head2-300x300.jpg)
+
+### Dr. Christopher Bull
+
+Ocean Model Team Lead
+
+[View Profile]({B}person/christopher-bull/)
+
+- [https://x.com/chrisbulloceano](https://x.com/chrisbulloceano)
+- [mailto:chris.bull@anu.edu.au](mailto:chris.bull@anu.edu.au)
+
+![Anton Steketee]({U}2023/10/b9f132e6-0b8d-4d2e-a0a9-e270a7ddc8e8-300x300.jpg)
+
+### Anton Steketee
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/anton-steketee/)
+
+- [mailto:anton.steketee@anu.edu.au](mailto:anton.steketee@anu.edu.au)
+
+![Dr Dougie Squire]({U}2022/10/Dougie_profile-300x300.jpg)
+
+### Dr Dougie Squire
+
+Principal Research Software Engineer
+
+[View Profile]({B}person/dougie-squire/)
+
+- [https://twitter.com/DougieSquire](https://twitter.com/DougieSquire)
+
+![Dr. Ezhilsabareesh Kannadasan]({U}2023/10/linkedin-photo-003-Ezhil-300x300.png)
+
+### Dr. Ezhilsabareesh Kannadasan
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/dr-ezhilsabareesh-kannadasan/)
+
+- [https://www.linkedin.com/in/ezhilsabareesh-kannadasan-94a535a1/](https://www.linkedin.com/in/ezhilsabareesh-kannadasan-94a535a1/)
+- [mailto:ezhilsabareesh.kannadasan@anu.edu.au](mailto:ezhilsabareesh.kannadasan@anu.edu.au)
+
+![Minghang Li]({U}2023/12/minghang-e1703049125199-300x300.jpg)
+
+### Minghang Li
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/minghang-li/)
+
+- [https://www.linkedin.com/in/li-minghang](https://www.linkedin.com/in/li-minghang)
+
+## Regional and Coastal Ocean Modelling team
+
+![Dr. Helen Macdonald]({U}2024/09/Helen-300x300.jpg)
+
+### Dr. Helen Macdonald
+
+Team Lead, Regional & Coastal Ocean Modelling
+
+[View Profile]({B}person/helen-mcdonald/)
+
+## Software Transformation team
+
+![Dr. Micael Oliveira]({B}wp-content/themes/accessnri/images/no-person-photo.png)
+
+### Dr. Micael Oliveira
+
+Team Leader, Software Transformation
+
+[View Profile]({B}person/dr-micael-oliveira/)
+
+![Edward Yang]({U}2025/01/Edward-Yang-BW-300x300.jpg)
+
+### Edward Yang
+
+Senior Research Software Engineer
+
+[View Profile]({B}person/edward-yang/)
+
+![Manodeep Sinha]({U}2024/11/manodeep-sinha-profile-300x300.png)
+
+### Manodeep Sinha
+
+Principal Research Software Engineer
+
+[View Profile]({B}person/manodeep-sinha/)
+
+- [https://www.linkedin.com/in/manodeep/](https://www.linkedin.com/in/manodeep/)
+- [mailto:manodeep@gmail.com](mailto:manodeep@gmail.com)
+
+## User Training team
+
+![Dr. Paige Martin]({U}2022/10/PAige-headshot-300x300.jpg)
+
+### Dr. Paige Martin
+
+Team Leader, User Training
+
+[View Profile]({B}person/dr-paige-martin/)
+
+- [https://www.linkedin.com/in/paige-martin-phd/](https://www.linkedin.com/in/paige-martin-phd/)
+- [mailto:paige.martin@anu.edu.au](mailto:paige.martin@anu.edu.au)
+
+![Jasmeen Kaur]({U}2023/04/latest-headshot-Jasmeen-300x300.jpg)
+
+### Jasmeen Kaur
+
+Research Software Engineer, User Training Team
+
+[View Profile]({B}person/jasmeen-kaur/)
+
+- [https://www.linkedin.com/in/kaur-jasmeen1/](https://www.linkedin.com/in/kaur-jasmeen1/)
+
+=====PATH /teams/executive-team/ | TITLE Executive team | DESC Team members | DATE
+## Team members
+
+{{ team_cards("executive-team") }}
+
+=====PATH /teams/atmosphere-model-team/ | TITLE Atmosphere Model team | DESC The Atmosphere Model team focuses on the atmosphere component of ACCESS models to help researchers run and analyse their simulations. | DATE
+![]({U}2022/03/ACCESS-icon-ATMOSPHERE-150x150.png)
+
+## About the team
+
+The atmosphere and its processes are essential for life on Earth as we know it. Atmospheric modelling is crucial for understanding and predicting changes in the Earth’s weather and climate system.
+
+The atmosphere component in ACCESS models is the [Unified Model (UM)](https://www.metoffice.gov.uk/research/approach/modelling-systems/unified-model/index) from the [UK Met Office](https://www.metoffice.gov.uk/), which caters to both weather and climate applications across a wide range of temporal and spatial scales. This model integrates with land, ocean, and sea-ice components to deliver accurate weather forecasts and climate projections.
+
+Our team focuses on the atmosphere component of ACCESS models by developing software infrastructure to help researchers run their simulations and effectively analyse them.
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to reach out or attend our monthly [Atmosphere Working Group]({B}working-groups/atmosphere/), which is open to everyone, especially early-career researchers and students. Together, we can enhance our understanding of the atmosphere and its critical role in our planet’s climate system.
+
+## Team members
+
+{{ team_cards("atmosphere-model-team") }}
+
+=====PATH /teams/business-team/ | TITLE Business team | DESC Team members | DATE
+## Team members
+
+{{ team_cards("business-team") }}
+
+=====PATH /teams/data-management-team/ | TITLE Data team | DESC Team members | DATE
+## Team members
+
+{{ team_cards("data-management-team") }}

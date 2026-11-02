@@ -1,0 +1,813 @@
+=====PATH /news-and-events/accesstory-newsletter/ | TITLE ACCESStory newsletter | DESC ACCESStory is ACCESS-NRI's newsletter, and includes updates, events, releases, publications and reports for the ACCESS community. | DATE
+![]({U}2024/11/ACCESStoryHEADER-300x169.png)
+
+## About ACCESStory
+
+*ACCESStory* is ACCESS-NRI’s monthly, community-driven newsletter. It includes news, opportunities, publications, and events relevant to the ACCESS community. The newsletter also highlights the latest ACCESS-NRI releases for software, tools, data and training materials.
+
+Read the most recent *ACCESStory* newsletter below:
+
+[**ACCESStory: Issue 23 – September 2026**](https://mailchi.mp/0eec276644e0/accesstory-issue-23-september){ .buttononblue }
+
+#### Subscribe
+
+Receive ACCESS-NRI newsletters and updates directly to your inbox by [subscribing here](https://access-nri.us14.list-manage.com/subscribe{Q}u{EQ}2e82a242a5023d286ad0d4555&id{EQ}aed3bbbb13) or filling in the “News and updates” fields at the bottom of this webpage. Please note that ACCESS-NRI is hosted by the Australian National University (ANU) and abides by the [ANU Privacy Policy](https://policies.anu.edu.au/ppl/document/ANUP_010007).
+
+#### Contribute
+
+*ACCESStory* is a community-driven newsletter, and we welcome your contributions. If you have something that other members of the ACCESS community would find relevant, send us an email at [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+Content that you could submit includes:
+
+- news or updates from ACCESS-NRI partners, Community Working Groups, or related projects
+- recent papers that use ACCESS models, tools, or data
+- jobs or events relevant to climate/weather science or modelling
+- any other content relevant to the ACCESS community.
+
+---
+
+## Past issues
+
+From Issue 15, *ACCESStory* includes the updates previously published in the now-discontinued *Release and Training News* newsletter. Past issues of both newsletters can be found below.
+
+#### ACCESStory
+
+- [ACCESStory: Issue 22 – July 2026](https://mailchi.mp/d7822aef3766/accesstory-issue-22-july-2026)
+- [ACCESStory: Issue 21 – June 2026](https://mailchi.mp/983a91ea0df7/accesstory-issue-21-june-2026)
+- [ACCESStory: Issue 20 – May 2026](https://mailchi.mp/9fa505c354be/accesstory-issue-20-may-2026)
+- [ACCESStory: Issue 19 – March 2026](https://mailchi.mp/a891b8d850c3/accesstory-issue-19-march-2026)
+- [ACCESStory: Issue 18 – February 2026](https://mailchi.mp/a957c7e4ad99/accesstory-issue-18-february-2026)
+- [ACCESStory: Issue 17 – December 2025](https://mailchi.mp/d3610f6a1b21/accesstory-issue-17-december-2025)
+- [ACCESStory: Issue 16 – November 2025](https://mailchi.mp/8646828966f5/accesstory-issue-16-november-2025)
+- [ACCESStory: Issue 15 – October 2025](https://mailchi.mp/0b613cdfe195/34mgtvw31l)
+- [ACCESStory: Issue 14 – July 2025](https://mailchi.mp/82511dd88517/accesstory-the-e-newsletter-for-australias-climate-simulator)
+- [ACCESStory: Issue 13 – May 2025](https://mailchi.mp/d28525bed9ab/accesstory-issue-13-may-10335564)
+- [ACCESStory: Issue 12 – February 2025](https://mailchi.mp/0ae781f03873/accesstory-issue-12-february-2025)
+- [ACCESStory: Issue 11 – December 2024](https://mailchi.mp/587994f1b48d/accesstory-issue-11-december)
+- [ACCESStory: Issue 10 – November 2024](https://mailchi.mp/03cbdb7dd7c8/accesstory-issue-10-november-10330519)
+- [ACCESStory: Issue 9 – August 2024](https://mailchi.mp/6bcbf0282ff9/accesstory-issue-9-august-2024)
+- [ACCESStory: Issue 8 – May 2024](https://mailchi.mp/96db986fc477/accesstory-issue-8-may)
+- [ACCESStory: Issue 7 – February 2024](https://mailchi.mp/352b14ef2917/accesstory-issue-7-february-2024)
+- [ACCESStory: Issue 6 – November 2023](https://mailchi.mp/75ac0962217c/accesstory-issue-6-november-9395433)
+- [ACCESStory: Issue 5 – August 2023](https://mailchi.mp/b43fb3963a0c/accesstory-issue-5-august-9380569)
+- [ACCESStory: Issue 4 – June 2023](https://mailchi.mp/075004de6846/accesstory-issue-4-june-2023)
+- [ACCESStory: Issue 3 – March 2023](https://mailchi.mp/1346de515ca7/accesstory-issue-3-9353817)
+- [ACCESStory: Issue 2 – November 2022](https://mailchi.mp/5e30c00fcc32/accesstory-issue-2-november-9326242)
+- [ACCESStory: Issue 1 – September 2022](https://mailchi.mp/ababb7c25e36/accesstory-issue-1-september-2022)
+
+#### Release and Training News
+
+- [Release and Training News: Issue 4 – December 2024](https://mailchi.mp/dbad83e51942/release-news-issue-4-december)
+- [Release and Training News: Issue 3 – August 2024](https://mailchi.mp/3f9d13c8d2f5/release-news-issue-3-august-2024)
+- [Release and Training News: Issue 2 – April 2024](https://mailchi.mp/a3e180398e55/release-news-issue-2-april)
+- [Release and Training News: Issue 1 – January 2024](https://mailchi.mp/c4458ac61ab5/release-news-issue-1-january)
+
+=====PATH /access-community-workshops-2026/ | TITLE ACCESS Community Workshops 2026 | DESC ACCESS-NRI is supporting three smaller, targeted ACCESS Community Workshops this year, each organised by two Community Working Groups. | DATE
+As decided at the 2025 ACCESS Community Workshop, ACCESS-NRI is supporting three smaller, targeted ACCESS Community Workshops this year, each organised by two of the ACCESS Community Working Groups. Everyone is welcome to each of these workshops. In 2027, we will once again hold one combined ACCESS Community Workshop.
+
+In 2026, the three workshops are:
+
+---
+
+#### ACCESS COSIMA & Cryosphere Community Workshop
+
+![ACCESS COSIMA & Cryosphere Workshop, Nipaluna/Hobart, 16–20 November, 2026]({U}2026/05/COSIMA-Cryosphere-Workshop-2026-Post-3200x1800-1-1024x576.png)
+
+**When:** 16–20 November 2026
+**Where:** Nipaluna/Hobart, Australia
+
+This workshop aims to facilitate community connection and genuine collaboration between the cryospheric sciences and ocean/sea ice modelling and observational communities. It is organised by the [COSIMA]({B}working-groups/cosima/) and [Cryospheric Sciences]({B}working-groups/cryosphere/) Community Working Groups.
+
+**Extended registrations close Wednesday 4 November!**
+
+[Workshop webpage]({B}access-community-workshops-2026/cosima-cryosphere/){ .buttononblue } [Register](https://events.humanitix.com/access-cosima-cryosphere-workshop){ .buttononblue } [Program]({B}access-community-workshops-2026/cosima-cryosphere/program/){ .buttononblue }
+
+---
+
+#### ACCESS Community Workshop on Land and Coupled Modelling
+
+![]({U}2026/06/Land-and-Global-Workshop-2026-Website3-300x169.png)
+
+**When:** 31 August – 2 September, 2026
+**Where:** Naarm/Melbourne, Australia
+
+This workshop aims to strengthen the ACCESS research community, improve ACCESS modelling capability, and support the ACCESS CMIP7 submission. It is organised by the [Land Surface Modelling]({B}land-surface-modelling-community-working-group/) and [Earth System Modelling]({B}earth-system-modelling-working-group/) Community Working Groups.
+
+[Workshop webpage]({B}access-community-workshop-on-land-and-coupled-modelling/){ .buttononblue }
+
+---
+
+#### ACCESS Community Workshop Connecting Machine Learning to Earth System Science
+
+![]({U}2026/06/Machine-Learning-Workshop-2026-Website1-300x169.png)
+
+**When:** 19–21 August, 2026
+**Where:** Naarm/Melbourne, Australia
+
+This workshop aims to bridge the gap between the vast amounts of complex data generated by Earth system sciences and the powerful new machine learning tools. It is organised by the [Machine Learning for Weather and Climate]({B}working-groups/machine-learning/) and [Atmosphere]({B}working-groups/atmosphere/) Community Working Groups, and will include a day of meetings for both working groups.
+
+[Workshop webpage]({B}access-workshop-2026-connecting-machine-learning-to-earth-system-science/){ .buttononblue }
+
+---
+
+We encourage everyone to attend, especially students and early career researchers.
+
+For more information, contact our team at [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+=====PATH /access-workshop-2026-connecting-machine-learning-to-earth-system-science/ | TITLE ACCESS Workshop: Connecting Machine Learning to Earth System Science, 19-21 August 2026 | DESC This ACCESS Workshop is designed to bridge the gap between Machine Learning and Earth system science. | DATE
+Quick links: [About](#About) | [Key dates](#Key-dates) | [Program](#Program) | [Location](#Location) | [Presenting at the Workshop](#Presentations) | [Program Committee members](#Program-committee) | [Other information](#Information)
+
+**The full program has been released:**
+
+[Program]({B}access-workshop-2026-connecting-machine-learning-to-earth-system-science/workshop-program-ml-to-esm2026/){ .buttononblue }
+
+---
+
+## About { #About }
+
+The ACCESS Community Workshop Connecting Machine Learning to Earth System Science will be held in Melbourne, on the traditional lands of the Wurundjeri Woi Wurrung people of the Kulin Nation on 19–21 August 2026.
+
+Weather extremes, climate shifts, and Earth system dynamics generate vast amounts of complex data, and making sense of it all is one of the great scientific challenges of our time. Machine learning (ML) offers powerful new tools to tackle this challenge, yet the communities developing these methods and those grappling with the science don’t always speak the same language.
+
+This workshop is designed to bridge that gap. Whether you’re an ML researcher eager to apply ML methods to real-world problems, or an Earth system scientist working across weather, climate, atmosphere, oceans, sea-ice, or beyond, looking for ways to address open questions in your field, this is your space to connect, learn, and collaborate.
+
+The workshop is supported by Australia’s climate simulator (ACCESS-NRI), and co-organised by the [Machine Learning for Weather and Climate]({B}working-groups/machine-learning/) and [Atmosphere]({B}working-groups/atmosphere/) Community Working Groups. This webpage will be regularly updated in the lead-up to the event.
+
+#### Aims of the workshop
+
+- Facilitate communication and collaboration between members of the ML and physical science communities, by sharing with each other latest machine learning tools, and key open problems in weather, climate, and Earth system physics.
+- Deliver training sessions on community requested ML approaches and/or fundamental science.
+- Aim to develop a community white paper articulating challenges and opportunities in the adoption of ML for solving archetypal problems in weather and climate, specific to the Australian region.
+
+#### Who could benefit from participating?
+
+- Anyone from the machine learning (ML) community looking to promote their latest methods to the community, and learn about key problems in weather and climate within the Earth system sciences.
+- Anyone from the physical science communities (i.e. weather, climate, atmosphere, ocean, sea-ice, land, bio-geo-chemistry, etc.), looking to communicate key open questions in their own lines of research, and identify how potential ML approaches may assist.
+- Students, early-mid career researchers, senior researchers, research software engineers and practitioners are all welcome.
+
+Please note that specific community working group (CWG) days will be arranged for the ACCESS-NRI [Machine learning for climate and weather CWG]({B}working-groups/machine-learning/), and [Atmosphere Modelling CWG]({B}working-groups/atmosphere/).
+
+## Key dates { #Key-dates }
+
+The key dates for the ACCESS Workshop: Connecting Machine Learning to Earth System Science are:
+
+- **13 April:** Abstract submissions open
+- **22 May:** Registrations open
+- **25 May:** Abstract submissions close
+- **July:** Final program available
+- **July 31 (COB):** Registrations close
+
+The cost of the Workshop registration is AUS$150 (exc GST)
+
+---
+
+## Location { #Location }
+
+The Workshop will be hosted at the Angliss Institute, 555 La Trobe St, Melbourne VIC 3000
+
+---
+
+## Program { #Program }
+
+The Workshop program is now available:
+
+[Workshop program]({B}access-workshop-2026-connecting-machine-learning-to-earth-system-science/workshop-program-ml-to-esm2026/)
+
+In addition to the planned program, we have spaces available for people interested on having small discussion sessions, which could be organised during the Workshop.
+
+---
+
+![]({U}2026/02/DSC00688-300x200.jpg)
+
+## Presenting at the workshop { #Presentations }
+
+Presenting at the workshop? Check out our [oral presentations and posters guidelines.]({B}access-community-workshop-machine-learning-2026-presentations-and-poster-guidelines/)
+
+#### Student and Early Career Researcher (ECR) Travel scholarships
+
+This scholarship is designed to assist with travel expenses for workshop attendees. As such, eligibility is limited to those traveling from **outside Melbourne** to attend the event, but you are required to give a 15 minute presentation or poster+lightning talk (if you are a student) or a 15 minute presentation (if you are an ECR) and to register to the Workshop. Please contact access.nri@anu.edu.au if you require more information.
+
+---
+
+## Program Committee members { #Program-committee }
+
+The ACCESS-NRI team would like to thank the members of the Workshop Program Committee for their valuable contributions and time:
+
+- Vassili Kitsios, **Chair** (CSIRO)
+- Yiyi Guo (University of Melbourne)
+- Tennessee Leeuwenburg (Bureau of Meteorology)
+- Paul Leopardi (ACCESS-NRI)
+- Heidi Nettelbeck (ACCESS-NRI)
+- Steven Sherwood (University of New South Whales)
+- Christian Stassen (Bureau of Meteorology)
+- Yue Sun (National Computational Infrastructure)
+- Edward Yang (ACCESS-NRI)
+
+Communications and organisation:
+
+- Natalia Bateman (ACCESS-NRI)
+- Victoria Allen (ACCESS-NRI)
+
+---
+
+## Other information { #Information }
+
+#### Accessibility
+
+We are committed to making this event accessible to everyone. If there any specific access requirements that we can provide to enable you to attend, please contact us at: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+#### Covid-safe plan
+
+![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png)
+
+We acknowledge COVID-19 still active in the community. Check out our efforts to minimise the risk of SARS CoV-2 infection in all our events: [ACCESS-NRI COVID Safe Plan]({U}2026/06/COVID-Safe-Plan-Updated-2026.pdf)
+
+This plan was prepared with advice from aerosol expert Professor Robyn Schofield from the [University of Melbourne](https://www.unimelb.edu.au/) and member of the ACCESS-NRI Board and [OzSage](https://ozsage.org/).
+
+#### Contact
+
+If you have any questions, please direct them to: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+**Please note that this event may be recorded and published by the ACCESS-NRI through its communication channels. This may include your contributions during the sessions.**
+
+=====PATH /access-community-workshop-on-land-and-coupled-modelling/ | TITLE ACCESS Community Workshop on Land and Coupled Modelling, 31 Aug-2 Sep 2026 | DESC The ACCESS Community Workshop on Land and Coupled Modelling, 31 August - 2 September 2026, Melbourne. | DATE
+Quick links: [Key dates](#Key-dates) | [About](#About) | [Program](#Program) | [Location](#Location) | [Presenting at the Workshop](#Presentations) | [Program Committee members](#Program-committee) | [Other information](#Information)
+
+<a id="Key-dates"></a>
+
+**The full program has now been released:**
+
+[Program]({B}access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/){ .buttononblue }
+
+Registrations are now closed.
+
+The key dates for the ACCESS Community Workshop on Land and Coupled Modelling are:
+
+- **5 May:** Abstract submissions open
+- **15 June (midnight, AEST):** Abstract submissions close
+- **Late June:** Registrations open
+- **Early August:** Final program available
+- **19 August:** Registrations close
+
+---
+
+## About the workshop { #About }
+
+#### Aims of the workshop
+
+**Strengthening the ACCESS research community, by:**
+
+- Fostering connections and collaboration across community working groups and ACCESS-NRI
+- Supporting student and Early Career Researchers (ECR) participation
+- Providing training on the latest modelling and evaluation tools available.
+
+**Improving ACCESS modelling capability, by:**
+
+- Sharing the latest research and findings on earth system/climate and land modelling by the ACCESS community
+- Discussing priority areas for future development.
+
+**Supporting the ACCESS CMIP7 submission, by:**
+
+- Supporting community involvement in CMIP7 evaluation
+- Support and help coordinate community publications in the lead up to the IPCC AR7 report
+- Running hackathons on ACCESS-ESM1.6 evaluation for the CMIP7 Fast Track and ACCESS-CM3 model development/evaluation.
+
+---
+
+## Themes of the Workshop
+
+**Coupled modelling**
+
+- Uses of Earth System Models versus Climate Models
+- Response of the Earth system to externally forced changes
+- Ocean-atmosphere-ice interactions
+- Tropical climate variability and change (e.g. double ITCZ, El Niño Southern Oscillation, tropical Pacific SST trends)
+- Representation of convection and deep ocean circulation at high latitudes
+- Pathway towards high resolution coupled modelling with ACCESS.
+
+**Land modelling:**
+
+- Treatment of the carbon cycle in land models
+- Latest developments in soil moisture and energy dynamics
+- Characterisation and behaviour of Australian vegetation
+- Modelling urban environments
+- Land-atmosphere interactions.
+
+**CMIP7:**
+
+- State of the CMIP7 Fast Track submission (ACCESS-ESM1.6). Spin-up, scenarios and evaluation
+- Latest developments in ACCESS-CM3, ACCESS-AM3, ACCESS-OM3 and progress towards ACCESS-ESM3
+- Understanding, attribution and projections using CMIP7 Fast Track experiments: from Australasia to global
+- Use of the Rapid Evaluation Framework for CMIP7 evaluation & research
+- New emission-driven scenarios including net zero and overshoots.
+
+We are planning to run two parallel **hackathons** on the final day of the workshop (Wednesday 2 September):
+
+1. **Analysis of ACCESS models under development** *The purpose of this session is to analyse and evaluate the next generation of global ACCESS models, including ACCESS-ESM1.6, ACCESS-CM3 and ACCESS-AM3.* The analysis from this hackathon will help guide ongoing model development and will feed into future model evaluation papers. Members of the community will present existing analyses for these models, and will discuss which analyses are missing and ways to improve the existing feedback. Afterwards, feedback and points raised will be actioned. This means working together to create new visualisations by updating or creating new analysis scripts, determining which configuration changes are required to make the requested data available and identify any new experiments which should be prioritised.
+2. **CMIP7 fast-track analysis** *The purpose of this session is to support the community in developing publications that can support the IPCC AR7 report, due to be submitted to journals by approximately April 2027. Project leaders will self-organise this part of the hackathon.* This session will provide a forum collaboration on CMIP7 fast-track paper submissions, including analysis of all models available at the time (including ACCESS-ESM1.6)
+
+Note: Any pre-workshop requirements will be communicated closer to the workshop date. This may include information on data locations, example datasets/content, and any other preparation participants may need to complete beforehand.
+
+---
+
+#### Who could benefit from participating?
+
+All the ACCESS Community, especially those researchers interested in land surface and Earth system modelling. We strongly encourage Early Career Researchers (ECRs) and students to attend. We are offering travel scholarships to support students and ECRs **presenting at the Workshop** and travelling from **outside Melbourne**. The application process for these will be announced later to all students and ECRs who submit an abstract.
+
+---
+
+## Location { #Location }
+
+This year, the ACCESS Community Workshop will be held in Melbourne, on the traditional lands of the Wurundjeri Woi Wurrung people of the Kulin Nation.
+
+Address: Angliss Institute, 555 La Trobe St, Melbourne VIC 3000
+
+Join us for three exciting days of events from 31 August – 2 September 2026.
+
+---
+
+## Program { #Program }
+
+[![]({U}2024/05/ACCESS-icon-PUBLICATIONS-300x300.png) Program]({B}access-community-workshop-on-land-and-coupled-modelling/workshop-program-for-land-and-coupled-modelling-2026/)
+
+---
+
+![]({U}2026/02/DSC00688-300x200.jpg)
+
+## Presenting at the workshop { #Presentations }
+
+Presenting at the workshop? Check out our [oral presentations and posters guidelines]({B}access-workshop-on-land-and-coupled-modelling-oral-presentations-and-poster-guidelines/).
+
+---
+
+## Program Committee members { #Program-committee }
+
+The ACCESS-NRI team would like to thank the members of the Workshop Program Committee for their valuable contributions and time:
+
+- Lachlan Whyborn, **Chair** (ACCESS-NRI)
+- Wilma Huneke (Monash University)
+- Zoe Gillett (Bureau of Meteorology)
+- Alex Norton (CSIRO)
+- Julie Arblaster (Monash University)
+- Spencer Wong (ACCESS-NRI)
+- Himadri Saini (University of Melbourne)
+- Aditya Sengupta (University of Melbourne)
+
+Communications and organisation:
+
+- Natalia Bateman (ACCESS-NRI)
+- Victoria Allen (ACCESS-NRI)
+
+---
+
+## Other information { #Information }
+
+If you have any questions, please direct them to: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+We are committed to making this event accessible to everyone. If there any specific access requirements that we can provide to enable you to attend, please contact us at: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+#### Covid-safe plan
+
+![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png)
+
+We acknowledge COVID-19 still active in the community. Check out our efforts to minimise the risk of SARS CoV-2 infection in all our events: [ACCESS-NRI COVID Safe Plan]({U}2026/06/COVID-Safe-Plan-Updated-2026.pdf)
+
+This plan was prepared with advice from aerosol expert Professor Robyn Schofield from the [University of Melbourne](https://www.unimelb.edu.au/) and member of the ACCESS-NRI Board and [OzSage](https://ozsage.org/).
+
+**Please note that this event may be recorded and published by the ACCESS-NRI through its communication channels. This may include your contributions during the sessions.**
+
+=====PATH /access-community-workshops-2026/cosima-cryosphere/ | TITLE ACCESS COSIMA & Cryosphere Community Workshop | DESC This workshop aims to facilitate community connection and genuine collaboration between the COSIMA and cryospheric sciences communities. | DATE
+Quick links: [About](#About) | [Key dates](#Key-dates) | [Program](#Program) | [Location](#Location) | [Presentations](#Presentations) | [Committee](#Committee) | [Other information](#Information)
+
+**Extended registrations close Wednesday 4 November!**
+
+[Register here](https://events.humanitix.com/access-cosima-cryosphere-workshop){ .buttononblue }
+
+**The full workshop program is now available:**
+
+[Full program]({B}access-community-workshops-2026/cosima-cryosphere/program/){ .buttononblue }
+
+---
+
+## About { #About }
+
+**The *ACCESS COSIMA & Cryosphere Community Workshop* will be held in Nipaluna/Hobart on 16–20 November, 2026.**
+
+The workshop is supported by Australia’s climate simulator (ACCESS-NRI), and co-organised by the [COSIMA]({B}working-groups/cosima/) and [Cryospheric Sciences]({B}working-groups/cryosphere/) Community Working Groups. This webpage will be regularly updated in the lead-up to the event.
+
+#### Aims
+
+This workshop aims to facilitate community connection and genuine collaboration between the cryospheric sciences and ocean/sea ice modelling and observational communities, by:
+
+1. building shared knowledge, tools, and workflows, and identifying common scientific questions and goals
+2. providing a forum that is inclusive and welcoming for all, especially students and early career researchers
+3. hosting a range of activities including scientific talks, posters, hackathons, and working group meetings.
+
+---
+
+## Key dates { #Key-dates }
+
+The key dates for the *ACCESS COSIMA & Cryosphere Community Workshop* are:
+
+- **July:** Abstract submissions open
+- **Late July:** Registrations open
+- **7 August @ 5 pm (AEST):** Abstract submissions close
+- **14 August @ 5 pm (AEST):** Extended abstract submissions close
+- **October 23:** Final program available
+- **October 28 @ 5 pm (AEDT):** Registrations close
+
+---
+
+## Program { #Program }
+
+The full workshop program is now available:
+
+[Full program]({B}access-community-workshops-2026/cosima-cryosphere/program/){ .buttononblue }
+
+The COSIMA and Cryospheric Sciences Community Working Groups will run a combined science day and dinner on Wednesday, 18 November. Each working group will host separate science days, hackathons and social activities for the remainder of the workshop. The broad program overview is shown below.
+
+| Date | Time | Description |
+| --- | --- | --- |
+| Mon 16 Nov | Afternoon | [Hackathon (2 streams)]({B}access-community-workshops-2026/cosima-cryosphere/program/#MondayHackathon) |
+| Tue 17 Nov | All day | [Hackathon (2 streams)]({B}access-community-workshops-2026/cosima-cryosphere/program/#TuesdayHackathon) |
+| Tue 17 Nov | Evening | COSIMA social activity, Cryosphere social activity |
+| Wed 18 Nov | All day | [Shared Science Day]({B}access-community-workshops-2026/cosima-cryosphere/program/#WednesdayShared) |
+| Wed 18 Nov | Evening | Workshop dinner |
+| Thu 19 Nov | All day | [COSIMA Science day]({B}access-community-workshops-2026/cosima-cryosphere/program/#ThursdayCOSIMA), [Cryosphere Science Day]({B}access-community-workshops-2026/cosima-cryosphere/program/#ThursdayCryosphere) |
+| Fri 20 Nov | Morning | [COSIMA Science day]({B}access-community-workshops-2026/cosima-cryosphere/program/#FridayCOSIMA) |
+
+---
+
+## Location { #Location }
+
+The *ACCESS COSIMA & Cryosphere Community Workshop* will be primarily hosted at CSIRO Hobart, although some sessions may take place at the University of Tasmania’s Institute for Marine and Antarctic Studies (IMAS), a short walk away.
+
+**CSIRO** (blue): [Castray Esplanade, Battery Point TAS 7004](https://maps.app.goo.gl/U5RhXw9BKJ5TwBVu5)
+**IMAS** (green): [20 Castray Esplanade, Battery Point TAS 7004](https://maps.app.goo.gl/ySKti16hNu1YM2WQ8)
+
+<iframe src="https://www.google.com/maps/d/embed{Q}mid{EQ}1ZZW9AOSRvWUN6u8INr5Y5p4Ds4rksQI&ehbc{EQ}2E312F" width="100%" height="480" loading="lazy" title="Workshop venue map"></iframe>
+
+---
+
+## Presentations { #Presentations }
+
+The workshop science days will contain two main presentation types:
+
+- Talks (10 min talk + 5 min questions)
+- Posters (A0 poster, and 1 min lightning talk)
+
+These presentations will occur either on the Combined Science Day (Wed), Cryosphere Science Day (Thu) or COSIMA Science Days (Thu/Fri).
+
+#### Talks
+
+Most talks will be 10 minutes in duration followed by 5 minutes of questions. Some talk submissions may be offered a longer keynote session, which will be 20 minutes in duration followed by 10 minutes of questions.
+
+Slides for talks must be provided in PowerPoint (.pptx) or PDF (.pdf) format and **must be received by 5 pm (AEDT) on Thursday 12 November**. A Dropbox link will be distributed to presenters.
+
+#### Posters
+
+Posters should be an A0 size, in portrait orientation, and must be printed by the presenter and brought to the workshop for display. Poster presenters must attend their poster session and will also provide a 1-minute lightning talk.
+
+Lightning talks may only have a single presentation slide. Creativity is encouraged – the idea of the lightning talks is to introduce your poster in a 1-minute/1-slide presentation, to encourage longer discussions in front of your poster during the poster sessions.
+
+The presentation slide for lightning talks must be provided in PowerPoint (.pptx) or PDF (.pdf) format *without animations* and **must be received by 5 pm (AEDT) on Thursday 12 November**. A Dropbox link will be distributed to presenters.
+
+---
+
+## Committee { #Committee }
+
+ACCESS-NRI would like to thank the members of the workshop program and organising committee for their time and valuable contributions:
+
+- [Hannah Dawson](https://discover.utas.edu.au/Hannah.Dawson), **Chair** (University of Tasmania)
+- [John Reilly](https://www.researchgate.net/profile/John-Reilly-27), **Minutes** (University of Tasmania)
+- [Chris Bull]({B}person/christopher-bull/) (ACCESS-NRI)
+- [Jordan Hill](https://research.monash.edu/en/persons/jordan-hill/) (Monash University)
+- [Lenneke Jong](https://discover.utas.edu.au/Lenneke.Jong) (University of Tasmania)
+- [Felicity McCormack](https://research.monash.edu/en/persons/felicity-mccormack/) (Monash University)
+- [Adele Morrison](https://earthsciences.anu.edu.au/people/dr-adele-morrison) (Australian National University)
+- [Mike Tetley]({B}person/mike-tetley-he-him/) (ACCESS-NRI)
+
+ACCESS-NRI communications and organisation:
+
+- [Victoria Allen]({B}person/victoria-allen/) (ACCESS-NRI)
+- [Corey Hanrahan]({B}person/corey-hanrahan/) (ACCESS-NRI)
+
+---
+
+## Other information { #Information }
+
+*Please note that this event may be recorded and published by the ACCESS-NRI through its communication channels. This may include your contributions during the sessions.*
+
+#### Accessibility
+
+We are committed to making this event accessible to everyone. If there are any specific access requirements that we can provide to enable you to attend, please contact us.
+
+ACCESS-NRI acknowledges that COVID-19 is still active in the community. Check out our efforts to minimise the risk of SARS CoV-2 infection in all our events: [ACCESS-NRI COVID Safe Plan]({U}2026/06/COVID-Safe-Plan-Updated-2026.pdf). This plan was prepared with advice from aerosol expert Professor Robyn Schofield, from the University of Melbourne and a member of the ACCESS-NRI Board and OzSage.
+
+#### Contact
+
+To contact us regarding questions or accessibility requirements, please email [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).
+
+=====PATH /community/jobs/ | TITLE Current Jobs | DESC Current job openings at ACCESS-NRI. | DATE
+[![Team Lead, Data Management]({U}2025/05/jeremy-thomas-E0AHdsENmDg-unsplash-570x320.jpg)]({B}job/team-lead-data-management/)
+
+### Team Lead, Data Management
+
+Oversee the ACCESS-NRI Data Team and its work to support the management, sharing and long-term usability of data across the ACCESS community.
+
+[Read More]({B}job/team-lead-data-management/){ .buttononblue }
+
+[![Senior Research Software Engineer (Training Specialist)]({U}2022/03/Pixabay-wheat-grass-6350274-Chinchu-C-570x320.jpg)]({B}job/senior-research-software-engineer-training-specialist/)
+
+### Senior Research Software Engineer (Training Specialist)
+
+Location: Canberra, ACT, Australia, 2601 or remote within Australia Classification: ANU Officer 8 (Specialist) Closing at: Nov 8 2026 – 23:55 AEDT Salary package: $124,392…
+
+[Read More]({B}job/senior-research-software-engineer-training-specialist/){ .buttononblue }
+
+=====PATH /phd-internship-program/ | TITLE ACCESS-NRI PhD Internship Program | DESC The ACCESS-NRI PhD Internship Program offers PhD students hands-on experience in a professional research software environment. | DATE
+Quick links: [Key details](#Details) | [What can you expect as an intern?](#Expect) | [How to apply](#How-to) | [Selection process](#Selection) | [Contact us or attend the online information sessions](#Contact) | [Disclaimer](#Disclaimer)
+
+Are you curious about professional pathways in scientific software? Interested in getting hands-on experience with the software that supports Australia’s climate models? Or maybe you’re looking to broaden your experience beyond your PhD research? Apply to the next ACCESS-NRI PhD Internship Program! Applications for the current round are now closed.
+
+![]({U}2025/10/Jemma-Jeffree-Training-Day-300x200.jpg)
+
+The **ACCESS-NRI PhD Internship Program** offers PhD students hands-on experience in a professional research software environment. Interns work alongside ACCESS-NRI staff on activities related to the development, testing, and release of climate models as well as the supporting software and data that underpin them. The program is designed to support students from a range of backgrounds, helping to build technical skills, professional confidence, and experience working in a collaborative, non-academic setting.
+
+## Key details { #Details }
+
+| What | Details |
+| --- | --- |
+| Eligibility | Currently enrolled PhD students at one of the following universities: <br> • Australian National University (ANU) <br> • University of New South Wales (UNSW) <br> • University of Tasmania (UTAS) <br> • University of Melbourne <br> • Monash University <br> Note: Eligibility requirements may vary depending on the applicant’s home university. Any additional eligibility conditions will be outlined in the application guidelines for each internship round. |
+| Intern scholarship | Interns receive a scholarship payment as part of the program. Details will be outlined in the application guidelines for each internship round. |
+| Duration | 3 months full-time (or part-time equivalent) |
+| Schedule | Full-time is 35 hours/week. Whether working full- or part-time, the intern is expected to work mostly during regular business hours (9 am–5 pm AEST/AEDT with a 1-hour lunch break). Flexible work arrangements are also available by agreement. |
+| Full-time vs part-time | Full time is preferred but part-time is also considered. |
+| Location | Canberra-based interns are expected to work at the ACCESS-NRI office on ANU campus (Building 69, 5 Liversidge Street, Acton), with some flexible options available. Interns based outside Canberra are expected to work remotely within Australia. |
+| Travel support for approved on-site visits or events | Interns based in Canberra will have a budget to cover approved transport and accommodation expenses for an ACCESS-related workshop, conference, or event. Budget amounts can be found in the application guidelines. Canberra will have a budget to cover approved transport and accommodation expenses for on-site visits to the ACCESS-NRI office in Canberra (for example, a 6-week visit or two 2-week visits) or attendance at an ACCESS-related workshop, conference, or event. Budget amounts can be found in the application guidelines. |
+| Equipment | Intern must provide their own computer, ideally a laptop that can be used when working on site at the ACCESS-NRI building. Desk space with internet connection will be provided while interns are on site at the ACCESS-NRI building. |
+
+---
+
+## What can you expect as an intern? { #Expect }
+
+![]({U}2026/02/DSC03247-300x200.jpg)
+
+This internship provides hands-on experience in research software engineering in a supportive and collaborative environment, designed to help you grow your skills and confidence. You will work closely with ACCESS-NRI staff on a project that supports the development, testing, documentation, and/or release of climate modelling software and data.
+
+If selected, you’ll be matched with a project and mentor(s). There is space to tailor a project to your individual interests and professional goals, as you will have the opportunity to negotiate the project’s scope, milestones, and timeline during the project planning stage.
+
+Most ACCESS-NRI staff are based in Canberra, but around a third work remotely across Australia. You will be encouraged to interact with ACCESS-NRI staff and potentially other interns, through a mix of in-person and online interactions. You will also have the opportunity to participate in our monthly all-staff meetings, weekly skillshare sessions (where staff share a skill or topic of interest), as well as other relevant meetings and activities (such as team or other technical meetings).
+
+At the end of the internship, we will ask you to present what you learned at a skillshare session, submit a short summary report, and take part in an exit interview.
+
+![]({U}2026/02/wind_tracers_earth3d_still_esm1_5_0499-300x300.png)
+
+A visualisation of wind in the region around Australia using ACCESS-ESM1.6 data. Visualisation credit: Owen Kaluza.
+
+#### What’s in it for you?
+
+Your day-to-day tasks will vary depending on your project, interests, and background. Through the internship, you may gain experience and skills including:
+
+- An understanding of what climate models are and how they work
+- Technical experience running and developing climate models and producing climate model output
+- Experience using high-performance computing environments
+- Applying software development best practices, which may include:
+    - Git/GitHub for version control and collaborative coding
+    - Continuous integration (CI) and continuous deployment (CD)
+    - Debugging and testing
+    - Software documentation
+- Insight into what it’s like to work as a research software engineer in a non-academic setting
+
+![]({U}2026/02/DSC00768-300x200.jpg)
+
+**Read previous interns’ experiences at ACCESS-NRI:**
+
+- [**Lindsey Oberhelmen’s internship journey**]({B}lindsey-oberhelmens-internship-journey/)
+- [**Paula Boubel’s internship journey**]({B}galaxies-to-github-paula-boubels-internship-journey-at-access-nri/)
+- [**Jemma Jeffree internship journey**]({B}jemma-jeffrees-internship-experience/)
+- [**Claire Yung internship journey**]({B}claire-yungs-internship-experience/)
+
+#### Skills you might have
+
+If you have any of the following skills, we encourage you to apply!
+
+This list is meant as a guide only, so if you aren’t sure whether you have the background to apply, please reach out to discuss this further.
+
+- Climate-related research
+- Computational research
+- Software development
+- Coding or data best practices
+- Data management and analysis
+
+---
+
+## How to apply { #How-to }
+
+**Full instructions will be provided in the application guidelines for each internship round.**
+
+Applications should include:
+
+- One page CV or resume
+- Response to selection criteria (listed in the application guidelines for each round)
+
+Short-listed candidates will be invited for an interview with ACCESS-NRI.
+
+---
+
+## Selection process { #Selection }
+
+**Step 1: Application review**
+Each application will be reviewed and scored against the selection criteria using a standard rubric by all members of the review panel. Applicants who best meet the selection criteria will be shortlisted for an interview.
+
+**Step 2: Interviews**
+Shortlisted candidates will be interviewed by the review panel. Interviews will be assessed using the same selection criteria and rubric.
+
+**Step 3: Final selection**
+Final selections will be made based on both the written and interview performance. Successful applicants will be notified via email.
+
+#### Review panel
+
+The review panel will assess both written applications and interviews and will consist of at least 3 members, including:
+
+- Internship Program Lead
+- At least one additional ACCESS-NRI staff member
+- At least 1 external member, such as:
+    - ACCESS community member (who is not ACCESS-NRI staff)
+    - Previous intern
+    - A representative from another research software engineering–related institution
+
+#### Evaluations of applications
+
+Applications will be reviewed and scored by the review panel using a consistent rubric across all selection criteria. Each criterion is assessed on the quality and clarity of the applicant’s response.
+
+**Scoring Levels:**
+
+| Scoring levels | Points | What it means |
+| --- | --- | --- |
+| Strong | 16-20 | The response clearly demonstrates strong engagement, depth of understanding, and insight. The applicant provides specific examples and communicates their ideas clearly. |
+| Good | 9-15 | The response addresses the criterion well, with relevant examples or explanation. Shows understanding and engagement, but with less depth, clarity, or reflection than a strong response. |
+| Limited | 1-8 | The response partially addresses the criterion but lacks detail, clarity, or relevance. May be vague, underdeveloped, or demonstrate limited engagement with the topic. |
+| Not Addressed | 0 | The criterion is not addressed. |
+
+**How Scoring Works:**
+
+Each selection criterion (and, if relevant, interview question) is scored independently, then summed for an overall application score.
+
+The scoring is designed to evaluate applicants fairly based on the content and clarity of their responses, rather than, e.g., the number of opportunities they have had.
+
+---
+
+## Contact { #Contact }
+
+If you have any questions, please contact the Internship Program lead at [training.access.nri@anu.edu.au](mailto:training.access.nri@anu.edu.au).
+
+---
+
+## Disclaimer { #Disclaimer }
+
+Acceptance into the program is dependent on the student’s home university approval through their graduate student and/or internships offices. Additionally, this is the first iteration of the program with certain universities, and some elements may be updated as arrangements with the universities are confirmed.
+
+=====PATH /resources/ | TITLE Resources | DESC ACCESS-NRI resources: reports, factsheets, glossary and dashboards. | DATE
+<div class="team-tiles" markdown="1">
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Reports and factsheets]({B}resources/reports-and-brochures/)
+[![]({U}2022/03/ACCESS-icon-PUBLICATIONS-300x300.png) ACCESS glossary]({B}community/access-glossary/)
+[![]({U}2023/08/ACCESS-icon-EARTH-SYS-MOD-300x300.png) CMIP7 dashboard](https://access-nri.github.io/cmip7-dashboard/)
+
+</div>
+
+=====PATH /resources/reports-and-brochures/ | TITLE Reports and Factsheets | DESC Here you can find our resources including ACCESS-NRI’s Annual Work Plans, factsheets, and event reports. | DATE
+Here you can find our resources including ACCESS-NRI’s Annual Work Plans, factsheets, and event reports. If you require hard copies or have any questions, please contact ACCESS-NRI’s Communications team or send us an email to: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au)
+
+#### ACCESS-NRI Annual Work Plans
+
+[![Work Plan 2026-2027]({U}2026/07/WORKPLAN-2026-2027-Report-Cover-570x806.png)]({U}2026/07/ACCESS-NRI-Work-Plan-FY2026-27.pdf)
+
+## [Work Plan 2026-2027]({U}2026/07/ACCESS-NRI-Work-Plan-FY2026-27.pdf) (PDF 688 KB)
+
+ACCESS-NRI has released the Annual Work Plan for the 2026–27 financial year.
+
+[![Work Plan 2025–2026]({U}2025/07/WORKPLAN-2025-2026-Report-Cover-570x806.jpg)]({U}2025/07/Work-Plan-FY2025-26-1.pdf)
+
+## [Work Plan 2025–2026]({U}2025/07/Work-Plan-FY2025-26-1.pdf) (PDF 2 MB)
+
+ACCESS-NRI has released the Annual Work Plan for the 2025–26 financial year.
+
+[![Work Plan 2024-2025]({U}2024/10/WORKPLAN-2024-2025-570x806.png)]({U}2024/10/ACCESS-NRI-Work-Plan-FY2024-25-FINAL.pdf)
+
+## [Work Plan 2024-2025]({U}2024/10/ACCESS-NRI-Work-Plan-FY2024-25-FINAL.pdf) (PDF 1 MB)
+
+ACCESS-NRI has released the Annual Work Plan for the 2024-25 financial year.
+
+[![Work Plan 2023-2024]({U}2023/12/WORK-PLAN-2023-2024-CoverV1-570x806.png)]({U}2024/01/ACCESS-NRI-Annual-Work-Plan-FY2023-24-FINAL-Jan.pdf)
+
+## [Work Plan 2023-2024]({U}2024/01/ACCESS-NRI-Annual-Work-Plan-FY2023-24-FINAL-Jan.pdf) (PDF 1 MB)
+
+ACCESS-NRI has released our first Annual Work Plan for the remainder of the 2023-24 financial year.
+
+#### Factsheets and Annual Highlights Reports
+
+[![ACCESS-NRI Factsheet]({U}2025/10/Factsheet-2025-V2-570x804.png)]({U}2025/10/2025-ACCESS-NRI-A4flyer-GovInd-WWW.pdf)
+
+## [ACCESS-NRI Factsheet]({U}2025/10/2025-ACCESS-NRI-A4flyer-GovInd-WWW.pdf) (PDF 2 MB)
+
+General information about the ACCESS-NRI: what our infrastructure is , who we are, and our impact.
+
+[![CMIP: a globally coordinated project]({U}2026/04/CMIP7-Factsheet-570x806.png)]({U}2026/04/CMIP7-Factsheet-Sep-2025.pdf)
+
+## [CMIP: a globally coordinated project]({U}2026/04/CMIP7-Factsheet-Sep-2025.pdf) (PDF 13 MB)
+
+A factsheet explaining what CMIP is and how is ACCESS-NRI involved on this international collaboration.
+
+[![ACCESS-NRI Highlights Report 2024-2025]({U}2025/12/Highlights-Report-2024-2025-Front-Page-570x805.png)]({U}2025/12/2025-ACCESS-NRI-Highlights-www-RGB.pdf)
+
+## [ACCESS-NRI Highlights Report 2024-2025]({U}2025/12/2025-ACCESS-NRI-Highlights-www-RGB.pdf) (PDF 6 MB)
+
+A highlights report of ACCESS-NRI activities for the 2024-2025 financial year.
+
+[![ACCESS-NRI Highlights Report 2023-2024]({U}2024/10/Front-Cover-570x806.jpg)]({U}2024/11/2024-ACCESS-NRI-Highlights-WWW-RGB.pdf)
+
+## [ACCESS-NRI Highlights Report 2023-2024]({U}2024/11/2024-ACCESS-NRI-Highlights-WWW-RGB.pdf) (PDF 8 MB)
+
+A report of ACCESS-NRI activities for the 2023 -2024 financial year.
+
+[![ACCESS-NRI Highlights Report 2022-2023]({U}2023/11/Highlights-report-570x813.png)]({U}2023/11/2022-2023-ACCESS-NRI-Highlights.pdf)
+
+## [ACCESS-NRI Highlights Report 2022-2023]({U}2023/11/2022-2023-ACCESS-NRI-Highlights.pdf) (PDF 6 MB)
+
+A report of ACCESS-NRI activities from its launch in 2022 to July 2023.
+
+#### ACCESS-NRI Reports
+
+[![ACCESS Technical Landscape Assessment: High-Performance Computing, Data, and Machine Learning]({U}2026/04/Challenges-and-Opportunities-Doc-1-Cover1-570x806.png)](https://zenodo.org/records/18689863)
+
+## [ACCESS Technical Landscape Assessment: High-Performance Computing, Data, and Machine Learning](https://zenodo.org/records/18689863) (External link)
+
+This document provides an assessment of the current technical landscape and examines how emerging developments in HPC, data practices, and ML may affect the future of ACCESS.
+
+[![2025 ACCESS Community Workshop Report]({U}2025/10/WORKSHOP-2025-CoverV1-570x806.png)]({U}2025/10/External-Report-ACCESS-Workshop-2025-Final.pdf)
+
+## [2025 ACCESS Community Workshop Report]({U}2025/10/External-Report-ACCESS-Workshop-2025-Final.pdf) (PDF 2 MB)
+
+A report on the outcomes of our 2025 ACCESS Community Workshop, which was held over 8-12 September 2025 online and in Melbourne, Victoria.
+
+[![2024 ACCESS Community Workshop Report]({U}2024/11/WORKSHOP-2024-CoverV1-570x806.png)]({U}2024/11/Report-ACCESS-Community-Workshop-2024-1.pdf)
+
+## [2024 ACCESS Community Workshop Report]({U}2024/11/Report-ACCESS-Community-Workshop-2024-1.pdf) (PDF 1 MB)
+
+A report on the outcomes of our 2024 ACCESS Community Workshop (3-5 September 2024)
+
+[![2023 ACCESS Community Workshop Report]({U}2023/12/ACCESS-Workshop-Report-2023-Cover-Image-570x745.png)]({U}2023/12/2023-ACCESS-COMMUNITY-WORKSHOP-Report.pdf)
+
+## [2023 ACCESS Community Workshop Report]({U}2023/12/2023-ACCESS-COMMUNITY-WORKSHOP-Report.pdf) (PDF 2 MB)
+
+A report on the outcomes of our 2023 ACCESS Community Workshop, which was held over 5-6 September 2023 online and in Canberra, ACT on Ngunnawal and Ngambri country.
+
+[![2022 ACCESS Community Workshop Report]({U}2023/12/WORKSHOP-2022-CoverV1-1-570x806.png)]({U}2023/12/Full-Report-2022-ACCESS-Community-Workshop.pdf)
+
+## [2022 ACCESS Community Workshop Report]({U}2023/12/Full-Report-2022-ACCESS-Community-Workshop.pdf) (PDF 1 MB)
+
+A report on the outcomes of our 2022 ACCESS Community Workshop, which was held over 5-6 September 2023 online and in Canberra, ACT on Ngunnawal and Ngambri country.
+
+[![ACCESS Ice Sheet Model Selection]({U}2024/07/Front-Cover-1-570x806.png)]({U}2024/07/ACCESS-ISM-Selection-Final-Report.pdf)
+
+## [ACCESS Ice Sheet Model Selection]({U}2024/07/ACCESS-ISM-Selection-Final-Report.pdf) (PDF 1 MB)
+
+A report on the outcomes of the ACCESS Ice Sheet Model (ISM) selection process.
+
+[![CMIP7 Workshop Report]({U}2023/12/CMIP7-Workshop-Report-Cover-570x806.png)]({U}2023/12/Final-Report-CMIP7-Workshop.pdf)
+
+## [CMIP7 Workshop Report]({U}2023/12/Final-Report-CMIP7-Workshop.pdf) (PDF 1 MB)
+
+This workshop held on February 2023 in CSIRO Aspendale, focused on briefing the climate, weather and Earth system modelling research community, stakeholders and government representatives on the current state of Australia’s contribution to CMIP7
+
+[![CMIP7 Hackathon Evaluation Report]({U}2024/05/Cover-Report-CMIP7-Hackathon-20242-570x806.png)]({U}2024/05/CMIP7-Evaluation-Hackathon-2024-Report.pdf)
+
+## [CMIP7 Hackathon Evaluation Report]({U}2024/05/CMIP7-Evaluation-Hackathon-2024-Report.pdf) (PDF 923 KB)
+
+This hackathon, held on March 2022 in CSIRO Aspendale, focused on on using ESMValTool – a community-driven workflow tool for evaluating Earth system models in CMIP.
+
+#### NCRIS and Partner Reports
+
+[![National Research Infrastructure Roadmap 2021]({U}2022/04/NCRIS-Roadmap-V2-570x829.png)]({U}2022/04/ESE21-0469-National-Research-Infrastructure-Roadmap_ACC.pdf)
+
+## [National Research Infrastructure Roadmap 2021]({U}2022/04/ESE21-0469-National-Research-Infrastructure-Roadmap_ACC.pdf) (PDF 6 MB)
+
+The National Research Infrastructure (NRI) Roadmap identifies the tools, technologies and expertise that Australia’s researchers and innovators need for the coming decades.
+
+[![Lateral Economic Report on NCRIS Facilities]({U}2022/03/Lateral-Economics-Report--570x741.png)]({U}2022/03/NCRIS-spending-and-economic-growth.pdf)
+
+## [Lateral Economic Report on NCRIS Facilities]({U}2022/03/NCRIS-spending-and-economic-growth.pdf) (PDF 2 MB)
+
+A 2021 report commissioned to Lateral Economics (LE) by a number of research infrastructure organisations from the NCRIS community to assess the positive impacts of NCRIS for Australian society and the environment.
+
+[![ACCESS ESCC Report]({U}2022/03/ACCESS-ESCC-Report-Cover-570x806.jpg)]({U}2022/03/ACCESS-ESCC-Report.pdf)
+
+## [ACCESS ESCC Report]({U}2022/03/ACCESS-ESCC-Report.pdf) (PDF 1 MB)
+
+A report on Australia's National Climate Model ACCESS: Enabling national and international research and input into climate assessments published on 2021 and authored by NESP, CSIRO
+
+[![Weather and Climate Forecasting in Australia]({U}2022/03/CAWCR-ACCESS-Brochure-Cover-570x806.jpg)]({U}2022/03/CAWCR-ACCESS-Brochure.pdf)
+
+## [Weather and Climate Forecasting in Australia]({U}2022/03/CAWCR-ACCESS-Brochure.pdf) (PDF 1 MB)
