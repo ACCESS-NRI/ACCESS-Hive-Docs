@@ -1,0 +1,27 @@
+- name: Victoria Allen
+  role: Business Manager
+  photo: wp-content/uploads/2023/08/Victoria-300x300.png
+  profile: https://www.access-nri.org.au/person/victoria-allen/
+  slug: victoria-allen
+  email: victoria.allen@anu.edu.au
+- name: Andy Hogg
+  role: Director, ACCESS-NRI
+  photo: wp-content/uploads/2022/03/andy-hogg-square-300x300.jpg
+  profile: https://www.access-nri.org.au/person/andy-hogg/
+  slug: andy-hogg
+  linkedin: https://www.linkedin.com/in/andy-hogg-251677337/
+  email: Andy.Hogg@anu.edu.au
+- name: Kelsey Druken
+  role: Associate Director, Release Management
+  photo: wp-content/uploads/2022/07/Kelsey-Druken-300x300.png
+  profile: https://www.access-nri.org.au/person/kelsey-druken/
+  phone: (02) 6125 2479
+  slug: kelsey-druken
+  linkedin: https://www.linkedin.com/in/kelsey-druken-9081126a/
+  email: kelsey.druken@anu.edu.au
+- name: Martin Dix
+  role: Associate Director, Model Development
+  photo: wp-content/uploads/2022/08/Martin-Dix-BW-300x300.jpg
+  profile: https://www.access-nri.org.au/person/martin-dix/
+  slug: martin-dix
+  email: Martin.Dix@anu.edu.au

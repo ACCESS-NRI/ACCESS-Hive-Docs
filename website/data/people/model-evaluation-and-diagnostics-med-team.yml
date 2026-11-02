@@ -1,0 +1,30 @@
+- name: Dr. Romain Beucher
+  role: Team Leader, Model Evaluation and Diagnostics
+  photo: wp-content/uploads/2022/08/RomainPhoto-bw-300x300.jpg
+  profile: https://www.access-nri.org.au/person/romain-beucher/
+  slug: romain-beucher
+  twitter: https://twitter.com/romain_beucher
+  linkedin: https://www.linkedin.com/in/rbeucher/
+  email: romain.beucher@anu.edu.au
+- name: Owen Kaluza
+  role: Senior Research Software Engineer, Visualisation Specialist
+  photo: wp-content/uploads/2023/08/Owen_photo-300x300.jpg
+  profile: https://www.access-nri.org.au/person/owen-kaluza/
+  slug: owen-kaluza
+- name: Rhaegar Zeng
+  role: Research Software Engineer
+  photo: wp-content/uploads/2023/02/Rhaegar-Zeng-BW-300x300.jpg
+  profile: https://www.access-nri.org.au/person/rhaegar-zeng/
+  slug: rhaegar-zeng
+  linkedin: https://www.linkedin.com/in/rhaegarzeng227?original_referer=
+- name: Dr. Charles Turner
+  role: Senior Research Software Engineer, Python Specialist
+  photo: wp-content/uploads/2024/09/charles-e1726116201721-300x300.png
+  profile: https://www.access-nri.org.au/person/charles-turner/
+  slug: charles-turner
+  email: charles.turner@anu.edu.au
+- name: Felicity Chun
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2023/08/felicity-300x300.png
+  profile: https://www.access-nri.org.au/person/felicity-chun/
+  slug: felicity-chun

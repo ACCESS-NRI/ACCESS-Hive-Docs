@@ -1,0 +1,8 @@
+# Static preview build that works from any folder / file host:  mkdocs build -f mkdocs-preview.yml
+INHERIT: mkdocs.yml
+use_directory_urls: false
+site_dir: site-preview
+extra:
+  preview_banner: true
+  contact_email: access.nri@anu.edu.au
+  mailchimp_action: "https://access-nri.us14.list-manage.com/subscribe/post?u=2e82a242a5023d286ad0d4555&id=aed3bbbb13"

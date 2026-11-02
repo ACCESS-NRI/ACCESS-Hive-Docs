@@ -1,0 +1,313 @@
+=====PATH /working-groups/ | TITLE Community Working Groups (CWG) | DESC Community Working Groups are formed by users and developers of specific ACCESS components, configurations or research communities. | DATE
+**Community Working Groups** are formed by users and developers of specific ACCESS components, configurations or research communities. They aim to:
+
+- link the different research communities and the ACCESS-NRI infrastructure experts
+- manage and share information and experiences about model configurations within that specific research community
+- give advice on the optimal allocation of available ACCESS-NRI computational resources
+- be open, inclusive, supportive and flexible.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+<div class="team-tiles" markdown="1">
+
+[![]({U}2022/03/ACCESS-icon-ATMOSPHERE-300x300.png) Atmosphere]({B}working-groups/atmosphere/)
+[![]({U}2023/03/COSIMA-icon-300x300.png) COSIMA (Ocean-Sea Ice Modelling)]({B}working-groups/cosima/)
+[![]({U}2023/03/ACCESS-icon-CRYOSPHERE-300x300.png) Cryospheric Sciences]({B}working-groups/cryosphere/)
+[![]({U}2023/08/ACCESS-icon-EARTH-SYS-MOD-300x300.png) Earth System Modelling]({B}earth-system-modelling-working-group/)
+[![]({U}2022/03/ACCESS-icon-LAND-SURFACE-300x300.png) Land Surface Modelling]({B}land-surface-modelling-community-working-group/)
+[![]({U}2024/08/ACCESS-icon-SOFTWARE-e1756786553757-300x300.png) Machine Learning for Climate and Weather]({B}working-groups/machine-learning/)
+
+</div>
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+[![]({U}2022/03/ACCESS-icon-PUBLICATIONS-300x300.png) ACCESS-NRI Merit Allocation Guidelines]({B}access-nri-merit-allocation-guidelines/)
+
+=====PATH /working-groups/atmosphere/ | TITLE Atmosphere Working Group | DESC The Atmosphere Working Group includes researchers who use and co-develop the atmospheric modelling component of the ACCESS models. | DATE
+## About
+
+![]({U}2023/03/atmosphere-300x170.png)
+
+The Atmosphere Working Group includes researchers from several Australian universities and research institutions who use and co-develop the [atmospheric modelling component](https://docs.access-hive.org.au/models/model_components/atmosphere/) of the Australian Community Climate Earth System Model (ACCESS) for their research.
+
+Tools used by researchers in the group include the global atmospheric model ACCESS-AM, regional atmospheric models, including atmospheric chemistry and aerosol modelling.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+[Atmosphere Working Group home](https://forum.access-hive.org.au/c/atmosphere/working-group/41){ .buttononblue }
+
+Click on the “Atmosphere Working Group home” button above to follow this working group mailing list, information about events and meetings and activity reports.
+
+#### Aims
+
+The main aims of this group are to enhance research with the atmospheric model by coordinating model development, evaluation and application activities across the national community, interchange information though regular meetings and provide information about training.
+
+---
+
+## Co-chairs and liaison
+
+Working group co-chairs:
+
+- [Yi Huang](https://findanexpert.unimelb.edu.au/profile/844217-yi-huang) (University of Melbourne)
+- [Sonya Fiddes](https://discover.utas.edu.au/Sonya.Fiddes) (Australian Antarctic Partnership Program, University of Tasmania)
+- [Andrew Brown](https://findanexpert.unimelb.edu.au/profile/771805-andrew-brown) (21st Century Weather, University of Melbourne)
+
+ACCESS-NRI liaison:
+
+- [Heidi Nettelbeck]({B}person/heidi-nettelbeck/) (ACCESS-NRI Atmosphere Model Team)
+
+---
+
+## Other information
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+=====PATH /working-groups/cosima/ | TITLE COSIMA (Ocean-Sea Ice Modelling) Working Group | DESC The COSIMA (Ocean-Sea Ice Modelling) Community Working Group includes researchers from Australian universities and research institutions who use and co-develop ACCESS. | DATE
+## About
+
+![]({U}2022/03/ACCESS-OM-Model-300x201.png)
+
+The **COSIMA (Ocean-Sea Ice Modelling) Community Working Group** includes researchers from Australian universities and research institutions who use and co-develop the Australian Community Climate Earth System Model (ACCESS) for their research.
+
+It includes ACCESS-OM, regional models, and ocean biogeochemistry.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+[Get involved in COSIMA](https://cosima.org.au/){ .buttononblue }
+
+Click **“Watch”** on the ACCESS-Hive Forum [COSIMA Working Group Announce page](https://forum.access-hive.org.au/t/cosima-working-group-announce/238) to get updates (more details [here](https://forum.access-hive.org.au/t/transition-from-original-cosima-mailing-list/1878)).
+
+## COSIMA website
+
+The COSIMA Working Group has its own website. See the [onboarding information](https://cosima.org.au/index.php/get-involved/) to get started and the [bespoke acknowledgements](https://cosima.org.au/index.php/get-involved/) for members that benefit from COSIMA and ACCESS-NRI.
+
+[Visit COSIMA website](https://cosima.org.au/){ .buttononblue }
+
+#### Aims
+
+The main aims of this group are to:
+
+- co-develop the ocean, sea-ice, and biogeochemistry models
+- exchange information though regular meetings
+- facilitate collaboration on shared projects
+- act as a conduit between the community and the ACCESS-NRI Scientific Advisory Committee and ACCESS-NRI
+- provide information about training and support.
+
+---
+
+## Co-chairs and liaison
+
+Working group co-chairs:
+
+- [Adele Morrison](https://earthsciences.anu.edu.au/people/dr-adele-morrison) (Australian National University)
+- [Edward Doddridge](https://doddridge.me/) (University of Tasmania)
+- [Hannah Dawson](https://discover.utas.edu.au/Hannah.Dawson) (University of Tasmania)
+- [Navid Constantinou](https://findanexpert.unimelb.edu.au/profile/1064377-navid-constantinou) (University of Melbourne)
+- [Pearse Buchanan](https://www.researchgate.net/profile/Pearse-Buchanan) (CSIRO)
+
+ACCESS-NRI liaison:
+
+- [Christopher Bull]({B}person/christopher-bull/) (ACCESS-NRI Ocean Model Team)
+
+---
+
+## Other information
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+=====PATH /working-groups/cryosphere/ | TITLE Cryospheric Sciences Working Group | DESC The Cryospheric Sciences Working Group includes researchers who focus on components of the cryosphere, particularly land ice. | DATE
+## About
+
+![]({U}2023/03/ACCESS-icon-CRYOSPHERE-Title-281x300.png)
+
+The Cryospheric Sciences Working Group includes researchers from Australian universities and research institutions who use and co-develop the Australian Community Climate Earth System Model (ACCESS) for their research.
+
+It includes the components of the cryosphere with a focus on land ice, including ice sheets, ice shelves, alpine glaciers, snow, permafrost, fast ice and icebergs.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+[Cryospheric Sciences Working Group home](https://forum.access-hive.org.au/c/cryosphere/working-group/45){ .buttononblue }
+
+Click on the “Cryospheric Sciences Working Group home” button above to follow this working group mailing list, information about events and meetings and activity reports.
+
+#### Aims
+
+The main aims of this group are to co-develop the cryosphere and land ice models, interchange information through regular meetings, and provide information about training.
+
+---
+
+## Co-chairs and liaison
+
+Working group co-chairs:
+
+- [Felicity McCormack](https://research.monash.edu/en/persons/felicity-mccormack/) (Monash University)
+- [Lenneke Jong](https://www.antarctica.gov.au/science/meet-our-scientists/dr-lenneke-jong/) (Australian Antarctic Program, AAP)
+- [Chen Zhao](https://discover.utas.edu.au/Chen.Zhao) (University of Tasmania)
+
+ACCESS-NRI liaison:
+
+- [Mike Tetley]({B}person/mike-tetley-he-him/) (ACCESS-NRI Ice Sheet Modelling Team)
+
+---
+
+## Other information
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+=====PATH /earth-system-modelling-working-group/ | TITLE Earth System Modelling | DESC The Earth System Modelling (ESM) Working Group includes researchers from many Australian universities and research institutions who use and co-develop ACCESS. | DATE
+The **Earth System Modelling (ESM) Working Group** includes researchers from many Australian universities and research institutions who use and co-develop the Australian Community Climate Earth System Model (ACCESS) for their research.
+
+![]({U}2023/08/ACCESS-icon-EARTH-SYS-MOD-300x300.png)
+
+The focus is on [ACCESS-CM]({B}models/access-cm/) and ACCESS-ESM models as well as anything related to paleoclimate or fully coupled climate modelling.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+[Earth System WG Home](https://forum.access-hive.org.au/c/esm/esm-working-group/43){ .buttononblue }
+
+Click on the Earth System WG Home button above to follow this working group mailing list, information about events and meetings and activity reports.
+
+Initially the aims of this group are to
+
+- exchange information though regular meetings
+- act as a conduit between the community and the ACCESS-NRI Scientific Advisory Committee and ACCESS-NRI
+- co-develop the models
+- facilitate collaboration on shared projects
+
+##### Co-Chairs:
+
+- [Christine Chung (Bureau of Meteorology)](https://scholar.google.com/citations{Q}user{EQ}2iF9SjcAAAAJ&hl{EQ}en)
+- [David Hutchinson (UNSW)](https://www.unsw.edu.au/staff/david-hutchinson)
+- [Shayne McGregor (Monash University)](https://research.monash.edu/en/persons/shayne-mcgregor)
+- [Tilo Ziehn (CSIRO)](https://people.csiro.au/Z/T/Tilo-Ziehn)
+
+##### ACCESS-NRI Liaison:
+
+- [Spencer Wong]({B}person/spencer-wong/)
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+=====PATH /land-surface-modelling-community-working-group/ | TITLE Land Surface Modelling | DESC The Land Modelling Community Working Group includes researchers from Australian universities and research institutions who use and co-develop ACCESS. | DATE
+**The Land Modelling Community Working Group** includes researchers from Australian universities and research institutions who use and co-develop the Australian Community Climate Earth System Model (ACCESS) for their research.
+
+![]({U}2023/03/ACCESS-icon-BCG-LAND-Title-300x300.png) ![]({U}2023/03/ACCESS-icon-LAND-SURFACE-Title-300x300.png)
+
+This Working Group focuses on both CABLE and JULES land surface models and considers the biophysical and biogeochemical aspects of the land surface.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+[Land Surface WG Home](https://forum.access-hive.org.au/c/land/8){ .buttononblue }
+
+Click on the Land Surface WG Home button above to follow this working group mailing list, information about events and meetings and activity reports.
+
+The main aims of this group are to:
+
+- facilitate the communication within the community,
+- co-develop the land surface models,
+- interchange information through regular meetings,
+- provide information about training,
+- facilitate collaboration on shared projects, experiments and dataset,
+- act as a conduit between the community and the ACCESS-NRI regarding development priority areas and resourcing
+
+##### Co-Chairs:
+
+- [Claire Carouge (ACCESS-NRI)]({B}person/claire-carouge/)
+- [Ian Harman (CSIRO)](https://people.csiro.au/H/I/Ian-Harman)
+- [Mathew Lipson (UNSW)](https://www.unsw.edu.au/hdr/mathew-lipson)
+
+##### ACCESS-NRI Liaison:
+
+- [Claire Carouge]({B}person/claire-carouge/)
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+**Related links:**
+
+- [JULES](https://jules.jchmr.org/)
+- [CABLE](https://github.com/CABLE-LSM/CABLE)
+- [Biogeochemistry land model component (ACCESS-Hive Docs)](https://docs.access-hive.org.au/models/model_components/bgc_land/)
+
+=====PATH /working-groups/machine-learning/ | TITLE Machine Learning for Climate and Weather Working Group | DESC The Machine Learning for Climate and Weather Working Group includes researchers from several Australian universities and research institutions who use and co-develop ACCESS. | DATE
+## About
+
+![]({U}2024/08/ACCESS-icon-SOFTWARE-300x300.png)
+
+The Machine Learning for Climate and Weather Working Group includes researchers from several Australian universities and research institutions who use and co-develop the Australian Community Climate Earth System Model (ACCESS) for their research.
+
+[How to join a Community Working Group]({B}join-community-working-groups/){ .buttononblue }
+
+[Machine learning for Climate and Weather Working Group Home](https://forum.access-hive.org.au/t/about-the-machine-learning-for-climate-and-weather-working-group/3662){ .buttononblue }
+
+Click on the “Machine Learning for Climate and Weather Working Group home” button above to follow this working group mailing list, information about events and meetings and activity reports.
+
+#### Aims
+
+The main aims of this group are to:
+
+- facilitate mutually-beneficial collaborations between climate/weather scientists and ML experts
+- create a platform for knowledge exchange where ACCESS-NRI, NCI, the climate community and ML experts share insights, data, and methodologies to accelerate progress in both fields.
+- advise ACCESS-NRI, NCI and the climate community on advances in ML in climate/weather science and techniques and their impact on future directions in climate/weather research (e.g. modelling, resourcing etc.)
+- ensure that the Australian community remains at the forefront of the use of ML/AI in research and applications in weather and climate
+- contribute to the training of climate/weather scientists in applying ML to their research (through organised events/ resource sharing).
+
+---
+
+## Co-chairs and liaisons
+
+Working group co-chairs:
+
+- [Sanaa Hobeichi](https://www.unsw.edu.au/staff/sanaa-hobeichi) (21st Century Weather, UNSW)
+- [Vassili Kitsios](https://people.csiro.au/K/V/Vassili-Kitsios) (CSIRO)
+- [Tennessee Leeuwenburg](https://www.researchgate.net/profile/Tennessee-Leeuwenburg) (Bureau of Meteorology)
+- [Taimoor Sohail](https://findanexpert.unimelb.edu.au/profile/844007-taimoor-sohail) (University of Melbourne)
+
+National Computational Infrastructure (NCI) liaison:
+
+- [Yue Sun](https://www.linkedin.com/in/yue-sun-2b503325b/) (National Computational Infrastructure)
+
+ACCESS-NRI liaison:
+
+- [Micael Oliveira]({B}person/dr-micael-oliveira/) (ACCESS-NRI Software Transformation Team)
+
+---
+
+## Other information
+
+[![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png) Community Working Groups Terms of Reference]({B}access-community-working-groups-terms-of-reference/)
+
+=====PATH /access-support-scheme/ | TITLE ACCESS Support – How to request help | DESC Do you have a question about the ACCESS models, data and tools? Don’t despair, the ACCESS Support team is here to help! | DATE
+Do you have a question about the ACCESS models, data and tools{Q} Don’t despair, the ACCESS Support team is here to help!
+
+The ACCESS User Support scheme is a way to get help for the software infrastructure (models, configurations and tools) that is supported by ACCESS-NRI.
+
+[Create a help request](https://forum.access-hive.org.au/c/4){ .buttononblue }
+
+###### In order to get help follow just **3** simple steps (see figure below for more details):
+
+[![]({U}2023/08/Ask-for-help-steps1-300x250.png)](https://forum.access-hive.org.au/docs{Q}topic{EQ}884)
+
+1. [Register to the ACCESS-Hive Forum](https://forum.access-hive.org.au/docs{Q}topic{EQ}884)
+2. [Create a new topic for your request](https://forum.access-hive.org.au/docs{Q}topic{EQ}790) [(How to write a good help request{Q} )](https://forum.access-hive.org.au/docs{Q}topic{EQ}790)
+3. [Tag the request with the label `help`](https://forum.access-hive.org.au/docs{Q}topic{EQ}846)
+
+## Why we have created the ACCESS Support Scheme
+
+As a National Research Infrastructure, ACCESS-NRI’s mission is to support the ACCESS software framework and the users and developers who form the ACCESS Community. While we don’t have the resources or expertise to answer every question, our goal is to enable a framework that allows this to happen by connecting users with the experts that have the answers.
+
+“For supported software products, we want our users to either receive dedicated help all the way through resolution or get redirected to places where they can get a solution to their problem. We are determined to support people by matching their query with the person that is best equipped to help”, says Dr Claire Carouge, team leader of the Land Surface Modelling team.
+
+Inspired by the “Stack overflow model”, the User Support scheme will curate questions and their answers to build a knowledge base of climate and weather modelling science in Australia. This scheme will be built on the existing [ACCESS-Hive Forum](https://forum.access-hive.org.au/), which is the place for the community to assist one another.
+
+“The support team includes ACCESS-NRI staff as well as technical specialists from partner organisations CSIRO and the Bureau of Meteorology. We have also approached community members to provide expert assistance to helpers when the issue requires specific domain knowledge. All members of the ACCESS-Hive Forum are also encouraged to pitch in and help according to their abilities” adds Dr Roger Edberg, Team leader of the User Training team.
+
+Dr Aidan Heerdegen, team leader of the ACCESS Model Release team, is encouraging people to ask all sorts of questions, “Every question asked becomes part of a community knowledge base that everyone will benefit from. There is no point struggling with a problem in isolation when issues can be easily solved using this resource and at the same time increase the sum of knowledge and help the community to grow and become more vibrant,” he says.
+
+“We are also welcoming other groups working with the ACCESS models to join us as expert helpers on this endeavour of building a community-curated knowledge base for climate and weather modelling in Australia, so if you are interested to be part of it, contact us” he adds.
+
+## Useful links:
+
+- [Register to the ACCESS Hive Forum](https://forum.access-hive.org.au/)
+- [What happens after I submit a help request?](https://docs.access-hive.org.au/about/user_support/)
+- [How to write a question topic in the Hive-Forum to get prompt and effective help](https://forum.access-hive.org.au/docs{Q}topic{EQ}818)
+
+**Interested on becoming an expert helper{Q}** We love to have a chat! Contact us at [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au)

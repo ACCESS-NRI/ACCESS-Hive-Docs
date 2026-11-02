@@ -1,0 +1,255 @@
+/* ACCESS-NRI look & feel on MkDocs Material.
+   Values measured from the live site (computed styles, Nov 2026):
+   blue #005b94, green #a5cd39, cyan #00adee, sky #8dd7f7, pale #f4fbfe, text #231f20,
+   body font Ubuntu 20px/32px, headings Source Sans Pro 700. Spacing is approximate. */
+
+:root {
+  --anri-blue: #005b94;
+  --anri-green: #a5cd39;
+  --anri-cyan: #00adee;
+  --anri-sky: #8dd7f7;
+  --anri-pale: #f4fbfe;
+  --anri-dark: #231f20;
+  --anri-container: 1240px;
+}
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #ffffff;
+  --md-primary-fg-color--dark: #ffffff;
+  --md-primary-bg-color: var(--anri-dark);
+  --md-primary-bg-color--light: #6b7280;
+  --md-accent-fg-color: var(--anri-blue);
+  --md-typeset-a-color: var(--anri-blue);
+  --md-default-fg-color: var(--anri-dark);
+  --md-default-fg-color--light: var(--anri-dark);
+}
+
+/* ---------- typography ---------- */
+.md-typeset { font-size: .8rem; line-height: 1.6; }
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4,
+.anri-footer h2 { font-family: "Source Sans Pro", sans-serif; font-weight: 700; color: var(--anri-blue); }
+.md-typeset h1 { font-size: 1.6rem; letter-spacing: 0; margin-bottom: .8rem; }
+.md-typeset h2 { font-size: 1.6rem; }
+.md-typeset h3 { font-size: 1.2rem; }
+.md-typeset a { color: var(--anri-blue); }
+
+/* ---------- buttons (the live site's .buttononblue) ---------- */
+.buttononblue, .md-typeset a.buttononblue, .md-typeset .anri-btn {
+  display: inline-block; background: var(--anri-green); color: var(--anri-dark) !important;
+  border: 0; border-radius: 25px; padding: 10px 20px; font: 700 16px/1.2 Ubuntu, sans-serif;
+  text-transform: uppercase; text-decoration: none; cursor: pointer;
+}
+.buttononblue:hover { background: #b8dd4d; }
+
+/* ---------- header: logo left, icons + search over the menu on the right ---------- */
+.md-header { position: relative; background: #fff; box-shadow: none; color: var(--anri-dark); }
+.md-header__inner { max-width: var(--anri-container); height: auto; padding: 1rem 20px; align-items: center; }
+.md-header__button.md-logo { padding: 0; margin: 0; }
+.md-header__button.md-logo img { height: 3.4rem; width: auto; }
+.md-header__title { flex-grow: 1; }
+.md-header__topic { display: none; }
+.md-header__button, .md-header__source { color: var(--anri-dark); }
+.anri-header__right { display: flex; flex-direction: column; align-items: flex-end; gap: .35rem; }
+.anri-header__top { display: flex; align-items: center; gap: .35rem; }
+.anri-header__top .md-header__button { margin: 0; padding: 0 .2rem; }
+.md-search__input { background: var(--anri-pale); color: var(--anri-dark); }
+.md-search__input::placeholder, .md-search__icon { color: #6b7280; }
+
+.anri-circle { display: inline-flex; align-items: center; justify-content: center; width: 1.6rem; height: 1.6rem;
+  border-radius: 50%; background: var(--anri-dark); color: #fff; }
+.anri-circle svg { width: .9rem; height: .9rem; fill: currentColor; }
+.anri-icon { display: inline-flex; }
+.anri-icon img { width: 1.6rem; height: 1.6rem; display: block; }
+.anri-circle--forum { background: var(--anri-sky); color: var(--anri-blue); }
+.anri-circle--docs { background: #f6c945; color: var(--anri-dark); }
+
+.md-tabs { background: transparent; width: auto; border: 0; overflow: visible !important; contain: none !important; }
+.md-tabs .md-grid, .md-tabs__list { contain: none !important; overflow: visible !important; margin: 0; max-width: none; }
+.md-tabs__item { position: relative; padding: 0 0 0 1.1rem; height: auto; }
+.md-tabs__link { font: 700 .75rem/1.6 "Source Sans Pro", sans-serif; color: var(--anri-dark); opacity: 1; margin: 0; }
+.md-tabs__item--active .md-tabs__link, .md-tabs__link:hover { color: var(--anri-blue); }
+.anri-menu__dropdown {
+  display: none; position: absolute; z-index: 10; top: 100%; right: 0; min-width: 17rem;
+  margin: 0; padding: .4rem 0; list-style: none; background: #fff;
+  border-top: 4px solid var(--anri-green); box-shadow: 0 6px 16px rgba(0,0,0,.18);
+}
+.anri-menu__item:hover > .anri-menu__dropdown, .anri-menu__item:focus-within > .anri-menu__dropdown { display: block; }
+.anri-menu__dropdown a { display: block; padding: .4rem 1rem; font: 700 .7rem "Source Sans Pro", sans-serif; color: var(--anri-dark); }
+.anri-menu__dropdown a:hover { background: var(--anri-pale); color: var(--anri-blue); }
+
+/* single-column layout like the live site */
+.md-sidebar--primary, .md-sidebar--secondary { display: none !important; }
+.md-content { max-width: 62rem; margin: 0 auto; }
+
+/* ---------- home page (full-bleed bands) ---------- */
+body:has(.masthead) .md-main__inner { max-width: none; margin-top: 0; }
+body:has(.masthead) .md-content { max-width: none; }
+body:has(.masthead) .md-content__inner { margin: 0; padding: 0; }
+body:has(.masthead) .md-content__inner::before { display: none; }
+body:has(.masthead) .md-content__inner > h1 { display: none; }
+.masthead, .latest-news-feed, .blue-callout, .welcome { width: 100vw; margin-left: calc(50% - 50vw); }
+.container { max-width: var(--anri-container); margin: 0 auto; padding: 0 20px; }
+
+/* masthead carousel (Swiper) */
+.masthead { position: relative; }
+.masthead .swiper-slide { background-size: cover; background-position: center; min-height: 500px; }
+.masthead .caption { background: rgba(0,91,148,.85); border-top: 10px solid var(--anri-green);
+  padding: 25px 30px 30px; width: 600px; max-width: 100%; color: #fff; }
+.masthead .blurb, .masthead .blurb p { color: #fff; font-size: 20px; line-height: 32px; margin: 0 0 1rem; }
+.my-swiper-pagination { position: absolute; left: 0; right: 0; bottom: 1.1rem; z-index: 5; text-align: center; }
+.my-swiper-pagination .swiper-pagination-bullet { width: 30px; height: 15px; border-radius: 15px; opacity: 1;
+  background: var(--anri-green); margin: 0 5px; }
+.my-swiper-pagination .swiper-pagination-bullet-active { background: var(--anri-cyan); }
+
+/* news cards */
+.latest-news-feed { background: var(--anri-pale); padding: 2.2rem 0; text-align: center; }
+.latest-news-feed h2 { margin: 0 0 1.5rem; }
+.md-typeset .news-cards { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.6rem;
+  list-style: none; margin: 0 0 1.6rem; padding: 0; text-align: left; }
+.md-typeset .news-cards li { margin: 0; list-style: none; display: block; }
+.news-cards a { display: flex; flex-direction: column; height: 100%; background: var(--anri-blue); color: #fff !important;
+  border-radius: 25px; overflow: hidden; font-weight: 700; text-decoration: none; }
+.news-cards .thumb { position: relative; aspect-ratio: 570 / 320; background: #000 center / cover no-repeat; }
+.news-cards .date { position: absolute; top: 0; left: 0; background: var(--anri-blue); color: #fff; font-size: 14px;
+  padding: .3rem .8rem; text-transform: uppercase; border-bottom-right-radius: 12px; }
+.news-cards .title { display: flex; gap: .6rem; padding: 1rem 1.1rem 1.3rem; font-size: .8rem; line-height: 1.4; flex: 1; }
+.news-cards .title::before { content: "›"; flex: none; width: 1rem; height: 1rem; border-radius: 50%; background: var(--anri-green);
+  color: var(--anri-blue); text-align: center; line-height: .95rem; font-size: .8rem; }
+
+/* blue call-out bands */
+.blue-callout { background: var(--anri-blue) url("../wp-content/themes/accessnri/images/bgrounds/survey-callout.svg") no-repeat 50% 50%;
+  color: #fff; padding: 1.6rem 0; }
+.blue-callout .container { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.blue-callout h2, .blue-callout p, .blue-callout a:not(.buttononblue) { color: #fff; margin: 0 0 .4rem; }
+.blue-callout h2 { font-size: 1.3rem; }
+.blue-callout a:not(.buttononblue) { text-decoration: underline; }
+
+/* welcome section */
+.welcome { padding: 2.2rem 0; }
+.welcome .container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+.welcome img { width: 100%; height: auto; }
+@media (max-width: 52em) { .welcome .container { display: block; } }
+
+/* ---------- team / people ---------- */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 1.4rem; margin: 1rem 0 2rem; }
+.person-card { text-align: center; }
+.person-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 3px var(--anri-sky); }
+.person-card h3 { margin: .8rem 0 .1rem; font-size: .85rem; }
+.person-card .role { font-size: .7rem; margin: 0 0 .6rem; }
+.btn-sm { font-size: .65rem; border: 1px solid var(--anri-blue); padding: .2rem .7rem; border-radius: 25px; }
+.person-card .social { display:flex; justify-content:center; gap:.45rem; margin:.5rem 0 0; min-height:1.4rem; }
+.person-card .social a { display:inline-flex; color:var(--anri-blue); }
+.person-card .social a:hover { color:var(--anri-green); }
+.person-card .social svg { width:1.3rem; height:1.3rem; }
+
+/* ---------- partner logos: transparent PNGs straight on white, as live ---------- */
+.partner-logos { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; justify-content: center; margin: 1rem 0; }
+.partner-logos img { height: 3.2rem; width: auto; background: none; padding: 0; }
+
+/* ---------- footer ---------- */
+.md-footer.anri-footer { background: #fff; color: var(--anri-dark); margin-top: 2rem; }
+.anri-footer a { color: var(--anri-blue); text-decoration: underline; }
+.anri-footer h2 { font-size: .8rem; margin: 0 0 .8rem; color: var(--anri-dark); font-family: Ubuntu, sans-serif; }
+.anri-footer p, .anri-footer li, .anri-footer label { font-size: .7rem; line-height: 1.5; margin: 0 0 .8rem; }
+.anri-footer__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem;
+  max-width: var(--anri-container); margin: 0 auto; padding: 1.6rem 20px 2rem; }
+.anri-col::before { content: ""; display: block; height: 10px; border-radius: 5px; margin-bottom: 1.1rem; }
+.anri-col--cyan::before { background: var(--anri-cyan); }
+.anri-col--sky::before { background: var(--anri-sky); }
+.anri-col--blue::before { background: var(--anri-blue); }
+.anri-col--green::before { background: var(--anri-green); }
+.anri-footer__ncris { max-width: 8rem; background: none; }
+.anri-footer__icons { display: flex; gap: .4rem; flex-wrap: wrap; }
+.anri-footer__icons .anri-circle, .anri-footer__icons .anri-icon img { width: 1.4rem; height: 1.4rem; }
+.anri-footer__icons .anri-circle svg { width: .8rem; height: .8rem; }
+.anri-footer .anri-circle { text-decoration: none; }
+.anri-form label { display: block; font-weight: 700; }
+.anri-form input { display: block; width: 100%; margin-top: .25rem; padding: .35rem; border: 1px solid #ccc; background: #f3f3f3; }
+.anri-footer__ack { background: var(--anri-dark); color: #fff; padding: 1.1rem 20px; text-align: center; }
+.anri-footer__ack p { max-width: 36rem; margin: 0 auto; color: #fff; font-size: .75rem; }
+.anri-footer__partners { padding: 1.4rem 20px 1rem; text-align: center; }
+.anri-footer__partners h2 { text-align: center; }
+.anri-footer__bottom { display: flex; justify-content: space-between; max-width: var(--anri-container); margin: 0 auto;
+  padding: 1rem 20px; border-top: 1px solid #ccc; font-size: .65rem; font-weight: 700; text-transform: uppercase; }
+
+/* ---------- blog + notes ---------- */
+.md-post__meta, .md-post time { font-size: .7rem; }
+.md-typeset .stub { border-left: 4px solid #f5a524; background: #fff8e6; padding: .6rem 1rem; font-size: .75rem; }
+
+/* keep the menu visible: Material's own JS would otherwise hide tabs that sit inside the header */
+.anri-header .md-tabs { display: block; }
+@media screen and (max-width: 59.9375em) { .anri-header .md-tabs { display: none; } }
+
+/* footer link colour was overriding the icon circles */
+.anri-footer a.anri-circle { color: #fff; }
+.anri-footer a.anri-circle--forum { color: var(--anri-blue); }
+.anri-footer a.anri-circle--docs { color: var(--anri-dark); }
+
+/* footer: always 4 columns on desktop, 2 on tablet, 1 on phone */
+@media (max-width: 60em) { .anri-footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 36em) { .anri-footer__cols { grid-template-columns: 1fr; } }
+
+/* nested flyout submenus (3rd level) */
+.anri-menu__dropdown li{position:relative}
+.anri-menu__sub{display:none;position:absolute;left:100%;top:0;min-width:18rem;background:#fff;box-shadow:0 .4rem 1rem rgba(0,0,0,.18);border-top:3px solid var(--anri-green);margin:0;padding:.3rem 0;list-style:none;z-index:6}
+.anri-menu__has-sub:hover>.anri-menu__sub,.anri-menu__has-sub:focus-within>.anri-menu__sub{display:block}
+.anri-menu__sub a{display:block;padding:.45rem 1rem;color:var(--anri-blue);font-size:.7rem;white-space:normal}
+.anri-menu__sub a:hover{background:var(--anri-pale)}
+.anri-menu__item:last-child .anri-menu__sub,.anri-menu__item:nth-last-child(2) .anri-menu__sub{left:auto;right:100%}
+.md-typeset .team-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:1rem;margin:1.2rem 0}
+.md-typeset .team-tiles p{margin:0;display:contents}
+.md-typeset .team-tiles a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;padding:1rem;border:1px solid #d7e6ee;border-radius:.3rem;background:var(--anri-pale);font-weight:700;color:var(--anri-blue)}
+.md-typeset .team-tiles a:hover{border-color:var(--anri-green)}
+.md-typeset .team-tiles img{width:5rem;height:5rem;object-fit:contain}
+.anri-preview{background:#231f20;color:#fff;text-align:center;font-size:.7rem;padding:.35rem 1rem}
+
+/* ---- live-site page layout: cards, quote band, colour bars ---- */
+.md-typeset .anri-card{background:#fff;border-radius:1.1rem;box-shadow:0 .3rem 1.6rem rgba(0,91,148,.12);padding:2rem 2.4rem;margin:1.8rem 0;display:block}
+.md-typeset .anri-card--media{display:grid;grid-template-columns:minmax(0,1fr) 8.5rem;gap:2rem;align-items:center}
+.md-typeset .anri-card--media.anri-card--flip{grid-template-columns:8.5rem minmax(0,1fr)}
+.md-typeset .anri-card--media.anri-card--flip .anri-card__media{order:-1}
+.md-typeset .anri-card__media p{margin:0;text-align:center}
+.md-typeset .anri-card__media img{border-radius:50%;max-width:8.5rem;width:100%;height:auto;margin:0}
+.md-typeset .anri-card__body>:first-child{margin-top:0}
+.md-typeset .anri-card__body>:last-child{margin-bottom:0}
+.md-typeset .anri-card h2{margin-top:0;font-size:1.5rem;color:var(--anri-blue)}
+.md-typeset blockquote{border:0;background:var(--anri-pale);border-radius:1rem;padding:1.6rem 2.4rem;margin:2rem 0;color:#231f20;font-style:italic}
+.md-typeset blockquote p:last-child:not(:only-child){font-style:normal;text-transform:uppercase;font-weight:700;font-size:.62rem;letter-spacing:.04em;color:var(--anri-blue)}
+.anri-bars{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;padding:0 var(--anri-pad,1.5rem);max-width:var(--anri-container,1240px);margin:2rem auto 1rem}
+.anri-bars span{display:block;height:.55rem;border-radius:.3rem}
+.anri-bars span:nth-child(1){background:var(--anri-cyan)}.anri-bars span:nth-child(2){background:var(--anri-sky)}
+.anri-bars span:nth-child(3){background:var(--anri-blue)}.anri-bars span:nth-child(4){background:var(--anri-green)}
+@media (max-width:44em){.md-typeset .anri-card,.md-typeset .anri-card--media,.md-typeset .anri-card--media.anri-card--flip{display:block;padding:1.3rem}.md-typeset .anri-card__media{margin-bottom:1rem}}
+
+/* ---- inner-page banner + icon grid ---- */
+.anri-banner{background:linear-gradient(120deg,var(--anri-blue),var(--anri-cyan)) center/cover;min-height:8.5rem;display:flex;align-items:flex-end}
+.anri-banner__in{width:100%;max-width:var(--anri-container,1240px);margin:0 auto;padding:2rem var(--anri-pad,1.5rem) 1.6rem}
+.anri-banner h1{margin:0;color:#fff;font-size:2.2rem;font-weight:700;text-shadow:0 .1rem .6rem rgba(0,0,0,.35)}
+body:has(.anri-banner) .md-typeset>h1{display:none}
+.md-typeset .anri-icons{display:grid;grid-template-columns:repeat(3,1fr);gap:2.2rem 1.5rem;margin:1.5rem 0}
+.md-typeset .anri-icons__item{display:flex;align-items:center;gap:1rem}
+.md-typeset .anri-icons__item p{margin:0;flex:0 0 5.2rem}
+.md-typeset .anri-icons__item img{width:5.2rem;height:5.2rem;margin:0}
+.md-typeset .anri-icons__item h2{margin:0;font-size:.95rem;font-weight:700}
+@media (max-width:44em){.md-typeset .anri-icons{grid-template-columns:1fr}}
+/* flat variant, as on the live site: divider lines instead of shadowed cards */
+.md-typeset .anri-card{background:none;box-shadow:none;border-radius:0;border-bottom:1px solid #d9e6ee;padding:2rem 0;margin:0}
+.md-typeset .anri-card:last-of-type{border-bottom:0}
+.md-typeset .anri-card--media{grid-template-columns:minmax(0,1fr) 11rem}
+.md-typeset .anri-card--media.anri-card--flip{grid-template-columns:11rem minmax(0,1fr)}
+.md-typeset .anri-card__media img{border-radius:0;max-width:11rem}
+
+/* images aligned in WordPress content */
+.md-typeset img.align-right{float:right;margin:.3rem 0 1rem 1.5rem;max-width:40%}
+.md-typeset img.align-left{float:left;margin:.3rem 1.5rem 1rem 0;max-width:40%}
+.md-typeset img.align-center{display:block;margin-left:auto;margin-right:auto}
+
+/* post listings (tags, categories, news) */
+.md-typeset img.listing-thumb{width:5.5rem;height:5.5rem;object-fit:cover;border-radius:.4rem;float:left;margin:.1rem 1rem .6rem 0}
+.md-typeset ul:has(.listing-thumb)>li{overflow:auto;margin-bottom:1rem}
+
+/* loose icon links in body text stay icon-sized; photos never overflow the card */
+.md-typeset .anri-card--media:not(.anri-card--flip) .anri-card__media{order:2}
+/* live site sets width="100" on these inline icons */
+.md-typeset :not(.team-tiles):not(.anri-icons__item):not(.anri-card__media)>img[src*="-icon-"],.md-typeset :not(.team-tiles):not(.anri-icons__item):not(.anri-card__media)>a>img[src*="-icon-"],.md-typeset :not(.team-tiles):not(.anri-icons__item):not(.anri-card__media)>img[src*="ACCESS-icon"],.md-typeset :not(.team-tiles):not(.anri-icons__item):not(.anri-card__media)>a>img[src*="ACCESS-icon"],.md-typeset img[src*="icon-temp"]{width:6.25rem;height:6.25rem}
+.md-typeset .anri-card__body img{max-width:100%;height:auto}

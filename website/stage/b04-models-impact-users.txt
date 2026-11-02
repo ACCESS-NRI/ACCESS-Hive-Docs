@@ -1,0 +1,458 @@
+=====PATH /models/earth-system-model-esm/ | TITLE Earth System Model (ACCESS-ESM) | DESC An ESM (Earth System Model) simulates the carbon and other bio-chemical cycles alongside climate. | DATE
+## What is the ESM 1.5{Q}
+
+An ESM (Earth System Model) simulates the carbon and other bio-chemical cycles alongside climate. The ACCESS Earth System Model (ACCESS-ESM) is a fully-coupled global climate model that includes [atmosphere](https://docs.access-hive.org.au/models/model_components/atmosphere), [land](https://docs.access-hive.org.au/models/model_components/land), [ocean](https://docs.access-hive.org.au/models/model_components/ocean), [sea ice](https://docs.access-hive.org.au/models/model_components/sea-ice), [ocean biogeochemistry](https://docs.access-hive.org.au/models/model_components/bgc_ocean) and [land biogeochemistry](https://docs.access-hive.org.au/models/model_components/bgc_land) components, linked together by a [coupler](https://docs.access-hive.org.au/models/model_components/coupler).
+
+![]({U}2024/09/ACCESS-ESM-Model-New-300x169.png)
+
+ACCESS-ESM1.5 is one of the two ACCESS global coupled model versions. It includes land and ocean biogeochemistry.
+
+The simulations of this ACCESS coupled model configuration provide extensive datasets encompassing a wide range of variables that characterise the climate, such as temperature, rainfall, cloud cover, sea-ice extent and ocean circulation. This model allows climate scientists to simulate climate to 2100 (and beyond) for a range of future socioeconomic pathways.
+
+## How is ACCESS-ESM1.5 used{Q}
+
+The last [Coupled Model lntercomparison Project, CMIP6,](https://wcrp-cmip.org/) used a wide range of simulations from the ACCESS-ESM1.5 version. This model allows climate scientists to simulate climate to 2100 (and beyond) for a range of future socioeconomic pathways.
+
+ACCESS-NRI has released [ACCESS-ESM1.5 configurations](https://github.com/ACCESS-NRI/access-esm1.5-configs) as an adaptation of those originally developed by [CSIRO](https://www.csiro.au/en/research/environmental-impacts/climate-change/climate-science-centre) and [CLEX CMS](https://github.com/coecms/access-esm).
+
+**Read some of the impact of the ESM1.5 model:**
+
+- [Supercharging Australian climate science: Australia’s Earth system model gets revamped for a clearer view of our future and past climate.]({B}supercharging-australian-climate-science/)
+- [ACCESS model input into the CMIP6: simulating Australia’s future climate.]({B}case-study/access-models-input-to-cmip6-simulating-australias-future-climate/)
+
+**Read how ESM1.5 has been used by the paleoclimate community:**
+
+- [A software time dial for the paleoclimate community]({B}case-study/a-software-time-dial-for-the-paleoclimate-community/)
+- [Menus that save paleoclimate researcher’s time]({B}case-study/menus-that-save-paleoclimate-researchers-time/)
+
+---
+
+## Want to get started with ACCESS-ESM1.5{Q}
+
+- [Learn how to run the ACCESS-ESM Model](https://docs.access-hive.org.au/models/run_a_model/run_access-esm/)
+- Get involved with the ACCESS ESM user community
+- [Access our User Portal, the ACCESS Hive](https://access-hive.org.au/)
+- [ACCESS-ESM Description](https://docs.access-hive.org.au/models/access_models/access-esm/)
+
+---
+
+## Acknowledging the use of ACCESS-ESM1.5
+
+![]({U}2024/08/I-use-ACCESS1-300x200.png)
+
+**Users of ACCESS-NRI models, data, tools of expert support are required to clearly include an acknowledgement in all publications/reports/public releases.** Correct acknowledgement allows us to demonstrate our impact, find how our infrastructure is being used, and increase recognition of value of the ACCESS National Research Infrastructure. We suggest to use the following statement:
+
+“This research used the ACCESS-NRI’s model ACCESS-ESM1.5, which is enabled by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS)”
+
+*ACCESS-NRI modelling relies on computational and data resources operated by Australia’s [National Computational Infrastructure (NCI)](https://www.nci.org.au/). ACCESS-NRI and NCI are enabled by the Australian Government, Department of Education, through the [National Collaborative Research Infrastructure Strategy (NCRIS)](https://www.education.gov.au/ncris)*
+
+## ACCESS-ESM1.5 Components
+
+![]({U}2022/03/ACCESS-icon-SEA-ICE-300x300.png)
+
+## [Sea ice component](https://docs.access-hive.org.au/models/model_components/sea-ice/)
+
+![]({U}2022/03/ACCESS-icon-OCEAN-300x300.png)
+
+## [Modular Ocean model (MOM)](https://docs.access-hive.org.au/models/model_components/ocean/#modular-ocean-model-mom)
+
+![]({U}2025/08/ACCESS-icon-BCG-OCEAN-300x300.png)
+
+## [Biogeochemistry Ocean component (WOMBAT)](https://docs.access-hive.org.au/models/model_components/bgc_ocean/)
+
+![]({U}2022/03/ACCESS-icon-ATMOSPHERE-300x300.png)
+
+## [Atmosphere](https://docs.access-hive.org.au/models/model_components/atmosphere/)
+
+![]({U}2022/03/ACCESS-icon-LAND-SURFACE-300x300.png)
+
+## [Land Surface](https://docs.access-hive.org.au/models/model_components/land/)
+
+![]({U}2022/03/ACCESS-icon-BCG-LAND-300x300.png)
+
+## [Biogeochem Land](https://docs.access-hive.org.au/models/model_components/bgc_land/)
+
+=====PATH /models/access-om/ | TITLE Ocean-sea ice Model (ACCESS-OM) | DESC ACCESS-OM2 is the ocean and sea-ice component of the ACCESS coupled model. | DATE
+![]({U}2022/03/ACCESS-OM-Model.png)
+
+ACCESS-OM2 is the ocean and sea-ice component of the ACCESS coupled model. ACCESS-OM2 provides the Australian climate community with ocean weather and climate research, including seasonal forecasting, climate variability studies, downscaling of climate in the marine environment around Australia, and ocean biogeochemistry modelling.
+
+ACCESS-OM2 is an Earth System model configuration that links the Modular Ocean Model (MOM), the sea-ice model (CICE), a file-based atmosphere called YATM (Yet Another Atmospheric Model) and the Ocean-Biogeochemistry Model (WOMBAT), coupled together using the OASIS coupler.
+
+ACCESS-OM2 has been developed by [Consortium for Ocean-Sea Ice Modelling in Australia (COSIMA)](http://cosima.org.au/) in collaboration with the [Geophysical Fluid Dynamics Laboratory](https://www.gfdl.noaa.gov/) (for an ocean model component), the Los Alamos National Laboratory (for a sea-ice model component), and the [European Centre Centre Européen de Recherche et de Formation Avancée en Calcul Scientifique (CERFACS)](https://cerfacs.fr/en/) (for an atmosphere-ocean OASIS3-MCT coupler).
+
+## Want to get started with ACCESS-OM2{Q}
+
+![]({U}2023/03/COSIMA-icon-300x300.png)
+
+- [Learn how to run the ACCESS-OM2 Model](https://docs.access-hive.org.au/models/run_a_model/run_access-om2/)
+- [Get involved with the COSIMA user community](https://cosima.org.au/index.php/get-involved/)
+- [ACCESS-OM2 on GitHub](https://github.com/ACCESS-NRI/ACCESS-OM2/)
+
+---
+
+## Acknowledging the use of ACCESS-OM2
+
+![]({U}2024/08/I-use-ACCESS1-300x200.png)
+
+**Users of ACCESS-NRI models, data, tools of expert support are required to clearly include an acknowledgement in all publications/reports/public releases.** Correct acknowledgement allows us to demonstrate our impact, find how our infrastructure is being used, and increase recognition of value of the ACCESS National Research Infrastructure. We suggest to use the following statement:
+
+“This research used the ACCESS-NRI’s model ACCESS-OM2, which is enabled by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS)”
+
+*ACCESS-NRI modelling relies on computational and data resources operated by Australia’s [National Computational Infrastructure (NCI)](https://www.nci.org.au/). ACCESS-NRI and NCI are enabled by the Australian Government, Department of Education, through the [National Collaborative Research Infrastructure Strategy (NCRIS)](https://www.education.gov.au/ncris)*
+
+## ACCESS-OM2 Components
+
+![]({U}2022/03/ACCESS-icon-SEA-ICE-300x300.png)
+
+## [Sea ice component](https://docs.access-hive.org.au/models/model_components/sea-ice/)
+
+![]({U}2022/03/ACCESS-icon-OCEAN-300x300.png)
+
+## [Modular Ocean model (MOM)](https://docs.access-hive.org.au/models/model_components/ocean/#modular-ocean-model-mom)
+
+![]({U}2025/07/ACCESS-icon-BCG-OCEAN-1-300x300.png)
+
+## [Biogeochemistry Ocean component (WOMBAT)](https://docs.access-hive.org.au/models/model_components/bgc_ocean/)
+
+## How is ACCESS-OM2 used{Q}
+
+ACCESS OM2 is used as the ocean-sea ice component for the OMIP component of the [Coupled Model Inter-comparison Project (CMIP).](https://www.wcrp-climate.org/wgcm-cmip) ACCESS-OM2 is designed to be consistent with the fully coupled version of ACCESS (CM2).
+
+[![Sea-Surface Salinity (ACCESS-OM2)]({U}2022/03/Sea-Surface-Salinity-ACCESS-OM2-570x320.jpg)](https://www.youtube.com/watch{Q}v{EQ}4mUfd7A_SDw)
+
+### Sea-Surface Salinity (ACCESS-OM2)
+
+This animation shows the Sea-Surface Salinity using data from the ACCESS-OM2 0.1-degree model.
+
+[Watch Video](https://www.youtube.com/watch{Q}v{EQ}4mUfd7A_SDw){ .buttononblue }
+
+=====PATH /models/access-ram/ | TITLE Regional Atmosphere Model (ACCESS-rAM) | DESC ACCESS-rAM3 is a fully supported regional model, created to understand and project weather with a unique Australian focus. | DATE
+![]({U}2025/05/ACCESS-Regional-Model-2025-04-04-FINAL-300x167.jpg)
+
+ACCESS-rAM3 is a fully supported regional model, created to understand and project weather with a unique Australian focus. This model includes atmosphere and land components, and it is an implementation of the UK Met Office (UKMO) regional nesting suite.
+
+ACCESS-rAM3 allows Australian researchers to choose the time and location they wish to simulate. It also enables users to seamlessly use land-surface initial conditions from other available sources rather than relying on operational data, which are not readily available to the public.
+
+This model enables the vital research undertaken by the [*ARC Centre of Excellence for 21st Century Weather*](https://www.21centuryweather.org.au/), aiming to understand how Australia’s weather will transform as our climate changes.
+
+The rAM3 model is specially designed to run on the National Computing Infrastructure (NCI) platform available to the Australian research community.
+
+The Australian focus of this release has been enhanced by a new functionality introduced by ACCESS-NRI, an improvement of the soil moisture initialisation using ERA5-Land from the [European Centre for Medium-Range Weather Forecasts](https://www.ecmwf.int/en/forecasts) (ECMWF) and the BARRA reanalysis from the [Bureau of Meteorology](http://www.bom.gov.au/).
+
+The future for the next versions of the ACCESS regional model will be to connect the Australian developed land-surface model, CABLE, as it better represents Australian vegetation and soil. Currently, ACCESS-rAM3 uses the UKMO land-surface model JULES.
+
+---
+
+## Want to get started with ACCESS-rAM3{Q}
+
+Would you like to use this model{Q} See its release information:
+
+[https://forum.access-hive.org.au/t/access-ram3-release-information/4308](https://forum.access-hive.org.au/t/access-ram3-release-information/4308)
+
+[https://docs.access-hive.org.au/models/access_models/access-ram/](https://docs.access-hive.org.au/models/access_models/access-ram/)
+
+---
+
+## Acknowledging the use of ACCESS-rAM3
+
+![]({U}2024/08/I-use-ACCESS1-300x200.png)
+
+**Users of ACCESS-NRI models, data, tools of expert support are required to clearly include an acknowledgement in all publications/reports/public releases.** Correct acknowledgement allows us to demonstrate our impact, find how our infrastructure is being used, and increase recognition of value of the ACCESS National Research Infrastructure. We suggest to use the following statement:
+
+“This research used the ACCESS-NRI’s model ACCESS-rAM3, which is enabled by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS)”
+
+*ACCESS-NRI modelling relies on computational and data resources operated by Australia’s [National Computational Infrastructure (NCI)](https://www.nci.org.au/). ACCESS-NRI and NCI are enabled by the Australian Government, Department of Education, through the [National Collaborative Research Infrastructure Strategy (NCRIS)](https://www.education.gov.au/ncris)*
+
+## How is rAM3 used{Q}
+
+rAM3 enables researchers to understand extreme weather events like hurricanes, floods and droughts, which are not captured by the wide-angle lens of global climate models.
+
+## More information:
+
+[Seeing the details through the lens of a regional model: enabling researchers to understand weather extremes]({B}access-ram3-regional-model/)
+
+=====PATH /impact/ | TITLE Impact | DESC Learn more about ACCESS-NRI's impact by reading our case studies or watching videos in our multimedia gallery. | DATE
+![]({U}2026/06/Case-studies-Image-callout-570x320.png)
+
+## Case studies
+
+Read recent case studies highlighting our impact.
+
+[Visit webpage]({B}impact/case-studies/){ .buttononblue }
+
+![]({U}2026/06/Multimedia-gallery-Image-callout-570x320.png)
+
+## Multimedia gallery
+
+Watch visualisations and other videos highlighting our impact.
+
+[Visit webpage]({B}impact/multimedia-gallery/){ .buttononblue }
+
+ACCESS-NRI enables a range of impacts including:
+
+| | |
+| --- | --- |
+| ![Dark green circle with a white gum leaf and gum nut branch.]({U}2025/06/Impact-1.png) | **Building and future-proofing** Australia’s sovereign climate research capability essential to support national resilience and wellbeing |
+| ![]({U}2025/06/Impact-2.png) | **Delivering** climate simulations specific to Australian and Southern Hemisphere conditions |
+| ![]({U}2025/06/Impact-3.png) | **Understanding** how changes to Antarctic Ice Southern Ocean currents dynamics affect global systems |
+| ![]({U}2025/06/Impact-4.png) | **Understanding** El Niño and La Niña and how these climate systems affect Australia and regional neighbours |
+| ![]({U}2025/06/Impact-5.png) | **Forecasting** high-impact weather – wind, bushfire, floods, heatwaves – to inform emergency management |
+| ![]({U}2025/06/Impact-6.png) | **Safeguarding** Australia’s future – long-term forecasting to inform critical decision making across the government, agriculture, insurance and security sectors |
+| ![]({U}2025/06/Impact-7.png) | **Strengthening** global efforts to simulate climate of the past millennium and the future |
+| ![]({U}2025/06/Impact-8.png) | **Reconstructing** past climate – understanding how climate changed in the past to inform predictions of future change |
+
+=====PATH /impact/case-studies/ | TITLE Case studies | DESC ACCESS-NRI works closely with the climate modelling community to enable a range of impacts. Learn more in our recent case studies. | DATE
+[![A homegrown climate model built for Australia, tested on the world stage]({U}2025/12/ACCESS-ESM-570x320.png)]({B}case-study/a-homegrown-climate-model-buildt-for-australia/)
+
+### A homegrown climate model built for Australia, tested on the world stage
+
+ACCESS models and expertise of researchers are helping to understand Australia’s future climate, as part of the International Coupled Model Intercomparison Project (CMIP7)
+
+[Read More]({B}case-study/a-homegrown-climate-model-buildt-for-australia/){ .buttononblue }
+
+[![Simulating how the ocean’s deepest waters form beneath Antarctica]({U}2026/10/Bottom-waters-with-colors-570x320.png)]({B}case-study/simulating-how-the-oceans-deepest-waters-form-beneath-antarctica/)
+
+### Simulating how the ocean’s deepest waters form beneath Antarctica
+
+Researchers are using the high-resolution ocean-sea ice model, ACCESS-OM, to follow dense water as it forms beneath Antarctic sea ice and cascades into the abyss….
+
+[Read More]({B}case-study/simulating-how-the-oceans-deepest-waters-form-beneath-antarctica/){ .buttononblue }
+
+[![Visualising uncharted climate futures: Pacific warming trends]({U}2026/06/Uncharted-Climate-Futures-YouTube-thumbnail-570x320.png)]({B}case-study/visualising-uncharted-climate-futures-pacific-warming-trends/)
+
+### Visualising uncharted climate futures: Pacific warming trends
+
+What do tropical Pacific warming trends mean for Australia’s future climate{Q} Every few years, Australians brace for the swing between potential drought and floods: the…
+
+[Read More]({B}case-study/visualising-uncharted-climate-futures-pacific-warming-trends/){ .buttononblue }
+
+[![Enabling researchers to understand weather extremes through the lens of a regional model]({U}2025/05/ACCESS-Regional-Model-2025-04-04-FINAL-570x320.jpg)]({B}case-study/enabling-researchers-to-understand-weather-extremes-through-the-lens-of-a-regional-model/)
+
+### Enabling researchers to understand weather extremes through the lens of a regional model
+
+Australia’s climate simulator (ACCESS-NRI) released ACCESS-rAM3, a fully supported regional atmosphere and land model built to simulate extreme weather, such as cyclones, floods, and heatwaves, which are not captured by the wide-angle lens of global climate models.
+
+[Read More]({B}case-study/enabling-researchers-to-understand-weather-extremes-through-the-lens-of-a-regional-model/){ .buttononblue }
+
+[![A software time dial for the paleoclimate community]({U}2025/02/Picture1-570x320.png)]({B}case-study/a-software-time-dial-for-the-paleoclimate-community/)
+
+### A software time dial for the paleoclimate community
+
+The ACCESS-NRI team has added a “time dial” into the Earth System Model (ACCESS-ESM1.5) that allows paleoclimate researchers to match the right value of Earth’s orbit around the Sun during different past climates.
+
+[Read More]({B}case-study/a-software-time-dial-for-the-paleoclimate-community/){ .buttononblue }
+
+[![Menus that save paleoclimate researcher’s time]({U}2024/12/1-570x320.png)]({B}case-study/menus-that-save-paleoclimate-researchers-time/)
+
+### Menus that save paleoclimate researcher’s time
+
+The ACCESS-NRI team has added a “Menu” into the Earth System Model (ACCESS-ESM1.5) that allows paleoclimate researchers to customise the model output by choosing presets of the variables they want to simulate, as well as the data they want to keep.
+
+[Read More]({B}case-study/menus-that-save-paleoclimate-researchers-time/){ .buttononblue }
+
+[![ACCESS models help to unveil the causes of the unprecedented 2023 North Atlantic Ocean heatwave]({U}2025/07/Antarctic-Nature-Main-heat-budget-terms-from-one-of-the-model-runs-570x320.png)]({B}case-study/access-models-help-to-unveil-the-causes-of-the-unprecedented-2023-north-atlantic-ocean-heatwave/)
+
+### ACCESS models help to unveil the causes of the unprecedented 2023 North Atlantic Ocean heatwave
+
+A paper published recently in Nature using two ACCESS models, has revealed the drivers of a marine heatwave that swept across the North Atlantic Ocean…
+
+[Read More]({B}case-study/access-models-help-to-unveil-the-causes-of-the-unprecedented-2023-north-atlantic-ocean-heatwave/){ .buttononblue }
+
+=====PATH /impact/multimedia-gallery/ | TITLE Multimedia gallery | DESC Here you can find videos, presentations and animations on ACCESS Models: | DATE
+Here you can find videos, presentations and animations on ACCESS Models:
+
+[![What are climate models{Q}]({U}2026/08/what-are-climate-models-V1-570x320.png)](https://youtu.be/tK0tolvqONc)
+
+### What are climate models{Q}
+
+Ever wondered what a “climate model” actually is{Q}
+Our new animation explains why we need climate models, how these models work, and how ACCESS-NRI supports the Australian research community building and using them.
+
+[Watch Video](https://youtu.be/tK0tolvqONc){ .buttononblue }
+
+[![Visualising uncharted climate futures: Pacific warming trends]({U}2026/06/Uncharted-Climate-Futures-YouTube-thumbnail-570x320.png)](https://youtu.be/5UTdCmsnki4)
+
+### Visualising uncharted climate futures: Pacific warming trends
+
+How are sea surface temperatures in the tropical Pacific ocean changing, and what can we expect in the future{Q}
+
+This video outlines research that compares the subtle differences between observed and modelled ocean warming patterns, and the implications of these trends for Australia.
+
+It is a visual collaboration between Australia’s climate simulator (ACCESS-NRI), the National Environmental Science Program (NESP Climate Science Hub), and the Bureau of Meteorology.
+
+[Watch Video](https://youtu.be/5UTdCmsnki4){ .buttononblue }
+
+[![A visual expedition to Antarctica’s past and a clue to its future]({U}2024/03/Untitled-design2-570x320.png)](https://youtu.be/YS93JkDfRNA)
+
+### A visual expedition to Antarctica’s past and a clue to its future
+
+This video, narrated by researcher Ed Doddridge, showcases a visualisation created by ACCESS-NRI Owen Kaluza. As Antarctic sea ice appears to have shifted to a different state of lower coverage, this video allows us to look into Antarctica 120 years ago and compare it with Antarctica today. An insightful view of how alarming the loss of sea-ice is for the whole planet.
+
+[Watch Video](https://youtu.be/YS93JkDfRNA){ .buttononblue }
+
+[![Visualising Antarctica’s heartbeat]({U}2024/03/Antarctica-timelapse-2-570x320.png)](https://youtu.be/39wn6cACMZM)
+
+### Visualising Antarctica’s heartbeat
+
+Watch why Antarctica is like a heartbeat for Earth, in an amazing video from a collaborative work between researcher Ed Doddridge from the Australian Antarctic Partnership Program (AAPP) and visualisation expert Owen Kaluza from the Australian Earth System Simulator (ACCESS-NRI)
+
+[Watch Video](https://youtu.be/39wn6cACMZM){ .buttononblue }
+
+[![ACCESS-NRI video NCRIS Collaboration NatSciWeek]({U}2022/08/ACCESS-Video-Image-570x320.png)](https://youtu.be/A-VTDqYDGoU)
+
+### ACCESS-NRI video NCRIS Collaboration NatSciWeek
+
+This video is one of a series of 1 min videos from a collaborative project with all the NCRIS facilities and the Department of Education. Our video showcases the Australian Earth System Simulator or ACCESS-NRI. Our speaker, Dr Chaira Holgate is an ANU and CLEX researcher and an user of the ACCESS suite of computational models.
+
+[Watch Video](https://youtu.be/A-VTDqYDGoU){ .buttononblue }
+
+[![ACCESS-NRI has been launched!]({U}2022/06/Lee-Constable-Launch-570x320.png)](https://youtu.be/watch{Q}v{EQ}l2IpsE7t9wc)
+
+### ACCESS-NRI has been launched!
+
+This 30 minute video is a recording of the public launch of ACCESS-NRI on 23 June 2022. Speakers include Lee Constable (as MC), Serena Willimas (Welcome to Country), Professor Brian Schmidt, Dan Donegan (DESE, NCRIS), Andy Hogg and Robyn Owens.
+
+[Watch Video](https://youtu.be/watch{Q}v{EQ}l2IpsE7t9wc){ .buttononblue }
+
+[![ACCESS: Modelling Australia’s climate]({U}2015/02/climate-modelling-570x320.jpg)](https://vimeo.com/119920008)
+
+### ACCESS: Modelling Australia’s climate
+
+This video explains what are Climate Models, with a focus on the ACCESS suite of models. This video has been produced by CSIRO in collaboration with the Australian Bureau of Meteorology with funding from Inspiring Australia.
+
+[Watch Video](https://vimeo.com/119920008){ .buttononblue }
+
+[![Australia’s national climate model (ACCESS)]({U}2018/09/Australias-national-climate-model-570x320.jpg)](https://www.youtube.com/watch{Q}v{EQ}TtL7TYxNdU4)
+
+### Australia’s national climate model (ACCESS)
+
+ESCC Hub webinar 18 Sep 2018
+
+[Watch Video](https://www.youtube.com/watch{Q}v{EQ}TtL7TYxNdU4){ .buttononblue }
+
+[![Sea-Surface Salinity (ACCESS-OM2)]({U}2022/03/Sea-Surface-Salinity-ACCESS-OM2-570x320.jpg)](https://www.youtube.com/watch{Q}v{EQ}4mUfd7A_SDw)
+
+### Sea-Surface Salinity (ACCESS-OM2)
+
+This animation shows the Sea-Surface Salinity using data from the ACCESS-OM2 0.1-degree model.
+
+[Watch Video](https://www.youtube.com/watch{Q}v{EQ}4mUfd7A_SDw){ .buttononblue }
+
+[![Mesmerising 6 year timelapse of Australian clouds]({U}2019/01/incredible-weather-visualisation-570x320.jpg)](https://youtu.be/bBLsn_WCg8g)
+
+### Mesmerising 6 year timelapse of Australian clouds
+
+Incredible weather visualisation: Reanalysis (BARRA) animation, produced in collaboration with NCI
+
+[Watch Video](https://youtu.be/bBLsn_WCg8g){ .buttononblue }
+
+*More videos: page 2 of the gallery is on the live site and is still to be migrated.*
+
+=====PATH /join-the-access-community-v1/ | TITLE Join the ACCESS Community | DESC If you are a model developer or an user of the ACCESS models, outputs or tools, or if you are simply interested on using them for you research, you are part of the ACCESS Community! | DATE
+If you are a model developer or an user of the ACCESS models, outputs or tools, or if you are simply interested on using them for you research, you are part of the ACCESS Community! There are several ways to join the ACCESS Community:
+
+![]({U}2025/09/Join-the-Community-570x320.png)
+
+## This is a forum for the ACCESS community
+
+Join the conversation!
+
+[Visit the ACCESS-Hive Forum](https://forum.access-hive.org.au/){ .buttononblue }
+
+![]({U}2025/09/Join-the-Community1-570x320.png)
+
+## These six Groups are open to everyone
+
+Attend meetings, collaborate and ask questions
+
+[Join a Community Working Group]({B}working-groups/){ .buttononblue }
+
+![]({U}2025/09/Join-the-Community2-570x320.png)
+
+## Receive updates directly to your inbox!
+
+Subscribe to receive news and updates from ACCESS-NRI and the ACCESS Community
+
+[Subscribe](https://access-nri.us14.list-manage.com/subscribe{Q}u{EQ}2e82a242a5023d286ad0d4555&id{EQ}aed3bbbb13){ .buttononblue }
+
+![]({U}2025/09/Join-the-Community3-570x320.png)
+
+## Don't miss the opportunity to meet the Community!
+
+Online and in-person events organised by ACCESS-NRI or members of our community, including training, webinars and more!
+
+[More information]({B}upcoming-events/){ .buttononblue }
+
+---
+
+### ACCESS-NRI CODE OF CONDUCT
+
+[This document]({B}community/access-nri-code-of-conduct/) outlines our behaviour expectations as members of the ACCESS-NRI community in all our activities both offline and online.
+
+---
+
+### COVID SAFE PLAN
+
+![]({U}2022/03/ACCESS-icon-CASE-STUDIES-300x300.png)
+
+Check out our efforts to minimise the risk of COVID19 infection in all our events.
+
+[ACCESS-NRI COVID Safe Plan 2025]({U}2025/09/COVID-Safe-page-2025.pdf)
+
+=====PATH /eoi-model-evaluation-and-dev/ | TITLE Call for Expressions of Interest in Model Evaluation & Development | DESC Call for Expressions of Interest to work with ACCESS-NRI on testing and evaluation of ACCESS-ESM3 and its components. | DATE
+Quick links: [This opportunity](#Opportunity) | [ACCESS-ESM3 Status](#ACCESS-ESM3) | [Forward Plan](#Plan) | [What to include in your EoI](#EoI) | [How EoIs will be evaluated](#Evaluation) | [Contact us](#Contact)
+
+ACCESS-NRI recently received funding from the National Collaborative Research Infrastructure Strategy (NCRIS) to create Australia’s Next-Generation Earth System Model, ACCESS-ESM3.
+
+## This Opportunity { #Opportunity }
+
+We are calling for **Expressions of Interest (EoI)** from qualified research teams and individuals to work with ACCESS-NRI in testing and evaluation of ACCESS-ESM3 and its components. The ACCESS-ESM3 forward plan requires both technical development (primarily done by ACCESS-NRI) and improvements in model quality. Improving the quality of the model involves an iterative cycle of model testing and evaluation that will benefit from expertise in the research community.
+
+ACCESS-NRI will support successful bids in one of three ways:
+
+1. By providing funding to ACCESS-NRI partner organisations through subcontracts to employ staff to deliver key testing/evaluation milestones;
+2. By temporarily seconding staff to ACCESS-NRI from partner organisations, or
+3. By directly employing new staff on short (<12 months), fixed-term employment contracts at ACCESS-NRI.
+
+Contracts of duration from 6 months to 18 months will be considered, with the possibility of extension after June 2028 contingent on additional funding from NCRIS.
+
+## Current status of ACCESS-ESM3 { #ACCESS-ESM3 }
+
+ACCESS-ESM3 is currently under development. The preliminary steps have been to focus on developing the component models, with a view to progressively assembling the full Earth system model:
+
+- ACCESS-OM3 is the ocean-sea ice model component (MOM6-CICE6-NUOPC-WOMBAT). The 25km configuration is in the beta-release phase, and initial simulations are being evaluated. An 8km configuration is in the prototype phase and currently running on Gadi. Lower resolution (100km) configurations are used for testing and developing WWIII surface wave coupling.
+- ACCESS-AM3 is the atmosphere-land model (UM13-CABLE3). 130km and 25km configurations have been beta released.
+- CABLE3 and WOMBAT-lite have been developed for ACCESS-ESM1.6, involving substantial upgrades.
+- ACCESS-CM3 is the coupled ocean-atmosphere model (merging OM3 and AM3). It is in the prototype phase and several 50-year simulations have been run (130km/25km resolution). Current efforts are focused on incorporating the CABLE3 land surface model.
+
+## ACCESS-ESM3 Forward plan { #Plan }
+
+Over the next 2 years planned development activities (and associated timelines) include:
+
+- Full release configurations of ACCESS-OM3 at 25km and 8km resolution (2027);
+- Full release configurations of ACCESS-AM3 at 130km and 25km resolution (2027);
+- Develop high-resolution ACCESS-CM3 configuration at 25km/8km (and perhaps an intermediate-resolution option at 50km/25km) to provide the option of submission to HighResMIP within CMIP7 (by 2028);
+- Develop ACCESS-ESM3 at standard resolution (130km/25km) in time for a potential Australian CMIP7 submission (by 2028);
+- Upgrading CABLE3 to CABLE4, to include dynamic vegetation and fire impacts, and
+- Providing options for WOMBAT-mid and WOMBAT-full implementation.
+
+## What to include in your EoI { #EoI }
+
+Your expression of interest should include a concise description of the component models you propose to test and evaluate, an outline of the evaluation process you will follow (max 2 pages), a brief CV for each investigator (max 1 page) and a budget outline (following our [EOI Budget template]({U}2026/09/EOI-Budget-template.xlsx)). The budget template includes a column indicating in-kind contributions from your organisation.
+
+Expressions of interest will close on **31st October 2026**. Please send your EoI and all the documentation (description of components, evaluation, brief CVs and budget outline) attached to an email to: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au)
+
+## How EoIs will be evaluated { #Evaluation }
+
+A panel of ACCESS-NRI staff and Board members will be convened to determine the optimal deployment of funds. They will evaluate expressions of interest based on:
+
+1. Value for money – the potential for the bid to make a substantial improvement in ACCESS-ESM3 performance.
+2. The balance of development and evaluation work across the ACCESS-ESM3 component models.
+3. The track record and capability of applicants.
+4. The extent to which outputs will be openly shared with the community through evaluation methods supported by ACCESS-NRI.
+5. The ability of funded staff to focus on ACCESS evaluation and development (> half-time commitments strongly preferred).
+
+## Contact us { #Contact }
+
+For more information please contact [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au).

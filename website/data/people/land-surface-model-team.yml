@@ -1,0 +1,25 @@
+- name: Dr. Claire Carouge
+  role: Team Leader, Land Surface Model Infrastructure
+  photo: wp-content/uploads/2022/05/Claire-Carouge-BW-300x300.png
+  profile: https://www.access-nri.org.au/person/claire-carouge/
+  slug: claire-carouge
+  email: claire.carouge@anu.edu.au
+- name: Dr. Benjamin J. E. Schroeter
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2023/08/60bb2ebe-2799-448e-bf45-bf0e9cf63caa-300x300.jpg
+  profile: https://www.access-nri.org.au/person/ben-schroeter/
+  slug: ben-schroeter
+  linkedin: https://www.linkedin.com/in/bschroeter/
+- name: Mr. Abhaas Goyal
+  role: Research Software Engineer
+  photo: wp-content/uploads/2024/01/Abhaas-scaled-e1705294323814-300x300.jpg
+  profile: https://www.access-nri.org.au/person/mr-abhaas-goyal/
+  slug: mr-abhaas-goyal
+  twitter: https://twitter.com/AbhaasGoyal
+  linkedin: https://www.linkedin.com/in/abhaasgoyal/
+- name: Dr. Lachlan Whyborn
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2024/09/Untitled-design-300x300.png
+  profile: https://www.access-nri.org.au/person/dr-lachlan-whyborn/
+  slug: dr-lachlan-whyborn
+  email: lachlan.whyborn@anu.edu.au

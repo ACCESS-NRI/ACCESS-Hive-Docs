@@ -1,0 +1,4 @@
+# Live paths (no leading/trailing slash) that are known not to be migrated yet.
+# Anything else in the live sitemap but absent from the port is reported as MISSING.
+# Start empty so the first run produces the full to-do list, then move items here only when a decision is made
+# (e.g. "drop", "stays on WordPress", "redirect to docs.access-hive.org.au").

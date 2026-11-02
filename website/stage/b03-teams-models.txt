@@ -1,0 +1,257 @@
+=====PATH /teams/ice-sheet-modelling-team/ | TITLE Ice Sheet Modelling team | DESC The Ice Sheet Modelling team aims to integrate the new Ice Sheet and Sea-level System Model (ISSM) into the ACCESS climate suite. | DATE
+![]({U}2024/07/ACCESS-icon-LAND-ICE-150x150.png)
+
+## About the team
+
+Ice sheets are fundamental components of the Earth system. We currently have two ice sheets on Earth: Antarctica and Greenland. These masses of land ice are the largest drivers of global sea level change on centennial and longer timescales and play a fundamental role in regulating the amount of incoming solar radiation and in ocean and atmosphere circulation.
+
+If we want to understand how the climate might change over the coming centuries, and the impact of these changes on all Earth systems, we need to accurately model the interactions between the ice sheets and the ocean and atmosphere.
+
+Our team aims to integrate the new [Ice Sheet and Sea-level System Model (ISSM)](https://science.jpl.nasa.gov/projects/issm/) into the ACCESS climate suite to improve decadal- to centennial-scale projections of global mean and regional sea level and climate change.
+
+We also aim to get users in Australia to adopt the ISSM model and support their transition, which includes supporting researchers to run the model and use the output data, developing training materials, organising workshops, and supporting the Cryosphere Modelling Community Working Group.
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to reach out or attend our monthly [Cryosphere Modelling Community Working Group]({B}working-groups/cryosphere/) meetings, which are open to everyone, especially early-career researchers and students. Together, we can enhance our understanding of the cryosphere and its critical role in our planet’s climate system.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/land-surface-model-team/ | TITLE Land Surface Model team | DESC Our team creates easy-to-use, clear and robust infrastructure to bring the knowledge of Australian land specificities to the ACCESS model. | DATE
+![]({U}2022/03/ACCESS-icon-LAND-SURFACE-150x150.png)
+
+## About the team
+
+Modelling soils and vegetation is an essential element for simulating our climate and weather and producing better localised predictions. This is known as land surface modelling. ACCESS has a specific land surface model called [Community Atmosphere Biosphere Land Exchange (CABLE)](https://cable.readthedocs.io/en/latest/) developed with the Australian land uniqueness in mind.
+
+CABLE integrates the complex biological, physical and chemical processes involved in modelling the land, which requires an interdisciplinary approach due to the many scales and elements involved. It enables us to predict how the natural carbon cycle will operate under a range of future scenarios.
+
+Our team focuses on creating an easy-to-use, clear and robust infrastructure to bring the knowledge of Australian land specificities to the ACCESS model. We work with the research community through the [Land Surface Modelling Community Working Group]({B}land-surface-modelling-community-working-group/), providing software development expertise to Australian researchers to improve the CABLE model and making it easier to use and to develop.
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to reach out or attend our [Land Surface Modelling Community Working Group]({B}land-surface-modelling-community-working-group/) meetings, which are open to everyone, especially early-career researchers and students. Together, we can enhance our understanding of the land and its critical role in our planet’s climate system.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/model-evaluation-and-diagnostics-med-team/ | TITLE Model Evaluation and Diagnostics (MED) team | DESC Our team develops and maintains tools and workflows for data processing and analysis to compare model runs and Earth observations. | DATE
+![]({U}2023/11/ACCESS-icon-EVALUATION-150x150.png)
+
+## About the team
+
+Climate models are intricate simulations of Earth’s atmosphere, oceans, and ecosystems. To make sure these models reflect reality, we need to compare the model predictions to real-world observations like data collected from satellites, ground measurements, various Earth-monitoring tools and to other models developed by various researchers and institutions around the world. We call this process “Model Evaluation,” and in the realm of climate modeling, it is a critical reality check that allows us to improve the accuracy of our models, identify patterns and refine predictions.
+
+Our team focuses on developing and maintaining tools and workflows for data processing and analysis to facilitate comparison between model runs and Earth observations, so we can enable researchers to address the challenges of climate change.
+
+We work in close collaboration with scientific experts in specific domain areas, with international collaborators and across all the different areas of ACCESS-NRI.
+
+We also support the development of the climate model components and visualisation of their outputs.
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to contact our team or reach out through the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). Your feedback is invaluable as we strive to improve our systems and support the research community effectively.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/model-release-team/ | TITLE Model Release team | DESC Our team is responsible for building, maintaining, and testing climate and weather models automatically, ensuring they are ready when needed. | DATE
+![]({U}2025/09/ACCESS-icon-RELEASE-RGB-e1756786149391-150x150.png)
+
+## About the team
+
+The ACCESS-NRI Model Release team is responsible for building, maintaining, and testing climate and weather models automatically, ensuring they are ready when needed. This is crucial for enabling teams to work more productively and for users to effectively utilise the software we develop.
+
+Our team focuses on several key areas:
+
+- Automated code integration and testing
+- Resource tracking
+- Continuous integration testing and deployment
+- Model configuration release and testing
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to contact our team or reach out through the [ACCESS-Hive Forum](https://forum.access-hive.org.au/). Your feedback is invaluable as we strive to improve our systems and support the research community effectively.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/ocean-model-team/ | TITLE Ocean Model team | DESC The Ocean Model team focuses on developing and enhancing the ocean and sea ice components of our climate models. | DATE
+![]({U}2022/03/ACCESS-icon-OCEAN-150x150.png)
+
+## About the team
+
+The ocean absorbs a large part of the carbon we put into the atmosphere, and almost all the excess heat created from climate change. As a result, accurately modelling ocean dynamics is essential for understanding the broader impacts of climate change.
+
+Our team focuses on developing and enhancing the ocean and sea ice components of our climate models, which are important for understanding Australia’s climate and weather. The ocean model integrates with land and atmosphere models to enable researchers to provide accurate representations of our Earth system.
+
+We work closely with scientific and technical experts from the [Consortium for Ocean-Sea Ice Modelling in Australia (COSIMA) working group]({B}working-groups/cosima/) to develop and improve the ocean and sea ice models. We also participate in large international projects (e.g., CICE and [MOM6](https://github.com/mom-ocean/MOM6/) consortium).
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to engage with our team, share your concerns or priorities regarding climate model software or attend the weekly [COSIMA Community Working Group]({B}working-groups/cosima/) meetings, which are open to anyone, especially early-career researchers and students, fostering collaboration within the ocean and sea ice modelling community. Your feedback is invaluable as we strive to improve our systems and support the research community effectively.
+
+The COSIMA Working Group has its own [website](https://cosima.org.au/), see the [onboarding information](https://cosima.org.au/index.php/get-involved/) to get started and the [bespoke acknowledgements](https://cosima.org.au/index.php/get-involved/) for members who benefit from COSIMA and ACCESS-NRI.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/regional-coastal-ocean-modelling-team/ | TITLE Regional and Coastal Ocean Modelling team | DESC This team focuses on developing and enhancing the regional and coastal components of our climate and weather models. | DATE
+![]({U}2025/09/ACCESS-icon-REGION-COAST-RGB-150x150.png)
+
+## About the team
+
+Australia’s coastline is one of the longest in the world. Modelling weather and climate in the coastal region is essential, as these are areas where our population concentrates. This involves modelling processes like water quality, currents, heat, pollution and many more.
+
+The ACCESS-NRI Regional and Coastal Ocean Modelling team focuses on developing and enhancing the regional and coastal components of our climate and weather models, to help understand the dynamic intersection between the ocean and land and to address the challenges presented by coastal change.
+
+We create and refine the ocean models used in ACCESS, ensuring they are effective for various regional and coastal applications—from short-term forecasts to process studies, environmental assessment, and long-term climate predictions.
+
+Our team assists researchers in using these models confidently. We provide tools, documentation, and direct support to help them run oceanic simulations effectively. We also participate in national projects (e.g., [CoastRI](https://www.coastri.org.au/) and Australian National Coastal Ocean Modelling System (ANCOMS)).
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to reach out or attend our monthly Working Group meetings, which are open to everyone, especially early-career researchers and students. Together, we can enhance our understanding of the coast environments and their critical role in our planet’s climate system.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/software-transformation-team/ | TITLE Software Transformation team | DESC Our team prepares the ACCESS models for the next generation of supercomputers, so we can run them faster and more efficiently. | DATE
+![]({U}2024/08/ACCESS-icon-SOFTWARE-e1756786553757-150x150.png)
+
+## About the team
+
+In the Software Transformation team, we prepare the ACCESS models for the next generation of supercomputers, so we can run them faster and more efficiently. This is important for ACCESS users and collaborators, because it allows researchers to get more science done in less time.
+
+Our team explores the use of new high-performing computing technologies and algorithms in climate science. We aim to bring the best software engineering practices to the ACCESS models, making them easier to maintain, to improve and to future-proof them against computer technology changes.
+
+Our team works closely with scientific experts in the climate and weather community and across all the different technical expert areas at ACCESS-NRI and HPC facilities.
+
+#### Engage with us
+
+If you’re interested in learning more about our work or collaborating with us, we invite you to engage with our team, share your concerns or priorities regarding climate model software. We invite you to reach out or attend our [Machine Learning for Climate and Weather Community Working Group]({B}working-groups/machine-learning/) meetings, which are open to anyone including early-career researchers and students. Your feedback is invaluable as we strive to improve our systems and support the research community effectively.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /teams/user-training-team/ | TITLE User Training team | DESC Our team works with technical experts at ACCESS-NRI and across the ACCESS research community to strengthen community skills and expertise. | DATE
+![]({U}2023/06/ACCESS-icon-TRAINING-e1686717448630-150x150.png)
+
+## About the team
+
+Training helps researchers to use our tools and models, so they can focus on their research. Our team works with technical experts at ACCESS-NRI and across the ACCESS research community to strengthen community skills and expertise.
+
+Our training covers the full spectrum of ACCESS users and scenarios, from new research students who are learning fundamentals and best practices, to experts who are developing the next generations of models, tools and data, and taking on the most challenging research problems.
+
+This includes:
+
+- Overseeing and providing training on ACCESS Models and tools
+- Creating online training resources and supporting other teams to produce them
+- Providing documentation support
+- Supporting users through the User support scheme
+
+#### Engage with us
+
+We are always looking for opportunities to innovate and improve our training, and to collaborate with the community through courses, self-guided modules, hackathons, workshops, and conferences. If you have ideas about training or unmet requirements we would love to hear more and discuss possibilities.
+
+## Team members
+
+§PEOPLE§
+
+=====PATH /models/ | TITLE Models | DESC ACCESS models combine separate domain-specific model components (e.g., atmosphere, land, ocean and sea ice) into a single unified model. | DATE
+ACCESS models combine separate domain-specific model components (e.g., atmosphere, land, ocean and sea ice) into a single unified model. These models generally use a special coupler program to represent the interactions between the various components of the system.
+
+![]({U}2023/12/ACCESS-All-Model-Colour-300x188.png)
+
+Different ACCESS model configurations may use a subset of the core component models for atmosphere-only or ocean-only simulations, or may replace component models to meet the needs of a specific application.
+
+![]({U}2022/03/coupled-model-globe-300x300.jpg)
+
+## [Coupled Model (ACCESS-CM)]({B}models/access-cm/)
+
+![]({U}2022/03/Pixabay-Globe-earth-1179212-300x300.jpg)
+
+## [Earth System Model (ACCESS-ESM)]({B}models/earth-system-model-esm/)
+
+![]({U}2022/03/vision-globe-300x300.jpg)
+
+## [Ocean/sea ice Model (ACCESS-OM)]({B}models/access-om/)
+
+![]({U}2022/03/mission-globe-300x300.jpg)
+
+## [Regional Atmosphere Model (ACCESS-rAM)]({B}models/access-ram/)
+
+=====PATH /models/access-cm/ | TITLE Coupled Model (ACCESS-CM) | DESC The Coupled Model 2 (CM2) includes the atmosphere, ocean and sea-ice components and produces physical climate simulations. | DATE
+## What is ACCESS-CM2{Q}
+
+The Coupled Model 2 (CM2) includes the atmosphere, ocean and sea-ice components and produces physical climate simulations. ACCESS-CM2 features improved fluid dynamics and a microphysical aerosol scheme.
+
+ACCESS-CM2 is one of the two ACCESS global coupled model versions run by the Australian climate community for the [Coupled Model lntercomparison Project, CMIP](https://wcrp-cmip.org/). There are several variants, combining different versions of the Unified Model atmosphere, CABLE land surface model, MOM ocean and CICE sea ice models.
+
+![]({U}2024/09/ACCESS-CM-1-300x233.png)
+
+The ACCESS-CM2 simulations provide extensive datasets encompassing a wide range of variables that characterise the climate, such as temperature, rainfall, cloud cover, sea-ice extent and ocean circulation. This model allows climate scientists to simulate climate to 2100 (and beyond) for a range of future socioeconomic pathways.
+
+## How is ACCESS-CM2 used{Q}
+
+A wide range of simulations from the ACCESS-CM2 version were used in the most recent [Coupled Model lntercomparison Project, CMIP6](https://wcrp-cmip.org/).
+
+Datasets are available from the Earth System Grid Federation (ESGF) at the [https://dx.doi.org/10.25914/5b98afc88531e](https://dx.doi.org/10.25914/5b98afc88531e) hosted by the [National Computational Infrastructure (NCI)](https://nci.org.au/).
+
+[Read an ACCESS Impact Case here]({B}case-study/access-models-input-to-cmip6-simulating-australias-future-climate/)
+
+---
+
+## Want to get started with ACCESS-CM2:
+
+![]({U}2022/11/ACCESS-icon-HIVE-Title-300x300.png)
+
+- [Access The ACCESS-Hive Docs to find all documentation for the model](https://access-hive.org.au/)
+- [Learn how to run the ACCESS-CM Model](https://docs.access-hive.org.au/models/run_a_model/run_access-cm2/)
+- [ACCESS-CM Description](https://docs.access-hive.org.au/models/access_models/access-cm/)
+
+---
+
+## Acknowledging the use of ACCESS-CM2
+
+![]({U}2024/08/I-use-ACCESS1-300x200.png)
+
+**Users of ACCESS-NRI models, data, tools of expert support are required to clearly include an acknowledgement in all publications/reports/public releases.** Correct acknowledgement allows us to demonstrate our impact, find how our infrastructure is being used, and increase recognition of value of the ACCESS National Research Infrastructure. We suggest to use the following statement:
+
+“This research used the ACCESS-NRI’s model ACCESS-CM2, which is enabled by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS)”
+
+*ACCESS-NRI modelling relies on computational and data resources operated by Australia’s [National Computational Infrastructure (NCI)](https://www.nci.org.au/). ACCESS-NRI and NCI are enabled by the Australian Government, Department of Education, through the [National Collaborative Research Infrastructure Strategy (NCRIS)](https://www.education.gov.au/ncris)*
+
+## ACCESS-CM2 Components
+
+![]({U}2022/03/ACCESS-icon-ATMOSPHERE-300x300.png)
+
+## [Atmosphere](https://docs.access-hive.org.au/models/model_components/atmosphere/)
+
+![]({U}2022/03/ACCESS-icon-LAND-SURFACE-300x300.png)
+
+## [Land Surface](https://docs.access-hive.org.au/models/model_components/land/)
+
+![]({U}2022/03/ACCESS-icon-SEA-ICE-300x300.png)
+
+## [Sea ice component](https://docs.access-hive.org.au/models/model_components/sea-ice/)
+
+![]({U}2022/03/ACCESS-icon-OCEAN-300x300.png)
+
+## [Modular Ocean Model (MOM)](https://docs.access-hive.org.au/models/model_components/ocean/#modular-ocean-model-mom)
+
+![]({U}2022/03/ACCESS-icon-ATMOSPHERIC-CHEMISTRY-300x300.png)
+
+## [Atmospheric Chemistry](https://docs.access-hive.org.au/models/model_components/aerosols_atmospheric_chemistry/)
+
+![]({U}2022/03/ACCESS-icon-AEROSOLS-300x300.png)
+
+## [Aerosol](https://docs.access-hive.org.au/models/model_components/aerosols_atmospheric_chemistry/)

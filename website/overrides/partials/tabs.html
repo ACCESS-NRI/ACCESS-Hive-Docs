@@ -1,0 +1,32 @@
+{#- Top navigation with hover dropdowns, mirroring the WordPress mega-menu.
+    Children come straight from `nav:` in mkdocs.yml, so the menu is edited in one place. -#}
+<nav class="md-tabs anri-menu" aria-label="{{ lang.t('tabs') }}">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      {% for nav_item in nav.items %}
+        {% set cls = "md-tabs__item anri-menu__item" %}
+        {% if nav_item.active %}{% set cls = cls ~ " md-tabs__item--active" %}{% endif %}
+        {% set first = nav_item.children | first if nav_item.children else none %}
+        {% set target = first.url if first and first.url else nav_item.url %}
+        <li class="{{ cls }}">
+          <a href="{{ target | url }}" class="md-tabs__link">{{ nav_item.title }}</a>
+          {% if nav_item.children %}
+          <ul class="anri-menu__dropdown">
+            {% for child in nav_item.children %}
+              {% if child.children %}
+              <li class="anri-menu__has-sub"><a href="{{ child.children[0].url | url if child.children[0].url else '#' }}">{{ child.title }} <span aria-hidden="true">›</span></a>
+                <ul class="anri-menu__sub">
+                  {% for sub in child.children %}<li><a href="{{ sub.url | url if sub.url else '#' }}">{{ sub.title }}</a></li>{% endfor %}
+                </ul>
+              </li>
+              {% else %}
+              <li><a href="{{ child.url | url if child.url else '#' }}">{{ child.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
