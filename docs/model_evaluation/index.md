@@ -36,7 +36,7 @@ or implement its custom logic by using _Python_ libraries such as _xarray_ and _
     </a>
     <a href="/model_evaluation/evaluation_on_gadi" class="horizontal-card">
         <div class="card-image-container">
-            <img src="../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Model Evaluation" class="img-cover" style="object-position: left;"></img>
+            <img src="../../assets/model_evaluation/live_diagnostics/MLD.png" alt="Model Evaluation" class="img-cover" style="object-position: left;"></img>
         </div>
         <div class="card-text-container">
         <span class="bold" >Model Evaluation</span>
