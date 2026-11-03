@@ -223,10 +223,10 @@ The modification of source code followed by `spack install` can be done iterativ
 To use the generated executable, use *Spack* to find the full path to the new executable:
 
 ```bash
-spack find -i access-om3
+spack location -i access3
 ```
 
-Take the displayed path and set the `exe:` entry in the *payu* `config.yaml` to the new path. When running *payu*, add `-r false` to the run command to turn off manifest checking, as the executable has changed.
+Take the displayed path, with `/bin/` appended, and then prepend it to the existing `exe:` entry in the *payu* `config.yaml`. When running *payu*, add `-r false` to the run command to turn off manifest checking, as the executable has changed.
 
 
 ## Troubleshooting build errors
