@@ -4,8 +4,8 @@
 {% set ACCESS_MODEL_URL = "https://github.com/ACCESS-NRI/ACCESS-OM3" %}
 {% set use_spack = "/getting_started/spack" %}
 [ACCESS models]: /models
-[OM3 config]: models/access_models/access-om/#access-om3
-[MOM6 component]: /models/model_components/ocean/#mom6
+[model config]: models/access_models/access-om/#access-om3
+[model component]: /models/model_components/ocean/#mom6
 [gadi]: https://opus.nci.org.au/display/Help/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview
 [spack-configuration-scopes-documentation]: https://spack.readthedocs.io/en/latest/configuration.html#configuration-scopes
 
@@ -14,12 +14,7 @@
 
 # Modify and build an ACCESS model's source code on Gadi
 
-ACCESS-NRI supports two workflows for building models, targeting different use cases:
-
-- [Spack develop workflow](link-to-relevant-section), for when you want to iteratively build the model i.e. repeatedly make changes to the source code and recompile during testing.
-- [Prerelease workflow](link-to-relevant-section), for when you want to share a particular build with others or have your model version recorded permanently. This will often come after using the Spack develop workflow.
-
-The below instructions show how to modify the [MOM6 component] for [ACCESS-OM3][OM3 config] and re-compile the relevant {{ACCESS_MODEL}} dependencies on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi] using the [Spack](https://spack.readthedocs.io) software manager.
+The instructions below cover the _Spack develop_ workflow, designed for iterative model development, where you repeatedly modify the source code, recompile, and test the model. They demonstrate how to modify the [model component] for [ACCESS-OM3][model config] and re-compile the relevant {{ACCESS_MODEL}} dependencies on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi] using the [Spack](https://spack.readthedocs.io) software manager.
 
 !!! tip
     The following instructions are valid (with simple tweaks) for all [ACCESS models].
@@ -38,10 +33,17 @@ The below instructions show how to modify the [MOM6 component] for [ACCESS-OM3][
 ## Enable spack
 
 To make _Spack_ available run:
-```bash
+```
 module use /g/data/vk83/modules
 module load spack
 ```
+
+<terminal-window>
+    <terminal-line data="input">module use /g/data/vk83/modules</terminal-line>
+    <terminal-line data="input">module load spack</terminal-line>
+    <terminal-line lineDelay=1000>Spack environment set up using /g/data/vk83/apps/spack-shared/1.1/spack/share/spack/setup-env.sh</terminal-line>
+    <terminal-line lineDelay=0>Spack user cache set to /g/data/\$PROJECT/\$USER/spack/1.1/spack-user-cache</terminal-line>
+</terminal-window>
 
 ## Choose the ACCESS model and model component to develop
 
@@ -53,9 +55,45 @@ cd ACCESS-OM3
 spack env activate -p ./
 ```
 
-The `spack.yaml` file inside the `ACCESS-OM3` directory specifies the component packages and their versions that constitute the coupled model. By inspecting the `spack.yaml` you can identify the correct Spack package name of a component package, e.g., `access-mom6` is the Spack package name of MOM6.
+<terminal-window>
+    <terminal-line data="input">git clone https://github.com/ACCESS-NRI/ACCESS-OM3.git</terminal-line>
+    <terminal-line>Cloning into 'ACCESS-OM3'...</terminal-line>
+    <terminal-line>remote: Enumerating objects: 2161, done.</terminal-line>
+    <terminal-line>remote: Counting objects: 100% (1086/1086), done.</terminal-line>
+    <terminal-line>remote: Compressing objects: 100% (332/332), done.</terminal-line>
+    <terminal-line>remote: Total 2161 (delta 963), reused 767 (delta 753), pack-reused 1075 (from 1)</terminal-line>
+    <terminal-line>Receiving objects: 100% (2161/2161), 537.50 KiB | 4.13 MiB/s, done.</terminal-line>
+    <terminal-line>Resolving deltas: 100% (1483/1483), done.</terminal-line>
+    <terminal-line data="input">cd ACCESS-OM3</terminal-line>
+    <terminal-line data="input" directory="~/ACCESS-OM3">spack env activate -p ./</terminal-line>
+    <terminal-line>remote: Enumerating objects: 3205, done.</terminal-line>
+    <terminal-line>remote: Counting objects: 100% (3205/3205), done.</terminal-line>
+    <terminal-line>remote: Compressing objects: 100% (1347/1347), done.</terminal-line>
+    <terminal-line>remote: Total 3205 (delta 1480), reused 2635 (delta 1038), pack-reused 0 (from 0)</terminal-line>
+    <terminal-line>Note: switching to '2026.09.005'.</terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>You are in 'detached HEAD' state. You can look around, make experimental</terminal-line>
+    <terminal-line lineDelay=0>changes and commit them, and you can discard any commits you make in this</terminal-line>
+    <terminal-line lineDelay=0>state without impacting any branches by switching back to a branch.</terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>If you want to create a new branch to retain commits you create, you may</terminal-line>
+    <terminal-line lineDelay=0>do so (now or later) by using -c with the switch command. Example:</terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>git switch -c <new-branch-name></terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>Or undo this operation with:</terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>git switch -</terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>Turn off this advice by setting config variable advice.detachedHead to false</terminal-line>
+    <terminal-line lineDelay=0></terminal-line>
+    <terminal-line lineDelay=0>HEAD is now at b6fc4a4 ACCESS-OM3 versions for next release (#500)</terminal-line>
+    <terminal-line data="input" directory="[ACCESS-OM3] ~/ACCESS-OM3"></terminal-line>
+</terminal-window>
 
-Next, in the `spack.yaml`, identify the version of the component Spack package that you want to develop. The version is prefixed by `@`. The snippet below is from the `ACCESS-OM3` component `access-mom6` where the version is `2026.05.003`:
+The `spack.yaml` file inside the `ACCESS-OM3` directory specifies the component packages and their versions that constitute the coupled model. By inspecting the `spack.yaml` you can identify the correct Spack package name of a component package. For example, `access-mom6` is the Spack package name of MOM6.
+
+Next, in the `spack.yaml`, identify the version of the component Spack package that you want to develop. The version is prefixed by `@`. The snippet below is from the `ACCESS-OM3` component `access-mom6`, where the version is `2026.05.003`:
 ```
 spack:
 ...
@@ -69,13 +107,21 @@ spack:
       - cflags="-march=sapphirerapids -mtune=sapphirerapids -unroll"
 ```
 
+## Spack develop the package
+
 When you develop a package within a Spack environment, Spack needs to know that the desired package is "in development", and be able to access its source code. This is done through the `spack develop` command with the previously identified Spack package name and version:
-```bash
+
+```
 spack develop access-mom6@2026.05.003
 ```
-This clones the MOM6 repository at the Git commit reference (Git ref) that maps to the Spack version `2026.05.003` into the directory `access-mom6`.
 
-Then it inserts the following new section in the `spack.yaml`:
+<terminal-window>
+    <terminal-line data="input" directory="[ACCESS-OM3] ~/ACCESS-OM3">spack develop access-mom6@2026.05.003</terminal-line>
+    <terminal-line><span class="spack-indigo">==></span> Cloning source code for access-mom6@=2026.05.003</terminal-line>
+    <terminal-line data="input" directory="[ACCESS-OM3] ~/ACCESS-OM3"></terminal-line>
+</terminal-window>
+
+This clones the MOM6 repository at the Git commit reference that maps to the Spack version `2026.05.003` into the directory `access-mom6`. Then, it inserts the following new section in the `spack.yaml`:
 ```
 spack:
 ...
@@ -85,23 +131,94 @@ spack:
 ```
 This section tells Spack that it should build from the local clone of MOM6, rather than fetching from GitHub.
 
+## Build the model
+
 The next step of the process is called concretization. It determines the precise details of all the dependencies that are needed to build the model:
-!!! tip
-    Estimated time to complete: 1-10 minutes
-```bash
+
+```
 spack concretize -f
 ```
+
+!!! tip
+    Estimated time to complete: 1-10 minutes
+
+<terminal-window>
+    <terminal-line data="input" directory="[ACCESS-OM3] ~/ACCESS-OM3">spack concretize -f</terminal-line>
+    <terminal-line lineDelay=2000>
+        <span class="spack-indigo bold">\==></span> Concretized 1 spec:
+    </terminal-line>
+    <terminal-line>
+        <span class="spack-grey keep-blanks"> -   so4gprs </span>
+        <span>access-om3</span><span class="spack-cyan">@latest</span>
+        <span class="spack-indigo">build_system=bundle</span>
+        <span class="spack-pink">platform=linux os=rocky8 target=x86_64_v4</span>
+    </terminal-line>
+    <terminal-line>
+        <span class="spack-grey keep-blanks"> -   eogf43h </span>
+        <span class="keep-blanks">    ^access-3</span><span class="spack-cyan">@2026.03.002</span>
+        <span class="spack-green">cflags='-march=sapphirerapids -mtune=sapphirerapids -unroll' fflags='-march=sapphirerapids -mtune=sapphirerapids -unroll'</span>
+        <span class="spack-indigo">/~ipo build_system=cmake build_type=Release commit=5eaac41f7cd4ea5f6a2aa9c5639da9a490f309ce configurations:=MOM6,MOM6-CICE6,MOM6-CICE6-WW3 generator=make</span>
+        <span class="spack-pink">platform=linux os=rocky8 target=x86_64_v4</span>
+        <span class="spack-green">%c,fortran=oneapi@2025.2.0</span>
+    </terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line>... Output truncated for brevity ...</terminal-line>
+    <terminal-line>
+        <span class="spack-indigo bold">\==></span> Updating view at /$HOME/ACCESS-OM3/.spack-env/view
+    </terminal-line>
+</terminal-window>
+
 This must be repeated every time the `spack.yaml` is modified.
 
 Now the model is ready to be compiled and installed, including any local source code modifications in the `access-mom6` sub-directory:
-!!! tip
-    Estimated time to complete: Can take 30+ minutes.
-```bash
+
+```
 spack install
 ```
+
+!!! tip
+    Estimated time to complete: 1-45+ minutes.
+
+<terminal-window>
+    <terminal-line data="input" directory="[ACCESS-OM3] ~/ACCESS-OM3">spack install</terminal-line>
+    <terminal-line>
+        <span class="spack-green">[+]</span>
+        /usr (external glibc-2.28-vuczjrbyzfif5nzgt5gqbrdrzaioihy6)
+    </terminal-line>
+    <terminal-line>
+        <span class="spack-green">[+]</span>
+        /g/data/vk83/apps/spack/1.1/release/linux-x86_64_v4/compiler-wrapper-1.1.0-4vm57ydwr3x5uq2jhwsv7ltk6az3hxxs
+    </terminal-line>
+    <terminal-line>
+        <span class="spack-indigo bold">\==></span>
+        intel-oneapi-compilers@2025.2.0 : has external module in ['intel-compiler-llvm/2025.2.0']
+    </terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line>
+        <span class="spack-indigo bold">\==></span>
+        <span class="bold">Installing</span>
+        <span class="spack-green">python-venv-1.0-qlaqm76cempvsddzqvebwz6ye52iebfn</span>
+        <span class="bold">[7/43]</span>
+    </terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line>
+        <span class="spack-indigo bold">\==></span>
+        <span class="bold">Installing</span>
+        <span class="spack-green">py-setuptools-82.0.1-4gcy3ox37n3fv57iafegbxy6xgtrvp2i</span>
+        <span class="bold">[21/43]</span>
+    </terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line>...</terminal-line>
+    <terminal-line>... Output truncated for brevity ...</terminal-line>
+    <terminal-line>
+        <span class="spack-indigo bold">\==></span> Updating view at /$HOME/ACCESS-OM3/.spack-env/view
+    </terminal-line>
+</terminal-window>
+
 The modification of source code followed by `spack install` can be done iteratively.
 
-## Using the generated executable
+## Use the generated executable
 
 To use the generated executable, use *Spack* to find the full path to the new executable:
 
@@ -111,20 +228,6 @@ spack find -i access-om3
 
 Take the displayed path and set the `exe:` entry in the *payu* `config.yaml` to the new path. When running *payu*, add `-r false` to the run command to turn off manifest checking, as the executable has changed.
 
-## Output directory for compiled packages
-
-Run the `spack config blame` command to view the Spack configuration:
-```bash
-$ spack config blame config
----                                                                                 config:
-/g/data/vk83/apps/spack-shared/1.1/spack-config/v1.1/gadi/downstream/config.yaml:2    install_tree:
-/g/data/vk83/apps/spack-shared/1.1/spack-config/v1.1/gadi/downstream/config.yaml:4      root: /g/data/$PROJECT/$USER/spack/1.1/release
-/g/data/vk83/apps/spack-shared/1.1/spack/etc/spack/defaults/base/config.yaml:21         projections:
-/g/data/vk83/apps/spack-shared/1.1/spack/etc/spack/defaults/base/config.yaml:22           all: '{architecture.platform}-{architecture.target}/{name}-{version}-{hash}'
-...
-```
-
-This means the packages built in this example can be found in `/g/data/$PROJECT/$USER/spack/1.1/release/<architecture.platform>-<architecture.target>/<name>-<version>-<hash>`.
 
 ## Troubleshooting build errors
 
