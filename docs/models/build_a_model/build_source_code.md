@@ -109,7 +109,7 @@ To use the generated executable, use *Spack* to find the full path to the new ex
 spack find -i access-om3
 ```
 
-Take the displayed path and set the `exe:` entry in the *Payu* `config.yaml` to the new path.
+Take the displayed path and set the `exe:` entry in the *payu* `config.yaml` to the new path. When running *payu*, add `-r false` to the run command to turn off manifest checking, as the executable has changed.
 
 ## Output directory for compiled packages
 
