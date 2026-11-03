@@ -103,24 +103,13 @@ The modification of source code followed by `spack install` can be done iterativ
 
 ## Using the generated executable
 
-Spack automatically generates module files that can be used with `module load`. To locate the correct module file for your model, you need to identify the model name. This is in the `specs` section of the `spack.yaml`:
-
-```
-spack:
-...
-  specs:
-  - access-om3
-```
-
-For ACCESS-OM3, this would be `access-om3`. Use this model name with:
+To use the generated executable, use *Spack* to find the full path to the new executable:
 
 ```bash
-spack module tcl find <model_name>
+spack find -i access-om3
 ```
 
-This prints the module name that can be used as a standard module file with `module load`. The 
-
-However, it is Spack that told your session where to find these modules, which means you need to load Spack in your model runtime environment. This means adding adding `spack` to the `modules: load` section of the `config.yaml` for *payu* models, or adding `module load spack` to the task pre-script for *Rose/Cylc* models. Now you can add the module returned from `spack module tcl find <model_name>` to your model's loaded modules, and your newly developed executable will be used in your model run.
+Take the displayed path and set the `exe:` entry in the *Payu* `config.yaml` to the new path.
 
 ## Output directory for compiled packages
 
