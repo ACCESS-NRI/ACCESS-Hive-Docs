@@ -129,7 +129,7 @@ spack:
     access-mom6:
       spec: access-mom6@=2026.05.003
 ```
-This section tells Spack that it should build from the local clone of MOM6, rather than fetching from GitHub.
+This section tells Spack that it should build from the local clone of MOM6, rather than fetching from GitHub. As a consequence, any code modification to test should be made in the local clone directory.
 
 ## Build the model
 
@@ -228,6 +228,8 @@ spack location -i access3
 
 Take the displayed path, with `/bin/` appended, and then prepend it to the existing `exe:` entry in the *payu* `config.yaml`. When running *payu*, add `-r false` to the run command to turn off manifest checking, as the executable has changed.
 
+!!! tip
+    In this case, we located `access3` because that is the {{ACCESS_MODEL}} dependency that builds the executables. The specific dependecy that builds the model executable varies for each specific model. If you are unsure which dependency to locate to find the executables for your model, consider asking a question on the [Hive Forum](https://forum.access-hive.org.au/).
 
 ## Troubleshooting build errors
 
