@@ -49,6 +49,7 @@
   --animated-terminal-buttons: var(--nri-orange);
   --animated-terminal-buttons-hover: var(--nri-blue);
   --animated-terminal-text: rgb(235, 235, 235);
+  --animated-terminal-text-output: rgb(151, 151, 151);
   --border-width: 0.1rem;
   --note-color: 158, 117, 243; /* Note admonition color */
   --note: rgb(var(--note-color)); /* Note admonition */
@@ -438,13 +439,6 @@ h1.homepage {
 .homepage-navigation {
   justify-content: space-around;
   flex-wrap: nowrap;
-}
-
-.acknowledgement-img {
-  height: 10em !important;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0.5rem;
 }
 
 /* =============================================================== 
@@ -846,7 +840,7 @@ details.code {
 
 /* Text */
 :is(.funding,.partners) > *:first-child {
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-weight: 500;
   display: flex;
   justify-content: center;
@@ -873,7 +867,10 @@ details.code {
 
 :is(.funding,.partners) > *:last-child a > img {
   margin: auto;
-  max-height: 4rem;
+  /* max-height: 3.5rem; */
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
 }
 .md-footer-meta__inner > * {
   display: flex;
@@ -941,7 +938,7 @@ details.code {
 }
 
 /* Adjust anchors to links */
-[id] {
+.md-content [id] {
   scroll-margin-top: 7rem !important;
 }
 
@@ -1102,7 +1099,7 @@ pre>code {
   word-break: break-all !important;
 }
 
-/* Copy icon turning orange when hovering over it*/
+/* Copy icon color when hovering over it*/
 pre > button:is(:hover,:focus).md-clipboard {
   color: var(--md-primary-fg-color--dark) !important;
 }
@@ -1116,6 +1113,10 @@ pre > button:is(:hover,:focus).md-clipboard {
   font-family: var(--md-code-font-family);
   font-weight: unset;
   font-size: .7rem;
+}
+
+terminal-line:is(:not([data]), [data="output"]) {
+  color: var(--animated-terminal-text-output);
 }
 
 ::part(input-character) {
@@ -1234,6 +1235,17 @@ img.terminal-switch:hover ~ .terminal-switch-tooltip {
 .git-cyan {
     color: #00C6C7;
 }
+.payu-yellow {
+  color:#ecff1e;
+}
+.payu-red {
+  color: #b78683;
+}
+.payu-dark-yellow {
+  color: #f9bd26;
+}
+
+
 
 /* =============================================================== 
   General styling for html tabs

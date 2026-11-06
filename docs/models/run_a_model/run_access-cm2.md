@@ -18,7 +18,7 @@
     Before running {{ model }}, you need to [Set Up your NCI Account](/getting_started/set_up_nci_account).
 
 - **_MOSRS_ account**<br>
-    The [Met Office Science Repository Service (MOSRS)](https://code.metoffice.gov.uk) is a server run by the UK Met Office (UKMO) to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
+    [MOSRS](https://code.metoffice.gov.uk) is a server run by the UKMO to support collaborative development with other partners organisations. MOSRS contains the source code and configurations for some model components in {{ model }} (e.g., the [UM](/models/model_components/atmosphere/#unified-model-um)).<br>
     To apply for a _MOSRS_ account, please contact your [local institutional sponsor](https://opus.nci.org.au/display/DAE/Prerequisites).
     {: #mosrs-account}
 
@@ -42,7 +42,7 @@
     For more information on joining specific NCI projects, refer to [How to connect to a project](https://opus.nci.org.au/display/Help/How+to+connect+to+a+project).
 
 - **Connection to an ARE VDI Desktop (optional)**<br>
-    To run {{ model }}, start an [Australian Research Environment (ARE) VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
+    To run {{ model }}, start an [ARE VDI Desktop](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/desktop_vnc/ncigadi/session_contexts/new) session.<br>
     If you are not familiar with ARE, check out the [Getting Started on ARE](/getting_started/are) section.
 
 ## Set up an ARE VDI Desktop (optional)
@@ -62,7 +62,7 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
     As mentioned above, the ARE VDI session is only needed for setup and startup tasks, which can be easily accomplished with 1 CPU.
 
 - **Project** &rarr; a project of which you are a member.<br>
-    The project must have allocated _Service Units (SU)_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
+    The project must have allocated _SU_ to run your simulation. Usually, but not always, this corresponds to your `$PROJECT`.<br>
     For more information, refer to how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 - **Storage** &rarr; `gdata/access+gdata/xp65+gdata/hr22+gdata/ki32` (minimum)<br>
@@ -72,13 +72,13 @@ Go to the [ARE VDI](https://are.nci.org.au/pun/sys/dashboard/batch_connect/sys/d
     
 Launch the ARE session and, once it starts, click on _Launch VDI Desktop_.
 
-![Launch ARE VDI session example](/assets/run_access_cm/launch_are_vdi.gif){: class="example-img" loading="lazy"}
+<custom-video src="/assets/run_access_cm/launch_are_vdi.mp4" class="example-img"></custom-video>
 
-### Open the terminal in the VDI Desktop
+### Open the terminal in  the VDI Desktop
 Once the new tab opens, you will see a Desktop with a few folders on the left.<br>
 To open the terminal, click on the black terminal icon at the top of the window. You should now be connected to a _Gadi_ computing node.
 
-![Open ARE VDI terminal example](/assets/run_access_cm/open_are_vdi_terminal.gif){: class="example-img" loading="lazy"}
+<custom-video src="/assets/run_access_cm/open_are_vdi_terminal.mp4" class="example-img"></custom-video>
 
 ## Set up {{ model }} persistent session
 To support the use of long-running processes, such as ACCESS model runs, NCI provides a service on _Gadi_ called [persistent sessions](https://opus.nci.org.au/display/Help/Persistent+Sessions).
@@ -98,7 +98,7 @@ persistent-sessions start -p <project> <name>
 ```
 
 !!! tip
-    While the project assigned to a persistent session does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _Service Units (SU)_.<br>
+    While the project assigned to a persistent session does not have to be the same as the project used to run the {{ model }} configuration, it does need to have allocated _SU_.<br>
     For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 <terminal-window data="input">
@@ -291,10 +291,12 @@ rose edit &
 To ensure that your suite is run under the correct NCI project for which you are a member, edit the _Compute project_ field in _suite conf &rarr; Machine and Runtime Options_, and click the _Save_ button ![Save button](/assets/run_access_cm/save_button.png){: style="height:1em"}. 
 
 For example, to run an {{ model }} suite under the `tm70` project (ACCESS-NRI), enter `tm70` in the _Compute project_ field:
-![Rose change project example](/assets/run_access_cm/rose_change_project_are.gif){: class="example-img" loading="lazy"}
+
+<custom-video src="/assets/run_access_cm/rose_change_project_are.mp4" class="example-img"></custom-video>
+
 
 !!! warning
-    To run {{ model }}, you need to be a member of a project with allocated _Service Units (SU)_. For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
+    To run {{ model }}, you need to be a member of a project with allocated _SU_. For more information, check how to [Join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 ### Change run length and cycling frequency
 
@@ -307,7 +309,7 @@ To modify these parameters, navigate to _suite conf &rarr; Run Initialisation an
 
 For example, to run a suite for a total of 50 years with a 1-year job resubmission, change _Total Run length_ to `P50Y` and _Cycling frequency_ to `P1Y` (the maximum _Cycling frequency_ is currently two years):
 
-![Rose change run length example](/assets/run_access_cm/rose_change_run_length_are.gif){: class="example-img" loading="lazy"}
+<custom-video src="/assets/run_access_cm/rose_change_run_length_are.mp4" class="example-img"></custom-video>
 
 ### Change wallclock time
 The _Wallclock time_ is the time requested by the [PBS job] to run a single cycle. If this time is insufficient for the suite to complete a cycle, your job will be terminated before completing the run. Hence, if you change the _Cycling frequency_, you may also need to change the _Wallclock time_ accordingly. While the time required for a suite to complete a cycle depends on several factors, a good estimation is 4 hours per simulated year.
@@ -420,7 +422,7 @@ To investigate the cause of a failure, we need to look at the logs `job.err` and
 Right-click on the task that failed and click on _View Job Logs (Viewer) &rarr; job.err_ (or _job.out_).<br>
 To access a specific task, click on the arrow next to the task to extend the drop-down menu with all the subtasks.
 
-![Investigate Error GUI example](/assets/run_access_cm/investigate_error_gui_are.gif){: class="example-img" loading="lazy"}
+<custom-video src="/assets/run_access_cm/investigate_error_gui_are.mp4" class="example-img"></custom-video>
     
 #### Through the suite directory {: .no-toc }
 The suite's log directories are stored in `~/cylc-run/<suite-ID>` as `log.<TIMESTAMP>`, and the latest set of logs are also symlinked in the `~/cylc-run/<suite-ID>/log` directory.<br>

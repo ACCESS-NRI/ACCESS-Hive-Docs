@@ -3,7 +3,7 @@
 [ARE](https://are.nci.org.au) is a web-based graphical interface for performing your computational research, provided by [NCI](https://nci.org.au).<br>
 ARE gives you access to NCI’s _Gadi_ supercomputer and data collections.
 
-There are multiple applications included in ARE, but the two most used for ACCESS-related activities are [Virtual Desktop (VDI)](#vdi) and [JupyterLab](#jupyterlab).
+There are multiple applications included in ARE, but the two most used for ACCESS-related activities are [VDI](#vdi) and [JupyterLab](#jupyterlab).
 
 ## Prerequisites
 To use ARE, you must have an NCI account and be a member of a project with computing resources (known as Service Units, or SU). For instructions on how to set up an account and join projects, refer to [Set Up your NCI Account](/getting_started/set_up_nci_account).
@@ -44,7 +44,7 @@ Hence, there are multiple [PBS directives](https://opus.nci.org.au/display/Help/
     You must be a member of the specified project.
     
     !!! warning
-        The specified project must have allocated _Service Units (SU)_.<br>
+        The specified project must have allocated _SU_.<br>
         For more information, check [how to join relevant NCI projects](/getting_started/set_up_nci_account#join-relevant-nci-projects).
 
 - **Storage**<br>
@@ -118,13 +118,13 @@ Hence, there are multiple [PBS directives](https://opus.nci.org.au/display/Help/
 2. <span tabcontentfor="vdi" markdown> 
     Wait until your session starts and then click on the <i>Launch VDI Desktop</i> button to open a new tab with the VDI interface.<br>
     Inside the VDI interface, you can open the terminal by clicking on the black terminal icon at the top of the window.
-    <img src="/assets/launch_are_vdi_desktop.gif" alt="Launch ARE VDI Desktop" class="example-img" loading="lazy"/>
+    <custom-video src="/assets/launch_are_vdi_desktop.mp4" class="example-img"></custom-video>
     </span>
     
     <span tabcontentfor="jupyterlab">
     Wait until your session starts and then click on the <i>Open JupyterLab</i> button to open a new tab with the JupyterLab interface.<br>
     Inside the JupyterLab interface, you can open a new notebook by clicking on the Python3 Notebook button in the Launcher panel (to open a new Laucher panel, click on the plus button <img src="/assets/jupyterlab_plus_button.png" alt="Plus button" style="height:1em"/> next to your current tab).
-    <img src="/assets/launch_are_jupyterlab.gif" alt="Launch ARE JupyterLab" class="example-img" loading="lazy"/>
+    <custom-video src="/assets/launch_are_jupyterlab.mp4" class="example-img"></custom-video>
     </span>
 
 ## Delete an ARE session

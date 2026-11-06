@@ -39,7 +39,7 @@
             <img class="img-contain white-background with-padding" src="https://cdn.jsdelivr.net/gh/spack/spack@develop/share/spack/logo/spack-logo-text.svg" alt="spack">
         </div>
         <div class="card-text-container">
-            <span class="bold">Set up Spack for building ACCESS models</span>
+            <span class="bold">How to use Spack on Gadi for building ACCESS models</span>
             <span>
                 Spack is a build-from-source package manager that is used to build ACCESS models.
             </span>

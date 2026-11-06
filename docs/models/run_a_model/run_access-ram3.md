@@ -26,11 +26,11 @@
 
 ## About
 
-{{ model }} is an ACCESS-NRI-supported configuration of the [UK Met Office (UKMO)](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
+{{ model }} is an ACCESS-NRI-supported configuration of the [UKMO](https://www.metoffice.gov.uk/) Regional Nesting Suite for high-resolution regional atmosphere modelling. A description of the model and its components is available in the [{{ model }} overview]({{ access_models }}/#{{ model }}).
 
 {{ model }} comprises multiple suites: the [Regional Ancillary Suite (RAS)](#ras) and [OSTIA Ancillary Suite (OAS)](#oas) that generate ancillary files (i.e., input files), and the [Regional Nesting Suite (RNS)](#rns) which runs the regional forecast.
 
-The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details, see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
+The instructions below outline how to run {{ model }} using ACCESS-NRI's supported configuration, specifically designed to run on [NCI](https://nci.org.au/about-us/who-we-are)'s supercomputer [_Gadi_][gadi]. The example experiment within this page focuses on a flood event in Lismore, NSW on 26 and 27 February 2022, using `BARRA` [land-surface initial conditions]({{ access_models }}/#land-surface-initial-conditions-source). For more details, see [Nesting configuration]({{ access_models }}/#nesting-configuration). 
 
 !!! tip 
     It is recommended to run the following example first without changes. Once you are comfortable with running the model, you can modify parameters such as domain position, dates, initial-conditions source, or output variables as needed.
@@ -60,7 +60,7 @@ All {{model}} configurations are available on MOSRS via links at the [top of thi
     - [ob53](https://my.nci.org.au/mancini/project/ob53/join)
     - [vk83](https://my.nci.org.au/mancini/project/vk83/join)
     - [cm45](https://my.nci.org.au/mancini/project/cm45/join)
-
+    - [zz93](https://my.nci.org.au/mancini/project/zz93/join)
 
     !!! tip
         To request membership for the _ki32_mosrs_ subproject, you need to:
@@ -88,39 +88,46 @@ This quick guide outlines the basic steps to run {{ model }} and is tailored to 
     ```
     cat > ~/.persistent-sessions/cylc-session <<< "<name>.${USER}.<project>.ps.gadi.nci.org.au"
     ```
-3. **Get _Rose/Cylc_ executables**
+
+3. **Setup connection between Gadi and Cylc (once only)**
+    ```
+    /g/data/hr22/bin/gadi-cylc-setup-ps -y
+    ```
+
+4. **Get _Rose/Cylc_ executables**
     ```
     module use /g/data/hr22/modulefiles
     module load cylc7
     ```
-4. **Authenticate to MOSRS**
+5. **Authenticate to MOSRS**
     ```
     mosrs-auth
-    ```
-5. **Get the OSTIA Ancillary Suite (OAS) (optional)**
+    ```   
+
+6. **Get the OSTIA Ancillary Suite (OAS) (optional)**
     ```
     rosie checkout {{ oas_id }}
     ```
-6. **Get the Regional Ancillary Suite (RAS)**
+7. **Get the Regional Ancillary Suite (RAS)**
     ```
     rosie checkout {{ ras_id }}/{{ branch_ras }}
     ```
-7. **Get the Regional Nesting Suite (RNS)**
+8. **Get the Regional Nesting Suite (RNS)**
     ```
     rosie checkout {{ rns_id }}/{{ branch_rns }}
     ```
-8. **Run the OAS (optional)**
+9.  **Run the OAS (optional)**
     ```
     rose suite-run -C ~/roses/{{ oas_id }}
     ```
-9. **Run the RAS**
+10. **Run the RAS**
     ```
     rose suite-run -C ~/roses/{{ ras_id }}
     ```
-    This step can be carried out simultaneously with step 8.
-10. **Run the RNS**
+    This step can be carried out simultaneously with step 9.
+11. **Run the RNS**
     
-    This step must be carried out only after step 8 (optional) and 9 have successfully completed.
+    This step must be carried out only after step 9 (optional) and 10 have successfully completed.
     ```
     rose suite-run -C ~/roses/{{ rns_id }}
     ```
@@ -143,6 +150,10 @@ Set up a persistent session by following the [related instructions on the _Rose/
 
 Set up _Rose/Cylc_ by following the [related instructions on the _Rose/Cylc_ page](/models/run_a_model/rose_cylc/#rosecylc-setup).
 
+{% include-markdown "includes/persistent-sessions.md"
+    start="<!--start:pers-session-setup-->"
+    end="<!--end:pers-session-setup-->"
+%}
 
 ### {{ model }} configuration
 {{ model }} comprises multiple different suites: a [Regional Ancillary Suite (RAS)](#ras), the [OSTIA Ancillary Suite](#oas) and a [Regional Nesting Suite (RNS)](#rns).
@@ -375,13 +386,13 @@ To scan for active suites, run:
 ```
 cylc scan
 ```
-To reopen the _Cylc_ GUI, run the following command from within the [suite directory](#suitedir):
+To reopen the _Cylc_ GUI, run the following command from within the suite directory:
 ```
 rose suite-gcontrol
 ```
 
 ##### STOP a suite {: .no-toc }
-To shutdown a suite in a safe manner, run the following command from within the [suite directory](#suitedir):
+To shutdown a suite in a safe manner, run the following command from within the ectory:
 ```
 rose suite-stop -y
 ```
@@ -401,7 +412,7 @@ qdel <job-ID>
 There are two main ways to restart a suite:
 
 - **_SOFT_ restart**<br>
-    To reinstall the suite and reopen _Cylc_ in the same state it was prior to being stopped, run the following command from within the [suite directory](#suitedir):
+    To reinstall the suite and reopen _Cylc_ in the same state it was prior to being stopped, run the following command from within the suite directory:
     ```
     rose suite-run --restart
     ```
@@ -410,7 +421,7 @@ There are two main ways to restart a suite:
         You may need to manually trigger failed tasks from the _Cylc_ GUI.
 
 - **HARD restart**<br>
-    To overwrite any previous runs of the suite and start afresh, run the following command from within the [suite directory](#suitedir):
+    To overwrite any previous runs of the suite and start afresh, run the following command from within the suite directory:
     ```
     rose suite-run --new
     ```
@@ -421,13 +432,13 @@ There are two main ways to restart a suite:
 ##### RELOAD a suite {: .no-toc }
 In some cases, the suite needs to be updated without necessarily having to stop it (e.g., after fixing a typo in a file). Updating an active suite is called a _reload_, where the suite is _re-installed_ and _Cylc_ is updated with the changes. This is similar to a _SOFT_ restart, except new changes are installed, so you may need to manually trigger failed tasks from the _Cylc_ GUI.
 
-To reload a suite, run the following command from within the [suite directory](#suitedir):
+To reload a suite, run the following command from within the suite directory:
 ```
 rose suite-run --reload
 ```
 
 ##### CLEAN a suite {: .no-toc }
-To remove all files and folders created by the suite within the `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>` directory, run the following command from within the [suite directory](#suitedir):
+To remove all files and folders created by the suite within the `/scratch/$PROJECT/$USER/cylc-run/<suite-ID>` directory, run the following command from within the suite directory:
 ```
 rose suite-clean
 ```

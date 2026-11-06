@@ -2,8 +2,13 @@
 
 The Earth System Model Evaluation Tool (ESMValTool) is a tool developed for evaluation of Earth System Models in CMIP (Climate Model Intercomparison Projects). For more information, check the [ACCESS-NRI ESMValTool-workflow at NCI](/model_evaluation/evaluation_on_gadi/esmvaltool_workflow). 
 
+
+## 2025 ACCESS Workshop
+- Training session with [ACCESS-ENSO-recipes](https://github.com/ACCESS-NRI/ACCESS-ENSO-recipes/tree/main/training2025)
+
 ## 2024 Training day CMIP7 Hackathon
 - [CMIP7 Evaluation Hackathon tutorial](https://access-nri.github.io/CMIP7_MED_Hackathon/)
+
 See the following episodes for tutorials on ESMValTool on Gadi:
 1. [Running your first recipe](https://access-nri.github.io/CMIP7_MED_Hackathon/02-runarecipe/index.html)
 2. [Writing your own recipe](https://access-nri.github.io/CMIP7_MED_Hackathon/04-writingyourrecipe/index.html)

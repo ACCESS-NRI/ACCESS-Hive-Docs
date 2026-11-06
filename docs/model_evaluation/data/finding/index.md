@@ -32,7 +32,7 @@ a few exceptions noted below.
 
 
 ## NCI Data Catalogue
-The **[NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/home)** is a publicly accessible web-based catalogue. It is the authoritative source for published and curated ACCESS datasets hosted at the National Computational Infrastructure (NCI).
+The **[NCI Data Catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/home)** is a publicly accessible web-based catalogue. It is the authoritative source for published and curated ACCESS datasets hosted at NCI.
 
 The catalogue allows you to search and browse for datasets and includes:
 

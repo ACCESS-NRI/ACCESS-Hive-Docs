@@ -5,7 +5,7 @@
 
 ![ACCESS OM model](/assets/model-config-logos/configurations-without-titles/access-om.png){: class="img-contain white-background round-edges with-padding intro-img" loading="lazy"}
 
-The ACCESS Ocean Model (ACCESS-OM) is a global coupled ocean model that includes [ocean](/models/model_components/ocean), [ocean biogeochemistry](/models/model_components/bgc_ocean), and [sea ice](/models/model_components/sea-ice) components, linked together by a [coupler](/models/model_components/coupler).<br>
+The **ACCESS O**cean **M**odel (ACCESS-OM) is a global coupled ocean model that includes [ocean](/models/model_components/ocean), [ocean biogeochemistry](/models/model_components/bgc_ocean), and [sea ice](/models/model_components/sea-ice) components, linked together by a [coupler](/models/model_components/coupler).<br>
 The atmospheric fields that drive the model are provided by a data source, usually derived from reanalysis.
 
 {% set model = "ACCESS-OM3" %}
@@ -13,7 +13,7 @@ The atmospheric fields that drive the model are provided by a data source, usual
 
 [![Config docs](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} {{ model }} configs docs]({{om3_configs_docs}}){: class="text-card"}
 
-{{ model }} is a suite of coupled ocean-sea ice models developed by ACCESS-NRI and the [Consortium for Ocean-Sea Ice Modelling in Australia (COSIMA)][cosima].
+{{ model }} is a suite of coupled ocean-sea ice models developed by ACCESS-NRI and [COSIMA][cosima].
 
 ACCESS-NRI has released [{{ model }} configurations](https://github.com/ACCESS-NRI/access-om3-configs).
 
@@ -47,7 +47,7 @@ Each configuration also has an optional biogeochemical (BGC) configuration that 
 {% set model = "ACCESS-OM2" %}
 ## {{ model }}
 
-[{{ model }}](https://gmd.copernicus.org/articles/13/401/2020/) [@Kiss2020] [@ACCESS-OM2-report] [@Solodoch2022] [@Hayashida2023] [@Menviel2023] is a suite of coupled ocean-sea ice models originally developed by the [Consortium for Ocean-Sea Ice Modelling in Australia (COSIMA)][cosima].<br>
+[{{ model }}](https://gmd.copernicus.org/articles/13/401/2020/) [@Kiss2020] [@ACCESS-OM2-report] [@Solodoch2022] [@Hayashida2023] [@Menviel2023] is a suite of coupled ocean-sea ice models originally developed by [COSIMA][cosima].<br>
 
 ACCESS-NRI has released [{{ model }} configurations](https://github.com/ACCESS-NRI/access-om2-configs) as an adaptation of those originally developed by COSIMA.
 

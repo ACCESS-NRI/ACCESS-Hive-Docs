@@ -1,0 +1,15 @@
+<!-- 
+    Reuse the default Material theme layout and only 
+    customise the page content.
+-->
+{% extends "main.html" %}
+
+{% block content %}
+    <!-- 
+        Display the main page without the automatic
+        heading added by the Material for MkDocs theme.
+    -->
+    <article class="md-content__inner md-typeset">
+        {{ page.content }}
+    </article>
+{% endblock %}

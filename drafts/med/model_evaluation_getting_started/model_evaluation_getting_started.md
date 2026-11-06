@@ -2,7 +2,7 @@
 
 If you do not have `ssh` access to <i>Gadi</i>, refer to instructions on how to <a href="/getting_started/set_up_nci_account#login-to-gadi">login to Gadi</a>.
 
-The following instructions explain how to load the curated python environment on NCI, which includes packages and scripts supported by ACCESS-NRI. Once loaded, these can be run directly on <i>Gadi</i> via `ssh`, Portable Batch System (PBS) scripts, or in JupyterLab.
+The following instructions explain how to load the curated python environment on NCI, which includes packages and scripts supported by ACCESS-NRI. Once loaded, these can be run directly on <i>Gadi</i> via `ssh`, PBS scripts, or in JupyterLab.
 
 ???+ warning "ACCESS-NRI provides code and support, but not computing resources"
     You do not automatically have access to all `/g/data/` storage on <i>Gadi</i>. You need to <a href="/getting_started/set_up_nci_account#join-relevant-nci-projects">join an NCI project</a> to view files on `/g/data/$PROJECT`.
@@ -101,7 +101,7 @@ For more information on running PBS jobs on <i>Gadi</i>, refer to <a href="https
 
 ## Running the `access-med` environment on ARE 
 
-NCI also supports an interactive coding environment called the Australian Research Environment (ARE). Its use is similar to submitting a PBS job via `qsub -I`, but with an added bonus of a dedicated graphical user interface for Jupyter notebooks. 
+NCI also supports an interactive coding environment called ARE. Its use is similar to submitting a PBS job via `qsub -I`, but with an added bonus of a dedicated graphical user interface for Jupyter notebooks. 
 <br>
 <br>
 For more information, check the <a href="/getting_started/are">Australian Research Environment (ARE) getting started</a>.
