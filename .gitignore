@@ -6,3 +6,4 @@ site/*
 .mypycache__/
 __pycache__/
 lychee_report
+.cache/
