@@ -2,42 +2,12 @@
 
 Model evaluation is about measuring how fit for purpose a particular model is. Model evaluation in climate science is the process of assessing the performance and reliability of computational models that simulate the Earth's climate system. It involves comparing model predictions to observed data to determine the model's accuracy and usefulness. In doing so, we can understand how well a model represents real-world climate processes and make predictions about future climate trends. Such rigorous model evaluation allows scientists to identify model strengths, weaknesses and uncertainties, as well as refine models to enhance their predictive capabilities. 
 
-## Two kinds of model evaluation
+## Where to start
 
-ACCESS-NRI uses two kinds of model evaluation which serve different purposes.
+If you’re working on ACCESS model development, or would like to contribute to its evaluation, see [Evaluation-Driven Model Development](/model_evaluation/evaluation_on_gadi/evaluation_driven_model_development).
+These are community projects with support and maintenance arrangements specific to each project.
 
-| | Evaluation-driven model development | Intercomparison and benchmarking |
-|---|---|---|
-| **Style** | Flexible notebooks and ad-hoc scripts | Automated, reproducible and scalable recipes |
-| **Data** | Native ACCESS model output | CMORised output (e.g. via [ACCESS-MOPPy](https://access-moppy.readthedocs.io/en/latest/)) |
-| **Focus** | Answering specific questions about ACCESS models, compared against observations and previous model generations | Full ensembles and multi-model comparisons, including CMIP |
-| **Community** | Shared repositories on the [ACCESS-Community-Hub](https://github.com/ACCESS-Community-Hub) | Global evaluation communities, with provenance and citation built in |
-| **Tools** | Familiar _Python_ libraries, or any language | [ESMValTool](/model_evaluation/evaluation_on_gadi/esmvaltool_workflow), [ILAMB](/model_evaluation/evaluation_on_gadi/ilamb_workflow) and the [Rapid Evaluation Framework (REF)](https://dashboard.climate-ref.org/) |
-
-<div class="card-container">
-    <a href="/model_evaluation/evaluation_on_gadi/evaluation_driven_model_development" class="horizontal-card">
-        <div class="card-image-container">
-            <img class="img-contain white-background" src="/assets/model_evaluation/evaluation_driven_model_development/om3_vs_cm3_antarctica.jpg" alt="Community evaluation figure comparing ACCESS-OM3 and ACCESS-CM3 around Antarctica">
-        </div>
-        <div class="card-text-container">
-            <span class="bold">Evaluation-Driven Model Development</span>
-            <span>
-                Help evaluate ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3 in community repositories.
-            </span>
-        </div>
-    </a>
-    <a href="#evaluation-frameworks" class="horizontal-card">
-        <div class="card-image-container">
-            <img src="/assets/model_evaluation/logo_esmvaltool.png" alt="ESMValTool" class="img-contain white-background with-padding">
-        </div>
-        <div class="card-text-container">
-            <span class="bold">Intercomparison and Benchmarking</span>
-            <span>
-                ESMValTool and ILAMB frameworks supported on <i>Gadi</i>.
-            </span>
-        </div>
-    </a>
-</div>
+For CMIP-style intercomparison and benchmarking, see the [evaluation frameworks](#evaluation-frameworks) supported on _Gadi_ below.
 
 ## Data workflows
 FAIR (Findable, Accessible, Interoperable and Reusable) data is required for model evaluation. 

@@ -5,16 +5,16 @@ ACCESS-CM3 is the precursor to ACCESS-ESM3.
 
 - Each model has a shared GitHub repository where anyone can propose a diagnostic, build a figure and comment on results.
 - Contributors can become co-authors on the respective model description paper.
-- High-value community diagnostics are rerun with each new simulation, feeding directly into model development.
+- High-value community diagnostics are rerun with new simulations, feeding directly into model development.
 
 This means model development is shaped by researchers' needs. The diagnostics you prioritise and parameter changes you propose help shape the next model run, increasing the likelihood of reduced biases for your application.
 
 ???+ tip "Open to everyone, at every career stage"
-Contributions from all career stages and backgrounds are welcome, including students, early-career researchers, engineers, domain scientists and first-time *GitHub* users. You don’t need to code to contribute: a comment, discussion point or suggested experiment can make a valuable difference.
+    Contributions from all career stages and backgrounds are welcome, including students, early-career researchers, engineers, domain scientists and first-time *GitHub* users. You don’t need to code to contribute: a comment, discussion point or suggested experiment can make a valuable difference.
 
-## Overview: Ways to get involved
+## Ways to get involved
 
-Choose a level that suits your time—every contribution counts. Select a step to jump to its section.
+Choose a level that suits your time. Select a step to jump to its section.
 
 <div class="contribution-ladder">
     <a href="#1-attend-the-meetings">
@@ -32,13 +32,13 @@ Choose a level that suits your time—every contribution counts. Select a step t
     <a href="#3-create-analysis-notebooks">
         <span class="ladder-number">3</span>
         <span class="bold">Create analysis notebooks</span>
-        <span>Turn a diagnostic idea into a figure that is re-run on new simulations.</span>
+        <span>Turn a diagnostic idea into a figure in a shared repository.</span>
         <span class="ladder-needs">Needs: <i>GitHub</i> and an NCI account with project access</span>
     </a>
     <a href="#4-run-sensitivity-tests">
         <span class="ladder-number">4</span>
         <span class="bold">Run sensitivity tests</span>
-        <span>Run your own experiments exploring specific parameter choices, to feed into model development.</span>
+        <span>Run your own experiments exploring specific parameter choices.</span>
         <span class="ladder-needs">Needs: all of the above, plus an NCI compute project</span>
     </a>
 </div>
@@ -46,8 +46,7 @@ Choose a level that suits your time—every contribution counts. Select a step t
 
 ### 1. Attend the meetings
 
-Start by joining a meeting: listen in and pick up a small task. Each ACCESS-Hive Forum thread below has the latest joining details, including *Zoom* links.
-Each forum thread below has the latest joining details, including _Zoom_ links.
+Each ACCESS-Hive Forum thread below has the latest joining details, including *Zoom* links. Turn on notifications using the bell icon at the bottom of a thread to hear about upcoming meetings.
 
 | Model | Meeting | How to join |
 |---|---|---|
@@ -55,48 +54,20 @@ Each forum thread below has the latest joining details, including _Zoom_ links.
 | ACCESS-CM3 | _CM3 Dev-Eval Working Group_ | [CM3 Dev-Eval meeting minutes](https://forum.access-hive.org.au/t/cm3-dev-eval-working-group-meeting-minutes/5393) |
 | ACCESS-AM3 | Meeting details TBC | [AM3 high-resolution evaluation](https://forum.access-hive.org.au/t/we-need-your-help-am3-hi-res-evaluation/6438) |
 
-At meetings you can:
-
-1. **Propose a topic:** add it to the agenda or raise it on the day.
-2. **Share figures:** present a plot or result and get live feedback.
-3. **Suggest parameter changes:** identify changes to test in the next model run.
-
-
-Turn on notifications using the bell icon at the bottom of a Hive Forum post to hear about upcoming meetings.
+At meetings you can propose a topic, share figures for live feedback and suggest parameter changes to test in the next model run.
 
 ### 2. Give feedback on GitHub
 
-Feedback on figures is one of the most valuable contributions you can make—and requires no coding. All you need is a [GitHub](https://github.com/signup) account.
-
-1. **Browse open issues:** each repository’s mega-issue tracks diagnostics and figures in progress: [ACCESS-OM3](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23), [ACCESS-CM3](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) and [ACCESS-AM3](https://github.com/ACCESS-Community-Hub/access-am3-evaluation/issues/1).
-2. **Comment on results:** ask questions, suggest metrics or flag anything unusual in the relevant GitHub issue.
-3. **Review figures and pull requests:** give feedback on others’ work. [ReviewNB](https://www.reviewnb.com/) shows notebook changes cell by cell.
+Feedback on figures requires no coding; all you need is a [GitHub](https://github.com/signup) account.
+Each repository has a _mega-issue_ that tracks diagnostics and figures in progress: [ACCESS-OM3](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23), [ACCESS-CM3](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) and [ACCESS-AM3](https://github.com/ACCESS-Community-Hub/access-am3-evaluation/issues/1).
+Comment on results, suggest metrics or review others' pull requests.
 
 For ACCESS-OM3, you can also browse the [latest evaluation](https://access-om3-paper-1.readthedocs.io/latest/) and follow a figure's link to its GitHub issue to leave a comment.
 
 ### 3. Create analysis notebooks
 
-Turn a diagnostic idea into a figure in one of the shared evaluation repositories.
-You'll need a _GitHub_ account and an [NCI account](/getting_started/set_up_nci_account) with access to the projects listed for each model.
-
-#### Is this the right workflow for me?
-
-This workflow uses flexible notebooks to analyse native model output and is best suited to model development. For automated, multi-model comparisons using CMORised data, see [Intercomparison and benchmarking](https://access-hive-docs--1307.org/model_evaluation/evaluation_on_gadi#two-kinds-of-model-evaluation).
-
-Consider the strengths and limitations below to decide whether this workflow suits your needs.
-
-???+ success "Strengths"
-- **Community-driven model development:** prioritise assessments of ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3.
-- **Paper co-authorship:** opportunities to co-author the respective model description paper.
-- **Fast, flexible contributions:** code review is optional. Analyse and share results quickly; open a pull request only if you want feedback on your code.
-- **Reproducible analysis:** work centrally on [ARE](https://access-hive-docs--1307.org.readthedocs.build/getting_started/are), using native model output and familiar *Python* libraries in notebooks.
-- **Meaningful comparisons:** compare results with previous model generations and observations.
-- **Consistent workflow:** use the same approach across all three models.
-
-???+ warning "Limitations"
-- **Notebook review can be challenging:** `git diff`s are hard to read without tools such as [[ReviewNB](https://www.reviewnb.com/)](https://www.reviewnb.com/).
-- **ACCESS-focused:** designed for the ACCESS model family, not CMIP.
-- **Limited multi-model scope:** large-scale comparisons and international evaluation efforts are better suited to [intercomparison and benchmarking](https://access-hive-docs--1307.org.readthedocs.build/model_evaluation/evaluation_on_gadi#two-kinds-of-model-evaluation) tools such as ESMValTool.
+Contribute a diagnostic notebook to one of the shared evaluation repositories.
+Each repository's `README` explains how to request access, which NCI projects you need and how to add a notebook.
 
 #### The evaluation repositories
 
@@ -153,28 +124,18 @@ Atmosphere-only model evaluation, currently focused on the high-resolution (N512
     If your atmosphere diagnostic is relevant to both models, add it here.
 </div>
 
-#### From diagnostic idea to figure
-
-Each repository’s `README` provides step-by-step instructions. The process is:
-
-<div class="workflow-steps">
-    <div><span class="workflow-number">1</span><span class="bold">Request access</span><span>Open an access request issue in the repository</span></div>
-    <div><span class="workflow-number">2</span><span class="bold">Find a diagnostic</span><span>Claim or suggest one in the mega-issue</span></div>
-    <div><span class="workflow-number">3</span><span class="bold">Clone the repository</span><span>On <i>Gadi</i>, then start an <a href="/getting_started/are">ARE</a> session</span></div>
-    <div><span class="workflow-number">4</span><span class="bold">Write a notebook</span><span>Start from the template notebook</span></div>
-    <div><span class="workflow-number">5</span><span class="bold">Commit and push</span><span>To <code>main</code>, or to a branch with a pull request for review</span></div>
-    <div><span class="workflow-number">6</span><span class="bold">Share and get credit</span><span>Post your figure and commit hash in its issue, and add your name to <code>CITATION.cff</code></span></div>
-</div>
-
 ### 4. Run sensitivity tests
 
-As an advanced contribution, run sensitivity experiments to test specific parameter choices and feed results directly into model development. See the [community-run ACCESS-OM3 sensitivity tests](https://access-om3-configs.access-hive.org.au/latest/Experiments/#community-run-sensitivity-tests) for an example.
-
-You’ll need everything covered above, plus an NCI compute project. If you’re unsure whether your results can be incorporated into model development, raise it at a [meeting](https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/pull/1307/changes#1-attend-the-meetings) or post an issue on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/).
+As an advanced contribution, run sensitivity experiments to test specific parameter choices and feed results into model development. See the [community-run ACCESS-OM3 sensitivity tests](https://access-om3-configs.access-hive.org.au/latest/Experiments/#community-run-sensitivity-tests) for an example.
+You'll need an NCI compute project. If you're unsure whether your results can be incorporated, raise it at a [meeting](#1-attend-the-meetings) first.
 
 ## Support
 
-- **Ask questions:** join the [meetings](https://access-hive-docs--1307.org.readthedocs.build/model_evaluation/evaluation_on_gadi/evaluation_driven_model_development/#1-attend-the-meetings)
-- **Find a buddy:** in-person contacts at most partner institutions can help you get started or find a task.
-- **Shape model development:** high-value community diagnostics can be run on new simulations.
-- **Get support:** see [User support](https://access-hive-docs--1307.org.readthedocs.build/about/user_support).
+<!-- TODO: confirm the wording below with the ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3 teams and MED before merging. -->
+
+These are community projects, and support and maintenance arrangements are specific to each project.
+They are not maintained by the ACCESS-NRI Model Evaluation and Diagnostics (MED) team.
+
+- **Who supports the workflows:** each repository is run by its model team. Ask questions at the [meetings](#1-attend-the-meetings) or in the relevant mega-issue.
+- **After the paper is published:** notebooks remain available alongside the model description paper as a record of the analysis. There is no commitment to keep every notebook working with new simulations or software environments; the model teams may choose to maintain diagnostics that stay useful for ongoing model development.
+- **General help:** for help with _Gadi_, ARE or ACCESS-NRI software environments, see [User support](/about/user_support/) or post on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/).
