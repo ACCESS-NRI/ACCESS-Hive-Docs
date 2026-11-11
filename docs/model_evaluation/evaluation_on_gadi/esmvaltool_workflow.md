@@ -40,11 +40,19 @@ To be able to use the `esmvaltool` command, load the `conda/analysis3` environme
 module use /g/data/xp65/public/modules
 module load conda/analysis3
 ```
+!!! tip
+    Remember to include the PBS storage flags for all the data you will be accessing on _Gadi_.
+    e.g. `#PBS -l storage=gdata/xp65+gdata/fs38+gdata/oi10+gdata/ct11+gdata/rt52`
 
 Within the _PBS_ job script you can use the `run` command to run a recipe:
 ```
-esmvaltool run examples/recipe_python.yml
+esmvaltool run model_evaluation/recipe_model_evaluation_clouds_clim.yml
 ```
+There are optional flags when running a recipe which you can use to change from the default configuration. The ones you will use most would likely be:
+
+- `--output_dir` which you can set in a location you have access to and enough space for the files, e.g. with `--output_dir /scratch/<PROJECT>/<USER>/esmvaltool_output`
+- `--remove_preproc_dir=false` will keep all preprocessor output data files. Set to `true` to remove after a successful run if you don't require them.
+
 See the [ESMValTool running documentation page](http://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/run.html) for more information.
 
 
