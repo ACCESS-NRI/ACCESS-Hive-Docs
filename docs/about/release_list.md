@@ -51,6 +51,7 @@ In these release notes, make sure you scroll down to the latest post for most re
 |[Model tools](https://forum.access-hive.org.au/t/model-tools/4696) | Multiple tools deployed on _Gadi_ to support model tasks, such as FRE-NCtools, mppnccombine-fast, esmf, etc. |
 |[Payu](https://forum.access-hive.org.au/t/payu-a-workflow-manager-for-some-access-models/1098) | Tool used to run a number of ACCESS models on NCI hardware |
 |[um2nc](https://forum.access-hive.org.au/t/um2nc-a-utility-for-converting-unified-model-files-to-netcdf/3968) | Utility for converting UM data files to netCDF |
+|[ACCESS-MOPPy](https://forum.access-hive.org.au/t/access-moppy-1-0-beta-release-announcement/5979) | CMORisation tool to post-process ACCESS model output into CMIP-compliant datasets |
 
 ### Data
 |  |  |

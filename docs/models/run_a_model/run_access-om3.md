@@ -338,9 +338,9 @@ refer to [how to configure your experiment with payu](https://payu.readthedocs.i
 
 ### Configuring MOM6 diagnostics
 
-MOM6 diagnostic output is configured using the `diag_table` file. However, users should not edit the `diag_table` file directly. Instead, a tool is provided to generate the `diag_table` from an easily editable YAML file. This tool ensures that the `diag_table` requests MOM6 output that is formatted consistently and is suitable for postprocessing (e.g., inclusion in Intake-ESM catalogs). 
+MOM6 diagnostic output is configured using the `diag_table` file. However, users should not edit the `diag_table` file directly. Instead, a [`make_diag_table` tool](https://github.com/COSIMA/make_diag_table) is provided to generate the `diag_table` from an easily editable `diag_table_source.yaml` file. This tool ensures that the `diag_table` requests MOM6 output that is formatted consistently and is suitable for postprocessing (e.g., inclusion in Intake-ESM catalogs). 
 
-Preset `diag_table` files, along with the YAML configuration files used to generate them, can be found in the `diagnostic_profiles` subdirectory of the _control_ directory. To create and use a custom `diag_table`, follow the instructions in `diagnostic_profiles/README.md`.
+The default `diag_table` file, along with the `diag_table_source.yaml` configuration file used to generate it, can be found in the _control_ directory. To create and use a custom `diag_table`, follow the instructions in the [`make_diag_table/README.md`](https://github.com/COSIMA/make_diag_table#make_diag_table).
 
 !!! warning
     MOM6 provides the ability to vertically remap diagnostics onto user-defined vertical coordinates, including density coordinates (check [MOM6 vertically remapped diagnostics documentation](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html#vertically-remapped-diagnostics) for more information). Remapping to density coordinates can add substantially to the runtime of the model. The default `diag_table` used by {{ model }} includes diagnostics remapped to density coordinates. These should be removed for performance reasons if they are not needed.
