@@ -6,7 +6,7 @@
 
 [WAVEWATCH III (WW3)](https://github.com/NOAA-EMC/WW3) is a third-generation spectral wind-wave model that simulates the generation, propagation and dissipation of surface gravity waves. It is used to study wind waves and swell, and their interactions with the ocean and sea ice.
 
-Originally developed at NOAA/NCEP, WW3 is maintained by an [international community of developers](https://github.com/NOAA-EMC/WW3/wiki/About-WW3).
+Originally developed at [NOAA/NCEP](https://www.noaa.gov/jetstream/ncep), WW3 is maintained by an [international community of developers](https://github.com/NOAA-EMC/WW3/wiki/About-WW3).
 
 ### Models that use WW3
 
