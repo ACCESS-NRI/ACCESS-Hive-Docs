@@ -194,6 +194,7 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - Payu tutorial - COSIMA Cryosphere Workshop 2026: tutorials/2026_COSIMA_cryosphere_payu_tutorial.md
 
   - Community Resources:
     - community_resources/index.md
