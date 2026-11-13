@@ -1,7 +1,5 @@
 # Essential Git Commands
 
-This document is for someone who has heard about git and may be familiar with some git commands.
-
 ## Introduction
 
 This article provides a practical reference for Git users for day-to-day development workflows, including working with ACCESS-NRI repositories.
@@ -16,15 +14,16 @@ It is not intended as a beginner introduction to Git. You can use this page as a
 
 !!! note
     The examples below use generic branch names such as `main` and `feature-branch`. Replace these with the branch names used in your repository.
+
 !!! note
-    [<argument>] mean optional argument.
+    [\<argument\>] means optional argument.
 
 
 ## Basic git commands
 
 Here are a few core Git commands that are useful to keep handy in everyday Git workflows. For more details, please refer to the link in the command.
 
-| Command | Basic Usage | Manual | Common Use Case | Meaning |
+| Command | Basic Usage | Official Git Manual | Common Use Case | Meaning |
 |---|---|---|---|---|
 | `git clone` | `git clone <url> <local_dir>` | [link](https://git-scm.com/docs/git-clone) | | Clone a remote repository to the local directory|
 | `git branch`|  `git branch -a` | [link](https://git-scm.com/docs/git-branch) | | List all branches |
@@ -52,28 +51,27 @@ The `git fetch` command updates your remote tracking branches.
 At the beginning of your work and before switching branches.
 
 Use `git fetch`:
-1. To update remote tracking branches when your workspace has uncommitted changes that you don't want to disturb or `stash`.
-2. To update remote tracking branches when your local repository clone has become stale.
+
+    1. To update remote tracking branches when your workspace has uncommitted changes that you don't want to disturb or `stash`.
+
+    2. To update remote tracking branches when your local repository clone has become stale.
+
 
 **How to use**
 
-The full command uses an optional *remote* and an optional *branch*, e.g.:
-```
-git fetch origin main
-```
-**Recommended usage**
-
-To use `git fetch`:
-The command is
+To fetch updates from the remote repository, simply run
 ```
 git fetch
 ```
-(assuming that you have only one *remote*). It is also a good idea to keep branches *pruned*. Use
+This assumes that you have only one *remote*. It is also a good practice to keep branches *pruned*. Use
 ```
 git fetch -p
 ```
-to delete local tracking branches that refer to remote branches that have been removed.
-
+to remove any remote-tracking references that no longer exist on the remote.
+The full command uses an optional *remote* and an optional *branch*, e.g.:
+```
+git fetch [<remote>] [<branch>]
+```
 
 ## Git pull
 
@@ -84,23 +82,25 @@ The `git pull` command updates your remote tracking branches *and* updates the l
 At the beginning of your work and before switching branches.
 
 Use `git pull`:
-1. To update the local branch in your current workspace when the branch is clean and there are no uncommitted changes and no potential merge conflicts from the remote tracking branch.
-2. To update the local branch when you are prepared to deal with merge conflicts coming from the remote tracking branch.
+
+    1. To update the local branch in your current workspace when the branch is clean and there are no uncommitted changes and no potential merge conflicts from the remote tracking branch.
+
+    2. To update the local branch when you are prepared to deal with merge conflicts coming from the remote tracking branch.
 
 **Recommended usage**
 
-To use `git pull`:
-Make sure that your current local branch is the one that you want to update. Then run
+Before running `git pull`, make sure you are on the local branch that you want to update. Then run
 ```
 git pull
 ```
-Warning: This can trigger a `git merge` if the remote and local branches have different commits. You might instead want to consider using
+Warning: If your local and remote branches have diverged, `git pull` by default reports an error asking you to specify how to reconcile the divergent branches.
+To reapply your local commits on top of the latest remote commits, use:
 ```
 git pull --rebase
 ```
 instead. See `git merge` and `git rebase` here for more details. The full command also uses an optional *remote* and an optional *branch*, e.g.:
 ```
-git pull origin main
+git pull [<remote>] [<branch>]
 ```
 
 ## Git switch
@@ -109,8 +109,8 @@ Git switch allows us to switch the `HEAD` to a different branch.
 
 **When to use**
 
-- To create a new branch.
-- To switch to an existing branch, either local or remote.
+    - To create a new branch.
+    - To switch to an existing branch, either local or remote.
 
 
 **How to use**
@@ -141,9 +141,9 @@ git switch --track origin/<existing_branch>
 
 **When to use**
 
-- To combine completed work from another branch.
-- When preserving the existing branch history is useful.
-- When working on a shared branch where rewriting existing commits should be avoided.
+    - To combine completed work from another branch.
+    - When preserving the existing branch history is useful.
+    - When working on a shared branch where rewriting existing commits should be avoided.
 
 **How to use**
 
@@ -187,12 +187,26 @@ git rebase origin/main
 
 Conceptually, this changes a history like:
 
+```
+Before rebase:
+
+D---E---A---B---C  main
+     \
+      F            feature-branch
+
+After rebase:
+
+D---E---A---B---C---F'  feature-branch
+```
+
 **When to use**
-- To update a feature branch with recent changes from another branch.
-- To keep feature branch history relatively linear.
-- To tidy local work before it is merged.
+
+    - To update a feature branch with recent changes from another branch.
+    - To keep feature branch history relatively linear.
+    - To tidy local work before it is merged.
 
 **Resolving rebase conflicts**
+
 If Git finds a conflict during the rebase, resolve the affected files and stage them:
 
 ```
@@ -211,8 +225,10 @@ To cancel the rebase and return to the state before it started:
 git rebase --abort
 ```
 
-_**Important note**: Rebase rewrites commit history, so avoid rebasing commits that other people are already working from on a shared branch.
-For your own feature branch, rebasing before opening or updating a pull request can be useful for incorporating recent upstream changes while keeping the history straightforward._
+_**Important note**: (1) Rebase rewrites commit history, so avoid rebasing commits that other people are already working from on a shared branch.
+(2) For your own feature branch, rebasing before opening or updating a pull request can be useful for incorporating recent upstream changes while keeping the history straightforward. 
+(3) If you have already pushed your feature branch, rebasing changes its commit history. You will need to update the remote branch using `git push --force-with-lease`. 
+It checks that the remote branch has not been updated unexpectedly before overwriting it, helping to avoid accidentally discarding someone else's changes._
 
 ## Git stash
 
@@ -220,9 +236,9 @@ Git stash works as a temporary save button. It lets us save changes that we are 
 
 **When to use**
 
-- If working on one branch and needing to switch to another branch.
-- To pull updates from the remote repository, when local changes are not ready to commit.
-- If working on the wrong branch, to move those changes to the correct branch.
+    - If working on one branch and needing to switch to another branch.
+    - To pull updates from the remote repository, when local changes are not ready to commit.
+    - If working on the wrong branch, to move those changes to the correct branch.
 
 **How to use**
 
@@ -230,7 +246,7 @@ Git stash works as a temporary save button. It lets us save changes that we are 
 
 To save our current changes in the stash, with a message to help us remember what they are:
 ```
-git stash push -m "Message for myself"
+git stash push -m "Message for myself Nov 13th"
 ```
 Think of this as putting our changes into a virtual drawer and leaving a sticky note on it. 
 By default, `git stash` saves changes to tracked files that are modified or deleted. 
@@ -244,7 +260,7 @@ git stash list
 ```
 We may see something like:
 ```
-stash@{0}: On main: WIP: fix restart handling
+stash@{0}: On main: WIP: Message for myself Nov 13th
 stash@{1}: On dev: update documentation
 ```
 
@@ -263,7 +279,7 @@ or
 ```
 git stash apply
 ```
-The later command leave a copy in the stash.
+The latter command leaves a copy in the stash.
 
 
 #### 4. Clean up stash
@@ -282,7 +298,9 @@ git stash clear
 
 **When to use**
 
-Use `git reset` when the state of the branch needs to be changed to the state of another branch. e.g., Synchronising two branches. This command is to be used carefully because it may delete the state of the current branch by changing its history. Refer to the manual page for details: https://git-scm.com/docs/git-reset
+Use `git reset` when the state of the branch needs to be changed to the state of another branch. e.g., synchronising two branches. 
+This command is to be used carefully because it may delete the state of the current branch by changing its history and discarding uncommitted changes. 
+Please refer to the [git reset manual page](https://git-scm.com/docs/git-reset).
 
 **How to use**
 ```
@@ -295,15 +313,26 @@ is a useful command to reset the local branch to match the remote branch.
 
 **When to use**
 
-Use `git log` to see the history of the repository. Refer to the manual page for details: https://git-scm.com/docs/git-log
+Use `git log` to see the history of the repository. Refer to the [git log manual page](https://git-scm.com/docs/git-log).
 
 **How to use**
-```
-git log -c
-```
-provides the output of `git log` mixed with the code changes.
 
--- Insert image with explanation of `git log --graph` output
+The basic command is 
+```
+git log
+```
+and you may add some optional flags such as `[<--oneline>]` to display each commit on a single line,
+`[<--graph>]` to display the commit history as a graph.
+An example of `git log --graph --online` is shown below:
+```
+* a8f3c21 (HEAD -> main) Add documentation
+*   b7e2d14 Merge branch 'feature-login'
+|\
+| * c9d4a62 (feature-login) Add unit tests
+| * e5f6b31 Add feature
+|/
+* f1b2c34 Initial project setup
+```
 
 ## Git show
 
@@ -311,9 +340,9 @@ The `git show` command lets you look into specific Git objects, usually one comm
 
 **When to use**
 
-- You already know the commit you care about and want to see its message, metadata and diff in one shot.
-- You want to see what a specific file looked like at a specific past commit.
-- You want to double-check a tag's message and what commit it points to.
+    - You already know the commit you care about and want to see its message, metadata and diff in one shot.
+    - You want to see what a specific file looked like at a specific past commit.
+    - You want to double-check a tag's message and what commit it points to.
 
 **How to use**
 ```
@@ -333,7 +362,7 @@ git show <commit>:<file-path>
 
 **When to use**
 
-`git diff` to visualise source code differences. Refer to the manual page for details: https://git-scm.com/docs/git-diff
+Run `git diff` to visualise the source code differences. Refer to the [git diff manual page](https://git-scm.com/docs/git-diff).
 
 **How to use**
 
@@ -343,7 +372,8 @@ git diff origin/<branch>
 ```
 A good step before pushing the local branch to the remote branch.
 
-A useful command to display the diff in the graphical diff program `meld`. Another diff program be used by replacing `meld` with the name of the executable.
+To display the difference in a graphical diff program, run `git difftool -y --tool=<program>`. 
+For example, if you want to use the program `meld`, then run:
 ```
 git difftool -y --tool=meld
 ```
