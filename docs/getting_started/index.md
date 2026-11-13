@@ -45,4 +45,15 @@
             </span>
         </div>
     </a>
+    <a href="/getting_started/essential_git" class="horizontal-card">
+        <div class="card-image-container">
+            <img class="img-contain white-background with-padding" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="git">
+        </div>
+        <div class="card-text-container">
+            <span class="bold">Essential Git Commands</span>
+            <span>
+                Add description here
+            </span>
+        </div>
+    </a>
 </div>

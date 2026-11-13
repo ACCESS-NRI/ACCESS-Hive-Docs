@@ -121,6 +121,7 @@ nav:
     - Australian Research Environment (ARE): getting_started/are.md
     - conda/analysis3 Python Environment: getting_started/environments.md
     - How to use Spack on Gadi for building ACCESS models: getting_started/spack.md
+    - Essential Git Commands: getting_started/essential_git.md
 
   - Models:
     - models/index.md
@@ -194,6 +195,7 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - Working with Git: tutorials/git_ref.md
 
   - Community Resources:
     - community_resources/index.md
