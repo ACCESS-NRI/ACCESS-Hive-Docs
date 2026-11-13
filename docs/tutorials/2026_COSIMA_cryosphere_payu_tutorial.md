@@ -57,21 +57,21 @@ Clone the ACCESS-OM2 configuration. Please try the `payu clone` **interactive mo
 !!! question
     For an experiment with a high χ<sub>o</sub> = 0.0065, what is a good **control directory** name and **local branch** name?
 
-!!! tip "Useful commands"
+**Useful commands:**
 
-    ```
-    payu clone
-    ```
+```
+payu clone
+```
 
-    - Starts the interactive mode.
-    - A flowchart is available in the payu documentation under [Usage > Clone experiment](https://payu.readthedocs.io/en/stable/), or enter `?` in the wizard.
-    - Control directory and branch naming guidance is available in the payu documentation under [Usage](https://payu.readthedocs.io/en/stable/).
+- Starts the interactive mode.
+- A flowchart is available in the payu documentation under [Usage > Clone experiment](https://payu.readthedocs.io/en/stable/), or enter `?` in the wizard.
+- Control directory and branch naming guidance is available in the payu documentation under [Usage](https://payu.readthedocs.io/en/stable/).
 
-    The complete (non-interactive) command is:
+The complete (non-interactive) command is:
 
-    ```
-    payu clone -B source_branch -b new_branch URL local_dir
-    ```
+```
+payu clone -B source_branch -b new_branch URL local_dir
+```
 
 <!-- FLAG: The cheat sheet uses the URL https://github.com/ACCESS-NRI/access-om2-configs.git, but the answer below uses https://github.com/ACCESS-NRI/accessom2-configs.git. Please confirm which is correct. -->
 
@@ -103,15 +103,14 @@ Clone the ACCESS-OM2 configuration. Please try the `payu clone` **interactive mo
 
 Set χ<sub>o</sub> to 0.0065.
 
-!!! tip "Hint"
-    χ<sub>o</sub> is under `&thermo_nml` in `ice/cice.nml`.
+**Hint:** χ<sub>o</sub> is under `&thermo_nml` in `ice/cice.nml`.
 
-!!! tip "Useful commands"
+**Useful commands:**
 
-    ```
-    cd control_directory
-    vi ice/cice.nml
-    ```
+```
+cd control_directory
+vi ice/cice.nml
+```
 
 <!-- FLAG: The cheat sheet says the file is ice/cice.nml, but the answer below uses ice/cice_in.nml. Please confirm which is correct. -->
 
@@ -127,11 +126,11 @@ Set χ<sub>o</sub> to 0.0065.
 
 Update the restart period to **1 month** in `accessom2.nml`.
 
-!!! tip "Useful commands"
+**Useful commands:**
 
-    ```
-    vi accessom2.nml
-    ```
+```
+vi accessom2.nml
+```
 
 ??? success "Answer"
 
@@ -149,11 +148,11 @@ Update the restart period to **1 month** in `accessom2.nml`.
 
 Configure `sync: base_path` in `config.yaml`, for example `/g/data/nf33/$USER/…`.
 
-!!! tip "Useful commands"
+**Useful commands:**
 
-    ```
-    vi config.yaml
-    ```
+```
+vi config.yaml
+```
 
 ??? success "Answer"
 
@@ -177,41 +176,41 @@ Configure `sync: base_path` in `config.yaml`, for example `/g/data/nf33/$USER/�
     - Where is the archive stored?
     - Where is the output synced?
 
-!!! tip "Useful commands"
+**Useful commands:**
 
-    ```
-    cd control_directory
-    payu setup
-    ```
+```
+cd control_directory
+payu setup
+```
 
-    - `payu setup --new-uuid` creates a new experiment UUID and a new archive directory. If there is a pre-existing archive, the symlink will be updated to the new archive.
+- `payu setup --new-uuid` creates a new experiment UUID and a new archive directory. If there is a pre-existing archive, the symlink will be updated to the new archive.
 
-    ```
-    payu sweep
-    ```
+```
+payu sweep
+```
 
-    - What error message will you get if you skip this?
+- What error message will you get if you skip this?
 
-    ```
-    payu run
-    ```
+```
+payu run
+```
 
-    - `payu run -n N` schedules an experiment for N successive runs.
+- `payu run -n N` schedules an experiment for N successive runs.
 
-    ```
-    payu status
-    ```
+```
+payu status
+```
 
-    - For a running job, this helps you monitor the current experiment time.
-    - For a finished job, this helps you check the exit status.
-    - `payu status --update` updates the current queue time. Note that it calls `qstat`, so it's recommended to run it only once per model run.
-    - `payu status --paths` shows the experiment paths.
+- For a running job, this helps you monitor the current experiment time.
+- For a finished job, this helps you check the exit status.
+- `payu status --update` updates the current queue time. Note that it calls `qstat`, so it's recommended to run it only once per model run.
+- `payu status --paths` shows the experiment paths.
 
-    ```
-    less metadata.yaml
-    ```
+```
+less metadata.yaml
+```
 
-    - Check the experiment name, UUID, parent experiment, etc. Press `q` to exit.
+- Check the experiment name, UUID, parent experiment, etc. Press `q` to exit.
 
 <!-- FLAG: The cheat sheet asks "what error message will I get if I skip payu sweep?", but the answers PDF doesn't cover payu setup or payu sweep, so there is no answer for that question below. -->
 
@@ -287,20 +286,20 @@ Continue the experiment for another month with a higher χ<sub>o</sub> = 0.007.
 !!! question
     How can you create a new branch based on the latest output?
 
-!!! tip "Useful commands"
+**Useful commands:**
 
-    ```
-    payu checkout -b newB -r path_to_restart source_commit
-    ```
+```
+payu checkout -b newB -r path_to_restart source_commit
+```
 
-    - Creates a new branch called `newB` that is branched off from `source_commit`, and assigns its restart to `path_to_restart`.
+- Creates a new branch called `newB` that is branched off from `source_commit`, and assigns its restart to `path_to_restart`.
 
-    Other useful commands:
+Other useful commands:
 
-    ```
-    payu checkout -b new_branch source_commit
-    payu checkout -b new_branch source_branch
-    ```
+```
+payu checkout -b new_branch source_commit
+payu checkout -b new_branch source_branch
+```
 
 <!-- FLAG: In the output below the restart and old archive paths refer to "om2-1deg-iaf-control-uu00id" and the payu branch output lists a "control" branch, whereas Steps 1 and 5 use the branch "chio65" (om2-1deg-iaf-chio65-uu00id). Kept as in the PDF. -->
 
