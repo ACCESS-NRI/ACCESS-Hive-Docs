@@ -6,23 +6,15 @@
 [![Hive](/assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} ACCESS-Hive Forum](https://forum.access-hive.org.au/){: class="text-card"}
 </div>
 
-This page contains the hands-on exercises for the payu training session. Each step lists the task, any questions to think about, and the commands you'll need. The answers are hidden in collapsible boxes, so try each step yourself before you open them.
+This page contains the hands-on exercises for the payu training session. Each step lists the task, questions to think about, and the commands you'll need. The answers are hidden in collapsible boxes, so try each step yourself before you open them.
 
 ## The problem
 
 !!! abstract "Exercise overview"
     **Goal:** Study the impact of a higher ocean-to-ice heat transfer coefficient (χ<sub>o</sub>).
 
-    **Model:** 1 degree ACCESS-OM2 model under inter-annual forcing (remote branch name: `release-1deg_jra55_iaf`).
+    **Model:** 1-degree ACCESS-OM2 model under inter-annual forcing (repository URL: [OM2 model configuration](https://github.com/ACCESS-NRI/access-om2-configs/), remote branch name: `release-1deg_jra55_iaf`).
 
-```mermaid
-flowchart LR
-    A["📥 <b>Step 1</b><br/>Clone"] --> B["✏️ <b>Step 2</b><br/>Modify χo"]
-    B --> C["🗓️ <b>Step 3</b><br/>Run length"]
-    C --> D["🔁 <b>Step 4</b><br/>Output syncing"]
-    D --> E["▶️ <b>Step 5</b><br/>Run"]
-    E --> F["🌿 <b>Step 6</b><br/>Branch & continue"]
-```
 
 ## Getting help
 
@@ -35,7 +27,7 @@ flowchart LR
 
 ??? info "Checking your experiment history with `git log`"
 
-    Run `git log` (or `git log <hash>`) in your control directory to:
+    Run `git log` (or `git show <commit_hash>`) in your control directory to:
 
     - check run commits
     - check metadata updates
@@ -64,8 +56,8 @@ payu clone
 ```
 
 - Starts the interactive mode.
-- A flowchart is available in the payu documentation under [Usage > Clone experiment](https://payu.readthedocs.io/en/stable/), or enter `?` in the wizard.
-- Control directory and branch naming guidance is available in the payu documentation under [Usage](https://payu.readthedocs.io/en/stable/).
+- A flowchart is available in the payu documentation under [Usage > Clone experiment](https://payu.readthedocs.io/en/stable/usage.html#payu-clone-interactive-mode), or enter `?` in the wizard.
+- Control directory and branch naming guidance is available in the payu documentation under [Usage](https://payu.readthedocs.io/en/stable/usage.html#control-directory-and-branch-naming-guidance).
 
 The complete (non-interactive) command is:
 
@@ -77,23 +69,23 @@ payu clone -B source_branch -b new_branch URL local_dir
 
 ??? success "Answer"
 
-    In this example the control directory is `om2-1deg-iaf` and the local branch is `chio65`.
+    In this example, a recommended control directory name is `om2_1deg_iaf`, and the local branch name is `chio65`.
 
     <terminal-window>
         <terminal-line data="input">payu clone</terminal-line>
         <terminal-line><span class="payu-yellow">Welcome to the Payu Clone Wizard!</span></terminal-line>
         <terminal-line><span class="payu-yellow">Press 'Ctrl+C' at any time to exit.</span></terminal-line>
         <terminal-line><span class="payu-yellow">Enter '?' during any prompt to view the flowchart.</span></terminal-line>
-        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please enter URL of the repository, or local path of the configuration to clone:</span> (e.g., https://github.com/payu-org/bowl1.git, or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow">https://github.com/ACCESS-NRI/accessom2-configs.git</span></terminal-line>
+        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please enter URL of the repository, or local path of the configuration to clone:</span> (e.g., https://github.com/payu-org/bowl1.git, or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow">https://github.com/ACCESS-NRI/access-om2-configs.git</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Payu will clone the repo based on:</span> <span class="payu-dark-yellow">An existing branch</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Name of the branch to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-1deg_jra55_iaf</span></terminal-line>
-        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please name your local control directory:</span> <span class="payu-dark-yellow">om2-1deg-iaf</span></terminal-line>
+        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please name your local control directory:</span> <span class="payu-dark-yellow">om2_1deg_iaf</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Is this a new experiment?</span> (If yes, payu will create a new branch.) <span class="payu-dark-yellow">Yes, create a new UUID as a new experiment</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please name your new branch:</span> (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow">chio65</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Do you want to specify a custom restart path?</span> (If no, the default restart/initial conditions will be used.) <span class="payu-dark-yellow">No</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Do you want to override the shortpath?</span> (Default is '/scratch/nf33') <span class="payu-dark-yellow">Yes</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please enter the new shortpath you want to use:</span> <span class="payu-dark-yellow">/scratch/nf33</span></terminal-line>
-        <terminal-line data="input">cd om2-1deg-iaf/</terminal-line>
+        <terminal-line data="input">cd om2_1deg_iaf/</terminal-line>
         <terminal-line data="input">ls</terminal-line>
         <terminal-line>accessom2.nml  atmosphere  doc  LICENSE  metadata.yaml  ocean  testing</terminal-line>
         <terminal-line>archive  config.yaml  ice  manifests  namcouple  README.md  tools</terminal-line>
@@ -103,16 +95,8 @@ payu clone -B source_branch -b new_branch URL local_dir
 
 Set χ<sub>o</sub> to 0.0065.
 
-**Hint:** χ<sub>o</sub> is under `&thermo_nml` in `ice/cice.nml`.
+**Hint:** χ<sub>o</sub> is under `&thermo_nml` in `ice/cice_in.nml`.
 
-**Useful commands:**
-
-```
-cd control_directory
-vi ice/cice.nml
-```
-
-<!-- FLAG: The cheat sheet says the file is ice/cice.nml, but the answer below uses ice/cice_in.nml. Please confirm which is correct. -->
 
 ??? success "Answer"
 
@@ -125,12 +109,6 @@ vi ice/cice.nml
 ## Step 3: Configure the experiment time
 
 Update the restart period to **1 month** in `accessom2.nml`.
-
-**Useful commands:**
-
-```
-vi accessom2.nml
-```
 
 ??? success "Answer"
 
@@ -148,12 +126,6 @@ vi accessom2.nml
 
 Configure `sync: base_path` in `config.yaml`, for example `/g/data/nf33/$USER/…`.
 
-**Useful commands:**
-
-```
-vi config.yaml
-```
-
 ??? success "Answer"
 
     ```
@@ -165,7 +137,7 @@ vi config.yaml
     ```yaml
     sync:
       enable: true
-      base_path: /g/data/nf33/$USER/somewhere
+      base_path: /g/data/nf33/$USER/om2_sync_archive
     ```
 
 ## Step 5: Run the experiment
@@ -183,13 +155,13 @@ cd control_directory
 payu setup
 ```
 
-- `payu setup --new-uuid` creates a new experiment UUID and a new archive directory. If there is a pre-existing archive, the symlink will be updated to the new archive.
+- `payu setup --new-uuid` creates a new experiment UUID and a new archive directory. It meanwhile updates the archive symlink to the new archive.
 
 ```
 payu sweep
 ```
 
-- What error message will you get if you skip this?
+- What error message will you get if you skip the sweep?
 
 ```
 payu run
@@ -237,7 +209,7 @@ less metadata.yaml
         <terminal-line>Job ID: 10000001.gadi-pbs</terminal-line>
     </terminal-window>
 
-    Check the queue time with `payu status --update` (see **Total Queue Time**):
+    Check the queue time with `payu status --update` (see **Current** or **Total Queue Time**):
 
     <terminal-window>
         <terminal-line data="input">payu status --update</terminal-line>
@@ -256,7 +228,7 @@ less metadata.yaml
 
     Check the UUID, archive and sync locations with `payu status --paths` (see **Experiment UUID**, **Archive Directory** and **Sync Destination**):
 
-    <!-- FLAG: The answers PDF shows "payu status -- paths" (with a space) and labels the control directory line as "Chio65 Directory". These have been kept as in the PDF; they likely should be "payu status --paths" and "Control Directory". -->
+    <!-- FLAG: The answers PDF shows "payu status --paths" (with a space) and labels the control directory line as "Chio65 Directory". These have been kept as in the PDF; they likely should be "payu status --paths" and "Control Directory". -->
 
     <terminal-window>
         <terminal-line data="input">payu status -- paths</terminal-line>
@@ -308,7 +280,7 @@ payu checkout -b new_branch source_branch
     Use the archive directory from `payu status --paths` and point the restart at the `output000` folder of the first run:
 
     <terminal-window>
-        <terminal-line data="input">payu checkout -b chio7 -r /archive/dir/found/in/payu/status/paths/output000/</terminal-line>
+        <terminal-line data="input">payu checkout -b chio7 -r /archive/dir/found/in/payu/status/paths/output000/ chio65</terminal-line>
         <terminal-line>Created and checked out new branch: chio7</terminal-line>
         <terminal-line>laboratory path: /scratch/nf33/xxxx/access-om2</terminal-line>
         <terminal-line>binary path: /scratch/nf33/xxxx/access-om2/bin</terminal-line>
