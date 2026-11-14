@@ -1,0 +1,163 @@
+site_name: ACCESS-NRI
+site_description: Australia's climate simulator, ACCESS-NRI, is a national research infrastructure that supports the ACCESS climate models.
+site_url: https://www.access-nri.org.au/
+use_directory_urls: true
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: wp-content/themes/accessnri/images/logos/access_logo_rgb.svg
+  favicon: wp-content/themes/accessnri/images/win8-tile-icon.png
+  font:
+    text: Ubuntu
+  palette:
+    primary: custom
+    accent: custom
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+  icon:
+    edit: material/pencil
+
+repo_url: https://github.com/ACCESS-NRI/access-nri-website
+edit_uri: edit/main/docs/
+
+extra_css:
+  - https://fonts.googleapis.com/css?family=Source+Sans+Pro:700
+  - vendor/swiper-bundle.min.css
+  - stylesheets/accessnri.css
+
+extra_javascript:
+  - vendor/swiper-bundle.min.js
+  - javascripts/masthead.js
+  - javascripts/cards.js
+
+plugins:
+  - search
+  - macros
+  - redirects:
+      redirect_maps:
+        author/coreyhanrahan.md: news/index.md
+        author/itomic.md: news/index.md
+        author/nataliabateman.md: news/index.md
+        people-category/access-nri-board.md: about/access-nri-board.md
+        people-category/access-nri-liaison.md: teams/all-access-nri-teams.md
+        people-category/atmosphere-model-team.md: teams/atmosphere-model-team.md
+        people-category/atmospheric-modelling-wg-co-chairs.md: teams/all-access-nri-teams.md
+        people-category/business-team.md: teams/business-team.md
+        people-category/cosima-ocean-and-sea-ice-wg-co-chairs.md: teams/all-access-nri-teams.md
+        people-category/cryosphere-wg-co-chairs.md: teams/all-access-nri-teams.md
+        people-category/data-team.md: teams/all-access-nri-teams.md
+        people-category/earth-system-modelling-wg-co-chairs.md: teams/all-access-nri-teams.md
+        people-category/executive-team.md: teams/executive-team.md
+        people-category/forecasting-and-prediction-wg-co-chairs.md: teams/all-access-nri-teams.md
+        people-category/ice-sheet-modelling-team.md: teams/ice-sheet-modelling-team.md
+        people-category/land-surface-model-team.md: teams/land-surface-model-team.md
+        people-category/land-surface-modelling-wg-co-chairs.md: teams/all-access-nri-teams.md
+        people-category/model-evaluation-and-diagnostics-team.md: teams/all-access-nri-teams.md
+        people-category/model-release-team.md: teams/model-release-team.md
+        people-category/ocean-model-team.md: teams/ocean-model-team.md
+        people-category/regional-and-coastal-ocean-modelling-team.md: teams/all-access-nri-teams.md
+        people-category/research-software-engineers.md: teams/all-access-nri-teams.md
+        people-category/scientific-advisory-committee-sac.md: about/scientific-advisory-committee-sac.md
+        people-category/software-transformation-team.md: teams/software-transformation-team.md
+        people-category/team-leaders.md: teams/all-access-nri-teams.md
+        people-category/user-training-team.md: teams/user-training-team.md
+        news-and-events/latest-news.md: news/index.md
+        category/in-conversation-with.md: news/in-conversation-with.md
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - tables
+  - toc:
+      permalink: false
+
+extra:
+  contact_email: access.nri@anu.edu.au
+  mailchimp_action: "https://access-nri.us14.list-manage.com/subscribe/post?u=2e82a242a5023d286ad0d4555&id=aed3bbbb13"
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/access-nri
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/access-nri.bsky.social
+    - icon: fontawesome/brands/github
+      link: https://github.com/access-nri
+
+# Mirrors the live WordPress menu structure (3 levels where the original has them).
+
+nav:
+- About:
+  - Overview: about/index.md
+  - Aims and Guiding Principles: about/aims.md
+  - Partners and collaborators: about/partners-and-collaborators.md
+  - ACCESS-NRI Board: about/access-nri-board.md
+  - Scientific Advisory Committee (SAC): about/scientific-advisory-committee-sac.md
+  - Code of conduct: community/access-nri-code-of-conduct.md
+  - ACCESS-NRI Strategic Plan (2022-2027): about/access-nri-strategic-plan-2022-2027.md
+  - Contact: contact.md
+- Teams:
+  - Overview: teams/index.md
+  - All ACCESS-NRI teams: teams/all-access-nri-teams.md
+  - Executive team: teams/executive-team.md
+  - Atmosphere Model team: teams/atmosphere-model-team.md
+  - Business team: teams/business-team.md
+  - Data team: teams/data-management-team.md
+  - Ice Sheet Modelling team: teams/ice-sheet-modelling-team.md
+  - Land Surface Model team: teams/land-surface-model-team.md
+  - Model Evaluation and Diagnostics (MED) team: teams/model-evaluation-and-diagnostics-med-team.md
+  - Model Release team: teams/model-release-team.md
+  - Ocean Model team: teams/ocean-model-team.md
+  - Regional and Coastal Ocean Modelling team: teams/regional-coastal-ocean-modelling-team.md
+  - Software Transformation team: teams/software-transformation-team.md
+  - User Training team: teams/user-training-team.md
+- Models:
+  - Overview: models/index.md
+  - Coupled Model (ACCESS-CM): models/access-cm.md
+  - Earth System Model (ACCESS-ESM): models/earth-system-model-esm.md
+  - Ocean-sea ice Model (ACCESS-OM): models/access-om.md
+  - Regional Atmosphere Model (ACCESS-rAM): models/access-ram.md
+- Impact:
+  - Overview: impact/index.md
+  - Case studies: impact/case-studies.md
+  - Multimedia gallery: impact/multimedia-gallery.md
+- For users:
+  - Join the ACCESS Community: join-the-access-community-v1.md
+  - Call for Expressions of Interest in Model Evaluation & Development: eoi-model-evaluation-and-dev.md
+  - Community Working Groups (CWG):
+    - Overview: working-groups/index.md
+    - Atmosphere: working-groups/atmosphere.md
+    - COSIMA (Ocean-Sea Ice Modelling): working-groups/cosima.md
+    - Cryospheric Sciences: working-groups/cryosphere.md
+    - Earth System Modelling: earth-system-modelling-working-group.md
+    - Land Surface Modelling: land-surface-modelling-community-working-group.md
+    - Machine Learning for Climate and Weather: working-groups/machine-learning.md
+  - User Support: access-support-scheme.md
+  - ACCESS-NRI Merit Allocation Guidelines:
+    - Overview: access-nri-merit-allocation-guidelines.md
+    - ACCESS-NRI Merit Allocations for Reference Datasets: access-nri-merit-allocations-for-reference-datasets.md
+  - User Reporting: resources/user-reporting.md
+  - Acknowledging Us: resources/acknowledging-us.md
+- News & events:
+  - Latest news: news/index.md
+  - In conversation with: news/in-conversation-with.md
+  - ACCESStory newsletter: news-and-events/accesstory-newsletter.md
+  - Upcoming events: upcoming-events.md
+  - ACCESS Community Workshops 2026:
+    - Overview: access-community-workshops-2026/index.md
+    - 'ACCESS Workshop: Connecting Machine Learning to Earth System Science': access-workshop-2026-connecting-machine-learning-to-earth-system-science.md
+    - ACCESS Community Workshop on Land and Coupled Modelling: access-community-workshop-on-land-and-coupled-modelling.md
+    - ACCESS COSIMA & Cryosphere Community Workshop: access-community-workshops-2026/cosima-cryosphere.md
+- Jobs:
+  - Current Jobs: community/jobs.md
+  - ACCESS-NRI PhD Internship Program: phd-internship-program.md
+- Resources:
+  - Overview: resources/index.md
+  - Reports and factsheets: resources/reports-and-brochures.md
+  - ACCESS glossary: community/access-glossary.md
+  - CMIP7 dashboard: https://access-nri.github.io/cmip7-dashboard/

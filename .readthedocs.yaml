@@ -25,6 +25,15 @@ build:
     post_create_environment:
       - mkdir -p "$HOME/.config/pip"
       - printf "[global]\nuploaded-prior-to = P7D\n" > "$HOME/.config/pip/pip.conf"
+    # PROTOTYPE of the www.access-nri.org.au website (see website/README.md). Built ONLY for pull-request
+    # previews (READTHEDOCS_VERSION_TYPE=external), into <preview-url>/website/. Production builds of the
+    # docs are unchanged. Remove this job when the website gets its own Read the Docs project.
+    post_build:
+      - |
+        if [ "$READTHEDOCS_VERSION_TYPE" = "external" ]; then
+          (cd website && python tools/fetch_media.py)
+          mkdocs build -f website/mkdocs.yml -d "$READTHEDOCS_OUTPUT/html/website"
+        fi
   # jobs:
     # post_checkout: # MODIFY IF NEEDED: uncomment to cancel the RTD build
     #   - exit 183

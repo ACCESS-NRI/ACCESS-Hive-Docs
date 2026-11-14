@@ -1,0 +1,22 @@
+- name: Dr. Mike Tetley
+  role: Team Lead, Ice Sheet Modelling
+  photo: wp-content/uploads/2023/03/Mike_sm-BW-300x300.jpg
+  profile: https://www.access-nri.org.au/person/mike-tetley-he-him/
+  slug: mike-tetley-he-him
+  email: michael.tetley@anu.edu.au
+- name: Justin Kin Jun Hew
+  role: Research Software Engineer
+  photo: wp-content/uploads/2025/01/Justin-Hew-300x300.png
+  profile: https://www.access-nri.org.au/person/justin-kin-jun-hew/
+  slug: justin-kin-jun-hew
+- name: Dr Jordan Hill
+  role: Research Fellow in Earth System Modelling, Monash University
+  photo: wp-content/uploads/2026/06/Jordan-Hill-BW-300px.png
+  profile: https://www.access-nri.org.au/person/jordan-hill/
+  slug: jordan-hill
+  email: Jordan.Hill@monash.edu
+- name: Lawrence Bird
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2025/05/Lawrence-Bird-BW-300x300.png
+  profile: https://www.access-nri.org.au/person/lawrence-bird/
+  slug: lawrence-bird

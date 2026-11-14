@@ -1,0 +1,363 @@
+=====PATH /access-nri-merit-allocation-guidelines/ | TITLE ACCESS-NRI Merit Allocation Guidelines | DESC Criteria for distributing compute and storage resources to the ACCESS Community Working Groups. | DATE
+ACCESS-NRI currently receives resources for compute and storage directly from the [National Computational Infrastructure (NCI)](https://nci.org.au/), funded by the Australian Government’s [National Collaborative Research Infrastructure Strategy (NCRIS)](https://www.education.gov.au/ncris). ACCESS-NRI use these resources to support model development and test runs for ACCESS-NRI staff, as well as to support community members to undertake scientific simulations using ACCESS models and share community reference datasets.
+
+This webpage outlines the criteria for distributing compute and storage resources to the ACCESS Community Working Groups (WGs) to maximise the benefit and impact of the available resources.
+
+## Total allocations
+
+The total compute and storage resources available for FY 2024–2025 are summarised in the table below. Note that the total storage resources available for reference datasets is expected to increase to 2200TB by 2026–2027.
+
+| Category | Total compute (MSU) | Total storage (TB) |
+| --- | --- | --- |
+| Community Working Groups (WGs) | | 600 |
+| Reference datasets | N/A | 1200 |
+| ACCESS-NRI staff (development/testing) | | 200 |
+| Total | 50* | 2000 |
+
+*Total compute is 50 MSU, which are typically allocated to ACCESS-NRI staff and WGs around 50% each. This arrangement has some flexibility with the oversight of the Scientific Advisory Committee (SAC).
+
+## Allocation process
+
+#### Community Working Groups
+
+The ACCESS-NRI merit allocation scheme for WG resources will operate as follows:
+
+- Each community WG will be allocated a project code on NCI with compute and storage resources.
+- WG Co-chairs along with the ACCESS-NRI Liaison will be designated as Lead CIs for this project code. For notification purposes within the [MyNCI User Portal](https://my.nci.org.au/mancini/login{Q}next{EQ}/mancini/), the WG Co-chairs will be designated as Delegate Lead CIs.
+- Membership requests will be reviewed by the WG Co-chairs.
+- Users requesting access project resources will be required to join the associated WG within the [ACCESS-Hive Forum](https://forum.access-hive.org.au/) to be approved. Instructions on joining WGs can be found on the [How to join a Community Working Group]({B}join-community-working-groups/) webpage.
+- As part of the [NCI Conditions of Use](https://nci.org.au/users/nci-terms-and-conditions-access#Terms), all users must comply with the [Defence Trade Controls Act](https://www.legislation.gov.au/Series/C2012A00153). WG Co-chairs should consult with the ACCESS-NRI Liaison before approving any membership requests from overseas institutions.
+- Every 6 months, WG Co-chairs will be asked to work with their community to specify a plan for simulations over the next two quarters, including a table showing estimated compute use and storage requirements. ACCESS-NRI will provide a template to assist with this planning.
+- Plans should also explicitly include anticipated requests for storage to cover reference datasets produced by these simulations. Further information on the process to request support for reference datasets can be found in the following section.
+- In addition to specific requests, WGs are expected to reserve at least 5% of their allocation each quarter that may be distributed for small needs (new users, testing, ECRs) at the discretion of the Co-chairs.
+- These plans will be evaluated by the ACCESS-NRI Scientific Advisory Committee (SAC) according to the below [assessment criteria](#assessment-criteria). The role of the SAC will also be to identify opportunities for WGs to coordinate around shared needs and/or to avoid possible duplication
+- At the end of each financial year the Working Group Co-Chairs and ACCESS-NRI Liaison will be required to report on the scientific impact and use of computational resources, as well as total usage by FOR code(s) and by organisation. ACCESS-NRI will provide a template to assist with reporting.
+
+Please note:
+
+- Allocations are not transferable to other NCI projects outside of the ACCESS-NRI scheme.
+- When nearing the end of each quarter, WG Co-chairs have flexibility to ensure their compute allocation is fully used. This could include sharing unused compute with other WGs or directly approving (or increasing existing) compute allocations within the WG at their discretion.
+- Allocations cannot be deferred to future allocation periods without approval from ACCESS-NRI and the Scientific Advisory Committee (SAC).
+- Storage (/g/data) allocations are not intended for long-term storage (e.g., exceeding 4 quarters). Data intended for sharing and reuse will be supported by a separate dedicated storage allocation (see next section and the [ACCESS-NRI Merit Allocations for Reference Datasets]({B}access-nri-merit-allocations-for-reference-datasets/) webpage for details on how to request support.
+- Above guidelines and resources may change subject to NCRIS funding agreements.
+
+#### Reference datasets
+
+Reference datasets are those that are used by community members to undertake scientific research, support model development and/or will be shared for reuse. All reference datasets require at least some level of curation, documentation and management to meet the requirements of the FAIR and CARE Principles.
+
+Members of the ACCESS Community can request support for reference datasets from ACCESS-NRI. All requests will be assessed according to the criteria outlined in the next section. Please refer to the [ACCESS-NRI Merit Allocations for Reference Datasets]({B}access-nri-merit-allocations-for-reference-datasets/) information page for more details on how to request support for reference datasets.
+
+## Assessment criteria { #assessment-criteria }
+
+The criteria for prioritising ACCESS-NRI merit resources are outlined in the table below:
+
+| Criteria | Weighting | Description |
+| --- | --- | --- |
+| Alignment with ACCESS development pathways OR software and tools | 30% | Priority will be given to requests which contribute to the ongoing development of new ACCESS configurations, or to enhance existing configurations. <br> *Reference datasets*: Priority will be given to requests which contribute to the uptake or enhancement of supported ACCESS model configurations, model evaluation and data analysis tools. |
+| Contribution to community | 30% | Priority will be given to requests which will contribute to a broad user base, preferably from multiple organisations. This criterion will also take into account the value of distributing resource to new users, or early career researchers who are unable to support simulations from other means. |
+| National benefit and impact | 25% | Priority will be given to simulations that address science priorities that are aligned with national benefit and will maximise the impact of ACCESS development, software, data and tools. |
+| Computational feasibility | 15% | The cost of compute and storage, value of the investment, the efficiency of the computations to be used and the feasibility of the plan to remove the data at the end of the project will be considered in distributing resources. <br> *Reference datasets*: The cost of storage and data management support, value of the investment, the compliance with relevant data standards, licensing, and the feasibility of the plan to transition or retire datasets at the end of the project will be considered in distributing resources. |
+
+## Governance
+
+To help the WG Co-chairs and ACCESS-NRI Liaison manage project resources, the ACCESS-NRI will provide:
+
+- a request template to help plan WG compute and storage allocations
+- a request [template for reference datasets]({B}access-nri-merit-allocations-for-reference-datasets/)
+- monitoring tools for NCI resources
+- a reporting template to help with the reporting requirements.
+
+## Conditions of use
+
+All WG Co-chairs and members of the WG granted resources should review and comply with [NCI’s terms and conditions of access](https://nci.org.au/users/nci-terms-and-conditions-access#Terms).
+
+Providers of reference datasets should review and acknowledge the [ACCESS-NRI Merit Allocation for Reference Datasets]({B}access-nri-merit-allocations-for-reference-datasets/#terms-conditions).
+
+## Acknowledgement
+
+ACCESS community members who make use of these resources are required to acknowledge ACCESS-NRI and NCI in their outputs. The following are examples of acknowledgement templates:
+
+- *“This research was supported by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS), with access to computational resources provided through the ACCESS-NRI Merit Allocation Scheme and the National Computational Infrastructure (NCI).”*
+- *“This data is supported by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS), with access to resources provided through the ACCESS-NRI Merit Allocation Scheme and the National Computational Infrastructure (NCI).”*
+
+=====PATH /access-nri-merit-allocations-for-reference-datasets/ | TITLE ACCESS-NRI Merit Allocations for Reference Datasets | DESC Detailed information about the approach, roles and processes for the management of the ACCESS-NRI merit allocations for reference datasets. | DATE
+This page provides detailed information about the approach, roles and processes that will be followed for the management of the ACCESS-NRI merit allocations for reference datasets.
+
+**Reference dataset** is a general term used by ACCESS-NRI to describe data that is used by community members to undertake scientific research, support model development and/or will be shared for reuse. Reference datasets require at least some level of curation, documentation and management to meet the requirements of the FAIR and CARE principles.
+
+Reference datasets can be either:
+
+- **Curated dataset:** Data that is considered of value to the community and is intended for broad access, use and citation. These datasets need to be managed, documented and prepared to ensure they are accessible, trustworthy and (re)usable.
+- **Datapool dataset:** Data that are not considered ready for publication but are of value to share with the community for a short-term, defined purpose or restricted use (e.g., as part of a model or project development evaluation stage, short-term replication of overseas data, or as that starting point to higher curation levels). These datasets require some management controls and minimal curation for temporary sharing.
+
+![]({U}2024/07/DSC00291-300x200.jpg)
+
+Click on the below links to move to the different sections on this page:
+
+- [How to request ACCESS-NRI support for a reference dataset](#how-to-request)
+- [Process for assessing requests for support](#process)
+- [Demonstrating ongoing value](#ongoing-value)
+- [Merit allocation roles](#roles)
+- [Terms and conditions (reference datasets)](#terms-conditions)
+
+## How to request ACCESS-NRI support for a reference dataset { #how-to-request }
+
+Members of the ACCESS community can request support for a reference dataset by submitting a request via the relevant working group or sending an email to the ACCESS-NRI Data Team at [data.access.nri@anu.edu.au](mailto:data.access.nri@anu.edu.au).
+
+Data requests should include as much of the following information as possible:
+
+- **Dataset name**
+- **Brief description** (or link to catalogue record)
+- **Source location** (where the data is currently stored)
+- **Licence** (if known)
+- **Storage required** (approximate)
+- **Period of time the storage is required** (estimate)
+- **Reason for being centrally managed**, such as:
+    - widely used by the community (name user groups/organisations)
+    - difficult for individuals to access, manage and/or store
+    - supports ACCESS-NRI model development
+    - required for research publication.
+- **Person who will have ongoing responsibility for the data at NCI**.
+
+We recommend that you read the following sections before submitting a request.
+
+## Process for assessing requests for support { #process }
+
+The following steps will be followed for the assessment, release and review of datasets:
+
+| Step | Details |
+| --- | --- |
+| Data request | “Data request” received by ACCESS-NRI. <br> • Requests can be from WGs, ACCESS-NRI or directly from a Data Provider. |
+| Requests prioritised | List of requests will be reviewed and prioritised by WGs and/or ACCESS-NRI (for any requests not directly aligned with an existing WG). <br> • Prioritisation will assess both new requests and datasets already in the queue. ACCESS community members should consult with their WG co-chairs if they would like to revise the priority of a dataset in the queue. <br> • If there are insufficient resources available to support a request for a high priority dataset, then a review of released datasets (full or partial) may be required prior to decision to proceed being made. |
+| Roles confirmed | Data Owner and/or Provider identified and confirmed. <br> • It is important for these roles to be agreed before proceeding. |
+| Develop proposal (if required) | The WG and/or ACCESS-NRI may request a full proposal for larger and long-term requests. The Data Provider will work with ACCESS-NRI to develop the proposals and provide a merit assessment based on the following criteria: <br> • Alignment with ACCESS development pathways OR software and tools <br> • Contribution to community <br> • Computational feasibility <br> For more information, see the [assessment criteria]({B}access-nri-merit-allocation-guidelines/#assessment-criteria) section of the [ACCESS-NRI Merit Allocation Guidelines]({B}access-nri-merit-allocation-guidelines/) webpage. |
+| Request (or proposal) evaluated | Requests (or proposals) for high value/low effort datasets will be approved by ACCESS-NRI under the following conditions: <br> • The proposed storage allocation will not increase the total scheme allocations above 80% of available storage*. <br> • At least one WG rated the dataset as a priority. <br> • It has a known or low-effort pathway to prepare for release. <br> • ACCESS-NRI has assessed as acceptable risk. <br> Requests/proposals that the WGs and ACCESS-NRI assess as requiring further discussion about merit or feasibility will be submitted to the SAC for evaluation. |
+| Decision notification | Data providers will be advised of the outcome of the request/proposal and, if successful, will be asked to agree to the Terms and Conditions for ACCESS-NRI merit allocation support (see section below). |
+| Curation and release | Data provider works with NCI and/or ACCESS-NRI to curate and release data. <br> • ACCESS-NRI will approve resource allocation and provide data management and technical support. |
+| Dataset review | Regular reviews will be conducted to assess the ongoing and relative priority of the datasets. See following section. |
+
+## Demonstrating ongoing value { #ongoing-value }
+
+Regular reviews of the datasets will be conducted to ensure they demonstrate ongoing value. As the scheme matures and available storage becomes limited, recommendations for changes, including retirement or transition of low-value datasets and adjustments to the approach or processes for approving requests and reviewing allocations, will be submitted to the SAC for advice.
+
+#### Ongoing value
+
+To maintain ACCESS-NRI support, datasets will be reviewed regularly to confirm their ongoing value to the community, and relative value/priority compared to other supported datasets. The reviews will involve a reassessment against the merit selection criteria from the original request/proposal, including:
+
+- Current and expected future value of the full collection and of individual datasets within the collections.
+- Usage information such as direct feedback from users, citations, NCI project memberships and downloads.
+- Relative value/priority ranking as assessed by the WG members. Datasets of interest (including existing, queued and current requests) will be ranked based on relative merit of the dataset to each WG as well as relative merit across WGs.
+- Identification of collections/datasets that are at, or near, end of life and likely to transition or be retired before the next review.
+
+#### Review frequency
+
+All supported datasets will be reviewed annually. ACCESS-NRI will propose the scope for the review based on the maturity of the scheme. For example, a review of priority of requests/data in the queue or a full collection review.
+
+Additional reviews will be conducted when the following triggers occur:
+
+- Projected scheme allocations are likely to reach or exceed 80% of the total storage available to the scheme within the next quarter. ACCESS-NRI will advise the SAC on the scope the review.
+- As requested by ACCESS-NRI.
+- As requested by the SAC.
+
+If the additional review is within 3 months of the next planned annual review then ACCESS-NRI will assess and advise the SAC on whether to postpone or cancel the planned annual review.
+
+#### Transition and retirement
+
+Once a dataset no longer represents (relative) value to the ACCESS-NRI community, the data owner/provider will be responsible for planning the transition of the dataset to an alternative funding scheme or retirement of the dataset.
+
+Transition and retirement of datasets will be managed through NCI’s Data Collections Team.
+
+## Merit allocation roles { #roles }
+
+There are several roles that have been identified as being essential to ensure the merit allocations continue to provide value to the community, and that datasets are managed and maintained to be available and fit-for-purpose.
+
+| Role | Description |
+| --- | --- |
+| Science Advisory Committee (SAC) | Provide advice and oversight of the merit allocations process to ensure that allocations maximise impact and value. Reviews reports, requests dataset reviews and provides recommendations on changes to approach or processes. |
+| ACCESS-NRI | Works with the Community WGs to prioritise data requests and develop proposals and approves datasets that are considered high value/low effort. Provides an update to the SAC at each meeting with the following information: <br> • List of data collections (per WG) that have been released or approved for release with details of: <br> • Total ACCESS-NRI storage allocation that has been approved for each data collection/dataset, and how much has been used. <br> • Data owner/provider and other data roles, where applicable. <br> • Monthly allocation growth projections for next 6 months, and likelihood of reaching the 80% threshold that would trigger review. <br> • Any issues or risks that require SAC input and advice. <br> • Any dataset requests that require SAC advice or further evaluation. |
+| Data requester | Member of the community that proposes a dataset for ACCESS-NRI support. <br> • Assists with initial triage <br> • Helps identify Data Owner/Provider |
+| Data owner | Lead organisation and person who is accountable for the data. <br> • Holds rights to the data and maintains as fit-for-purpose <br> • Authorises access and use |
+| Data provider | Organisation and person who takes responsibility for developing the proposal and making decisions about the future of the data. <br> • If different to the Data Owner, must have authority (e.g. licence or other agreement) to provide access to and use of the data on behalf of the Data Owner. <br> • Actively manages data through whole data lifecycle <br> • Works with NCI to curate and document the data for release <br> • Manages transition plan and decommissioning at end of life <br> • Archives data in accordance with their organisation policies and NAA requirements (where applicable). |
+
+## Terms and conditions (reference datasets) { #terms-conditions }
+
+Data Owners and/or Data Providers that receive support from the ACCESS-NRI merit allocations for reference datasets will be advised of the following terms and conditions:
+
+- Availability of storage is contingent on ongoing funding and cannot be guaranteed beyond the current funding period.
+- All datasets will be regularly reviewed to assess if they continue to provide value to the community. Once a dataset no longer represents (relative) value, the Data Provider must transition to another scheme or retire the dataset.
+- The approved allocation is to support the datasets described in the request/proposal and cannot be transferred to other datasets without a new or revised proposal.
+- If the approved allocation is not completely utilised or is no longer required, then the excess storage will be returned to the available merit allocation pool to support other and new requests.
+- Data Providers remain responsible for the data (see roles and responsibilities), including archiving, managing transition to another scheme or retirement.
+- If a Data Provider is no longer actively managing the data and has not identified an alternative Data Provider, then ACCESS-NRI will commence steps to retire the data.
+- ACCESS-NRI and NCI should be acknowledged in outputs:
+    - “This data is supported by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS), with access to resources provided through the ACCESS-NRI Merit Allocation Scheme and the National Computational Infrastructure (NCI).”
+
+=====PATH /resources/user-reporting/ | TITLE User Reporting | DESC Have you used ACCESS in recent or ongoing publications or projects? If so, we would love to know! | DATE
+**Have you used ACCESS in recent or ongoing publications or projects? If so, we would love to know!**
+
+![]({U}2024/07/ACCESS-Structure-SOFTWARETOOLS-2022-11-30-300x300.png)
+
+Reporting on the ACCESS models enables us to record how and where ACCESS is being used, and helps us to continue to be funded to deliver these services. We appreciate any information about the use of our models, tools and data. This is also a way for us to help you promote your work (if desired).
+
+[Report your publication/project](https://forms.office.com/Pages/ResponsePage.aspx{Q}id{EQ}XHJ941yrJEaa5fBTPkhkN2ZG6vIAVThPsNCAyezPHAVUQUtZOE4yVjhCSVkxQkpURzkyN1UxWTNKNS4u){ .buttononblue }
+
+This information will be used to report on ACCESS-NRI’s impact to our funders. This **will not** include any personal information on individual responses collected.
+
+If you have any questions about user reporting please contact ACCESS-NRI’s Communications and Engagement team at: [access.nri@anu.edu.au](mailto:access.nri@anu.edu.au)
+
+Thank you for reporting the use of our infrastructure.
+
+=====PATH /resources/acknowledging-us/ | TITLE Acknowledging Us | DESC Users of ACCESS-NRI models, data, tools of expert support are required to clearly include an acknowledgement in all publications/reports/public releases. | DATE
+**Users of ACCESS-NRI models, data, tools of expert support are required to clearly include an acknowledgement in all publications/reports/public releases.** Correct acknowledgement allows us to demonstrate our impact, find how our infrastructure is being used, and increase recognition of value of Australia’s climate, weather and Earth system simulator.
+
+Depending on the type of service you are acknowledging, we suggest to use the following statements:
+
+**Acknowledging the use of an ACCESS Model:**
+
+![]({U}2024/08/I-use-ACCESS1-300x200.png)
+
+> “This research used the ACCESS-NRI’s model X (e.g ACCESS-ESM1.5) infrastructure, which is enabled by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS)”
+
+**Acknowledging user support:**
+
+> “X acknowledges Australia’s climate simulator (ACCESS-NRI), funded by the Australian Government’s National Collaborative Research Infrastructure Strategy, for their maintenance of virtual environments, code and model support”.
+
+**Acknowledging the Merit Allocation scheme**
+
+ACCESS community members who make use of computational or data resources through the ACCESS-NRI Merit Allocation scheme, are required to acknowledge ACCESS-NRI and NCI in their outputs. The following are examples of acknowledgement templates:
+
+“*This research was supported by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS), with access to computational resources provided through the ACCESS-NRI Merit Allocation Scheme and the National Computational Infrastructure (NCI).”*
+
+“*This data is supported by the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS), with access to resources provided through the ACCESS-NRI Merit Allocation Scheme and the National Computational Infrastructure (NCI)*.”
+
+If you have any questions about ACCESS-NRI or NCRIS acknowledgements or would like copies of logos or branding guidelines please contact ACCESS-NRI’s Outreach and Engagement Manager, Natalia Bateman at: [natalia.bateman@anu.edu.au](mailto:natalia.bateman@anu.edu.au).
+
+Thank you for acknowledging the use of our infrastructure.
+
+=====PATH /join-community-working-groups/ | TITLE How to join Community Working Groups | DESC Community Working Groups are open and welcome new members. We encourage the community to participate in one or more of the working groups. | DATE
+**Community Working Groups** are open and welcome new members. We encourage the community to participate in one or more of the working groups. Follow the steps below to join!
+
+## 1. Sign up to the ACCESS-Hive Forum and join a Community Working Group
+
+- Go to: [https://forum.access-hive.org.au](https://forum.access-hive.org.au/)
+- [Sign up](https://forum.access-hive.org.au/g{Q}type{EQ}public) to the ACCESS-Hive Forum
+
+    ![]({U}2024/08/Hive-Forum-Sign-up-300x142.png)
+
+- When signing up, you will be asked to join one working group.
+- That’s it. You are now part of the forum group for this working group and you will receive **meetings’ information** and other announcements **via email**.
+- To find all previous announcements for the year, go to [https://forum.access-hive.org.au/tag/wg-announce](https://forum.access-hive.org.au/tag/wg-announce)
+- Make sure to check your chosen working group category for any open discussion to participate in.
+
+## 2. Join more Community Working groups at any time
+
+- Go to: [ACCESS-Hive forum Groups](https://forum.access-hive.org.au/g{Q}type{EQ}public)
+- Join any group.
+
+    ![]({U}2024/08/CWG-Picture-1-300x170.png)
+
+- That’s it! You are now part of the ACCESS-Hive Forum groups for these working groups and you will receive meetings information and other announcements via email.
+- To find all previous announcements for the year, go to [https://forum.access-hive.org.au/tag/wg-announce](https://forum.access-hive.org.au/tag/wg-announce). Make sure to check your chosen working group category for any open discussion to participate in.
+
+You will now receive email notifications for the Community Working Group announcements. If you’d like to receive updates for additional Community Working Groups, repeat the above steps for each group you would like to follow.
+
+**You‘re done!** You are now a member of one or more Community Working Groups. **Note** joining will not automatically enable notifications. Make sure you are **Watching** the corresponding announcements post for each group you wish to follow and receive updates.
+
+## 3. Participate!
+
+Join the discussion and start interacting with other members of the Community Working Groups (and broader ACCESS community).
+
+- See our [Welcome to the ACCESS-Hive Forum](https://forum.access-hive.org.au/t/welcome-to-the-access-hive-forum/7) and [Forum User Guide](https://forum.access-hive.org.au/t/forum-user-guide/95) posts for more information about Getting Started
+- Content is organised into [Categories](https://forum.access-hive.org.au/categories)
+- Browse existing topics or start your own!
+
+### Need Support?
+
+Post a comment on this [ACCESS-Hive Forum topic](https://forum.access-hive.org.au/t/help-joining-the-community-working-groups/606) if you have trouble joining any of the Community Working groups. The ACCESS-NRI team will monitor this topic and help you at the earliest opportunity.
+
+=====PATH /access-community-working-groups-terms-of-reference/ | TITLE ACCESS Community Working Groups – Terms of Reference | DESC ACCESS-NRI is funded by NCRIS to develop and maintain Australia’s Earth system model capability in support of climate, weather and Earth system science research. | DATE
+ACCESS-NRI is funded by NCRIS to develop and maintain Australia’s Earth system model capability in support of climate, weather and Earth system science research. ACCESS-NRI is managed by a Director, who reports to the Board. The Director and Board are advised by an expert Scientific Advisory Committee (SAC) on key matters such as the prioritisation of resources, and the scope of the ACCESS platform being supported by the ACCESS-NRI.
+
+Community Working Groups will provide scientific leadership on a specific ACCESS component, configuration or research community, to guide development priorities and to provide advice on the optimal allocation of available ACCESS-NRI computational resources. Each Working Group will have a Chair, or Co-Chairs, sourced from the scientific or research community, as well as an ACCESS-NRI Liaison (based at ACCESS-NRI).
+
+The Chair(s) will provide scientific leadership and coordination across the community and will report and provide advice to the SAC. The ACCESS-NRI Liaison will support the operation of the Working Group and will act as a facilitator for the two-way flow of information between each Working Group and ACCESS-NRI developers.
+
+##### Terms of Reference
+
+The role of the **ACCESS-NRI Community Working Groups** is to:
+
+1. Advise the SAC on near-term and long-term developments of the ACCESS framework.
+2. Manage and oversee the computational resources allocated to the Working Group (both storage and compute hours).
+3. Design and scope specific model experiments using ACCESS.
+4. Recommend key datasets that are needed for model inputs and observations required for model evaluation, and reference model output datasets.
+5. Share information and experiences about model configurations within the research community served by the Working Group.
+6. Improve engagement and potential alignment between ACCESS-NRI and international research organisations working on climate and weather models and simulators.
+
+The role of **Working Group Chair(s)** is to:
+
+1. Plan and lead Working Group meetings and workshops.
+2. Contribute to the ACCESS-NRI annual report.
+3. Act as ACCESS community leaders, especially in workshops and public forums.
+
+The role of the **ACCESS-NRI Liaison** is to:
+
+1. Assist the Chair to run Working Group meetings and events.
+2. Monitor and coordinate resource usage.
+
+**Membership**
+
+The ACCESS-NRI Scientific Advisory Committee advertises for expressions of interest in the position of Working Group Chair/Co-Chairs, and appoints suitable candidates for a 2-year term.
+
+ACCESS-NRI Liaisons will be appointed by the ACCESS-NRI Director.
+
+Membership of the Working Group is otherwise open, with the structure to be determined by the Chair(s) and Liaison to facilitate community input and broad participation.
+
+**Principles of Formation**
+
+Working Groups will be assembled around a specific research application, or a scientific community. The principle of Working Group formations is that they will be focussed on:
+
+- One or more supported ACCESS configuration(s);
+- A current or future component of the ACCESS modelling framework; or
+- Another product released by ACCESS-NRI.
+
+The number and formation of Working Groups is determined by the ACCESS-NRI Director on advice from the Scientific Advisory Committee.
+
+**Meetings**
+
+Each Working Group will be invited to set their own meeting structure to best suit their community, but there is a general expectation that Working Groups will have a combination of semi-regular video meetings for sharing information and 1-2 in-person/hybrid workshops per year.
+
+**Diversity**
+
+Diversity, and fostering a culture of inclusiveness, will be key contributors to the excellence of ACCESS-NRI. The SAC, in overseeing the Working Groups, will endeavour to broadly ensure that there is an acceptable level of gender and cultural diversity amongst the Chairs, and that Working Groups operate in an inclusive fashion.
+
+=====PATH /minutes-of-sac-meetings/ | TITLE Minutes of SAC meetings | DESC SAC Meetings’ minutes are publicly available here. | DATE
+SAC Meetings’ minutes are publicly available here:
+
+#### 2026
+
+- [March 2026 – SAC Minutes]({U}2026/06/SAC-Minutes-Meeting-1-11-March-2026.pdf)
+
+#### 2023-2025
+
+- [December 2025 – SAC Minutes]({U}2026/01/2025_12-SAC-Minutes-29.pdf)
+- [November 2025 – SAC Minutes]({U}2025/12/2025_11-SAC-Minutes-28.pdf)
+- [September 2025 – SAC Minutes]({U}2025/11/2025_09-SAC-Minutes-27.pdf)
+- [July 2025 – SAC Minutes]({U}2025/08/2025_07-SAC-Minutes-.pdf)
+- [June 2025 – SAC Minutes]({U}2025/07/2025_06-SAC-Minutes-25.pdf)
+- [May 2025 – SAC Minutes]({U}2025/06/2025_05-SAC-Minutes-24.pdf)
+- [March 2025 – SAC Minutes]({U}2025/04/2025_03-SAC-Minutes-23.pdf)
+- [February 2025 – SAC Minutes]({U}2025/03/2025_02-SAC-Minutes-22.pdf)
+- [December 2024 – SAC Minutes]({U}2025/02/2024_12-SAC-Minutes-21.pdf)
+- [October 2024 – SAC Minutes]({U}2024/11/2024_10-SAC-Minutes-20.pdf)
+- [September 2024 – SAC Minutes]({U}2024/10/2024_09-SAC-Minutes-19.pdf)
+- [August 2024 – SAC Minutes]({U}2024/08/2024_08-SAC-Minutes-18.pdf)
+- [June 2024 – SAC Minutes]({U}2024/07/2024_06-SAC-Minutes-17.pdf)
+- [May 2024 – SAC Minutes]({U}2024/05/05_2024-SAC-Minutes-16.pdf)
+- [March 2024 – SAC Minutes]({U}2024/04/2024_03-SAC-Minutes.pdf)
+- [February 2024 – SAC Minutes]({U}2024/02/SAC-Minutes-15-Feb.pdf)
+- [December 2023 – SAC Minutes]({U}2024/01/2023_12-SAC-Minutes.pdf)
+- [October 2023 – SAC Minutes]({U}2023/11/SAC-Minutes-October-2023-final.pdf)
+- [September 2023 – SAC Minutes]({U}2023/10/SAC-Minutes-September.pdf)
+- [August 2023 – SAC Minutes]({U}2023/10/SAC-Minutes-August.pdf)
+- [June 2023 – SAC Minutes]({U}2023/07/SAC-Minutes-June.docx)
+- [April 2023 – SAC Minutes]({U}2023/05/SAC-Minutes-April-1.pdf)

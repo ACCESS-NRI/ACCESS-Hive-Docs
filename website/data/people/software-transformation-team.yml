@@ -1,0 +1,17 @@
+- name: Dr. Micael Oliveira
+  role: Team Leader, Software Transformation
+  photo: wp-content/themes/accessnri/images/no-person-photo.png
+  profile: https://www.access-nri.org.au/person/dr-micael-oliveira/
+  slug: dr-micael-oliveira
+- name: Edward Yang
+  role: Senior Research Software Engineer
+  photo: wp-content/uploads/2025/01/Edward-Yang-BW-300x300.jpg
+  profile: https://www.access-nri.org.au/person/edward-yang/
+  slug: edward-yang
+- name: Manodeep Sinha
+  role: Principal Research Software Engineer
+  photo: wp-content/uploads/2024/11/manodeep-sinha-profile-300x300.png
+  profile: https://www.access-nri.org.au/person/manodeep-sinha/
+  slug: manodeep-sinha
+  linkedin: https://www.linkedin.com/in/manodeep/
+  email: manodeep@gmail.com

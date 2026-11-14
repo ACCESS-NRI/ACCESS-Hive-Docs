@@ -1,0 +1,9 @@
+docs/wp-content/uploads/
+site/
+site-preview/
+report/
+.verify-cache/
+stage/media*.json
+stage/media-failed.txt
+*.log
+__pycache__/

@@ -1,0 +1,11 @@
+---
+title: EGU
+type: listing
+banner: wp-content/uploads/2022/03/Unsplash-Anton-maksimov-Flying-Letters-1440x500.jpg
+---
+
+# EGU
+
+- [![](../wp-content/uploads/2025/05/romain-at-EGU-300x300.jpeg){ .listing-thumb }](../access-nri-participation-at-the-european-geosciences-union-egu-assembly-2025.md)
+  **[ACCESS-NRI participation at the European Geosciences Union (EGU) assembly 2025](../access-nri-participation-at-the-european-geosciences-union-egu-assembly-2025.md)** — May 22, 2025  
+  EGU was held in Vienna, Austria and online, from 27 April–2 May 2025 and welcomed 20,984 attendees from 120 countries. There were a lot of…
