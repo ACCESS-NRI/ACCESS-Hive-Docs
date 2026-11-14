@@ -175,6 +175,7 @@ nav:
       - conda/analysis3 Python Environment: getting_started/environments.md
       - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
       - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md
+      - Evaluation-Driven Model Development: model_evaluation/evaluation_on_gadi/evaluation_driven_model_development.md
       - Evaluation Recipes: 
         - model_evaluation/evaluation_on_gadi/recipes/index.md
         - COSIMA Cookbook: model_evaluation/evaluation_on_gadi/recipes/cosima.md
