@@ -11,7 +11,9 @@ This page contains the hands-on exercises for the payu training session. Each st
 ## The problem
 
 !!! abstract "Exercise overview"
-    **Goal:** Study the impact of a higher ocean-to-ice heat transfer coefficient (χ<sub>o</sub>).
+    **Goal:** Use payu to run an experiment, get comfortable with the payu workflow, and try out some of its newer features.
+
+    **Example experiment:** Study the impact of a higher ocean-to-ice heat transfer coefficient (χ<sub>o</sub>).
 
     **Model:** 1-degree ACCESS-OM2 model under inter-annual forcing (repository URL: [OM2 model configuration](https://github.com/ACCESS-NRI/access-om2-configs/), remote branch name: `release-1deg_jra55_iaf`).
 
