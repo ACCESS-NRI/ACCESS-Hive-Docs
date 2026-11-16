@@ -20,6 +20,7 @@ There are three CICE versions currently used in ACCESS models:
 </div>
 <div tabcontentfor="cice5" markdown>
 - [ACCESS-CM2](/models/access_models/access-cm#access-cm2)
+- [ACCESS-ESM1.6](/models/access_models/access-esm#access-esm16)
 - [ACCESS-OM2](/models/access_models/access-om#access-om2)
 </div>
 <div tabcontentfor="cice6" markdown>
