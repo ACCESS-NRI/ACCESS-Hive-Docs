@@ -9,7 +9,7 @@ The UK Met Office [Unified Model (UM)](https://www.metoffice.gov.uk/research/app
 <!-- Tab labels -->
 <div class="tabLabels" label="UM-versions">
     <button id="um7">UM7</button>
-    <button id="um11">UM11</button>
+    <button id="um10">UM10</button>
     <button id="um13">UM13</button>
 </div>
 <div tabcontentfor="um7" markdown>
@@ -17,7 +17,7 @@ The UK Met Office [Unified Model (UM)](https://www.metoffice.gov.uk/research/app
 - [ACCESS-ESM1.6](/models/access_models/access-esm#access-esm16)
 - [ACCESS-OM2](/models/access_models/access-om#access-om2)
 </div>
-<div tabcontentfor="um11" markdown>
+<div tabcontentfor="um10" markdown>
 - [ACCESS-CM2](/models/access_models/access-cm#access-cm2)
 </div>
 <div tabcontentfor="um13" markdown>
