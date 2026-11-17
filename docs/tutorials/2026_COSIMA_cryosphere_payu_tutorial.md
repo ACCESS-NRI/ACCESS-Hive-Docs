@@ -300,9 +300,9 @@ payu checkout -b new_branch source_branch
     <terminal-window>
         <terminal-line data="input">payu branch</terminal-line>
         <terminal-line><span class="payu-dark-yellow">* Current Branch: chio7</span></terminal-line>
-        <terminal-line>    experiment_uuid: newuuid-9c3f-43b7-b3d2-3xxxxd</terminal-line>
+        <terminal-line>&nbsp;&nbsp;&nbsp;&nbsp;experiment_uuid: newuuid-9c3f-43b7-b3d2-3xxxxd</terminal-line>
         <terminal-line>Branch: control</terminal-line>
-        <terminal-line>    experiment_uuid: uu00id-7fa7-41d8-bee6-b942415c1bd1</terminal-line>
+        <terminal-line>&nbsp;&nbsp;&nbsp;&nbsp;experiment_uuid: uu00id-7fa7-41d8-bee6-b942415c1bd1</terminal-line>
         <terminal-line>Branch: release-1deg_jra55_iaf</terminal-line>
-        <terminal-line>    No UUID in metadata file</terminal-line>
+        <terminal-line>&nbsp;&nbsp;&nbsp;&nbsp;No UUID in metadata file</terminal-line>
     </terminal-window>
