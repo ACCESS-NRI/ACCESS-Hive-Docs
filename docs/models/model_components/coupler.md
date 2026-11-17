@@ -19,4 +19,4 @@ A coupler is a software package that allows synchronised exchanges of coupling i
 The [National Unified Operational Prediction Capability (NUOPC)](https://earthsystemmodeling.org/nuopc/) interoperability layer defines conventions and a set of generic components for building coupled models using the Earth System Modeling Framework (ESMF).
 
 ### Models that use NUOPC
-NUOPC is not yet included in any ACCESS-NRI-supported configuration, but will be included in ACCESS-OM3, a configuration currently under development.
+- [ACCESS-OM3](/models/access_models/access-om#access-om3)

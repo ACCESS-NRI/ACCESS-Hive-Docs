@@ -10,7 +10,8 @@ For full details, see the [WOMBAT documentation](https://wombat-docs.readthedocs
 
 ### Models that use WOMBAT
 
-- [ACCESS-OM3](/models/access_models/access-om#access-om3) (within [MOM](/models/model_components/ocean#modular-ocean-model-mom/#mom6))
-- [ACCESS-OM2](/models/access_models/access-om#access-om2) (within [MOM](/models/model_components/ocean#modular-ocean-model-mom))
-- [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15) (within [MOM](/models/model_components/ocean#modular-ocean-model-mom))
-- [ACCESS-ESM1.6](/models/access_models/access-esm#access-esm16) (within [MOM](/models/model_components/ocean#modular-ocean-model-mom))
+Enabled within [MOM](/models/model_components/ocean#modular-ocean-model-mom):
+- [ACCESS-OM3](/models/access_models/access-om#access-om3) 
+- [ACCESS-OM2](/models/access_models/access-om#access-om2) 
+- [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15) 
+- [ACCESS-ESM1.6](/models/access_models/access-esm#access-esm16)
