@@ -17,6 +17,7 @@ There are two MOM versions currently used in ACCESS models: [MOM5](https://githu
 <div tabcontentfor="mom5" markdown>
 - [ACCESS-CM2](/models/access_models/access-cm#access-cm2)
 - [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15)
+- [ACCESS-ESM1.6](/models/access_models/access-esm#access-esm16)
 - [ACCESS-OM2](/models/access_models/access-om#access-om2)
 </div>
 <div tabcontentfor="mom6" markdown>
