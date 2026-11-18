@@ -12,14 +12,43 @@ It is not intended as a beginner introduction to Git. You can use this page as a
 - compare different versions of files; or
 - reorganise or combine Git history.
 
+```mermaid
+flowchart TD
+    A("What are you trying to do?")
+
+    A --> B("🔍 Inspect your changes")
+    A --> C("⬇️ Get remote changes")
+    A --> D("🌿 Work with branches")
+    A --> E("📦 Temporarily save changes")
+    A --> F("⚠️ Undo or reset changes")
+
+    B --> B1("git status / diff / log / show")
+    C --> C1("git fetch / pull")
+    D --> D1("git switch / merge / rebase")
+    E --> E1("git stash")
+    F --> F1("git reset")
+
+    classDef primary stroke:#7354C0,stroke-width:1.5px
+    classDef inspect stroke:#2586A6,stroke-width:1.5px
+    classDef update stroke:#009C95,stroke-width:1.5px
+    classDef branch stroke:#7354C0,stroke-width:1.5px
+    classDef stash stroke:#D2608D,stroke-width:1.5px
+
+    class A primary
+    class B,B1 inspect
+    class C,C1 update
+    class D,D1 branch
+    class E,E1 stash
+```
+
+
 !!! note
     The examples below use generic branch names such as `main` and `feature-branch`. Replace these with the branch names used in your repository.
 
 !!! note
     [\<argument\>] means optional argument.
 
-
-## Basic git commands
+## Core Git commands
 
 Here are a few core Git commands that are useful to keep handy in everyday Git workflows. For more details, please refer to the link in the command.
 
@@ -42,7 +71,7 @@ Here are a few core Git commands that are useful to keep handy in everyday Git w
 | `git show` | `git show <commit>` | [link](https://git-scm.com/docs/git-show) | [Go to section](#git-show) | Look into a specific Git commit |
 | `git diff` | `git diff origin/<branch>` | [link](https://git-scm.com/docs/git-diff) | [Go to section](#git-diff) | Visualise source code differences |
 
-## Git fetch
+### Git fetch
 
 The `git fetch` command updates your remote tracking branches.
 
@@ -73,7 +102,7 @@ The full command uses an optional *remote* and an optional *branch*, e.g.:
 git fetch [<remote>] [<branch>]
 ```
 
-## Git pull
+### Git pull
 
 The `git pull` command updates your remote tracking branches *and* updates the local branch in your current workspace to match the remote.
 
@@ -103,7 +132,7 @@ instead. See `git merge` and `git rebase` here for more details. The full comman
 git pull [<remote>] [<branch>]
 ```
 
-## Git switch
+### Git switch
 
 Git switch allows us to switch the `HEAD` to a different branch.
 
@@ -136,7 +165,7 @@ If this branch only exist on the remote directory but not locally, please use:
 git switch --track origin/<existing_branch>
 ```
 
-## Git merge
+### Git merge
 `git merge` combines the histories of two branches. If the branches have diverged, Git will usually create a merge commit that keeps the history of both branches.
 
 **When to use**
@@ -173,7 +202,7 @@ git add <resolved-file>
 git commit
 ```
 
-## Git rebase
+### Git rebase
 
 `git rebase` moves your branch commits so they are replayed on top of another branch. This can create a cleaner, more linear history.
 
@@ -230,7 +259,7 @@ _**Important note**: (1) Rebase rewrites commit history, so avoid rebasing commi
 (3) If you have already pushed your feature branch, rebasing changes its commit history. You will need to update the remote branch using `git push --force-with-lease`. 
 It checks that the remote branch has not been updated unexpectedly before overwriting it, helping to avoid accidentally discarding someone else's changes._
 
-## Git stash
+### Git stash
 
 Git stash works as a temporary save button. It lets us save changes that we are not ready to commit, so we can temporarily switch to other work without committing unfinished changes to the Git history.
 
@@ -294,7 +323,7 @@ git stash clear
 ```
 
 
-## Git reset
+### Git reset
 
 **When to use**
 
@@ -309,7 +338,7 @@ git reset --hard origin/<branch>
 is a useful command to reset the local branch to match the remote branch.
 
 
-## Git log
+### Git log
 
 **When to use**
 
@@ -334,7 +363,7 @@ An example of `git log --graph --online` is shown below:
 * f1b2c34 Initial project setup
 ```
 
-## Git show
+### Git show
 
 The `git show` command lets you look into specific Git objects, usually one commit.
 
@@ -358,7 +387,7 @@ You can also specify a single file after the Git reference, to see that file's v
 git show <commit>:<file-path>
 ```
 
-## Git diff
+### Git diff
 
 **When to use**
 

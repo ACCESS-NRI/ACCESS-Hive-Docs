@@ -18,11 +18,11 @@ are easier to remember visually.
 flowchart TD
     A("What are you trying to do?")
 
-    A --> B("🔍 Inspect")
-    A --> C("⬇️ Update")
-    A --> D("🌿 Branches")
-    A --> E("📦 Stash")
-    A --> F("⚠️ Change state")
+    A --> B("🔍 Inspect your changes")
+    A --> C("⬇️ Get remote changes")
+    A --> D("🌿 Work with branches")
+    A --> E("📦 Temporarily save changes")
+    A --> F("⚠️ Undo or reset changes")
 
     B --> B1("git status / diff / log / show")
     C --> C1("git fetch / pull")
