@@ -2,6 +2,7 @@
 
 ## Introduction
 
+A quick reference for everyday Git workflows, including contributions to ACCESS-NRI repositories. This page is for people who already have some familiarity with Git and want a reminder of *which command to use, when and how*. 
 This article provides a practical reference for Git users working with day-to-day development workflows, including contributions to ACCESS-NRI repositories. It is not intended as a beginner introduction to Git. Use this page as a quick reminder when you need to:
 
 - inspect commits and changes 
@@ -13,7 +14,7 @@ This article provides a practical reference for Git users working with day-to-da
     The examples below use generic branch names such as `main` and `feature`. Replace these with the branch names used in your repository.
 
 !!! info
-    `[<argument>]` means optional argument.
+    Square brackets in command syntax, such as `[<remote>]`, indicate optional arguments; don't type the brackets.
 
 ## Find the right Git command
 Use the diagram below to find commonly used Git commands by task. 
@@ -102,6 +103,9 @@ The full command uses an optional *remote* and an optional *branch*, e.g.:
 ```
 git fetch [<remote>] [<branch>]
 ```
+
+!!! tip
+    Unlike `git pull`, `git fetch` does not merge or rebase changes into your current branch. This makes it useful when you want to inspect remote updates before integrating them.
 
 ### Git pull
 
