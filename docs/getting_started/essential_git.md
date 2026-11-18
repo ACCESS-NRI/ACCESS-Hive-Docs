@@ -2,13 +2,15 @@
 
 ## Introduction
 
-A quick reference for everyday Git workflows, including contributions to ACCESS-NRI repositories. This page is for people who already have some familiarity with Git and want a reminder of *which command to use, when and how*. 
-This article provides a practical reference for Git users working with day-to-day development workflows, including contributions to ACCESS-NRI repositories. It is not intended as a beginner introduction to Git. Use this page as a quick reminder when you need to:
+Not sure which Git command to use next? This guide is a quick reference for everyday Git workflows, including contributions to ACCESS-NRI repositories.
 
-- inspect commits and changes 
-- work with branches 
-- temporarily save changes 
-- manage Git history
+Designed for users with some familiarity with Git, it helps you find **which commands to use, when and how**, whether you need to:
+
+- Inspect commits and changes
+- Work with branches
+- Fetch and integrate remote changes
+- Temporarily save unfinished work
+- Manage or undo changes to Git history
 
 !!! note
     The examples below use generic branch names such as `main` and `feature`. Replace these with the branch names used in your repository.
