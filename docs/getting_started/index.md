@@ -52,7 +52,7 @@
         <div class="card-text-container">
             <span class="bold">Essential Git Commands</span>
             <span>
-                Add description here
+                Useful Git commands for everyday workflows
             </span>
         </div>
     </a>
