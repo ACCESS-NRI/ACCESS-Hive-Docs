@@ -2,21 +2,17 @@
 
 ## Introduction
 
-This article provides a practical reference for Git users for day-to-day development workflows, including working with ACCESS-NRI repositories.
-It is not intended as a beginner introduction to Git. You can use this page as a quick reminder when you need to:
-
-- work with local and remote branches;
-- keep your branch up to date;
-- temporarily put unfinished changes aside;
-- inspect commits and changes;
-- compare different versions of files; or
-- reorganise or combine Git history.
+This article provides a practical reference for Git users working with day-to-day development workflows, including contributions to ACCESS-NRI repositories. It is not intended as a beginner introduction to Git. Use this page as a quick reminder when you need to:
+- inspect commits and changes 
+- work with branches 
+- temporarily save changes 
+- manage Git history
 
 !!! note
-    The examples below use generic branch names such as `main` and `feature-branch`. Replace these with the branch names used in your repository.
+    The examples below use generic branch names such as `main` and `feature`. Replace these with the branch names used in your repository.
 
-!!! note
-    [\<argument\>] means optional argument.
+!!! info
+    `[<argument>]` means optional argument.
 
 ## Find the right Git command
 
@@ -68,7 +64,7 @@ Here are a few core Git commands that are useful to keep handy in everyday Git w
 | `git rebase` | `git rebase <branch>` | [link](https://git-scm.com/docs/git-rebase) | [Go to section](#git-rebase) | Moves your branch commits on top of another branch |
 | `git stash` | `git stash [push\|pop\|apply]` | [link](https://git-scm.com/docs/git-stash) | [Go to section](#git-stash) | Temporarily save changes into stash space |
 | `git reset` | `git reset --hard origin/<branch>` | [link](https://git-scm.com/docs/git-reset) | [Go to section](#git-reset) | Reset branch to match another branch state |
-| `git log` | `git log [-c]` | [link](https://git-scm.com/docs/git-log) | [Go to section](#git-log) | Show the history of the repository |
+| `git log` | `git log [-c]` | [link](https://git-scm.com/docs/git-log) | [Go to section](#git-log) | Show the history of the repository |s
 | `git show` | `git show <commit>` | [link](https://git-scm.com/docs/git-show) | [Go to section](#git-show) | Look into a specific Git commit |
 | `git diff` | `git diff origin/<branch>` | [link](https://git-scm.com/docs/git-diff) | [Go to section](#git-diff) | Visualise source code differences |
 
