@@ -261,10 +261,13 @@ To cancel the rebase and return to the state before it started:
 git rebase --abort
 ```
 
-_**Important note**: (1) Rebase rewrites commit history, so avoid rebasing commits that other people are already working from on a shared branch.
-(2) For your own feature branch, rebasing before opening or updating a pull request can be useful for incorporating recent upstream changes while keeping the history straightforward. 
-(3) If you have already pushed your feature branch, rebasing changes its commit history. You will need to update the remote branch using `git push --force-with-lease`. 
-It checks that the remote branch has not been updated unexpectedly before overwriting it, helping to avoid accidentally discarding someone else's changes._
+??? warning "Rebasing: things to keep in mind"
+
+    - **Avoid rebasing shared branches.** Rebase rewrites commit history, which can cause problems for others working from the same commits.
+
+    - **Rebase your own feature branches when appropriate.** It can help incorporate upstream changes and maintain a linear commit history.
+    
+    - **Be careful when pushing rebased commits.** If your feature branch has already been pushed, you may need to update the remote branch using `git push --force-with-lease`. This checks whether the remote branch has changed unexpectedly before updating it, reducing the risk of overwriting someone else's work.
 
 ### Git stash
 
