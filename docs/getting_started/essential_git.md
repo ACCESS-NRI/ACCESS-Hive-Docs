@@ -83,11 +83,11 @@ The `git fetch` command updates your remote tracking branches.
 
 At the beginning of your work and before switching branches.
 
-Use `git fetch`:
+Use `git fetch` to:
 
-    1. To update remote tracking branches when your workspace has uncommitted changes that you don't want to disturb or `stash`.
+- To update remote tracking branches when your workspace has uncommitted changes that you don't want to disturb or `stash`.
 
-    2. To update remote tracking branches when your local repository clone has become stale.
+- To update remote tracking branches when your local repository clone has become stale.
 
 
 **How to use**
