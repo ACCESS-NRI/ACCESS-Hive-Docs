@@ -3,6 +3,7 @@
 ## Introduction
 
 This article provides a practical reference for Git users working with day-to-day development workflows, including contributions to ACCESS-NRI repositories. It is not intended as a beginner introduction to Git. Use this page as a quick reminder when you need to:
+
 - inspect commits and changes 
 - work with branches 
 - temporarily save changes 
@@ -15,22 +16,25 @@ This article provides a practical reference for Git users working with day-to-da
     `[<argument>]` means optional argument.
 
 ## Find the right Git command
+Use the diagram below to find commonly used Git commands by task. 
 
 ```mermaid
 flowchart TD
     A("What are you trying to do?")
 
-    A --> B("🔍 Inspect your changes")
-    A --> C("⬇️ Get remote changes")
-    A --> D("🌿 Work with branches")
-    A --> E("📦 Temporarily save changes")
-    A --> F("⚠️ Undo or reset changes")
+    A --> B("🛠️ Setup and share your changes")
+    A --> C("🔍 Inspect your changes")
+    A --> D("⬇️ Get remote changes")
+    A --> E("🌿 Work with branches")
+    A --> F("📦 Temporarily save changes")
+    A --> G("⚠️ Undo or reset changes")
 
-    B --> B1("git status / diff / log / show")
-    C --> C1("git fetch / pull")
-    D --> D1("git switch / merge / rebase")
-    E --> E1("git stash")
-    F --> F1("git reset")
+    B --> B1("git clone → git add → git commit → git push")
+    C --> C1("git status · diff · log · show")
+    D --> D1("git fetch · pull")
+    E --> E1("git switch · merge · rebase")
+    F --> F1("git stash")
+    G --> G1("git reset")
 
     classDef primary stroke:#7354C0,stroke-width:1.5px
     classDef inspect stroke:#2586A6,stroke-width:1.5px
@@ -39,34 +43,34 @@ flowchart TD
     classDef stash stroke:#D2608D,stroke-width:1.5px
 
     class A primary
-    class B,B1 inspect
-    class C,C1 update
-    class D,D1 branch
-    class E,E1 stash
+    class C,C1 inspect
+    class D,D1 update
+    class E,E1 branch
+    class F,F1 stash
 ```
 
-## Core Git commands
+## Core Git commands at a glance
 
 Here are a few core Git commands that are useful to keep handy in everyday Git workflows. For more details, please refer to the link in the command.
 
-| Command | Basic Usage | Common Use Case | Meaning |
-|---|---|---|---|---|
-| [`git clone`](https://git-scm.com/docs/git-clone) | `git clone <url> <local_dir>` | | Clone a remote repository to the local directory|
-| `git branch`|  `git branch -a` | [link](https://git-scm.com/docs/git-branch) | | List all branches |
-| `git status` | `git status` | [link](https://git-scm.com/docs/git-status) | | Show status of current working tree. |
-| `git add` | `git add <file>` | [link](https://git-scm.com/docs/git-add) | | Stage changes for commit. |
-| `git commit` | `git commit -m "<message>"` | [link](https://git-scm.com/docs/git-commit) | | Save staged changes as a new commit. |
-| `git push`| `git push` | [link](https://git-scm.com/docs/git-push) | | Push local commits to the remote repository. |
-| `git fetch` | `git fetch [<remote>]` | [link](https://git-scm.com/docs/git-fetch) | [Go to section](#git-fetch) | Update remote tracking branches |
-| `git pull` | `git pull` | [link](https://git-scm.com/docs/git-pull) | [Go to section](#git-pull) | updates the local branch to match the remote |
-| `git switch` | `git switch [-c] <branch>` | [link](https://git-scm.com/docs/git-switch) | [Go to section](#git-switch) | Switch the HEAD to a different branch |
-| `git merge` | `git merge <feature-branch>` | [link](https://git-scm.com/docs/git-merge) | [Go to section](#git-merge) | Combines the histories of two branches |
-| `git rebase` | `git rebase <branch>` | [link](https://git-scm.com/docs/git-rebase) | [Go to section](#git-rebase) | Moves your branch commits on top of another branch |
-| `git stash` | `git stash [push\|pop\|apply]` | [link](https://git-scm.com/docs/git-stash) | [Go to section](#git-stash) | Temporarily save changes into stash space |
-| `git reset` | `git reset --hard origin/<branch>` | [link](https://git-scm.com/docs/git-reset) | [Go to section](#git-reset) | Reset branch to match another branch state |
-| `git log` | `git log [-c]` | [link](https://git-scm.com/docs/git-log) | [Go to section](#git-log) | Show the history of the repository |s
-| `git show` | `git show <commit>` | [link](https://git-scm.com/docs/git-show) | [Go to section](#git-show) | Look into a specific Git commit |
-| `git diff` | `git diff origin/<branch>` | [link](https://git-scm.com/docs/git-diff) | [Go to section](#git-diff) | Visualise source code differences |
+| Command | Example Usage | Purpose |
+|---|---|---|
+| [`git clone`](https://git-scm.com/docs/git-clone) | `git clone <url> <local_dir>` | Copy a remote repository to your local machine|
+| [`git add`](https://git-scm.com/docs/git-add) | `git add <file>` | Stage changes for commit. |
+| [`git commit`](https://git-scm.com/docs/git-commit) | `git commit -m "<message>"` | Save staged changes as a new commit. |
+| [`git push`](https://git-scm.com/docs/git-push)| `git push` | Push local commits to the remote repository. |
+| [`git status`](https://git-scm.com/docs/git-status) | `git status` | Show status of current working tree. |
+| [`git diff`](https://git-scm.com/docs/git-diff) | `git diff origin/<branch>` | Visualise source code differences |
+| [`git log`](https://git-scm.com/docs/git-log) | `git log [-c]` | Show the history of the repository |s
+| [`git show`](https://git-scm.com/docs/git-show) | `git show <commit>` | Look into a specific Git commit |
+| [`git fetch`](https://git-scm.com/docs/git-fetch) | `git fetch [<remote>]` | Update remote tracking branches |
+| [`git pull`](https://git-scm.com/docs/git-pull) | `git pull` | updates the local branch to match the remote |
+| [`git branch`](https://git-scm.com/docs/git-branch)|  `git branch -a` | List all branches |
+| [`git switch`](https://git-scm.com/docs/git-switch) | `git switch [-c] <branch>` | Switch the HEAD to a different branch |
+| [`git merge`](https://git-scm.com/docs/git-merge) | `git merge <feature-branch>` | Combines the histories of two branches |
+| [`git rebase`](https://git-scm.com/docs/git-rebase) | `git rebase <branch>` | Moves your branch commits on top of another branch |
+| [`git stash`](https://git-scm.com/docs/git-stash) | `git stash [push\|pop\|apply]` | Temporarily save changes into stash space |
+| [`git reset`](https://git-scm.com/docs/git-reset) | `git reset --hard origin/<branch>` | Reset branch to match another branch state |
 
 ### Git fetch
 
