@@ -15,7 +15,7 @@ This page contains the hands-on exercises for the payu training session. Each st
 
     **Example experiment:** Study the impact of a higher ocean-to-ice heat transfer coefficient (χ<sub>o</sub>).
 
-    **Model:** 1-degree ACCESS-OM2 model under inter-annual forcing (repository URL: [OM2 model configuration](https://github.com/ACCESS-NRI/access-om2-configs/), remote branch name: `release-1deg_jra55_iaf`).
+    **Model:** 1-degree ACCESS-OM2 model under repeat year forcing (repository URL: [OM2 model configuration](https://github.com/ACCESS-NRI/access-om2-configs/), remote branch name: `release-1deg_jra55_ryf`).
 
 
 ## Getting help
@@ -35,6 +35,13 @@ This page contains the hands-on exercises for the payu training session. Each st
     - check metadata updates
     - check manifests and configuration updates
 
+??? info "What project access is required for this tutorial?"
+
+    - `vk83`: Hosts the `payu` module.
+    - `nf33`: ACCESS-NRI's training project.
+    
+    You can request access to projects through [MyNCI](https://my.nci.org.au).
+
 ## Before you start: load payu
 
 Log onto Gadi and load the payu module:
@@ -46,7 +53,7 @@ module load payu
 
 ## Step 1: Clone the experiment
 
-Clone the ACCESS-OM2 configuration. Please try the `payu clone` **interactive mode**.
+Clone the [ACCESS-OM2 configuration](https://github.com/ACCESS-NRI/access-om2-configs/) from the `release-1deg_jra55_ryf` branch. Please try the `payu clone` **interactive mode**.
 
 !!! question
     For an experiment with a high χ<sub>o</sub> = 0.0065, what is a good **control directory** name and **local branch** name?
@@ -71,7 +78,7 @@ payu clone -B source_branch -b new_branch URL local_dir
 
 ??? success "Answer"
 
-    In this example, a recommended control directory name is `om2_1deg_iaf`, and the local branch name is `chio65`.
+    In this example, a recommended control directory name is `om2_1deg_ryf`, and the local branch name is `chio65`.
 
     <terminal-window>
         <terminal-line data="input">payu clone</terminal-line>
@@ -80,14 +87,14 @@ payu clone -B source_branch -b new_branch URL local_dir
         <terminal-line><span class="payu-yellow">Enter '?' during any prompt to view the flowchart.</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please enter URL of the repository, or local path of the configuration to clone:</span> (e.g., https://github.com/payu-org/bowl1.git, or /path/to/local/experiment; 'Tab' to browse, '/' to enter folder) <span class="payu-dark-yellow">https://github.com/ACCESS-NRI/access-om2-configs.git</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Payu will clone the repo based on:</span> <span class="payu-dark-yellow">An existing branch</span></terminal-line>
-        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Name of the branch to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-1deg_jra55_iaf</span></terminal-line>
-        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please name your local control directory:</span> <span class="payu-dark-yellow">om2_1deg_iaf</span></terminal-line>
+        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Name of the branch to clone ('Tab' to browse all branches):</span> <span class="payu-dark-yellow">release-1deg_jra55_ryf</span></terminal-line>
+        <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please name your local control directory:</span> <span class="payu-dark-yellow">om2_1deg_ryf</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Is this a new experiment?</span> (If yes, payu will create a new branch.) <span class="payu-dark-yellow">Yes, create a new UUID as a new experiment</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please name your new branch:</span> (Note: this won't be shared to the online repository automatically) <span class="payu-dark-yellow">chio65</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Do you want to specify a custom restart path?</span> (If no, the default restart/initial conditions will be used.) <span class="payu-dark-yellow">No</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Do you want to override the shortpath?</span> (Default is '/scratch/nf33') <span class="payu-dark-yellow">Yes</span></terminal-line>
         <terminal-line><span class="spack-cyan">&gt;&gt;</span> <span class="payu-red">Please enter the new shortpath you want to use:</span> <span class="payu-dark-yellow">/scratch/nf33</span></terminal-line>
-        <terminal-line data="input">cd om2_1deg_iaf/</terminal-line>
+        <terminal-line data="input">cd om2_1deg_ryf/</terminal-line>
         <terminal-line data="input">ls</terminal-line>
         <terminal-line>accessom2.nml  atmosphere  doc  LICENSE  metadata.yaml  ocean  testing</terminal-line>
         <terminal-line>archive  config.yaml  ice  manifests  namcouple  README.md  tools</terminal-line>
@@ -199,7 +206,7 @@ less metadata.yaml
         <terminal-line>input path: /scratch/nf33/xxx/access-om2/input</terminal-line>
         <terminal-line>work path: /scratch/nf33/xxx/access-om2/work</terminal-line>
         <terminal-line>archive path: /scratch/nf33/xxx/access-om2/archive</terminal-line>
-        <terminal-line>Found experiment archive: /scratch/nf33/xxx/access-om2/archive/om2-1deg-iaf-chio65-uu00id</terminal-line>
+        <terminal-line>Found experiment archive: /scratch/nf33/xxx/access-om2/archive/om2-1deg-ryf-chio65-uu00id</terminal-line>
         <terminal-line>payu: warning: Job request includes 47 unused CPUs.</terminal-line>
         <terminal-line>payu: warning: CPU request increased from 241 to 288</terminal-line>
         <terminal-line>Loading input manifest: manifests/input.yaml</terminal-line>
@@ -207,7 +214,7 @@ less metadata.yaml
         <terminal-line>Loading exe manifest: manifests/exe.yaml</terminal-line>
         <terminal-line>payu: Found modules in /opt/Modules/v4.3.0</terminal-line>
         <terminal-line>——- Job submitted ——-</terminal-line>
-        <terminal-line>Submitted command: qsub -q normal -P nf33 -l walltime=3:00:00 -l ncpus=288 -l mem=1000GB -N 1deg_jra55_iaf …/bin/payu-run</terminal-line>
+        <terminal-line>Submitted command: qsub -q normal -P nf33 -l walltime=3:00:00 -l ncpus=288 -l mem=1000GB -N 1deg_jra55_ryf …/bin/payu-run</terminal-line>
         <terminal-line>Job ID: 10000001.gadi-pbs</terminal-line>
     </terminal-window>
 
@@ -224,7 +231,7 @@ less metadata.yaml
         <terminal-line>  Stage: model-run</terminal-line>
         <terminal-line>  <span class="payu-dark-yellow">Total Queue Time: 0h 0m 42s</span></terminal-line>
         <terminal-line>  Current Expt Time: 1958-01-09T21:00:00</terminal-line>
-        <terminal-line>  Job File: /scratch/nf33/xxxx/access-om2/archive/om2-1deg-iaf-chio65-uu00id/payu_jobs/0/run/10000001.gadipbs.json</terminal-line>
+        <terminal-line>  Job File: /scratch/nf33/xxxx/access-om2/archive/om2-1deg-ryf-chio65-uu00id/payu_jobs/0/run/10000001.gadipbs.json</terminal-line>
         <terminal-line>========================================</terminal-line>
     </terminal-window>
 
@@ -237,16 +244,16 @@ less metadata.yaml
         <terminal-line>========================================</terminal-line>
         <terminal-line>Experiment Paths:</terminal-line>
         <terminal-line>  <span class="payu-dark-yellow">Experiment UUID: uu00id-7fa7-41d8-bee6-bxxxx1</span></terminal-line>
-        <terminal-line>  Experiment Name: om2-1deg-iaf-chio65-uu00id</terminal-line>
-        <terminal-line>  Chio65 Directory: /home/189/xxx/om2-1deg-iaf</terminal-line>
+        <terminal-line>  Experiment Name: om2-1deg-ryf-chio65-uu00id</terminal-line>
+        <terminal-line>  Chio65 Directory: /home/189/xxx/om2-1deg-ryf</terminal-line>
         <terminal-line>      (Where model configuration is stored)</terminal-line>
         <terminal-line>  Laboratory Path: /scratch/nf33/xxx/access-om2</terminal-line>
         <terminal-line>      (Where model's laboratory is stored)</terminal-line>
-        <terminal-line>  Work Directory: /scratch/nf33/xxx/access-om2/work/om2-1deg-iaf-chio65-uu00id</terminal-line>
+        <terminal-line>  Work Directory: /scratch/nf33/xxx/access-om2/work/om2-1deg-ryf-chio65-uu00id</terminal-line>
         <terminal-line>      (Temporary directory for experiment runs)</terminal-line>
-        <terminal-line>  <span class="payu-dark-yellow">Archive Directory: /scratch/nf33/xxx/access-om2/archive/om2-1deg-iaf-chio65-uu00id</span></terminal-line>
+        <terminal-line>  <span class="payu-dark-yellow">Archive Directory: /scratch/nf33/xxx/access-om2/archive/om2-1deg-ryf-chio65-uu00id</span></terminal-line>
         <terminal-line>      (Where all experiment outputs are stored)</terminal-line>
-        <terminal-line>  <span class="payu-dark-yellow">Sync Destination: /g/data/nf33/xxx/somewhere/om2-1deg-iaf-chio65-uu00id</span></terminal-line>
+        <terminal-line>  <span class="payu-dark-yellow">Sync Destination: /g/data/nf33/xxx/somewhere/om2-1deg-ryf-chio65-uu00id</span></terminal-line>
         <terminal-line>      (Remote directory to sync outputs to)</terminal-line>
         <terminal-line>========================================</terminal-line>
     </terminal-window>
@@ -275,7 +282,7 @@ payu checkout -b new_branch source_commit
 payu checkout -b new_branch source_branch
 ```
 
-<!-- FLAG: In the output below the restart and old archive paths refer to "om2-1deg-iaf-control-uu00id" and the payu branch output lists a "control" branch, whereas Steps 1 and 5 use the branch "chio65" (om2-1deg-iaf-chio65-uu00id). Kept as in the PDF. -->
+<!-- FLAG: In the output below the restart and old archive paths refer to "om2-1deg-ryf-control-uu00id" and the payu branch output lists a "control" branch, whereas Steps 1 and 5 use the branch "chio65" (om2-1deg-ryf-chio65-uu00id). Kept as in the PDF. -->
 
 ??? success "Answer"
 
@@ -290,9 +297,9 @@ payu checkout -b new_branch source_branch
         <terminal-line>work path: /scratch/nf33/xxxx/access-om2/work</terminal-line>
         <terminal-line>archive path: /scratch/nf33/xxxx/access-om2/archive</terminal-line>
         <terminal-line>Updated metadata. Experiment UUID: newuuid-9c3f-43b7-b3d2-3xxxxd</terminal-line>
-        <terminal-line>Added 'restart: /scratch/nf33/xxxx/access-om2/archive/om2-1deg-iaf-control-uu00id/output000' to configuration file: config.yaml</terminal-line>
-        <terminal-line>Removed archive symlink to /scratch/nf33/xxxx/access-om2/archive/om2-1deg-iaf-control-uu00id</terminal-line>
-        <terminal-line>Added archive symlink to /scratch/nf33/xxxx/access-om2/archive/om2-1deg-iaf-chio7-newuuid</terminal-line>
+        <terminal-line>Added 'restart: /scratch/nf33/xxxx/access-om2/archive/om2-1deg-ryf-control-uu00id/output000' to configuration file: config.yaml</terminal-line>
+        <terminal-line>Removed archive symlink to /scratch/nf33/xxxx/access-om2/archive/om2-1deg-ryf-control-uu00id</terminal-line>
+        <terminal-line>Added archive symlink to /scratch/nf33/xxxx/access-om2/archive/om2-1deg-ryf-chio7-newuuid</terminal-line>
     </terminal-window>
 
     Check your branches and their experiment UUIDs with `payu branch`:
@@ -303,6 +310,6 @@ payu checkout -b new_branch source_branch
         <terminal-line>&nbsp;&nbsp;&nbsp;&nbsp;experiment_uuid: newuuid-9c3f-43b7-b3d2-3xxxxd</terminal-line>
         <terminal-line>Branch: control</terminal-line>
         <terminal-line>&nbsp;&nbsp;&nbsp;&nbsp;experiment_uuid: uu00id-7fa7-41d8-bee6-b942415c1bd1</terminal-line>
-        <terminal-line>Branch: release-1deg_jra55_iaf</terminal-line>
+        <terminal-line>Branch: release-1deg_jra55_ryf</terminal-line>
         <terminal-line>&nbsp;&nbsp;&nbsp;&nbsp;No UUID in metadata file</terminal-line>
     </terminal-window>
