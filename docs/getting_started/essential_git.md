@@ -12,6 +12,14 @@ It is not intended as a beginner introduction to Git. You can use this page as a
 - compare different versions of files; or
 - reorganise or combine Git history.
 
+!!! note
+    The examples below use generic branch names such as `main` and `feature-branch`. Replace these with the branch names used in your repository.
+
+!!! note
+    [\<argument\>] means optional argument.
+
+## Find the right Git command
+
 ```mermaid
 flowchart TD
     A("What are you trying to do?")
@@ -41,20 +49,13 @@ flowchart TD
     class E,E1 stash
 ```
 
-
-!!! note
-    The examples below use generic branch names such as `main` and `feature-branch`. Replace these with the branch names used in your repository.
-
-!!! note
-    [\<argument\>] means optional argument.
-
 ## Core Git commands
 
 Here are a few core Git commands that are useful to keep handy in everyday Git workflows. For more details, please refer to the link in the command.
 
-| Command | Basic Usage | Official Git Manual | Common Use Case | Meaning |
+| Command | Basic Usage | Common Use Case | Meaning |
 |---|---|---|---|---|
-| `git clone` | `git clone <url> <local_dir>` | [link](https://git-scm.com/docs/git-clone) | | Clone a remote repository to the local directory|
+| [`git clone`](https://git-scm.com/docs/git-clone) | `git clone <url> <local_dir>` | | Clone a remote repository to the local directory|
 | `git branch`|  `git branch -a` | [link](https://git-scm.com/docs/git-branch) | | List all branches |
 | `git status` | `git status` | [link](https://git-scm.com/docs/git-status) | | Show status of current working tree. |
 | `git add` | `git add <file>` | [link](https://git-scm.com/docs/git-add) | | Stage changes for commit. |
