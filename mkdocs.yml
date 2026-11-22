@@ -246,6 +246,9 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/@AustraliasClimateSimulator
       name: ACCESS-NRI on YouTube
+    - icon: fontawesome/brands/github
+      link: https://github.com/ACCESS-NRI/
+      name: ACCESS-NRI GitHub Organisation
   analytics:
     provider: google
     property: G-JVWLTHSQWM
