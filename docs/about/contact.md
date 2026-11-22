@@ -20,6 +20,8 @@ Join the [ACCESS-Hive Forum](https://forum.access-hive.org.au/) and find related
 
 :fontawesome-brands-linkedin: [ACCESS-NRI LinkedIn](https://www.linkedin.com/in/access-nri)
 
+:fontawesome-brands-youtube: [ACCESS-NRI YouTube](https://www.youtube.com/@AustraliasClimateSimulator)
+
 <custom-references>
 Introductory image by [pch.vector](https://www.freepik.com/free-vector/contact-concept-landing-page_5155590.htm#page=5&query=contact%20cartoon&position=6&from_view=search&track=ais) on Freepik
 </custom-references>
