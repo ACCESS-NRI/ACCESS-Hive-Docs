@@ -252,7 +252,7 @@ extra:
   analytics:
     provider: google
     property: G-JVWLTHSQWM
-  announcement: 
+  # Set `enabled: true` to show an announcement banner. The banner displays `text` and links to `link`.
     enabled: false
     text: 🚀 Technical Setup | 2026 Land and Coupled Modelling Workshop 📚 ✨ 
     link: "/community_resources/access_workshop_2026"
