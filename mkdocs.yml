@@ -253,7 +253,7 @@ extra:
     provider: google
     property: G-JVWLTHSQWM
   announcement: 
-    enabled: true
+    enabled: false
     text: 🚀 Technical Setup | 2026 Land and Coupled Modelling Workshop 📚 ✨ 
     link: "/community_resources/access_workshop_2026"
   #   feedback:

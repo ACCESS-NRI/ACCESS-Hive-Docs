@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block announce %}
-    {% if config.extra.announcement.enabled %}
+    {%- if config.extra.announcement.enabled -%}
         <a class="announce-bar" href="{{ config.extra.announcement.link | url }}">
-            <strong>config.extra.announcement.text</strong>
+            <strong>
+                {{ config.extra.announcement.text }}
+            </strong>
         </a>
-    {% endif %}
+    {%- endif -%}
 {% endblock %}
