@@ -884,10 +884,30 @@ details.code {
   width: auto;
 }
 
+.md-social {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
 .md-social > * {
   display: flex;
+  flex: 0 0 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
   justify-content: center;
   align-items: center;
+}
+
+.md-social__link svg {
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  max-height: none;
+  fill: currentColor;
+  vertical-align: baseline;
 }
 
 .md-footer hr {
