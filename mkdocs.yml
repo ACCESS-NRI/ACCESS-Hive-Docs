@@ -252,6 +252,12 @@ extra:
   analytics:
     provider: google
     property: G-JVWLTHSQWM
+    
+  # Set `enabled: true` to show an announcement banner.
+  announcement: 
+    enabled: false
+    text: 🚀 Technical Setup | 2026 Land and Coupled Modelling Workshop 📚 ✨ 
+    link: "community_resources/access_workshop_2026"
   #   feedback:
   #     title: Was this page helpful?
   #     ratings:
