@@ -15,5 +15,6 @@
 *[ILAMB]: International Land Model Benchmarking
 *[PBS]: Portable Batch System
 *[VDI]: Virtual Desktop Interface
+*[CMOR]: Climate Model Output Rewriter
 *[NIWA]: New Zealand National Institute of Water and Atmospheric Research
 *[MLD]: Model Live Diagnostics
