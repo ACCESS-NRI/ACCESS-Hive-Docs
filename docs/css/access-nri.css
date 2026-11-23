@@ -1297,6 +1297,23 @@ img.terminal-switch:hover ~ .terminal-switch-tooltip {
   display: revert;
 }
 
+/* ==============================================================
+   Announcement bar 
+   ==============================================================*/
+
+.announce-bar { 
+  color: var(--nri-light-blue) !important;
+  display: block;
+  text-align: center;
+  border: 1px solid var(--nri-orange);
+  border-radius: 0.35rem;
+  padding: 0.6rem;
+}
+
+.announce-bar:hover {
+  color: var(--nri-blue) !important;
+}
+
 /* =============================================================== 
   External links
 */
