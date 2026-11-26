@@ -77,6 +77,93 @@ Here are a few core Git commands that are useful to keep handy in everyday Git w
 | [`git stash`](https://git-scm.com/docs/git-stash) | `git stash [push\|pop\|apply]` | Temporarily save changes into stash space |
 | [`git reset`](https://git-scm.com/docs/git-reset) | `git reset --hard origin/<branch>` | Reset branch to match another branch state |
 
+## Setup & share changes
+### git clone
+
+### git add 
+
+### git commit 
+
+### git push
+
+## Inspect your changes
+
+### Git log
+
+#### When to use {: .no-toc }
+
+Use `git log` to see the history of the repository.
+
+#### How to use {: .no-toc }
+
+The basic command is 
+```
+git log
+```
+and you may add some optional flags such as `[<--oneline>]` to display each commit on a single line,
+`[<--graph>]` to display the commit history as a graph.
+An example of `git log --graph --online` is shown below:
+
+<div markdown="0">
+<terminal-window lineDelay="200">
+    <terminal-line data="input">git log --graph --oneline</terminal-line>
+    <terminal-line>* <span class="nri-orange-color">a8f3c21</span> (<span class="git-cyan">HEAD</span> -&gt; <span class="git-green">main</span>) Add documentation</terminal-line>
+    <terminal-line>*   <span class="nri-orange-color">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
+    <terminal-line><span class="git-red">|</span><span class="git-green">\</span></terminal-line>
+    <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">c9d4a62</span> (<span class="git-green">feature-login</span>) Add unit tests</terminal-line>
+    <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">e5f6b31</span> Add feature</terminal-line>
+    <terminal-line>* <span class="git-green">|</span> <span class="nri-orange-color">d4a2f81</span> Update README</terminal-line>
+    <terminal-line><span class="git-red">|</span><span class="git-green">/</span></terminal-line>
+    <terminal-line>* <span class="nri-orange-color">f1b2c34</span> Initial project setup</terminal-line>
+</terminal-window>
+</div>
+
+### Git show
+
+The `git show` command lets you look into specific Git objects, usually one commit.
+
+#### When to use {: .no-toc }
+
+- You already know the commit you care about and want to see its message, metadata and diff in one shot.
+- You want to see what a specific file looked like at a specific past commit.
+- You want to double-check a tag's message and what commit it points to.
+
+#### How to use {: .no-toc }
+```
+git show <commit>
+```
+
+Running only `git show` will display details about the most recent commit.
+
+`<commit>` can be any Git reference (e.g., commit hash, branch name, tag, references like `HEAD~2`, etc.).
+
+You can also specify a single file after the Git reference, to see that file's version at that point in time:
+```
+git show <commit>:<file-path>
+```
+
+### Git diff
+
+#### When to use {: .no-toc }
+
+Run `git diff` to visualise the source code differences. 
+
+#### How to use {: .no-toc }
+
+A useful command to see the difference between the local branch and the remote branch:
+```
+git diff origin/<branch>
+```
+A good step before pushing the local branch to the remote branch.
+
+To display the difference in a graphical diff program, run `git difftool -y --tool=<program>`. 
+For example, if you want to use the program `meld`, then run:
+```
+git difftool -y --tool=meld
+```
+
+## Get remote changes
+
 ### Git fetch
 
 The `git fetch` command updates your remote tracking branches.
@@ -125,7 +212,7 @@ Use `git pull`:
 
 - To update the local branch when you are prepared to deal with merge conflicts coming from the remote tracking branch.
 
-#### Recommended usage
+#### Recommended usage {: .no-toc }
 
 Before running `git pull`, make sure you are on the local branch that you want to update. Then run
 ```
@@ -140,6 +227,8 @@ instead. See `git merge` and `git rebase` here for more details. The full comman
 ```
 git pull [<remote>] [<branch>]
 ```
+
+## Work with branches
 
 ### Git switch
 
@@ -275,7 +364,7 @@ gitGraph
 - To keep feature branch history relatively linear.
 - To tidy local work before it is merged.
 
-#### Resolving rebase conflicts
+#### Resolving rebase conflicts {: .no-toc }
 
 If Git finds a conflict during the rebase, resolve the affected files and stage them:
 
@@ -303,6 +392,8 @@ git rebase --abort
     
     - **Be careful when pushing rebased commits.** If your feature branch has already been pushed, you may need to update the remote branch using `git push --force-with-lease`. This checks whether the remote branch has changed unexpectedly before updating it, reducing the risk of overwriting someone else's work.
 
+## Temporarily save changes
+
 ### Git stash
 
 Git stash works as a temporary save button. It lets us save changes that we are not ready to commit, so we can temporarily switch to other work without committing unfinished changes to the Git history.
@@ -315,7 +406,7 @@ Git stash works as a temporary save button. It lets us save changes that we are 
 
 #### How to use {: .no-toc }
 
-#### 1. Save changes
+#### 1. Save changes {: .no-toc }
 
 To save our current changes in the stash, with a message to help us remember what they are:
 ```
@@ -325,7 +416,7 @@ Think of this as putting our changes into a virtual drawer and leaving a sticky 
 By default, `git stash` saves changes to tracked files that are modified or deleted. 
 Untracked files are not included unless we explicitly ask Git to include them.
 
-#### 2. List stashes
+#### 2. List stashes {: .no-toc }
 
 To see all the stashes you have created:
 ```
@@ -341,8 +432,7 @@ To check the content of one specific stash, for example, `{0}`:
 ```
 git stash show -p stash@{0}
 ```
-
-#### 3. Apply a stash
+ {: .no-toc }
 
 To bring the changes from the most recent stash onto our current branch:
 ```
@@ -355,7 +445,7 @@ git stash apply
 The latter command leaves a copy in the stash.
 
 
-#### 4. Clean up stash
+#### 4. Clean up stash {: .no-toc }
 
 To delete a specific stash:
 ```
@@ -366,6 +456,7 @@ Or to clean up all stashes:
 git stash clear
 ```
 
+## Undo or reset changes
 
 ### Git reset
 
@@ -379,78 +470,3 @@ This command is to be used carefully because it may delete the state of the curr
 git reset --hard origin/<branch>
 ```
 is a useful command to reset the local branch to match the remote branch.
-
-
-### Git log
-
-#### When to use {: .no-toc }
-
-Use `git log` to see the history of the repository.
-
-#### How to use {: .no-toc }
-
-The basic command is 
-```
-git log
-```
-and you may add some optional flags such as `[<--oneline>]` to display each commit on a single line,
-`[<--graph>]` to display the commit history as a graph.
-An example of `git log --graph --online` is shown below:
-
-<div markdown="0">
-<terminal-window lineDelay="200">
-    <terminal-line data="input">git log --graph --oneline</terminal-line>
-    <terminal-line>* <span class="nri-orange-color">a8f3c21</span> (<span class="git-cyan">HEAD</span> -&gt; <span class="git-green">main</span>) Add documentation</terminal-line>
-    <terminal-line>*   <span class="nri-orange-color">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
-    <terminal-line><span class="git-red">|</span><span class="git-green">\</span></terminal-line>
-    <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">c9d4a62</span> (<span class="git-green">feature-login</span>) Add unit tests</terminal-line>
-    <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">e5f6b31</span> Add feature</terminal-line>
-    <terminal-line>* <span class="git-green">|</span> <span class="nri-orange-color">d4a2f81</span> Update README</terminal-line>
-    <terminal-line><span class="git-red">|</span><span class="git-green">/</span></terminal-line>
-    <terminal-line>* <span class="nri-orange-color">f1b2c34</span> Initial project setup</terminal-line>
-</terminal-window>
-</div>
-
-### Git show
-
-The `git show` command lets you look into specific Git objects, usually one commit.
-
-#### When to use {: .no-toc }
-
-- You already know the commit you care about and want to see its message, metadata and diff in one shot.
-- You want to see what a specific file looked like at a specific past commit.
-- You want to double-check a tag's message and what commit it points to.
-
-#### How to use {: .no-toc }
-```
-git show <commit>
-```
-
-Running only `git show` will display details about the most recent commit.
-
-`<commit>` can be any Git reference (e.g., commit hash, branch name, tag, references like `HEAD~2`, etc.).
-
-You can also specify a single file after the Git reference, to see that file's version at that point in time:
-```
-git show <commit>:<file-path>
-```
-
-### Git diff
-
-#### When to use {: .no-toc }
-
-Run `git diff` to visualise the source code differences. 
-
-#### How to use {: .no-toc }
-
-A useful command to see the difference between the local branch and the remote branch:
-```
-git diff origin/<branch>
-```
-A good step before pushing the local branch to the remote branch.
-
-To display the difference in a graphical diff program, run `git difftool -y --tool=<program>`. 
-For example, if you want to use the program `meld`, then run:
-```
-git difftool -y --tool=meld
-```
