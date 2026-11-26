@@ -22,7 +22,7 @@ Designed for users with some familiarity with Git, it helps you find **which com
 Use the diagram below to find commonly used Git commands by task. 
 
 ```mermaid
-flowchart TD
+flowchart LR
     A("What are you trying to do?")
 
     A --> B("🛠️ Setup and share your changes")
