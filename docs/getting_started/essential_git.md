@@ -68,22 +68,22 @@ Here are a few core Git commands that are useful to keep handy in everyday Git w
 
 | Command | Example Usage | Purpose |
 |---|---|---|
-| [`git clone`](https://git-scm.com/docs/git-clone) | `git clone <url> <local_dir>` | Copy a remote repository to your local machine|
 | [`git add`](https://git-scm.com/docs/git-add) | `git add <file>` | Stage changes for commit. |
-| [`git commit`](https://git-scm.com/docs/git-commit) | `git commit -m "<message>"` | Save staged changes as a new commit. |
-| [`git push`](https://git-scm.com/docs/git-push)| `git push` | Push local commits to the remote repository. |
-| [`git status`](https://git-scm.com/docs/git-status) | `git status` | Show status of current working tree. |
-| [`git diff`](https://git-scm.com/docs/git-diff) | `git diff origin/<branch>` | Visualise source code differences |
-| [`git log`](https://git-scm.com/docs/git-log) | `git log [-c]` | Show the history of the repository |s
-| [`git show`](https://git-scm.com/docs/git-show) | `git show <commit>` | Look into a specific Git commit |
-| [`git fetch`](https://git-scm.com/docs/git-fetch) | `git fetch [<remote>]` | Update remote tracking branches |
-| [`git pull`](https://git-scm.com/docs/git-pull) | `git pull` | updates the local branch to match the remote |
 | [`git branch`](https://git-scm.com/docs/git-branch)|  `git branch -a` | List all branches |
-| [`git switch`](https://git-scm.com/docs/git-switch) | `git switch [-c] <branch>` | Switch the HEAD to a different branch |
+| [`git clone`](https://git-scm.com/docs/git-clone) | `git clone <url> <local_dir>` | Copy a remote repository to your local machine|
+| [`git commit`](https://git-scm.com/docs/git-commit) | `git commit -m "<message>"` | Save staged changes as a new commit. |
+| [`git diff`](https://git-scm.com/docs/git-diff) | `git diff origin/<branch>` | Visualise source code differences |
+| [`git fetch`](https://git-scm.com/docs/git-fetch) | `git fetch [<remote>]` | Update remote tracking branches |
+| [`git log`](https://git-scm.com/docs/git-log) | `git log [-c]` | Show the history of the repository |s
 | [`git merge`](https://git-scm.com/docs/git-merge) | `git merge <feature-branch>` | Combines the histories of two branches |
+| [`git pull`](https://git-scm.com/docs/git-pull) | `git pull` | updates the local branch to match the remote |
+| [`git push`](https://git-scm.com/docs/git-push)| `git push` | Push local commits to the remote repository. |
 | [`git rebase`](https://git-scm.com/docs/git-rebase) | `git rebase <branch>` | Moves your branch commits on top of another branch |
-| [`git stash`](https://git-scm.com/docs/git-stash) | `git stash [push\|pop\|apply]` | Temporarily save changes into stash space |
 | [`git reset`](https://git-scm.com/docs/git-reset) | `git reset --hard origin/<branch>` | Reset branch to match another branch state |
+| [`git show`](https://git-scm.com/docs/git-show) | `git show <commit>` | Look into a specific Git commit |
+| [`git status`](https://git-scm.com/docs/git-status) | `git status` | Show status of current working tree. |
+| [`git switch`](https://git-scm.com/docs/git-switch) | `git switch [-c] <branch>` | Switch the HEAD to a different branch |
+| [`git stash`](https://git-scm.com/docs/git-stash) | `git stash [push\|pop\|apply]` | Temporarily save changes into stash space |
 
 ## Setup & share changes
 ### git clone
