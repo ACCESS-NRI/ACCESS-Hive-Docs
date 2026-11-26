@@ -160,7 +160,7 @@ git switch -c <new_branch_name> [<source_branch>]
 
 This creates the new branch and switches to it.
 
-#### 2. Switch to an exiting branch
+#### 2. Switch to an existing branch
 
 To switch to a branch that already exists locally, simply use:
 ```
