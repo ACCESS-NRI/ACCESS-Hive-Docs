@@ -33,9 +33,9 @@ flowchart LR
     A --> G("⚠️ Undo or reset changes")
 
     B --> B1("git clone → git add → git commit → git push")
-    C --> C1("git status | git diff | git log | git show")
-    D --> D1("git fetch | git pull")
-    E --> E1("git switch | git merge | git rebase")
+    C --> C1("git status · git diff · git log · git show")
+    D --> D1("git fetch · git pull")
+    E --> E1("git switch · git merge · git rebase")
     F --> F1("git stash")
     G --> G1("git reset")
 
