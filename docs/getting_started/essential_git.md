@@ -25,7 +25,7 @@ Use the diagram below to find commonly used Git commands by task.
 flowchart LR
     A("What are you trying to do?")
 
-    A --> B("🛠️ Setup and share your changes")
+    A --> B("🛠️ Setup & share changes")
     A --> C("🔍 Inspect your changes")
     A --> D("⬇️ Get remote changes")
     A --> E("🌿 Work with branches")
@@ -33,9 +33,9 @@ flowchart LR
     A --> G("⚠️ Undo or reset changes")
 
     B --> B1("git clone → git add → git commit → git push")
-    C --> C1("git status · diff · log · show")
-    D --> D1("git fetch · pull")
-    E --> E1("git switch · merge · rebase")
+    C --> C1("git status | git diff | git log | git show")
+    D --> D1("git fetch | git pull")
+    E --> E1("git switch | git merge | git rebase")
     F --> F1("git stash")
     G --> G1("git reset")
 
@@ -175,6 +175,21 @@ git switch --track origin/<existing_branch>
 ### Git merge
 `git merge` combines the histories of two branches. If the branches have diverged, Git will usually create a merge commit that keeps the history of both branches.
 
+```mermaid
+%%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
+gitGraph
+    commit id: "A"
+    branch feature
+    commit id: "D"
+    checkout main
+    commit id: "B"
+    commit id: "C"
+    checkout feature
+    commit id: "E"
+    checkout main
+    merge feature id: "M"
+```
+
 **When to use**
 
 - To combine completed work from another branch.
@@ -223,16 +238,33 @@ git rebase origin/main
 
 Conceptually, this changes a history like:
 
-```
+
 Before rebase:
 
-D---E---A---B---C  main
-     \
-      F            feature-branch
+```mermaid
+%%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
+gitGraph
+    commit id: "A"
+    branch feature
+    commit id: "D"
+    checkout main
+    commit id: "B"
+    commit id: "C"
+    checkout feature
+    commit id: "E"
+```
 
 After rebase:
 
-D---E---A---B---C---F'  feature-branch
+```mermaid
+%%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
+gitGraph
+    commit id: "A"
+    commit id: "B"
+    commit id: "C"
+    branch feature
+    commit id: "D'"
+    commit id: "E'"
 ```
 
 **When to use**
