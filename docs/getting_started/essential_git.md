@@ -395,25 +395,15 @@ and you may add some optional flags such as `[<--oneline>]` to display each comm
 `[<--graph>]` to display the commit history as a graph.
 An example of `git log --graph --online` is shown below:
 
-<!-- ```bash
-* a8f3c21 (HEAD -> main) Add documentation
-*   b7e2d14 Merge branch 'feature-login'
-|\
-| * c9d4a62 (feature-login) Add unit tests
-| * e5f6b31 Add feature
-|/
-* f1b2c34 Initial project setup
-``` -->
-
 <terminal-window>
     <terminal-line data="input">git log --graph --oneline</terminal-line>
-    <terminal-line>* <span style="color:var(--nri-orange)">a8f3c21</span> (<span style="color:var(--nri-green)">HEAD -&gt; main</span>) Add documentation</terminal-line>
-    <terminal-line>*   <span style="color:var(--nri-orange)">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
-    <terminal-line><span style="color:var(--nri-light-blue)">|\</span></terminal-line>
-    <terminal-line><span style="color:var(--nri-light-blue)">| *</span> <span style="color:var(--nri-orange)">c9d4a62</span> (<span style="color:var(--nri-green)">feature-login</span>) Add unit tests</terminal-line>
-    <terminal-line><span style="color:var(--nri-light-blue)">| *</span> <span style="color:var(--nri-orange)">e5f6b31</span> Add feature</terminal-line>
-    <terminal-line><span style="color:var(--nri-light-blue)">|/</span></terminal-line>
-    <terminal-line>* <span style="color:var(--nri-orange)">f1b2c34</span> Initial project setup</terminal-line>
+    <terminal-line>* <span class="nri-orange-color">a8f3c21</span> (<span class="git-cyan">HEAD</span> -&gt; <span class="git-green">main</span>) Add documentation</terminal-line>
+    <terminal-line>*   <span class="nri-orange-color">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
+    <terminal-line><span class="git-red">|\</span></terminal-line>
+    <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">c9d4a62</span> (<span class="git-green">feature-login</span>) Add unit tests</terminal-line>
+    <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">e5f6b31</span> Add feature</terminal-line>
+    <terminal-line><span class="git-red">|/</span></terminal-line>
+    <terminal-line>* <span class="nri-orange-color">f1b2c34</span> Initial project setup</terminal-line>
 </terminal-window>
 
 ### Git show
