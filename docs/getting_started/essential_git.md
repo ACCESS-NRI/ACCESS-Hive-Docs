@@ -119,9 +119,9 @@ At the beginning of your work and before switching branches.
 
 Use `git pull`:
 
-    1. To update the local branch in your current workspace when the branch is clean and there are no uncommitted changes and no potential merge conflicts from the remote tracking branch.
+- To update the local branch in your current workspace when the branch is clean and there are no uncommitted changes and no potential merge conflicts from the remote tracking branch.
 
-    2. To update the local branch when you are prepared to deal with merge conflicts coming from the remote tracking branch.
+- To update the local branch when you are prepared to deal with merge conflicts coming from the remote tracking branch.
 
 **Recommended usage**
 
@@ -145,8 +145,8 @@ Git switch allows us to switch the `HEAD` to a different branch.
 
 **When to use**
 
-    - To create a new branch.
-    - To switch to an existing branch, either local or remote.
+- To create a new branch.
+- To switch to an existing branch, either local or remote.
 
 
 **How to use**
@@ -177,9 +177,9 @@ git switch --track origin/<existing_branch>
 
 **When to use**
 
-    - To combine completed work from another branch.
-    - When preserving the existing branch history is useful.
-    - When working on a shared branch where rewriting existing commits should be avoided.
+- To combine completed work from another branch.
+- When preserving the existing branch history is useful.
+- When working on a shared branch where rewriting existing commits should be avoided.
 
 **How to use**
 
@@ -275,9 +275,9 @@ Git stash works as a temporary save button. It lets us save changes that we are 
 
 **When to use**
 
-    - If working on one branch and needing to switch to another branch.
-    - To pull updates from the remote repository, when local changes are not ready to commit.
-    - If working on the wrong branch, to move those changes to the correct branch.
+- If working on one branch and needing to switch to another branch.
+- To pull updates from the remote repository, when local changes are not ready to commit.
+- If working on the wrong branch, to move those changes to the correct branch.
 
 **How to use**
 
@@ -379,9 +379,9 @@ The `git show` command lets you look into specific Git objects, usually one comm
 
 **When to use**
 
-    - You already know the commit you care about and want to see its message, metadata and diff in one shot.
-    - You want to see what a specific file looked like at a specific past commit.
-    - You want to double-check a tag's message and what commit it points to.
+- You already know the commit you care about and want to see its message, metadata and diff in one shot.
+- You want to see what a specific file looked like at a specific past commit.
+- You want to double-check a tag's message and what commit it points to.
 
 **How to use**
 ```
