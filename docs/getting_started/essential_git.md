@@ -395,7 +395,8 @@ and you may add some optional flags such as `[<--oneline>]` to display each comm
 `[<--graph>]` to display the commit history as a graph.
 An example of `git log --graph --online` is shown below:
 
-<terminal-window>
+<div markdown="0">
+<terminal-window lineDelay="200">
     <terminal-line data="input">git log --graph --oneline</terminal-line>
     <terminal-line>* <span class="nri-orange-color">a8f3c21</span> (<span class="git-cyan">HEAD</span> -&gt; <span class="git-green">main</span>) Add documentation</terminal-line>
     <terminal-line>*   <span class="nri-orange-color">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
@@ -406,6 +407,7 @@ An example of `git log --graph --online` is shown below:
     <terminal-line><span class="git-red">|</span><span class="git-green">/</span></terminal-line>
     <terminal-line>* <span class="nri-orange-color">f1b2c34</span> Initial project setup</terminal-line>
 </terminal-window>
+</div>
 
 ### Git show
 
