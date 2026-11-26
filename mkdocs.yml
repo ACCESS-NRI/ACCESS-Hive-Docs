@@ -270,8 +270,10 @@ extra_css:
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.1/animated-terminal.min.js # Terminal animations
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - js/custom-tags.js
   - js/miscellaneous.js
+  - javascripts/tablesort.js
 
 # Automatically reload page when running `mkdocs serve`, for any
 # of the following files outside of the 'docs' directory
