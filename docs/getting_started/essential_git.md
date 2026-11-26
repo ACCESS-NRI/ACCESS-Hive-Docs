@@ -176,7 +176,7 @@ git switch --track origin/<existing_branch>
 `git merge` combines the histories of two branches. If the branches have diverged, Git will usually create a merge commit that keeps the history of both branches.
 
 ```mermaid
-%%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
+%%{init: {"themeVariables": {"git0": "#0077CC", "git1": "#A5CD3A"}}}%%
 gitGraph
     commit id: "A"
     branch feature
@@ -242,7 +242,7 @@ Conceptually, this changes a history like:
 Before rebase:
 
 ```mermaid
-%%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
+%%{init: {"themeVariables": {"git0": "#0077CC", "git1": "#A5CD3A"}}}%%
 gitGraph
     commit id: "Commit A"
     branch feature
@@ -257,7 +257,7 @@ gitGraph
 After rebase:
 
 ```mermaid
-%%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
+%%{init: {"themeVariables": {"git0": "#0077CC", "git1": "#A5CD3A"}}}%%
 gitGraph
     commit id: "Commit A"
     commit id: "Commit B"
