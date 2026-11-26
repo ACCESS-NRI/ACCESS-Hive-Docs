@@ -399,10 +399,11 @@ An example of `git log --graph --online` is shown below:
     <terminal-line data="input">git log --graph --oneline</terminal-line>
     <terminal-line>* <span class="nri-orange-color">a8f3c21</span> (<span class="git-cyan">HEAD</span> -&gt; <span class="git-green">main</span>) Add documentation</terminal-line>
     <terminal-line>*   <span class="nri-orange-color">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
-    <terminal-line><span class="git-red">|\</span></terminal-line>
+    <terminal-line><span class="git-red">|</span><span class="git-green">\</span></terminal-line>
     <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">c9d4a62</span> (<span class="git-green">feature-login</span>) Add unit tests</terminal-line>
     <terminal-line><span class="git-red">|</span> * <span class="nri-orange-color">e5f6b31</span> Add feature</terminal-line>
-    <terminal-line><span class="git-red">|/</span></terminal-line>
+    <terminal-line>* <span class="git-green">|</span> <span class="nri-orange-color">d4a2f81</span> Update README</terminal-line>
+    <terminal-line><span class="git-red">|</span><span class="git-green">/</span></terminal-line>
     <terminal-line>* <span class="nri-orange-color">f1b2c34</span> Initial project setup</terminal-line>
 </terminal-window>
 
