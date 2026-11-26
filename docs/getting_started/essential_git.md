@@ -86,13 +86,134 @@ Here are a few core Git commands that are useful to keep handy in everyday Git w
 | [`git stash`](https://git-scm.com/docs/git-stash) | `git stash [push\|pop\|apply]` | Temporarily save changes into stash space |
 
 ## Setup & share changes
-### git clone
 
-### git add 
+### Git clone
 
-### git commit 
+The `git clone` command creates a local copy of an existing repository, including its commit history.
 
-### git push
+#### When to use {: .no-toc }
+
+- To start working on an existing repository.
+- To create a local copy of a remote repository for development or contribution.
+
+#### How to use {: .no-toc }
+
+To clone a repository, run:
+
+```bash
+git clone <url>
+```
+
+By default, Git creates a directory with the same name as the repository. To specify a different local directory, use:
+
+```bash
+git clone <url> <local_dir>
+```
+
+For example:
+
+```bash
+git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
+```
+
+### Git add
+
+The `git add` command stages changes to be included in the next commit.
+
+#### When to use {: .no-toc }
+
+- To prepare new or modified files for a commit.
+- To selectively include changes in the next commit.
+- To stage files after resolving merge or rebase conflicts.
+
+#### How to use {: .no-toc }
+
+To stage changes to a specific file:
+
+```bash
+git add <file>
+```
+
+To stage all changes in the repository:
+
+```bash
+git add -A
+```
+
+To interactively select which changes to stage:
+
+```bash
+git add -p
+```
+
+!!! tip
+
+    Use `git status` to check which changes have been staged, or `git diff --staged` to review the changes before committing.
+
+### Git commit
+
+The `git commit` command records staged changes in the local repository's history.
+
+#### When to use {: .no-toc }
+
+- To record a meaningful set of changes.
+- To save staged changes before sharing them with others.
+
+#### How to use {: .no-toc }
+
+Once the relevant changes have been staged using `git add`, run:
+
+```bash
+git commit -m "<message>"
+```
+
+For example:
+
+```bash
+git commit -m "Update installation instructions"
+```
+
+To modify the most recent commit, use:
+
+```bash
+git commit --amend
+```
+
+!!! warning
+
+    Amending a commit rewrites its history. Avoid amending commits that other people are already working from.
+
+### Git push
+
+The `git push` command uploads local commits to a remote repository.
+
+#### When to use {: .no-toc }
+
+- To share local commits with others.
+- To publish a newly created branch to a remote repository.
+- To update an existing pull request with additional commits.
+
+#### How to use {: .no-toc }
+
+If the current branch already has an upstream branch configured, simply run:
+
+```bash
+git push
+```
+
+To push a branch to a specific remote repository:
+
+```bash
+git push <remote> <branch>
+```
+
+When pushing a newly created branch for the first time, use:
+
+```bash
+git push -u origin <branch>
+```
+
+The `-u` (or `--set-upstream`) option establishes a tracking relationship with the remote branch, allowing subsequent pushes and pulls without explicitly specifying the remote and branch.
 
 ## Inspect your changes
 
