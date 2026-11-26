@@ -79,7 +79,7 @@ Here are a few core Git commands that are useful to keep handy in everyday Git w
 
 The `git fetch` command updates your remote tracking branches.
 
-**When to use**
+#### When to use {: .no-toc }
 
 At the beginning of your work and before switching branches.
 
@@ -90,7 +90,7 @@ Use `git fetch` to:
 - To update remote tracking branches when your local repository clone has become stale.
 
 
-**How to use**
+#### How to use {: .no-toc }
 
 To fetch updates from the remote repository, simply run
 ```
@@ -113,7 +113,7 @@ git fetch [<remote>] [<branch>]
 
 The `git pull` command updates your remote tracking branches *and* updates the local branch in your current workspace to match the remote.
 
-**When to use**
+#### When to use {: .no-toc }
 
 At the beginning of your work and before switching branches.
 
@@ -123,7 +123,7 @@ Use `git pull`:
 
 - To update the local branch when you are prepared to deal with merge conflicts coming from the remote tracking branch.
 
-**Recommended usage**
+#### Recommended usage
 
 Before running `git pull`, make sure you are on the local branch that you want to update. Then run
 ```
@@ -143,15 +143,15 @@ git pull [<remote>] [<branch>]
 
 Git switch allows us to switch the `HEAD` to a different branch.
 
-**When to use**
+#### When to use {: .no-toc }
 
 - To create a new branch.
 - To switch to an existing branch, either local or remote.
 
 
-**How to use**
+#### How to use {: .no-toc }
 
-#### 1. Create a new branch
+##### Create a new branch {: .no-toc }
 
 To create a new branch that doesn't exist locally or on the remote repository:
 ```
@@ -160,7 +160,7 @@ git switch -c <new_branch_name> [<source_branch>]
 
 This creates the new branch and switches to it.
 
-#### 2. Switch to an existing branch
+##### Switch to an existing branch {: .no-toc }
 
 To switch to a branch that already exists locally, simply use:
 ```
@@ -190,13 +190,13 @@ gitGraph
     merge feature id: "M"
 ```
 
-**When to use**
+#### When to use {: .no-toc }
 
 - To combine completed work from another branch.
 - When preserving the existing branch history is useful.
 - When working on a shared branch where rewriting existing commits should be avoided.
 
-**How to use**
+#### How to use {: .no-toc }
 
 First, switch to the branch that should receive the changes:
 
@@ -267,13 +267,13 @@ gitGraph
     commit id: "E'"
 ```
 
-**When to use**
+#### When to use {: .no-toc }
 
     - To update a feature branch with recent changes from another branch.
     - To keep feature branch history relatively linear.
     - To tidy local work before it is merged.
 
-**Resolving rebase conflicts**
+#### Resolving rebase conflicts
 
 If Git finds a conflict during the rebase, resolve the affected files and stage them:
 
@@ -305,13 +305,13 @@ git rebase --abort
 
 Git stash works as a temporary save button. It lets us save changes that we are not ready to commit, so we can temporarily switch to other work without committing unfinished changes to the Git history.
 
-**When to use**
+#### When to use {: .no-toc }
 
 - If working on one branch and needing to switch to another branch.
 - To pull updates from the remote repository, when local changes are not ready to commit.
 - If working on the wrong branch, to move those changes to the correct branch.
 
-**How to use**
+#### How to use {: .no-toc }
 
 #### 1. Save changes
 
@@ -367,13 +367,12 @@ git stash clear
 
 ### Git reset
 
-**When to use**
+#### When to use {: .no-toc }
 
 Use `git reset` when the state of the branch needs to be changed to the state of another branch. e.g., synchronising two branches. 
 This command is to be used carefully because it may delete the state of the current branch by changing its history and discarding uncommitted changes. 
-Please refer to the [git reset manual page](https://git-scm.com/docs/git-reset).
 
-**How to use**
+#### How to use {: .no-toc }
 ```
 git reset --hard origin/<branch>
 ```
@@ -382,11 +381,11 @@ is a useful command to reset the local branch to match the remote branch.
 
 ### Git log
 
-**When to use**
+#### When to use {: .no-toc }
 
-Use `git log` to see the history of the repository. Refer to the [git log manual page](https://git-scm.com/docs/git-log).
+Use `git log` to see the history of the repository.
 
-**How to use**
+#### How to use {: .no-toc }
 
 The basic command is 
 ```
@@ -409,13 +408,13 @@ An example of `git log --graph --online` is shown below:
 
 The `git show` command lets you look into specific Git objects, usually one commit.
 
-**When to use**
+#### When to use {: .no-toc }
 
 - You already know the commit you care about and want to see its message, metadata and diff in one shot.
 - You want to see what a specific file looked like at a specific past commit.
 - You want to double-check a tag's message and what commit it points to.
 
-**How to use**
+#### How to use {: .no-toc }
 ```
 git show <commit>
 ```
@@ -431,11 +430,11 @@ git show <commit>:<file-path>
 
 ### Git diff
 
-**When to use**
+#### When to use {: .no-toc }
 
-Run `git diff` to visualise the source code differences. Refer to the [git diff manual page](https://git-scm.com/docs/git-diff).
+Run `git diff` to visualise the source code differences. 
 
-**How to use**
+#### How to use {: .no-toc }
 
 A useful command to see the difference between the local branch and the remote branch:
 ```
