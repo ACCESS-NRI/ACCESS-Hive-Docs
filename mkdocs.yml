@@ -287,7 +287,7 @@ extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - js/custom-tags.js
   - js/miscellaneous.js
-  - javascripts/tablesort.js
+  - js/tablesort.js
 
 # Automatically reload page when running `mkdocs serve`, for any
 # of the following files outside of the 'docs' directory

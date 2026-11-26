@@ -244,14 +244,14 @@ Before rebase:
 ```mermaid
 %%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
 gitGraph
-    commit id: "A"
+    commit id: "Commit A"
     branch feature
-    commit id: "D"
+    commit id: "Commit D"
     checkout main
-    commit id: "B"
-    commit id: "C"
+    commit id: "Commit B"
+    commit id: "Commit C"
     checkout feature
-    commit id: "E"
+    commit id: "Commit E"
 ```
 
 After rebase:
@@ -259,12 +259,12 @@ After rebase:
 ```mermaid
 %%{init: {"themeVariables": {"git0": "#2586A6", "git1": "#7354C0"}}}%%
 gitGraph
-    commit id: "A"
-    commit id: "B"
-    commit id: "C"
+    commit id: "Commit A"
+    commit id: "Commit B"
+    commit id: "Commit C"
     branch feature
-    commit id: "D'"
-    commit id: "E'"
+    commit id: "Commit D'"
+    commit id: "Commit E'"
 ```
 
 #### When to use {: .no-toc }
@@ -394,7 +394,8 @@ git log
 and you may add some optional flags such as `[<--oneline>]` to display each commit on a single line,
 `[<--graph>]` to display the commit history as a graph.
 An example of `git log --graph --online` is shown below:
-```
+
+<!-- ```bash
 * a8f3c21 (HEAD -> main) Add documentation
 *   b7e2d14 Merge branch 'feature-login'
 |\
@@ -402,7 +403,18 @@ An example of `git log --graph --online` is shown below:
 | * e5f6b31 Add feature
 |/
 * f1b2c34 Initial project setup
-```
+``` -->
+
+<terminal-window>
+    <terminal-line data="input">git log --graph --oneline</terminal-line>
+    <terminal-line>* <span style="color:var(--nri-orange)">a8f3c21</span> (<span style="color:var(--nri-green)">HEAD -&gt; main</span>) Add documentation</terminal-line>
+    <terminal-line>*   <span style="color:var(--nri-orange)">b7e2d14</span> Merge branch 'feature-login'</terminal-line>
+    <terminal-line><span style="color:var(--nri-light-blue)">|\</span></terminal-line>
+    <terminal-line><span style="color:var(--nri-light-blue)">| *</span> <span style="color:var(--nri-orange)">c9d4a62</span> (<span style="color:var(--nri-green)">feature-login</span>) Add unit tests</terminal-line>
+    <terminal-line><span style="color:var(--nri-light-blue)">| *</span> <span style="color:var(--nri-orange)">e5f6b31</span> Add feature</terminal-line>
+    <terminal-line><span style="color:var(--nri-light-blue)">|/</span></terminal-line>
+    <terminal-line>* <span style="color:var(--nri-orange)">f1b2c34</span> Initial project setup</terminal-line>
+</terminal-window>
 
 ### Git show
 
