@@ -599,3 +599,7 @@ This command is to be used carefully because it may delete the state of the curr
 git reset --hard origin/<branch>
 ```
 is a useful command to reset the local branch to match the remote branch.
+
+<custom-references>
+    - [Official Git Manual](https://git-scm.com/docs/user-manual)
+  </custom-references>
