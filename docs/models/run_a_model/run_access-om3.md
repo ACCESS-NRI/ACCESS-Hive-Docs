@@ -338,9 +338,9 @@ refer to [how to configure your experiment with payu](https://payu.readthedocs.i
 
 ### Configuring MOM6 diagnostics
 
-MOM6 diagnostic output is configured using the `diag_table` file. However, users should not edit the `diag_table` file directly. Instead, a tool is provided to generate the `diag_table` from an easily editable YAML file. This tool ensures that the `diag_table` requests MOM6 output that is formatted consistently and is suitable for postprocessing (e.g., inclusion in Intake-ESM catalogs). 
+MOM6 diagnostic output is configured using the `diag_table` file. However, users should not edit the `diag_table` file directly. Instead, a [`make_diag_table` tool](https://github.com/COSIMA/make_diag_table) is provided to generate the `diag_table` from an easily editable `diag_table_source.yaml` file. This tool ensures that the `diag_table` requests MOM6 output that is formatted consistently and is suitable for postprocessing (e.g., inclusion in Intake-ESM catalogs). 
 
-Preset `diag_table` files, along with the YAML configuration files used to generate them, can be found in the `diagnostic_profiles` subdirectory of the _control_ directory. To create and use a custom `diag_table`, follow the instructions in `diagnostic_profiles/README.md`.
+The default `diag_table` file, along with the `diag_table_source.yaml` configuration file used to generate it, can be found in the _control_ directory. To create and use a custom `diag_table`, follow the instructions in the [`make_diag_table/README.md`](https://github.com/COSIMA/make_diag_table#make_diag_table).
 
 !!! warning
     MOM6 provides the ability to vertically remap diagnostics onto user-defined vertical coordinates, including density coordinates (check [MOM6 vertically remapped diagnostics documentation](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html#vertically-remapped-diagnostics) for more information). Remapping to density coordinates can add substantially to the runtime of the model. The default `diag_table` used by {{ model }} includes diagnostics remapped to density coordinates. These should be removed for performance reasons if they are not needed.
@@ -422,22 +422,22 @@ Reducing the time-step is a common troubleshooting step when a model run crashes
 | Time-step | Controls | Configured in |
 |-----------|----------|---------------|
 | Coupling / driver time-step | How often the model components (ocean, sea ice, atmosphere forcing) exchange information | `nuopc.runseq` |
-| MOM6 baroclinic (`DT`) | 3-D ocean dynamics; often called "the" model time-step | `MOM_input` |
-| MOM6 barotropic (`DTBT`) | Sea-surface height and depth-averaged velocity | `MOM_input` |
-| MOM6 tracer/thermodynamic (`DT_THERM`) | Tracer transport and thermodynamics | `MOM_input` |
+| MOM6 baroclinic | 3-D ocean dynamics; often called "the" model time-step | `DT` in `MOM_input` |
+| MOM6 barotropic | Sea-surface height and depth-averaged velocity | `DTBT` in `MOM_input` |
+| MOM6 tracer/thermodynamic | Tracer transport and thermodynamics | `DT_THERM` in `MOM_input` |
 | CICE6 thermodynamic (`dt`) | Sea-ice thermodynamics; automatically set to match the coupling time-step | *(set automatically — do not set in `ice_in`)* |
 
 For more technical detail, including the MOM6 TRACER_ADVECTION, CICE6 dynamic timesteps and WAVEWATCHIII timesteps, see the: [NUOPC driver time-steps documentation](https://access-om3-configs.access-hive.org.au/latest/infrastructure/NUOPC-driver/#time-steps).
 
-For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling timestep can be a sensible first approach as it also reduces: the MOM6 baroclinic (`DT`), barotropic (`DTBT`) and CICE6 thermodynamic (`dt`) time-steps. 
+For an experiment failing unexpectedly with numerical errors, reducing the model time-step can progress past transient instabilities. It may be hard to identify which time-step is related to the model crash, reducing the coupling time-step and MOM6 baroclinic time-step (`DT`) can be a sensible first approach.
 
-!!! note "How come we only need to change the coupling time-step?"
+!!! note
 
-    Reducing the coupling time-step has a knock-on effect on `DT`, `DTBT` and `dt`. `DT` and `dt` shorten directly because they are set to match the coupling time-step. Although `DTBT` is calculated internally by MOM6 rather than set directly, its value is dependent on model stability and is recalculated every baroclinic (`DT`) time-step in our configurations (not default behaviour), so a shorter `DT` means `DTBT` is recalculated more often — likely resulting in a shorter `DTBT` when conditions are close to a stability margin.
+    Reducing these timesteps has a knock-on effect on the CICE6 thermodynamic (`dt`) and the actual barotropic time-steps. In CICE6, `dt` is set directly to the coupling time-step. In our configurations, the barotropic time-step is calculated internally by MOM6 rather than set directly and it is recalculated every baroclinic time-step. A shorter baroclinic time-step means the barotropic time-step is recalculated more often — likely resulting in a shorter barotropic time-step when conditions are close to a stability margin.
 
-Practically, a common workflow is to halve the coupling time-step:
+Practically, a common workflow is to halve the coupling and baroclinic time-steps:
 
-1. Halve the coupling time-step in `nuopc.runseq`.
+1. Halve the coupling time-step in `nuopc.runseq` and `DT` in `MOM_input`.
 1. Restart the run from the last successfully written restart file via `payu sweep` and `payu run`.
 1. Once the model runs stably for a few start-run-stop-restart cycles, return the time-steps to their original values if desired.
 

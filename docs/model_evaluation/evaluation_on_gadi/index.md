@@ -103,7 +103,7 @@ To get further support on Model Evaluation on _Gadi_, refer to [User support](/a
     </a>
     <a href="/model_evaluation/evaluation_on_gadi/model_live_diagnostics" class="horizontal-card">
         <div class="card-image-container">
-            <img src="../../assets/model_evaluation/live_diagnostics/tutorial_image_4.png" alt="Model Live Diagnostics" class="img-contain white-background"></img>
+            <img src="../../assets/model_evaluation/live_diagnostics/MLD.png" alt="Model Live Diagnostics" class="img-contain white-background"></img>
         </div>
         <div class="card-text-container">
             <span class="bold">Model Live Diagnostics</span>

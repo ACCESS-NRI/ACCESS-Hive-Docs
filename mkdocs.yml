@@ -8,7 +8,7 @@ site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://docs.access-hive.org.au/"]
 repo_url: https://github.com/ACCESS-NRI/ACCESS-Hive-Docs
 repo_name: ACCESS-Hive-Docs
 
-edit_uri: edit/development/docs/
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -138,6 +138,7 @@ nav:
       - Land: models/model_components/land.md
       - Ocean: models/model_components/ocean.md
       - Sea Ice: models/model_components/sea-ice.md
+      - Wave: models/model_components/wave.md
       - Aerosols and Atmospheric Chemistry: models/model_components/aerosols_atmospheric_chemistry.md
       - Biogeochemistry Land: models/model_components/bgc_land.md
       - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
@@ -155,8 +156,8 @@ nav:
       - Run ACCESS-ISSM: models/run_a_model/run_access-issm.md
     - Build a Model:
       - models/build_a_model/index.md
-      - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
       - Create Prereleases and Releases for an ACCESS Model: models/build_a_model/create_a_prerelease.md
+      - Modify and build an ACCESS model's source code: models/build_a_model/build_source_code.md
 
   - Data and Model Evaluation:
     - model_evaluation/index.md
@@ -195,6 +196,7 @@ nav:
     - ESMValTool: tutorials/esmvaltool.md
     - ILAMB: tutorials/ilamb.md
     - Payu: tutorials/payu.md
+    - Payu tutorial - COSIMA Cryosphere Workshop 2026: tutorials/2026_COSIMA_cryosphere_payu_tutorial.md
 
   - Community Resources:
     - community_resources/index.md
@@ -242,9 +244,21 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/access-nri
       name: ACCESS-NRI on Linkedin
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@AustraliasClimateSimulator
+      name: ACCESS-NRI on YouTube
+    - icon: fontawesome/brands/github
+      link: https://github.com/ACCESS-NRI/
+      name: ACCESS-NRI GitHub Organisation
   analytics:
     provider: google
     property: G-JVWLTHSQWM
+    
+  # Set `enabled: true` to show an announcement banner.
+  announcement: 
+    enabled: false
+    text: 🚀 Technical Setup | 2026 Land and Coupled Modelling Workshop 📚 ✨ 
+    link: "community_resources/access_workshop_2026"
   #   feedback:
   #     title: Was this page helpful?
   #     ratings:

@@ -10,9 +10,12 @@ CABLE is an open source model developed by a community of Australian climate sci
 Refer to [CABLE documentation](https://cable.readthedocs.io/en/latest/user_guide) to know how to work with the CABLE model.
 
 ### Models that use CABLE
+Directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um):
 
-- [ACCESS-CM2](/models/access_models/access-cm#access-cm2) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
-- [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15) (directly coupled into the [UM](/models/model_components/atmosphere#unified-model-um))
+- [ACCESS-AM3](models/access_models/access-am/#access-am3) 
+- [ACCESS-CM2](/models/access_models/access-cm#access-cm2) 
+- [ACCESS-ESM1.5](/models/access_models/access-esm#access-esm15) 
+- [ACCESS-ESM1.6](/models/access_models/access-esm#access-esm16) 
 
 CABLE can also be run as a standalone model.
 

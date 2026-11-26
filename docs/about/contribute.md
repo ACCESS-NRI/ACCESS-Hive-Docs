@@ -121,13 +121,13 @@ git clone https://github.com/ACCESS-NRI/ACCESS-Hive-Docs.git
 Once the repository has been _cloned_, navigate into the repository directory.
 
 #### Step 3: Create a new branch
-When you clone the repository, it should default to the `development` branch. This is the base branch for new work and the branch your pull request will eventually merge back into. Create a new branch for your changes:
+Create a new branch for your changes:
 
 ```
 git checkout -b your-branch-name
 ```
 
-Creating a separate branch keeps your work isolated from the development branch while you make and review your changes. For more information, see _Branching Workflows_ in [Best Practices](#best-practices).
+Creating a separate branch keeps your work isolated from the `main` branch while you make and review your changes. For more information, see _Branching Workflows_ in [Best Practices](#best-practices).
 
 #### Step 4: Make your changes
 Open the directory in your editor (e.g. VS Code), ensure you are working on your new branch (VS Code lists your current branch in the bottom left of the window) and make your edits. You can check which files have been modified with:
@@ -236,14 +236,11 @@ After you open a pull request, a preview version of the documentation is automat
     3. Keep issues focused on a single topic where possible. Smaller, targeted issues are generally easier to discuss and resolve.
 
 ??? info "Branching Workflows"
-    The Hive Docs repository currently uses two primary branches: `main` and `development`. `main` is the production-ready branch (what is visible on the public website), and `development` is the staging branch where latest changes are pushed and previewed.
+    The Hive Docs repository currently uses two primary branches: `main` and `production`. `production` is the production-ready branch (what is visible on the public website), and `main` is the staging branch where latest changes are pushed and previewed.
 
-    Contributors should generally:
-
-    - Create a feature branch from `development`.
-    - Open pull requests with `development` as the target. 
+    Feature branches and Pull Requests should have `main` as their base branch.
     
-    The `development` branch is automatically merged into `main` daily. This reduces the risk of having breaking changes affect the live website. 
+    The `main` branch is automatically merged into `production` daily. This reduces the risk of having breaking changes affect the live website.
 
 ??? info "Branch Naming"
     Using a descriptive branch name makes it easier to understand what the branch is for. We recommend using the following branch name structure:
