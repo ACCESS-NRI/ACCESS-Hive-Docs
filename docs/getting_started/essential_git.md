@@ -47,6 +47,14 @@ flowchart LR
     classDef stash stroke:#9370DB,stroke-width:1.5px
     classDef reset stroke:#D9534F,stroke-width:1.5px
 
+    %% Category links
+    click B href "#setup-share-changes"
+    click C href "#inspect-your-changes"
+    click D href "#get-remote-changes"
+    click E href "#work-with-branches"
+    click F href "#temporarily-save-changes"
+    click G href "#undo-or-reset-changes"
+
     class A primary
     class C,C1 inspect
     class D,D1 update
