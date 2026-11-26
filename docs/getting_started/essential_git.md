@@ -39,11 +39,13 @@ flowchart LR
     F --> F1("git stash")
     G --> G1("git reset")
 
-    classDef primary stroke:#FAA619,stroke-width:1.5px
-    classDef inspect stroke:#2586A6,stroke-width:1.5px
+    classDef primary stroke:#F9A61C,stroke-width:1.5px
+    classDef setup stroke:#005B94,stroke-width:1.5px
+    classDef inspect stroke:#01ADEE,stroke-width:1.5px
     classDef update stroke:#009C95,stroke-width:1.5px
-    classDef branch stroke:#7354C0,stroke-width:1.5px
-    classDef stash stroke:#D2608D,stroke-width:1.5px
+    classDef branch stroke:#A5CD3A,stroke-width:1.5px
+    classDef stash stroke:#9370DB,stroke-width:1.5px
+    classDef reset stroke:#D9534F,stroke-width:1.5px
 
     class A primary
     class C,C1 inspect
