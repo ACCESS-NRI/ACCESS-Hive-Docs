@@ -269,9 +269,9 @@ gitGraph
 
 #### When to use {: .no-toc }
 
-    - To update a feature branch with recent changes from another branch.
-    - To keep feature branch history relatively linear.
-    - To tidy local work before it is merged.
+- To update a feature branch with recent changes from another branch.
+- To keep feature branch history relatively linear.
+- To tidy local work before it is merged.
 
 #### Resolving rebase conflicts
 
