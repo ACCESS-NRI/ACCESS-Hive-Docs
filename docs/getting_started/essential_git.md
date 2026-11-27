@@ -80,6 +80,8 @@ These are a few core Git commands that are useful to keep handy in everyday Git 
 | [`git push`](#git-push) [📖](https://git-scm.com/docs/git-push "Official Git manual: git push") | `git push` | Share local commits with a remote repository. |
 | [`git rebase`](#git-rebase) [📖](https://git-scm.com/docs/git-rebase "Official Git manual: git rebase") | `git rebase <branch>` | Replay commits on a new base. |
 | [`git reset`](#git-reset) [📖](https://git-scm.com/docs/git-reset "Official Git manual: git reset") | `git reset -- <file>` | Unstage a file without changing its contents. |
+| [`git restore`](#git-restore) [📖](https://git-scm.com/docs/git-restore "Official Git manual: git restore") | `git restore --staged <file>` | Unstage a file or restore its contents. |
+| [`git revert`](#git-revert) [📖](https://git-scm.com/docs/git-revert "Official Git manual: git revert") | `git revert <commit>` | Undo a commit by creating a new commit. |
 | [`git show`](#git-show) [📖](https://git-scm.com/docs/git-show "Official Git manual: git show") | `git show <commit>` | Inspect a specific commit. |
 | [`git stash`](#git-stash) [📖](https://git-scm.com/docs/git-stash "Official Git manual: git stash") | `git stash push` | Temporarily save unfinished changes. |
 | [`git status`](#git-status) [📖](https://git-scm.com/docs/git-status "Official Git manual: git status") | `git status` | Check the current branch and working tree. |
@@ -677,6 +679,92 @@ To deliberately reset a local branch to the latest fetched state of a remote bra
 git fetch origin
 git reset --hard origin/<branch>
 ```
+
+### Git restore
+
+The `git restore` command restores file contents or removes changes from the staging area without moving the current branch or rewriting commit history.
+
+#### When to use {: .no-toc }
+
+- To unstage a file while keeping your edits.
+- To discard unwanted, unstaged changes to a tracked file.
+- To restore a file from an earlier commit.
+
+#### How to use {: .no-toc }
+
+To unstage a file without losing your edits:
+
+```bash
+git restore --staged <file>
+```
+
+To discard unstaged changes to a tracked file and restore its contents from the staging area:
+
+```bash
+git restore <file>
+```
+
+To restore a file from an earlier commit:
+
+```bash
+git restore --source=<commit> <file>
+```
+
+This updates the file in your working tree without changing the current branch's history. Review and stage the changes if you want to commit them.
+
+!!! danger "Discarding local changes"
+    Restoring file contents can overwrite uncommitted edits. Use `git diff` to review your changes first and save anything you want to keep. Using `git restore --staged` alone does not discard edits in your working tree.
+
+### Git revert
+
+The `git revert` command undoes the changes introduced by an existing commit by creating a new commit. Unlike `git reset`, it preserves the existing commit history.
+
+#### When to use {: .no-toc }
+
+- To undo a commit that has already been pushed or shared with others.
+- To reverse unwanted changes while keeping a record of what happened.
+
+#### How to use {: .no-toc }
+
+Use `git log --oneline` to find the commit hash of the commit you want to undo. Make sure your working tree is clean, then run:
+
+```bash
+git revert <commit>
+```
+
+To undo the most recent commit:
+
+```bash
+git revert HEAD
+```
+
+Git normally opens an editor for the new commit message. Save and close the editor to complete the revert. To share the new commit, use `git push` when appropriate.
+
+If Git reports conflicts, resolve the affected files, stage them and continue:
+
+```bash
+git add <resolved-file>
+git revert --continue
+```
+
+To cancel an in-progress revert:
+
+```bash
+git revert --abort
+```
+
+!!! note
+    Reverting a merge commit requires choosing which parent to treat as the mainline using `-m`. See the [official Git revert manual](https://git-scm.com/docs/git-revert) before reverting a merge commit.
+
+### Reset, restore or revert?
+
+| What are you trying to do? | Suggested command |
+|---|---|
+| Unstage a file without losing edits | `git restore --staged <file>` |
+| Discard unstaged edits to a tracked file | `git restore <file>` |
+| Restore a file from an earlier commit | `git restore --source=<commit> <file>` |
+| Undo the latest local commit but keep changes staged | `git reset --soft HEAD~1` |
+| Undo a shared commit without rewriting history | `git revert <commit>` |
 
 <custom-references>
     - [Official Git Manual](https://git-scm.com/docs/user-manual)
