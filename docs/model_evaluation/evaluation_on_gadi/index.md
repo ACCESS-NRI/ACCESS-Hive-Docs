@@ -2,6 +2,13 @@
 
 Model evaluation is about measuring how fit for purpose a particular model is. Model evaluation in climate science is the process of assessing the performance and reliability of computational models that simulate the Earth's climate system. It involves comparing model predictions to observed data to determine the model's accuracy and usefulness. In doing so, we can understand how well a model represents real-world climate processes and make predictions about future climate trends. Such rigorous model evaluation allows scientists to identify model strengths, weaknesses and uncertainties, as well as refine models to enhance their predictive capabilities. 
 
+## Where to start
+
+If you’re working on ACCESS model development, or would like to contribute to its evaluation, see [Evaluation-Driven Model Development](/model_evaluation/evaluation_on_gadi/evaluation_driven_model_development).
+These are community projects with support and maintenance arrangements specific to each project.
+
+For CMIP-style intercomparison and benchmarking, see the [evaluation frameworks](#evaluation-frameworks) supported on _Gadi_ below.
+
 ## Data workflows
 FAIR (Findable, Accessible, Interoperable and Reusable) data is required for model evaluation. 
 Some of these evaluation workflows use data tools and catalogues outlined in the [ACCESS data](/model_evaluation/data) section.
