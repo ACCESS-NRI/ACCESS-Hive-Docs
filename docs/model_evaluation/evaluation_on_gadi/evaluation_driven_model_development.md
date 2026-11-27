@@ -1,13 +1,13 @@
 # Evaluation-Driven Model Development
 
-The next generation of ACCESS models (ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3) is being evaluated **in the open**, by the community and ACCESS-NRI working together.
+The next generation of ACCESS models (ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3) is being evaluated in the open, with the community and ACCESS-NRI working together.
 ACCESS-CM3 is the precursor to ACCESS-ESM3.
 
 - Each model has a shared GitHub repository where anyone can propose a diagnostic, build a figure and comment on results.
 - Contributors can become co-authors on the respective model description paper.
-- High-value community diagnostics are rerun with new simulations, feeding directly into model development.
+- Community diagnostics that prove useful can be rerun on new simulations to help inform model development.
 
-This means model development is shaped by researchers' needs. The diagnostics you prioritise and parameter changes you propose help shape the next model run, increasing the likelihood of reduced biases for your application.
+This gives researchers a way to help shape model development: the metrics you prioritise and the parameter changes you suggest can inform future model runs, improving the representation of processes that matter most for your scientific interests.
 
 ???+ tip "Open to everyone, at every career stage"
     Contributions from all career stages and backgrounds are welcome, including students, early-career researchers, engineers, domain scientists and first-time *GitHub* users. You don’t need to code to contribute: a comment, discussion point or suggested experiment can make a valuable difference.
@@ -50,7 +50,7 @@ Each ACCESS-Hive Forum thread below has the latest joining details, including *Z
 
 | Model | Meeting | How to join |
 |---|---|---|
-| ACCESS-OM3 | _ACCESS-OM3 Model Evaluation Team_ | [ACCESS-OM3 model evaluation team announcements](https://forum.access-hive.org.au/t/access-om3-model-evaluation-team-announce/4476) |
+| ACCESS-OM3 | _COSIMA Working Group_ | [COSIMA Working Group announcements](https://forum.access-hive.org.au/t/cosima-working-group-announce/238) |
 | ACCESS-CM3 | _CM3 Dev-Eval Working Group_ | [CM3 Dev-Eval meeting minutes](https://forum.access-hive.org.au/t/cm3-dev-eval-working-group-meeting-minutes/5393) |
 | ACCESS-AM3 | Meeting details TBC | [AM3 high-resolution evaluation](https://forum.access-hive.org.au/t/we-need-your-help-am3-hi-res-evaluation/6438) |
 
@@ -62,7 +62,12 @@ Feedback on figures requires no coding; all you need is a [GitHub](https://githu
 Each repository has a _mega-issue_ that tracks diagnostics and figures in progress: [ACCESS-OM3](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23), [ACCESS-CM3](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1) and [ACCESS-AM3](https://github.com/ACCESS-Community-Hub/access-am3-evaluation/issues/1).
 Comment on results, suggest metrics or review others' pull requests.
 
-For ACCESS-OM3, you can also browse the [latest evaluation](https://access-om3-paper-1.readthedocs.io/latest/) and follow a figure's link to its GitHub issue to leave a comment.
+You can also browse the evaluation portals, which show figures from the most recent development simulation of each model; follow a figure's link to its GitHub issue to leave a comment:
+
+- [ACCESS-OM3 evaluation](https://access-om3-paper-1.readthedocs.io/)
+- [ACCESS-CM3 evaluation](https://access-cm3-paper-1.readthedocs.io/)
+
+The experiments pages describe each development simulation and link to its evaluation: [ACCESS-OM3 experiments](https://access-om3-configs.access-hive.org.au/latest/Experiments/) and [ACCESS-CM3 experiments](https://access-cm3-configs.readthedocs.io/Experiments/).
 
 ### 3. Create analysis notebooks
 
@@ -71,7 +76,7 @@ Each repository's `README` explains how to request access, which NCI projects yo
 
 #### The evaluation repositories
 
-All three repositories follow the same workflow: request write access, choose a diagnostic from the *mega-issue*, add a notebook and share your figure. Select a model below to get started.
+Each repository follows a similar approach: request write access, choose a diagnostic from the *mega-issue*, add a notebook and share your figure. Select a model below to get started.
 
 <div class="tabLabels" label="evaluation-driven-development-models" style="margin-bottom: 0.5rem;">
     <button id="om3">ACCESS-OM3</button>
@@ -84,8 +89,8 @@ Ocean–sea ice model evaluation, with [ACCESS-OM2](/models/access_models/access
 - **Repository:** [ACCESS-Community-Hub/access-om3-paper-1](https://github.com/ACCESS-Community-Hub/access-om3-paper-1)
 - **Request write access:** [open an access request issue](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/new?template=add-user-request-to--access-om3-paper-1--repository-.md)
 - **Find a diagnostic:** [OM3 mega-issue](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/issues/23)
-- **Simulations to evaluate:** [ACCESS-OM3 experiments](https://access-om3-configs.access-hive.org.au/latest/Experiments/)
-- **Browse the evaluation:** see the [latest simulation's evaluation](https://access-om3-paper-1.readthedocs.io/latest/), or browse past simulations through the _Evaluation_ link on each run in the [ACCESS-OM3 experiments](https://access-om3-configs.access-hive.org.au/latest/Experiments/) table.
+- **Browse the evaluation:** [ACCESS-OM3 evaluation portal](https://access-om3-paper-1.readthedocs.io/), showing the most recent development simulation
+- **Simulations and their evaluation:** [ACCESS-OM3 experiments](https://access-om3-configs.access-hive.org.au/latest/Experiments/) describes each development simulation, with an _Evaluation_ link for each.
 - **NCI projects:** `zv30`, `p73`, `ol01`, `ik11`, `av17`
 
 !!! info
@@ -100,18 +105,18 @@ Coupled model evaluation, with [ACCESS-CM2](/models/access_models/access-cm) as 
 - **Repository:** [ACCESS-Community-Hub/access-cm3-paper-1](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1)
 - **Request write access:** [open an access request issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/new?template=add-user-request-to--access-cm3-1-repository-.md)
 - **Find a diagnostic:** [CM3 mega-issue](https://github.com/ACCESS-Community-Hub/access-cm3-paper-1/issues/1)
-- **Simulations to evaluate:** [ACCESS-CM3 experiments](https://access-cm3-configs.readthedocs.io/Experiments/)
+- **Browse the evaluation:** [ACCESS-CM3 evaluation portal](https://access-cm3-paper-1.readthedocs.io/), showing the most recent development simulation
+- **Simulations and their evaluation:** [ACCESS-CM3 experiments](https://access-cm3-configs.readthedocs.io/Experiments/) describes each development simulation and links to its evaluation.
 - **NCI projects:** `zv30`, `p73`, `eg3`, `ct11`, `ik11`
 
 !!! info
-    Ocean and sea ice diagnostics from the ACCESS-OM3 repository, and atmosphere diagnostics from the ACCESS-AM3 repository, are also run on ACCESS-CM3.
-    If your diagnostic is relevant to ACCESS-OM3 or ACCESS-AM3 as well, add it to that repository instead.
+    Ocean and sea ice diagnostics from the ACCESS-OM3 repository are also run on ACCESS-CM3.
+    If your ocean or sea ice diagnostic is relevant to ACCESS-OM3 as well, add it there instead.
 
 !!! warning
     This repository uses a _git_ submodule. Clone it with `git clone --recurse-submodules`.
 </div>
 <div tabcontentfor="am3" markdown>
-<!-- TODO (AM3 team, GitHub user paocorrales): please review/expand the AM3 content below (baseline model, meetings, NCI projects). -->
 Atmosphere-only model evaluation, currently focused on the high-resolution (N512) configuration.
 
 - **Repository:** [ACCESS-Community-Hub/access-am3-evaluation](https://github.com/ACCESS-Community-Hub/access-am3-evaluation)
@@ -119,23 +124,17 @@ Atmosphere-only model evaluation, currently focused on the high-resolution (N512
 - **Find a diagnostic:** [AM3 mega-issue](https://github.com/ACCESS-Community-Hub/access-am3-evaluation/issues/1)
 - **Current focus:** [AM3 high-resolution evaluation](https://forum.access-hive.org.au/t/we-need-your-help-am3-hi-res-evaluation/6438)
 
-!!! info
-    Diagnostics in this repository are also run on ACCESS-CM3.
-    If your atmosphere diagnostic is relevant to both models, add it here.
 </div>
 
 ### 4. Run sensitivity tests
 
-As an advanced contribution, run sensitivity experiments to test specific parameter choices and feed results into model development. See the [community-run ACCESS-OM3 sensitivity tests](https://access-om3-configs.access-hive.org.au/latest/Experiments/#community-run-sensitivity-tests) for an example.
+If you have the time and compute, you can run sensitivity experiments to test specific parameter choices, and the results may help inform model development. See the [community-run ACCESS-OM3 sensitivity tests](https://access-om3-configs.access-hive.org.au/latest/Experiments/#community-run-sensitivity-tests) for an example.
 You'll need an NCI compute project. If you're unsure whether your results can be incorporated, raise it at a [meeting](#1-attend-the-meetings) first.
 
 ## Support
 
-<!-- TODO: confirm the wording below with the ACCESS-OM3, ACCESS-CM3 and ACCESS-AM3 teams and MED before merging. -->
-
 These are community projects, and support and maintenance arrangements are specific to each project.
-They are not maintained by the ACCESS-NRI Model Evaluation and Diagnostics (MED) team.
 
-- **Who supports the workflows:** each repository is run by its model team. Ask questions at the [meetings](#1-attend-the-meetings) or in the relevant mega-issue.
-- **After the paper is published:** notebooks remain available alongside the model description paper as a record of the analysis. There is no commitment to keep every notebook working with new simulations or software environments; the model teams may choose to maintain diagnostics that stay useful for ongoing model development.
+- **Who supports the workflows:** each repository is led by its model team, who are the best people to ask. Questions are welcome at the [meetings](#1-attend-the-meetings) or in the relevant mega-issue.
+- **After the paper is published:** notebooks will remain available alongside the model description paper as a record of the analysis. Diagnostics that stay useful for ongoing model development may continue to be maintained, subject to available resources.
 - **General help:** for help with _Gadi_, ARE or ACCESS-NRI software environments, see [User support](/about/user_support/) or post on the [ACCESS-Hive Forum](https://forum.access-hive.org.au/).
