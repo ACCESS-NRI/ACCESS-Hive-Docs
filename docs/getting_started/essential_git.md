@@ -13,10 +13,10 @@ Designed for users with some familiarity with Git, it helps you find **which com
 - Manage or undo changes to Git history
 
 !!! note
-    The examples below use generic branch names such as `main` and `feature`. Replace these with the branch names used in your repository.
+    Run commands from inside your local repository unless you are cloning it. The examples below use generic branch names such as `main` and `feature`. Replace these with the branch names used in your repository.
 
 !!! info
-    Square brackets in command syntax, such as `[<remote>]`, indicate optional arguments; don't type the brackets.
+    Square brackets, such as `[<remote>]` indicate optional arguments. Angle brackets, such as `<branch>` indicate placeholders to replace with your own values. Do not type the brackets.
 
 ## Find the right Git command
 Use the diagram below to find commonly used Git commands by task. 
@@ -35,9 +35,9 @@ flowchart LR
     B --> B1("git clone → git add → git commit → git push")
     C --> C1("git status · git diff · git log · git show")
     D --> D1("git fetch · git pull")
-    E --> E1("git switch · git merge · git rebase")
+    E --> E1("git branch · git switch · git merge · git rebase")
     F --> F1("git stash")
-    G --> G1("git reset")
+    G --> G1("git reset · git revert · git restore")
 
     classDef primary stroke:#F9A61C,stroke-width:1.5px
     classDef setup stroke:#005B94,stroke-width:1.5px
@@ -64,26 +64,26 @@ flowchart LR
 
 ## Core Git commands at a glance
 
-Here are a few core Git commands that are useful to keep handy in everyday Git workflows. For more details, please refer to the link in the command.
+These are a few core Git commands that are useful to keep handy in everyday Git workflows. Select a command to open its official Git documentation.
 
-| Command | Example Usage | Purpose |
+| Command | Example usage | Purpose |
 |---|---|---|
-| [`git add`](https://git-scm.com/docs/git-add) | `git add <file>` | Stage changes for commit. |
-| [`git branch`](https://git-scm.com/docs/git-branch)|  `git branch -a` | List all branches |
-| [`git clone`](https://git-scm.com/docs/git-clone) | `git clone <url> <local_dir>` | Copy a remote repository to your local machine|
-| [`git commit`](https://git-scm.com/docs/git-commit) | `git commit -m "<message>"` | Save staged changes as a new commit. |
-| [`git diff`](https://git-scm.com/docs/git-diff) | `git diff origin/<branch>` | Visualise source code differences |
-| [`git fetch`](https://git-scm.com/docs/git-fetch) | `git fetch [<remote>]` | Update remote tracking branches |
-| [`git log`](https://git-scm.com/docs/git-log) | `git log [-c]` | Show the history of the repository |s
-| [`git merge`](https://git-scm.com/docs/git-merge) | `git merge <feature-branch>` | Combines the histories of two branches |
-| [`git pull`](https://git-scm.com/docs/git-pull) | `git pull` | updates the local branch to match the remote |
-| [`git push`](https://git-scm.com/docs/git-push)| `git push` | Push local commits to the remote repository. |
-| [`git rebase`](https://git-scm.com/docs/git-rebase) | `git rebase <branch>` | Moves your branch commits on top of another branch |
-| [`git reset`](https://git-scm.com/docs/git-reset) | `git reset --hard origin/<branch>` | Reset branch to match another branch state |
-| [`git show`](https://git-scm.com/docs/git-show) | `git show <commit>` | Look into a specific Git commit |
-| [`git status`](https://git-scm.com/docs/git-status) | `git status` | Show status of current working tree. |
-| [`git switch`](https://git-scm.com/docs/git-switch) | `git switch [-c] <branch>` | Switch the HEAD to a different branch |
-| [`git stash`](https://git-scm.com/docs/git-stash) | `git stash [push\|pop\|apply]` | Temporarily save changes into stash space |
+| [`git add`](#git-add) [📖](https://git-scm.com/docs/git-add "Official Git manual: git add") | `git add <file>` | Stage changes for the next commit. |
+| [`git branch`](#git-branch) [📖](https://git-scm.com/docs/git-branch "Official Git manual: git branch") | `git branch -a` | List local and remote-tracking branches. |
+| [`git clone`](#git-clone) [📖](https://git-scm.com/docs/git-clone "Official Git manual: git clone") | `git clone <url>` | Create a local copy of a repository. |
+| [`git commit`](#git-commit) [📖](https://git-scm.com/docs/git-commit "Official Git manual: git commit") | `git commit -m "<message>"` | Record staged changes. |
+| [`git diff`](#git-diff) [📖](https://git-scm.com/docs/git-diff "Official Git manual: git diff") | `git diff` | Inspect unstaged changes. |
+| [`git fetch`](#git-fetch) [📖](https://git-scm.com/docs/git-fetch "Official Git manual: git fetch") | `git fetch` | Download remote updates without integrating them. |
+| [`git log`](#git-log) [📖](https://git-scm.com/docs/git-log "Official Git manual: git log") | `git log --oneline` | View commit history. |
+| [`git merge`](#git-merge) [📖](https://git-scm.com/docs/git-merge "Official Git manual: git merge") | `git merge <branch>` | Integrate changes from another branch. |
+| [`git pull`](#git-pull) [📖](https://git-scm.com/docs/git-pull "Official Git manual: git pull") | `git pull` | Fetch and integrate remote changes. |
+| [`git push`](#git-push) [📖](https://git-scm.com/docs/git-push "Official Git manual: git push") | `git push` | Share local commits with a remote repository. |
+| [`git rebase`](#git-rebase) [📖](https://git-scm.com/docs/git-rebase "Official Git manual: git rebase") | `git rebase <branch>` | Replay commits on a new base. |
+| [`git reset`](#git-reset) [📖](https://git-scm.com/docs/git-reset "Official Git manual: git reset") | `git reset -- <file>` | Unstage a file without changing its contents. |
+| [`git show`](#git-show) [📖](https://git-scm.com/docs/git-show "Official Git manual: git show") | `git show <commit>` | Inspect a specific commit. |
+| [`git stash`](#git-stash) [📖](https://git-scm.com/docs/git-stash "Official Git manual: git stash") | `git stash push` | Temporarily save unfinished changes. |
+| [`git status`](#git-status) [📖](https://git-scm.com/docs/git-status "Official Git manual: git status") | `git status` | Check the current branch and working tree. |
+| [`git switch`](#git-switch) [📖](https://git-scm.com/docs/git-switch "Official Git manual: git switch") | `git switch <branch>` | Switch to another branch. |
 
 ## Setup & share changes
 
@@ -217,6 +217,19 @@ The `-u` (or `--set-upstream`) option establishes a tracking relationship with t
 
 ## Inspect your changes
 
+### Git status
+The `git status` command shows the current branch, staged changes, unstaged changes and untracked files.
+
+#### When to use {: .no-toc }
+- Before committing, pulling or switching branches.
+- To check which files have changed or are ready to commit.
+- To check whether a merge or rebase is in progress.
+
+#### How to use {: .no-toc }
+```
+git status
+```
+
 ### Git log
 
 #### When to use {: .no-toc }
@@ -229,9 +242,9 @@ The basic command is
 ```
 git log
 ```
-and you may add some optional flags such as `[<--oneline>]` to display each commit on a single line,
-`[<--graph>]` to display the commit history as a graph.
-An example of `git log --graph --online` is shown below:
+and you may add some optional flags such as `[<--oneline>]` for a compact summary and `[<--graph>]` to visualise branch history.
+
+For example,
 
 <div markdown="0">
 <terminal-window lineDelay="200">
@@ -262,7 +275,7 @@ The `git show` command lets you look into specific Git objects, usually one comm
 git show <commit>
 ```
 
-Running only `git show` will display details about the most recent commit.
+Running `git show` without an argument displays the commit currently referenced by HEAD.
 
 `<commit>` can be any Git reference (e.g., commit hash, branch name, tag, references like `HEAD~2`, etc.).
 
@@ -273,17 +286,31 @@ git show <commit>:<file-path>
 
 ### Git diff
 
+The `git diff` commands shows differences between versions of files. 
+
 #### When to use {: .no-toc }
 
-Run `git diff` to visualise the source code differences. 
+- To review changes before staging or committing them.
+- To compare local work with another branch.
+- To understand what has changed between commits.
 
 #### How to use {: .no-toc }
 
 A useful command to see the difference between the local branch and the remote branch:
+
+| Command | What it compares |
+|---|---|
+| `git diff` | Working tree against the staging area (unstaged changes). |
+| `git diff --staged` | Staging area against HEAD (staged changes). |
+| `git diff HEAD` | Working tree against HEAD (staged and unstaged tracked changes). |
+| `git diff HEAD origin/<branch>` | Current commit against the last fetched state of the remote branch. |
+
+To inspect changes introduced by your branch since it diverged from `origin/main`:
+
 ```
-git diff origin/<branch>
+git fetch origin
+git diff origin/main...HEAD
 ```
-A good step before pushing the local branch to the remote branch.
 
 To display the difference in a graphical diff program, run `git difftool -y --tool=<program>`. 
 For example, if you want to use the program `meld`, then run:
@@ -295,18 +322,14 @@ git difftool -y --tool=meld
 
 ### Git fetch
 
-The `git fetch` command updates your remote tracking branches.
+The `git fetch` command downloads commits and updates remote-tracking branches without integrating them into your current branch.
 
 #### When to use {: .no-toc }
 
-At the beginning of your work and before switching branches.
-
-Use `git fetch` to:
-
-- To update remote tracking branches when your workspace has uncommitted changes that you don't want to disturb or `stash`.
-
+- At the beginning of your work or before switching branches.
+- When you want to inspect remote updates before integrating them. 
+- When you have uncommitted changes that you do not want to disturb.
 - To update remote tracking branches when your local repository clone has become stale.
-
 
 #### How to use {: .no-toc }
 
@@ -347,17 +370,43 @@ Before running `git pull`, make sure you are on the local branch that you want t
 ```
 git pull
 ```
-Warning: If your local and remote branches have diverged, `git pull` by default reports an error asking you to specify how to reconcile the divergent branches.
-To reapply your local commits on top of the latest remote commits, use:
-```
-git pull --rebase
-```
-instead. See `git merge` and `git rebase` here for more details. The full command also uses an optional *remote* and an optional *branch*, e.g.:
+
+The full command also uses an optional *remote* and an optional *branch*, e.g.:
 ```
 git pull [<remote>] [<branch>]
 ```
 
+!!! Warning 
+    If your local and remote branches have diverged, `git pull` by default reports an error asking you to specify how to reconcile the divergent branches.
+
+To reapply your local commits on top of the latest remote commits, use:
+
+| Command | Behaviour |
+|---|---|
+| `git pull --no-rebase` | Integrate remote changes using merge. |
+| `git pull --rebase` | Replay local commits on top of the fetched commits. |
+
+See `git merge` and `git rebase` here for more details. 
+
 ## Work with branches
+
+### Git branch
+The `git branch` command lists, creates or manages branches without switching to them.
+
+#### When to use {: .no-toc }
+- To see which branches are available.
+- To check which branch are you currently on.
+- To create or remove a local branch.
+
+#### How to use {: .no-toc }
+| Command | Purpose |
+|---|---|
+| `git branch` | List local branches. |
+| `git branch -a` | List local and remote-tracking branches. |
+| `git branch <name>` | Create a local branch without switching to it. |
+| `git branch -d <name>` | Delete a local branch if Git considers it fully merged. |
+
+Use `git switch` to move to a different branch.
 
 ### Git switch
 
@@ -367,7 +416,6 @@ Git switch allows us to switch the `HEAD` to a different branch.
 
 - To create a new branch.
 - To switch to an existing branch, either local or remote.
-
 
 #### How to use {: .no-toc }
 
@@ -563,6 +611,8 @@ git stash show -p stash@{0}
 ```
  {: .no-toc }
 
+#### 3. Restore stashed changes {: .no-toc }
+
 To bring the changes from the most recent stash onto our current branch:
 ```
 git stash pop
@@ -588,18 +638,69 @@ git stash clear
 ## Undo or reset changes
 
 ### Git reset
+The `git reset` command can unstage changes or move the current branch to another commit. Depending on the options, it can also change the staging area and working tree. 
 
 #### When to use {: .no-toc }
 
-Use `git reset` when the state of the branch needs to be changed to the state of another branch. e.g., synchronising two branches. 
-This command is to be used carefully because it may delete the state of the current branch by changing its history and discarding uncommitted changes. 
+- Use `git reset` when the state of the branch needs to be changed to the state of another branch. e.g., synchronising two branches. 
+- To unstage a file without losing your edits. 
+- To undo local commits while keeping their changes. 
+
+!!! warning
+    This command is to be used carefully because it may delete the state of the current branch by changing its history and discarding uncommitted changes. 
 
 #### How to use {: .no-toc }
+
+| Command | Moves current branch | Resets staging area | Resets working tree |
+|---|---|---|---|
+| `git reset --soft <commit>` | Yes | No | No |
+| `git reset --mixed <commit>` | Yes | Yes | No |
+| `git reset --hard <commit>` | Yes | Yes | Yes |
+
+For example, to undo the latest local commit but keep its changes staged: 
+
 ```
+git reset --soft HEAD~1
+```
+
+To undo the latest local commit and keep its changes unstaged: 
+
+```
+git reset --mixed HEAD~1
+```
+!!! danger "Discarding local changes"
+    git reset --hard discards uncommitted changes to tracked files and may remove untracked files that obstruct checkout. It can also remove local commits from the current branch's history. Check git status and git log, and preserve any work you need before proceeding.
+
+To deliberately reset a local branch to the latest fetched state of a remote branch:
+
+```
+git fetch origin
 git reset --hard origin/<branch>
 ```
-is a useful command to reset the local branch to match the remote branch.
 
 <custom-references>
     - [Official Git Manual](https://git-scm.com/docs/user-manual)
-  </custom-references>
+</custom-references>
+
+*[HEAD]: Git's reference to the commit you currently have checked out, usually through your current branch.
+*[remote]: Another Git repository that your local repository knows about, often hosted on GitHub.
+*[origin]: The usual name Git gives the remote when you clone a repository.
+*[upstream branch]: The branch your local branch is set up to follow, usually a branch on the remote repository.
+*[remote-tracking branch]: Your local Git record of where a remote branch was the last time Git updated that information.
+*[remote-tracking branches]: Local Git records of where remote branches were when Git last updated that information.
+*[working tree]: The files you can see and edit in your local repository.
+*[staging area]: The place where Git collects the changes you want to include in your next commit.
+*[staged changes]: Changes you have selected to include in your next commit.
+*[unstaged changes]: Changes to tracked files that you have not yet selected for your next commit.
+*[commit hash]: A unique ID that Git uses to identify a commit.
+*[Git reference]: A name or label that points to a commit or another Git object.
+*[tag]: A label that usually marks a particular commit, such as a software release.
+*[diverged]: Both branches have commits that the other branch does not have.
+*[merge commit]: A commit that joins two or more lines of development.
+*[merge conflict]: Git cannot combine changes automatically and needs you to decide what to keep.
+*[merge conflicts]: Changes that Git cannot combine automatically and needs you to resolve.
+*[tracked files]: Files that Git already knows about and monitors for changes.
+*[untracked files]: Files that Git does not yet track.
+*[Untracked files]: Files that Git does not yet track.
+*[fast-forward]: Moving a branch forward to a newer commit without creating a merge commit.
+*[linear history]: A sequence of commits that follows a single line, without branching merge commits.
