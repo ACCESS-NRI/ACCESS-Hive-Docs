@@ -1346,10 +1346,9 @@ img.terminal-switch:hover ~ .terminal-switch-tooltip {
   display: inline;
 }
 
-
 /* =============================================================== 
-  Miscellaneous
-*/
+   Miscellaneous
+   =============================================================== */
 .keep-blanks {
   white-space: pre;
 }

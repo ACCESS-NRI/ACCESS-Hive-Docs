@@ -121,6 +121,7 @@ nav:
     - Australian Research Environment (ARE): getting_started/are.md
     - conda/analysis3 Python Environment: getting_started/environments.md
     - How to use Spack on Gadi for building ACCESS models: getting_started/spack.md
+    - Essential Git Commands: getting_started/essential_git.md
 
   - Models:
     - models/index.md
@@ -283,8 +284,10 @@ extra_css:
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.1/animated-terminal.min.js # Terminal animations
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - js/custom-tags.js
   - js/miscellaneous.js
+  - js/tablesort.js
 
 # Automatically reload page when running `mkdocs serve`, for any
 # of the following files outside of the 'docs' directory
